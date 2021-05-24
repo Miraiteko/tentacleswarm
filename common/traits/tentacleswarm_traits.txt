@@ -1,0 +1,18 @@
+﻿#奴隶
+tenctacle_slavery = {
+	index = 339
+	
+}
+#天生奴
+congenital_tenctacle_slavery = {
+	index = 340
+	
+}
+#天生奴基因携带者
+congenital_tenctacle_slavery_carry = {
+	index = 341
+}
+#天生奴基因不携带者
+congenital_tenctacle_slavery_no = {
+	index = 342
+}

@@ -1,0 +1,232 @@
+﻿#怀孕触发
+on_pregnancy_mother = { #define设置，怀孕之后280天出生，60天时知道怀孕
+	on_actions = {
+		tenctacleswarm_on_pregnancy_pulse
+	}
+}
+tenctacleswarm_on_pregnancy_pulse = { 
+	on_actions = {
+		tenctacleswarm_baby_corruption #主人赐福
+		delay = { days = 200 }
+		tenctacleswarm_near_birth_pulse #接近出生时触发
+	}
+}
+tenctacleswarm_baby_corruption = {
+	trigger = { #目前只考虑奴隶被赐福
+		has_trait = tenctacle_slavery
+	}
+	effect = {
+		add_character_flag = { flag = tenctacle_baby_corruption months = 10 } 
+	}
+}
+tenctacleswarm_near_birth_pulse = {
+	trigger = { is_pregnant = yes } #如果提前流产了的话，就不用考虑了 
+	effect = {
+		#天生奴遗传确认，该性状为伴X隐形基因，雄性不表现
+		
+		#母亲为纯合子
+		if = { 
+			limit = {
+				has_character_flag = congenital_tenctacle_slavery
+			}
+			#母亲被赐福
+			if = { 
+				limit = { 
+					has_character_flag = tenctacle_baby_corruption
+				}
+				#孩子一定是女性纯合
+				set_pregnancy_gender = female 
+				add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 } 
+			}
+			#父亲活着，是携带者
+			else_if = {
+				limit = { 
+					scope:real_father = { 
+						is_alive = yes
+						has_character_flag = congenital_tenctacle_slavery_carry
+					} 
+				}
+				random_list = {
+					50 = {#女性纯合
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+					}
+					50 = {#男性携带
+						set_pregnancy_gender = male
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+				}
+			}
+			#父亲是正常人
+			else = {
+				random_list = {
+					50 = {#女性携带
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					50 = {#男性携带
+						set_pregnancy_gender = male
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+				}
+			}
+		}
+		
+		#母亲为携带者
+		else_if = { 
+			limit = {
+				has_character_flag = congenital_tenctacle_slavery_carry
+			}
+			#母亲被赐福
+			if = { 
+				limit = { 
+					has_character_flag = tenctacle_baby_corruption
+				}
+				random_list = {
+					50 = {#女性纯合
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+					}
+					50 = {#女性携带
+						set_pregnancy_gender = frmale
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+				}
+			}
+			#父亲是携带者
+			else_if = {
+				limit = { 
+					scope:real_father = { has_character_flag = congenital_tenctacle_slavery_carry } 
+				}
+				random_list = {
+					25 = {#女性纯合
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+					}
+					25 = {#女性携带
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					25 = {#男性携带
+						set_pregnancy_gender = male
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					25 = {#男性正常
+						set_pregnancy_gender = male
+					}
+				}
+			}
+			#父亲是正常人
+			else = {
+				random_list = {
+					25 = {#女性携带
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					25 = {#女性正常
+						set_pregnancy_gender = female
+					}
+					25 = {#男性携带
+						set_pregnancy_gender = male
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					25 = {#男性正常
+						set_pregnancy_gender = male
+					}
+				}
+			}
+		}
+		#母亲为正常人
+		else = { 
+			#母亲被赐福
+			if = { 
+				limit = { 
+					has_character_flag = tenctacle_baby_corruption 
+				}
+				#孩子一定是女性携带
+				set_pregnancy_gender = female 
+				add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 } 
+			}
+			#父亲是携带者
+			else_if = {
+				limit = { 
+					scope:real_father = { has_character_flag = congenital_tenctacle_slavery_carry } 
+				}
+				random_list = {
+					50 = {#女性携带
+						set_pregnancy_gender = female
+						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+					}
+					50 = {#男性正常
+						set_pregnancy_gender = male
+					}
+				}
+			}
+			#父亲是正常人
+			else = {
+				#孩子正常
+			}
+		}
+	}
+}
+
+
+#出生触发
+on_birth_child = {
+	on_actions = {
+		tenctacleswarm_birth_pulse
+	}
+}
+#TS出生结算
+tenctacleswarm_birth_pulse = {
+	effect = {
+		#新生儿天生奴遗传结算
+		if = { #天生奴隶
+			limit = {
+				is_female = yes
+				mother = { has_character_flag = baby_congenital_tenctacle_slavery } 
+			}
+			add_character_flag = congenital_tenctacle_slavery #成为纯合子
+			add_trait = congenital_tenctacle_slavery #成为奴隶，测试
+			add_trait = tenctacle_slavery
+		}
+		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
+			limit = {
+				is_female = no
+				mother = { has_character_flag = baby_congenital_tenctacle_slavery } 
+			}
+			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
+			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+		}	
+		else_if = { #携带者
+			limit = {
+				mother = { has_character_flag = baby_congenital_tenctacle_slavery_carry } 
+			}
+			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
+			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+		}	
+		else = { #正常人
+			add_trait = congenital_tenctacle_slavery_no #成为奴隶，测试
+		}
+	}
+}
+#死亡触发
+on_death = {
+	on_actions = { 
+	}
+}
+#开局设置
+on_game_start_after_lobby = {
+	on_actions = { 
+		tenctacleswarm_on_game_start
+	}
+}
+tenctacleswarm_on_game_start = {
+	effect = {
+		#测试，给所有人上携带者flag
+		every_living_character = {
+			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
+			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+		}
+	}
+}
