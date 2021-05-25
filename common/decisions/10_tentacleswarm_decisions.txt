@@ -1,0 +1,50 @@
+﻿tentacleswarm_start_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	desc = tentacleswarm_start_decision_desc
+	selection_tooltip = tentacleswarm_start_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes #统治者
+		any_secret = { secret_type = secret_tentacle_slavery }
+	}
+	
+	is_valid = { 
+		any_secret = { secret_type = secret_tentacle_slavery }
+	}	
+	effect = {
+		#公开皈依
+		convert_to_tentacleswarm_religion = yes
+		#廷臣皈依
+		every_courtier_or_guest	= {
+			limit = {
+				is_tentacle_slavery = yes
+			}
+			convert_to_tentacleswarm_religion = yes
+		}
+		#封臣皈依
+		every_vassal_or_below ={
+			if = {
+				limit = { is_tentacle_slavery = yes } 
+				convert_to_tentacleswarm_religion = yes
+			}
+			every_courtier_or_guest	= {
+				limit = {
+					is_tentacle_slavery = yes
+				}
+				convert_to_tentacleswarm_religion = yes
+			}
+		}
+	}
+	
+	ai_check_interval = 60
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

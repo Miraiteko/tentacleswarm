@@ -27,7 +27,7 @@ tenctacleswarm_near_birth_pulse = {
 		#母亲为纯合子
 		if = { 
 			limit = {
-				has_character_flag = congenital_tenctacle_slavery
+				has_character_flag = congenital_tentacle_slavery
 			}
 			#母亲被赐福
 			if = { 
@@ -36,24 +36,24 @@ tenctacleswarm_near_birth_pulse = {
 				}
 				#孩子一定是女性纯合
 				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 } 
+				add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 } 
 			}
 			#父亲活着，是携带者
 			else_if = {
 				limit = { 
 					scope:real_father = { 
 						is_alive = yes
-						has_character_flag = congenital_tenctacle_slavery_carry
+						has_character_flag = congenital_tentacle_slavery_carry
 					} 
 				}
 				random_list = {
 					50 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
 					}
 					50 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 				}
 			}
@@ -62,11 +62,11 @@ tenctacleswarm_near_birth_pulse = {
 				random_list = {
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					50 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 				}
 			}
@@ -75,7 +75,7 @@ tenctacleswarm_near_birth_pulse = {
 		#母亲为携带者
 		else_if = { 
 			limit = {
-				has_character_flag = congenital_tenctacle_slavery_carry
+				has_character_flag = congenital_tentacle_slavery_carry
 			}
 			#母亲被赐福
 			if = { 
@@ -85,31 +85,31 @@ tenctacleswarm_near_birth_pulse = {
 				random_list = {
 					50 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
 					}
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 				}
 			}
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tenctacle_slavery_carry } 
+					scope:real_father = { has_character_flag = congenital_tentacle_slavery_carry } 
 				}
 				random_list = {
 					25 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
 					}
 					25 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					25 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					25 = {#男性正常
 						set_pregnancy_gender = male
@@ -121,14 +121,14 @@ tenctacleswarm_near_birth_pulse = {
 				random_list = {
 					25 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					25 = {#女性正常
 						set_pregnancy_gender = female
 					}
 					25 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					25 = {#男性正常
 						set_pregnancy_gender = male
@@ -145,17 +145,17 @@ tenctacleswarm_near_birth_pulse = {
 				}
 				#孩子一定是女性携带
 				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 } 
+				add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 } 
 			}
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tenctacle_slavery_carry } 
+					scope:real_father = { has_character_flag = congenital_tentacle_slavery_carry } 
 				}
 				random_list = {
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
 					}
 					50 = {#男性正常
 						set_pregnancy_gender = male
@@ -184,29 +184,75 @@ tenctacleswarm_birth_pulse = {
 		if = { #天生奴隶
 			limit = {
 				is_female = yes
-				mother = { has_character_flag = baby_congenital_tenctacle_slavery } 
+				mother = { has_character_flag = baby_congenital_tentacle_slavery } 
 			}
-			add_character_flag = congenital_tenctacle_slavery #成为纯合子
-			add_trait = congenital_tenctacle_slavery #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slavery #成为纯合子
+			add_trait = congenital_tentacle_slavery #成为奴隶，测试
 			become_tentacle_slavery = yes
 		}
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
 				is_female = no
-				mother = { has_character_flag = baby_congenital_tenctacle_slavery } 
+				mother = { has_character_flag = baby_congenital_tentacle_slavery } 
 			}
-			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
-			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
+			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
 		}	
 		else_if = { #携带者
 			limit = {
-				mother = { has_character_flag = baby_congenital_tenctacle_slavery_carry } 
+				mother = { has_character_flag = baby_congenital_tentacle_slavery_carry } 
 			}
-			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
-			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
+			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
 		}	
 		else = { #正常人
-			add_trait = congenital_tenctacle_slavery_no #成为奴隶，测试
+			add_trait = congenital_tentacle_slavery_no #成为奴隶，测试
+		}
+	}
+}
+#年度触发
+random_yearly_everyone_pulse = {
+	on_actions = { 
+		tenctacleswarm_female_bliever_yearly
+		openly_tentacle_slavery_yearly
+	}
+}
+tenctacleswarm_bliever_yearly = { #触手信徒年度触发
+	trigger = {
+		has_religion = religion:tentacleswarm_religion
+	}
+	effect = {
+		if = {
+			limit = {
+				is_female = yes
+				has_trait = tentacle_slavery #没有成为奴隶的女性成为奴隶，没公开的也进行公开
+			}
+			add_trait = tentacle_slavery
+		}
+	}
+}
+openly_tentacle_slavery_yearly = {
+	trigger = {
+		has_trait = tentacle_slavery
+	}
+	effect = {
+		if = {
+			limit = {
+				#如果上头有人
+				any_liege_or_above = { has_trait = tentacle_slavery }
+			}
+			if = {
+				#皈依正统信仰
+				not = { has_religion = religion:tentacleswarm_religion }
+				set_character_faith = faith:tentacleswarm_slavery
+			}
+		}
+		else = {
+			#跟风当地信仰
+			set_character_faith = location.faith
+			#根据新信仰选择是否要将身份藏起来
+			remove_trait = tentacle_slavery
+			become_tentacle_slavery = yes
 		}
 	}
 }
@@ -215,6 +261,7 @@ on_death = {
 	on_actions = { 
 	}
 }
+
 #开局设置
 on_game_start_after_lobby = {
 	on_actions = { 
@@ -241,8 +288,8 @@ tenctacleswarm_on_game_start = {
 				limit = { is_female = yes }
 				become_tentacle_slavery = yes
 			}
-			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
-			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
+			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
 		}
 	}
 }

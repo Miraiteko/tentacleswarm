@@ -144,7 +144,7 @@ is_blackmailable_secret_trigger = { #Should not include is known
 			scope:is_blackmailable_secret_blackmailer = { is_witch_trigger = yes }
 		}
 	}
-	custom_description = { 不能勒索其他触手奴隶
+	custom_description = { #不能勒索其他触手奴隶
 		text = "cant_blackmail_another_tentacle_slavery"
 		subject = scope:is_blackmailable_secret_blackmailer
 		NAND = {
