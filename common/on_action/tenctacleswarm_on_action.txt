@@ -88,7 +88,7 @@ tenctacleswarm_near_birth_pulse = {
 						add_character_flag = { flag = baby_congenital_tenctacle_slavery months = 5 }
 					}
 					50 = {#女性携带
-						set_pregnancy_gender = frmale
+						set_pregnancy_gender = female
 						add_character_flag = { flag = baby_congenital_tenctacle_slavery_carry months = 5 }
 					}
 				}
