@@ -1,0 +1,187 @@
+﻿#核心判断
+is_tentacle_slavery = {
+	OR = {
+		has_trait = tentacle_slavery
+		any_secret = { secret_type = secret_tentacle_slavery }
+	}
+}
+
+#触手奴隶罪行程度判断，用于在秘密机制中判断勒索等级
+secret_tentacle_slavery_is_shunned_trigger = {
+	OR = {
+		faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned } }
+	}
+}
+secret_tentacle_slavery_is_criminal_trigger = {
+	OR = {
+		faith = { has_doctrine_parameter = doctrine_tentacleswarm_criminal }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_criminal } }
+	}
+}
+secret_tentacle_slavery_is_evil_trigger = {
+	OR = {
+		faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil } }
+	}
+}
+
+#勒索是否可以执行。覆盖原版条件，导致兼容性下降
+is_blackmailable_secret_trigger = { #Should not include is known
+	$PARTICIPANT$ = { save_temporary_scope_as = is_blackmailable_secret_participant }
+	$BLACKMAILER$ = { save_temporary_scope_as = is_blackmailable_secret_blackmailer }
+	is_shunned_or_criminal_for = scope:is_blackmailable_secret_participant
+	can_be_exposed_by = scope:is_blackmailable_secret_blackmailer
+	#Can we actually add a hook of the correct type
+	trigger_if = {
+		limit = { is_shunned_for = scope:is_blackmailable_secret_participant }
+		custom_description = {
+			text = "already_has_a_superior_hook"
+			subject = scope:is_blackmailable_secret_blackmailer
+			object = scope:is_blackmailable_secret_participant
+			scope:is_blackmailable_secret_blackmailer = {
+				can_add_hook = {
+					type = weak_blackmail_hook
+					target = scope:is_blackmailable_secret_participant
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { is_criminal_for = scope:is_blackmailable_secret_participant }
+		custom_description = {
+			text = "already_has_a_superior_hook"
+			subject = scope:is_blackmailable_secret_blackmailer
+			object = scope:is_blackmailable_secret_participant
+			scope:is_blackmailable_secret_blackmailer = {
+				can_add_hook = {
+					type = strong_blackmail_hook
+					target = scope:is_blackmailable_secret_participant
+				}
+			}
+		}
+	}
+	#Some things you can't blackmail others about
+	custom_description = {
+		text = "cant_blackmail_another_witch"
+		subject = scope:is_blackmailable_secret_blackmailer
+		NAND = {
+			secret_type = secret_witch
+			scope:is_blackmailable_secret_blackmailer = { is_witch_trigger = yes }
+		}
+	}
+	trigger_if = {
+		limit = { secret_type = secret_lover }
+		custom_description = {
+			text = cannot_blackmail_own_lover_secret
+			NOT = { secret_target = scope:is_blackmailable_secret_blackmailer }
+		}
+	}
+	trigger_if = {
+		limit = {
+			secret_type = secret_unmarried_illegitimate_child
+		}
+		custom_description = {
+			text = cannot_blackmail_over_own_bastard
+			NOT = { secret_target = scope:is_blackmailable_secret_blackmailer }
+		}
+	}
+	trigger_if = {
+		limit = {
+			secret_type = secret_disputed_heritage
+		}
+		custom_description = {
+			text = cannot_blackmail_over_own_bastard
+			NOT = {
+				secret_target = {
+					OR = {
+						mother = scope:is_blackmailable_secret_blackmailer
+						real_father = scope:is_blackmailable_secret_blackmailer
+					}
+				}
+			}
+		}
+	} #Should not include is known
+	$PARTICIPANT$ = { save_temporary_scope_as = is_blackmailable_secret_participant }
+	$BLACKMAILER$ = { save_temporary_scope_as = is_blackmailable_secret_blackmailer }
+	is_shunned_or_criminal_for = scope:is_blackmailable_secret_participant
+	can_be_exposed_by = scope:is_blackmailable_secret_blackmailer
+	#Can we actually add a hook of the correct type
+	trigger_if = {
+		limit = { is_shunned_for = scope:is_blackmailable_secret_participant }
+		custom_description = {
+			text = "already_has_a_superior_hook"
+			subject = scope:is_blackmailable_secret_blackmailer
+			object = scope:is_blackmailable_secret_participant
+			scope:is_blackmailable_secret_blackmailer = {
+				can_add_hook = {
+					type = weak_blackmail_hook
+					target = scope:is_blackmailable_secret_participant
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { is_criminal_for = scope:is_blackmailable_secret_participant }
+		custom_description = {
+			text = "already_has_a_superior_hook"
+			subject = scope:is_blackmailable_secret_blackmailer
+			object = scope:is_blackmailable_secret_participant
+			scope:is_blackmailable_secret_blackmailer = {
+				can_add_hook = {
+					type = strong_blackmail_hook
+					target = scope:is_blackmailable_secret_participant
+				}
+			}
+		}
+	}
+	#Some things you can't blackmail others about
+	custom_description = {
+		text = "cant_blackmail_another_witch"
+		subject = scope:is_blackmailable_secret_blackmailer
+		NAND = {
+			secret_type = secret_witch
+			scope:is_blackmailable_secret_blackmailer = { is_witch_trigger = yes }
+		}
+	}
+	custom_description = { 不能勒索其他触手奴隶
+		text = "cant_blackmail_another_tentacle_slavery"
+		subject = scope:is_blackmailable_secret_blackmailer
+		NAND = {
+			secret_type = secret_tentacle_slavery
+			scope:is_blackmailable_secret_blackmailer = { is_tentacle_slavery = yes }
+		}
+	}
+	trigger_if = {
+		limit = { secret_type = secret_lover }
+		custom_description = {
+			text = cannot_blackmail_own_lover_secret
+			NOT = { secret_target = scope:is_blackmailable_secret_blackmailer }
+		}
+	}
+	trigger_if = {
+		limit = {
+			secret_type = secret_unmarried_illegitimate_child
+		}
+		custom_description = {
+			text = cannot_blackmail_over_own_bastard
+			NOT = { secret_target = scope:is_blackmailable_secret_blackmailer }
+		}
+	}
+	trigger_if = {
+		limit = {
+			secret_type = secret_disputed_heritage
+		}
+		custom_description = {
+			text = cannot_blackmail_over_own_bastard
+			NOT = {
+				secret_target = {
+					OR = {
+						mother = scope:is_blackmailable_secret_blackmailer
+						real_father = scope:is_blackmailable_secret_blackmailer
+					}
+				}
+			}
+		}
+	}
+}

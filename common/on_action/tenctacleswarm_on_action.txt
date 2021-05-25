@@ -13,7 +13,7 @@ tenctacleswarm_on_pregnancy_pulse = {
 }
 tenctacleswarm_baby_corruption = {
 	trigger = { #目前只考虑奴隶被赐福
-		has_trait = tenctacle_slavery
+		is_tentacle_slavery = yes
 	}
 	effect = {
 		add_character_flag = { flag = tenctacle_baby_corruption months = 10 } 
@@ -188,7 +188,7 @@ tenctacleswarm_birth_pulse = {
 			}
 			add_character_flag = congenital_tenctacle_slavery #成为纯合子
 			add_trait = congenital_tenctacle_slavery #成为奴隶，测试
-			add_trait = tenctacle_slavery
+			become_tentacle_slavery = yes
 		}
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
@@ -223,8 +223,24 @@ on_game_start_after_lobby = {
 }
 tenctacleswarm_on_game_start = {
 	effect = {
+		#所有默认宗教，敌对触手
+		
+		every_religion_global = {
+			every_faith = {
+				if = {
+					limit = {
+						not = { has_doctrine = doctrine_tentacleswarm_accepted }
+					}
+					add_doctrine = doctrine_tentacleswarm_evil
+				}
+			}
+		}
 		#测试，给所有人上携带者flag
 		every_living_character = {
+			if = {
+				limit = { is_female = yes }
+				become_tentacle_slavery = yes
+			}
 			add_character_flag = congenital_tenctacle_slavery_carry #成为携带者
 			add_trait = congenital_tenctacle_slavery_carry #成为奴隶，测试
 		}

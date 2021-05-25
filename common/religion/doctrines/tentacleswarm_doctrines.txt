@@ -1,0 +1,25 @@
+﻿doctrine_tentacleswarm = {#对触手天灾的态度
+	group = "crimes"
+	doctrine_tentacleswarm_evil = {#歼灭
+		can_pick = {
+			NOT = { religion_tag = tentacleswarm_religion }
+		}
+		piety_cost = {
+			value = 0
+		}
+		parameters = {
+			doctrine_tentacleswarm_evil = yes
+		}
+	}
+	doctrine_tentacleswarm_accepted = {#容许
+		can_pick = {
+			religion_tag = tentacleswarm_religion
+		}
+		piety_cost = {
+			value = 0
+		}
+		parameters = {
+			doctrine_tentacleswarm_accepted = yes
+		}
+	}
+}
