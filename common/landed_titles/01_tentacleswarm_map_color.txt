@@ -14,7 +14,7 @@ d_low_corruption_province = {
 	can_create = { always = no }
 }
 d_mid_corruption_province = {
-	color = { 271 92 238 }
+	color = { 241 88 230 }
 	
 	capital = c_roma
 
@@ -22,14 +22,14 @@ d_mid_corruption_province = {
 }
 
 d_high_corruption_province = {
-	color = { 171 48 218 }
+	color = { 194 38 217 }
 	
 	capital = c_roma
 
 	can_create = { always = no }
 }
 d_very_high_corruption_province = {
-	color = { 95 45 155 }
+	color = { 106 41 141 }
 	
 	capital = c_roma
 
@@ -37,7 +37,7 @@ d_very_high_corruption_province = {
 }
 
 d_hell_corruption_province = {
-	color = { 48 39 92 }
+	color = { 53 33 78 }
 	
 	capital = c_roma
 

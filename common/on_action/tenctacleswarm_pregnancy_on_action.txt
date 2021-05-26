@@ -194,7 +194,6 @@ tentacleswarm_birth_pulse = {
 			}
 			add_character_flag = congenital_tentacle_slavery #成为纯合子
 			add_trait = congenital_tentacle_slavery #成为奴隶，测试
-			become_tentacle_slavery = yes
 		}
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
@@ -216,152 +215,43 @@ tentacleswarm_birth_pulse = {
 		}
 	}
 }
-#年度触发
-random_yearly_everyone_pulse = {
-	on_actions = { 
-		tentacleswarm_bliever_yearly
-		tentacle_slavery_yearly
+#接近成年
+on_15th_birthday = {
+	trigger = { age = 15 }
+	on_actions = {
+		tentacleswarm_adult_pulse
 	}
 }
-tentacleswarm_bliever_yearly = { #触手信徒年度触发
-	trigger = {
-		has_religion = religion:tentacleswarm_religion
-	}
+tentacleswarm_adult_pulse = {
 	effect = {
-		if = {
+		if = { #天生奴隶成年时成为奴隶
 			limit = {
 				is_female = yes
-				not = { has_trait = tentacle_slavery } #没有成为奴隶的女性成为奴隶
+				has_character_flag = congenital_tentacle_slavery 
 			}
-			add_trait = tentacle_slavery
+			become_tentacle_slavery = yes
 		}
-	}
-}
-tentacle_slavery_yearly = {
-	trigger = {
-		is_tentacle_slavery = yes
-	}
-	effect = {
-		add_character_flag = ____TENTACLE_SLAVERY____
-		if = {
-			limit = {
-				#如果上头有人，皈依正统信仰,揭露身份
-				OR = {
-					is_ruler = yes
-					any_liege_or_above = { has_trait = tentacle_slavery }
-				}
-			}
-			if = {
-				limit = {
-					not = { has_religion = religion:tentacleswarm_religion }
-				}
-				if = { 
-					limit = { #如果你控制了旧的信仰领袖头衔，摧毁它
-						exists = faith.religious_head
-						faith.religious_head = this
+		else_if = { #其他女性看成年所在地的腐化度
+			limit = { is_female = yes }
+			random_list = {
+				0 = {
+					modifier = {
+						add = location.county.var:tentacleswarm_corruption
 					}
-					destroy_title =  faith.religious_head_title
-					faith = { change_fervor = -100 }
+					modifier = { #监护人是奴隶，权重+50
+						add = 50
+						any_relation = {
+							type = guardian
+							is_tentacle_slavery = yes
+						}
+					}
+					become_tentacle_slavery = yes
 				}
-				set_character_faith = faith:tentacleswarm_slavery
-				add_trait = tentacle_slavery
-			}
-		}
-		else = {
-			#如果上头没人，跟风当地信仰
-			if = {
-				limit = {
-					has_religion = religion:tentacleswarm_religion 
-				}
-				set_character_faith = location.faith
-			}
-			#根据新信仰选择是否要将身份藏起来
-			if = {
-				limit = { has_trait = tentacle_slavery } 
-				remove_trait = tentacle_slavery
-				become_tentacle_slavery = yes
-			}
-		}
-		if = {
-			limit = {
-				any_spouse = {
-					holds_landed_title = yes #配偶有地，尝试密谋夺取
-				}
-				Not = { 
-					any_scheme = {
-						is_hostile = yes
+				100 = {
+					modifier = {
+						subtract = location.county.var:tentacleswarm_corruption
 					}
 				}
-			}
-			random_spouse = {
-				limit = { holds_landed_title = yes }
-				save_scope_as = target
-			}
-			start_scheme = {
-				type = tentacle_slavery_claim_throne
-				target = scope:target
-			}
-		}
-	}
-}
-#死亡触发
-on_death = {
-	on_actions = { 
-	}
-}
-
-#开局设置
-on_game_start_after_lobby = {
-	on_actions = { 
-		tentacleswarm_on_game_start
-	}
-}
-tentacleswarm_on_game_start = {
-	effect = {
-		#所有默认宗教，敌对触手
-		every_religion_global = {
-			every_faith = {
-				if = {
-					limit = {
-						not = { has_doctrine = doctrine_tentacleswarm_accepted }
-					}
-					add_doctrine = doctrine_tentacleswarm_evil
-				}
-			}
-		}
-		#测试，给所有人上携带者flag
-		every_living_character = {
-			if = {
-				limit = { is_female = yes }
-				become_tentacle_slavery = yes
-			}
-			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
-			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
-		}
-		#所有伯爵领，初始化腐化度
-		every_county = {
-			#测试
-			set_variable =  { name = tentacleswarm_corruption value = 0 }
-			
-			if = {
-				limit = { religion = religion:christianity_religion }
-				set_variable =  { name = tentacleswarm_corruption value = 20 }
-			}
-			else_if ={
-				limit = { religion = religion:islam_religion }
-				set_variable =  { name = tentacleswarm_corruption value = 40 }
-			}
-			else_if ={
-				limit = { religion = religion:hinduism_religion }
-				set_variable =  { name = tentacleswarm_corruption value = 60 }
-			}
-			else_if ={
-				limit = { religion = religion:buddhism_religion }
-				set_variable =  { name = tentacleswarm_corruption value = 80 }
-			}
-			else_if ={
-				limit = { religion = religion:tengrism_religion }
-				set_variable =  { name = tentacleswarm_corruption value = 100 }
 			}
 		}
 	}

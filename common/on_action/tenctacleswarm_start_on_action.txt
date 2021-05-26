@@ -1,0 +1,41 @@
+﻿#开局设置
+on_game_start_after_lobby = {
+	on_actions = { 
+		tentacleswarm_on_game_start
+	}
+}
+tentacleswarm_on_game_start = {
+	effect = {
+		#所有默认宗教，敌对触手
+		every_religion_global = {
+			every_faith = {
+				if = {
+					limit = {
+						not = { has_doctrine = doctrine_tentacleswarm_accepted }
+					}
+					add_doctrine = doctrine_tentacleswarm_evil
+				}
+			}
+		}
+		
+		#测试，给所有人上携带者flag
+		every_living_character = {
+			if = {
+				limit = { 
+					is_female = yes 
+					is_adult = yes
+					has_faith = faith:catholic 
+				}
+				become_tentacle_slavery = yes
+			}
+			#add_character_flag = congenital_tentacle_slavery_carry #成为携带者
+			#add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
+		}
+		
+		#所有伯爵领，初始化腐化度
+		every_county = {
+			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
+			set_variable =  { name = tentacleswarm_corruption value = 0 }
+		}
+	}
+}
