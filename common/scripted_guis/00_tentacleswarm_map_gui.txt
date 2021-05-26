@@ -1,0 +1,56 @@
+﻿#在切换到腐化度地图的时候，为省份上色
+tentacleswarm_corruption_map = {
+	effect = {
+		#检查每个省份的腐化度，上色
+		every_county = {
+			if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 20 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_very_low_corruption_province }
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 40 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_low_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 60 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_mid_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 80 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_high_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 100 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_very_high_corruption_province } 
+				}
+			}
+			else = {
+				every_county_province = {
+					barony = { set_color_from_title = title:d_hell_corruption_province } 
+				}
+			}
+		}
+	}
+	is_valid = {
+		always = yes
+	}
+}

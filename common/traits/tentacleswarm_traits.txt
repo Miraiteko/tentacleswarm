@@ -4,6 +4,35 @@ tentacle_slavery = {
 	
 	same_opinion = 500
 	
+	valid_sex =  female
+	
+	#高生育
+	fertility = 100
+	
+	#无法改信
+	faith_conversion_piety_cost_mult = 20
+	faith_creation_piety_cost_mult = 20
+	
+	#掉发展。用掉控制力来测试
+	#monthly_county_control_change_add = -0.5
+	
+	#强军事
+	#domain_tax_mult = 10
+	#levy_size = 10
+	knight_limit = 50
+	#knight_effectiveness_mult = 10
+	
+	#蝗虫性格
+	ai_greed = very_high_positive_ai_value #贪婪
+	ai_energy = very_high_positive_ai_value #活力
+	ai_zeal = very_high_positive_ai_value #狂热
+	ai_sociability = high_positive_ai_value #好交际
+	ai_boldness = high_positive_ai_value #勇敢
+	
+	ai_compassion = very_high_negative_ai_value #无慈悲
+	ai_honor = high_negative_ai_value #无荣耀
+	ai_rationality = high_negative_ai_value #无理智
+	ai_war_chance = 20 #好战的
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_evil
 		opinion_modifier = tentacle_slavery_evil

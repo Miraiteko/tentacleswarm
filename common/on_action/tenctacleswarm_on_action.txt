@@ -319,7 +319,6 @@ on_game_start_after_lobby = {
 tentacleswarm_on_game_start = {
 	effect = {
 		#所有默认宗教，敌对触手
-		
 		every_religion_global = {
 			every_faith = {
 				if = {
@@ -338,6 +337,32 @@ tentacleswarm_on_game_start = {
 			}
 			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
 			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
+		}
+		#所有伯爵领，初始化腐化度
+		every_county = {
+			#测试
+			set_variable =  { name = tentacleswarm_corruption value = 0 }
+			
+			if = {
+				limit = { religion = religion:christianity_religion }
+				set_variable =  { name = tentacleswarm_corruption value = 20 }
+			}
+			else_if ={
+				limit = { religion = religion:islam_religion }
+				set_variable =  { name = tentacleswarm_corruption value = 40 }
+			}
+			else_if ={
+				limit = { religion = religion:hinduism_religion }
+				set_variable =  { name = tentacleswarm_corruption value = 60 }
+			}
+			else_if ={
+				limit = { religion = religion:buddhism_religion }
+				set_variable =  { name = tentacleswarm_corruption value = 80 }
+			}
+			else_if ={
+				limit = { religion = religion:tengrism_religion }
+				set_variable =  { name = tentacleswarm_corruption value = 100 }
+			}
 		}
 	}
 }
