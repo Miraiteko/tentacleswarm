@@ -217,7 +217,6 @@ tentacleswarm_birth_pulse = {
 }
 #接近成年
 on_15th_birthday = {
-	trigger = { age = 15 }
 	on_actions = {
 		tentacleswarm_adult_pulse
 	}

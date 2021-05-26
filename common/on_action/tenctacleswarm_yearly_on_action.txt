@@ -31,7 +31,7 @@ tentacle_slavery_yearly = {
 				#如果上头有人，皈依正统信仰,揭露身份
 				OR = {
 					is_ruler = yes
-					any_liege_or_above = { has_faith = faith:tentacleswarm_slavery }
+					any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
 				}
 			}
 			convert_to_tentacleswarm_religion = yes
@@ -107,121 +107,207 @@ tentacleswarm_yearly_playable_pulse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1  } }#如果宾客信奉触手宗教
 		}
+		
 		#为每个伯爵领结算腐化度
 		every_held_title = {
 			limit = { tier = tier_county }
-			#计算自然增长率
-			set_variable =  { name = tentacleswarm_corruption_growth value = 60 } #基础为每年-40%		
+			#如果发展度太低了，直接废弃
 			if = {
-				limit = { religion = religion:tentacleswarm_religion }
-				change_variable =  { name = tentacleswarm_corruption_growth add = 40 } #如果本地信奉触手宗教，抵消基础衰减
-			}		
-			if = {
-				limit = { holder = { is_tentacle_slavery = yes } }
-				change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者是奴隶
-			}	
-			if = {
-				limit = { holder = { has_religion = religion:tentacleswarm_religion } }
-				change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者信奉触手宗教
-			}
-			change_variable =  { name = tentacleswarm_corruption_growth add = development_level }#每点发展度+1%
-			
-			#计算腐化度自然增长
-			change_variable =  { name = tentacleswarm_corruption multiply = var:tentacleswarm_corruption_growth }
-			change_variable =  { name = tentacleswarm_corruption multiply = 0.01 }#百分数转小数
-			
-			#领主宫廷带来的增长
-			change_variable =  { name = tentacleswarm_corruption add = holder.var:tentacleswarm_corruption_add }
-		
-			#计算地形带来的影响
-			change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
-			
-			#腐化上限为120
-			if = {
-				limit = { var:tentacleswarm_corruption = { compare_value > 120 } }
-				set_variable =  { name = tentacleswarm_corruption value = 120 }
-			}
-			
-			#上buff,改颜色，污染周遭
-			if = {
-				limit = {
-					var:tentacleswarm_corruption = { compare_value < 20 }
+				limit = { 
+					development_level < 1
+					NOT = { has_county_modifier = tentacleswarm_destroy }
+					var:tentacleswarm_corruption = { compare_value >= 20 }
 				}
+				#set_variable =  { name = tentacleswarm_corruption value = 0 }
 				every_county_province = {
-					barony = { set_color_from_title = title:d_very_low_corruption_province }
+					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
 				}
-				random_neighboring_county = {
-					limit = {
-						var:tentacleswarm_corruption = { compare_value < 0 } 
-					}
-					change_variable =  { name = tentacleswarm_corruption add = 0 }
-				}
+				set_variable =  { name = tentacleswarm_corruption_warbeast value = 0 }
+				add_county_modifier = { modifier = tentacleswarm_destroy years = 10}
 			}
-			else_if = {
-				limit = {
-					var:tentacleswarm_corruption = { compare_value < 40 }
+			else_if = { #已经被废弃的土地，不结算滋生,最大衰退
+				limit = { 
+					has_county_modifier = tentacleswarm_destroy
 				}
+				change_variable =  { name = tentacleswarm_corruption multiply = 0.6 }
 				every_county_province = {
-					barony = { set_color_from_title = title:d_low_corruption_province } 
-				}
-				random_neighboring_county = {
-					limit = {
-						var:tentacleswarm_corruption = { compare_value < 20 } 
+					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
+				} 
+				if = { #触手信徒不能持有，随便找一个人把这地给拿了
+					limit = { holder = { has_religion = religion:tentacleswarm_religion } }
+					random_living_character = {
+						limit = {
+							is_tentacle_slavery = no
+							not = { has_religion = religion:tentacleswarm_religion }
+							is_pool_character = yes
+						}
+						save_scope_as = lucky
 					}
-					change_variable =  { name = tentacleswarm_corruption add = 4 }
+					save_scope_as = target
+					create_title_and_vassal_change = {
+						type = independency
+						save_scope_as = change
+						add_claim_on_loss = yes
+					}
+					scope:target = {#拿头衔
+						change_title_holder_include_vassals = {
+							holder = scope:lucky
+							change = scope:change
+						}
+					}
+					scope:lucky = {#独立
+						change_liege_or_become_independent = {
+							CHANGE = scope:change
+							VASSAL = this
+						}
+					}
+					resolve_title_and_vassal_change = scope:change
+					
 				}
 			}
-			else_if = {
-				limit = {
-					var:tentacleswarm_corruption = { compare_value < 60 }
-				}
-				every_county_province = {
-					barony = { set_color_from_title = title:d_mid_corruption_province } 
-				}
-				random_neighboring_county = {
-					limit = {
-						var:tentacleswarm_corruption = { compare_value < 40 } 
-					}
-					change_variable =  { name = tentacleswarm_corruption add = 8 }
-				}
-			}
-			else_if = {
-				limit = {
-					var:tentacleswarm_corruption = { compare_value < 80 }
-				}
-				every_county_province = {
-					barony = { set_color_from_title = title:d_high_corruption_province } 
-				}
-				random_neighboring_county = {
-					limit = {
-						var:tentacleswarm_corruption = { compare_value < 60 } 
-					}
-					change_variable =  { name = tentacleswarm_corruption add = 12 }
-				}
-			}
-			else_if = {
-				limit = {
-					var:tentacleswarm_corruption = { compare_value < 100 }
-				}
-				every_county_province = {
-					barony = { set_color_from_title = title:d_very_high_corruption_province } 
-				}
-				random_neighboring_county = {
-					limit = {
-						var:tentacleswarm_corruption = { compare_value < 80 } 
-					}
-					change_variable =  { name = tentacleswarm_corruption add = 16 }
-				}
-			}
+			#否则，进行滋生
 			else = {
-				every_county_province = {
-					barony = { set_color_from_title = title:d_hell_corruption_province } 
+				#计算自然增长率
+				set_variable =  { name = tentacleswarm_corruption_growth value = 60 } #基础为每年-40%		
+				if = {
+					limit = { religion = religion:tentacleswarm_religion }
+					change_variable =  { name = tentacleswarm_corruption_growth add = 40 } #如果本地信奉触手宗教，抵消基础衰减
+				}		
+				if = {
+					limit = { holder = { is_tentacle_slavery = yes } }
+					change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者是奴隶
+				}	
+				if = {
+					limit = { holder = { has_religion = religion:tentacleswarm_religion } }
+					change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者信奉触手宗教
 				}
-				random_neighboring_county = {
+				change_variable =  { name = tentacleswarm_corruption_growth add = development_level }#每点发展度+1%
+				
+				#计算腐化度自然增长
+				change_variable =  { name = tentacleswarm_corruption multiply = var:tentacleswarm_corruption_growth }
+				change_variable =  { name = tentacleswarm_corruption multiply = 0.01 }#百分数转小数
+				
+				#领主宫廷带来的增长
+				change_variable =  { name = tentacleswarm_corruption add = holder.var:tentacleswarm_corruption_add }
+			
+				#计算地形带来的影响
+				change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
+				
+				#腐化上限为120
+				if = {
+					limit = { var:tentacleswarm_corruption = { compare_value > 120 } }
+					set_variable =  { name = tentacleswarm_corruption value = 120 }
+				}
+				
+				#上buff,改颜色，污染周遭
+				if = {
 					limit = {
-						var:tentacleswarm_corruption = { compare_value < 100 } 
+						var:tentacleswarm_corruption = { compare_value < 20 }
 					}
-					change_variable =  { name = tentacleswarm_corruption add = 20 }
+					every_county_province = {
+						barony = { set_color_from_title = title:d_very_low_corruption_province }
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 0 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 0 }
+					}
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 0 }
+				}
+				else_if = {
+					limit = {
+						var:tentacleswarm_corruption = { compare_value < 40 }
+					}
+					every_county_province = {
+						barony = { set_color_from_title = title:d_low_corruption_province } 
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 20 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 4 }
+					}
+					change_development_progress_with_overflow = -20
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 10 }
+				}
+				else_if = {
+					limit = {
+						var:tentacleswarm_corruption = { compare_value < 60 }
+					}
+					every_county_province = {
+						barony = { set_color_from_title = title:d_mid_corruption_province } 
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 40 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 8 }
+					}
+					change_development_progress_with_overflow = -40
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 20 }
+				}
+				else_if = {
+					limit = {
+						var:tentacleswarm_corruption = { compare_value < 80 }
+					}
+					every_county_province = {
+						barony = { set_color_from_title = title:d_high_corruption_province } 
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 60 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 12 }
+					}
+					change_development_progress_with_overflow = -60
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 30 }
+				}
+				else_if = {
+					limit = {
+						var:tentacleswarm_corruption = { compare_value < 100 }
+					}
+					every_county_province = {
+						barony = { set_color_from_title = title:d_very_high_corruption_province } 
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 80 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 16 }
+					}
+					change_development_progress_with_overflow = -80
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 40 }
+				}
+				else = {
+					every_county_province = {
+						barony = { set_color_from_title = title:d_hell_corruption_province } 
+					}
+					random_neighboring_county = {
+						limit = {
+							var:tentacleswarm_corruption = { compare_value < 100 } 
+						}
+						change_variable =  { name = tentacleswarm_corruption add = 20 }
+					}
+					change_development_progress_with_overflow = -100
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 50 }
+				}
+				if = {
+					limit = {
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 100 }
+						holder = {has_religion = religion:tentacleswarm_religion }
+					}
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
+					holder = { #战争巨兽
+						spawn_army = {
+							men_at_arms = {
+								type = tentacleswarm_warbeast
+								stacks = 10 #10队，一队十只
+							}
+							location = root.capital_province
+							name = fp1_jomsvikings_event_troops
+						}
+					}
 				}
 			}
 		}

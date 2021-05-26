@@ -1,0 +1,27 @@
+﻿tentacleswarm_warbeast = {
+	type = heavy_cavalry
+	
+	can_recruit = no #只有事件能出
+
+	damage = 1000
+	toughness = 1000
+	pursuit = 300
+	screen = 300
+	
+	siege_tier = 4
+	siege_value = 1
+	
+
+	winter_bonus = {
+		normal_winter = { damage = -300 toughness = -300 }
+		harsh_winter = { damage = -600 toughness = -600 }
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+	
+	stack = 10
+	ai_quality = 1000
+	icon = war_elephants
+}

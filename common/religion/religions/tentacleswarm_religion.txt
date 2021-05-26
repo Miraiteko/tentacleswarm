@@ -43,7 +43,7 @@
 		{ name = "holy_order_fire_walkers" }
 	}
 
-	holy_order_maa = { mubarizun }
+	holy_order_maa = { tentacleswarm_warbeast }
 		localization = {
 		HighGodName = zoroastrianism_high_god_name
 		HighGodNamePossessive = zoroastrianism_high_god_name_possessive
