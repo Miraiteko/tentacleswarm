@@ -1,0 +1,166 @@
+﻿#奴隶夺取丈夫的地位
+tentacle_slavery_claim_throne = {
+	
+	skill = intrigue
+	hostile = yes
+	
+	allow = {
+		is_tentacle_slavery = yes
+		is_imprisoned = no
+	}
+	
+	valid = {
+		is_tentacle_slavery = yes
+		is_imprisoned = no
+		scope:target = {
+			is_consort_of = scope:owner 
+			holds_landed_title = yes
+		}
+	}
+
+	valid_agent = {
+		age >= 14
+	}
+	
+	agent_join_chance = {
+		base = 0
+		
+		modifier = {
+			add = -30
+			desc = BASE_RELUCTANCE
+		}
+
+		#Is Owner sending a gift in the invite interaction?
+		modifier = {
+			add = 10
+			exists = scope:gift
+			always = scope:gift
+			NOT = {
+				OR = {
+					scope:target = { is_parent_of = root }
+					
+				}
+			}
+			desc = "SCHEME_WITH_GIFT"
+		}
+		modifier = {
+			add = 1000
+			root = { is_tentacle_slavery = yes }
+			desc = "TENTACLE_SLAVERY_PATNER"
+		}
+		hostile_murder_agent_base_join_chance_modifier = yes # TODO, make a more claim throne-flavored version of this
+	}
+	
+	base_success_chance = {
+		base = 5
+		
+		compare_modifier = {
+			desc = "SCHEME_MY_LEARNING"
+			value = scope:owner.learning
+			multiplier = 2
+		}
+
+		compare_modifier = {
+			desc = "SCHEME_MY_INTRIGUE"
+			value = scope:owner.intrigue
+		}
+		
+		modifier = {
+			desc = "SCHEME_I_AM_COUNCILLOR_OF_TARGET"
+			add = 25
+			scope:owner = {
+				is_councillor_of = scope:target
+			}
+		}
+
+		modifier = {
+			add = -30
+			always = scope:exposed
+			desc = "SCHEME_IS_EXPOSED"
+		}
+	}
+	
+	agent_success_chance = {
+		base = 0
+
+		compare_modifier = {
+			desc = "SCHEME_AGENT_INTRIGUE"
+			value = intrigue
+			multiplier = 2
+		}
+		
+		modifier = {
+			add = 25
+			desc = CLAIM_THRONE_SCHEME_AGENT_COUNCILLOR
+			is_councillor_of = scope:target
+			trigger_if = {
+				limit = { exists = scope:target.cp:councillor_court_chaplain }
+				NOT = { this = scope:target.cp:councillor_court_chaplain }
+			}
+		}
+
+		modifier = {
+			add = 50
+			desc = CLAIM_THRONE_SCHEME_AGENT_COURT_CHAPLAIN
+			exists = scope:target.cp:councillor_court_chaplain
+			this = scope:target.cp:councillor_court_chaplain
+		}
+
+		modifier = {
+			add = 10
+			DESC = CLAIM_THRONE_SCHEME_AGENT_VASSAL
+			is_vassal_of = scope:target
+			NOT = { is_councillor_of = scope:target }
+		}
+	}
+	
+	agent_leave_threshold = -10
+		
+	cooldown = { years = 2 }
+	is_secret = yes
+	base_secrecy = 10
+
+	on_ready = {
+		scheme_target.primary_title = { save_scope_as = target_title }
+		scheme_owner = {
+			trigger_event = {
+					on_action = tentacle_slavery_claim_throne_setup
+			}
+		}
+	}
+
+	on_monthly = {
+		hostile_scheme_discovery_chance_effect = yes
+		if = {
+			limit = {
+				NOT = { exists = scope:discovery_event_happening }
+			}			
+			scheme_owner = {
+				trigger_event = {
+					on_action = tentacle_slavery_claim_throne_ongoing
+					days = { 1 30 }
+				}
+			}
+		}
+	}
+
+	
+	on_invalidated = {
+	}
+	
+	
+	power_per_skill_point = 3
+	power_per_agent_skill_point = 1
+	spymaster_power_per_skill_point = 0 # Needed to stop the Spymaster from affecting the scheme
+	resistance_per_skill_point = 2
+	spymaster_resistance_per_skill_point = 0 # Needed to stop the Spymaster from affecting the scheme
+	
+	minimum_progress_chance = 80
+	maximum_progress_chance = 100
+	minimum_success = 5
+	maximum_secrecy = 95
+	maximum_success = 90
+	
+	success_desc = "CLAIM_THRONE_SUCCESS_DESC"
+	discovery_desc = "CLAIM_THRONE_DISCOVERY_DESC"
+}

@@ -242,25 +242,33 @@ tentacle_slavery_yearly = {
 		is_tentacle_slavery = yes
 	}
 	effect = {
+		add_character_flag = ____TENTACLE_SLAVERY____
 		if = {
 			limit = {
-				#如果上头有人
+				#如果上头有人，皈依正统信仰,揭露身份
 				OR = {
 					is_ruler = yes
 					any_liege_or_above = { has_trait = tentacle_slavery }
 				}
 			}
 			if = {
-				#皈依正统信仰,揭露身份
 				limit = {
 					not = { has_religion = religion:tentacleswarm_religion }
+				}
+				if = { 
+					limit = { #如果你控制了旧的信仰领袖头衔，摧毁它
+						exists = faith.religious_head
+						faith.religious_head = this
+					}
+					destroy_title =  faith.religious_head_title
+					faith = { change_fervor = -100 }
 				}
 				set_character_faith = faith:tentacleswarm_slavery
 				add_trait = tentacle_slavery
 			}
 		}
 		else = {
-			#跟风当地信仰
+			#如果上头没人，跟风当地信仰
 			if = {
 				limit = {
 					has_religion = religion:tentacleswarm_religion 
@@ -272,6 +280,26 @@ tentacle_slavery_yearly = {
 				limit = { has_trait = tentacle_slavery } 
 				remove_trait = tentacle_slavery
 				become_tentacle_slavery = yes
+			}
+		}
+		if = {
+			limit = {
+				any_spouse = {
+					holds_landed_title = yes #配偶有地，尝试密谋夺取
+				}
+				Not = { 
+					any_scheme = {
+						is_hostile = yes
+					}
+				}
+			}
+			random_spouse = {
+				limit = { holds_landed_title = yes }
+				save_scope_as = target
+			}
+			start_scheme = {
+				type = tentacle_slavery_claim_throne
+				target = scope:target
 			}
 		}
 	}
