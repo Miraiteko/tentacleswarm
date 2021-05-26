@@ -18,24 +18,49 @@ tentacleswarm_on_game_start = {
 			}
 		}
 		
-		#测试，给所有人上携带者flag
+		#测试，上携带者flag
 		every_living_character = {
 			if = {
 				limit = { 
+					#is_lowborn = yes
 					is_female = yes 
 					is_adult = yes
 					has_faith = faith:catholic 
 				}
-				become_tentacle_slavery = yes
+				#add_character_flag = congenital_tentacle_slavery_carry #成为携带者
+				#add_trait = congenital_tentacle_slavery_carry 
+				become_tentacle_slavery = yes#成为奴隶，测试
 			}
-			#add_character_flag = congenital_tentacle_slavery_carry #成为携带者
-			#add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
 		}
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
-			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
 			set_variable =  { name = tentacleswarm_corruption value = 0 }
+			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
+			#初始化自然生长
+			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
+			if = {
+				limit = { is_coastal_county = yes} #伯爵领靠海
+				change_variable =  { name = tentacleswarm_corruption_nature add = 0.5 }
+			}
+			every_county_province = { 
+				if = { #每块丛林
+					limit = { terrain = jungle }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.3 } }
+				}
+				else_if = { #每块湿地
+					limit = { terrain = wetlands }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.3 } }
+				}
+				else_if = { #森林
+					limit = { terrain = forest }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.2 } }
+				}
+				else_if = { #洪泛平原
+					limit = { terrain = floodplains }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.1 } }
+				}
+			}
 		}
 	}
 }

@@ -11,3 +11,8 @@ tentacleswarm_religion_convert_from_value = {
 	subtract = scope:county.var:tentacleswarm_corruption
 	multiply = 0.01
 }
+
+minus_tentacleswarm_corruption = {
+	value = 0
+	subtract = var:tentacleswarm_corruption
+}

@@ -82,7 +82,7 @@ yearly_playable_pulse = {
 tentacleswarm_yearly_playable_pulse = {
 	effect = {
 		#计算统治者的宫廷会带来多大的腐化度
-		set_variable =  { name = tentacleswarm_corruption_add value = 1 } 	#基础，杀不干净	
+		set_variable =  { name = tentacleswarm_corruption_add value = 0.1} 	#基础，杀不干净	
 		if = {
 			limit = { is_tentacle_slavery = yes } 
 			change_variable =  { name = tentacleswarm_corruption_add add = 5 } #如果统治者是奴隶
@@ -93,19 +93,19 @@ tentacleswarm_yearly_playable_pulse = {
 		}
 		every_spouse = {
 			limit = { is_tentacle_slavery = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是触手奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果配偶是触手奴隶
 		}
 		every_spouse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶信奉触手宗教
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果配偶信奉触手宗教
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slavery = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5 } }#如果宾客是触手奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1 } }#如果宾客是触手奴隶
 		}
 		every_courtier_or_guest = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5  } }#如果宾客信奉触手宗教
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1  } }#如果宾客信奉触手宗教
 		}
 		#为每个伯爵领结算腐化度
 		every_held_title = {
@@ -118,11 +118,11 @@ tentacleswarm_yearly_playable_pulse = {
 			}		
 			if = {
 				limit = { holder = { is_tentacle_slavery = yes } }
-				change_variable =  { name = tentacleswarm_corruption_growth add = 10 } #如果统治者是奴隶
+				change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者是奴隶
 			}	
 			if = {
 				limit = { holder = { has_religion = religion:tentacleswarm_religion } }
-				change_variable =  { name = tentacleswarm_corruption_growth add = 10 } #如果统治者信奉触手宗教
+				change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者信奉触手宗教
 			}
 			change_variable =  { name = tentacleswarm_corruption_growth add = development_level }#每点发展度+1%
 			
@@ -133,6 +133,9 @@ tentacleswarm_yearly_playable_pulse = {
 			#领主宫廷带来的增长
 			change_variable =  { name = tentacleswarm_corruption add = holder.var:tentacleswarm_corruption_add }
 		
+			#计算地形带来的影响
+			change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
+			
 			#腐化上限为120
 			if = {
 				limit = { var:tentacleswarm_corruption = { compare_value > 120 } }

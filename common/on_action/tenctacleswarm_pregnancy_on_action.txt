@@ -249,7 +249,7 @@ tentacleswarm_adult_pulse = {
 				}
 				100 = {
 					modifier = {
-						subtract = location.county.var:tentacleswarm_corruption
+						add = location.county.minus_tentacleswarm_corruption
 					}
 				}
 			}
