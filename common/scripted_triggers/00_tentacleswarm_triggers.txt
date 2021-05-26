@@ -15,8 +15,8 @@ secret_tentacle_slavery_is_shunned_trigger = {
 }
 secret_tentacle_slavery_is_criminal_trigger = {
 	OR = {
-		faith = { has_doctrine_parameter = doctrine_tentacleswarm_criminal }
-		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_criminal } }
+		faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime } }
 	}
 }
 secret_tentacle_slavery_is_evil_trigger = {

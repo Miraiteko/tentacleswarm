@@ -1,4 +1,4 @@
-tentacleswarm_religion = {
+﻿tentacleswarm_religion = {
 	family = rf_xenogenesis
 		
 	#Main Group
@@ -6,6 +6,7 @@ tentacleswarm_religion = {
 	doctrine = doctrine_gender_female_dominated #女性主导
 	doctrine = doctrine_pluralism_fundamentalist #基要主义
 	doctrine = doctrine_theocracy_lay_clergy #世俗宗教地产
+	doctrine = abrahamic_hostility_doctrine #亚伯拉罕式侵略性
 	
 	#Marriage
 	doctrine = doctrine_monogamy #一夫一妻
@@ -198,7 +199,7 @@ tentacleswarm_religion = {
 	
 	faiths = {
 		tentacleswarm_slavery = {
-			color = { 0.5 0 0.3 }
+			color = { 0.37 0.15 0.61 }
 			icon = zoroastrian
 
 			doctrine = tenet_carnal_exaltation #纵欲

@@ -11,6 +11,28 @@
 			doctrine_tentacleswarm_evil = yes
 		}
 	}
+	doctrine_tentacleswarm_crime = {#罪行
+		can_pick = {
+			NOT = { religion_tag = tentacleswarm_religion }
+		}
+		piety_cost = {
+			value = 0
+		}
+		parameters = {
+			doctrine_tentacleswarm_crime = yes
+		}
+	}
+	doctrine_tentacleswarm_shunned = {#忌讳
+		can_pick = {
+			NOT = { religion_tag = tentacleswarm_religion }
+		}
+		piety_cost = {
+			value = 0
+		}
+		parameters = {
+			doctrine_tentacleswarm_shunned = yes
+		}
+	}
 	doctrine_tentacleswarm_accepted = {#容许
 		can_pick = {
 			religion_tag = tentacleswarm_religion

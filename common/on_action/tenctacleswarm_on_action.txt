@@ -14,6 +14,12 @@ tentacleswarm_on_pregnancy_pulse = {
 tentacleswarm_baby_corruption = {
 	trigger = { #目前只考虑奴隶被赐福
 		is_tentacle_slavery = yes
+		is_imprisoned = no #不能被囚禁
+		OR = {
+			is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人
+			any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会腐化未来的继承人
+			has_trait = tentacle_slavery #或者是已经公开的奴隶
+		}
 	}
 	effect = {
 		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
@@ -213,8 +219,8 @@ tentacleswarm_birth_pulse = {
 #年度触发
 random_yearly_everyone_pulse = {
 	on_actions = { 
-		tentacleswarm_female_bliever_yearly
-		openly_tentacle_slavery_yearly
+		tentacleswarm_bliever_yearly
+		tentacle_slavery_yearly
 	}
 }
 tentacleswarm_bliever_yearly = { #触手信徒年度触发
@@ -225,34 +231,48 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 		if = {
 			limit = {
 				is_female = yes
-				has_trait = tentacle_slavery #没有成为奴隶的女性成为奴隶，没公开的也进行公开
+				not = { has_trait = tentacle_slavery } #没有成为奴隶的女性成为奴隶
 			}
 			add_trait = tentacle_slavery
 		}
 	}
 }
-openly_tentacle_slavery_yearly = {
+tentacle_slavery_yearly = {
 	trigger = {
-		has_trait = tentacle_slavery
+		is_tentacle_slavery = yes
 	}
 	effect = {
 		if = {
 			limit = {
 				#如果上头有人
-				any_liege_or_above = { has_trait = tentacle_slavery }
+				OR = {
+					is_ruler = yes
+					any_liege_or_above = { has_trait = tentacle_slavery }
+				}
 			}
 			if = {
-				#皈依正统信仰
-				not = { has_religion = religion:tentacleswarm_religion }
+				#皈依正统信仰,揭露身份
+				limit = {
+					not = { has_religion = religion:tentacleswarm_religion }
+				}
 				set_character_faith = faith:tentacleswarm_slavery
+				add_trait = tentacle_slavery
 			}
 		}
 		else = {
 			#跟风当地信仰
-			set_character_faith = location.faith
+			if = {
+				limit = {
+					has_religion = religion:tentacleswarm_religion 
+				}
+				set_character_faith = location.faith
+			}
 			#根据新信仰选择是否要将身份藏起来
-			remove_trait = tentacle_slavery
-			become_tentacle_slavery = yes
+			if = {
+				limit = { has_trait = tentacle_slavery } 
+				remove_trait = tentacle_slavery
+				become_tentacle_slavery = yes
+			}
 		}
 	}
 }
