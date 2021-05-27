@@ -3,7 +3,7 @@
 ######################
 tentacleswarm_religion_convert_to_value = {
 	value = scope:county.var:tentacleswarm_corruption
-	add = -100
+	add = -20
 	multiply = 0.01
 	min = 0 
 }

@@ -41,6 +41,42 @@
 	ai_check_interval = 60
 
 	ai_potential = {
+		capital_province.county = { #首都可以召出5队巨兽，ai才会点
+			var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+tentacleswarm_test_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	desc = tentacleswarm_start_decision_desc
+	selection_tooltip = tentacleswarm_start_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes #统治者
+	}
+	
+	is_valid = { 
+		is_ai = no
+	}	
+	effect = {
+		capital_province = {
+			county = {
+				every_title_to_title_neighboring_and_across_water_county = {
+					add_county_modifier = tentacleswarm_corruption_5
+				}
+			}
+		}
+	}
+	
+	ai_check_interval = 60
+
+	ai_potential = {
 		always = yes
 	}
 

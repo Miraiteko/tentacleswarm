@@ -40,6 +40,9 @@
 		piety_cost = {
 			value = 0
 		}
+		character_modifier = {
+			learning = -10
+		} 
 		parameters = {
 			doctrine_tentacleswarm_accepted = yes
 		}

@@ -33,6 +33,7 @@ tentacle_slavery = {
 	ai_honor = high_negative_ai_value #无荣耀
 	ai_rationality = high_negative_ai_value #无理智
 	ai_war_chance = 20 #好战的
+	ai_war_cooldown = -0.5
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_evil
 		opinion_modifier = tentacle_slavery_evil
