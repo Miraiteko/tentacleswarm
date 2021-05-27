@@ -1,20 +1,20 @@
 ﻿# A special title that should not be visible to the player under any circumstance
 d_very_low_corruption_province = {
-	color = { 234 224 213 }
+	color = { 234 224 170 }
 	
 	capital = c_roma
 
 	can_create = { always = no }
 }
 d_low_corruption_province = {
-	color = { 255 147 222 }
+	color = { 255 147 178 }
 	
 	capital = c_roma
 
 	can_create = { always = no }
 }
 d_mid_corruption_province = {
-	color = { 241 88 230 }
+	color = { 241 88 184 }
 	
 	capital = c_roma
 
@@ -22,14 +22,14 @@ d_mid_corruption_province = {
 }
 
 d_high_corruption_province = {
-	color = { 194 38 217 }
+	color = { 194 38 174 }
 	
 	capital = c_roma
 
 	can_create = { always = no }
 }
 d_very_high_corruption_province = {
-	color = { 106 41 141 }
+	color = { 106 41 113 }
 	
 	capital = c_roma
 
@@ -37,7 +37,7 @@ d_very_high_corruption_province = {
 }
 
 d_hell_corruption_province = {
-	color = { 53 33 78 }
+	color = { 53 33 63 }
 	
 	capital = c_roma
 

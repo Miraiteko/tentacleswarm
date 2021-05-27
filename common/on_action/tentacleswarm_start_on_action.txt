@@ -23,13 +23,13 @@ tentacleswarm_on_game_start = {
 			if = {
 				limit = { 
 					#is_lowborn = yes
-					#is_female = yes 
-					is_adult = no
-					#has_faith = faith:catholic 
+					is_female = yes 
+					is_adult = yes
+					has_faith = faith:catholic 
 				}
 				add_character_flag = congenital_tentacle_slavery_carry #成为携带者
 				add_trait = congenital_tentacle_slavery_carry
-				#become_tentacle_slavery = yes#成为奴隶，测试
+				become_tentacle_slavery = yes#成为奴隶，测试
 			}
 		}
 		

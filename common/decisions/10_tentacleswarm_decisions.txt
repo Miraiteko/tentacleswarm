@@ -41,8 +41,11 @@
 	ai_check_interval = 60
 
 	ai_potential = {
-		capital_province.county = { #首都可以召出5队巨兽，ai才会点
-			var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+		OR = {
+			NOT = { exists = capital_province }
+			capital_province.county = { #首都可以召出5队巨兽，ai才会点
+				var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+			}
 		}
 	}
 
