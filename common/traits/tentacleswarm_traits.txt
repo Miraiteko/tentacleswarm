@@ -2,7 +2,7 @@
 tentacle_slave = {
 	index = 339
 	
-	same_opinion = 500
+	same_opinion = 30
 	
 	valid_sex =  female
 	

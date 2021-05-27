@@ -76,7 +76,7 @@ tentacle_slave_yearly = {
 		is_tentacle_slave = yes
 	}
 	effect = {
-		add_character_flag = ____tentacle_slave____
+		add_character_flag = ____TENTACLE_SLAVE____
 		if = { #自己是潜藏的统治者的话，用决议来决定是否起事
 			limit = { 
 				is_ruler = yes
@@ -303,12 +303,12 @@ tentacleswarm_yearly_playable_pulse = {
 				#计算自然增长率
 				set_variable =  { name = tentacleswarm_corruption_growth value = 60 } #基础为每年-40%	
 				if = {
-					limit = { holder = { is_tentacle_slave = yes } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 0 } #如果统治者是奴隶抵消衰减
+					limit = { county_controller = { is_tentacle_slave = yes } }
+					change_variable =  { name = tentacleswarm_corruption_growth add = 0 } #如果控制者是奴隶抵消衰减
 				}	
 				if = {
-					limit = { holder = { has_religion = religion:tentacleswarm_religion } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 20 } #如果统治者信奉触手宗教抵消衰减
+					limit = { county_controller = { has_religion = religion:tentacleswarm_religion } }
+					change_variable =  { name = tentacleswarm_corruption_growth add = 20 } #如果控制者信奉触手宗教抵消衰减
 				}
 				if = {
 					limit = { religion = religion:tentacleswarm_religion }
@@ -591,25 +591,42 @@ tentacleswarm_random_yearly_playable_pulse = {
 		basic_is_valid_for_yearly_events_trigger = yes 
 	}
 	effect = {
-		#信徒的扩张
+		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征
 		if = {
 			limit = {
 				has_religion = religion:tentacleswarm_religion
 				is_ai = yes
 				is_at_war = no
-				max_military_strength > 3000
-				piety > 100
+				capital_county = {  #首都发展度不足了
+					development_level <= 8
+				}
+				max_military_strength > 4000
 			}
 			save_scope_as = actor
-			
+			#搜索最大发展度的土地
+			scope:actor = {
+				set_variable =  { name = max_held_development value = 1 }
+				every_held_title = {
+					limit = { 
+						tier = tier_county
+					}
+					if = {
+						limit = { 
+							development_level > scope:actor.var:max_held_development
+						}
+						scope:actor = { set_variable =  { name = max_held_development value = prev.development_level }}
+					}
+				}
+				change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
+			}
 			random_in_global_list = {
 				variable = tentacleswarm_main_target_ruler
 				limit = {
 					highest_held_title_tier >= tier_duchy #不啃独立小伯爵
 					is_landed = yes #有地
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教
-					capital_county = {  #首都有发展度
-						development_level > 0
+					capital_county = {  #首都有较高发展度
+						development_level >= scope:actor.var:max_held_development
 					}
 					ROOT = { #需要符合宣战条件
 						is_character_interaction_valid = {
@@ -620,6 +637,13 @@ tentacleswarm_random_yearly_playable_pulse = {
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient
+				random_held_title = {
+					limit = { 
+						tier = tier_county 
+						development_level >= scope:actor.var:max_held_development
+					}
+					save_scope_as = target
+				}
 				if = {
 					limit = {
 						war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
@@ -628,7 +652,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 						start_war = { 
 							casus_belli = tentacleswarm_conquest 
 							target = scope:target_character
-							target_title = scope:target_character.capital_county.kingdom
+							target_title = scope:target.kingdom
 						}
 					}
 				}

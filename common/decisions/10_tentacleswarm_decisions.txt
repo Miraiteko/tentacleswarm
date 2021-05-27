@@ -96,47 +96,20 @@ tentacleswarm_test_decision = {
 	
 	is_valid = { 
 		is_ai = no
-		basic_is_valid_for_yearly_events_trigger = yes 
-		has_religion = religion:tentacleswarm_religion
-		#is_ai = yes
-		is_at_war = no
-		max_military_strength > 3000
-		piety > 50
 	}	
 	effect = {
-			save_scope_as = actor
-			add_gold = 100
-			random_in_global_list = {
-				variable = tentacleswarm_main_target_ruler
+		add_gold =100
+		set_variable =  { name = max_held_development value = 1 }
+		every_held_title = {
+			limit = { tier = tier_county }
+			if = {
 				limit = {
-					is_landed = yes #有地
-					NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
-					NOT = { has_religion = religion:tentacleswarm_religion } #异教
-					capital_county = {  #首都有发展度
-						development_level > 0
-					}
-					ROOT = { #需要符合宣战条件
-						is_character_interaction_valid = {
-						   recipient = PREV
-						   interaction = declare_war_interaction
-						}
-					}
+					development_level > holder.var:max_held_development
 				}
-				save_scope_as = target_character
-				save_scope_as = recipient
-				if = {
-					limit = {
-						war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
-					}
-					scope:actor = {
-						start_war = { 
-							casus_belli = tentacleswarm_conquest 
-							target = scope:target_character
-							target_title = scope:target_character.capital_county.kingdom
-						}
-					}
-				}
+				holder = { set_variable =  { name = max_held_development value = prev.development_level }}
 			}
+		}
+		change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
 	}
 	
 	ai_check_interval = 60
