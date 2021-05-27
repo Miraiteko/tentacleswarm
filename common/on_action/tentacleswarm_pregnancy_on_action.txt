@@ -13,12 +13,12 @@ tentacleswarm_on_pregnancy_pulse = {
 }
 tentacleswarm_baby_corruption = {
 	trigger = { #目前只考虑奴隶被赐福
-		is_tentacle_slavery = yes
+		is_tentacle_slave = yes
 		is_imprisoned = no #不能被囚禁
 		OR = {
 			is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人
 			any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会腐化未来的继承人
-			has_trait = tentacle_slavery #或者是已经公开的奴隶
+			has_trait = tentacle_slave #或者是已经公开的奴隶
 		}
 	}
 	effect = {
@@ -33,7 +33,7 @@ tentacleswarm_near_birth_pulse = {
 		#母亲为纯合子
 		if = { 
 			limit = {
-				has_character_flag = congenital_tentacle_slavery
+				has_character_flag = congenital_tentacle_slave
 			}
 			#母亲被赐福
 			if = { 
@@ -42,24 +42,24 @@ tentacleswarm_near_birth_pulse = {
 				}
 				#孩子一定是女性纯合
 				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 } 
+				add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 } 
 			}
 			#父亲活着，是携带者
 			else_if = {
 				limit = { 
 					scope:real_father = { 
 						is_alive = yes
-						has_character_flag = congenital_tentacle_slavery_carry
+						has_character_flag = congenital_tentacle_slave_carry
 					} 
 				}
 				random_list = {
 					50 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
 					}
 					50 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 				}
 			}
@@ -68,11 +68,11 @@ tentacleswarm_near_birth_pulse = {
 				random_list = {
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					50 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 				}
 			}
@@ -81,7 +81,7 @@ tentacleswarm_near_birth_pulse = {
 		#母亲为携带者
 		else_if = { 
 			limit = {
-				has_character_flag = congenital_tentacle_slavery_carry
+				has_character_flag = congenital_tentacle_slave_carry
 			}
 			#母亲被赐福
 			if = { 
@@ -91,31 +91,31 @@ tentacleswarm_near_birth_pulse = {
 				random_list = {
 					50 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
 					}
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 				}
 			}
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tentacle_slavery_carry } 
+					scope:real_father = { has_character_flag = congenital_tentacle_slave_carry } 
 				}
 				random_list = {
 					25 = {#女性纯合
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
 					}
 					25 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					25 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					25 = {#男性正常
 						set_pregnancy_gender = male
@@ -127,14 +127,14 @@ tentacleswarm_near_birth_pulse = {
 				random_list = {
 					25 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					25 = {#女性正常
 						set_pregnancy_gender = female
 					}
 					25 = {#男性携带
 						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					25 = {#男性正常
 						set_pregnancy_gender = male
@@ -151,17 +151,17 @@ tentacleswarm_near_birth_pulse = {
 				}
 				#孩子一定是女性携带
 				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 } 
+				add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 } 
 			}
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tentacle_slavery_carry } 
+					scope:real_father = { has_character_flag = congenital_tentacle_slave_carry } 
 				}
 				random_list = {
 					50 = {#女性携带
 						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slavery_carry months = 5 }
+						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
 					}
 					50 = {#男性正常
 						set_pregnancy_gender = male
@@ -190,28 +190,28 @@ tentacleswarm_birth_pulse = {
 		if = { #天生奴隶
 			limit = {
 				is_female = yes
-				mother = { has_character_flag = baby_congenital_tentacle_slavery } 
+				mother = { has_character_flag = baby_congenital_tentacle_slave } 
 			}
-			add_character_flag = congenital_tentacle_slavery #成为纯合子
-			add_trait = congenital_tentacle_slavery #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slave #成为纯合子
+			add_trait = congenital_tentacle_slave #成为奴隶，测试
 		}
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
 				is_female = no
-				mother = { has_character_flag = baby_congenital_tentacle_slavery } 
+				mother = { has_character_flag = baby_congenital_tentacle_slave } 
 			}
-			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
-			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slave_carry #成为携带者
+			add_trait = congenital_tentacle_slave_carry #成为奴隶，测试
 		}	
 		else_if = { #携带者
 			limit = {
-				mother = { has_character_flag = baby_congenital_tentacle_slavery_carry } 
+				mother = { has_character_flag = baby_congenital_tentacle_slave_carry } 
 			}
-			add_character_flag = congenital_tentacle_slavery_carry #成为携带者
-			add_trait = congenital_tentacle_slavery_carry #成为奴隶，测试
+			add_character_flag = congenital_tentacle_slave_carry #成为携带者
+			add_trait = congenital_tentacle_slave_carry #成为奴隶，测试
 		}	
 		else = { #正常人
-			#add_trait = congenital_tentacle_slavery_no #成为奴隶，测试
+			#add_trait = congenital_tentacle_slave_no #成为奴隶，测试
 		}
 	}
 }
@@ -226,9 +226,9 @@ tentacleswarm_adult_pulse = {
 		if = { #天生奴隶成年时成为奴隶
 			limit = {
 				is_female = yes
-				has_character_flag = congenital_tentacle_slavery 
+				has_character_flag = congenital_tentacle_slave 
 			}
-			become_tentacle_slavery = yes
+			become_tentacle_slave = yes
 		}
 		else_if = { #其他女性看成年所在地的腐化度
 			limit = { is_female = yes }
@@ -243,10 +243,10 @@ tentacleswarm_adult_pulse = {
 						add = 50
 						any_relation = {
 							type = guardian
-							is_tentacle_slavery = yes
+							is_tentacle_slave = yes
 						}
 					}
-					become_tentacle_slavery = yes
+					become_tentacle_slave = yes
 				}
 				100 = {
 					modifier = {

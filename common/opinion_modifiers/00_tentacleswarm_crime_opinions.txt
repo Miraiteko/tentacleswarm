@@ -1,4 +1,4 @@
-﻿tentacle_slavery_evil = {
+﻿tentacle_slave_evil = {
 	opinion = -300
 	imprisonment_reason = yes
 	banish_reason = yes
@@ -6,11 +6,11 @@
 	revoke_title_reason = yes
 	divorce_reason = yes
 }
-tentacle_slavery_crime = {
+tentacle_slave_crime = {
 	opinion = -40
 	imprisonment_reason = yes
 	revoke_title_reason = yes
 }
-tentacle_slavery_shunned = {
+tentacle_slave_shunned = {
 	opinion = -20
 }

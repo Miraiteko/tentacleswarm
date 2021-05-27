@@ -1,16 +1,16 @@
 ﻿#奴隶夺取丈夫的地位
-tentacle_slavery_claim_throne = {
+tentacle_slave_claim_throne = {
 	
 	skill = intrigue
 	hostile = yes
 	
 	allow = {
-		is_tentacle_slavery = yes
+		is_tentacle_slave = yes
 		is_imprisoned = no
 	}
 	
 	valid = {
-		is_tentacle_slavery = yes
+		is_tentacle_slave = yes
 		is_imprisoned = no
 		scope:target = {
 			is_consort_of = scope:owner 
@@ -45,8 +45,8 @@ tentacle_slavery_claim_throne = {
 		}
 		modifier = {
 			add = 1000
-			root = { is_tentacle_slavery = yes }
-			desc = "TENTACLE_SLAVERY_PATNER"
+			root = { is_tentacle_slave = yes }
+			desc = "tentacle_slave_PATNER"
 		}
 		hostile_murder_agent_base_join_chance_modifier = yes # TODO, make a more claim throne-flavored version of this
 	}
@@ -124,7 +124,7 @@ tentacle_slavery_claim_throne = {
 		scheme_target.primary_title = { save_scope_as = target_title }
 		scheme_owner = {
 			trigger_event = {
-					on_action = tentacle_slavery_claim_throne_setup
+					on_action = tentacle_slave_claim_throne_setup
 			}
 		}
 	}
@@ -137,7 +137,7 @@ tentacle_slavery_claim_throne = {
 			}			
 			scheme_owner = {
 				trigger_event = {
-					on_action = tentacle_slavery_claim_throne_ongoing
+					on_action = tentacle_slave_claim_throne_ongoing
 					days = { 1 30 }
 				}
 			}

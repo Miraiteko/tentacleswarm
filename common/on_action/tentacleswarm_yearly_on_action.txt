@@ -1,8 +1,21 @@
-﻿#年度触发
+﻿#全局年度触发
+yearly_global_pulse = {
+	on_actions = { 
+		tentacleswarm_yearly_global_pulse
+	}
+}
+tentacleswarm_yearly_global_pulse = {
+	effect = {
+		#切分领主对象，避免O(n^2)的运算
+		clear_global_variable_list = tentacleswarm_slave_ruler
+		clear_global_variable_list = tentacleswarm_ruler
+	}
+}
+#每个人年度触发
 random_yearly_everyone_pulse = {
 	on_actions = { 
 		tentacleswarm_bliever_yearly
-		tentacle_slavery_yearly
+		tentacle_slave_yearly
 	}
 }
 tentacleswarm_bliever_yearly = { #触手信徒年度触发
@@ -14,22 +27,22 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 			limit = {
 				is_female = yes
 				is_adult = yes
-				not = { has_trait = tentacle_slavery }
+				not = { has_trait = tentacle_slave }
 			}
-			add_trait = tentacle_slavery
+			add_trait = tentacle_slave
 		}
 	}
 }
-tentacle_slavery_yearly = {
+tentacle_slave_yearly = {
 	trigger = {
-		is_tentacle_slavery = yes
+		is_tentacle_slave = yes
 	}
 	effect = {
-		add_character_flag = ____TENTACLE_SLAVERY____
+		add_character_flag = ____tentacle_slave____
 		if = { #自己是潜藏的统治者的话，用决议来决定是否起事
 			limit = { 
 				is_ruler = yes
-				any_secret = { secret_type = secret_tentacle_slavery }
+				any_secret = { secret_type = secret_tentacle_slave }
 			}
 		}
 		else_if = {
@@ -58,9 +71,11 @@ tentacle_slavery_yearly = {
 			}
 			#根据新信仰选择是否要将身份藏起来
 			if = {
-				limit = { has_trait = tentacle_slavery } 
-				remove_trait = tentacle_slavery
-				become_tentacle_slavery = yes
+				limit = {
+					has_trait = tentacle_slave
+				} 
+				remove_trait = tentacle_slave
+				become_tentacle_slave = yes
 			}
 		}
 		if = {
@@ -82,7 +97,7 @@ tentacle_slavery_yearly = {
 				save_scope_as = target
 			}
 			start_scheme = {
-				type = tentacle_slavery_claim_throne
+				type = tentacle_slave_claim_throne
 				target = scope:target
 			}
 		}
@@ -99,7 +114,7 @@ tentacleswarm_yearly_playable_pulse = {
 		#计算统治者的宫廷会带来多大的腐化度
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
-			limit = { is_tentacle_slavery = yes } 
+			limit = { is_tentacle_slave = yes } 
 			change_variable =  { name = tentacleswarm_corruption_add add = 7 } #如果统治者是奴隶
 		}	
 		if = {
@@ -107,7 +122,7 @@ tentacleswarm_yearly_playable_pulse = {
 			change_variable =  { name = tentacleswarm_corruption_add add = 0 } #如果统治者信奉触手宗教
 		}
 		every_spouse = {
-			limit = { is_tentacle_slavery = yes  }
+			limit = { is_tentacle_slave = yes  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果配偶是触手奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
@@ -115,7 +130,7 @@ tentacleswarm_yearly_playable_pulse = {
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶信奉触手宗教
 		}
 		every_courtier_or_guest = {
-			limit = { is_tentacle_slavery = yes  }
+			limit = { is_tentacle_slave = yes  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1 } }#如果宾客是触手奴隶
 		}
 		every_courtier_or_guest = {
@@ -137,29 +152,42 @@ tentacleswarm_yearly_playable_pulse = {
 				save_scope_as = target
 				root = { destroy_title = scope:target }
 			}
-			every_held_title = { #伯爵以下头衔，随便找个人拿
-				limit = { tier = tier_county }
+			#废弃的土地，随便找个人拿
+			random_held_title = {
+				limit = { 
+					tier = tier_county 
+					NOT = { is_in_list = titles_taken }#不是刚拿的头衔
+					has_county_modifier = tentacleswarm_destroy
+				}
 				save_scope_as = target
 				random_living_character = {
 					limit = {
 						is_pool_character = yes
-						is_tentacle_slavery = no
+						is_tentacle_slave = no
 						not = { has_religion = religion:tentacleswarm_religion }
 						has_culture_group = scope:target.culture_group
 					}
 					save_scope_as = lucky
 				}
 				if = {
-					limit = { NOT = { exists = scope:lucky } }
+					limit = { NOT = { exists = scope:lucky }  }
 					random_living_character = {
 						limit = {
 							is_pool_character = yes
-							is_tentacle_slavery = no
+							is_tentacle_slave = no
 							not = { has_religion = religion:tentacleswarm_religion }
 						}
 						save_scope_as = lucky
 					}
 				}
+			}
+			every_held_title = { 
+				limit = { 
+					tier = tier_county 
+					NOT = { is_in_list = titles_taken }#不是刚拿的头衔
+					has_county_modifier = tentacleswarm_destroy
+				}
+				save_scope_as = target
 				create_title_and_vassal_change = {
 					type = usurped
 					save_scope_as = change
@@ -237,7 +265,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#计算自然增长率
 				set_variable =  { name = tentacleswarm_corruption_growth value = 60 } #基础为每年-40%	
 				if = {
-					limit = { holder = { is_tentacle_slavery = yes } }
+					limit = { holder = { is_tentacle_slave = yes } }
 					change_variable =  { name = tentacleswarm_corruption_growth add = 0 } #如果统治者是奴隶抵消衰减
 				}	
 				if = {
@@ -504,6 +532,8 @@ tentacleswarm_yearly_playable_pulse = {
 							location = root.capital_province
 							name = tentacleswarm_warbeast_event_troops
 						}
+						add_gold = 100
+						add_piety = 50
 					}
 				}
 			}
@@ -515,7 +545,6 @@ random_yearly_playable_pulse = {
 	#自带的条件，诸如有地未被囚禁等等
 	#trigger = { basic_is_valid_for_yearly_events_trigger = yes }
 	on_actions = {
-		delay = { days = { 75 120 } }
 		tentacleswarm_random_yearly_playable_pulse	
 	}
 }
@@ -530,13 +559,14 @@ tentacleswarm_random_yearly_playable_pulse = {
 				has_religion = religion:tentacleswarm_religion
 				is_ai = yes
 				is_at_war = no
-				max_military_strength > 5000
+				max_military_strength > 3000
 				piety > 100
 			}
 			save_scope_as = actor
 			
 			random_independent_ruler = {
 				limit = {
+					highest_held_title_tier >= tier_duchy #不啃独立小伯爵
 					is_landed = yes #有地
 					NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教

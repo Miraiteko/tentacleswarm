@@ -15,8 +15,18 @@ tentacleswarm_conquest = {
 
 	allowed_against_character = {
 		scope:defender = {
-			#NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
+			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
 			is_independent_ruler = yes #独立
+		}
+		scope:attacker = { #不允许跳板进攻。(AI只会进攻相邻或者事件进攻远距离，不用考虑这一条)
+			OR = {
+				is_ai = yes
+				scope:defender = {
+					any_sub_realm_county = {
+						development_level > 0
+					}
+				}
+			}
 		}
 	}
 	valid_to_start = {
@@ -77,7 +87,7 @@ tentacleswarm_conquest = {
 		if = {
 			limit = {
 				scope:defender = { 
-					is_tentacle_slavery = yes
+					is_tentacle_slave = yes
 				}
 			}
 			add = -100
@@ -149,7 +159,7 @@ tentacleswarm_conquest = {
 			if = { #攻击触手奴隶统治者消耗虔诚
 				limit = {
 					scope:defender = {
-						is_tentacle_slavery = yes
+						is_tentacle_slave = yes
 					}
 				}
 				add = {
@@ -290,7 +300,8 @@ tentacleswarm_conquest = {
 			
 			#处理老地块
 			scope:attacker = {
-				every_held_title = { #废弃的土地，随便找个人拿
+				#废弃的土地，随便找个人拿
+				random_held_title = {
 					limit = { 
 						tier = tier_county 
 						NOT = { is_in_list = titles_taken }#不是刚拿的头衔
@@ -300,7 +311,7 @@ tentacleswarm_conquest = {
 					random_living_character = {
 						limit = {
 							is_pool_character = yes
-							is_tentacle_slavery = no
+							is_tentacle_slave = no
 							not = { has_religion = religion:tentacleswarm_religion }
 							has_culture_group = scope:target.culture_group
 						}
@@ -311,12 +322,20 @@ tentacleswarm_conquest = {
 						random_living_character = {
 							limit = {
 								is_pool_character = yes
-								is_tentacle_slavery = no
+								is_tentacle_slave = no
 								not = { has_religion = religion:tentacleswarm_religion }
 							}
 							save_scope_as = lucky
 						}
 					}
+				}
+				every_held_title = { 
+					limit = { 
+						tier = tier_county 
+						NOT = { is_in_list = titles_taken }#不是刚拿的头衔
+						has_county_modifier = tentacleswarm_destroy
+					}
+					save_scope_as = target
 					create_title_and_vassal_change = {
 						type = usurped
 						save_scope_as = change

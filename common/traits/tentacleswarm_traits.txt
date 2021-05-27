@@ -1,5 +1,5 @@
 ﻿#奴隶
-tentacle_slavery = {
+tentacle_slave = {
 	index = 339
 	
 	same_opinion = 500
@@ -33,31 +33,31 @@ tentacle_slavery = {
 	#宗教偏见
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_evil
-		opinion_modifier = tentacle_slavery_evil
+		opinion_modifier = tentacle_slave_evil
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_crime
-		opinion_modifier = tentacle_slavery_crime
+		opinion_modifier = tentacle_slave_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_shunned
-		opinion_modifier = tentacle_slavery_shunned
+		opinion_modifier = tentacle_slave_shunned
 		ignore_opinion_value_if_same_trait = yes
 	}
 	
 }
 #天生奴
-congenital_tentacle_slavery = {
+congenital_tentacle_slave = {
 	index = 340
 	
 }
 #天生奴基因携带者
-congenital_tentacle_slavery_carry = {
+congenital_tentacle_slave_carry = {
 	index = 341
 }
 #天生奴基因不携带者
-congenital_tentacle_slavery_no = {
+congenital_tentacle_slave_no = {
 	index = 342
 }

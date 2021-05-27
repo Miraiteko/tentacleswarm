@@ -1,5 +1,5 @@
 ﻿#奴隶夺取君位结算事件
-tentacle_slavery_claim_throne_setup = {
+tentacle_slave_claim_throne_setup = {
 	effect = {
 		#获得目标头衔
 		create_title_and_vassal_change = {
@@ -23,7 +23,7 @@ tentacle_slavery_claim_throne_setup = {
 }
 
 #奴隶夺取君位月度事件
-tentacle_slavery_claim_throne_ongoing = {
+tentacle_slave_claim_throne_ongoing = {
 	# Events that can happen while Claiming Throne from your Liege
 	
 	random_events = {

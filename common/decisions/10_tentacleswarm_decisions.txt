@@ -7,11 +7,11 @@
 
 	is_shown = {
 		is_ruler = yes #统治者
-		any_secret = { secret_type = secret_tentacle_slavery }
+		any_secret = { secret_type = secret_tentacle_slave }
 	}
 	
 	is_valid = { 
-		any_secret = { secret_type = secret_tentacle_slavery }
+		any_secret = { secret_type = secret_tentacle_slave }
 	}	
 	effect = {
 		#公开皈依
@@ -19,19 +19,19 @@
 		#廷臣皈依
 		every_courtier_or_guest	= {
 			limit = {
-				is_tentacle_slavery = yes
+				is_tentacle_slave = yes
 			}
 			convert_to_tentacleswarm_religion = yes
 		}
 		#封臣皈依
 		every_vassal_or_below ={
 			if = {
-				limit = { is_tentacle_slavery = yes } 
+				limit = { is_tentacle_slave = yes } 
 				convert_to_tentacleswarm_religion = yes
 			}
 			every_courtier_or_guest	= {
 				limit = {
-					is_tentacle_slavery = yes
+					is_tentacle_slave = yes
 				}
 				convert_to_tentacleswarm_religion = yes
 			}
@@ -66,15 +66,46 @@ tentacleswarm_test_decision = {
 	
 	is_valid = { 
 		is_ai = no
+		basic_is_valid_for_yearly_events_trigger = yes 
+		has_religion = religion:tentacleswarm_religion
+		#is_ai = yes
+		is_at_war = no
+		max_military_strength > 3000
+		piety > 50
 	}	
 	effect = {
-		capital_province = {
-			county = {
-				every_title_to_title_neighboring_and_across_water_county = {
-					add_county_modifier = tentacleswarm_corruption_5
+			save_scope_as = actor
+			
+			random_independent_ruler = {
+				limit = {
+					is_landed = yes #有地
+					#NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
+					NOT = { has_religion = religion:tentacleswarm_religion } #异教
+					capital_county = {  #首都有发展度
+						development_level > 0
+					}
+					#ROOT = { #需要符合宣战条件
+					#	is_character_interaction_valid = {
+					#	   recipient = PREV
+					#	   interaction = declare_war_interaction
+					#	}
+					#}
+				}
+				save_scope_as = target_character
+				save_scope_as = recipient
+				if = {
+					limit = {
+						war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+					}
+					scope:actor = {
+						start_war = { 
+							casus_belli = tentacleswarm_conquest 
+							target = scope:target_character
+							target_title = scope:target_character.capital_county.kingdom
+						}
+					}
 				}
 			}
-		}
 	}
 	
 	ai_check_interval = 60
