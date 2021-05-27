@@ -10,11 +10,11 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 		has_religion = religion:tentacleswarm_religion
 	}
 	effect = {
-		if = {
+		if = { #没有成为奴隶的成年女性成为奴隶
 			limit = {
 				is_female = yes
 				is_adult = yes
-				not = { has_trait = tentacle_slavery } #没有成为奴隶的成年女性成为奴隶
+				not = { has_trait = tentacle_slavery }
 			}
 			add_trait = tentacle_slavery
 		}
@@ -41,6 +41,8 @@ tentacle_slavery_yearly = {
 			if = {
 				limit = {
 					has_religion = religion:tentacleswarm_religion 
+					exists = location
+					exists = location.faith
 				}
 				set_character_faith = location.faith
 			}
@@ -107,7 +109,50 @@ tentacleswarm_yearly_playable_pulse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1  } }#如果宾客信奉触手宗教
 		}
-		
+		if = {
+			limit = { #摧毁失去所有栖息地的触手领主的国家
+				has_religion = religion:tentacleswarm_religion
+				NOT = {
+					any_held_title = {
+						tier = tier_county
+						NOT = { has_county_modifier = tentacleswarm_destroy }
+					}
+				}
+			}
+			every_held_title = { #伯爵以上头衔摧毁
+				limit = { tier > tier_county }
+				save_scope_as = target
+				root = { destroy_title = scope:target }
+			}
+			every_held_title = { #伯爵以下头衔，随便找个人拿
+				limit = { tier = tier_county }
+				save_scope_as = target
+				random_living_character = {
+					limit = {
+						is_tentacle_slavery = no
+						not = { has_religion = religion:tentacleswarm_religion }
+						is_pool_character = yes
+					}
+					save_scope_as = lucky
+					add_trait = congenital_tentacle_slavery_no
+				}
+				create_title_and_vassal_change = {
+					type = usurped
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				scope:target = {#拿头衔
+					change_title_holder_include_vassals = {
+						holder = scope:lucky
+						change = scope:change
+					}
+				}
+				scope:lucky = {#独立
+					becomes_independent = { change = scope:change }
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
 		#为每个伯爵领结算腐化度
 		every_held_title = {
 			limit = { tier = tier_county }
@@ -133,37 +178,6 @@ tentacleswarm_yearly_playable_pulse = {
 				every_county_province = {
 					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
 				} 
-				if = { #触手信徒不能持有，随便找一个人把这地给拿了
-					limit = { holder = { has_religion = religion:tentacleswarm_religion } }
-					random_living_character = {
-						limit = {
-							is_tentacle_slavery = no
-							not = { has_religion = religion:tentacleswarm_religion }
-							is_pool_character = yes
-						}
-						save_scope_as = lucky
-					}
-					save_scope_as = target
-					create_title_and_vassal_change = {
-						type = independency
-						save_scope_as = change
-						add_claim_on_loss = yes
-					}
-					scope:target = {#拿头衔
-						change_title_holder_include_vassals = {
-							holder = scope:lucky
-							change = scope:change
-						}
-					}
-					scope:lucky = {#独立
-						change_liege_or_become_independent = {
-							CHANGE = scope:change
-							VASSAL = this
-						}
-					}
-					resolve_title_and_vassal_change = scope:change
-					
-				}
 			}
 			#否则，进行滋生
 			else = {
@@ -175,11 +189,11 @@ tentacleswarm_yearly_playable_pulse = {
 				}		
 				if = {
 					limit = { holder = { is_tentacle_slavery = yes } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者是奴隶
+					change_variable =  { name = tentacleswarm_corruption_growth add = 10 } #如果统治者是奴隶
 				}	
 				if = {
 					limit = { holder = { has_religion = religion:tentacleswarm_religion } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #如果统治者信奉触手宗教
+					change_variable =  { name = tentacleswarm_corruption_growth add = 0 } #如果统治者信奉触手宗教
 				}
 				change_variable =  { name = tentacleswarm_corruption_growth add = development_level }#每点发展度+1%
 				
@@ -199,10 +213,30 @@ tentacleswarm_yearly_playable_pulse = {
 					set_variable =  { name = tentacleswarm_corruption value = 120 }
 				}
 				
-				#上buff,改颜色，污染周遭
+				#上buff,改颜色，污染周遭，生长军队
 				if = {
 					limit = {
 						var:tentacleswarm_corruption = { compare_value < 20 }
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_1 }
+						remove_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_2 }
+						remove_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_3 }
+						remove_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_4 }
+						remove_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_5 }
+						remove_county_modifier = tentacleswarm_corruption_5
 					}
 					every_county_province = {
 						barony = { set_color_from_title = title:d_very_low_corruption_province }
@@ -219,6 +253,26 @@ tentacleswarm_yearly_playable_pulse = {
 					limit = {
 						var:tentacleswarm_corruption = { compare_value < 40 }
 					}
+					if = {
+						limit = { NOT = {has_county_modifier = tentacleswarm_corruption_1 }}
+						add_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_2 }
+						remove_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_3 }
+						remove_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_4 }
+						remove_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_5 }
+						remove_county_modifier = tentacleswarm_corruption_5
+					}
 					every_county_province = {
 						barony = { set_color_from_title = title:d_low_corruption_province } 
 					}
@@ -228,12 +282,32 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 4 }
 					}
-					change_development_progress_with_overflow = -20
+					change_development_progress_with_overflow = -10
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = 10 }
 				}
 				else_if = {
 					limit = {
 						var:tentacleswarm_corruption = { compare_value < 60 }
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_1 }
+						remove_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { NOT = { has_county_modifier = tentacleswarm_corruption_2 }}
+						add_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_3 }
+						remove_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_4 }
+						remove_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_5 }
+						remove_county_modifier = tentacleswarm_corruption_5
 					}
 					every_county_province = {
 						barony = { set_color_from_title = title:d_mid_corruption_province } 
@@ -244,7 +318,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 8 }
 					}
-					change_development_progress_with_overflow = -40
+					change_development_progress_with_overflow = -20
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = 20 }
 				}
 				else_if = {
@@ -254,13 +328,33 @@ tentacleswarm_yearly_playable_pulse = {
 					every_county_province = {
 						barony = { set_color_from_title = title:d_high_corruption_province } 
 					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_1 }
+						remove_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_2 }
+						remove_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { NOT ={ has_county_modifier = tentacleswarm_corruption_3 }}
+						add_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_4 }
+						remove_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_5 }
+						remove_county_modifier = tentacleswarm_corruption_5
+					}
 					random_neighboring_county = {
 						limit = {
 							var:tentacleswarm_corruption = { compare_value < 60 } 
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 12 }
 					}
-					change_development_progress_with_overflow = -60
+					change_development_progress_with_overflow = -30
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = 30 }
 				}
 				else_if = {
@@ -270,13 +364,33 @@ tentacleswarm_yearly_playable_pulse = {
 					every_county_province = {
 						barony = { set_color_from_title = title:d_very_high_corruption_province } 
 					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_1 }
+						remove_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_2 }
+						remove_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_3 }
+						remove_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { NOT = {has_county_modifier = tentacleswarm_corruption_4 }}
+						add_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_5 }
+						remove_county_modifier = tentacleswarm_corruption_5
+					}
 					random_neighboring_county = {
 						limit = {
 							var:tentacleswarm_corruption = { compare_value < 80 } 
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 16 }
 					}
-					change_development_progress_with_overflow = -80
+					change_development_progress_with_overflow = -40
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = 40 }
 				}
 				else = {
@@ -289,7 +403,27 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 20 }
 					}
-					change_development_progress_with_overflow = -100
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_1 }
+						remove_county_modifier = tentacleswarm_corruption_1
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_2 }
+						remove_county_modifier = tentacleswarm_corruption_2
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_3 }
+						remove_county_modifier = tentacleswarm_corruption_3
+					}
+					if = {
+						limit = { has_county_modifier = tentacleswarm_corruption_4 }
+						remove_county_modifier = tentacleswarm_corruption_4
+					}
+					if = {
+						limit = { NOT = {has_county_modifier = tentacleswarm_corruption_5 }}
+						add_county_modifier = tentacleswarm_corruption_5
+					}
+					change_development_progress_with_overflow = -50
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = 50 }
 				}
 				if = {

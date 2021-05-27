@@ -236,6 +236,8 @@ tentacleswarm_adult_pulse = {
 				0 = {
 					modifier = {
 						add = location.county.var:tentacleswarm_corruption
+						exists = location
+						exists = location.county
 					}
 					modifier = { #监护人是奴隶，权重+50
 						add = 50
@@ -249,6 +251,8 @@ tentacleswarm_adult_pulse = {
 				100 = {
 					modifier = {
 						add = location.county.minus_tentacleswarm_corruption
+						exists = location
+						exists = location.county
 					}
 				}
 			}
