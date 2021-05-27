@@ -12,7 +12,6 @@ tentacleswarm_conquest = {
 		has_religion = religion:tentacleswarm_religion #触手信徒
 	}
 
-
 	allowed_against_character = {
 		scope:defender = {
 			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
@@ -109,6 +108,9 @@ tentacleswarm_conquest = {
 			}
 			scope:attacker = { #进攻方改信了
 				NOT = { has_religion = religion:tentacleswarm_religion }
+			}
+			scope:defender = { #防守方改信了
+				has_religion = religion:tentacleswarm_religion 
 			}
 		}
 	}

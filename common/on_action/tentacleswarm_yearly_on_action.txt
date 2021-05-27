@@ -7,8 +7,46 @@ yearly_global_pulse = {
 tentacleswarm_yearly_global_pulse = {
 	effect = {
 		#切分领主对象，避免O(n^2)的运算
-		clear_global_variable_list = tentacleswarm_slave_ruler
-		clear_global_variable_list = tentacleswarm_ruler
+		clear_global_variable_list = tentacleswarm_slave_ruler #奴隶领主
+		clear_global_variable_list = tentacleswarm_main_slave_ruler #公爵以上奴隶领主
+		clear_global_variable_list = tentacleswarm_target_ruler #目标领主
+		clear_global_variable_list = tentacleswarm_main_target_ruler #公爵以上目标领主
+		clear_global_variable_list = tentacleswarm_protected_ruler #被保护的领主
+		
+		every_ruler = {
+			limit = { highest_held_title_tier >= tier_county } #只考虑伯爵以上
+			add_to_global_variable_list = { name = tentacleswarm_main_target_ruler target = this }
+			if = {#奴隶领主
+				limit = { has_religion = religion:tentacleswarm_religion }
+				add_to_global_variable_list = { name = tentacleswarm_slave_ruler target = this }	
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_duchy 
+						is_independent_ruler = yes
+					}
+					add_to_global_variable_list = { name = tentacleswarm_main_slave_ruler target = this }
+				}
+			}
+			else_if = {
+				limit = { 
+					any_held_title = {
+						tier = tier_county
+						development_level > 0
+					}
+				}
+				add_to_global_variable_list = { name = tentacleswarm_target_ruler target = this }	
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_duchy 
+						is_independent_ruler = yes
+					}
+					add_to_global_variable_list = { name = tentacleswarm_main_target_ruler target = this }
+				}
+			}
+			else = {
+				add_to_global_variable_list = { name = tentacleswarm_protected_ruler target = this }	
+			}
+		}
 	}
 }
 #每个人年度触发
@@ -564,11 +602,11 @@ tentacleswarm_random_yearly_playable_pulse = {
 			}
 			save_scope_as = actor
 			
-			random_independent_ruler = {
+			random_in_global_list = {
+				variable = tentacleswarm_main_target_ruler
 				limit = {
 					highest_held_title_tier >= tier_duchy #不啃独立小伯爵
 					is_landed = yes #有地
-					NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教
 					capital_county = {  #首都有发展度
 						development_level > 0

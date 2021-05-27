@@ -24,7 +24,7 @@ tentacleswarm_on_game_start = {
 				limit = { 
 					#is_lowborn = yes
 					is_female = yes 
-					is_adult = yes
+					#is_adult = yes
 					has_faith = faith:catholic 
 				}
 				add_character_flag = congenital_tentacle_slave_carry #成为携带者
@@ -35,8 +35,8 @@ tentacleswarm_on_game_start = {
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
-			set_variable =  { name = tentacleswarm_corruption value = 0 }
-			set_variable =  { name = tentacleswarm_corruption_warbeast value = 0 }
+			set_variable =  { name = tentacleswarm_corruption value = 200 }
+			set_variable =  { name = tentacleswarm_corruption_warbeast value = 500 }
 			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
@@ -62,6 +62,10 @@ tentacleswarm_on_game_start = {
 					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.1 } }
 				}
 			}
+		}
+		#触发一下年度全局事件避免bug
+		trigger_event = {
+			on_action = tentacleswarm_yearly_global_pulse
 		}
 	}
 }

@@ -53,6 +53,36 @@
 		base = 100
 	}
 }
+tentacleswarm_restart_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	desc = tentacleswarm_start_decision_desc
+	selection_tooltip = tentacleswarm_start_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes #统治者
+	}
+	
+	is_valid = { 
+		is_ai = no
+	}	
+	effect = {
+		trigger_event = {
+			on_action = tentacleswarm_yearly_global_pulse
+		}
+	}
+	
+	ai_check_interval = 60
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
 tentacleswarm_test_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
@@ -75,21 +105,22 @@ tentacleswarm_test_decision = {
 	}	
 	effect = {
 			save_scope_as = actor
-			
-			random_independent_ruler = {
+			add_gold = 100
+			random_in_global_list = {
+				variable = tentacleswarm_main_target_ruler
 				limit = {
 					is_landed = yes #有地
-					#NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
+					NOT = { is_allied_to = ROOT } #不能宣战自己的盟友
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教
 					capital_county = {  #首都有发展度
 						development_level > 0
 					}
-					#ROOT = { #需要符合宣战条件
-					#	is_character_interaction_valid = {
-					#	   recipient = PREV
-					#	   interaction = declare_war_interaction
-					#	}
-					#}
+					ROOT = { #需要符合宣战条件
+						is_character_interaction_valid = {
+						   recipient = PREV
+						   interaction = declare_war_interaction
+						}
+					}
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient
