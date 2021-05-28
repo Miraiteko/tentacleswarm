@@ -1,21 +1,22 @@
 ﻿tentacleswarm_start_decision = {
 	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
 
 	desc = tentacleswarm_start_decision_desc
 	selection_tooltip = tentacleswarm_start_decision_tooltip
 
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
+		not = { has_trait = tentacle_slave }
 		any_secret = { secret_type = secret_tentacle_slave }
 	}
 	
-	is_valid = { 
+	is_valid = {
 		any_secret = { secret_type = secret_tentacle_slave }
 	}	
 	effect = {
 		#公开皈依
-		convert_to_tentacleswarm_religion = yes
+		convert_to_tentacleswarm_religion = yes  
 		#信号施放
 		tentacleswarm_4VA = yes
 	}

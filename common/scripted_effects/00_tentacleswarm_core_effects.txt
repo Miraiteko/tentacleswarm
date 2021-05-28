@@ -41,12 +41,18 @@ convert_to_tentacleswarm_religion = {
 		}
 		set_character_faith = faith:tentacleswarm_slavery
 	}
-	if = {
+	if = { #不是奴隶的女性成为奴隶
 		limit = { 
 			is_female = yes
 			is_tentacle_slave = no
 		}
 		become_tentacle_slave = yes
+	}
+	if = { #未公开的奴隶进行公开
+		limit = { 
+			any_secret = { secret_type = secret_tentacle_slave }
+		}
+		add_trait = tentacle_slave
 	}
 }
 
@@ -73,10 +79,12 @@ tentacleswarm_4VA = {
 		}
 	}
 	#释放费洛蒙给周围领主
-	every_neighboring_and_across_water_realm_same_rank_owner = {
-		trigger_event = {
-			on_action = tentacleswarm_4VA_pulse
-			months = 1
+	every_character_to_title_neighboring_and_across_water_county = {
+		holder = {
+			trigger_event = {
+				on_action = tentacleswarm_4VA_pulse
+				days = { 10 60 }
+			}
 		}
 	}
 }

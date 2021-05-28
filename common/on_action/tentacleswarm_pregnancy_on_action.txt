@@ -12,17 +12,47 @@ tentacleswarm_on_pregnancy_pulse = {
 	}
 }
 tentacleswarm_baby_corruption = {
-	trigger = { #目前只考虑奴隶被赐福
-		is_tentacle_slave = yes
+	trigger = { 
+		is_female = yes
+		is_pregnant = yes
 		is_imprisoned = no #不能被囚禁
-		OR = {
-			is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人
-			any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会腐化未来的继承人
-			has_trait = tentacle_slave #或者是已经公开的奴隶
-		}
 	}
 	effect = {
-		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+		if = {
+			limit = {#主要奴隶必定被赐福
+				is_tentacle_slave = yes
+				OR = {
+					is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人
+					any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会腐化未来的继承人
+					has_trait = tentacle_slave #或者是已经公开的奴隶
+				}
+			}
+			add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+		}
+		else = {
+			random_list = { #其他人，按省份腐化度得到赐福
+				0 = {
+					modifier = {
+						add = location.county.var:tentacleswarm_corruption
+						exists = location
+						exists = location.county
+					}
+					modifier = { #已经是奴隶了，权重+20
+						add = 20
+						is_tentacle_slave = yes
+					}
+					become_tentacle_slave = yes
+					add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+				}
+				100 = {
+					modifier = {
+						add = location.county.minus_tentacleswarm_corruption
+						exists = location
+						exists = location.county
+					}
+				}
+			}
+		}
 	}
 }
 tentacleswarm_near_birth_pulse = {

@@ -22,23 +22,46 @@ tentacleswarm_on_game_start = {
 		every_living_character = {
 			if = {
 				limit = { 
-					#is_lowborn = yes
+					is_lowborn = yes
 					is_female = yes 
-					#is_adult = yes
+					is_adult = yes
 					#has_faith = faith:catholic 
 					#has_faith = faith:orthodox
 					#always = yes
 				}
-				become_congenital_tentacle_slave = yes
+				#become_congenital_tentacle_slave = yes
 				#become_congenital_tentacle_slave_carry = yes
-				become_tentacle_slave = yes#成为奴隶，测试
+				#become_tentacle_slave = yes#成为奴隶，测试
+				random_list = {
+					98 = {}
+					2 = {
+						if = {
+							limit = { 
+								is_female = yes
+								is_adult yes
+							}
+							become_tentacle_slave = yes
+						}
+					}
+					0 = {
+						if = {
+							limit = { is_female = yes }
+							become_congenital_tentacle_slave = yes
+							become_tentacle_slave = yes
+						}
+					}
+					0 = {
+						become_congenital_tentacle_slave_carry = yes
+					}
+				}
 			}
 		}
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
 			set_variable =  { name = tentacleswarm_corruption value = 0 }
-			set_variable =  { name = tentacleswarm_corruption_warbeast value = 300 }
+			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
+			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 25 } #初始的时候，每点复杂度有1只巨兽
 			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }

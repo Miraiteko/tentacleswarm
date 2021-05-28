@@ -37,6 +37,11 @@ tentacleswarm_4VA_pulse = {
 					type = tentacle_slave_claim_throne
 					target = scope:target
 				}
+				#测试
+				#save_scope_as = owner
+				#trigger_event = {
+				#	on_action = tentacle_slave_claim_throne_setup
+				#}
 			}
 		}
 	}
