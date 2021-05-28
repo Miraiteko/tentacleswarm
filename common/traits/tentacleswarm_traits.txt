@@ -61,3 +61,7 @@ congenital_tentacle_slave_carry = {
 congenital_tentacle_slave_no = {
 	index = 342
 }
+#奴隶测试
+tentacle_slave_even_hide = {
+	index = 343
+}

@@ -33,7 +33,7 @@ tentacleswarm_near_birth_pulse = {
 		#母亲为纯合子
 		if = { 
 			limit = {
-				has_character_flag = congenital_tentacle_slave
+				is_congenital_tentacle_slave = yes
 			}
 			#母亲被赐福
 			if = { 
@@ -49,7 +49,7 @@ tentacleswarm_near_birth_pulse = {
 				limit = { 
 					scope:real_father = { 
 						is_alive = yes
-						has_character_flag = congenital_tentacle_slave_carry
+						is_congenital_tentacle_slave_carry = yes
 					} 
 				}
 				random_list = {
@@ -81,7 +81,7 @@ tentacleswarm_near_birth_pulse = {
 		#母亲为携带者
 		else_if = { 
 			limit = {
-				has_character_flag = congenital_tentacle_slave_carry
+				is_congenital_tentacle_slave_carry = yes
 			}
 			#母亲被赐福
 			if = { 
@@ -102,7 +102,7 @@ tentacleswarm_near_birth_pulse = {
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tentacle_slave_carry } 
+					scope:real_father = { is_congenital_tentacle_slave_carry = yes } 
 				}
 				random_list = {
 					25 = {#女性纯合
@@ -156,7 +156,7 @@ tentacleswarm_near_birth_pulse = {
 			#父亲是携带者
 			else_if = {
 				limit = { 
-					scope:real_father = { has_character_flag = congenital_tentacle_slave_carry } 
+					scope:real_father = { is_congenital_tentacle_slave_carry = yes } 
 				}
 				random_list = {
 					50 = {#女性携带
@@ -192,26 +192,21 @@ tentacleswarm_birth_pulse = {
 				is_female = yes
 				mother = { has_character_flag = baby_congenital_tentacle_slave } 
 			}
-			add_character_flag = congenital_tentacle_slave #成为纯合子
-			add_trait = congenital_tentacle_slave #成为奴隶，测试
-		}
+			become_congenital_tentacle_slave = yes
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
 				is_female = no
 				mother = { has_character_flag = baby_congenital_tentacle_slave } 
 			}
-			add_character_flag = congenital_tentacle_slave_carry #成为携带者
-			add_trait = congenital_tentacle_slave_carry #成为奴隶，测试
+			become_congenital_tentacle_slave_carry = yes
 		}	
 		else_if = { #携带者
 			limit = {
 				mother = { has_character_flag = baby_congenital_tentacle_slave_carry } 
 			}
-			add_character_flag = congenital_tentacle_slave_carry #成为携带者
-			add_trait = congenital_tentacle_slave_carry #成为奴隶，测试
+			become_congenital_tentacle_slave_carry = yes
 		}	
 		else = { #正常人
-			#add_trait = congenital_tentacle_slave_no #成为奴隶，测试
 		}
 	}
 }
@@ -226,7 +221,7 @@ tentacleswarm_adult_pulse = {
 		if = { #天生奴隶成年时成为奴隶
 			limit = {
 				is_female = yes
-				has_character_flag = congenital_tentacle_slave 
+				is_congenital_tentacle_slave = yes 
 			}
 			become_tentacle_slave = yes
 		}

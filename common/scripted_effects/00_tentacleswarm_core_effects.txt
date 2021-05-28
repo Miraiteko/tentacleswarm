@@ -1,0 +1,85 @@
+﻿#获得触手奴隶秘密/如果是触手宗教的话，直接暴露
+become_tentacle_slave = {
+	if = {
+		limit = { #不是触手奴隶
+			is_tentacle_slave = no
+		}
+		add_trait = tentacle_slave_even_hide #测试
+		if = {
+			#如果触手是忌讳或者罪恶的话，获得秘密
+			limit = {
+				OR = {
+					secret_tentacle_slave_is_shunned_trigger = yes
+					secret_tentacle_slave_is_criminal_trigger = yes
+					secret_tentacle_slave_is_evil_trigger = yes
+				}
+			}
+			add_secret = {
+				type = secret_tentacle_slave
+			}
+		}
+		#否则直接拿特质
+		else = {
+			add_trait = tentacle_slave
+		}
+		
+	}	
+}
+#皈依触手信仰
+convert_to_tentacleswarm_religion = {
+	if	= {
+		limit = {
+			not = { has_religion = religion:tentacleswarm_religion }
+		}
+		if = { 
+			limit = { #如果你控制了旧的信仰领袖头衔，摧毁它
+				exists = faith.religious_head
+				faith.religious_head = this
+			}
+			destroy_title =  faith.religious_head_title
+			faith = { change_fervor = -100 }
+		}
+		set_character_faith = faith:tentacleswarm_slavery
+	}
+	if = {
+		limit = { 
+			is_female = yes
+			is_tentacle_slave = no
+		}
+		become_tentacle_slave = yes
+	}
+}
+
+#遗传结算
+become_congenital_tentacle_slave = { #成为天生奴隶
+	add_character_flag = congenital_tentacle_slave #成为纯合子
+	add_trait = congenital_tentacle_slave #测试
+	become_congenital_tentacle_slave_carry = yes
+}
+become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者
+	#add_trait = congenital_tentacle_slave_carry #测试
+	if = {
+		limit = { has_trait = beauty_bad_3 }
+		remove_trait = beauty_bad_3
+	}
+	if = {
+		limit = { has_trait = beauty_bad_2 }
+		remove_trait = beauty_bad_2
+	}
+	if = {
+		limit = { has_trait = beauty_bad_1 }
+		remove_trait = beauty_bad_1
+	}
+	if = {
+		limit = { has_trait = beauty_good_1 }
+		remove_trait = beauty_good_1
+	}
+	if = {
+		limit = { has_trait = beauty_good_2 }
+		remove_trait = beauty_good_2
+	}
+	if = {
+		limit = { NOT ={ has_trait = beauty_good_3 }}
+		add_trait = beauty_good_3
+	}
+}
