@@ -5,6 +5,7 @@ tentacle_slave = {
 	same_opinion = 30
 	
 	valid_sex =  female
+	health_trait = yes #健康特质
 	
 	#高生育
 	fertility = 10

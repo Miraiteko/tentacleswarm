@@ -540,9 +540,9 @@ tentacleswarm_conquest = {
 	on_defeat = {
 
 		# 战败时进攻方被处决
-		scope:attacker = {
-			death = { killer = scope:defender death_reason = death_execution }
-		}
+		#scope:attacker = {
+		#	death = { killer = scope:defender death_reason = death_execution }
+		#}
 
 		# Prestige for Defender
 		scope:defender = {

@@ -406,8 +406,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 5 }
 					}
-					change_development_progress_with_overflow = -10
-					change_variable =  { name = tentacleswarm_corruption_warbeast add = 10 }
+					change_development_progress_with_overflow = -15
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 15 }
 				}
 				else_if = {
 					limit = {
@@ -443,8 +443,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 10 }
 					}
-					change_development_progress_with_overflow = -20
-					change_variable =  { name = tentacleswarm_corruption_warbeast add = 20 }
+					change_development_progress_with_overflow = -30
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 30 }
 				}
 				else_if = {
 					limit = {
@@ -480,8 +480,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 15 }
 					}
-					change_development_progress_with_overflow = -30
-					change_variable =  { name = tentacleswarm_corruption_warbeast add = 30 }
+					change_development_progress_with_overflow = -45
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 45 }
 				}
 				else_if = {
 					limit = {
@@ -517,8 +517,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 20 }
 					}
-					change_development_progress_with_overflow = -40
-					change_variable =  { name = tentacleswarm_corruption_warbeast add = 40 }
+					change_development_progress_with_overflow = -60
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 60 }
 				}
 				else = {
 					every_county_province = {
@@ -551,8 +551,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption add = 25 }
 					}
-					change_development_progress_with_overflow = -50
-					change_variable =  { name = tentacleswarm_corruption_warbeast add = 50 }
+					change_development_progress_with_overflow = -75
+					change_variable =  { name = tentacleswarm_corruption_warbeast add = 75 }
 				}
 				if = {
 					limit = { #本宗教领主在集齐点数之后可以换购巨兽
