@@ -44,11 +44,12 @@ tentacleswarm_restart_decision = {
 	selection_tooltip = tentacleswarm_start_decision_tooltip
 
 	is_shown = {
-		is_ruler = yes #统治者
+		debug_only = yes #测试用
 	}
 	
 	is_valid = { 
 		is_ai = no
+		debug_only = yes
 	}	
 	effect = {
 		trigger_event = {
@@ -74,11 +75,12 @@ tentacleswarm_test_decision = {
 	selection_tooltip = tentacleswarm_start_decision_tooltip
 
 	is_shown = {
-		is_ruler = yes #统治者
+		debug_only = yes #测试用
 	}
 	
 	is_valid = { 
 		is_ai = no
+		debug_only = yes
 	}	
 	effect = {
 		add_gold =100

@@ -4,7 +4,12 @@ become_tentacle_slave = {
 		limit = { #不是触手奴隶
 			is_tentacle_slave = no
 		}
-		add_trait = tentacle_slave_even_hide #测试
+		if = {
+			limit = { 
+				debug_only = yes #测试用
+			}
+			add_trait = tentacle_slave_even_hide
+		}
 		if = {
 			#如果触手是忌讳或者罪恶的话，获得秘密
 			limit = {
@@ -92,7 +97,12 @@ tentacleswarm_4VA = {
 #遗传结算
 become_congenital_tentacle_slave = { #成为天生奴隶
 	add_character_flag = congenital_tentacle_slave #成为纯合子
-	add_trait = congenital_tentacle_slave #测试
+	if = {
+		limit = { 
+			debug_only = yes #测试用
+		}
+		add_trait = congenital_tentacle_slave
+	}
 	become_congenital_tentacle_slave_carry = yes
 }
 become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者
