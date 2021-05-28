@@ -23,14 +23,15 @@ tentacleswarm_on_game_start = {
 			if = {
 				limit = { 
 					#is_lowborn = yes
-					is_female = yes 
+					#is_female = yes 
 					#is_adult = yes
 					#has_faith = faith:catholic 
-					has_faith = faith:orthodox
+					#has_faith = faith:orthodox
+					always = yes
 				}
 				#become_congenital_tentacle_slave = yes
 				become_congenital_tentacle_slave_carry = yes
-				become_tentacle_slave = yes#成为奴隶，测试
+				#become_tentacle_slave = yes#成为奴隶，测试
 			}
 		}
 		

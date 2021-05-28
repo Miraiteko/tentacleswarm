@@ -76,7 +76,6 @@ tentacle_slave_yearly = {
 		is_tentacle_slave = yes
 	}
 	effect = {
-		add_character_flag = ____TENTACLE_SLAVE____
 		if = { #自己是潜藏的统治者的话，用决议来决定是否起事
 			limit = { 
 				is_ruler = yes

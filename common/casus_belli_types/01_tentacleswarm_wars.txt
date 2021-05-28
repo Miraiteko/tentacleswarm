@@ -37,7 +37,8 @@ tentacleswarm_conquest = {
 
 	ai_can_target_all_titles = { #只有满足以下条件的AI会去考虑进攻任一目标。其余只攻击相邻
 		is_at_war = no
-		max_military_strength > 5000
+		#max_military_strength > 15000
+		piety > 5000
 	}
 	
 	ai_score_mult = { #AI对目标的选择

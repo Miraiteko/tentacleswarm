@@ -193,6 +193,7 @@ tentacleswarm_birth_pulse = {
 				mother = { has_character_flag = baby_congenital_tentacle_slave } 
 			}
 			become_congenital_tentacle_slave = yes
+		}
 		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
 			limit = {
 				is_female = no
