@@ -50,6 +50,37 @@ convert_to_tentacleswarm_religion = {
 	}
 }
 
+#4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利
+tentacleswarm_4VA = {
+	#廷臣皈依
+	every_courtier_or_guest	= {
+		limit = {
+			is_tentacle_slave = yes
+		}
+		convert_to_tentacleswarm_religion = yes
+	}
+	#封臣皈依
+	every_vassal_or_below ={
+		if = {
+			limit = { is_tentacle_slave = yes } 
+			convert_to_tentacleswarm_religion = yes
+		}
+		every_courtier_or_guest	= {
+			limit = {
+				is_tentacle_slave = yes
+			}
+			convert_to_tentacleswarm_religion = yes
+		}
+	}
+	#释放费洛蒙给周围领主
+	every_neighboring_and_across_water_realm_same_rank_owner = {
+		trigger_event = {
+			on_action = tentacleswarm_4VA_pulse
+			months = 1
+		}
+	}
+}
+
 #遗传结算
 become_congenital_tentacle_slave = { #成为天生奴隶
 	add_character_flag = congenital_tentacle_slave #成为纯合子

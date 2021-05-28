@@ -6,7 +6,7 @@
 	selection_tooltip = tentacleswarm_start_decision_tooltip
 
 	is_shown = {
-		is_ruler = yes #统治者
+		is_ai = no  #ai不通过这个来皈依
 		any_secret = { secret_type = secret_tentacle_slave }
 	}
 	
@@ -16,26 +16,8 @@
 	effect = {
 		#公开皈依
 		convert_to_tentacleswarm_religion = yes
-		#廷臣皈依
-		every_courtier_or_guest	= {
-			limit = {
-				is_tentacle_slave = yes
-			}
-			convert_to_tentacleswarm_religion = yes
-		}
-		#封臣皈依
-		every_vassal_or_below ={
-			if = {
-				limit = { is_tentacle_slave = yes } 
-				convert_to_tentacleswarm_religion = yes
-			}
-			every_courtier_or_guest	= {
-				limit = {
-					is_tentacle_slave = yes
-				}
-				convert_to_tentacleswarm_religion = yes
-			}
-		}
+		#信号施放
+		tentacleswarm_4VA = yes
 	}
 	
 	ai_check_interval = 60
@@ -50,7 +32,7 @@
 	}
 
 	ai_will_do = {
-		base = 100
+		base = 0
 	}
 }
 tentacleswarm_restart_decision = {

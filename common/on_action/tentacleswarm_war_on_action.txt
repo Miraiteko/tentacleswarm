@@ -1,0 +1,28 @@
+﻿#战争胜利释放4VA
+on_war_won_attacker = {
+	on_actions = { 
+		tentacleswarm_on_war_won_attacker
+	}
+}
+on_war_won_defender = {
+	on_actions = { 
+		tentacleswarm_on_war_won_defender
+	}
+}
+tentacleswarm_on_war_won_attacker = {
+	trigger = {
+		scope:attacker = { has_religion = religion:tentacleswarm_religion }
+	}
+	effect = {
+		scope:attacker = { tentacleswarm_4VA = yes }
+	}
+}
+
+tentacleswarm_on_war_won_defender = {
+	trigger = {
+		scope:defender = { has_religion = religion:tentacleswarm_religion }
+	}
+	effect = {
+		scope:defender = { tentacleswarm_4VA = yes }
+	}
+}

@@ -76,16 +76,28 @@ tentacle_slave_yearly = {
 		is_tentacle_slave = yes
 	}
 	effect = {
-		if = { #自己是潜藏的统治者的话，用决议来决定是否起事
+		if = { #自己是潜藏的统治者的话，查看首都巨兽储备决定是否起事
 			limit = { 
-				is_ruler = yes
+				is_landed = yes
+				highest_held_title_tier >=tier_county
 				any_secret = { secret_type = secret_tentacle_slave }
+			}
+			if = {
+				limit = {
+					capital_county = {
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+					}
+				}
+				#改信，释放费洛蒙
+				convert_to_tentacleswarm_religion = yes
+				tentacleswarm_4VA = yes
 			}
 		}
 		else_if = {
 			limit = {
 				#已经暴露的统治者，皈依正统信仰
 				is_ruler = yes
+				has_trait = tentacle_slave
 			}
 			convert_to_tentacleswarm_religion = yes
 		}
@@ -118,8 +130,9 @@ tentacle_slave_yearly = {
 		if = {
 			limit = {
 				any_spouse = {
-					holds_landed_title = yes #配偶有地，尝试密谋夺取
-					capital_province.county = {
+					is_landed = yes #配偶有地，尝试密谋夺取
+					highest_held_title_tier >= tier_county
+					capital_county = {
 						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
 					}
 				}
