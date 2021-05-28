@@ -1,4 +1,4 @@
-﻿#奴隶夺取丈夫的地位
+﻿#奴隶妻子或女儿夺取领主的地位
 tentacle_slave_claim_throne = {
 	
 	skill = intrigue
@@ -7,14 +7,24 @@ tentacle_slave_claim_throne = {
 	allow = {
 		is_tentacle_slave = yes
 		is_imprisoned = no
+		scope:target = { 
+			holds_landed_title = yes
+			OR = {
+				is_consort_of = scope:owner
+				is_parent_of = scope:owner
+			}
+		}
 	}
 	
 	valid = {
 		is_tentacle_slave = yes
 		is_imprisoned = no
-		scope:target = {
-			is_consort_of = scope:owner 
+		scope:target = { 
 			holds_landed_title = yes
+			OR = {
+				is_consort_of = scope:owner
+				is_parent_of = scope:owner
+			}
 		}
 	}
 

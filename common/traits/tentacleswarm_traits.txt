@@ -1,6 +1,6 @@
 ﻿#奴隶
 tentacle_slave = {
-	index = 339
+	index = 319
 	
 	same_opinion = 30
 	
@@ -51,18 +51,18 @@ tentacle_slave = {
 }
 #天生奴
 congenital_tentacle_slave = {
-	index = 340
+	index = 320
 	
 }
 #天生奴基因携带者
 congenital_tentacle_slave_carry = {
-	index = 341
+	index = 321
 }
 #天生奴基因不携带者
 congenital_tentacle_slave_no = {
-	index = 342
+	index = 322
 }
 #奴隶测试
 tentacle_slave_even_hide = {
-	index = 343
+	index = 323
 }

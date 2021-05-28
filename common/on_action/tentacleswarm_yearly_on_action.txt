@@ -151,6 +151,31 @@ tentacle_slave_yearly = {
 				target = scope:target
 			}
 		}
+		if = {
+			limit = {
+				exists = father
+				father = {
+					is_landed = yes #父亲有地，尝试密谋夺取
+					highest_held_title_tier >= tier_county
+					capital_county = {
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+					}
+				}
+				Not = { 
+					any_scheme = {
+						is_hostile = yes
+					}
+				}
+			}
+			father = {
+				limit = { holds_landed_title = yes }
+				save_scope_as = target
+			}
+			start_scheme = {
+				type = tentacle_slave_claim_throne
+				target = scope:target
+			}
+		}
 	}
 }
 #每年触发
@@ -282,8 +307,9 @@ tentacleswarm_yearly_playable_pulse = {
 				every_county_province = {
 					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
 				}
+				add_county_modifier = { modifier = tentacleswarm_destroy years = 30} #30年发展度惩罚
+				
 				#清buff
-				add_county_modifier = { modifier = tentacleswarm_destroy years = 20}
 				if = {
 					limit = { has_county_modifier = tentacleswarm_corruption_1 }
 					remove_county_modifier = tentacleswarm_corruption_1
