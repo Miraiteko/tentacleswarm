@@ -200,7 +200,7 @@
 	faiths = {
 		tentacleswarm_slavery = {
 			color = { 0.37 0.15 0.61 }
-			icon = zoroastrian
+			icon = tentacleswarm_slavery
 
 			doctrine = tenet_carnal_exaltation #纵欲
 			doctrine = tenet_warmonger #战狂

@@ -6,3 +6,6 @@
  
  #巨兽相关
  tentacleswarm_warbeast_event_troops:0 "触手战争巨兽"
+ 
+ #传教相关
+ TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"

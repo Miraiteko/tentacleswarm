@@ -169,7 +169,6 @@ tentacle_slave_yearly = {
 				}
 			}
 			father = {
-				limit = { holds_landed_title = yes }
 				save_scope_as = target
 			}
 			start_scheme = {

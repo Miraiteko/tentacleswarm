@@ -1,8 +1,13 @@
 ﻿l_simp_chinese:
- msg_tentacleswarm_war_invalidated_message:0 "[war.GetName]结束了：[defender.GetTitledFirstName]不再控制目标区域的任何土地。"
- tentacleswarm_cb_victory_desc_attacker:1 "你获得受争夺的[title|E]。"
- tentacleswarm_cb_victory_desc:0 "[attacker.GetShortUIName|U]获得受争夺的头衔。"
- tentacleswarm_cb_defeat_desc_defender:0 "你守住受争夺的头衔。[attacker.GetShortUIName|U]必须支付你战争赔款。"
- tentacleswarm_cb_defeat_desc:0 "[defender.GetShortUIName|U]守住受争夺的头衔。"
- tentacleswarm_cb_defeat_desc_attacker:0 "[defender.GetShortUIName|U]守住受争夺的头衔。你必须支付[defender.GetHerHim]战争赔款。"
+    msg_tentacleswarm_war_invalidated_message:0 "[war.GetName]结束了：[defender.GetTitledFirstName]不再控制目标区域的任何土地。"
+    tentacleswarm_cb_victory_desc_attacker:1 "你获得受争夺的[title|E]。\n如果你是独立领主的话，你会放弃已经被触手主人破坏殆尽的旧有土地。\n如果你是封臣的话，你将会把原来的土地归还给领主然后独立。"
+    tentacleswarm_cb_victory_desc:0 "[attacker.GetShortUIName|U]获得受争夺的头衔。"
+    tentacleswarm_cb_defeat_desc_defender:0 "你守住受争夺的头衔。[attacker.GetShortUIName|U]必须支付你战争赔款。"
+    tentacleswarm_cb_defeat_desc:0 "[defender.GetShortUIName|U]守住受争夺的头衔。"
+    tentacleswarm_cb_defeat_desc_attacker:0 "[defender.GetShortUIName|U]守住受争夺的头衔。你必须支付[defender.GetHerHim]战争赔款。"
+    CB_TENTACLE_PARTNER:0 "防守方是触手奴隶"
+ 
+    TENTACLESWARM_WAR_NAME:0 "$ORDER$[ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]为触手主人征服[TITLE.GetBaseName]新巢穴"
+    TENTACLESWARM_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+    TENTACLESWARM_CB_NAME:0 "征服新巢穴"
  

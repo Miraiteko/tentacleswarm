@@ -56,7 +56,7 @@ tentacle_slave_claim_throne = {
 		modifier = {
 			add = 1000
 			root = { is_tentacle_slave = yes }
-			desc = "tentacle_slave_PATNER"
+			desc = "TENTACLE_SLAVE_PATNER"
 		}
 		hostile_murder_agent_base_join_chance_modifier = yes # TODO, make a more claim throne-flavored version of this
 	}

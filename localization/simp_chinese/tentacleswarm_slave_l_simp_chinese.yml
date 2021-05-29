@@ -4,6 +4,13 @@
  trait_tentacle_slave_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]屈服于触手怪物。"
 
  #宗教相关
+ rf_xenogenesis:0 "异种支配"
+ rf_xenogenesis_adj:0 "异种支配"
+ tentacleswarm_religion:0 "触手奴役"
+ tentacleswarm_religion_adj:0 "触手奴役"
+ tentacleswarm_slavery:0 "触手屈服者" 
+ tentacleswarm_slavery_adj:0 "触手屈服者" 
+ 
  doctrine_tentacleswarm_name:0 "对触手怪物态度"
  doctrine_tentacleswarm_evil_name:0 "剿灭"
  doctrine_tentacleswarm_evil_desc:0 "烟熏、火烧、或是用石头砸死。我们必须用一切手段消灭可能威胁人类的生物。"
@@ -21,6 +28,9 @@
  tentacleswarm_start_decision:0 "宣告触手霸权"
  tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，奴役像支配我一样支配我的每一个人民。"
  tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶省份"
- tentacleswarm_test_decision_confirm:0 "这个世界将变成主人的巢穴！"
+ tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
+ 
+ #密谋相关
+ TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
 
  
