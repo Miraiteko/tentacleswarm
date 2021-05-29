@@ -39,7 +39,7 @@ tentacleswarm_4VA_pulse = {
 				}
 			}
 		}
-		else_if = { #女儿是奴隶，开始夺地
+		else_if = { #女儿是奴隶，开始夺地。现在会导致夺奴隶母亲的地，可以认为是促进换代
 			limit = {
 				is_landed = yes #配偶有地，尝试密谋夺取
 				highest_held_title_tier >=tier_county

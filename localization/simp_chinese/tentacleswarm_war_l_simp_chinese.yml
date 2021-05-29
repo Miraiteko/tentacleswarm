@@ -7,7 +7,7 @@
     tentacleswarm_cb_defeat_desc_attacker:0 "[defender.GetShortUIName|U]守住受争夺的头衔。你必须支付[defender.GetHerHim]战争赔款。"
     CB_TENTACLE_PARTNER:0 "防守方是触手奴隶"
  
-    TENTACLESWARM_WAR_NAME:0 "$ORDER$[ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]为触手主人征服[TITLE.GetBaseName]新巢穴"
+    TENTACLESWARM_WAR_NAME:0 "$ORDER$[ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]为触手主人征服[TITLE.GetBaseName]"
     TENTACLESWARM_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
-    TENTACLESWARM_CB_NAME:0 "征服新巢穴"
+    TENTACLESWARM_CB_NAME:0 "触手主人的征服"
  

@@ -1,25 +1,25 @@
 ﻿tentacleswarm_destroy = {
 	icon = county_modifier_development_negative
 	development_growth_factor = -1
-	monthly_county_control_change_add = -5
+	monthly_county_control_change_add = -0.5
 }
 tentacleswarm_corruption_1 = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -0.2
+	icon = outdoors_negative
+	development_growth_factor = -0.1
 }
 tentacleswarm_corruption_2 = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -0.4
+	icon = outdoors_negative
+	development_growth_factor = -0.2
 }
 tentacleswarm_corruption_3 = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -0.6
+	icon = outdoors_negative
+	development_growth_factor = -0.35
 }
 tentacleswarm_corruption_4 = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -0.8
+	icon = outdoors_negative
+	development_growth_factor = -0.6
 }
 tentacleswarm_corruption_5 = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -1
+	icon = outdoors_negative
+	development_growth_factor = -1.0
 }

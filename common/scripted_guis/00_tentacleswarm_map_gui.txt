@@ -13,7 +13,7 @@ tentacleswarm_corruption_map = {
 			}
 			else_if = {
 				limit = {
-					var:tentacleswarm_corruption = { compare_value < 20 }
+					var:tentacleswarm_corruption = { compare_value < 10 }
 				}
 				every_county_province = {
 					barony = { set_color_from_title = title:d_very_low_corruption_province } 
@@ -21,7 +21,7 @@ tentacleswarm_corruption_map = {
 			}
 			else_if = {
 				limit = {
-					var:tentacleswarm_corruption = { compare_value < 40 }
+					var:tentacleswarm_corruption = { compare_value < 20 }
 				}
 				every_county_province = {
 					barony = { set_color_from_title = title:d_low_corruption_province } 
@@ -29,7 +29,7 @@ tentacleswarm_corruption_map = {
 			}
 			else_if = {
 				limit = {
-					var:tentacleswarm_corruption = { compare_value < 60 }
+					var:tentacleswarm_corruption = { compare_value < 35 }
 				}
 				every_county_province = {
 					barony = { set_color_from_title = title:d_mid_corruption_province } 
@@ -37,7 +37,7 @@ tentacleswarm_corruption_map = {
 			}
 			else_if = {
 				limit = {
-					var:tentacleswarm_corruption = { compare_value < 80 }
+					var:tentacleswarm_corruption = { compare_value < 60 }
 				}
 				every_county_province = {
 					barony = { set_color_from_title = title:d_high_corruption_province } 
