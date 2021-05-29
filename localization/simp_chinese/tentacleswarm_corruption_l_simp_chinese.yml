@@ -1,3 +1,8 @@
 ﻿l_simp_chinese:
- #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐蚀#!：[ROOT.Var('tentacleswarm_corruption').GetValue]"
+ #
+
+ #地图模式
  TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐蚀：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n战争巨兽后备：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]"
+ 
+ #巨兽相关
+ tentacleswarm_warbeast_event_troops:0 "触手战争巨兽"

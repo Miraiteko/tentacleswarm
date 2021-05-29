@@ -40,9 +40,6 @@ tentacleswarm_restart_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 
-	desc = tentacleswarm_start_decision_desc
-	selection_tooltip = tentacleswarm_start_decision_tooltip
-
 	is_shown = {
 		debug_only = yes #测试用
 	}
@@ -52,28 +49,13 @@ tentacleswarm_restart_decision = {
 		debug_only = yes
 	}	
 	effect = {
-		trigger_event = {
-			on_action = tentacleswarm_yearly_global_pulse
-		}
 	}
 	
-	ai_check_interval = 60
-
-	ai_potential = {
-		always = yes
-	}
-
-	ai_will_do = {
-		base = 100
-	}
 }
 tentacleswarm_test_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 
-	desc = tentacleswarm_start_decision_desc
-	selection_tooltip = tentacleswarm_start_decision_tooltip
-
 	is_shown = {
 		debug_only = yes #测试用
 	}
@@ -83,27 +65,5 @@ tentacleswarm_test_decision = {
 		debug_only = yes
 	}	
 	effect = {
-		add_gold =100
-		set_variable =  { name = max_held_development value = 1 }
-		every_held_title = {
-			limit = { tier = tier_county }
-			if = {
-				limit = {
-					development_level > holder.var:max_held_development
-				}
-				holder = { set_variable =  { name = max_held_development value = prev.development_level }}
-			}
-		}
-		change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
-	}
-	
-	ai_check_interval = 60
-
-	ai_potential = {
-		always = yes
-	}
-
-	ai_will_do = {
-		base = 100
 	}
 }

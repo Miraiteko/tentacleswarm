@@ -1,0 +1,8 @@
+﻿l_simp_chinese:
+ msg_tentacleswarm_war_invalidated_message:0 "[war.GetName]结束了：[defender.GetTitledFirstName]不再控制目标区域的任何土地。"
+ tentacleswarm_cb_victory_desc_attacker:1 "你获得受争夺的[title|E]。"
+ tentacleswarm_cb_victory_desc:0 "[attacker.GetShortUIName|U]获得受争夺的头衔。"
+ tentacleswarm_cb_defeat_desc_defender:0 "你守住受争夺的头衔。[attacker.GetShortUIName|U]必须支付你战争赔款。"
+ tentacleswarm_cb_defeat_desc:0 "[defender.GetShortUIName|U]守住受争夺的头衔。"
+ tentacleswarm_cb_defeat_desc_attacker:0 "[defender.GetShortUIName|U]守住受争夺的头衔。你必须支付[defender.GetHerHim]战争赔款。"
+ 

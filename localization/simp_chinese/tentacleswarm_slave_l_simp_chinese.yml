@@ -1,0 +1,26 @@
+﻿l_simp_chinese:
+ #核心内容
+ trait_tentacle_slave:0 "触手奴隶"
+ trait_tentacle_slave_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]屈服于触手怪物。"
+
+ #宗教相关
+ doctrine_tentacleswarm_name:0 "对触手怪物态度"
+ doctrine_tentacleswarm_evil_name:0 "剿灭"
+ doctrine_tentacleswarm_evil_desc:0 "烟熏、火烧、或是用石头砸死。我们必须用一切手段消灭可能威胁人类的生物。"
+ doctrine_tentacleswarm_crime_name:0 "罪恶"
+ doctrine_tentacleswarm_crime_desc:0 "触手怪物和他们的仆从是邪恶的化身。"
+ doctrine_tentacleswarm_shunned_name:0 "厌恶"
+ doctrine_tentacleswarm_shunned_desc:0 "滑溜溜扭动的东西真是恶心。"
+ doctrine_tentacleswarm_accepted_name:0 "屈服"
+ doctrine_tentacleswarm_accepted_desc:0 "我们的身心都属于触手主人。"
+
+ #秘密相关
+ secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
+ 
+ #决议相关
+ tentacleswarm_start_decision:0 "宣告触手霸权"
+ tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，奴役像支配我一样支配我的每一个人民。"
+ tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶省份"
+ tentacleswarm_test_decision_confirm:0 "这个世界将变成主人的巢穴！"
+
+ 

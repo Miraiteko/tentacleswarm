@@ -119,7 +119,7 @@ tentacleswarm_conquest = {
 		}
 	}
 
-	on_invalidated_desc = msg_county_tentacleswarm_war_invalidated_message
+	on_invalidated_desc = msg_tentacleswarm_war_invalidated_message
 	
 	on_invalidated = {
 	}
@@ -261,9 +261,9 @@ tentacleswarm_conquest = {
 				trigger = {
 					scope:attacker = { is_local_player = yes }
 				}
-				desc = county_tentacleswarm_cb_victory_desc_attacker
+				desc = tentacleswarm_cb_victory_desc_attacker
 			}
-			desc = county_tentacleswarm_cb_victory_desc
+			desc = tentacleswarm_cb_victory_desc
 		}
 	}
 
@@ -522,7 +522,7 @@ tentacleswarm_conquest = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { scope:defender = { is_local_player = yes } }
-				desc = county_tentacleswarm_cb_defeat_desc_defender
+				desc = tentacleswarm_cb_defeat_desc_defender
 			}
 			triggered_desc = {
 				trigger = {
@@ -531,9 +531,9 @@ tentacleswarm_conquest = {
 						has_targeting_faction = yes
 					}
 				}
-				desc = county_tentacleswarm_cb_defeat_desc_attacker
+				desc = tentacleswarm_cb_defeat_desc_attacker
 			}
-			desc = county_tentacleswarm_cb_defeat_desc
+			desc = tentacleswarm_cb_defeat_desc
 		}
 	}
 

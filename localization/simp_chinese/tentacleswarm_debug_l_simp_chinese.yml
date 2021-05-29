@@ -1,0 +1,12 @@
+﻿l_simp_chinese:
+ #Flag标记物
+ trait_congenital_tentacle_slave:0 "trait_congenital_tentacle_slave"
+ trait_congenital_tentacle_slave_desc:0 "DEBUG模式下专用。\n如果你奇妙地看到了这个信息，请和制作者反馈。"
+ trait_congenital_tentacle_slave_carry:0 "trait_congenital_tentacle_slave"
+ trait_congenital_tentacle_slave_carry_desc:0 "DEBUG模式下专用。\n如果你奇妙地看到了这个信息，请和制作者反馈。"
+ trait_congenital_tentacle_slave_no:0 "trait_congenital_tentacle_slave_no"
+ trait_congenital_tentacle_slave_no_desc:0 "DEBUG模式下专用。\n如果你奇妙地看到了这个信息，请和制作者反馈。"
+ trait_tentacle_slave_even_hide:0 "trait_tentacle_slave_even_hide"
+ trait_tentacle_slave_even_hide_desc:0 "DEBUG模式下专用。\n如果你奇妙地看到了这个信息，请和制作者反馈。"
+
+ 
