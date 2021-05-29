@@ -2,8 +2,6 @@
 tentacleswarm_corruption_county_destroy_effect = { 
 	save_scope_as = destroy
 	
-	#添加严重发展度惩罚修正
-	add_county_modifier = { modifier = tentacleswarm_destroy years = 30}
 	
 	#发展度进度清零
 	change_development_progress = -100 
@@ -25,25 +23,30 @@ tentacleswarm_corruption_county_destroy_effect = {
 		barony = { set_color_from_title = title:d_tentacleswarm_destroy }
 	}
 	
-	#清buff
+	#清除腐化修正，根据腐化等级，给不同时长的发展度惩罚修正
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_1 }
 		remove_county_modifier = tentacleswarm_corruption_1
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 12 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_2 }
 		remove_county_modifier = tentacleswarm_corruption_2
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 14 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_3 }
 		remove_county_modifier = tentacleswarm_corruption_3
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 17 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_4 }
 		remove_county_modifier = tentacleswarm_corruption_4
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 22 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_5 }
 		remove_county_modifier = tentacleswarm_corruption_5
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 30 }
 	}
 }

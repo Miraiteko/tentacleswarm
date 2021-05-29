@@ -2,7 +2,7 @@
  #
 
  #地图模式
- TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
  
  #巨兽相关
  tentacleswarm_warbeast_event_troops:0 "触手战争巨兽"
@@ -13,11 +13,11 @@
  tentacleswarm_destroy:0 "毁灭殆尽"
  tentacleswarm_destroy_desc:0 "触手怪物在彻底摧毁了此处的环境之后扬长而去，只留下为数不多的幸存者在艰难地求生。"
  tentacleswarm_corruption_1:0 "触手出没"
- tentacleswarm_corruption_1_desc:0 "有人偶有在此处目击到触手怪物的踪迹。"
+ tentacleswarm_corruption_1_desc:0 "人们偶尔在此处发现触手怪物的踪迹。"
  tentacleswarm_corruption_2:0 "触手潜伏地"
- tentacleswarm_corruption_2_desc:0 "触手怪物在此处伏击着猎物。"
+ tentacleswarm_corruption_2_desc:0 "触手怪物潜伏在阴暗中等候着猎物。"
  tentacleswarm_corruption_3:0 "触手巢穴"
- tentacleswarm_corruption_3_desc:0 "触手怪物已经公然在此地筑巢繁殖。"
+ tentacleswarm_corruption_3_desc:0 "触手怪物已公然在此地筑巢繁殖。"
  tentacleswarm_corruption_4:0 "触手温床"
  tentacleswarm_corruption_4_desc:0 "这个地方到处都是触手怪物的巢穴，令空气中弥漫着浓重的腐化气息。"
  tentacleswarm_corruption_5:0 "触手地狱"

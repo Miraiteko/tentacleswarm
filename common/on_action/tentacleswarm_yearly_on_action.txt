@@ -67,7 +67,7 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 				is_adult = yes
 				not = { has_trait = tentacle_slave }
 			}
-			add_trait = tentacle_slave
+			become_tentacle_slave = yes
 		}
 	}
 }
@@ -162,6 +162,10 @@ tentacle_slave_yearly = {
 					highest_held_title_tier >= tier_county
 					capital_county = {
 						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+					}
+					OR = {
+						is_male = yes #只针对父亲，或者无生育能力的母亲
+						fertility <= 0
 					}
 				}
 				Not = { 
