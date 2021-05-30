@@ -5,7 +5,9 @@
  TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
  
  #巨兽相关
- tentacleswarm_warbeast_event_troops:0 "触手战争巨兽"
+ tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
+ tentacleswarm_warbeast:0 "触手战争巨兽"
+ tentacleswarm_warbeast_flavor:1 "#F 一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下在战场上尽情虐杀。#!"
  
  #传教相关
  TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"

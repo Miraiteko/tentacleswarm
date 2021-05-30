@@ -3,20 +3,34 @@
 	
 	can_recruit = no #只有事件能出
 
-	damage = 1000
-	toughness = 1000
-	pursuit = 300
-	screen = 300
+	damage = 800
+	toughness = 400
+	pursuit = 100
+	screen = 20
 	
 	siege_tier = 4
 	siege_value = 1
 	
 
 	winter_bonus = {
-		normal_winter = { damage = -300 toughness = -300 }
-		harsh_winter = { damage = -600 toughness = -600 }
+		normal_winter = { damage = -200 toughness = -100 }
+		harsh_winter = { damage = -400 toughness = -200 }
 	}
 
+	counters = {
+		pikemen = 2
+		heavy_infantry = 2
+		heavy_cavalry = 2
+	}
+	terrain_bonus = {
+		wetlands = { toughness = 100 }
+		jungle = { toughness = 100 }
+		floodplains = { toughness = 50 }
+		forest = { toughness = 50 }
+		mountains = { damage = -100 }
+		hills = { damage = -50 }
+		desert_mountains = { damage = -100 }
+	}
 	buy_cost = { gold = 0 }
 	low_maintenance_cost = { gold = 0 }
 	high_maintenance_cost = { gold = 0 }

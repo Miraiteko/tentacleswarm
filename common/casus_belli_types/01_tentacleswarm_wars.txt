@@ -712,7 +712,7 @@ tentacleswarm_religious_war = {
 	mutually_exclusive_titles = { always = yes }
 
 	allowed_for_character = {
-		scope:attacker.faith = { #敌视触手
+		scope:attacker.faith = { #敌视
 			has_doctrine_parameter = doctrine_tentacleswarm_evil
 		}
 	}
@@ -939,10 +939,6 @@ tentacleswarm_religious_war = {
 			}
 			desc = religious_war_victory_desc
 		}
-		triggered_desc = {
-			trigger = { scope:attacker = { is_local_player = yes } }
-			desc = major_religious_war_warning_desc
-		}
 	}
 
 	on_victory = {
@@ -1055,7 +1051,7 @@ tentacleswarm_religious_war = {
 	}
 
 	on_defeat_desc = {
-		desc = religious_war_defeat_desc
+		desc = tentacleswarm_cb_defeat_desc_attacker
 	}
 
 	on_defeat = {
@@ -1131,7 +1127,7 @@ tentacleswarm_religious_war = {
 	attacker_allies_inherit = yes
 	defender_allies_inherit = yes
 
-	war_name = "RELIGIOUS_WAR_NAME"
+	war_name = "RELIGIOUS_TENTACLE_WAR_NAME"
 	cb_name = "HOLY_WAR_TENTACLE_NAME"
 
 	is_holy_war = yes
