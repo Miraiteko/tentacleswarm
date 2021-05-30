@@ -76,6 +76,44 @@ tentacleswarm_test_decision = {
 		debug_only = yes
 	}	
 	effect = {
+		capital_county = {
+			every_county_province = { #通过变换地产类型来清建筑
+				if = {
+					limit= {
+						has_holding_type = castle_holding
+					}
+					set_holding_type = tribal_holding
+					set_holding_type = castle_holding
+				}
+				else_if = {
+					limit= {
+						has_holding_type = tribal_holding
+					}
+					set_holding_type = city_holding
+					set_holding_type = tribal_holding
+				}
+				else_if = {
+					limit= {
+						has_holding_type = city_holding
+					}
+					set_holding_type = tribal_holding
+					set_holding_type = city_holding
+				}
+				else_if = {
+					limit= {
+						has_holding_type = church_holding
+					}
+					set_holding_type = tribal_holding
+					set_holding_type = church_holding
+				}
+				else_if = {
+					limit= {
+						has_holding = yes
+					}
+					set_holding_type = tribal_holding
+				}
+			}
+		}
 	}
 	
 	ai_check_interval = 0

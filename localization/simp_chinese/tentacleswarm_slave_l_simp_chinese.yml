@@ -6,10 +6,14 @@
  #宗教相关
  rf_xenogenesis:0 "异种支配"
  rf_xenogenesis_adj:0 "异种支配"
- tentacleswarm_religion:0 "触手奴役"
- tentacleswarm_religion_adj:0 "触手奴役"
+ tentacleswarm_religion:0 "触手天灾"
+ tentacleswarm_religion_adj:0 "触手天灾"
+ tentacleswarm_religion_desc:0 "触手怪物通过它们分泌的气味来使人堕落，用其强大的武力使人服从，从而支配人类社会。\n女人们被要求成为触手奴隶为主人生育后代，而男人们将辛苦劳役直至死去。\n这种被触手怪物支配的社会无法长久维持，最终将走向毁灭。"
  tentacleswarm_slavery:0 "触手屈服者" 
+ tentacleswarm_slavery_desc:0 "触手屈服者是最为常见的触手天灾信仰。\n触手奴隶们不再掩饰自己的身份，而是狂热地为主人服务，致力于将触手腐化散布到世界的每一个角落，使全人类都屈服于触手主人。" 
  tentacleswarm_slavery_adj:0 "触手屈服者" 
+ tentacleswarm_slavery_adherent:0 "触手屈服者" 
+ tentacleswarm_slavery_adherent_plural:0 "触手屈服者们" 
  
  doctrine_tentacleswarm_name:0 "对触手怪物态度"
  doctrine_tentacleswarm_evil_name:0 "剿灭"

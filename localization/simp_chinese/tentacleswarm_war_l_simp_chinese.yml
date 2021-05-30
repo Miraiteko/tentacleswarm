@@ -10,4 +10,6 @@
     TENTACLESWARM_WAR_NAME:0 "$ORDER$[ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]为触手主人征服[TITLE.GetBaseName]"
     TENTACLESWARM_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
     TENTACLESWARM_CB_NAME:0 "触手主人的征服"
+    
+    HOLY_WAR_TENTACLE_NAME:0 "触手剿灭之圣战"
  

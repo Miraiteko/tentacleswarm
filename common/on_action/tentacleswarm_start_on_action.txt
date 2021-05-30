@@ -17,7 +17,7 @@ tentacleswarm_on_game_start = {
 				}
 			}
 		}
-		#初始奴隶生成，2%的成年出生卑微女性
+		#初始奴隶生成，5%的成年出生卑微女性
 		every_living_character = {
 			if = {
 				limit = { 
@@ -26,8 +26,8 @@ tentacleswarm_on_game_start = {
 					is_adult = yes
 				}
 				random_list = {
-					98 = {}
-					2 = { 
+					95 = {}
+					5 = { 
 						become_tentacle_slave = yes
 					}
 				}
@@ -43,7 +43,7 @@ tentacleswarm_on_game_start = {
 					is_adult = yes
 					has_faith = faith:catholic 
 					#has_faith = faith:orthodox
-					#always = yes
+					always = no
 				}
 				#become_congenital_tentacle_slave = yes
 				#become_congenital_tentacle_slave_carry = yes
@@ -56,7 +56,10 @@ tentacleswarm_on_game_start = {
 			set_variable =  { name = tentacleswarm_corruption value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
-			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 25 } #初始的时候，每点发展度有1只巨兽
+			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 5 }
+			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = -1 }
+			change_variable =  { name = tentacleswarm_corruption_warbeast add = development_level }
+			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 20 } #初始的时候潜伏巨兽生成
 			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }

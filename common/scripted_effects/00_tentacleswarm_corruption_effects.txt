@@ -6,8 +6,44 @@ tentacleswarm_corruption_county_destroy_effect = {
 	#发展度进度清零
 	change_development_progress = -100 
 	#破坏进度清零
-	set_variable =  { name = tentacleswarm_corruption_destroy value = 0 } 
-	
+	set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
+	#建筑破坏
+	every_county_province = { #通过变换地产类型来清建筑
+		if = {
+			limit= {
+				has_holding_type = castle_holding
+			}
+			set_holding_type = tribal_holding
+			set_holding_type = castle_holding
+		}
+		else_if = {
+			limit= {
+				has_holding_type = tribal_holding
+			}
+			set_holding_type = city_holding
+			set_holding_type = tribal_holding
+		}
+		else_if = {
+			limit= {
+				has_holding_type = city_holding
+			}
+			set_holding_type = tribal_holding
+			set_holding_type = city_holding
+		}
+		else_if = {
+			limit= {
+				has_holding_type = church_holding
+			}
+			set_holding_type = tribal_holding
+			set_holding_type = church_holding
+		}
+		else_if = {
+			limit= {
+				has_holding = yes
+			}
+			set_holding_type = tribal_holding
+		}
+	}
 	#腐化转移到相邻地区
 	random_title_to_title_neighboring_and_across_water_county = {
 		limit = {
