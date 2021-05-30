@@ -3,6 +3,7 @@
 #开辟新巢穴
 tentacleswarm_conquest = {
 	group = conquest
+	is_holy_war = yes
 	
 	combine_into_one = yes #多个可选目标，也只显示为一个cb
 	should_show_war_goal_subview = yes
@@ -17,14 +18,9 @@ tentacleswarm_conquest = {
 			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
 			is_independent_ruler = yes #独立
 		}
-		scope:attacker = { #不允许跳板进攻。(AI只会进攻相邻或者事件进攻远距离，不用考虑这一条)
-			OR = {
-				is_ai = yes
-				scope:defender = {
-					any_sub_realm_county = {
-						development_level > 0
-					}
-				}
+		scope:defender = {
+			any_sub_realm_county = {
+				development_level > 0
 			}
 		}
 	}
@@ -96,11 +92,12 @@ tentacleswarm_conquest = {
 
 	should_invalidate = {
 		OR = {
-			NOT = { #目标境内的目标头衔中没有土地了
+			NOT = { #目标境内的目标头衔中没有适合的土地了
 				any_in_list = {
 					list = target_titles
 					any_in_de_jure_hierarchy = {
 						tier = tier_county
+						development_level > 0
 						holder = {
 							target_is_same_character_or_above = scope:defender
 						}
@@ -268,6 +265,7 @@ tentacleswarm_conquest = {
 	}
 
 	on_victory = { #胜利效果
+		scope:attacker = { show_pow_release_message_effect = yes }
 		scope:attacker = {
 			if = {
 				limit = {
@@ -599,6 +597,7 @@ tentacleswarm_conquest = {
 
 	on_white_peace = {
 		# Prestige loss for the attacker
+		scope:attacker = { show_pow_release_message_effect = yes }
 		scope:attacker = {
 			add_prestige = {
 				value = minor_prestige_value
@@ -647,11 +646,7 @@ tentacleswarm_conquest = {
 
 	on_defeat = {
 
-		# 战败时进攻方被处决
-		#scope:attacker = {
-		#	death = { killer = scope:defender death_reason = death_execution }
-		#}
-
+		scope:attacker = { show_pow_release_message_effect = yes }
 		# Prestige for Defender
 		scope:defender = {
 			add_prestige = major_prestige_value

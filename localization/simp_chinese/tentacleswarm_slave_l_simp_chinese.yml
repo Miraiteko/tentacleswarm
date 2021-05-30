@@ -26,6 +26,10 @@
  doctrine_tentacleswarm_accepted_desc:0 "我们的身心都属于触手主人。"
 
  #秘密相关
+ secret_tentacle_slave:0 "触手奴隶"
+ secret_tentacle_slave_desc:0 "是触手奴隶"
+ secret_tentacle_slave_type_desc:0 "该角色屈服于触手怪物。"
+ secret_tentacle_slave_tooltip_desc:0 "该角色屈服于触手怪物。"
  secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
  
  #决议相关

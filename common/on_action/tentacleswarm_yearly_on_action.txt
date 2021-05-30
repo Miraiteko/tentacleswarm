@@ -85,7 +85,7 @@ tentacle_slave_yearly = {
 			if = {
 				limit = {
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
 					}
 				}
 				#改信，释放费洛蒙
@@ -134,7 +134,7 @@ tentacle_slave_yearly = {
 					is_landed = yes
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
 					}
 				}
 				Not = { 
@@ -161,7 +161,7 @@ tentacle_slave_yearly = {
 					is_landed = yes 
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
 					}
 					OR = {
 						is_male = yes #只针对父亲，或者无生育能力的母亲
@@ -303,19 +303,47 @@ tentacleswarm_yearly_playable_pulse = {
 			#否则，进行滋生
 			else = {
 				#计算自然增长率
-				set_variable =  { name = tentacleswarm_corruption_growth value = 60 } #基础为每年-40%	
+				set_variable =  { name = tentacleswarm_corruption_growth value = 90 } #基础为每年-10%	
+				#本地信仰修正
 				if = {
-					limit = { county_controller = { is_tentacle_slave = yes } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 0 } #如果控制者是奴隶抵消衰减
-				}	
-				if = {
-					limit = { county_controller = { has_religion = religion:tentacleswarm_religion } }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 20 } #如果控制者信奉触手宗教抵消衰减
+					limit = { 
+						faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = -30 } #本地敌视
+				}
+				else_if = {
+					limit = { 
+						religion = religion:tentacleswarm_religion 
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = 30 } #本地信奉触手宗教
+				}
+				else_if = {
+					limit = { 
+						faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime }
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #本地厌恶
+				}
+				else_if = {
+					limit = { 
+						faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned }
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = -10 } #本地忌讳
 				}
 				if = {
-					limit = { religion = religion:tentacleswarm_religion }
-					change_variable =  { name = tentacleswarm_corruption_growth add = 40 } #如果本地信奉触手宗教抵消衰减
-				}		
+					limit = { 
+						county_controller.faith = {
+							has_doctrine_parameter = doctrine_tentacleswarm_evil
+						}
+						county_controller = { is_tentacle_slave = no }
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = -10 } #绞杀令
+				}
+				if = {
+					limit = { 
+						county_controller = { has_religion = religion:tentacleswarm_religion } 
+					}
+					change_variable =  { name = tentacleswarm_corruption_growth add = 10 } #散布令
+				}
 				change_variable =  { name = tentacleswarm_corruption_growth add = development_level }#每点发展度抵消1衰减
 				if = {
 					limit = { var:tentacleswarm_corruption_growth = { compare_value > 100 } }

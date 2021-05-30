@@ -32,7 +32,6 @@ secret_tentacle_slave_is_evil_trigger = {
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil } }
 	}
 }
-
 #勒索是否可以执行。覆盖原版条件，导致兼容性下降
 is_blackmailable_secret_trigger = { #Should not include is known
 	$PARTICIPANT$ = { save_temporary_scope_as = is_blackmailable_secret_participant }

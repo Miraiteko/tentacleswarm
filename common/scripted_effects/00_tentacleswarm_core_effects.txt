@@ -84,6 +84,7 @@ tentacleswarm_4VA = {
 		}
 	}
 	#释放费洛蒙给周围领主
+	save_scope_as = 4VA_from
 	every_character_to_title_neighboring_and_across_water_county = {
 		holder = {
 			trigger_event = {
