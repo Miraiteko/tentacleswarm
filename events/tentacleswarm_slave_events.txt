@@ -9,6 +9,25 @@ tentacleswarm_slave.0001 = {
 	type = character_event
 	title = tentacleswarm_slave.0001.t
 	desc = tentacleswarm_slave.0001.desc
+	
+	#desc可以像这样写
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					always = no
+				}
+				desc = feast.1501.host_likes_me
+			}
+			triggered_desc = {
+				trigger = {
+					always = no
+				}
+				desc = feast.1501.host_gets_along_with_me
+			}
+			desc = feast.1501.host_dislikes_me
+		}
+	}
 	theme = seduction
 	left_portrait = this
 	

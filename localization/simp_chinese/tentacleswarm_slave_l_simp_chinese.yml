@@ -2,6 +2,15 @@
  #核心内容
  trait_tentacle_slave:0 "触手奴隶"
  trait_tentacle_slave_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]屈服于触手怪物。"
+ is_tentacle_slave_tooltip:0 "是触手奴隶"
+ not_tentacle_slave_tooltip:0 "不是触手奴隶"
+ is_hidden_tentacle_slave_tooltip:0 "是隐藏中的触手奴隶"
+ I_am_hidden_tentacle_slave_tooltip:0 "我是隐藏中的触手奴隶"
+ not_hidden_tentacle_slave_tooltip:0 "不是隐藏中的触手奴隶"
+ 
+ #4VA
+ tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"
+ tentacle_neighboring_4VA_tooltip:0 "附近的触手奴隶们将进行响应"
 
  #宗教相关
  rf_xenogenesis:0 "异种支配"
@@ -38,6 +47,12 @@
  tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶省份"
  tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
  
+ tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
+ tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
+ tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n今日正是我履行这些义务的时刻。"
+ tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
+ tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
+ tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
  #密谋相关
  TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
 

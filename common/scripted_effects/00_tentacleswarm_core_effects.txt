@@ -91,33 +91,40 @@ convert_to_tentacleswarm_religion = {
 
 #4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利
 tentacleswarm_4VA = {
-	#廷臣皈依
-	every_courtier_or_guest	= {
-		limit = {
-			is_tentacle_slave = yes
-		}
-		convert_to_tentacleswarm_religion = yes
-	}
-	#封臣皈依
-	every_vassal_or_below ={
-		if = {
-			limit = { is_tentacle_slave = yes } 
-			convert_to_tentacleswarm_religion = yes
-		}
+	
+	custom_tooltip = tentacle_courtier_and_vassal_4VA_tooltip
+	hidden_effect = {
+		#廷臣皈依
 		every_courtier_or_guest	= {
 			limit = {
 				is_tentacle_slave = yes
 			}
 			convert_to_tentacleswarm_religion = yes
 		}
+		#封臣皈依
+		every_vassal_or_below ={
+			if = {
+				limit = { is_tentacle_slave = yes } 
+				convert_to_tentacleswarm_religion = yes
+			}
+			every_courtier_or_guest	= {
+				limit = {
+					is_tentacle_slave = yes
+				}
+				convert_to_tentacleswarm_religion = yes
+			}
+		}
 	}
 	#释放费洛蒙给周围领主
 	save_scope_as = 4VA_from
-	every_character_to_title_neighboring_and_across_water_county = {
-		holder = {
-			trigger_event = {
-				on_action = tentacleswarm_4VA_pulse
-				days = { 10 60 }
+	custom_tooltip = tentacle_neighboring_4VA_tooltip
+	hidden_effect = {
+		every_character_to_title_neighboring_and_across_water_county = {
+			holder = {
+				trigger_event = {
+					on_action = tentacleswarm_4VA_pulse
+					days = { 10 60 }
+				}
 			}
 		}
 	}

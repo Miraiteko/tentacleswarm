@@ -12,13 +12,13 @@
 	}
 	
 	is_valid = {
-		any_secret = { secret_type = secret_tentacle_slave }
+		is_hidden_tentacle_slave = yes #是隐藏中的触手奴隶
 	}	
 	effect = {
 		#公开皈依
 		convert_to_tentacleswarm_religion = yes  
 		#信号施放
-		tentacleswarm_4VA = yes
+		tentacleswarm_4VA = yes 
 	}
 	
 	ai_check_interval = 60
@@ -46,7 +46,10 @@ tentacleswarm_auto_corrupt_decision = {
 	is_shown = {
 		is_ai = no  #ai不通过这个来成为奴隶
 		is_female = yes
-		has_religion = religion:tentacleswarm_religion #触手信仰
+		OR = {
+			is_tentacle_slave = yes #触手奴隶
+			has_religion = religion:tentacleswarm_religion #触手信仰
+		}
 	}
 	
 	is_valid = {
@@ -54,14 +57,12 @@ tentacleswarm_auto_corrupt_decision = {
 		is_adult = yes #成年
 		OR = {
 			is_tentacle_slave = no #不是奴隶的话，可以请赐
-			AND = {#怀孕了但没有被赐福，可以请赐
-				is_pregnant = yes
-				has_character_flag = tentacle_baby_corruption_not_yet
-			}
+			tentacle_baby_corruption_not_yet = yes #怀孕了但未被赐福，可以请赐
 		}
 	}	
 	effect = {
 		add_piety = 200
+		custom_tooltip = tentacle_baby_corruption_tooltip
 		trigger_event = {
 			id = tentacleswarm_slave.0031 #虔诚赐福
 		}

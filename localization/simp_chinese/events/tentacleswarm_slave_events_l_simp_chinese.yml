@@ -1,0 +1,33 @@
+﻿l_simp_chinese:
+#天生奴隶
+tentacleswarm_slave.0001.t:0 "请求"
+tentacleswarm_slave.0001.desc:0 "请求"
+tentacleswarm_slave.0001.a:0 "请求"
+#监护人的礼物
+tentacleswarm_slave.0011.t:0 "请求"
+tentacleswarm_slave.0011.desc:0 "请求"
+tentacleswarm_slave.0011.a:0 "请求"
+tentacleswarm_slave.0012.t:0 "请求"
+tentacleswarm_slave.0012.desc:0 "请求"
+tentacleswarm_slave.0012.a:0 "请求"
+#从水井中来
+tentacleswarm_slave.0021.t:0 "请求"
+tentacleswarm_slave.0021.desc:0 "请求"
+tentacleswarm_slave.0021.a:0 "请求"
+tentacleswarm_slave.0022.t:0 "请求"
+tentacleswarm_slave.0022.desc:0 "请求"
+tentacleswarm_slave.0022.a:0 "请求"
+#赐福
+tentacleswarm_slave.0031.t:0 "请求"
+tentacleswarm_slave.0031.desc:0 "请求"
+tentacleswarm_slave.0031.a:0 "请求"
+tentacleswarm_slave.0032.t:0 "请求"
+tentacleswarm_slave.0032.desc:0 "请求"
+tentacleswarm_slave.0032.a:0 "请求"
+#囚禁
+tentacleswarm_slave.0041.t:0 "请求"
+tentacleswarm_slave.0041.desc:0 "请求"
+tentacleswarm_slave.0041.a:0 "请求"
+tentacleswarm_slave.0042.t:0 "请求"
+tentacleswarm_slave.0042.desc:0 "请求"
+tentacleswarm_slave.0042.a:0 "请求"

@@ -42,8 +42,8 @@ tentacleswarm_baby_corruption = {
 					is_tentacle_slave = yes
 					has_religion = religion:tentacleswarm_religion
 				}
-				add_character_flag = { flag = tentacle_baby_corruption_not_yet months = 10 }
 			}
+			add_character_flag = { flag = tentacle_baby_corruption_not_yet months = 10 }
 		}
 		else_if = {
 			limit = {#主要奴隶必定被赐福
