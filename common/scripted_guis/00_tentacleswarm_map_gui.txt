@@ -58,7 +58,14 @@ tentacleswarm_corruption_map = {
 			}
 		}
 	}
+	is_shown = {
+		any_player = {
+			is_tentacle_slave = yes #只有奴隶才能查看的地图
+		}
+	}
 	is_valid = {
-		always = yes
+		any_player = {
+			is_tentacle_slave = yes #只有奴隶才能查看的地图
+		}
 	}
 }

@@ -67,7 +67,9 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 				is_adult = yes
 				not = { has_trait = tentacle_slave }
 			}
-			become_tentacle_slave = yes
+			trigger_event = {
+				id = tentacleswarm_slave.0031 #虔诚赐福
+			}
 		}
 	}
 }
@@ -125,7 +127,7 @@ tentacle_slave_yearly = {
 					NOT = { has_character_flag = exposed_tentacle_slave } #被揭发的无法藏身
 				} 
 				remove_trait = tentacle_slave
-				become_tentacle_slave = yes
+				become_tentacle_slave = yes #刷新奴隶身份
 			}
 		}
 		if = {

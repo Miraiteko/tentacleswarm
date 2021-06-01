@@ -1,8 +1,19 @@
 ﻿#核心判断
 is_tentacle_slave = {
-	OR = {
-		has_trait = tentacle_slave
-		any_secret = { secret_type = secret_tentacle_slave }
+	custom_description = {
+		text = is_tentacle_slave_tooltip
+		OR = {
+			has_trait = tentacle_slave
+			any_secret = { secret_type = secret_tentacle_slave }
+		}
+	}
+}
+怀孕了但未被赐福判断
+tentacle_baby_corruption_not_yet = {
+	custom_description = {
+		text = tentacle_baby_corruption_not_yet_tooltip
+		is_pregnant = yes
+		has_character_flag = tentacle_baby_corruption_not_yet
 	}
 }
 #遗传判断

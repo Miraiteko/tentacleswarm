@@ -96,14 +96,14 @@ tentacleswarm_4VA_pulse = {
 				}
 			}
 			random_list = {
-				30 = {
+				20 = {
 					#有和约或者盟约，倾向于不打你
 					modifier = { 
-						add = 10
+						add = 100
 						has_truce = scope:4VA_from
 					}
 					modifier = { 
-						add = 10
+						add = 100
 						is_allied_to = scope:4VA_from
 					}
 				}

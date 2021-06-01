@@ -30,6 +30,32 @@ become_tentacle_slave = {
 		
 	}	
 }
+#被触手腐化
+tentacle_corrupt = {
+	#不是奴隶的话成为奴隶
+	if = {
+		limit = { 
+			is_female = yes
+			is_tentacle_slave = no 
+		}
+		become_tentacle_slave = yes
+	}
+	if = {
+		limit = {
+			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
+			NOT = { has_character_flag = tentacle_baby_corruption }
+		}
+		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+	}
+	if = {
+		limit = {
+			is_pregnant = yes #如果作为玩家有未被赐福的flag，移除该flag
+			has_character_flag = tentacle_baby_corruption_not_yet
+		}
+		remove_character_flag = tentacle_baby_corruption_not_yet
+	}
+	
+}
 #皈依触手信仰
 convert_to_tentacleswarm_religion = {
 	if	= {
@@ -51,7 +77,9 @@ convert_to_tentacleswarm_religion = {
 			is_female = yes
 			is_tentacle_slave = no
 		}
-		become_tentacle_slave = yes
+		trigger_event = {
+			id = tentacleswarm_slave.0031 #虔诚赐福
+		}
 	}
 	if = { #未公开的奴隶进行公开
 		limit = { 

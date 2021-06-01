@@ -1,0 +1,7 @@
+﻿is_tentacle_slave_tooltip = {
+	global = is_tentacle_slave_tooltip
+	global_not = is_tentacle_slave_tooltip
+}
+tentacle_baby_corruption_not_yet_tooltip = {
+	global = tentacle_baby_corruption_not_yet_tooltip
+}

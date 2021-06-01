@@ -36,6 +36,52 @@
 		base = 0
 	}
 }
+tentacleswarm_auto_corrupt_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+
+	desc = tentacleswarm_auto_corrupt_decision_desc
+	selection_tooltip = tentacleswarm_auto_corrupt_decision_tooltip
+
+	is_shown = {
+		is_ai = no  #ai不通过这个来成为奴隶
+		is_female = yes
+		has_religion = religion:tentacleswarm_religion #触手信仰
+	}
+	
+	is_valid = {
+		is_imprisoned = no #不能被囚禁
+		is_adult = yes #成年
+		OR = {
+			is_tentacle_slave = no #不是奴隶的话，可以请赐
+			AND = {#怀孕了但没有被赐福，可以请赐
+				is_pregnant = yes
+				has_character_flag = tentacle_baby_corruption_not_yet
+			}
+		}
+	}	
+	effect = {
+		add_piety = 200
+		trigger_event = {
+			id = tentacleswarm_slave.0031 #虔诚赐福
+		}
+	}
+	
+	ai_check_interval = 60
+
+	ai_potential = {
+		OR = {
+			NOT = { exists = capital_province }
+			capital_province.county = { #首都可以召出5队巨兽，ai才会点
+				var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
 tentacleswarm_restart_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"

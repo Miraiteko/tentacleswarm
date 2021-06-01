@@ -20,6 +20,7 @@ tentacle_slave_claim_throne = {
 		is_tentacle_slave = yes
 		is_imprisoned = no
 		scope:target = { 
+			is_ai = yes #暂且给玩家一些保护
 			holds_landed_title = yes
 			OR = {
 				is_consort_of = scope:owner
