@@ -92,151 +92,7 @@ tentacleswarm_baby_corruption = {
 tentacleswarm_near_birth_pulse = {
 	trigger = { is_pregnant = yes } #如果提前流产了的话，就不用考虑了 
 	effect = {
-		#天生奴遗传确认，该性状为伴X隐形基因，雄性不表现
-		
-		#母亲为纯合子
-		if = { 
-			limit = {
-				is_congenital_tentacle_slave = yes
-			}
-			#母亲被赐福
-			if = { 
-				limit = { 
-					has_character_flag = tentacle_baby_corruption
-				}
-				#孩子一定是女性纯合
-				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 } 
-			}
-			#父亲活着，是携带者
-			else_if = {
-				limit = { 
-					scope:real_father = { 
-						is_alive = yes
-						is_congenital_tentacle_slave_carry = yes
-					} 
-				}
-				random_list = {
-					50 = {#女性纯合
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-					}
-					50 = {#男性携带
-						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-				}
-			}
-			#父亲是正常人
-			else = {
-				random_list = {
-					50 = {#女性携带
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					50 = {#男性携带
-						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-				}
-			}
-		}
-		
-		#母亲为携带者
-		else_if = { 
-			limit = {
-				is_congenital_tentacle_slave_carry = yes
-			}
-			#母亲被赐福
-			if = { 
-				limit = { 
-					has_character_flag = tentacle_baby_corruption
-				}
-				random_list = {
-					50 = {#女性纯合
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-					}
-					50 = {#女性携带
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-				}
-			}
-			#父亲是携带者
-			else_if = {
-				limit = { 
-					scope:real_father = { is_congenital_tentacle_slave_carry = yes } 
-				}
-				random_list = {
-					25 = {#女性纯合
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-					}
-					25 = {#女性携带
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					25 = {#男性携带
-						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					25 = {#男性正常
-						set_pregnancy_gender = male
-					}
-				}
-			}
-			#父亲是正常人
-			else = {
-				random_list = {
-					25 = {#女性携带
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					25 = {#女性正常
-						set_pregnancy_gender = female
-					}
-					25 = {#男性携带
-						set_pregnancy_gender = male
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					25 = {#男性正常
-						set_pregnancy_gender = male
-					}
-				}
-			}
-		}
-		#母亲为正常人
-		else = { 
-			#母亲被赐福
-			if = { 
-				limit = { 
-					has_character_flag = tentacle_baby_corruption 
-				}
-				#孩子一定是女性携带
-				set_pregnancy_gender = female 
-				add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 } 
-			}
-			#父亲是携带者
-			else_if = {
-				limit = { 
-					scope:real_father = { is_congenital_tentacle_slave_carry = yes } 
-				}
-				random_list = {
-					50 = {#女性携带
-						set_pregnancy_gender = female
-						add_character_flag = { flag = baby_congenital_tentacle_slave_carry months = 5 }
-					}
-					50 = {#男性正常
-						set_pregnancy_gender = male
-					}
-				}
-			}
-			#父亲是正常人
-			else = {
-				#孩子正常
-			}
-		}
+		#移除
 	}
 }
 
@@ -250,28 +106,11 @@ on_birth_child = {
 #TS出生结算
 tentacleswarm_birth_pulse = {
 	effect = {
-		#新生儿天生奴遗传结算
-		if = { #天生奴隶
+		if = { #被赐福的孩子外貌水平提升，倾国倾城女性为天生奴隶
 			limit = {
-				is_female = yes
-				mother = { has_character_flag = baby_congenital_tentacle_slave } 
-			}
-			become_congenital_tentacle_slave = yes
-		}
-		else_if = { #有的时候有bug让男孩成为纯合子，改为成为携带者
-			limit = {
-				is_female = no
-				mother = { has_character_flag = baby_congenital_tentacle_slave } 
+				mother = { has_character_flag = tentacle_baby_corruption } 
 			}
 			become_congenital_tentacle_slave_carry = yes
-		}	
-		else_if = { #携带者
-			limit = {
-				mother = { has_character_flag = baby_congenital_tentacle_slave_carry } 
-			}
-			become_congenital_tentacle_slave_carry = yes
-		}	
-		else = { #正常人
 		}
 		#母亲移除赐福
 		mother = {
