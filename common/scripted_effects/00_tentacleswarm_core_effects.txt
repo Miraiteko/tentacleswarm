@@ -132,7 +132,10 @@ tentacleswarm_4VA = {
 
 #遗传结算
 become_congenital_tentacle_slave_carry = { #基因等级提升
-	add_trait = congenital_tentacle_slave #测试
+	if = {
+		limit = { debug_only = yes }
+		add_trait = congenital_tentacle_slave #测试
+	}
 	if = {
 		limit = { has_trait = beauty_bad_3 }
 		remove_trait = beauty_bad_3

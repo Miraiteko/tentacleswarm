@@ -56,9 +56,10 @@ random_yearly_everyone_pulse = {
 		tentacle_slave_yearly
 	}
 }
-tentacleswarm_bliever_yearly = { #触手信徒年度触发
+tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 	trigger = {
 		has_religion = religion:tentacleswarm_religion
+		is_ai = yes
 	}
 	effect = {
 		if = { #没有成为奴隶的成年女性成为奴隶
@@ -73,9 +74,10 @@ tentacleswarm_bliever_yearly = { #触手信徒年度触发
 		}
 	}
 }
-tentacle_slave_yearly = {
+tentacle_slave_yearly = {#触手奴隶年度行动触发
 	trigger = {
 		is_tentacle_slave = yes
+		is_ai = yes
 	}
 	effect = {
 		if = { #自己是潜藏的统治者的话，查看首都巨兽储备决定是否起事
@@ -123,6 +125,7 @@ tentacle_slave_yearly = {
 			#根据新信仰选择是否要将身份藏起来
 			if = {
 				limit = {
+					is_ai = yes
 					has_trait = tentacle_slave
 					NOT = { has_character_flag = exposed_tentacle_slave } #被揭发的无法藏身
 				} 
@@ -740,6 +743,11 @@ tentacleswarm_random_yearly_playable_pulse = {
 					}
 				}
 				change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
+				
+				if = {	
+					limit = { is_independent_ruler = yes }
+					set_variable =  { name = max_held_development value = 1 } #独立领主的话，就不在意那么多
+				}
 			}
 			random_in_global_list = {
 				variable = tentacleswarm_main_target_ruler

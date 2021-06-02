@@ -13,8 +13,7 @@ tentacleswarm_corruption_county_destroy_effect = {
 			limit= {
 				has_holding_type = castle_holding
 			}
-			set_holding_type = tribal_holding
-			set_holding_type = castle_holding
+			set_holding_type = tribal_holding #城堡变成部落
 		}
 		else_if = {
 			limit= {

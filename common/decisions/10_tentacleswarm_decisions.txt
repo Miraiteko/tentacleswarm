@@ -7,12 +7,13 @@
 
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
-		not = { has_trait = tentacle_slave }
-		any_secret = { secret_type = secret_tentacle_slave }
+		is_tentacle_slave = yes
+		NOT = { has_religion = religion:tentacleswarm_religion }
 	}
 	
 	is_valid = {
-		is_hidden_tentacle_slave = yes #是隐藏中的触手奴隶
+		is_tentacle_slave = yes
+		NOT = { has_religion = religion:tentacleswarm_religion } #未皈依
 	}	
 	effect = {
 		#公开皈依
@@ -123,44 +124,7 @@ tentacleswarm_test_decision = {
 		debug_only = yes
 	}	
 	effect = {
-		capital_county = {
-			every_county_province = { #通过变换地产类型来清建筑
-				if = {
-					limit= {
-						has_holding_type = castle_holding
-					}
-					set_holding_type = tribal_holding
-					set_holding_type = castle_holding
-				}
-				else_if = {
-					limit= {
-						has_holding_type = tribal_holding
-					}
-					set_holding_type = city_holding
-					set_holding_type = tribal_holding
-				}
-				else_if = {
-					limit= {
-						has_holding_type = city_holding
-					}
-					set_holding_type = tribal_holding
-					set_holding_type = city_holding
-				}
-				else_if = {
-					limit= {
-						has_holding_type = church_holding
-					}
-					set_holding_type = tribal_holding
-					set_holding_type = church_holding
-				}
-				else_if = {
-					limit= {
-						has_holding = yes
-					}
-					set_holding_type = tribal_holding
-				}
-			}
-		}
+		become_congenital_tentacle_slave_carry = yes
 	}
 	
 	ai_check_interval = 0
