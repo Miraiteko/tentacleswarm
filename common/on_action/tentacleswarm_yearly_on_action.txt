@@ -587,14 +587,48 @@ tentacleswarm_yearly_playable_pulse = {
 					limit = { #破坏点数满100时候，掉1点发展度，生一队巨兽
 						var:tentacleswarm_corruption_destroy = { compare_value >= 100 }
 					}
+					save_scope_as = county
 					change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
 					if = {
 						limit = { development_level > 0 } 
-						change_development_level = -1
+						holder = {
+							save_scope_as = holder
+							send_interface_message = {
+								type = event_steward_task_bad
+								title = tentacleswarm_corruption_destroy.notification
+								desc = tentacleswarm_corruption_destroy.desc
+								
+								left_icon = scope:county
+								right_icon = scope:holder
+								goto = scope:county
+								#tooltip = tentacleswarm_corruption_destroy.tooltip
+
+								scope:county = {
+									change_development_level = -1
+								}
+							}
+						}
 					}
 					#如果发展度已经为零了，省份被破坏殆尽
 					else = {
 						tentacleswarm_corruption_county_destroy_effect = yes #省份摧毁结算
+						holder = {
+							save_scope_as = holder
+							send_interface_message = {
+								type = event_steward_task_bad
+								title = tentacleswarm_corruption_destroy1.notification
+								desc = tentacleswarm_corruption_destroy1.desc
+								
+								left_icon = scope:county
+								right_icon = scope:holder
+								goto = scope:county
+								show_as_tooltip = {
+									scope:county = {
+										add_county_modifier = tentacleswarm_destroy
+									}
+								}
+							}
+						}
 					}
 					
 					if = { #如果领主是本宗教的，在破坏时直接获得一队巨兽
@@ -602,6 +636,7 @@ tentacleswarm_yearly_playable_pulse = {
 							holder = { has_religion = religion:tentacleswarm_religion }
 						}
 						holder = { #战争巨兽
+							save_scope_as = holder
 							spawn_army = {
 								men_at_arms = {
 									type = tentacleswarm_warbeast
@@ -610,9 +645,18 @@ tentacleswarm_yearly_playable_pulse = {
 								location = root.capital_province
 								name = tentacleswarm_warbeast_event_troops
 							}
-							#还能从破坏中获得钱和虔诚
-							add_gold = 100
-							add_piety = 50
+							send_interface_message = {
+								type = event_marshal_task_good
+								title = tentacleswarm_corruption_warbeast.notification
+								desc = tentacleswarm_corruption_warbeast.desc
+								
+								left_icon = scope:county
+								right_icon = scope:holder
+								goto = scope:county
+								#还能从破坏中获得钱和虔诚
+								add_gold = 100
+								add_piety = 50
+							}
 						}
 					}
 					else = { #否则的话，巨兽在破坏完之后，沉睡了
@@ -626,6 +670,7 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
 					holder = { #战争巨兽
+						save_scope_as = holder
 						spawn_army = {
 							men_at_arms = {
 								type = tentacleswarm_warbeast
@@ -633,6 +678,18 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							location = root.capital_province
 							name = tentacleswarm_warbeast_event_troops
+						}
+						send_interface_message = {
+							type = event_marshal_task_good
+							title = tentacleswarm_corruption_warbeast1.notification
+							desc = tentacleswarm_corruption_warbeast1.desc
+							
+							left_icon = scope:county
+							right_icon = scope:holder
+							goto = scope:county
+							#还能从破坏中获得钱和虔诚
+							add_gold = 100
+							add_piety = 50
 						}
 					}
 				}

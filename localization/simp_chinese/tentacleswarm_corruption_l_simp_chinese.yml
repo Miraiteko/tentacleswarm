@@ -4,23 +4,38 @@
  #地图模式
  TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
  
+ #省份破坏
+ tentacleswarm_corruption_destroy.notification:0 "触手破坏"
+ tentacleswarm_corruption_destroy.tooltip:0 "触手怪物对此地的频繁袭击导致了人口的减少。"
+ tentacleswarm_corruption_destroy.desc:0 "此地肆虐的触手怪物导致了人口的下降。减少此地的触手腐化程度可以有效避免此类事件。"
+ tentacleswarm_corruption_destroy1.notification:0 "毁灭殆尽"
+ tentacleswarm_corruption_destroy1.desc:0 "触手怪物在彻底摧毁了这个地区之后扬长而去。"
+ 
  #巨兽相关
+ tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
+ tentacleswarm_corruption_warbeast.desc:0 "破坏[county.GetName]的强大触手怪物带着掠夺的财富加入了你的军队。"
+ tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
+ tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
+ 
  tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
  tentacleswarm_warbeast:0 "触手战争巨兽"
  tentacleswarm_warbeast_flavor:1 "#F 一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下在战场上尽情虐杀。#!"
  
+ 
+ 
  #传教相关
  TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"
  
+ #省份修正
  tentacleswarm_destroy:0 "毁灭殆尽"
  tentacleswarm_destroy_desc:0 "触手怪物在彻底摧毁了此处的环境之后扬长而去，只留下为数不多的幸存者在艰难地求生。"
  tentacleswarm_corruption_1:0 "触手出没"
- tentacleswarm_corruption_1_desc:0 "人们偶尔在此处发现触手怪物的踪迹。"
+ tentacleswarm_corruption_1_desc:0 "人们偶尔在此处发现触手怪物的踪迹。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  tentacleswarm_corruption_2:0 "触手潜伏地"
- tentacleswarm_corruption_2_desc:0 "触手怪物潜伏在阴暗中等候着猎物。"
+ tentacleswarm_corruption_2_desc:0 "触手怪物潜伏在阴暗中等候着猎物。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  tentacleswarm_corruption_3:0 "触手巢穴"
- tentacleswarm_corruption_3_desc:0 "触手怪物已公然在此地筑巢繁殖。"
+ tentacleswarm_corruption_3_desc:0 "触手怪物已公然在此地筑巢繁殖。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  tentacleswarm_corruption_4:0 "触手温床"
- tentacleswarm_corruption_4_desc:0 "这个地方到处都是触手怪物的巢穴，令空气中弥漫着浓重的腐化气息。"
+ tentacleswarm_corruption_4_desc:0 "这个地方到处都是触手怪物的巢穴，令空气中弥漫着浓重的腐化气息。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  tentacleswarm_corruption_5:0 "触手地狱"
- tentacleswarm_corruption_5_desc:0 "此处已经被触手怪物完全支配了，所有的人民无一幸免地沦为了触手怪物的奴隶。"
+ tentacleswarm_corruption_5_desc:0 "此处已经被触手怪物完全支配了，所有的人民无一幸免地沦为了触手怪物的奴隶。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
