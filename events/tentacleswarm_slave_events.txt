@@ -10,24 +10,6 @@ tentacleswarm_slave.0001 = {
 	title = tentacleswarm_slave.0001.t
 	desc = tentacleswarm_slave.0001.desc
 	
-	#desc可以像这样写
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					always = no
-				}
-				desc = feast.1501.host_likes_me
-			}
-			triggered_desc = {
-				trigger = {
-					always = no
-				}
-				desc = feast.1501.host_gets_along_with_me
-			}
-			desc = feast.1501.host_dislikes_me
-		}
-	}
 	theme = seduction
 	left_portrait = this
 	
@@ -62,6 +44,25 @@ tentacleswarm_slave.0011 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0011.a
+		trigger_event= {
+			id = tentacleswarm_slave.0012
+		}
+	}
+}
+tentacleswarm_slave.0011 = {
+	type = character_event
+	title = tentacleswarm_slave.0011.t
+	desc = tentacleswarm_slave.0011.desc
+	theme = seduction
+	left_portrait = this
+	right_portrait = scope:guardian
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = tentacleswarm_slave.0012.a
 		tentacle_corrupt = yes
 	}
 }
@@ -70,6 +71,7 @@ tentacleswarm_slave.0021 = {
 	type = character_event
 	title = tentacleswarm_slave.0021.t
 	desc = tentacleswarm_slave.0021.desc
+	
 	theme = seduction
 	left_portrait = this
 	
@@ -89,8 +91,23 @@ tentacleswarm_slave.0021 = {
 }
 tentacleswarm_slave.0022 = {
 	type = character_event
-	title = tentacleswarm_slave.0022.t
-	desc = tentacleswarm_slave.0022.desc
+	title = tentacleswarm_slave.0022.t	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_pregnant = no
+				}
+				desc = tentacleswarm_slave.0022.desc
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.0022.desc1
+			}
+		}
+	}
 	theme = seduction
 	left_portrait = this
 	
@@ -108,7 +125,22 @@ tentacleswarm_slave.0022 = {
 tentacleswarm_slave.0031 = {
 	type = character_event
 	title = tentacleswarm_slave.0031.t
-	desc = tentacleswarm_slave.0031.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+				}
+				desc = tentacleswarm_slave.0031.desc
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.0031.desc1
+			}
+		}
+	}
 	theme = seduction
 	left_portrait = this
 	
@@ -129,7 +161,22 @@ tentacleswarm_slave.0031 = {
 tentacleswarm_slave.0032 = {
 	type = character_event
 	title = tentacleswarm_slave.0032.t
-	desc = tentacleswarm_slave.0032.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+				}
+				desc = tentacleswarm_slave.0032.desc
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.0032.desc1
+			}
+		}
+	}
 	theme = seduction
 	left_portrait = this
 	
@@ -169,7 +216,22 @@ tentacleswarm_slave.0041 = {
 tentacleswarm_slave.0042 = {
 	type = character_event
 	title = tentacleswarm_slave.0042.t
-	desc = tentacleswarm_slave.0042.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_pregnant = no
+				}
+				desc = tentacleswarm_slave.0042.desc
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.0042.desc1
+			}
+		}
+	}
 	theme = seduction
 	left_portrait = this
 	right_portrait = scope:imprisoner
