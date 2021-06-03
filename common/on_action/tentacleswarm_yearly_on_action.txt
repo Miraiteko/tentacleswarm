@@ -767,9 +767,8 @@ tentacleswarm_random_yearly_playable_pulse = {
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient
-				random_held_title = {
+				random_realm_county = {
 					limit = { 
-						tier = tier_county 
 						development_level >= scope:actor.var:max_held_development
 					}
 					save_scope_as = target
