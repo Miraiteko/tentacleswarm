@@ -4,6 +4,7 @@
 #0021经典水井杀
 #0031主动要求赐福
 #0041被监禁者腐化
+
 #天生奴隶成为真正的奴隶
 tentacleswarm_slave.0001 = {
 	type = character_event
@@ -141,7 +142,7 @@ tentacleswarm_slave.0031 = {
 			}
 		}
 	}
-	theme = seduction
+	theme = faith
 	left_portrait = this
 	
 	widget = {
@@ -177,7 +178,7 @@ tentacleswarm_slave.0032 = {
 			}
 		}
 	}
-	theme = seduction
+	theme = faith
 	left_portrait = this
 	
 	widget = {
@@ -195,7 +196,7 @@ tentacleswarm_slave.0041 = {
 	type = character_event
 	title = tentacleswarm_slave.0041.t
 	desc = tentacleswarm_slave.0041.desc
-	theme = seduction
+	theme = dungeon
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	
@@ -232,7 +233,7 @@ tentacleswarm_slave.0042 = {
 			}
 		}
 	}
-	theme = seduction
+	theme = dungeon
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	

@@ -1,0 +1,107 @@
+﻿namespace = tentacleswarm_destroy
+#0001低发展度预警
+#0011毁灭
+tentacleswarm_destroy.0001 = {
+	type = character_event
+	title = tentacleswarm_destroy.0001.t
+	desc = tentacleswarm_destroy.0001.desc
+	
+	theme = corruption
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = tentacleswarm_destroy.0001.a
+		add_character_flag = { flag = tentacleswarm_destroy_alert years = 5 }
+	}
+}
+tentacleswarm_destroy.0011 = {
+	type = character_event
+	title = tentacleswarm_destroy.0011.t
+	desc = tentacleswarm_destroy.0011.desc
+	
+	theme = corruption
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		has_religion = religion:tentacleswarm_religion
+		NOT = {
+			any_held_title = {
+				tier = tier_county
+				NOT = { has_county_modifier = tentacleswarm_destroy }
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_destroy.0011.a
+		hidden_effect = {
+			every_held_title = { #伯爵以上头衔摧毁
+				limit = { tier > tier_county }
+				save_scope_as = target
+				root = { destroy_title = scope:target }
+			}
+			#废弃的土地，随便找个人拿
+			random_held_title = {
+				limit = { 
+					tier = tier_county 
+					NOT = { is_in_list = titles_taken }#不是刚拿的头衔
+					has_county_modifier = tentacleswarm_destroy
+				}
+				save_scope_as = target
+				random_living_character = {
+					limit = {
+						is_pool_character = yes
+						is_tentacle_slave = no
+						not = { has_religion = religion:tentacleswarm_religion }
+						has_culture_group = scope:target.culture_group
+					}
+					save_scope_as = lucky
+				}
+				if = {
+					limit = { NOT = { exists = scope:lucky }  }
+					random_living_character = {
+						limit = {
+							is_pool_character = yes
+							is_tentacle_slave = no
+							not = { has_religion = religion:tentacleswarm_religion }
+						}
+						save_scope_as = lucky
+					}
+				}
+			}
+			every_held_title = { 
+				limit = { 
+					tier = tier_county 
+					NOT = { is_in_list = titles_taken }#不是刚拿的头衔
+					has_county_modifier = tentacleswarm_destroy
+				}
+				save_scope_as = target
+				create_title_and_vassal_change = {
+					type = usurped
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				scope:target = {#拿头衔
+					change_title_holder_include_vassals = {
+						holder = scope:lucky
+						change = scope:change
+					}
+				}
+				scope:lucky = {#独立
+					becomes_independent = { change = scope:change }
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		#被杀掉
+		death = { death_reason = death_ritually_hung_then_eaten } #在仪式中被扼死，然后吃掉
+		custom_tooltip = tentacleswarm_destroy.0011.lucky.tt
+	}
+}

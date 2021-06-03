@@ -124,7 +124,9 @@ tentacleswarm_test_decision = {
 		debug_only = yes
 	}	
 	effect = {
-		become_congenital_tentacle_slave_carry = yes
+		trigger_event = {
+			on_action = tentacleswarm_yearly_playable_pulse
+		}
 	}
 	
 	ai_check_interval = 0

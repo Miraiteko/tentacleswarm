@@ -1,6 +1,4 @@
 ﻿l_simp_chinese:
- #
-
  #地图模式
  TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
  
@@ -10,6 +8,15 @@
  tentacleswarm_corruption_destroy.desc:0 "此地肆虐的触手怪物导致了人口的下降。减少此地的触手腐化程度可以有效避免此类事件。"
  tentacleswarm_corruption_destroy1.notification:0 "毁灭殆尽"
  tentacleswarm_corruption_destroy1.desc:0 "触手怪物在彻底摧毁了这个地区之后扬长而去。"
+ 
+ tentacleswarm_destroy.0001.t:0 "贫瘠"
+ tentacleswarm_destroy.0001.desc:0 "作为触手主人的忠诚奴仆，你有义务为主人寻找适合生存的丰饶土地。\n现在你的领地的发展度都太低了，可能无法长久地供养触手主人。一旦主人过于饥饿，就会对你降下灾祸。"
+ tentacleswarm_destroy.0001.a:0 "我需要为主人寻找新的栖息地"
+ 
+ tentacleswarm_destroy.0011.t:0 "灾祸"
+ tentacleswarm_destroy.0011.desc:0 "你荒芜的领地已经没有办法供养触手主人了。饥饿的触手主人正在猎食着触手奴隶充饥，触手奴隶们在死亡的恐惧和主人的勒令的矛盾之中陷入癫狂。\n就在你对这一切感到束手无策的时候，触手主人涌入了你的宫廷，将你紧紧地绞住，送入它的血盆大口……"
+ tentacleswarm_destroy.0011.a:0 "这是我最好的归宿"
+ tentacleswarm_destroy.0011.lucky.tt:0 "在你的国家毁灭之后，一些无名小卒占据了这片废土。"
  
  #巨兽相关
  tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
