@@ -263,7 +263,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 85 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 90 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
