@@ -297,9 +297,13 @@ tentacleswarm_yearly_playable_pulse = {
 			#被杀掉
 			death = { death_reason = death_ritually_hung_then_eaten } #在仪式中被扼死，然后吃掉
 		}
+		#
+		set_variable = { name = tentacleswarm_warbeast_gain value = 0 } #用于后面计算能获得几队巨兽
+		
 		#为每个伯爵领结算腐化度
 		every_held_title = {
 			limit = { tier = tier_county }
+			save_scope_as = county
 			if = { #已经被废弃的土地，不结算滋生
 				limit = { 
 					has_county_modifier = tentacleswarm_destroy
@@ -590,7 +594,6 @@ tentacleswarm_yearly_playable_pulse = {
 					limit = { #破坏点数满100时候，掉1点发展度，生一队巨兽
 						var:tentacleswarm_corruption_destroy = { compare_value >= 100 }
 					}
-					save_scope_as = county
 					change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
 					if = {
 						limit = { development_level > 0 } 
@@ -640,14 +643,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						holder = { #战争巨兽
 							save_scope_as = holder
-							spawn_army = {
-								men_at_arms = {
-									type = tentacleswarm_warbeast
-									stacks = 1 #1组，一组十只
-								}
-								location = root.capital_province
-								name = tentacleswarm_warbeast_event_troops
-							}
+							change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
 							send_interface_message = {
 								type = event_marshal_task_good
 								title = tentacleswarm_corruption_warbeast.notification
@@ -674,14 +670,7 @@ tentacleswarm_yearly_playable_pulse = {
 					change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
 					holder = { #战争巨兽
 						save_scope_as = holder
-						spawn_army = {
-							men_at_arms = {
-								type = tentacleswarm_warbeast
-								stacks = 1 #1组，一组十只
-							}
-							location = root.capital_province
-							name = tentacleswarm_warbeast_event_troops
-						}
+						change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
 						send_interface_message = {
 							type = event_marshal_task_good
 							title = tentacleswarm_corruption_warbeast1.notification
@@ -696,6 +685,23 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 					}
 				}
+			}
+		}
+		if = { #按照上面统计的数量生成战争巨兽
+			limit = { 
+				var:tentacleswarm_warbeast_gain = { compare_value >= 1 } 
+			}
+			spawn_army = {
+				levies = {
+					value = var:tentacleswarm_warbeast_gain
+					multiply = 100
+				}
+				men_at_arms = {
+					type = tentacleswarm_warbeast
+					stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+				}
+				location = root.capital_province
+				name = tentacleswarm_warbeast_event_troops
 			}
 		}
 	}

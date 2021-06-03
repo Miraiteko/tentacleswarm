@@ -142,7 +142,6 @@ become_congenital_tentacle_slave = { #成为天生奴隶
 	become_congenital_tentacle_slave_carry = yes
 }
 become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者
-	#add_trait = congenital_tentacle_slave_carry #测试
 	if = {
 		limit = { has_trait = beauty_bad_3 }
 		remove_trait = beauty_bad_3

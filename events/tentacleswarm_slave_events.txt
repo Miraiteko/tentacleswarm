@@ -49,10 +49,10 @@ tentacleswarm_slave.0011 = {
 		}
 	}
 }
-tentacleswarm_slave.0011 = {
+tentacleswarm_slave.0012 = {
 	type = character_event
-	title = tentacleswarm_slave.0011.t
-	desc = tentacleswarm_slave.0011.desc
+	title = tentacleswarm_slave.0012.t
+	desc = tentacleswarm_slave.0012.desc
 	theme = seduction
 	left_portrait = this
 	right_portrait = scope:guardian
