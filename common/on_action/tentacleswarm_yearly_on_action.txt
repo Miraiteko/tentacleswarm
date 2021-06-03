@@ -308,7 +308,7 @@ tentacleswarm_yearly_playable_pulse = {
 						name = tentacleswarm_corruption_growth 
 						add = {
 							value = development_level 
-							multiply = 2
+							multiply = 1.5
 						}
 					}
 					if = {
