@@ -3,14 +3,15 @@
 ######################
 tentacleswarm_religion_convert_to_value = {
 	value = scope:county.var:tentacleswarm_corruption
-	add = -40
-	multiply = 0.01
-	min = 0 
+	#add = 0
+	multiply = 0.0125
+	min = 0 #腐化80时正常
 }
 tentacleswarm_religion_convert_from_value = {
-	value = 200
+	value = 160
 	subtract = scope:county.var:tentacleswarm_corruption
-	multiply = 0.01
+	multiply = 0.0125
+	min = 0 #腐化80时正常
 }
 
 minus_tentacleswarm_corruption = {
