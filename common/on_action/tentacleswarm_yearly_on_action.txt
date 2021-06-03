@@ -263,7 +263,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 80 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 85 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
@@ -404,7 +404,7 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							change_variable =  { name = tentacleswarm_corruption add = 2.5 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 7.5 }
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 1 }
 					}
 					else_if = { #二档
 						limit = {
@@ -440,7 +440,7 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							change_variable =  { name = tentacleswarm_corruption add = 5 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 15 }
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 4 }
 					}
 					else_if = { #三档
 						limit = {
@@ -476,7 +476,7 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							change_variable =  { name = tentacleswarm_corruption add = 8.75 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 26.25 }
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 12 }
 					}
 					else_if = { #四档
 						limit = {
@@ -512,7 +512,7 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							change_variable =  { name = tentacleswarm_corruption add = 15 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 45 }
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 36 }
 					}
 					else = { #五档
 						every_county_province = {
@@ -545,7 +545,7 @@ tentacleswarm_yearly_playable_pulse = {
 							}
 							change_variable =  { name = tentacleswarm_corruption add = 25 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 75 }
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 100 }
 					}
 					if = {
 						limit = { #破坏点数满100时候，掉1点发展度，生一队巨兽
