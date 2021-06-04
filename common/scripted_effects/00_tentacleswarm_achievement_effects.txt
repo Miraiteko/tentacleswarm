@@ -46,6 +46,6 @@ tentacleswarm_achievement_chaste_yearly_check = {
 		limit = { 
 			is_female = yes 
 		}
-		change_global_variable = { name = achievement_chaste_count add = 1 }
+		change_global_variable = { name = achievement_chaste_count add = 100 }
 	}
 }

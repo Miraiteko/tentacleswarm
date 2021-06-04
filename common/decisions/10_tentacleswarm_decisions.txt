@@ -17,7 +17,7 @@
 	}	
 	effect = {
 		#公开皈依
-		convert_to_tentacleswarm_religion = yes  
+		convert_to_tentacleswarm_religion = yes 
 		#信号施放
 		tentacleswarm_4VA = yes 
 	}
