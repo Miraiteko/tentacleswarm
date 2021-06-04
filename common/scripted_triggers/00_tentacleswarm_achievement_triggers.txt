@@ -1,0 +1,20 @@
+﻿#未作弊判断
+tentacleswarm_never_cheat = {
+	custom_description = {
+		text = tentacleswarm_never_cheat_tooltip
+		NOT = { exists = global_var:tentacleswarm_cheat }
+	}
+}
+#未奴隶判断
+tentacleswarm_never_slave = {
+	custom_description = {
+		text = tentacleswarm_never_slave_tooltip
+		NOT = { exists = global_var:tentacleswarm_achievement_chaste_fail }
+	}
+}
+tentacleswarm_achievement_chaste_count = {
+	custom_description = {
+		text = tentacleswarm_achievement_chaste_count_tooltip
+		global_var:achievement_chaste_count >= 200
+	}
+}

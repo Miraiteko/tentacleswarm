@@ -6,6 +6,9 @@ on_game_start_after_lobby = {
 }
 tentacleswarm_on_game_start = {
 	effect = {
+		#成就初始化
+		tentacleswarm_set = yes
+		
 		#所有默认宗教，敌对触手
 		every_religion_global = {
 			every_faith = {

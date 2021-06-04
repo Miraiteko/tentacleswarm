@@ -47,6 +47,8 @@ tentacleswarm_yearly_global_pulse = {
 				add_to_global_variable_list = { name = tentacleswarm_protected_ruler target = this }	
 			}
 		}
+		#成就检测
+		tentacleswarm_yearly_check = yes
 	}
 }
 #每个人年度触发
@@ -680,6 +682,8 @@ tentacleswarm_yearly_playable_pulse = {
 				}
 			}
 		}
+		#成就相关
+		tentacleswarm_check = yes
 	}
 }
 #每年随机触发

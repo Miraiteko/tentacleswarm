@@ -25,7 +25,7 @@
 		scope:recipient = { 
 			is_female = yes
 			is_adult = yes
-			is_tentacle_slavery = no 
+			is_tentacle_slave = no 
 		}
 	}
 	

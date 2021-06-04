@@ -1,0 +1,27 @@
+﻿tentacleswarm_achievement_chaste_decision = { #守身如玉
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	is_shown = {
+		is_ai = no
+	}
+	
+	is_valid = { 
+		tentacleswarm_never_cheat = yes
+		tentacleswarm_never_slave = yes
+		tentacleswarm_achievement_chaste_count = yes
+	}	
+	effect = {
+		trigger_event = {
+			on_action = tentacleswarm_yearly_playable_pulse
+		}
+	}
+	
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

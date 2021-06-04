@@ -1,0 +1,51 @@
+﻿#成就相关效果
+tentacleswarm_set = {
+	set_global_variable = { name = achievement_chaste_count value = 0 }
+}
+tentacleswarm_check = {
+	every_player = {
+		tentacleswarm_cheat_check = yes
+		tentacleswarm_achievement_chaste_check = yes
+	}
+}
+tentacleswarm_yearly_check = {
+	every_player = {
+		tentacleswarm_achievement_chaste_yearly_check = yes
+	}
+}
+
+#作弊检查
+tentacleswarm_cheat_check = {
+	if = {
+		#开过debug模式
+		limit = { debug_only = yes }
+		add_achievement_global_variable = {
+			VARIABLE = tentacleswarm_cheat
+			VALUE = yes
+		}
+	}
+}
+#守身成就检查
+tentacleswarm_achievement_chaste_check = {
+	if = {
+		limit = { is_tentacle_slave = yes }
+		add_achievement_global_variable = {
+			VARIABLE = tentacleswarm_achievement_chaste_fail
+			VALUE = yes
+		}
+	}
+	if = {
+		limit = { is_male = yes }
+		set_global_variable = { name = achievement_chaste_count value = 0 }
+	}
+}
+#守身成就年度检查
+tentacleswarm_achievement_chaste_yearly_check = {
+	if = {
+		limit = { 
+			is_female = yes 
+			is_tentacle_slave = no
+		}
+		change_global_variable = { name = achievement_chaste_count add = 1 }
+	}
+}

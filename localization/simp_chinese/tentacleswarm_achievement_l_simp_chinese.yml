@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+ #成就相关
+ 
+ #是否作弊
+ tentacleswarm_never_cheat_tooltip:0 "未作弊"
+ tentacleswarm_cheated_tooltip:0 "曾经作弊"
+ tentacleswarm_never_slave_tooltip:0 "不曾扮演触手奴隶"
+ tentacleswarm_ever_slave_tooltip:0 "曾扮演触手奴隶"
+ 
+ tentacleswarm_achievement_chaste_decision:0 "成就：守身如玉"
+ tentacleswarm_achievement_chaste_decision_desc:0 "触手怪物这个世界上肆虐，侵害着"
+ tentacleswarm_achievement_chaste_decision_tooltip:0 "完成触手天灾成就【守身如玉】"
+ tentacleswarm_achievement_chaste_decision_confirm:0 "完成触手天灾成就【守身如玉】"
