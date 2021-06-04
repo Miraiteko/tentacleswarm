@@ -32,8 +32,13 @@
  tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n今日正是我履行这些义务的时刻。"
  tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
  tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
- tentacle_baby_corruption_tooltip:0 "获得主人的赐福"\
+ tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
+ 
  #密谋相关
  TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
 tentacle_slave_claim_throne:0 "夺取权位"
 tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
+
+#互动相关
+tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
+tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"

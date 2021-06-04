@@ -1,0 +1,62 @@
+﻿tentacleswarm_imprisoner_interaction = {
+	category = interaction_category_prison
+	common_interaction = yes
+	interface_priority = 100
+	desc = tentacleswarm_imprisoner_interaction_desc
+	
+	ai_frequency = 3 #AI多久考虑一次
+	
+	ai_targets = {
+		ai_recipients = prisoners
+	}
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = { 
+			OR = {
+				is_tentacle_slave = yes
+				has_religion = religion:tentacleswarm_religion
+			}
+		}
+		scope:recipient = { is_imprisoned_by = scope:actor }
+	}
+
+	is_valid = {
+		scope:recipient = { 
+			is_female = yes
+			is_adult = yes
+			is_tentacle_slavery = no 
+		}
+	}
+	
+	is_highlighted = {
+		scope:recipient = { 
+			is_female = yes
+			is_adult = yes
+			is_tentacle_slave = no 
+		}
+	}
+	on_send = {
+	}
+	on_accept = {
+		scope:actor = { save_scope_as = imprisoner }
+		scope:recipient = {
+			trigger_event = {
+				id = tentacleswarm_slave.0041 #被囚禁者腐化
+			}
+			show_as_tooltip = {
+				become_tentacle_slave = yes
+			}
+		}
+	}
+	
+	#ai_potential = {
+	#	always = no
+	#}
+	
+	auto_accept = yes
+	
+	ai_will_do = {
+		base = 100
+	}
+}

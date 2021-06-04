@@ -9,7 +9,7 @@
 	doctrine = abrahamic_hostility_doctrine #亚伯拉罕式侵略性
 	
 	#Marriage
-	doctrine = doctrine_monogamy #一夫一妻
+	doctrine = doctrine_polygamy #多配偶制
 	doctrine = doctrine_divorce_allowed #自主离婚
 	doctrine = doctrine_bastardry_legitimization #私生子可以合法化
 	doctrine = doctrine_consanguinity_unrestricted #无限制婚姻
