@@ -13,6 +13,12 @@
 	}	
 	effect = {
 		custom_tooltip = tentacleswarm_achievement_chaste_get 
+		give_nickname = nick_the_chaste #贞洁者
+		
+		trigger_event = { #恶趣味
+			id = tentacleswarm_slave.0021 #水井杀
+			days = { 50 200 }
+		}
 	}
 	
 	ai_check_interval = 0
