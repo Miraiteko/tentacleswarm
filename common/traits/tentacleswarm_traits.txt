@@ -52,17 +52,20 @@ tentacle_slave = {
 #天生奴
 congenital_tentacle_slave = {
 	index = 320
-	
+	shown_in_ruler_designer = no
 }
 #天生奴基因携带者
 congenital_tentacle_slave_carry = {
 	index = 321
+	shown_in_ruler_designer = no
 }
 #天生奴基因不携带者
 congenital_tentacle_slave_no = {
 	index = 322
+	shown_in_ruler_designer = no
 }
 #奴隶测试
 tentacle_slave_even_hide = {
 	index = 323
+	shown_in_ruler_designer = no
 }
