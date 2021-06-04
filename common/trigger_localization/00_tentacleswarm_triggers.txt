@@ -12,5 +12,5 @@ is_hidden_tentacle_slave_tooltip = {
 }
 tentacleswarm_achievement_chaste_count_tooltip = {
 	global = tentacleswarm_achievement_chaste_count_tooltip
-	global_not = tentacleswarm_cheated_tooltip
+	global_not = not_tentacleswarm_achievement_chaste_count_tooltip
 }

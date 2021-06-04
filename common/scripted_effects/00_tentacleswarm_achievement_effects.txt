@@ -9,6 +9,7 @@ tentacleswarm_check = {
 	}
 }
 tentacleswarm_yearly_check = {
+	tentacleswarm_check = yes
 	every_player = {
 		tentacleswarm_achievement_chaste_yearly_check = yes
 	}
@@ -44,7 +45,6 @@ tentacleswarm_achievement_chaste_yearly_check = {
 	if = {
 		limit = { 
 			is_female = yes 
-			is_tentacle_slave = no
 		}
 		change_global_variable = { name = achievement_chaste_count add = 1 }
 	}

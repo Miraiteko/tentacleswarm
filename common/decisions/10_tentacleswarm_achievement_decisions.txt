@@ -12,9 +12,7 @@
 		tentacleswarm_achievement_chaste_count = yes
 	}	
 	effect = {
-		trigger_event = {
-			on_action = tentacleswarm_yearly_playable_pulse
-		}
+		custom_tooltip = tentacleswarm_achievement_chaste_get 
 	}
 	
 	ai_check_interval = 0

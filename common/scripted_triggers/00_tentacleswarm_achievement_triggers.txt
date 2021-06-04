@@ -15,6 +15,7 @@ tentacleswarm_never_slave = {
 tentacleswarm_achievement_chaste_count = {
 	custom_description = {
 		text = tentacleswarm_achievement_chaste_count_tooltip
-		global_var:achievement_chaste_count >= 200
+		global_var:achievement_chaste_count>= 200
+		value =global_var:achievement_chaste_count
 	}
 }
