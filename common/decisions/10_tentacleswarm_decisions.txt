@@ -8,7 +8,7 @@
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
 		is_tentacle_slave = yes
-		NOT = { has_religion = religion:tentacleswarm_religion }
+		NOT = { has_religion = religion:tentacleswarm_religion }  
 	}
 	
 	is_valid = {

@@ -96,7 +96,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 				}
 				#改信，释放费洛蒙
 				convert_to_tentacleswarm_religion = yes
-				tentacleswarm_4VA = yes
+				tentacleswarm_4VA = yes 
 			}
 		}
 		else_if = {
