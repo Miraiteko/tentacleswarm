@@ -1,6 +1,6 @@
 ﻿tentacleswarm_start_decision = {
 	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
 
 	desc = tentacleswarm_start_decision_desc
 	selection_tooltip = tentacleswarm_start_decision_tooltip

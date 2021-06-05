@@ -77,3 +77,5 @@
  doctrine_tentacleswarm_accepted_desc:0 "我们的身心都属于触手主人。"
  doctrine_parameter_doctrine_tentacleswarm_accepted:0 "省份的触手腐化不会衰减"
   
+ # convert_to_tentacleswarm_depraved.tt:0 "所有信仰[ROOT.Char.GetFaith.GetName]的女性都追随着你走向了堕落。"
+ convert_to_tentacleswarm_depraved.tt:0 "所有信仰[faith.GetName|V]的女性都追随着你走向了堕落。"

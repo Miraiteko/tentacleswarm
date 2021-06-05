@@ -62,6 +62,7 @@ convert_to_tentacleswarm_religion = {
 		limit = {
 			not = { has_religion = religion:tentacleswarm_religion }
 		}
+		faith = { save_scope_as = faith }
 		if = { 
 			limit = { #如果你控制了旧的信仰领袖头衔，摧毁它
 				exists = faith.religious_head
@@ -70,15 +71,32 @@ convert_to_tentacleswarm_religion = {
 			destroy_title =  faith.religious_head_title
 			faith = { change_fervor = -100 }
 		}
-		set_character_faith = faith:tentacleswarm_slavery
-		if = {
-			limit = { has_nickname = nick_the_chaste}
-			remove_nickname = nick_the_depraved
+		if = { #贞洁者变成堕邪者
+			limit = { 
+				has_nickname = nick_the_chaste
+				has_trait = saint
+			}
+			remove_nickname = nick_the_chaste
 			give_nickname = nick_the_depraved
+			faith = { change_fervor = -100 }
+			custom_tooltip = convert_to_tentacleswarm_depraved.tt
+			hidden_effect = {
+				every_living_character = {
+					limit = {
+						faith = root.faith
+						is_female = yes
+						NOT = { this = root }
+					}
+					convert_to_tentacleswarm_religion = yes
+				}
+			}
 		}
+		#改信
+		set_character_faith = faith:tentacleswarm_slavery
 	}
-	if = { #不是奴隶的女性成为奴隶
+	if = { #不是奴隶的女性成年成为奴隶
 		limit = { 
+			is_adult = yes
 			is_female = yes
 			is_tentacle_slave = no
 		}
