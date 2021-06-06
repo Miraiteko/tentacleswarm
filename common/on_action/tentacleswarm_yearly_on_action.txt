@@ -198,6 +198,9 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 #每年触发
 yearly_playable_pulse = {
 	on_actions = {
+		delay = { days = 10}
+		tentacleswarm_yearly_modifier_check
+		delay = { days = 10 }
 		tentacleswarm_yearly_playable_pulse
 	}
 }
@@ -293,18 +296,15 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					if = {
 						limit = { 
-							county_controller.faith = {
-								has_doctrine_parameter = doctrine_tentacleswarm_evil
-							}
-							county_controller = { is_tentacle_slave = no }
+							county_controller = { has_character_modifier = tentacleswarm_anti }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = -10 } #绞杀令
+						change_variable =  { name = tentacleswarm_corruption_growth add = -15 } #绞杀令
 					}
 					if = {
 						limit = { 
-							county_controller = { has_religion = religion:tentacleswarm_religion } 
+							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 10 } #散布令
+						change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #散布令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_growth 
@@ -686,6 +686,42 @@ tentacleswarm_yearly_playable_pulse = {
 		tentacleswarm_check = yes
 	}
 }
+#检查播种令和灭杀令
+tentacleswarm_yearly_modifier_check = {
+	effect = {
+		if = {
+			limit = { has_religion = religion:tentacleswarm_religion }
+			if = { #信徒开启播种令
+				limit = { 
+					NOT = { has_character_modifier = tentacleswarm_spread }
+					is_ai = yes #玩家自己点决议
+					is_tentacle_slave = yes #非奴隶没有兴趣
+				}
+				add_character_modifier = tentacleswarm_spread
+			}
+		}
+		else = {
+			if = { #非信徒播种令无效化
+				limit = { has_character_modifier = tentacleswarm_spread}
+				remove_character_modifier = tentacleswarm_spread
+			}
+			
+		}
+		if = {
+			limit = { 
+				faith = {has_doctrine_parameter = doctrine_tentacleswarm_evil}
+			}
+			#敌对者开启灭杀令
+			#通过决议
+		}
+		else = {
+			if = { #非敌对者灭杀令无效化
+				limit = { has_character_modifier = tentacleswarm_anti}
+				remove_character_modifier = tentacleswarm_anti
+			}
+		}
+	}
+}
 #每年随机触发
 random_yearly_playable_pulse = {
 	#自带的条件，诸如有地未被囚禁等等
@@ -711,7 +747,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 						development_level <= 8
 					}
 				}
-				max_military_strength > 4000
+				max_military_strength > 2000 #有一定兵力积蓄
 			}
 			save_scope_as = actor
 			#搜索最大发展度的土地

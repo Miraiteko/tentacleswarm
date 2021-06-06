@@ -2,8 +2,8 @@
  #地图模式
  tentacleswarm_corruption_map:0 "触手腐化"
  tentacleswarm_corruption_map_tooltip:0 "在触手腐化地图下你可以看到各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。\n黄色表示该领地已经被触手天灾所摧毁。"
-# TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
- TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀增长率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_growth').GetValue|0]\n环境滋生额：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_nature').GetValue|0]\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]"
+ #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n"
  
  #省份破坏
  tentacleswarm_corruption_destroy.notification:0 "触手破坏"
@@ -49,3 +49,29 @@
  tentacleswarm_corruption_4_desc:0 "这个地方到处都是触手怪物的巢穴，令空气中弥漫着浓重的腐化气息。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  tentacleswarm_corruption_5:0 "触手地狱"
  tentacleswarm_corruption_5_desc:0 "此处已经被触手怪物完全支配了，所有的人民无一幸免地沦为了触手怪物的奴隶。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
+ 
+ #角色修正
+ tentacleswarm_anti:0 "触手灭杀令"
+ tentacleswarm_anti_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们组织了一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效促进领地内的触手腐化。"
+ tentacleswarm_spread:0 "触手播种令"
+ tentacleswarm_spread_desc:0 "为了促进人民的屈服，我们组织了一支特殊的部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效提高领地内的触手腐化。"
+ 
+ 
+ #决议相关
+ tentacleswarm_anti_start_decision:0 "触手灭杀令"
+ tentacleswarm_anti_start_decision_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们需要组织一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效促进领地内的触手腐化。"
+ tentacleswarm_anti_start_decision_tooltip:0 "启用触手灭杀令"
+ tentacleswarm_anti_start_decision_confirm:0 "启用触手灭杀令"
+ tentacleswarm_anti_end_decision:0 "终止触手灭杀令"
+ tentacleswarm_anti_end_decision_desc:0 "是时候解散触手灭杀队了。"
+ tentacleswarm_anti_end_decision_tooltip:0 "终止触手灭杀令"
+ tentacleswarm_anti_end_decision_confirm:0 "终止触手灭杀令"
+ 
+ tentacleswarm_spread_start_decision:0 "触手播种令"
+ tentacleswarm_spread_start_decision_desc:0 "为了促进人民的屈服，我们需要组织一支特殊部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效提高领地内的触手腐化。"
+ tentacleswarm_spread_start_decision_tooltip:0 "启用触手播种令"
+ tentacleswarm_spread_start_decision_confirm:0 "启用触手播种令"
+ tentacleswarm_spread_end_decision:0 "终止触手播种令"
+ tentacleswarm_spread_end_decision_desc:0 "是时候解散触手播种队了。"
+ tentacleswarm_spread_end_decision_tooltip:0 "终止触手播种令"
+ tentacleswarm_spread_end_decision_confirm:0 "终止触手播种令"
