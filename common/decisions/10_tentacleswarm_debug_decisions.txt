@@ -35,11 +35,11 @@ tentacleswarm_test_decision = {
 	
 	is_valid = { 
 		is_ai = no
-		NOT = { exists = global_var:tentacleswarm_cheat }
+		exists = global_var:tentacleswarm_cheat
 	}	
 	effect = {
 		trigger_event = {
-			on_action = tentacleswarm_yearly_playable_pulse
+			on_action = tentacleswarm_cancel_holy_order_lease_pulse
 		}
 	}
 	

@@ -199,9 +199,9 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 yearly_playable_pulse = {
 	on_actions = {
 		delay = { days = 10}
-		tentacleswarm_yearly_modifier_check
+		tentacleswarm_yearly_modifier_check #检查灭杀令和播种令
 		delay = { days = 10 }
-		tentacleswarm_yearly_playable_pulse
+		tentacleswarm_yearly_playable_pulse #领地腐化度结算
 	}
 }
 tentacleswarm_yearly_playable_pulse = {
@@ -728,6 +728,8 @@ random_yearly_playable_pulse = {
 	#trigger = { basic_is_valid_for_yearly_events_trigger = yes }
 	on_actions = {
 		tentacleswarm_random_yearly_playable_pulse	
+		delay = { days = 10 }
+		tentacleswarm_cancel_holy_order_lease_pulse #驱逐异教骑士团
 	}
 }
 tentacleswarm_random_yearly_playable_pulse = {
@@ -804,6 +806,40 @@ tentacleswarm_random_yearly_playable_pulse = {
 							casus_belli = tentacleswarm_conquest 
 							target = scope:target_character
 							target_title = scope:target.kingdom
+						}
+					}
+				}
+			}
+		}
+	}
+}
+tentacleswarm_cancel_holy_order_lease_pulse = { #驱逐敌对骑士团
+	trigger = {
+		is_landed = yes
+	}
+	effect = {
+		every_held_title = {
+			limit = { 
+				tier = tier_county
+			}
+			every_county_province = {
+				limit = {
+					exists = barony
+				}
+				barony = { #搜查每个直辖地内男爵领
+					if = {
+						limit = { #被租赁
+							is_leased_out = yes
+							has_revokable_lease = yes
+						}
+						lessee_title = { save_scope_as = lessee_title }
+						if = {
+							limit = { #敌对信仰租赁
+								root.faith ={
+									faith_hostility_level = { target = lessee_title.holder.faith value > 1 }
+								}
+							}
+							revoke_lease = yes #撤销租赁
 						}
 					}
 				}
