@@ -612,7 +612,7 @@ tentacleswarm_yearly_playable_pulse = {
 									right_icon = scope:holder
 									goto = scope:county
 									#还能从破坏中获得钱和虔诚
-									add_gold = 100
+									add_gold = 50
 									add_piety = 50
 								}
 							}
@@ -639,7 +639,7 @@ tentacleswarm_yearly_playable_pulse = {
 								right_icon = scope:holder
 								goto = scope:county
 								#还能从破坏中获得钱和虔诚
-								add_gold = 100
+								add_gold = 50
 								add_piety = 50
 							}
 						}
@@ -836,7 +836,7 @@ tentacleswarm_cancel_holy_order_lease_pulse = { #驱逐敌对骑士团
 						if = {
 							limit = { #敌对信仰租赁
 								root.faith ={
-									faith_hostility_level = { target = lessee_title.holder.faith value > 1 }
+									faith_hostility_level = { target = scope:lessee_title.holder.faith value > 1 }
 								}
 							}
 							revoke_lease = yes #撤销租赁
