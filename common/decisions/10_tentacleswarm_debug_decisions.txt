@@ -1,0 +1,53 @@
+﻿tentacleswarm_restart_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	is_shown = {
+		debug_only = yes #测试用
+	}
+	
+	is_valid = { 
+		is_ai = no
+		debug_only = yes
+	}	
+	effect = {
+		trigger_event = {
+			on_action = tentacleswarm_on_game_start
+		}
+	}
+	
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+	
+}
+tentacleswarm_test_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	is_shown = {
+		debug_only = yes #测试用
+	}
+	
+	is_valid = { 
+		is_ai = no
+		NOT = { exists = global_var:tentacleswarm_cheat }
+	}	
+	effect = {
+		trigger_event = {
+			on_action = tentacleswarm_yearly_playable_pulse
+		}
+	}
+	
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

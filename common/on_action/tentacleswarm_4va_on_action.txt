@@ -7,10 +7,11 @@ tentacleswarm_4VA_pulse = {
 				is_ai = yes
 				is_landed = yes
 				highest_held_title_tier >=tier_county
-				any_secret = { secret_type = secret_tentacle_slave }
+				is_tentacle_slave = yes
+				not = { has_religion = religion:tentacleswarm_religion }
 			}
 			convert_to_tentacleswarm_religion = yes
-			tentacleswarm_4VA = yes
+			tentacleswarm_4VA = yes 
 		}
 		else_if = { #夫人是奴隶，开始夺地
 			limit = {
@@ -154,5 +155,10 @@ tentacleswarm_4VA_pulse = {
 				}
 			}
 		}
+	}
+}
+convert_to_tentacleswarm_religion_pulse = {
+	effect = {
+		convert_to_tentacleswarm_religion = yes
 	}
 }

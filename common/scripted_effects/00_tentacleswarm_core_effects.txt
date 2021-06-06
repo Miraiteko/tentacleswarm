@@ -62,6 +62,7 @@ convert_to_tentacleswarm_religion = {
 		limit = {
 			not = { has_religion = religion:tentacleswarm_religion }
 		}
+		faith = { save_scope_as = faith }
 		if = { 
 			limit = { #如果你控制了旧的信仰领袖头衔，摧毁它
 				exists = faith.religious_head
@@ -70,6 +71,30 @@ convert_to_tentacleswarm_religion = {
 			destroy_title =  faith.religious_head_title
 			faith = { change_fervor = -100 }
 		}
+		if = { #贞洁者变成堕邪者
+			limit = { 
+				has_nickname = nick_the_chaste
+				has_trait = saint
+			}
+			remove_nickname = yes
+			give_nickname = nick_the_depraved
+			faith = { change_fervor = -100 }
+			custom_tooltip = convert_to_tentacleswarm_depraved.tt
+			hidden_effect = {
+				every_living_character = {
+					limit = {
+						faith = root.faith
+						is_female = yes
+						NOT = { this = root }
+					}
+					trigger_event = {
+						on_action = convert_to_tentacleswarm_religion_pulse
+						days = { 1 30 }
+					}
+				}
+			}
+		}
+		#改信
 		set_character_faith = faith:tentacleswarm_slavery
 		if = {
 			limit = { has_nickname = nick_the_chaste}
@@ -77,8 +102,9 @@ convert_to_tentacleswarm_religion = {
 			give_nickname = nick_the_depraved
 		}
 	}
-	if = { #不是奴隶的女性成为奴隶
+	if = { #不是奴隶的女性成年成为奴隶
 		limit = { 
+			is_adult = yes
 			is_female = yes
 			is_tentacle_slave = no
 		}
@@ -96,7 +122,6 @@ convert_to_tentacleswarm_religion = {
 
 #4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利
 tentacleswarm_4VA = {
-	
 	custom_tooltip = tentacle_courtier_and_vassal_4VA_tooltip
 	hidden_effect = {
 		#廷臣皈依
@@ -119,16 +144,40 @@ tentacleswarm_4VA = {
 				convert_to_tentacleswarm_religion = yes
 			}
 		}
+		
+		#debug模式下显示4VA发生位置
+		if ={
+			limit = { debug_only = yes }
+			every_held_title = {
+				limit = {
+					tier = tier_county 
+					NOT =  { has_county_modifier = tentacleswarm_destroy }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
+				}
+			}
+		}
 	}
+	
 	#释放费洛蒙给周围领主
-	save_scope_as = 4VA_from
+	save_scope_as = 4VA_from 
 	custom_tooltip = tentacle_neighboring_4VA_tooltip
 	hidden_effect = {
 		every_character_to_title_neighboring_and_across_water_county = {
+			limit = {
+				NOT =  { has_county_modifier = tentacleswarm_destroy }
+			}
 			holder = {
 				trigger_event = {
 					on_action = tentacleswarm_4VA_pulse
 					days = { 10 60 }
+				}
+			}
+			if ={
+				limit = { debug_only = yes }
+				every_county_province = {
+					#barony = { set_color_from_title = title:d_tentacleswarm_4VA_get } #改颜色
 				}
 			}
 		}

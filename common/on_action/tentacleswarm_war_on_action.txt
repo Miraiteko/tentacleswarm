@@ -14,7 +14,7 @@ tentacleswarm_on_war_won_attacker = {
 		scope:attacker = { has_religion = religion:tentacleswarm_religion }
 	}
 	effect = {
-		scope:attacker = { tentacleswarm_4VA = yes }
+		scope:attacker = { tentacleswarm_4VA = yes } 
 	}
 }
 

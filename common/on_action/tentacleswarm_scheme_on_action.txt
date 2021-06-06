@@ -21,7 +21,7 @@ tentacle_slave_claim_throne_setup = {
 		resolve_title_and_vassal_change = scope:change
 		#改信
 		convert_to_tentacleswarm_religion = yes
-		#释放费洛蒙
+		#释放费洛蒙 
 		tentacleswarm_4VA = yes
 	}
 }

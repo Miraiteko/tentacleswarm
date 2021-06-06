@@ -50,9 +50,9 @@
 		}
 	}
 	
-	#ai_potential = {
-	#	always = no
-	#}
+	ai_potential = {
+		is_tentacle_slave = yes
+	}
 	
 	auto_accept = yes
 	

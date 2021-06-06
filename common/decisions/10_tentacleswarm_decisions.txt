@@ -1,6 +1,6 @@
 ﻿tentacleswarm_start_decision = {
 	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
 
 	desc = tentacleswarm_start_decision_desc
 	selection_tooltip = tentacleswarm_start_decision_tooltip
@@ -8,7 +8,7 @@
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
 		is_tentacle_slave = yes
-		NOT = { has_religion = religion:tentacleswarm_religion }
+		NOT = { has_religion = religion:tentacleswarm_religion }  
 	}
 	
 	is_valid = {
@@ -22,15 +22,10 @@
 		tentacleswarm_4VA = yes 
 	}
 	
-	ai_check_interval = 60
+	ai_check_interval = 0
 
 	ai_potential = {
-		OR = {
-			NOT = { exists = capital_province }
-			capital_province.county = { #首都可以召出5队巨兽，ai才会点
-				var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
-			}
-		}
+		always = no
 	}
 
 	ai_will_do = {
@@ -69,71 +64,170 @@ tentacleswarm_auto_corrupt_decision = {
 		}
 	}
 	
-	ai_check_interval = 60
+	ai_check_interval = 0
 
 	ai_potential = {
-		OR = {
-			NOT = { exists = capital_province }
-			capital_province.county = { #首都可以召出5队巨兽，ai才会点
-				var:tentacleswarm_corruption_warbeast = { compare_value >= 500 }
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+#开始灭杀
+tentacleswarm_anti_start_decision = {
+	major = no
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+
+	desc = tentacleswarm_anti_start_decision_desc
+	selection_tooltip = tentacleswarm_anti_start_decision_tooltip
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+		}
+		NOT = { has_character_modifier = tentacleswarm_anti }
+	}
+	
+	is_valid = {
+		faith = {
+			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+		}
+	}	
+	effect = {
+		add_character_modifier = tentacleswarm_anti
+		
+		#debug模式下显示anti发生位置
+		if ={
+			limit = { debug_only = yes }
+			every_held_title = {
+				limit = {
+					tier = tier_county 
+					NOT =  { has_county_modifier = tentacleswarm_destroy }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_tentacleswarm_4VA_get } #改颜色
+				}
 			}
 		}
 	}
+	
+	ai_check_interval = 12
+
+	ai_potential = {
+		is_tentacle_slave = no
+		any_held_title = { #有腐化
+			tier = tier_county 
+			var:tentacleswarm_corruption  = { compare_value >= 10 }
+		}
+		faith = {
+			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+		}
+		NOT = { has_character_modifier = tentacleswarm_anti }
+	}
 
 	ai_will_do = {
 		base = 0
-	}
-}
-tentacleswarm_restart_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-
-	is_shown = {
-		debug_only = yes #测试用
-	}
-	
-	is_valid = { 
-		is_ai = no
-		debug_only = yes
-	}	
-	effect = {
-		trigger_event = {
-			on_action = tentacleswarm_on_game_start
+		modifier = { #首都腐化越高，越有可能开始剿杀
+			add = capital_county.var:tentacleswarm_corruption
+			exists = capital_county
+		}
+		modifier = { #处于战争的话，没那么乐意
+			add = -20
+			is_at_war = yes
+		}
+		ai_value_modifier = { #AI性格修正
+			ai_zeal = 2
+			ai_rationality = 1
+			ai_greed = -2
 		}
 	}
-	
-	ai_check_interval = 0
-	ai_potential = {
-		always = no
-	}
-	ai_will_do = {
-		base = 0
-	}
-	
 }
-tentacleswarm_test_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+#结束灭杀
+tentacleswarm_anti_end_decision = {
+	major = no
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+
+	desc = tentacleswarm_anti_end_decision_desc
+	selection_tooltip = tentacleswarm_anti_end_decision_tooltip
 
 	is_shown = {
-		debug_only = yes #测试用
+		has_character_modifier = tentacleswarm_anti
 	}
 	
-	is_valid = { 
-		is_ai = no
-		NOT = { exists = global_var:tentacleswarm_cheat }
+	is_valid = {
+		has_character_modifier = tentacleswarm_anti
 	}	
 	effect = {
-		trigger_event = {
-			on_action = tentacleswarm_yearly_playable_pulse
-		}
+		remove_character_modifier = tentacleswarm_anti
 	}
 	
-	ai_check_interval = 0
+	ai_check_interval = 0 #触手角色自动取消
+
 	ai_potential = {
-		always = no
+		always = no 
 	}
+
 	ai_will_do = {
-		base = 0
+		base = 100
+	}
+}
+#开始播种
+tentacleswarm_spread_start_decision = {
+	major = no
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+
+	desc = tentacleswarm_spread_start_decision_desc
+	selection_tooltip = tentacleswarm_spread_start_decision_tooltip
+
+	is_shown = {
+		has_religion = religion:tentacleswarm_religion
+		NOT = { has_character_modifier = tentacleswarm_spread }
+	}
+	
+	is_valid = {
+		has_religion = religion:tentacleswarm_religion
+	}	
+	effect = {
+		add_character_modifier = tentacleswarm_spread
+	}
+	
+	ai_check_interval = 0 #触手信仰自动开始
+
+	ai_potential = {
+		always = no 
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#结束播种
+tentacleswarm_spread_end_decision = {
+	major = no
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+
+	desc = tentacleswarm_spread_end_decision_desc
+	selection_tooltip = tentacleswarm_spread_end_decision_tooltip
+
+	is_shown = {
+		has_character_modifier = tentacleswarm_spread
+	}
+	
+	is_valid = {
+		has_character_modifier = tentacleswarm_spread
+	}	
+	effect = {
+		remove_character_modifier = tentacleswarm_spread
+	}
+	
+	ai_check_interval = 0 #非触手信仰角色自动取消
+
+	ai_potential = {
+		always = no 
+	}
+
+	ai_will_do = {
+		base = 100
 	}
 }
