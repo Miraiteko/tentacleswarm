@@ -52,14 +52,14 @@
  
  #角色修正
  tentacleswarm_anti:0 "触手灭杀令"
- tentacleswarm_anti_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们组织了一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效促进领地内的触手腐化。"
+ tentacleswarm_anti_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们组织了一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效压制领地内的触手腐化。"
  tentacleswarm_spread:0 "触手播种令"
- tentacleswarm_spread_desc:0 "为了促进人民的屈服，我们组织了一支特殊的部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效提高领地内的触手腐化。"
+ tentacleswarm_spread_desc:0 "为了促进人民的屈服，我们组织了一支特殊的部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效促进领地内的触手腐化。"
  
  
  #决议相关
  tentacleswarm_anti_start_decision:0 "触手灭杀令"
- tentacleswarm_anti_start_decision_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们需要组织一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效促进领地内的触手腐化。"
+ tentacleswarm_anti_start_decision_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们需要组织一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效压制领地内的触手腐化。"
  tentacleswarm_anti_start_decision_tooltip:0 "启用触手灭杀令"
  tentacleswarm_anti_start_decision_confirm:0 "启用触手灭杀令"
  tentacleswarm_anti_end_decision:0 "终止触手灭杀令"
@@ -68,7 +68,7 @@
  tentacleswarm_anti_end_decision_confirm:0 "终止触手灭杀令"
  
  tentacleswarm_spread_start_decision:0 "触手播种令"
- tentacleswarm_spread_start_decision_desc:0 "为了促进人民的屈服，我们需要组织一支特殊部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效提高领地内的触手腐化。"
+ tentacleswarm_spread_start_decision_desc:0 "为了促进人民的屈服，我们需要组织一支特殊部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效促进领地内的触手腐化。"
  tentacleswarm_spread_start_decision_tooltip:0 "启用触手播种令"
  tentacleswarm_spread_start_decision_confirm:0 "启用触手播种令"
  tentacleswarm_spread_end_decision:0 "终止触手播种令"

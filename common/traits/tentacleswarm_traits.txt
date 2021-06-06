@@ -9,13 +9,12 @@ tentacle_slave = {
 	
 	#高生育
 	fertility = 0.5
-	
-	#无法改信
-	faith_conversion_piety_cost_mult = 20
-	faith_creation_piety_cost_mult = 20
+	years_of_fertility = 20
 	
 	#讨厌其他宗教
 	opinion_of_different_faith = -100
+	#不喜欢男性领主
+	opinion_of_male_rulers = -100 
 	
 	#蝗虫性格
 	ai_greed = very_high_positive_ai_value #贪婪
@@ -30,7 +29,17 @@ tentacle_slave = {
 	ai_war_chance = 20 #好战的
 	ai_war_cooldown = -0.5
 	
-	
+	compatibility = {
+		tentacle_slave = 80
+		lustful = 30
+		greedy = 15
+		ambitious =15
+		zealous =15
+		chaste = -30 
+		temperate =-15
+		lazy = -10
+		content =-10 
+	}
 	#宗教偏见
 	triggered_opinion = {
 		parameter = doctrine_tentacleswarm_evil

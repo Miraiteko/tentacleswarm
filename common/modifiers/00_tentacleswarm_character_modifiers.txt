@@ -5,7 +5,7 @@
 	garrison_size = -0.1
 }
 tentacleswarm_spread = {
-	icon = martial_positive
+	icon = fertility_positive
 	domain_tax_mult = -0.1
 	levy_size = -0.1
 	garrison_size = -0.1
