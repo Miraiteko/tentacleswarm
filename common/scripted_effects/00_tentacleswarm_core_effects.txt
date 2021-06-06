@@ -96,6 +96,11 @@ convert_to_tentacleswarm_religion = {
 		}
 		#改信
 		set_character_faith = faith:tentacleswarm_slavery
+		if = {
+			limit = { has_nickname = nick_the_chaste}
+			remove_nickname = nick_the_depraved
+			give_nickname = nick_the_depraved
+		}
 	}
 	if = { #不是奴隶的女性成年成为奴隶
 		limit = { 
