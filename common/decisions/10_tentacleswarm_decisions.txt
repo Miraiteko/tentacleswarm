@@ -137,9 +137,9 @@ tentacleswarm_anti_start_decision = {
 			is_at_war = yes
 		}
 		ai_value_modifier = { #AI性格修正
-			ai_zeal = 2
-			ai_rationality = 1
-			ai_greed = -2
+			ai_zeal = 1
+			ai_rationality = 0.5
+			ai_greed = -1
 		}
 	}
 }
