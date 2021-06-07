@@ -1,0 +1,11 @@
+﻿any_spouse = {
+	global = ANY_SPOUSE
+}
+is_pool_character = {
+	global = IS_POOL_CHARACTER
+	global_not = NOT_POOL_CHARACTER
+}
+tier = {
+	global = IS_TIER
+	global_not = NOT_TIER 
+}

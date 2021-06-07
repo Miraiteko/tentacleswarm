@@ -86,7 +86,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 			limit = { 
 				is_landed = yes
 				highest_held_title_tier >=tier_county
-				any_secret = { secret_type = secret_tentacle_slave }
+				is_hidden_tentacle_slave = yes
 			}
 			if = {
 				limit = {
@@ -709,7 +709,7 @@ tentacleswarm_yearly_modifier_check = {
 		}
 		if = {
 			limit = { 
-				faith = {has_doctrine_parameter = doctrine_tentacleswarm_evil}
+				faith = {has_doctrine = doctrine_tentacleswarm_evil}
 			}
 			#敌对者开启灭杀令
 			#通过决议

@@ -79,3 +79,10 @@
   
  # convert_to_tentacleswarm_depraved.tt:0 "所有信仰[ROOT.Char.GetFaith.GetName]的女性都追随着你走向了堕落。"
  convert_to_tentacleswarm_depraved.tt:0 "所有信仰[faith.GetName|V]的女性都追随着你走向了堕落。"
+
+#婚姻决议
+tentacleswarm_remarry_decision:0 "主导婚姻"
+tentacleswarm_remarry_decision_desc_f:0 "根据我们的宗教信仰，男性通常在婚姻中从属于女性。\n但是由于某些原因，我却错误地从属于我身份卑微的丈夫。\n是时候拨乱反正了。"
+tentacleswarm_remarry_decision_desc_m:0 "根据我们的宗教信仰，女性通常在婚姻中从属于男性。\n但是由于某些原因，我却错误地从属于我身份卑微的妻子。\n是时候拨乱反正了。"
+tentacleswarm_remarry_decision_tooltip:0 "获得婚姻主导权"
+tentacleswarm_remarry_decision_confirm:0 "纠正错误的婚姻"

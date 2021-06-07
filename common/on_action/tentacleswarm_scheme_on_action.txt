@@ -1,6 +1,12 @@
 ﻿#奴隶夺取君位结算事件
 tentacle_slave_claim_throne_setup = {
 	effect = {
+		scope:target = { #玩家被夺位的话，扮演夺位者
+			if = {
+				limit = { is_ai = no }
+				set_player_character = scope:owner
+			}
+		}
 		#获得目标头衔
 		create_title_and_vassal_change = {
 			type = usurped
@@ -23,6 +29,7 @@ tentacle_slave_claim_throne_setup = {
 		convert_to_tentacleswarm_religion = yes
 		#释放费洛蒙 
 		tentacleswarm_4VA = yes
+		
 	}
 }
 

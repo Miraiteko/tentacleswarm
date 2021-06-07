@@ -109,7 +109,7 @@ convert_to_tentacleswarm_religion = {
 	}
 	if = { #未公开的奴隶进行公开
 		limit = { 
-			any_secret = { secret_type = secret_tentacle_slave }
+			is_hidden_tentacle_slave = yes
 		}
 		add_trait = tentacle_slave
 	}

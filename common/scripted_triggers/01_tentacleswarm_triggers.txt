@@ -8,7 +8,6 @@ is_tentacle_slave = {
 		}
 	}
 }
-#
 is_hidden_tentacle_slave = {
 	custom_description = {
 		text = is_hidden_tentacle_slave_tooltip
@@ -35,18 +34,21 @@ is_congenital_tentacle_slave_carry = { #天生奴隶基因携带者
 
 #触手奴隶罪行程度判断，用于在秘密机制中判断勒索等级
 secret_tentacle_slave_is_shunned_trigger = {
+	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned }
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned } }
 	}
 }
 secret_tentacle_slave_is_criminal_trigger = {
+	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime }
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime } }
 	}
 }
 secret_tentacle_slave_is_evil_trigger = {
+	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil } }

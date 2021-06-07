@@ -1,4 +1,5 @@
-﻿tentacleswarm_start_decision = {
+﻿#发动天灾
+tentacleswarm_start_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
 
@@ -32,6 +33,36 @@
 		base = 0
 	}
 }
+tentacleswarm_become_openly_tentacle_slave_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+
+	is_shown = {
+		is_ai = no  #ai不通过这个来皈依
+		is_hidden_tentacle_slave = yes
+		has_religion = religion:tentacleswarm_religion
+		NOT = { has_trait = tentacle_slave }
+	}
+	
+	is_valid = {
+		is_hidden_tentacle_slave = yes
+		has_religion = religion:tentacleswarm_religion
+	}	
+	effect = {
+		add_trait = tentacle_slave
+	}
+	
+	ai_check_interval = 0
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+#要求赐福
 tentacleswarm_auto_corrupt_decision = {
 	major = yes
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
@@ -84,14 +115,14 @@ tentacleswarm_anti_start_decision = {
 
 	is_shown = {
 		faith = {
-			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+			has_doctrine= doctrine_tentacleswarm_evil #敌视
 		}
 		NOT = { has_character_modifier = tentacleswarm_anti }
 	}
 	
 	is_valid = {
 		faith = {
-			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+			has_doctrine = doctrine_tentacleswarm_evil #敌视
 		}
 	}	
 	effect = {
@@ -121,7 +152,7 @@ tentacleswarm_anti_start_decision = {
 			var:tentacleswarm_corruption  = { compare_value >= 10 }
 		}
 		faith = {
-			has_doctrine_parameter = doctrine_tentacleswarm_evil #敌视
+			has_doctrine = doctrine_tentacleswarm_evil #敌视
 		}
 		NOT = { has_character_modifier = tentacleswarm_anti }
 	}
@@ -225,6 +256,158 @@ tentacleswarm_spread_end_decision = {
 
 	ai_potential = {
 		always = no 
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#纠正婚姻地位
+tentacleswarm_remarry_decision_female = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+
+	title = tentacleswarm_remarry_decision
+	desc = tentacleswarm_remarry_decision_desc_f
+	selection_tooltip = tentacleswarm_remarry_decision_tooltip
+	confirm_text = tentacleswarm_remarry_decision_confirm
+	
+	is_shown = {
+		is_female = yes
+		is_married = yes
+		patrilinear_marriage = yes
+	}
+	
+	is_valid = {
+		patrilinear_marriage = yes
+		faith = { has_doctrine = doctrine_gender_female_dominated }
+		any_spouse = {
+			patrilinear_marriage = yes
+			OR = {
+				target_is_liege_or_above = root 
+				is_pool_character = yes
+			}
+			NOT ={
+				any_heir_title = {
+					tier > root.highest_held_title_tier
+				}
+			}
+		}
+	}	
+	effect = {
+		save_scope_as = target
+		every_spouse = {
+			limit = {
+				patrilinear_marriage = yes
+				OR = {
+					target_is_liege_or_above = root 
+					is_pool_character = yes
+				}
+				NOT ={
+					any_heir_title = {
+						tier > root.highest_held_title_tier
+					}
+				}
+			}
+			save_scope_as = owner
+			show_as_tooltip ={
+				divorce = scope:target
+				marry_matrilineal = scope:target
+			}
+			hidden_effect = {
+				divorce = scope:target
+				marry_matrilineal = scope:target
+			}
+			every_child = {
+				limit = { 
+					is_child_of = scope:target
+					house = scope:owner.house
+				}
+				set_house = scope:target.house
+			}
+		}
+	}
+	
+	ai_check_interval = 24
+
+	ai_potential = {
+		has_religion = religion:tentacleswarm_religion
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+tentacleswarm_remarry_decision_male = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+
+	title = tentacleswarm_remarry_decision
+	desc = tentacleswarm_remarry_decision_desc_m
+	selection_tooltip = tentacleswarm_remarry_decision_tooltip
+	confirm_text = tentacleswarm_remarry_decision_confirm
+
+	is_shown = {
+		is_male = yes
+		is_married = yes
+		matrilinear_marriage = yes
+	}
+	
+	is_valid = {
+		matrilinear_marriage = yes
+		faith = { has_doctrine = doctrine_gender_male_dominated }
+		any_spouse = {
+			matrilinear_marriage = yes
+			OR = {
+				target_is_liege_or_above = root 
+				is_pool_character = yes
+			}
+			NOT ={
+				any_heir_title = {
+					tier > root.highest_held_title_tier
+				}
+			}
+		}
+	}	
+	effect = {
+		save_scope_as = target
+		every_spouse = {
+			limit = {
+				matrilinear_marriage = yes
+				OR = {
+					target_is_liege_or_above = root 
+					is_pool_character = yes
+				}
+				NOT ={
+					any_heir_title = {
+						tier > root.highest_held_title_tier
+					}
+				}
+			}
+			save_scope_as = owner
+			show_as_tooltip ={
+				divorce = scope:target
+				marry = scope:target
+			}
+			hidden_effect = {
+				divorce = scope:target
+				marry = scope:target
+			}
+			every_child = {
+				limit = { 
+					is_child_of = scope:target
+					house = scope:owner.house
+				}
+				set_house = scope:target.house
+			}
+		}
+	}
+	
+	ai_check_interval = 0
+
+	ai_potential = {
+		always = no
 	}
 
 	ai_will_do = {

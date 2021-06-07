@@ -17,5 +17,12 @@
  tentacleswarm_test_decision_tooltip:0 "tentacleswarm_test_decision_tooltip"
  tentacleswarm_test_decision_desc:0 "tentacleswarm_test_decision_desc"
  tentacleswarm_test_decision_confirm:0 "tentacleswarm_test_decision_confirm"
+ #原版缺失汉化
+ ANY_SPOUSE:0 "任一配偶"
+ IS_POOL_CHARACTER:0 "是流浪者"
+ NOT_POOL_CHARACTER:0 "不是流浪者"
+ any_heir_title_all:0 "每个可继承的头衔"
+ IS_TIER:0 "$COMPARATOR$$TIER|U$[rank|E]"
+ NOT_TIER:0 "不$COMPARATOR$$TIER|U$[rank|E]"
 
  

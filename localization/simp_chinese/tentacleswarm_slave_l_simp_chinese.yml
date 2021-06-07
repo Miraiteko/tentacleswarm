@@ -24,7 +24,7 @@
  #决议相关
  tentacleswarm_start_decision:0 "宣告触手霸权"
  tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
- tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶省份"
+ tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶身份"
  tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
  
  tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
@@ -33,6 +33,11 @@
  tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
  tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
  tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
+ 
+ tentacleswarm_become_openly_tentacle_slave_decision:0 "公开触手奴隶身份"
+ tentacleswarm_become_openly_tentacle_slave_decision_desc:0 "既然我已经公开崇拜触手主人了，我就没有必要继续隐藏我的触手奴隶身份。"
+ tentacleswarm_become_openly_tentacle_slave_decision_tooltip:0 "公开你的触手奴隶身份"
+ tentacleswarm_become_openly_tentacle_slave_decision_confirm:0 "光荣地承认身份"
  
  #密谋相关
  TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
