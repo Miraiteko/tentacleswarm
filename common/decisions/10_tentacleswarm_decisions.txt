@@ -276,6 +276,7 @@ tentacleswarm_remarry_decision_female = {
 		is_female = yes
 		is_married = yes
 		patrilinear_marriage = yes
+		exists = house
 	}
 	
 	is_valid = {
@@ -331,7 +332,9 @@ tentacleswarm_remarry_decision_female = {
 	ai_check_interval = 24
 
 	ai_potential = {
+		always = no
 		has_religion = religion:tentacleswarm_religion
+		is_tentacle_slave = yes
 	}
 
 	ai_will_do = {
@@ -352,6 +355,7 @@ tentacleswarm_remarry_decision_male = {
 		is_male = yes
 		is_married = yes
 		matrilinear_marriage = yes
+		exists = house
 	}
 	
 	is_valid = {

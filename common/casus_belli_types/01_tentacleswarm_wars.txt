@@ -529,6 +529,7 @@ tentacleswarm_conquest = {
 						}
 						every_vassal = { #所有的原封臣给原领主
 							limit = {
+								exists = capital_province
 								capital_province.county = {
 									NOT =  { target_is_de_jure_liege_or_above = scope:target_kingdom }
 								}

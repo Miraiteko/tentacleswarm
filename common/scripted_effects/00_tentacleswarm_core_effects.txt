@@ -149,7 +149,7 @@ tentacleswarm_4VA = {
 					NOT =  { has_county_modifier = tentacleswarm_destroy }
 				}
 				every_county_province = {
-					barony = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
+					#barony = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
 				}
 			}
 		}
@@ -162,6 +162,7 @@ tentacleswarm_4VA = {
 		every_character_to_title_neighboring_and_across_water_county = {
 			limit = {
 				NOT =  { has_county_modifier = tentacleswarm_destroy }
+				var:tentacleswarm_corruption_warbeast = { compare_value >= 100 } #有1队巨兽储备
 			}
 			holder = {
 				trigger_event = {
@@ -172,7 +173,7 @@ tentacleswarm_4VA = {
 			if ={
 				limit = { debug_only = yes }
 				every_county_province = {
-					#barony = { set_color_from_title = title:d_tentacleswarm_4VA_get } #改颜色
+					barony = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
 				}
 			}
 		}
