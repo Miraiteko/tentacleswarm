@@ -62,26 +62,26 @@ tentacleswarm_corruption_county_destroy_effect = {
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_1 }
 		remove_county_modifier = tentacleswarm_corruption_1
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 12 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 30 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_2 }
 		remove_county_modifier = tentacleswarm_corruption_2
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 14 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 40 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_3 }
 		remove_county_modifier = tentacleswarm_corruption_3
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 17 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_4 }
 		remove_county_modifier = tentacleswarm_corruption_4
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 22 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_5 }
 		remove_county_modifier = tentacleswarm_corruption_5
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 30 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
 	}
 }

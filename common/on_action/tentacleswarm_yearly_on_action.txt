@@ -773,6 +773,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 					set_variable =  { name = max_held_development value = 1 } #独立领主的话，就不在意那么多
 				}
 			}
+			#确定战争对象
 			random_in_global_list = {
 				variable = tentacleswarm_main_target_ruler
 				limit = {
@@ -788,24 +789,57 @@ tentacleswarm_random_yearly_playable_pulse = {
 						   interaction = declare_war_interaction
 						}
 					}
+					is_at_war = yes #优先打不处于战争中的目标
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient
-				random_realm_county = {
-					limit = { 
-						development_level >= scope:actor.var:max_held_development
-					}
-					save_scope_as = target
+			}
+			if = {
+				limit = { 
+					NOT = { exists = scope:target_character }
 				}
-				if = {
+				random_in_global_list = { #否则的话，和平的目标的也打
+					variable = tentacleswarm_main_target_ruler
 					limit = {
-						war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+						highest_held_title_tier >= tier_duchy #不啃独立小伯爵
+						is_landed = yes #有地
+						NOT = { has_religion = religion:tentacleswarm_religion } #异教
+						capital_county = {  #首都有较高发展度
+							development_level >= scope:actor.var:max_held_development
+						}
+						ROOT = { #需要符合宣战条件
+							is_character_interaction_valid = {
+							   recipient = PREV
+							   interaction = declare_war_interaction
+							}
+						}
 					}
-					scope:actor = {
-						start_war = { 
-							casus_belli = tentacleswarm_conquest 
-							target = scope:target_character
-							target_title = scope:target.kingdom
+					save_scope_as = target_character
+					save_scope_as = recipient
+				}
+			}
+			#确定目标，发动战争
+			if = {
+				limit = { 
+					exists = scope:target_character
+				}
+				scope:target_character = {
+					random_realm_county = {
+						limit = { 
+							development_level >= scope:actor.var:max_held_development
+						}
+						save_scope_as = target
+					}
+					if = {
+						limit = {
+							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+						}
+						scope:actor = {
+							start_war = { 
+								casus_belli = tentacleswarm_conquest 
+								target = scope:target_character
+								target_title = scope:target.kingdom
+							}
 						}
 					}
 				}
