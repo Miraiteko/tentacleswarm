@@ -14,7 +14,7 @@ tentacleswarm_war.0001 = {
 		every_ruler = { #在外交范围内领主
 			limit = {
 				highest_held_title_tier >= tier_county #至少是个大夫
-				max_military_strength > 1000 #有一定兵力
+				max_military_strength > 300 #有一定兵力
 				is_landed = yes
 				is_ai = yes #AI才会介入
 				in_diplomatic_range = scope:war.primary_attacker
@@ -75,7 +75,7 @@ tentacleswarm_war.0002 ={
 		exists = scope:war
 		highest_held_title_tier >= tier_county #至少是个伯爵
 		is_landed = yes	#有地	
-		max_military_strength > 1000 #有一定兵力
+		max_military_strength > 300 #有一定兵力
 		is_at_war = no
 		in_diplomatic_range = scope:war.primary_attacker
 		in_diplomatic_range = scope:war.primary_defender
