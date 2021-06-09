@@ -162,7 +162,7 @@ tentacleswarm_4VA = {
 		every_character_to_title_neighboring_and_across_water_county = {
 			limit = {
 				NOT =  { has_county_modifier = tentacleswarm_destroy }
-				var:tentacleswarm_corruption_warbeast = { compare_value >= 100 } #有1队巨兽储备
+				#var:tentacleswarm_corruption_warbeast = { compare_value >= 100 } #有1队巨兽储备
 			}
 			holder = {
 				trigger_event = {

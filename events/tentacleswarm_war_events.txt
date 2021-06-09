@@ -59,33 +59,9 @@ tentacleswarm_war.0001 = {
 		}
 	}
 }
-#干预者分流事件；
-tentacleswarm_war.0002 = {
-	hidden = yes
-	trigger = {
-		exists = scope:war
-		highest_held_title_tier >= tier_county #至少是个大夫
-		OR = { #在外交范围内
-			in_diplomatic_range = scope:war.primary_attacker
-			in_diplomatic_range = scope:war.primary_defender
-		}
-		NOT = { is_at_war_with = scope:war.primary_attacker }	#没有介入战争
-		NOT = { is_at_war_with = scope:war.primary_defender }	
-	} 
-	immediate = {
-		#干预者是AI的话，直接触发干预事件
-		if = {
-			limit = {					
-				is_ai = yes
-			}
-			trigger_event = {
-				id = tentacleswarm_war.0003
-			}
-		}
-	}
-}
+
 #军事干预事件
-tentacleswarm_war.0003 ={
+tentacleswarm_war.0002 ={
 	
 	type = character_event
 	title = tentacleswarm_war.0002.t
@@ -96,7 +72,9 @@ tentacleswarm_war.0003 ={
 	
 	trigger = {
 		exists = scope:war
-		highest_held_title_tier >= tier_county #至少是个大夫
+		highest_held_title_tier >= tier_county #至少是个伯爵
+		is_landed = yes	#有地	
+		is_ai = yes #AI才会介入
 		OR = { #在外交范围内
 			in_diplomatic_range = scope:war.primary_attacker
 			in_diplomatic_range = scope:war.primary_defender
@@ -134,6 +112,7 @@ tentacleswarm_war.0003 ={
 				#防御方是邪恶的奴隶
 				AND = {
 					scope:defender = { has_religion = religion:tentacleswarm_religion }
+					is_tentacle_slave = no
 					faith = {
 						has_doctrine_parameter = doctrine_tentacleswarm_evil
 					}
@@ -240,23 +219,15 @@ tentacleswarm_war.0003 ={
 		ai_chance = {
 			base = 300
 			ai_value_modifier = {
-				ai_energy = -1
+				ai_zeal = -2.5
 			}	
 			modifier = {#我在打战
 				factor = 10
 				is_at_war = yes 
 			}
-			modifier = {#我无地
-				factor = 10
-				is_landed = no
-			}
 			modifier = {#与我关系不大
 				factor = 3
 				NOR = {
-					is_vassal_or_below_of = scope:war.primary_attacker #攻击方的封臣
-					is_vassal_or_below_of = scope:war.primary_defender #防御方的封臣
-					is_liege_or_above_of = scope:war.primary_attacker #攻击方的领主
-					is_liege_or_above_of = scope:war.primary_defender #防御方的领主
 					character_is_realm_neighbor = scope:war.primary_attacker #攻击方相邻
 					character_is_realm_neighbor = scope:war.primary_defender #防御方相邻
 					has_same_culture_as = scope:war.primary_attacker #攻击方同文化
@@ -266,6 +237,8 @@ tentacleswarm_war.0003 ={
 			modifier = {#与我无关
 				factor = 3
 				NOR = {
+					character_is_realm_neighbor = scope:war.primary_attacker #攻击方相邻
+					character_is_realm_neighbor = scope:war.primary_defender #防御方相邻
 					has_same_culture_group_as = scope:war.primary_attacker #攻击方同文化组
 					has_same_culture_group_as = scope:war.primary_defender #防御方同文化组
 				}
@@ -289,6 +262,7 @@ tentacleswarm_war.0003 ={
 				#攻击方是邪恶的奴隶
 				AND = {
 					scope:attacker = { has_religion = religion:tentacleswarm_religion }
+					is_tentacle_slave = no
 					faith = {
 						has_doctrine_parameter = doctrine_tentacleswarm_evil
 					}

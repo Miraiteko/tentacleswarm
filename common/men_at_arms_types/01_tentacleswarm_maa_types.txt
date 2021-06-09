@@ -35,7 +35,7 @@
 	low_maintenance_cost = { gold = 0 }
 	high_maintenance_cost = { gold = 0 }
 	
-	stack = 5
+	stack = 10
 	ai_quality = 1000
 	icon = war_elephants
 }

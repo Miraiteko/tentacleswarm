@@ -677,8 +677,8 @@ tentacleswarm_conquest = {
 	on_primary_attacker_death = inherit #进攻方死亡时，战争继续
 	on_primary_defender_death = inherit #防御方死亡时，战争继续
 
-	attacker_allies_inherit = yes
-	defender_allies_inherit = yes
+	attacker_allies_inherit = no
+	defender_allies_inherit = no
 
 	war_name = "TENTACLESWARM_WAR_NAME"
 	war_name_base = "TENTACLESWARM_WAR_NAME_BASE"
@@ -1119,8 +1119,8 @@ tentacleswarm_religious_war = {
 
 	transfer_behavior = transfer
 
-	attacker_allies_inherit = yes
-	defender_allies_inherit = yes
+	attacker_allies_inherit = no
+	defender_allies_inherit = no
 
 	war_name = "RELIGIOUS_TENTACLE_WAR_NAME"
 	cb_name = "HOLY_WAR_TENTACLE_NAME"
