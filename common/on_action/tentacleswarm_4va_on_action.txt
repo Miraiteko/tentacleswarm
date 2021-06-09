@@ -106,7 +106,11 @@ tentacleswarm_4VA_pulse = {
 					value = max_military_strength
 					divide = { value = scope:4VA_from.max_military_strength min = 1 }
 				}
-			}					
+			}				
+			change_variable = {
+				name = military_strength_ratio
+				add = -0.2
+			}			
 			random_list = {
 				20 = {
 					#有和约或者盟约，倾向于不打你

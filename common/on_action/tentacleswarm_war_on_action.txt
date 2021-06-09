@@ -35,7 +35,7 @@ tentacleswarm_on_war_won_attacker = {
 				faith = {
 					if = { 
 						limit = { has_variable = tentacleswarm_cap }
-						change_variable = { name = tentacleswarm_cap multiply = 1.1 }	
+						change_variable = { name = tentacleswarm_cap add = 50 }	
 					}
 					else = {
 						set_variable = { name = tentacleswarm_cap value = 800 }	
