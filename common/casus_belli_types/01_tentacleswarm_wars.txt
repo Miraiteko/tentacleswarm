@@ -123,7 +123,7 @@ tentacleswarm_conquest = {
 
 	cost = {
 		piety = {
-			value = 50 #基础消耗虔诚
+			value = 0 #基础消耗虔诚
 			if = { # 进攻宗教领袖消耗虔诚
 				limit = {
 					exists = scope:attacker.faith.religious_head
@@ -674,7 +674,7 @@ tentacleswarm_conquest = {
 
 	transfer_behavior = transfer #目标变更时，可以选择是否继续战争
 
-	on_primary_attacker_death = invalidate #进攻方死亡时，战争无效
+	on_primary_attacker_death = inherit #进攻方死亡时，战争继续
 	on_primary_defender_death = inherit #防御方死亡时，战争继续
 
 	attacker_allies_inherit = yes
@@ -693,7 +693,6 @@ tentacleswarm_conquest = {
 	defender_faith_can_join = yes
 	gui_defender_faith_might_join = yes
 
-	min_ai_score = 100
 }
 
 #触手剿灭圣战
@@ -1135,5 +1134,4 @@ tentacleswarm_religious_war = {
 	attacker_wargoal_percentage = 0.8
 
 	max_ai_diplo_distance_to_title = 500
-	min_ai_score = 100
 }
