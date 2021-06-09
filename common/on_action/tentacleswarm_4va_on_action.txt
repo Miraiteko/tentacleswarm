@@ -122,7 +122,7 @@ tentacleswarm_4VA_pulse = {
 						ai_zeal > 10
 					}
 					modifier = { #兵力不够不打 
-						add = -100
+						add = -50
 						max_military_strength < scope:4VA_from.max_military_strength
 					}
 					modifier = { #奴隶不打奴隶

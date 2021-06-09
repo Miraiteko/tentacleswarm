@@ -91,7 +91,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 			if = {
 				limit = {
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
 					}
 				}
 				#改信，释放费洛蒙
@@ -141,7 +141,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					is_landed = yes
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
 					}
 				}
 				Not = { 
@@ -168,7 +168,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					is_landed = yes 
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= 800 }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
 					}
 					OR = {
 						is_male = yes #只针对父亲，或者无生育能力的母亲
@@ -789,7 +789,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 						   interaction = declare_war_interaction
 						}
 					}
-					is_at_war = yes #优先打不处于战争中的目标
+					is_at_war = yes #优先打处于战争中的目标
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient

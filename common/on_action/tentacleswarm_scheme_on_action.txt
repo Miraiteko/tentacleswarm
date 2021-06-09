@@ -18,12 +18,16 @@ tentacle_slave_claim_throne_setup = {
 				limit = {
 					tier >= tier_county
 				}
-				change_title_holder_include_vassals = {
-					holder = scope:owner
-					change = scope:change
-				}
+				add_to_list = target_titles
 			}
 		}
+		setup_claim_cb = {
+			titles = target_titles
+			attacker = scope:owner
+			defender = scope:target
+			claimant = scope:owner
+			change = scope:change
+		}	
 		resolve_title_and_vassal_change = scope:change
 		#改信
 		convert_to_tentacleswarm_religion = yes

@@ -690,8 +690,8 @@ tentacleswarm_conquest = {
 
 	attacker_wargoal_percentage = 1.0
 	
-	gui_defender_faith_might_join = yes
-	gui_attacker_faith_might_join = yes
+	#gui_defender_faith_might_join = yes
+	#gui_attacker_faith_might_join = yes
 
 }
 
