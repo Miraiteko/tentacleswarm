@@ -1,7 +1,7 @@
 ﻿#触手天灾mod战争
 
 #开辟新巢穴
-tentacleswarm_conquest = {
+tentacleswarm_conquest = { 
 	group = conquest
 	is_holy_war = yes
 	
