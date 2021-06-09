@@ -26,3 +26,19 @@ tentacleswarm_on_war_won_defender = {
 		scope:defender = { tentacleswarm_4VA = yes }
 	}
 }
+#主人的圣战战争开始时，周围领主加入战争
+on_war_started = {
+    on_actions = {
+        tentacleswarm_on_war_started
+    }
+}
+#霸主mod战争开始设置
+tentacleswarm_on_war_started = {
+    effect = { 
+        scope:attacker  = {
+            trigger_event = { 
+                id = tentacleswarm_war.0001 #战争发动之后，周围的领主可以干预
+            } 
+        }
+    }
+}

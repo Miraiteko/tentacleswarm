@@ -20,7 +20,7 @@ tentacleswarm_cheat_check = {
 	if = {
 		#开过debug模式
 		limit = { debug_only = yes }
-		add_achievement_global_variable = {
+		add_achievement_global_variable_effect = {
 			VARIABLE = tentacleswarm_cheat
 			VALUE = yes
 		}
@@ -30,7 +30,7 @@ tentacleswarm_cheat_check = {
 tentacleswarm_achievement_chaste_check = {
 	if = {
 		limit = { is_tentacle_slave = yes }
-		add_achievement_global_variable = {
+		add_achievement_global_variable_effect = {
 			VARIABLE = tentacleswarm_achievement_chaste_fail
 			VALUE = yes
 		}

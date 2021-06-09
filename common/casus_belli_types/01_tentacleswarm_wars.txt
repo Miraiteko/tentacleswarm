@@ -690,8 +690,8 @@ tentacleswarm_conquest = {
 
 	attacker_wargoal_percentage = 1.0
 	
-	defender_faith_can_join = yes
 	gui_defender_faith_might_join = yes
+	gui_attacker_faith_might_join = yes
 
 }
 
@@ -699,8 +699,8 @@ tentacleswarm_conquest = {
 tentacleswarm_religious_war = {
 	group = religious
 
-	defender_faith_can_join = yes
 	gui_defender_faith_might_join = yes
+	gui_attacker_faith_might_join = yes
 
 	combine_into_one = yes
 	should_show_war_goal_subview = yes

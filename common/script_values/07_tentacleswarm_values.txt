@@ -1,7 +1,4 @@
-﻿######################
-# FEAST STUFF
-######################
-tentacleswarm_religion_convert_to_value = {
+﻿tentacleswarm_religion_convert_to_value = {
 	value = scope:county.var:tentacleswarm_corruption
 	#add = 0
 	multiply = 0.0125

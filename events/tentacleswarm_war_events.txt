@@ -1,0 +1,425 @@
+﻿#0001-0003 战争干预事件
+namespace = tentacleswarm_war
+
+#宣战者事件，引发周围的人参战
+tentacleswarm_war.0001 = {
+	hidden = yes
+	trigger = {
+		scope:war = {
+			OR = {
+				using_cb = tentacleswarm_conquest
+				using_cb = tentacleswarm_religious_war
+			}
+		}
+	}
+	immediate = {
+		every_ruler = { #在攻击者或防御者外交范围内的未参战领主
+			limit = {
+				OR = { #在外交范围内
+					in_diplomatic_range = scope:attacker 
+					in_diplomatic_range = scope:defender 
+				}
+				highest_held_title_tier >= tier_county #至少是个大夫
+			}
+			if = {
+				limit = {
+					OR = {
+						character_is_realm_neighbor = scope:attacker  #攻击方相邻
+						character_is_realm_neighbor = scope:defender  #防御方相邻
+						has_same_culture_as = scope:attacker  #攻击方同文化
+						has_same_culture_as = scope:defender  #防御方同文化
+					}
+				}
+				trigger_event = {
+					id = tentacleswarm_war.0002
+					days = { 30 360 } #作为相邻或同文化的统治者，可以在一个月后加入战争
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_same_culture_group_as = scope:attacker  #攻击方同文化组
+						has_same_culture_group_as = scope:defender #防御方同文化组
+					}
+				}
+				trigger_event = {
+					id = tentacleswarm_war.0002
+					days = { 180 720 } #作为同文化组的统治者，可以在六个月加入战争
+				}
+			}
+			else_if = {
+				limit = {
+					is_independent_ruler = yes
+				}
+				trigger_event = {
+					id = tentacleswarm_war.0002
+					days = { 360 1080 } #其他独立统治者，一年后会加入战争
+				}
+			}
+		}
+	}
+}
+#干预者分流事件；
+tentacleswarm_war.0002 = {
+	hidden = yes
+	trigger = {
+		exists = scope:war
+		highest_held_title_tier >= tier_county #至少是个大夫
+		OR = { #在外交范围内
+			in_diplomatic_range = scope:war.primary_attacker
+			in_diplomatic_range = scope:war.primary_defender
+		}
+		NOT = { is_at_war_with = scope:war.primary_attacker }	#没有介入战争
+		NOT = { is_at_war_with = scope:war.primary_defender }	
+	} 
+	immediate = {
+		#干预者是AI的话，直接触发干预事件
+		if = {
+			limit = {					
+				is_ai = yes
+			}
+			trigger_event = {
+				id = tentacleswarm_war.0003
+			}
+		}
+	}
+}
+#军事干预事件
+tentacleswarm_war.0003 ={
+	
+	type = character_event
+	title = tentacleswarm_war.0002.t
+	desc = tentacleswarm_war.0002.desc
+	theme = realm
+	
+	#注意，这时候主攻击者和主防御者可能已经发生改变了，不能继续使用scope:attacker而要使用scope:war.primary_attacker
+	
+	trigger = {
+		exists = scope:war
+		highest_held_title_tier >= tier_county #至少是个大夫
+		OR = { #在外交范围内
+			in_diplomatic_range = scope:war.primary_attacker
+			in_diplomatic_range = scope:war.primary_defender
+		}
+		NOT = { is_at_war_with = scope:war.primary_attacker }	#没有介入战争
+		NOT = { is_at_war_with = scope:war.primary_defender }	
+	}	
+	left_portrait = {
+		character = scope:war.primary_attacker
+		animation = war_attacker
+	}
+	right_portrait = {
+		character = scope:war.primary_defender
+		animation = war_defender
+	}
+	
+	immediate = { 
+		save_scope_as = actor
+	}
+
+	
+	option = {
+		name = tentacleswarm_war.0002.atk
+		trigger = {
+			OR = {
+				#和攻击者同信仰
+				faith = scope:attacker.faith 
+				#防御方敌视主人
+				AND = {
+					scope:defender.faith = {
+						has_doctrine_parameter = doctrine_tentacleswarm_evil
+					}
+					has_religion = religion:tentacleswarm_religion
+				}
+				#防御方是邪恶的奴隶
+				AND = {
+					scope:defender = { has_religion = religion:tentacleswarm_religion }
+					faith = {
+						has_doctrine_parameter = doctrine_tentacleswarm_evil
+					}
+				}
+			}
+		}
+		#加入进攻方
+		scope:war = { add_attacker = PREV }
+		#主进攻者倾向于成为你的朋友
+		scope:war.primary_attacker = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:actor = {
+					progress_towards_friend_effect = {
+						CHARACTER = scope:war.primary_attacker
+						OPINION = 20
+					}
+				}
+			}
+			else = {
+				hidden_effect = { #To nudge friendship
+					if = {
+						limit = {
+							NOR = {
+								has_relation_friend = scope:actor
+								has_relation_potential_friend = scope:actor
+							}
+						}
+						set_relation_potential_friend = scope:actor
+					}
+				}
+			}
+		}		
+		#主防御者倾向于成为你的仇敌
+		scope:war.primary_defender = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:actor = {
+					progress_towards_rival_effect = {
+						CHARACTER = scope:war.primary_defender
+						OPINION = -20
+					}
+				}
+			}
+			else = {
+				hidden_effect = { 
+					if = {
+						limit = {
+							NOR = {
+								has_relation_rival = scope:actor
+								has_relation_potential_rival = scope:actor
+							}
+						}
+						set_relation_potential_rival = scope:actor
+					}
+				}
+			}
+		}
+		
+		if = { 
+			#如果你是防御者的封臣，算是叛乱
+			limit = { 
+				is_vassal_of = scope:war.primary_defender
+			}
+			scope:war.primary_defender = {
+				add_opinion = {
+					target = scope:actor
+					modifier = vassal_wp_faction_revolt_war
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			#我喜欢攻击者
+			opinion_modifier = { 
+				opinion_target = scope:war.primary_attacker
+				multiplier = 1
+			}
+			#我讨厌防御者
+			opinion_modifier = {
+				opinion_target = scope:war.primary_defender
+				multiplier = -1
+			}
+			modifier = {#我很喜欢防御者
+				factor = 0.1
+				opinion = { target = scope:war.primary_defender value > 50 }
+			}
+			modifier = {#我很讨厌攻击者
+				factor = 0.1
+				opinion = { target = scope:war.primary_attacker value < -50 }
+			}
+			modifier = {#玩家攻击者
+				factor = 3
+				scope:war.primary_attacker = { is_ai = no}
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_war.0002.neutral
+		ai_chance = {
+			base = 300
+			ai_value_modifier = {
+				ai_energy = -1
+			}	
+			modifier = {#我在打战
+				factor = 10
+				is_at_war = yes 
+			}
+			modifier = {#我无地
+				factor = 10
+				is_landed = no
+			}
+			modifier = {#与我关系不大
+				factor = 3
+				NOR = {
+					is_vassal_or_below_of = scope:war.primary_attacker #攻击方的封臣
+					is_vassal_or_below_of = scope:war.primary_defender #防御方的封臣
+					is_liege_or_above_of = scope:war.primary_attacker #攻击方的领主
+					is_liege_or_above_of = scope:war.primary_defender #防御方的领主
+					character_is_realm_neighbor = scope:war.primary_attacker #攻击方相邻
+					character_is_realm_neighbor = scope:war.primary_defender #防御方相邻
+					has_same_culture_as = scope:war.primary_attacker #攻击方同文化
+					has_same_culture_as = scope:war.primary_defender #防御方同文化
+				}
+			}
+			modifier = {#与我无关
+				factor = 3
+				NOR = {
+					has_same_culture_group_as = scope:war.primary_attacker #攻击方同文化组
+					has_same_culture_group_as = scope:war.primary_defender #防御方同文化组
+				}
+			}
+			
+		}
+	}
+	option = {
+		name = tentacleswarm_war.0002.def
+		trigger = {
+			OR = {
+				#和防御者同信仰
+				faith = scope:defender.faith 
+				#攻击方敌视主人
+				AND = {
+					scope:attacker.faith = {
+						has_doctrine_parameter = doctrine_tentacleswarm_evil
+					}
+					has_religion = religion:tentacleswarm_religion
+				}
+				#攻击方是邪恶的奴隶
+				AND = {
+					scope:attacker = { has_religion = religion:tentacleswarm_religion }
+					faith = {
+						has_doctrine_parameter = doctrine_tentacleswarm_evil
+					}
+				}
+			}
+		}
+		#加入防御方
+		scope:war = { add_defender = PREV }
+		#主防御者倾向于成为你的朋友
+		scope:war.primary_defender = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:actor = {
+					progress_towards_friend_effect = {
+						CHARACTER = scope:war.primary_defender
+						OPINION = 20
+					}
+				}
+			}
+			else = {
+				hidden_effect = { #To nudge friendship
+					if = {
+						limit = {
+							NOR = {
+								has_relation_friend = scope:actor
+								has_relation_potential_friend = scope:actor
+							}
+						}
+						set_relation_potential_friend = scope:actor
+					}
+				}
+			}
+		}		
+		#主进攻者倾向于成为你的仇敌
+		scope:war.primary_attacker = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:actor = {
+					progress_towards_rival_effect = {
+						CHARACTER = scope:war.primary_attacker
+						OPINION = 20
+					}
+				}
+			}
+			else = {
+				hidden_effect = { 
+					if = {
+						limit = {
+							NOR = {
+								has_relation_rival = scope:actor
+								has_relation_potential_rival = scope:actor
+							}
+						}
+						set_relation_potential_rival = scope:actor
+					}
+				}
+			}
+		}
+		if = { 
+			#如果你是进攻者的封臣，算是叛乱
+			limit = { 
+				is_vassal_of = scope:war.primary_attacker
+			}
+			scope:war.primary_attacker = {
+				add_opinion = {
+					target = scope:actor
+					modifier = vassal_wp_faction_revolt_war
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			#我喜欢防御者
+			opinion_modifier = { 
+				opinion_target = scope:war.primary_defender
+				multiplier = 1
+			}
+			#我讨厌攻击者
+			opinion_modifier = {
+				opinion_target = scope:war.primary_attacker
+				multiplier = -1
+			}
+			modifier = {#我很喜欢攻击者
+				factor = 0.1
+				opinion = { target = scope:war.primary_attacker value > 50 }
+			}
+			modifier = {#我很讨厌防御者
+				factor = 0.1
+				opinion = { target = scope:war.primary_defender value < -50 }
+			}
+			modifier = {#进攻方以大欺小
+				factor = 2
+				scope:war.primary_attacker = {
+					tier_difference = {
+					   target = scope:war.primary_defender
+					   value = 1
+					}
+				}
+			}
+			modifier = {#进攻方以大欺小
+				factor = 5
+				scope:war.primary_attacker = {
+					tier_difference = {
+					   target = scope:war.primary_defender
+					   value = 2
+					}
+				}
+			}
+			modifier = {#进攻方以大欺小
+				factor = 10
+				scope:war.primary_attacker = {
+					tier_difference = {
+					   target = scope:war.primary_defender
+					   value >=3
+					}
+				}
+			}
+			modifier = {#防御者是我的领主，并且我不在派系里
+				factor = 5
+				is_vassal_of = scope:war.primary_defender
+				is_a_faction_member = no
+			}
+			modifier = {#进攻者是我的领主，并且我在派系里
+				factor = 10
+				is_vassal_of = scope:war.primary_attacker
+				is_a_faction_member = yes
+			}
+		}
+	}
+}
