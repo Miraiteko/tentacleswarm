@@ -1,5 +1,4 @@
-﻿#战争胜利释放4VA
-on_war_won_attacker = {
+﻿on_war_won_attacker = {
 	on_actions = { 
 		tentacleswarm_on_war_won_attacker
 	}
@@ -11,29 +10,88 @@ on_war_won_defender = {
 }
 tentacleswarm_on_war_won_attacker = {
 	trigger = {
-		scope:attacker = { has_religion = religion:tentacleswarm_religion }
 	}
 	effect = {
-		scope:attacker = { tentacleswarm_4VA = yes } 
+		#奴隶们战争进攻胜利释放4VA
+		scope:attacker = {
+			if = {
+				limit = {
+					has_religion = religion:tentacleswarm_religion
+				}
+				tentacleswarm_4VA = yes
+			}
+		} 
+		#抗击剿灭失败，天灾阈值抬高/巢穴入侵成功，目标信仰无视度提高
+		if = { 
+			limit = {
+				scope:war = {
+					OR = {
+						using_cb = tentacleswarm_religious_war 
+						using_cb = tentacleswarm_conquest 
+					}
+				}
+			}
+			scope:defender = {
+				faith = {
+					if = { 
+						limit = { has_variable = tentacleswarm_cap }
+						change_variable = { name = tentacleswarm_cap multiply = 1.1 }	
+					}
+					else = {
+						set_variable = { name = tentacleswarm_cap value = 800 }	
+					}
+				}
+			}
+		}
 	}
 }
 
 tentacleswarm_on_war_won_defender = {
-	trigger = {
-		scope:defender = { has_religion = religion:tentacleswarm_religion }
-	}
 	effect = {
-		scope:defender = { tentacleswarm_4VA = yes }
+		#奴隶们战争防御胜利释放4VA
+		scope:defender = {
+			if = {
+				limit = {
+					has_religion = religion:tentacleswarm_religion
+				}
+				tentacleswarm_4VA = yes
+			}
+		} 
+		#抗击剿灭胜利，天灾阈值降低/巢穴入侵成功，目标信仰无视度降低
+		if = { 
+			limit = {
+				scope:war = {
+					OR = {
+						using_cb = tentacleswarm_religious_war 
+						using_cb = tentacleswarm_conquest 
+					}
+				}
+			}
+			scope:defender = {
+				faith = {
+					if = { 
+						limit = { has_variable = tentacleswarm_cap }
+						change_variable = { name = tentacleswarm_cap multiply = 0.9 }	
+					}
+					else = {
+						set_variable = { name = tentacleswarm_cap value = 800 }	
+					}
+				}
+			}
+		}
 	}
 }
-#主人的圣战战争开始时，周围领主加入战争
+
 on_war_started = {
     on_actions = {
         tentacleswarm_on_war_started
     }
 }
-#霸主mod战争开始设置
+#剿灭战争开始时，周围领主加入战争
 tentacleswarm_on_war_started = {
+	trigger = {
+		scope:war = { using_cb = tentacleswarm_religious_war }
+	}
     effect = { 
         scope:attacker  = {
             trigger_event = { 

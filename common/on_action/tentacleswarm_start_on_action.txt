@@ -20,6 +20,12 @@ tentacleswarm_on_game_start = {
 				}
 			}
 		}
+		#所有生成天灾阈值
+		every_religion_global = {
+			every_faith = {
+				set_variable = { name = tentacleswarm_cap value = 800 } 	
+			}
+		}
 		#初始奴隶生成，
 		every_living_character = {
 			if = {
@@ -92,6 +98,19 @@ tentacleswarm_on_game_start = {
 		#触发一下年度全局事件避免bug
 		trigger_event = {
 			on_action = tentacleswarm_yearly_global_pulse
+		}
+	}
+}
+#有人建新宗教的时候，一并初始化
+on_faith_created = {
+	on_actions = { 
+		tentacleswarm_on_faith_created
+	}
+}
+tentacleswarm_on_faith_created = {
+	effect = {
+		faith = {
+			set_variable = { name = tentacleswarm_cap value = scope:old_faith.var:tentacleswarm_cap }
 		}
 	}
 }

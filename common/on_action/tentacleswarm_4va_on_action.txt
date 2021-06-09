@@ -99,6 +99,14 @@ tentacleswarm_4VA_pulse = {
 					}
 				}
 			}
+			#计算双方兵力比值
+			set_variable = {
+				name = military_strength_ratio
+				value = {
+					value = max_military_strength
+					divide = { value = scope:4VA_from.max_military_strength min = 1 }
+				}
+			}					
 			random_list = {
 				20 = {
 					#有和约或者盟约，倾向于不打你
@@ -112,21 +120,19 @@ tentacleswarm_4VA_pulse = {
 					}
 				}
 				0 = { 
-					#人物性格
+					#人物狂热值
 					modifier = { 
-						add = 10
-						ai_energy > 10
-					}
-					modifier = { 
-						add = 10
-						ai_zeal > 10
+						add = ai_zeal
 					}
 					modifier = { #兵力不够不打 
-						add = -100
-						max_military_strength < scope:4VA_from.max_military_strength
+						factor = var:military_strength_ratio
+					}
+					modifier = {
+						add = -1000
+						is_at_war = yes
 					}
 					modifier = { #奴隶不打奴隶
-						add = -100 
+						add = -1000
 						is_tentacle_slave = yes
 					}
 					scope:4VA_from = {
