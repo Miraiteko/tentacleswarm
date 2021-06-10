@@ -142,10 +142,7 @@ tentacleswarm_4VA_pulse = {
 					scope:4VA_from = {
 						save_scope_as = target_character
 						save_scope_as = recipient
-						random_held_title = {
-							limit = { 
-								tier = tier_county 
-							}
+						random_realm_county = {
 							save_scope_as = target
 						}
 					}
