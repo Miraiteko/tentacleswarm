@@ -123,7 +123,7 @@ tentacleswarm_4VA_pulse = {
 						is_allied_to = scope:4VA_from
 					}
 				}
-				0 = { 
+				10 = { 
 					#人物狂热值
 					modifier = { 
 						add = ai_zeal
@@ -139,18 +139,25 @@ tentacleswarm_4VA_pulse = {
 						add = -1000
 						is_tentacle_slave = yes
 					}
+					#确定攻击目标
 					scope:4VA_from = {
 						save_scope_as = target_character
 						save_scope_as = recipient
-						random_realm_county = {
-							save_scope_as = target
+					}
+					random_character_to_title_neighboring_and_across_water_county = { #攻击相邻地区
+						limit = {
+							holder = {
+								target_is_same_character_or_above = scope:4VA_from
+							}
 						}
+						save_scope_as = target
 					}
 					if = {
 						limit = {
+							exists = scope:target
 							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
 						}
-						scope:actor = {
+						scope:actor = { #进行宣战
 							start_war = { 
 								casus_belli = tentacleswarm_religious_war 
 								target = scope:target_character

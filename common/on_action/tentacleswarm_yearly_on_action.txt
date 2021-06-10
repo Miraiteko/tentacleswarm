@@ -122,7 +122,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					exists = location
 					exists = location.faith
 				}
-				set_character_faith = location.faith
+				#set_character_faith = location.faith
 			}
 			#根据新信仰选择是否要将身份藏起来
 			if = {
@@ -131,8 +131,8 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					has_trait = tentacle_slave
 					NOT = { has_character_flag = exposed_tentacle_slave } #被揭发的无法藏身
 				} 
-				remove_trait = tentacle_slave
-				become_tentacle_slave = yes #刷新奴隶身份
+				#remove_trait = tentacle_slave
+				#become_tentacle_slave = yes #刷新奴隶身份
 			}
 		}
 		if = {
@@ -268,7 +268,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 70 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 75 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
@@ -310,7 +310,7 @@ tentacleswarm_yearly_playable_pulse = {
 						name = tentacleswarm_corruption_growth 
 						add = {
 							value = development_level 
-							multiply = 2.5
+							multiply = 2
 						}
 					}
 					if = {

@@ -30,13 +30,13 @@ tentacleswarm_on_game_start = {
 		every_living_character = {
 			if = {
 				limit = { 
-					is_lowborn = yes
+					#is_lowborn = yes
 					is_female = yes 
 					is_adult = yes
 				}
 				random_list = {
-					90 = {}
-					10 = { 
+					95 = {}
+					5 = { 
 						become_tentacle_slave = yes
 					}
 				}
