@@ -90,6 +90,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 			}
 			if = {
 				limit = {
+					always = no
 					capital_county = {
 						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
 					}
@@ -138,6 +139,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		if = {
 			limit = { #配偶有地，尝试密谋夺取
 				any_spouse = {
+					always = no
 					is_landed = yes
 					highest_held_title_tier >= tier_county
 					capital_county = {
@@ -165,6 +167,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		if = {
 			limit = { #父母有地，尝试密谋夺取
 				any_parent = {
+					always = no
 					is_landed = yes 
 					highest_held_title_tier >= tier_county
 					capital_county = {
@@ -515,6 +518,13 @@ tentacleswarm_yearly_playable_pulse = {
 							change_variable =  { name = tentacleswarm_corruption add = 15 }
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = 36 }
+						#温床造成本地4VA
+						holder = { 
+							trigger_event = {
+								on_action = tentacleswarm_4VA_pulse
+								days = { 10 60 }
+							}
+						}
 					}
 					else = { #五档
 						every_county_province = {
@@ -548,6 +558,13 @@ tentacleswarm_yearly_playable_pulse = {
 							change_variable =  { name = tentacleswarm_corruption add = 25 }
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = 100 }
+						#地狱造成本地4VA
+						holder = { 
+							trigger_event = {
+								on_action = tentacleswarm_4VA_pulse
+								days = { 10 60 }
+							}
+						}
 					}
 					if = {
 						limit = { #破坏点数满100时候，掉1点发展度，生一队巨兽
