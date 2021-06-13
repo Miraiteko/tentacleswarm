@@ -84,7 +84,7 @@ tentacleswarm_speaker.0001 = {
 				is_ai = yes
 				OR = {
 					fertility <=0 
-					age >= 35
+					age >= 21
 					is_ruler = yes
 					is_imprisoned = yes
 				}
@@ -94,7 +94,7 @@ tentacleswarm_speaker.0001 = {
 		else = {
 			trigger_event = { #正常的话，进行事件循环
 				id = tentacleswarm_speaker.0001 #散布腐蚀
-				months = 3
+				months = 1
 			}
 		}
 	}
@@ -118,7 +118,7 @@ tentacleswarm_speaker.0002 = { #speaker的初始化
 }
 tentacleswarm_speaker.0003 = {
 	hidden = yes
-	trigger = { #已经生成200位了，就不再需要颂唱者了
+	trigger = { #已经足够的初始奴隶，就不再需要颂唱者了
 		global_var:start_tentacle_slave_count < 200
 	}
 	immediate = {
