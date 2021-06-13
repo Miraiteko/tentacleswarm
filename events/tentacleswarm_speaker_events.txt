@@ -54,6 +54,7 @@ tentacleswarm_speaker.0001 = {
 						}
 					}
 					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果
+					change_global_variable = { name = start_tentacle_slave_count add = 1 }
 				}
 				#漫游
 				#向附近领主移动
@@ -93,7 +94,7 @@ tentacleswarm_speaker.0001 = {
 		else = {
 			trigger_event = { #正常的话，进行事件循环
 				id = tentacleswarm_speaker.0001 #散布腐蚀
-				months = 6
+				months = 3
 			}
 		}
 	}
@@ -117,6 +118,9 @@ tentacleswarm_speaker.0002 = { #speaker的初始化
 }
 tentacleswarm_speaker.0003 = {
 	hidden = yes
+	trigger = { #已经生成200位了，就不再需要颂唱者了
+		global_var:start_tentacle_slave_count < 200
+	}
 	immediate = {
 		save_scope_as = employer
 		tentacleswarm_spawn_tentacle_speaker_character_effect = yes

@@ -27,6 +27,7 @@ tentacleswarm_on_game_start = {
 			}
 		}
 		#初始奴隶生成，
+		set_global_variable = { name = start_tentacle_slave_count value = 0 }
 		random_ruler = {
 			trigger_event = {
 				id = tentacleswarm_speaker.0003 #生成speaker
