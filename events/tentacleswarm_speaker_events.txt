@@ -116,7 +116,7 @@ tentacleswarm_speaker.0001 = {
 		else = {
 			trigger_event = { #正常的话，进行事件循环
 				id = tentacleswarm_speaker.0001 #散布腐蚀
-				months = 3
+				months = 6
 			}
 		}
 	}

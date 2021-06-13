@@ -90,7 +90,6 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 			}
 			if = {
 				limit = {
-					always = no
 					capital_county = {
 						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
 					}
@@ -139,7 +138,6 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		if = {
 			limit = { #配偶有地，尝试密谋夺取
 				any_spouse = {
-					always = no
 					is_landed = yes
 					highest_held_title_tier >= tier_county
 					capital_county = {
@@ -167,7 +165,6 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		if = {
 			limit = { #父母有地，尝试密谋夺取
 				any_parent = {
-					always = no
 					is_landed = yes 
 					highest_held_title_tier >= tier_county
 					capital_county = {
@@ -271,7 +268,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 70 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 75 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
