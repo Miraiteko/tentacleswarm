@@ -1,0 +1,147 @@
+﻿namespace = tentacleswarm_speaker
+
+tentacleswarm_speaker.0001 = {
+	hidden = yes
+	trigger = {
+		is_alive = yes
+		has_character_flag = tentacle_speaker_character
+	}
+	
+	immediate = {
+		if = { #进行腐化
+			limit = {
+				is_ruler = no
+				is_imprisoned = no
+			}
+			if = { #如果有location,寻找当前宫廷内的一个合理对象腐化
+				limit = {
+					exists = location
+					exists = location.county
+				}
+				location.county = { 
+					save_scope_as = county
+				}
+				scope:county.holder = {
+					if = {
+						limit = {
+							is_female = yes 
+							is_adult = yes
+							is_tentacle_slave = no
+							fertility > 0
+						}
+						save_scope_as = target
+					}
+					else = {
+						random_courtier_or_guest = {
+							limit = {
+								is_female = yes 
+								is_adult = yes
+								is_tentacle_slave = no
+								fertility > 0
+							}
+							save_scope_as = target
+						}
+					}
+				}
+				if = {
+					limit = { 
+						exists = scope:target 
+						scope:target  = { is_tentacle_slave = no }
+					}
+					scope:target = {
+						trigger_event = {
+							id = tentacleswarm_slave.0021
+						}
+					}
+					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果
+				}
+				else = { #没有合理的腐化对象的话，进行移动
+					#向附近领主移动
+					scope:county.holder = {
+						random_character_to_title_neighboring_and_across_water_county = {
+							holder = {
+								save_scope_as = employer
+							}
+						}
+					}
+					if = { #没有合法对象的话，就随机跳
+						limit = {
+							NOT = { exists = scope:employer }
+						}
+						random_independent_ruler = { save_scope_as = employer }
+					}
+					visit_court_of = scope:employer
+				}
+				#始终有20%几率移动
+				random_list = {
+					80 = { 
+					}
+					20 = {
+						#向附近领主移动
+						scope:county.holder = {
+							random_character_to_title_neighboring_and_across_water_county = {
+								holder = {
+									save_scope_as = employer
+								}
+							}
+						}
+						if = { #没有合法对象的话，就随机跳
+							limit = {
+								NOT = { exists = scope:employer }
+							}
+							random_independent_ruler = { save_scope_as = employer }
+						}
+						visit_court_of = scope:employer
+					}
+				}
+			}
+			else = {#位置不合法的话，随机跳
+				random_independent_ruler = { save_scope_as = employer }
+				visit_court_of = scope:employer
+			}
+		}	
+		
+		if = {
+			limit = { 
+				is_ai = yes
+				OR = {
+					fertility <=0 
+					age >= 35
+					is_ruler = yes
+					is_imprisoned = yes
+				}
+			}
+			death = { death_reason = death_suicide } #生育力太低或者不再年轻点的时候，自杀;重新生成speaker
+		}
+		else = {
+			trigger_event = { #正常的话，进行事件循环
+				id = tentacleswarm_speaker.0001 #散布腐蚀
+				months = 3
+			}
+		}
+	}
+}
+tentacleswarm_speaker.0002 = { #speaker的初始化
+	hidden = yes
+	trigger = {
+		has_character_flag = tentacle_speaker_character
+	}
+	
+	immediate = {
+		debug_log = "Cheri appeared!"
+		debug_log_date = yes
+		set_variable =  { name = tentacleswarm_corrupted value = 0 } #记录战果
+		become_congenital_tentacle_slave = yes #天生奴隶
+		trigger_event = { #循环
+			id = tentacleswarm_speaker.0001 #散布腐蚀
+			months = 1
+		}
+	}
+}
+tentacleswarm_speaker.0003 = {
+	hidden = yes
+	immediate = {
+		save_scope_as = employer
+		tentacleswarm_spawn_tentacle_speaker_character_effect = yes
+	}
+}

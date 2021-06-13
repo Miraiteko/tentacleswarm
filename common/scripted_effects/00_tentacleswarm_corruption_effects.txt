@@ -1,4 +1,182 @@
-﻿#省份被摧毁殆尽
+﻿#省份颜色检查
+tentacleswarm_corruption_county_check = { 
+	save_scope_as = county
+	
+	#五档：10,20,35,60,100
+	if = {
+		limit = { #零档，无腐化
+			var:tentacleswarm_corruption = { compare_value < 10 }
+		}
+		every_county_province = {
+			barony = { set_color_from_title = title:d_very_low_corruption_province } #改颜色
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 } #改buff
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
+		}
+	}
+	else_if = { #一档
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 20 }
+		}
+		every_county_province = {
+			barony = { set_color_from_title = title:d_low_corruption_province } 
+		}
+		if = {
+			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_1 }}
+			add_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
+		}
+	}
+	else_if = { #二档
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 35 }
+		}
+		every_county_province = {
+			barony = { set_color_from_title = title:d_mid_corruption_province } 
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 }
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { NOT = { has_county_modifier = tentacleswarm_corruption_2 }}
+			add_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
+		}
+	}
+	else_if = { #三档
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 60 }
+		}
+		every_county_province = {
+			barony = { set_color_from_title = title:d_high_corruption_province } 
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 }
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { NOT ={ has_county_modifier = tentacleswarm_corruption_3 }}
+			add_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
+		}
+	}
+	else_if = { #四档
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 100 }
+		}
+		every_county_province = {
+			barony = { set_color_from_title = title:d_very_high_corruption_province } 
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 }
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_4 }}
+			add_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
+		}
+	}
+	else = { #五档
+		every_county_province = {
+			barony = { set_color_from_title = title:d_hell_corruption_province } 
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 }
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_5 }}
+			add_county_modifier = tentacleswarm_corruption_5
+		}
+		#地狱造成本地4VA
+		holder = { 
+			trigger_event = {
+				on_action = tentacleswarm_4VA_pulse
+				days = { 10 60 }
+			}
+		}
+	}
+}
+#省份被摧毁殆尽
 tentacleswarm_corruption_county_destroy_effect = { 
 	save_scope_as = destroy
 	
@@ -49,6 +227,7 @@ tentacleswarm_corruption_county_destroy_effect = {
 			NOT = { has_county_modifier = tentacleswarm_destroy }
 		}
 		change_variable =  { name = tentacleswarm_corruption add = scope:destroy.var:tentacleswarm_corruption }
+		tentacleswarm_corruption_county_check = yes
 	}
 	set_variable =  { name = tentacleswarm_corruption value = 0 }
 	
@@ -83,5 +262,23 @@ tentacleswarm_corruption_county_destroy_effect = {
 		limit = { has_county_modifier = tentacleswarm_corruption_5 }
 		remove_county_modifier = tentacleswarm_corruption_5
 		add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
+	}
+}
+
+#创建触手传教者
+tentacleswarm_spawn_tentacle_speaker_character_effect = {
+	create_character = {
+		name = "Cheri"
+		template = default_tentacle_speaker_character
+		location = scope:employer.capital_province
+		save_scope_as = tentacle_speaker
+	}
+	scope:tentacle_speaker = {
+		add_character_flag = tentacle_speaker_character
+		visit_court_of = scope:employer
+		trigger_event = {
+			id = tentacleswarm_speaker.0002 #角色生成
+			days = 3
+		}
 	}
 }

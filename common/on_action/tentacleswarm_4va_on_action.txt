@@ -80,6 +80,7 @@ tentacleswarm_4VA_pulse = {
 		#敌视统治者准备剿杀
 		if = { 
 			limit = { 
+				exists = scope:4VA_from
 				is_landed = yes
 				is_ai = yes
 				is_at_war = no

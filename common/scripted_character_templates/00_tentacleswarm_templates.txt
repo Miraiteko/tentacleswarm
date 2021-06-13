@@ -1,0 +1,15 @@
+﻿default_tentacle_speaker_character = {
+	age = 17
+	gender = female
+	trait = education_learning_4
+	trait = mystic_3
+	trait = beauty_good_3
+	trait = lustful
+	#trait = devoted
+	
+	dynasty = none
+	random_traits = yes
+	
+	culture = scope:employer.culture
+	faith = scope:employer.faith
+}

@@ -208,7 +208,7 @@ become_congenital_tentacle_slave = { #成为天生奴隶
 	#15岁以上成为奴隶
 	if ={
 		limit = { 
-			age >15
+			age >= 15
 		}
 		become_tentacle_slave = yes
 	}

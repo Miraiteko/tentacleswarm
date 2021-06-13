@@ -27,6 +27,12 @@ tentacleswarm_on_game_start = {
 			}
 		}
 		#初始奴隶生成，
+		random_ruler = {
+			trigger_event = {
+				id = tentacleswarm_speaker.0003 #生成speaker
+				days = 5
+			}
+		}
 		every_living_character = {
 			if = {
 				limit = { 
@@ -115,6 +121,24 @@ tentacleswarm_on_faith_created = {
 	effect = {
 		faith = {
 			set_variable = { name = tentacleswarm_cap value = scope:old_faith.var:tentacleswarm_cap }
+		}
+	}
+}
+on_death = {
+	on_actions = { 
+		tentacleswarm_on_death
+	}
+}
+tentacleswarm_on_death = {
+	effect = {
+		if = { #speaker死亡的话，重新生成一位
+			limit = { has_character_flag = tentacle_speaker_character }
+			random_ruler = {
+				trigger_event = {
+					id = tentacleswarm_speaker.0003 #生成speaker
+					days = 5
+				}
+			} 
 		}
 	}
 }
