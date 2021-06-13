@@ -301,13 +301,13 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_anti }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = -15 } #绞杀令
+						change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #绞杀令
 					}
 					if = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 15 } #散布令
+						change_variable =  { name = tentacleswarm_corruption_growth add = 20 } #散布令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_growth 
@@ -323,10 +323,14 @@ tentacleswarm_yearly_playable_pulse = {
 					#计算迁出额度
 					set_variable =  { name = tentacleswarm_corruption_emigrant value = 100 }
 					change_variable =  { name = tentacleswarm_corruption_emigrant subtract = var:tentacleswarm_corruption_growth }
-					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.8 }
+					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.9 }
 					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.01 }
 					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = var:tentacleswarm_corruption }
 					change_variable =  { name = tentacleswarm_corruption_emigrant subtract = 5 }
+					if = {
+						limit = { var:tentacleswarm_corruption_emigrant = { compare_value < 0 } }
+						set_variable =  { name = tentacleswarm_corruption_emigrant value = 0 }
+					}	
 					
 					#计算腐化度自然增长
 					change_variable =  { name = tentacleswarm_corruption multiply = var:tentacleswarm_corruption_growth }
@@ -499,12 +503,6 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = 36 }
 						#温床造成本地4VA
-						holder = { 
-							trigger_event = {
-								on_action = tentacleswarm_4VA_pulse
-								days = { 10 60 }
-							}
-						}
 					}
 					else = { #五档
 						every_county_province = {
@@ -531,7 +529,7 @@ tentacleswarm_yearly_playable_pulse = {
 							add_county_modifier = tentacleswarm_corruption_5
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = 100 }
-						#地狱造成本地4VA
+						地狱造成本地4VA
 						holder = { 
 							trigger_event = {
 								on_action = tentacleswarm_4VA_pulse

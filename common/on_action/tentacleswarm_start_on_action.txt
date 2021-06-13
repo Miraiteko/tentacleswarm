@@ -38,10 +38,10 @@ tentacleswarm_on_game_start = {
 					90 = {
 					}
 					5 = {
-						become_congenital_tentacle_slave = yes
+						#become_congenital_tentacle_slave = yes
 					}
 					5 = { 
-						become_tentacle_slave = yes
+						#become_tentacle_slave = yes
 					}
 				}
 			}
@@ -66,7 +66,7 @@ tentacleswarm_on_game_start = {
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
-			set_variable =  { name = tentacleswarm_corruption value = 5 }
+			set_variable =  { name = tentacleswarm_corruption value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
 			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 10 }
@@ -83,7 +83,7 @@ tentacleswarm_on_game_start = {
 			every_county_province = { 
 				if = { #每块丛林
 					limit = { terrain = jungle }
-					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.3 } }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.2 } }
 				}
 				else_if = { #每块湿地
 					limit = { terrain = wetlands }
