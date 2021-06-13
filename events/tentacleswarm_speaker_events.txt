@@ -55,45 +55,22 @@ tentacleswarm_speaker.0001 = {
 					}
 					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果
 				}
-				else = { #没有合理的腐化对象的话，进行移动
-					#向附近领主移动
-					scope:county.holder = {
-						random_character_to_title_neighboring_and_across_water_county = {
-							holder = {
-								save_scope_as = employer
-							}
+				#漫游
+				#向附近领主移动
+				scope:county.holder = {
+					random_character_to_title_neighboring_and_across_water_county = {
+						holder = {
+							save_scope_as = employer
 						}
-					}
-					if = { #没有合法对象的话，就随机跳
-						limit = {
-							NOT = { exists = scope:employer }
-						}
-						random_independent_ruler = { save_scope_as = employer }
-					}
-					visit_court_of = scope:employer
-				}
-				#始终有20%几率移动
-				random_list = {
-					80 = { 
-					}
-					20 = {
-						#向附近领主移动
-						scope:county.holder = {
-							random_character_to_title_neighboring_and_across_water_county = {
-								holder = {
-									save_scope_as = employer
-								}
-							}
-						}
-						if = { #没有合法对象的话，就随机跳
-							limit = {
-								NOT = { exists = scope:employer }
-							}
-							random_independent_ruler = { save_scope_as = employer }
-						}
-						visit_court_of = scope:employer
 					}
 				}
+				if = { #没有合法的附近领主的话，就随机跳
+					limit = {
+						NOT = { exists = scope:employer }
+					}
+					random_independent_ruler = { save_scope_as = employer }
+				}
+				visit_court_of = scope:employer
 			}
 			else = {#位置不合法的话，随机跳
 				random_independent_ruler = { save_scope_as = employer }
@@ -111,7 +88,7 @@ tentacleswarm_speaker.0001 = {
 					is_imprisoned = yes
 				}
 			}
-			death = { death_reason = death_suicide } #生育力太低或者不再年轻点的时候，自杀;重新生成speaker
+			death = { death_reason = death_suicide } #生育力太低或者不再年轻的时候，自杀;重新生成speaker
 		}
 		else = {
 			trigger_event = { #正常的话，进行事件循环
