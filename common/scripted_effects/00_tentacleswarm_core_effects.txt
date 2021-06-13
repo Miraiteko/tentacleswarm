@@ -177,19 +177,41 @@ tentacleswarm_4VA = {
 				}
 			}
 		}
+		every_liege_or_above = {
+			trigger_event = {
+				on_action = tentacleswarm_4VA_pulse
+				days = { 10 60 }
+			}
+		}
+		every_vassal_or_below = {
+			trigger_event = {
+				on_action = tentacleswarm_4VA_pulse
+				days = { 10 60 }
+			}
+		}
 	}
 }
 
 #遗传结算
 become_congenital_tentacle_slave = { #成为天生奴隶
-	add_character_flag = congenital_tentacle_slave #成为纯合子
+	#成为纯合子
+	add_character_flag = congenital_tentacle_slave 
+	#测试用标记
 	if = {
 		limit = { 
-			debug_only = yes #测试用
+			debug_only = yes 
 		}
 		add_trait = congenital_tentacle_slave
 	}
+	#当然也是携带者
 	become_congenital_tentacle_slave_carry = yes
+	#15岁以上成为奴隶
+	if ={
+		limit = { 
+			age >15
+		}
+		become_tentacle_slave = yes
+	}
 }
 become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者
 	if = {
