@@ -59,6 +59,7 @@ tentacleswarm_destroy.0011 = {
 					limit = {
 						is_pool_character = yes
 						is_tentacle_slave = no
+						is_male = yes
 						not = { has_religion = religion:tentacleswarm_religion }
 						has_culture_group = scope:target.culture_group
 					}
