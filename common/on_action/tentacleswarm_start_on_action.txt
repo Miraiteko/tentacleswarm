@@ -14,9 +14,9 @@ tentacleswarm_on_game_start = {
 			every_faith = {
 				if = {
 					limit = {
-						not = { has_doctrine = doctrine_tentacleswarm_accepted }
+						not = { has_doctrine = doctrine_tentacle_slave_worship }
 					}
-					add_doctrine = doctrine_tentacleswarm_evil
+					add_doctrine = doctrine_tentacle_slave_evil
 				}
 			}
 		}

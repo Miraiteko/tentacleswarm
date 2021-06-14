@@ -97,7 +97,7 @@ tentacleswarm_war.0002 ={
 				AND = {
 					is_tentacle_slave = no
 					faith = {
-						has_doctrine_parameter = doctrine_tentacleswarm_evil
+						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
 					scope:war.primary_defender = {
 						has_religion = religion:tentacleswarm_religion
@@ -162,7 +162,7 @@ tentacleswarm_war.0002 ={
 				#攻击方敌视主人
 				AND = {
 					scope:war.primary_attacker.faith = {
-						has_doctrine_parameter = doctrine_tentacleswarm_evil
+						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
 					has_religion = religion:tentacleswarm_religion
 				}

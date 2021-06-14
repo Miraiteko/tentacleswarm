@@ -115,14 +115,14 @@ tentacleswarm_anti_start_decision = {
 
 	is_shown = {
 		faith = {
-			has_doctrine= doctrine_tentacleswarm_evil #敌视
+			has_doctrine= doctrine_tentacle_slave_evil #敌视
 		}
 		NOT = { has_character_modifier = tentacleswarm_anti }
 	}
 	
 	is_valid = {
 		faith = {
-			has_doctrine = doctrine_tentacleswarm_evil #敌视
+			has_doctrine = doctrine_tentacle_slave_evil #敌视
 		}
 	}	
 	effect = {
@@ -152,7 +152,7 @@ tentacleswarm_anti_start_decision = {
 			var:tentacleswarm_corruption  = { compare_value >= 10 }
 		}
 		faith = {
-			has_doctrine = doctrine_tentacleswarm_evil #敌视
+			has_doctrine = doctrine_tentacle_slave_evil #敌视
 		}
 		NOT = { has_character_modifier = tentacleswarm_anti }
 	}

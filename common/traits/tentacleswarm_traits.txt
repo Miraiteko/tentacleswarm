@@ -42,18 +42,22 @@ tentacle_slave = {
 	}
 	#宗教偏见
 	triggered_opinion = {
-		parameter = doctrine_tentacleswarm_evil
+		parameter = doctrine_tentacle_slave_evil
 		opinion_modifier = tentacle_slave_evil
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = doctrine_tentacleswarm_crime
-		opinion_modifier = tentacle_slave_crime
+		parameter = doctrine_tentacle_slave_adultery
+		parameter = adultery_female_crime
+		female_only = yes
+		opinion_modifier = adulterer_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = doctrine_tentacleswarm_shunned
-		opinion_modifier = tentacle_slave_shunned
+		parameter = doctrine_tentacle_slave_adultery
+		parameter = adultery_female_shunned
+		female_only = yes
+		opinion_modifier = adulterer_intolerant
 		ignore_opinion_value_if_same_trait = yes
 	}
 	

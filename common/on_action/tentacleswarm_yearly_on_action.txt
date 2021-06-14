@@ -272,7 +272,7 @@ tentacleswarm_yearly_playable_pulse = {
 					#本地信仰修正
 					if = {
 						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
+							faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 						}
 						change_variable =  { name = tentacleswarm_corruption_growth add = -30 } #本地敌视
 					}
@@ -284,13 +284,13 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					else_if = {
 						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime }
+							faith = { has_doctrine_parameter = adultery_female_crime }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #本地厌恶
+						change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #本地罪行
 					}
 					else_if = {
 						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned }
+							faith = { has_doctrine_parameter = adultery_female_shunned }
 						}
 						change_variable =  { name = tentacleswarm_corruption_growth add = -10 } #本地忌讳
 					}
@@ -550,7 +550,7 @@ tentacleswarm_yearly_modifier_check = {
 		}
 		if = {
 			limit = { 
-				faith = {has_doctrine = doctrine_tentacleswarm_evil}
+				faith = {has_doctrine = doctrine_tentacle_slave_evil}
 			}
 			#敌对者开启灭杀令
 			#通过决议

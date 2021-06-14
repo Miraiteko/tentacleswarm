@@ -36,22 +36,24 @@ is_congenital_tentacle_slave_carry = { #天生奴隶基因携带者
 secret_tentacle_slave_is_shunned_trigger = {
 	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
-		faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned }
-		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_shunned } }
+		faith = { has_doctrine_parameter = adultery_female_shunned }
+		any_liege_or_above = { faith = { has_doctrine_parameter = adultery_female_shunned } }
 	}
 }
 secret_tentacle_slave_is_criminal_trigger = {
 	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
-		faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime }
-		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_crime } }
+		faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil } }
+		faith = { has_doctrine_parameter = adultery_female_crime }
+		any_liege_or_above = { faith = { has_doctrine_parameter = adultery_female_crime } }
 	}
 }
 secret_tentacle_slave_is_evil_trigger = {
 	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
 	OR = {
-		faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
-		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacleswarm_evil } }
+		faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
+		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil } }
 	}
 }
 #是否是圣战

@@ -1,6 +1,6 @@
-﻿doctrine_tentacleswarm = {#对触手天灾的态度
+﻿doctrine_tentacle_slave = {#对触手奴隶的态度
 	group = "crimes"
-	doctrine_tentacleswarm_evil = {#歼灭
+	doctrine_tentacle_slave_evil = {#极恶
 		can_pick = {
 			NOT = { religion_tag = tentacleswarm_religion }
 		}
@@ -8,10 +8,10 @@
 			value = 0
 		}
 		parameters = {
-			doctrine_tentacleswarm_evil = yes
+			doctrine_tentacle_slave_evil = yes
 		}
 	}
-	doctrine_tentacleswarm_crime = {#罪行
+	doctrine_tentacle_slave_adultery = {#视作通奸
 		can_pick = {
 			NOT = { religion_tag = tentacleswarm_religion }
 		}
@@ -19,21 +19,10 @@
 			value = 0
 		}
 		parameters = {
-			doctrine_tentacleswarm_crime = yes
+			doctrine_tentacle_slave_adultery = yes
 		}
 	}
-	doctrine_tentacleswarm_shunned = {#忌讳
-		can_pick = {
-			NOT = { religion_tag = tentacleswarm_religion }
-		}
-		piety_cost = {
-			value = 0
-		}
-		parameters = {
-			doctrine_tentacleswarm_shunned = yes
-		}
-	}
-	doctrine_tentacleswarm_accepted = {#容许
+	doctrine_tentacle_slave_worship = {#推崇
 		can_pick = {
 			religion_tag = tentacleswarm_religion
 		}
@@ -45,9 +34,10 @@
 			#无法改信
 			faith_conversion_piety_cost_mult = 20
 			faith_creation_piety_cost_mult = 20
+			opinion_of_male_rulers = -50
 		} 
 		parameters = {
-			doctrine_tentacleswarm_accepted = yes
+			doctrine_tentacle_slave_worship = yes
 		}
 	}
 }

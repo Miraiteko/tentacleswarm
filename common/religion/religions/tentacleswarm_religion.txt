@@ -21,7 +21,7 @@
 	doctrine = doctrine_kinslaying_close_kin_crime #不能杀近亲
 	doctrine = doctrine_deviancy_accepted #变态可接受 
 	doctrine = doctrine_witchcraft_accepted #巫师可接受
-	doctrine = doctrine_tentacleswarm_accepted #触手可接受
+	doctrine = doctrine_tentacle_slave_worship #触手奴隶推崇
 	
 	#Clerical Functions
 	doctrine = doctrine_clerical_function_recruitment #神职人员负责征兵

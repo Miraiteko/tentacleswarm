@@ -708,7 +708,7 @@ tentacleswarm_religious_war = {
 
 	allowed_for_character = {
 		scope:attacker.faith = { #敌视
-			has_doctrine_parameter = doctrine_tentacleswarm_evil
+			has_doctrine_parameter = doctrine_tentacle_slave_evil
 		}
 	}
 
@@ -746,7 +746,7 @@ tentacleswarm_religious_war = {
 				}
 			}
 			scope:attacker.faith = {
-				NOT = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
+				NOT = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 			}
 			scope:defender = { 
 				NOT = { has_religion = religion:tentacleswarm_religion }
@@ -780,7 +780,7 @@ tentacleswarm_religious_war = {
 					scope:war = {
 						OR = {
 							scope:attacker.faith = {
-								NOT = { has_doctrine_parameter = doctrine_tentacleswarm_evil }
+								NOT = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 							}
 							scope:defender = { 
 								NOT = { has_religion = religion:tentacleswarm_religion }

@@ -86,7 +86,7 @@ tentacleswarm_4VA_pulse = {
 				is_at_war = no
 				highest_held_title_tier >= tier_county
 				faith = {
-					has_doctrine = doctrine_tentacleswarm_evil #敌视
+					has_doctrine = doctrine_tentacle_slave_evil #敌视
 				}
 				is_character_interaction_valid = { #是否可以宣战
 				   recipient = scope:4VA_from
