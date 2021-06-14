@@ -14,3 +14,9 @@ tentacleswarm_achievement_chaste_count_tooltip = {
 	global = tentacleswarm_achievement_chaste_count_tooltip
 	global_not = not_tentacleswarm_achievement_chaste_count_tooltip
 }
+WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED = {
+	global = WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED
+}
+FEMALE_DOMINATED = {
+	global = FEMALE_DOMINATED
+}

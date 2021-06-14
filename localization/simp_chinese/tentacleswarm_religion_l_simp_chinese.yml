@@ -73,6 +73,8 @@
  doctrine_tentacle_slave_worship_name:0 "推崇屈服"
  doctrine_tentacle_slave_worship_desc:0 "每位成年的女性都应该成为光荣的触手奴隶。至于无法成为触手奴隶的可悲男人，只能被奴役直至死亡。"
  doctrine_parameter_doctrine_tentacle_slave_worship:0 "省份的触手腐化不会衰减"
+ NOT_WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED:0 "必须要[GetFaithDoctrine('doctrine_adultery_women_accepted').GetName( GetPlayer.GetFaith )]女性通奸"
+ NOT_FEMALE_DOMINATED:0 "必须要有[GetFaithDoctrine('doctrine_gender_female_dominated').GetName( GetPlayer.GetFaith )]教义"
   
  # convert_to_tentacleswarm_depraved.tt:0 "所有信仰[ROOT.Char.GetFaith.GetName]的女性都追随着你走向了堕落。"
  convert_to_tentacleswarm_depraved.tt:0 "所有信仰[faith.GetName|V]的女性都追随着你走向了堕落。"

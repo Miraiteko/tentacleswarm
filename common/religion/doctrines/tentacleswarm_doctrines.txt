@@ -25,6 +25,15 @@
 	doctrine_tentacle_slave_worship = {#推崇
 		can_pick = {
 			religion_tag = tentacleswarm_religion
+			
+			custom_description = {	
+				text = WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED
+				flag:doctrine_adultery_women_accepted = { is_in_list = selected_doctrines }
+			}			
+			custom_description = {	
+				text = FEMALE_DOMINATED
+				flag:doctrine_gender_female_dominated = { is_in_list = selected_doctrines }
+			}
 		}
 		piety_cost = {
 			value = 0

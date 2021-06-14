@@ -284,12 +284,14 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					else_if = {
 						limit = { 
+							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
 							faith = { has_doctrine_parameter = adultery_female_crime }
 						}
 						change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #本地罪行
 					}
 					else_if = {
 						limit = { 
+							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
 							faith = { has_doctrine_parameter = adultery_female_shunned }
 						}
 						change_variable =  { name = tentacleswarm_corruption_growth add = -10 } #本地忌讳

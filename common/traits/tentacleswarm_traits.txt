@@ -47,14 +47,12 @@ tentacle_slave = {
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = doctrine_tentacle_slave_adultery
 		parameter = adultery_female_crime
 		female_only = yes
 		opinion_modifier = adulterer_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = doctrine_tentacle_slave_adultery
 		parameter = adultery_female_shunned
 		female_only = yes
 		opinion_modifier = adulterer_intolerant
