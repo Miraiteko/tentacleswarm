@@ -84,17 +84,23 @@ tentacleswarm_speaker.0001 = {
 				is_ai = yes
 				OR = {
 					fertility <=0 
-					age >= 21
 					is_ruler = yes
 					is_imprisoned = yes
 				}
 			}
-			death = { death_reason = death_suicide } #生育力太低或者不再年轻的时候，自杀;重新生成speaker
+			death = { death_reason = death_disappearance } #生育力太低或者不再年轻的时候，自杀;重新生成speaker
 		}
 		else = {
-			trigger_event = { #正常的话，进行事件循环
-				id = tentacleswarm_speaker.0001 #散布腐蚀
-				months = 1
+			random_list = {
+				2 = {
+					death = { death_reason = death_disappearance } #一定概率自然死亡
+				}
+				98 = {
+					trigger_event = { #正常的话，进行事件循环
+						id = tentacleswarm_speaker.0001 #散布腐蚀
+						months = 1
+					}
+				}
 			}
 		}
 	}
@@ -110,6 +116,7 @@ tentacleswarm_speaker.0002 = { #speaker的初始化
 		debug_log_date = yes
 		set_variable =  { name = tentacleswarm_corrupted value = 0 } #记录战果
 		become_congenital_tentacle_slave = yes #天生奴隶
+		add_character_flag = immune_to_disease
 		trigger_event = { #循环
 			id = tentacleswarm_speaker.0001 #散布腐蚀
 			months = 1
