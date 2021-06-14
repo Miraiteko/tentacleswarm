@@ -42,6 +42,11 @@ tentacleswarm_destroy.0011 = {
 	option = {
 		name = tentacleswarm_destroy.0011.a
 		hidden_effect = {
+			hidden_effect = { #廷臣全部被吃掉
+				every_courtier = {
+					death = { death_reason = death_ritually_hung_then_eaten } #在仪式中被扼死，然后吃掉
+				}
+			}
 			every_held_title = { #伯爵以上头衔摧毁
 				limit = { tier > tier_county }
 				save_scope_as = target

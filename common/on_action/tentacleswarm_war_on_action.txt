@@ -98,5 +98,14 @@ tentacleswarm_on_war_started = {
                 id = tentacleswarm_war.0001 #战争发动之后，周围的领主可以干预
             } 
         }
+		#奴隶发起进攻释放4VA
+		scope:attacker = {
+			if = {
+				limit = {
+					has_religion = religion:tentacleswarm_religion
+				}
+				tentacleswarm_4VA = yes
+			}
+		} 
     }
 }
