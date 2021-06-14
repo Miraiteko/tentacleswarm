@@ -268,7 +268,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 75 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 70 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
@@ -335,16 +335,19 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					
 					#计算迁出额度
-					set_variable =  { name = tentacleswarm_corruption_emigrant value = var:tentacleswarm_corruption }
-					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.1 }
-					set_variable =  { name = tentacleswarm_corruption_emigrant_cap value = var:tentacleswarm_corruption }
-					change_variable =  { name = tentacleswarm_corruption_emigrant_cap multiply = 0.7 }
+					save_scope_as = county
 					every_title_to_title_neighboring_and_across_water_county = { #污染周围
 						limit = {
 							NOT = { has_county_modifier = tentacleswarm_destroy }
-							var:tentacleswarm_corruption = { compare_value < scope:county.var:tentacleswarm_corruption_emigrant_cap } 
 						}
-						change_variable =  { name = tentacleswarm_corruption add = scope:county.var:tentacleswarm_corruption_emigrant }
+						set_variable =  { name = tentacleswarm_corruption_imigrant value = scope:county.var:tentacleswarm_corruption }
+						change_variable =  { name = tentacleswarm_corruption_imigrant subtract = var:tentacleswarm_corruption }
+						change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.2 }
+						if = {
+							limit = { var:tentacleswarm_corruption_imigrant = { compare_value <= 0 } }
+							set_variable =  { name = tentacleswarm_corruption_imigrant value = 0 }
+						}
+						change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_imigrant }
 						tentacleswarm_corruption_county_check = yes
 					}
 					

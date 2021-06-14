@@ -1,7 +1,6 @@
 ﻿default_tentacle_speaker_character = {
 	age = 17
 	gender = female
-	sexuality = bisexual
 	trait = education_learning_4
 	
 	trait = lustful
