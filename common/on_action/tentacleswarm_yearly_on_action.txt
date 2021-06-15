@@ -102,6 +102,10 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 				set_character_faith = location.faith
 			}
 		}
+		if = { #生育率太低的时候自己消失无踪
+			limit = { fertility <= 0.1 }
+			death = { death_reason = death_disappearance }
+		}
 	}
 }
 #每年触发

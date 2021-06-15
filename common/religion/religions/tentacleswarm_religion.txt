@@ -196,7 +196,7 @@
 
 			doctrine = tenet_carnal_exaltation #纵欲
 			doctrine = tenet_warmonger #战狂
-			doctrine = tenet_ritual_cannibalism #食人
+			doctrine = tenet_consolamentum #神慰圣事
 		}
 	}
 }
