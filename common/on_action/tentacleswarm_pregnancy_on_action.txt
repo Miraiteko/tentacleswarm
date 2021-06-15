@@ -322,8 +322,8 @@ tentacleswarm_adult_pulse = {
 			limit = { is_female = yes }
 			random_list = {
 				0 = {
-					modifier = { #监护人是奴隶，权重+50
-						add = 50
+					modifier = { #监护人是奴隶，权重+500
+						add = 500
 						any_relation = {
 							type = guardian
 							is_tentacle_slave = yes
