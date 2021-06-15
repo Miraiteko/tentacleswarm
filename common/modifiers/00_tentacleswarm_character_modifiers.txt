@@ -10,3 +10,11 @@ tentacleswarm_spread = {
 	levy_size = -0.1
 	garrison_size = -0.1
 }
+tentacle_slve_hide_modifier = {
+	hide_effects = yes
+	fertility = 0.2
+}
+congenital_tentacle_slave_hide_modifier = {
+	hide_effects = yes
+	fertility = 0.5
+}

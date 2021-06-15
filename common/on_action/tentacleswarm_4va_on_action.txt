@@ -113,6 +113,8 @@ tentacleswarm_4VA_pulse = {
 				}
 				NOT = { is_vassal_or_below_of = scope:4VA_from }
 				scope:4VA_from = { #可以直接宣战来源
+					is_landed = yes
+					highest_held_title_tier >= tier_county
 					OR = {
 						is_independent_ruler = yes
 						liege = { is_liege_or_above_of = scope:actor }
@@ -164,13 +166,23 @@ tentacleswarm_4VA_pulse = {
 						save_scope_as = target_character
 						save_scope_as = recipient
 					}
-					random_character_to_title_neighboring_and_across_water_county = { #攻击相邻地区
+					random_character_to_title_neighboring_and_across_water_county = { #优先攻击相邻地区
 						limit = {
 							holder = {
 								target_is_same_character_or_above = scope:4VA_from
 							}
 						}
 						save_scope_as = target
+					}
+					if = { #否则就打首都
+						limit = {
+							NOT = { exists = scope:target }
+						}
+						scope:target_character = {
+							capital_county = {
+								save_scope_as = target
+							}
+						}
 					}
 					if = {
 						limit = {
