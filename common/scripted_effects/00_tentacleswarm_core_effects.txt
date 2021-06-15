@@ -27,7 +27,7 @@ become_tentacle_slave = {
 		else = {
 			add_trait = tentacle_slave
 		}
-		
+		add_character_flag = immune_to_disease #有主人赐福之后不会生病
 	}	
 }
 #被触手腐化

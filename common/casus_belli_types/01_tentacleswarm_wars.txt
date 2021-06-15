@@ -344,7 +344,7 @@ tentacleswarm_conquest = {
 						}
 						save_scope_as = target
 						create_title_and_vassal_change = {
-							type = usurped
+							type = independency
 							save_scope_as = change
 							add_claim_on_loss = yes
 						}
@@ -368,7 +368,7 @@ tentacleswarm_conquest = {
 				#独立
 				scope:attacker = {
 					create_title_and_vassal_change = {
-						type = independency
+						type = conquest_populist
 						save_scope_as = change
 					}
 					change_liege_or_become_independent = {
