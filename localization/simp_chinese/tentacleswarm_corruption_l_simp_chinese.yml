@@ -20,6 +20,7 @@
  tentacleswarm_destroy.0011.desc:0 "你荒芜的领地已经没有办法供养触手主人了。饥饿的触手主人正在猎食着触手奴隶充饥，触手奴隶们在死亡的恐惧和主人的勒令的矛盾之中陷入癫狂。\n就在你对这一切感到束手无策的时候，触手主人涌入了你的宫廷，将你紧紧地绞住，送入它的血盆大口……"
  tentacleswarm_destroy.0011.a:0 "这是我最好的归宿"
  tentacleswarm_destroy.0011.lucky.tt:0 "在你的国家毁灭之后，一些无名小卒占据了这片废土。"
+ tentacleswarm_destroy.0011.b:0 "我想看看这片土地上还会发生什么故事"
  
  #巨兽相关
  tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
