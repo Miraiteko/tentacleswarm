@@ -269,7 +269,6 @@ tentacleswarm_conquest = {
 		scope:attacker = {
 			if = {
 				limit = {
-					always = yes
 					is_independent_ruler = yes #作为独立领主的话，打下目标地块，然后把旧有土地之中的摧毁地块抛弃掉
 				} 
 				#获得目标头衔
