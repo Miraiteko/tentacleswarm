@@ -400,6 +400,7 @@ tentacleswarm_yearly_playable_pulse = {
 					#高沉睡巨兽数量会造成4VA
 					if = {
 						limit = {
+							NOT =  { has_county_modifier = tentacleswarm_destroy }
 							var:tentacleswarm_corruption_warbeast = { 
 								compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap 
 							}
