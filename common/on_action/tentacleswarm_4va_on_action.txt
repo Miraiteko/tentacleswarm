@@ -2,80 +2,95 @@
 tentacleswarm_4VA_pulse = {
 	effect = {
 		save_scope_as = actor
-		if = { #奴隶统治者，响应改信
+		if = {
 			limit = {
-				is_ai = yes
-				is_landed = yes
-				highest_held_title_tier >=tier_county
-				is_tentacle_slave = yes
-				not = { has_religion = religion:tentacleswarm_religion }
+				has_character_flag = tentacleswarm_4VA_first_get #两年内收到过一次4VA
+				NOT = { has_character_flag = tentacleswarm_4VA_hesitation } #距离上一次收到4VA超过半年
 			}
-			convert_to_tentacleswarm_religion = yes
-			tentacleswarm_4VA = yes 
-		}
-		else_if = { #夫人是奴隶，开始夺地
-			limit = {
-				is_landed = yes #配偶有地，尝试密谋夺取
-				highest_held_title_tier >=tier_county
-				any_spouse = {
-					is_tentacle_slave = yes
-					Not = { 
-						any_scheme = {
-							is_hostile = yes
-						}
-					}
-				}
+			
+			if ={
+				limit = { debug_only = yes }
+				capital_province = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
 			}
-			save_scope_as = target
-			every_spouse = {
-				limit = {
-					is_tentacle_slave = yes
-					is_ai = yes
-					Not = { 
-						any_scheme = {
-							is_hostile = yes
-						}
-					}
-				}
-				start_scheme = {
-					type = tentacle_slave_claim_throne
-					target = scope:target
-				}
-			}
-		}
-		else_if = { #女儿是奴隶，开始夺地。
-			limit = {
-				is_landed = yes #配偶有地，尝试密谋夺取
-				highest_held_title_tier >=tier_county
-				any_child = {
-					is_tentacle_slave = yes
-					Not = { 
-						any_scheme = {
-							is_hostile = yes
-						}
-					}
-				}
-				OR = {
-					is_male = yes #只针对父亲，或者无生育能力的母亲
-					fertility <= 0
-				}
-			}
-			save_scope_as = target
-			every_child = {
+			if = { #奴隶统治者，响应改信
 				limit = {
 					is_ai = yes
+					is_landed = yes
+					highest_held_title_tier >=tier_county
 					is_tentacle_slave = yes
-					Not = { 
-						any_scheme = {
-							is_hostile = yes
+					not = { has_religion = religion:tentacleswarm_religion }
+				}
+				convert_to_tentacleswarm_religion = yes
+				tentacleswarm_4VA = yes 
+			}
+			else_if = { #夫人是奴隶，开始夺地
+				limit = {
+					is_landed = yes #配偶有地，尝试密谋夺取
+					highest_held_title_tier >=tier_county
+					any_spouse = {
+						is_tentacle_slave = yes
+						Not = { 
+							any_scheme = {
+								is_hostile = yes
+							}
 						}
 					}
 				}
-				start_scheme = {
-					type = tentacle_slave_claim_throne
-					target = scope:target
+				save_scope_as = target
+				every_spouse = {
+					limit = {
+						is_tentacle_slave = yes
+						is_ai = yes
+						Not = { 
+							any_scheme = {
+								is_hostile = yes
+							}
+						}
+					}
+					start_scheme = {
+						type = tentacle_slave_claim_throne
+						target = scope:target
+					}
 				}
 			}
+			else_if = { #女儿是奴隶，开始夺地。
+				limit = {
+					is_landed = yes #配偶有地，尝试密谋夺取
+					highest_held_title_tier >=tier_county
+					any_child = {
+						is_tentacle_slave = yes
+						Not = { 
+							any_scheme = {
+								is_hostile = yes
+							}
+						}
+					}
+					OR = {
+						is_male = yes #只针对父亲，或者无生育能力的母亲
+						fertility <= 0
+					}
+				}
+				save_scope_as = target
+				every_child = {
+					limit = {
+						is_ai = yes
+						is_tentacle_slave = yes
+						Not = { 
+							any_scheme = {
+								is_hostile = yes
+							}
+						}
+					}
+					start_scheme = {
+						type = tentacle_slave_claim_throne
+						target = scope:target
+					}
+				}
+			}
+		}
+		else = {
+			add_character_flag = { flag = tentacleswarm_4VA_first_get years = 2 }
+			add_character_flag = { flag = tentacleswarm_4VA_hesitation months = 6 }
 		}
 		#敌视统治者准备剿杀
 		if = { 
@@ -136,7 +151,7 @@ tentacleswarm_4VA_pulse = {
 						add = -1000
 						is_at_war = yes
 					}
-					modifier = { #奴隶不打奴隶
+					modifier = { #奴隶不打奴隶 
 						add = -1000
 						is_tentacle_slave = yes
 					}

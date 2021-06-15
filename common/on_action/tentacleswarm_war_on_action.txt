@@ -87,17 +87,20 @@ on_war_started = {
         tentacleswarm_on_war_started
     }
 }
-#剿灭战争开始时，周围领主加入战争
+
 tentacleswarm_on_war_started = {
-	trigger = {
-		scope:war = { using_cb = tentacleswarm_religious_war }
-	}
     effect = { 
-        scope:attacker  = {
-            trigger_event = { 
-                id = tentacleswarm_war.0001 #战争发动之后，周围的领主可以干预
-            } 
-        }
+		#剿灭战争开始时，周围领主加入战争
+		if = {
+			limit = {
+				scope:war = { using_cb = tentacleswarm_religious_war }
+			}
+			scope:attacker  = {
+				trigger_event = { 
+					id = tentacleswarm_war.0001 #战争发动之后，周围的领主可以干预
+				} 
+			}
+		}
 		#奴隶发起进攻释放4VA
 		scope:attacker = {
 			if = {

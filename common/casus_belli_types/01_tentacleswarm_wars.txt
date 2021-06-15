@@ -1088,9 +1088,18 @@ tentacleswarm_religious_war = {
 			}
 
 			scope:attacker = {
-				pay_short_term_income = {
-					years = 4
-					target = scope:defender
+				if = {
+					limit = { monthly_character_income > 1}
+					pay_short_term_income = {
+						years = 4
+						target = scope:defender
+					}
+				}
+				else = {
+					pay_short_term_gold = {
+						target = scope:defender
+						gold = 50
+					}
 				}
 			}
 		}

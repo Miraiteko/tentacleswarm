@@ -135,6 +135,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 				#become_tentacle_slave = yes #刷新奴隶身份
 			}
 		}
+		#篡夺起事
 		if = {
 			limit = { #配偶有地，尝试密谋夺取
 				any_spouse = {
@@ -548,7 +549,14 @@ tentacleswarm_yearly_modifier_check = {
 				limit = { has_character_modifier = tentacleswarm_spread}
 				remove_character_modifier = tentacleswarm_spread
 			}
-			
+			#退出触手征服战争
+			every_character_war = {
+				limit = { 
+					using_cb = tentacleswarm_conquest 
+					NOT = { is_war_leader = prev }
+				}
+				remove_participant = prev
+			}
 		}
 		if = {
 			limit = { 
@@ -561,6 +569,14 @@ tentacleswarm_yearly_modifier_check = {
 			if = { #非敌对者灭杀令无效化
 				limit = { has_character_modifier = tentacleswarm_anti}
 				remove_character_modifier = tentacleswarm_anti
+			}
+			#退出触手灭杀战争
+			every_character_war = {
+				limit = { 
+					using_cb = tentacleswarm_religious_war
+					NOT = { is_war_leader = prev }
+				}
+				remove_participant = prev
 			}
 		}
 	}

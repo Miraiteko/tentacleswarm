@@ -159,10 +159,10 @@ tentacleswarm_4VA = {
 	save_scope_as = 4VA_from 
 	custom_tooltip = tentacle_neighboring_4VA_tooltip
 	hidden_effect = {
+		#周围领主
 		every_character_to_title_neighboring_and_across_water_county = {
 			limit = {
 				NOT =  { has_county_modifier = tentacleswarm_destroy }
-				#var:tentacleswarm_corruption_warbeast = { compare_value >= 100 } #有1队巨兽储备
 			}
 			holder = {
 				trigger_event = {
@@ -170,20 +170,23 @@ tentacleswarm_4VA = {
 					days = { 10 60 }
 				}
 			}
-			if ={
-				limit = { debug_only = yes }
-				every_county_province = {
-					barony = { set_color_from_title = title:d_tentacleswarm_4VA } #改颜色
-				}
-			}
 		}
+		#上级领主
 		every_liege_or_above = {
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
 				days = { 10 60 }
 			}
 		}
+		#封臣
 		every_vassal_or_below = {
+			trigger_event = {
+				on_action = tentacleswarm_4VA_pulse
+				days = { 10 60 }
+			}
+		}
+		#战争对象
+		every_war_enemy = {
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
 				days = { 10 60 }
