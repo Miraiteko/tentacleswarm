@@ -95,7 +95,6 @@ tentacleswarm_war.0002 ={
 				faith = scope:attacker.faith 
 				#防御方是邪恶的奴隶
 				AND = {
-					is_tentacle_slave = no
 					faith = {
 						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
@@ -123,6 +122,10 @@ tentacleswarm_war.0002 ={
 			modifier = {#不是我的信仰
 				factor = 0.3
 				NOT = { faith = scope:attacker.faith }
+			}
+			modifier = {#我是奴隶
+				factor = 0
+				is_tentacle_slave = yes
 			}
 		}
 	}

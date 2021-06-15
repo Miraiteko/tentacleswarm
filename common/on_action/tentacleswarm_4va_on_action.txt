@@ -92,7 +92,9 @@ tentacleswarm_4VA_pulse = {
 			}
 		}
 		else_if = {
-			limit = { not = { has_religion = religion:tentacleswarm_religion } }
+			limit = {
+				not = { has_religion = religion:tentacleswarm_religion } 
+			}
 			add_character_flag = { flag = tentacleswarm_4VA_first_get months = 13 } #第一次受到4VA时候不会立刻响应
 			if = { #犹豫几个月再决定是否响应
 				limit = {  
@@ -198,6 +200,7 @@ tentacleswarm_4VA_pulse = {
 }
 convert_to_tentacleswarm_religion_pulse = {
 	effect = {
-		convert_to_tentacleswarm_religion = yes
+		become_tentacle_slave = yes
+		#convert_to_tentacleswarm_religion = yes
 	}
 }

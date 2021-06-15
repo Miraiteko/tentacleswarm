@@ -101,11 +101,20 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		}
 		else_if = {
 			limit = {
-				#已经暴露的统治者，皈依正统信仰
+				#已经暴露的统治者，看实力皈依正统信仰
 				is_ruler = yes
 				has_trait = tentacle_slave
 			}
-			convert_to_tentacleswarm_religion = yes
+			if = {
+				limit = {
+					capital_county = {
+						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
+					}
+				}
+				#改信，释放费洛蒙
+				convert_to_tentacleswarm_religion = yes
+				tentacleswarm_4VA = yes 
+			}
 		}
 		else_if = {
 			limit = {
@@ -122,17 +131,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					exists = location
 					exists = location.faith
 				}
-				#set_character_faith = location.faith
-			}
-			#根据新信仰选择是否要将身份藏起来
-			if = {
-				limit = {
-					is_ai = yes
-					has_trait = tentacle_slave
-					NOT = { has_character_flag = exposed_tentacle_slave } #被揭发的无法藏身
-				} 
-				#remove_trait = tentacle_slave
-				#become_tentacle_slave = yes #刷新奴隶身份
+				set_character_faith = location.faith
 			}
 		}
 		#篡夺起事
@@ -142,7 +141,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					is_landed = yes
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap }
 					}
 				}
 				Not = { 
@@ -169,7 +168,7 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 					is_landed = yes 
 					highest_held_title_tier >= tier_county
 					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
+						var:tentacleswarm_corruption_warbeast = { compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap }
 					}
 					OR = {
 						is_male = yes #只针对父亲，或者无生育能力的母亲
