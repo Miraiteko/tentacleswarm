@@ -13,7 +13,7 @@ tentacleswarm_4VA_pulse = {
 					debug_only = yes 
 					exists = capital_province
 				}
-				#capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
+				capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
 			}
 			if = { #奴隶统治者，响应改信
 				limit = {

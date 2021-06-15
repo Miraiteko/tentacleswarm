@@ -118,12 +118,7 @@ convert_to_tentacleswarm_religion = {
 #4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利
 tentacleswarm_4VA = {
 	custom_tooltip = tentacle_courtier_and_vassal_4VA_tooltip
-	
-	if = {
-		limit = { exists = capital_province }
-		capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
-	}
-	
+
 	hidden_effect = {
 		#廷臣皈依
 		every_courtier_or_guest	= {

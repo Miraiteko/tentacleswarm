@@ -82,43 +82,10 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 		is_ai = yes
 	}
 	effect = {
-		if = { #自己是潜藏的统治者的话，查看首都巨兽储备决定是否起事
-			limit = { 
-				is_landed = yes
-				highest_held_title_tier >=tier_county
-				is_hidden_tentacle_slave = yes
-			}
-			if = {
-				limit = {
-					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
-					}
-				}
-				#改信，释放费洛蒙
-				convert_to_tentacleswarm_religion = yes
-				tentacleswarm_4VA = yes 
-			}
-		}
-		else_if = {
-			limit = {
-				#已经暴露的统治者，看实力皈依正统信仰
-				is_ruler = yes
-				has_trait = tentacle_slave
-			}
-			if = {
-				limit = {
-					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= root.faith.var:tentacleswarm_cap }
-					}
-				}
-				#改信，释放费洛蒙
-				convert_to_tentacleswarm_religion = yes
-				tentacleswarm_4VA = yes 
-			}
-		}
-		else_if = {
+		if = {
 			limit = {
 				#如果上头有人，皈依正统信仰,揭露身份
+				NOT = { has_religion = religion:tentacleswarm_religion }
 				any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
 			}
 			convert_to_tentacleswarm_religion = yes
@@ -128,69 +95,11 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 			if = {
 				limit = {
 					has_religion = religion:tentacleswarm_religion 
+					is_ruler = no
 					exists = location
 					exists = location.faith
 				}
 				set_character_faith = location.faith
-			}
-		}
-		#篡夺起事
-		if = {
-			limit = { #配偶有地，尝试密谋夺取
-				any_spouse = {
-					is_landed = yes
-					highest_held_title_tier >= tier_county
-					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap }
-					}
-				}
-				Not = { 
-					any_scheme = {
-						is_hostile = yes
-					}
-				}
-			}
-			random_spouse = {
-				limit = { 
-					is_landed = yes
-					highest_held_title_tier >= tier_county
-				}
-				save_scope_as = target
-			}
-			start_scheme = {
-				type = tentacle_slave_claim_throne
-				target = scope:target
-			}
-		}
-		if = {
-			limit = { #父母有地，尝试密谋夺取
-				any_parent = {
-					is_landed = yes 
-					highest_held_title_tier >= tier_county
-					capital_county = {
-						var:tentacleswarm_corruption_warbeast = { compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap }
-					}
-					OR = {
-						is_male = yes #只针对父亲，或者无生育能力的母亲
-						fertility <= 0
-					}
-				}
-				Not = { 
-					any_scheme = {
-						is_hostile = yes
-					}
-				}
-			}
-			random_parent = {
-				limit = { 
-					is_landed = yes
-					highest_held_title_tier >= tier_county
-				}
-				save_scope_as = target
-			}
-			start_scheme = {
-				type = tentacle_slave_claim_throne
-				target = scope:target
 			}
 		}
 	}
@@ -462,6 +371,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						else = { #否则的话，巨兽在破坏完之后，沉睡了
 							change_variable =  { name = tentacleswarm_corruption_warbeast add = 100 }
+							#高沉睡数量造成4VA
 						}
 					}
 					if = {
@@ -484,6 +394,20 @@ tentacleswarm_yearly_playable_pulse = {
 								#还能从破坏中获得钱和虔诚
 								add_gold = 50
 								add_piety = 50
+							}
+						}
+					}
+					#高沉睡巨兽数量会造成4VA
+					if = {
+						limit = {
+							var:tentacleswarm_corruption_warbeast = { 
+								compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap 
+							}
+						}
+						holder = { 
+							trigger_event = {
+								on_action = tentacleswarm_4VA_pulse
+								days = { 10 60 }
 							}
 						}
 					}
