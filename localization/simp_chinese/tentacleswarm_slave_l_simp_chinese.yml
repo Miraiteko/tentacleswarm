@@ -23,13 +23,13 @@
  
  #决议相关
  tentacleswarm_start_decision:0 "宣告触手霸权"
- tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
+ tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
  tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶身份"
  tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
  
  tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
  tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
- tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n今日正是我履行这些义务的时刻。"
+ tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
  tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
  tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
  tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
@@ -38,6 +38,12 @@
  tentacleswarm_become_openly_tentacle_slave_decision_desc:0 "既然我已经公开崇拜触手主人了，我就没有必要继续隐藏我的触手奴隶身份。"
  tentacleswarm_become_openly_tentacle_slave_decision_tooltip:0 "公开你的触手奴隶身份"
  tentacleswarm_become_openly_tentacle_slave_decision_confirm:0 "光荣地承认身份"
+ 
+ tentacleswarm_suicide:0 "永远留在触手巢穴之中"
+ tentacleswarm_suicide_desc:0 "我的青春已经一去不复返了，触手主人们也不再有兴趣给予我任何的恩赐。在这世间继续生存下去对我来说似乎已经成为了一种折磨。\n\n作为触手主人的忠诚奴仆，我更愿意进入巢穴，沉浸在在主人的温暖拥抱中，陷入到甜美的无边黑暗里，结束我作为人类的此生，永远成为巢穴的美妙血肉的一部分。"
+ tentacleswarm_suicide_tooltip:0 "在触手巢穴之中结束生命"
+ tentacleswarm_suicide_confirm:0 "我爱你……主人……"
+ tentacleswarm_suicide_tt:0 "你首都的腐化程度得到了略微的提高。"
  
  #密谋相关
  TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
@@ -48,9 +54,3 @@ tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
 tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
 tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
 
-#健康崩溃事件
-tentacleswarm_slave.1001.t:0 "囿于己身"
-tentacleswarm_slave.1001.desc:0 "自从我不再能够生育以来，我感觉触手主人赐予我的能量正在迅速的流失。我的身体在失去了主人的赐福之后，变成了残缺不全的空壳，一点点地走向了崩溃。\n\n在这个残破的身体里，我感觉自己除了静候死神的甜蜜拥吻，什么都做不了了。"
-tentacleswarm_slave.1001.a.lust:0 "我好怀念触手主人的宠爱……"
-tentacleswarm_slave.1001.a.lazy:0 "我能够好好休息一下了"
-tentacleswarm_slave.1001.a:0 "我这生命是否还有任何价值？"

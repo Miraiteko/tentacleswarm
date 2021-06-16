@@ -105,6 +105,48 @@ tentacleswarm_auto_corrupt_decision = {
 		base = 0
 	}
 }
+#结束生命
+tentacleswarm_suicide = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+
+	desc = tentacleswarm_suicide_decision_desc
+	selection_tooltip = tentacleswarm_suicide_decision_tooltip
+
+	is_shown = {
+		is_ai = no  #ai不通过这个来成为奴隶
+		is_tentacle_slave = yes #奴隶
+		fertility <= 0.1
+	}
+	
+	is_valid = {
+		is_tentacle_slave = yes #奴隶
+		fertility <= 0.1
+	}	
+	effect = {
+		death = { death_reason = death_disappearance }
+		if = {
+			limit = { 
+				is_landed = yes
+				highest_held_title_tier >=tier_county
+			}
+			custom_tooltip = tentacleswarm_suicide_tt
+			capital_county = {
+				change_variable =  { name = tentacleswarm_corruption add = 1 }
+				tentacleswarm_corruption_county_check = yes
+			}
+		}
+	}
+	
+	ai_check_interval = 0
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
 #开始灭杀
 tentacleswarm_anti_start_decision = {
 	major = no

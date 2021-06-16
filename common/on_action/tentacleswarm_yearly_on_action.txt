@@ -96,7 +96,17 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 				limit = { has_character_flag = immune_to_disease }
 				remove_character_flag = immune_to_disease
 			}
-			if = { #体弱多病
+			if = { #AI直接自杀了
+				limit = { is_ai = yes }
+				if = {
+					limit = { is_imprisoned = no }
+					death = { death_reason = death_disappearance }
+				}
+				else = {
+					death = { death_reason = death_suicide }
+				}
+			}
+			else_if = { #体弱多病
 				limit = { NOT = { has_trait = infirm } }
 				trigger_event = {
 					id = health.7000
