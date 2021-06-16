@@ -157,7 +157,7 @@ tentacleswarm_yearly_playable_pulse = {
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 10 } #如果统治者是奴隶
+			change_variable =  { name = tentacleswarm_corruption_add add = 5 } #如果统治者是奴隶
 		}	
 		if = {
 			limit = { has_religion = religion:tentacleswarm_religion } 
@@ -165,15 +165,15 @@ tentacleswarm_yearly_playable_pulse = {
 		}
 		every_spouse = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 5 } }#如果配偶是触手奴隶，配偶一般也是宾客
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是触手奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶信奉触手宗教
 		}
-		every_courtier_or_guest = {
+		every_courtier = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1 } }#如果宾客是触手奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5 } }#如果廷臣是触手奴隶
 		}
 		every_courtier_or_guest = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
@@ -253,7 +253,7 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 100 } #播种令
+						change_variable =  { name = tentacleswarm_corruption_growth add = 50 } #播种令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_growth 
