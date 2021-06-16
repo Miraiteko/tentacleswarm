@@ -73,6 +73,7 @@ tentacleswarm_auto_corrupt_decision = {
 	is_shown = {
 		is_ai = no  #ai不通过这个来成为奴隶
 		is_female = yes
+		fertility >= 0.1
 		OR = {
 			is_tentacle_slave = yes #触手奴隶
 			has_religion = religion:tentacleswarm_religion #触手信仰

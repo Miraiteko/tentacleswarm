@@ -172,28 +172,28 @@ tentacleswarm_4VA_pulse = {
 								target_is_same_character_or_above = scope:4VA_from
 							}
 						}
-						save_scope_as = target
+						save_scope_as = target_county
 					}
 					if = { #否则就打首都
 						limit = {
-							NOT = { exists = scope:target }
+							NOT = { exists = scope:target_county }
 						}
 						scope:target_character = {
 							capital_county = {
-								save_scope_as = target
+								save_scope_as = target_county
 							}
 						}
 					}
 					if = {
 						limit = {
-							exists = scope:target
+							exists = scope:target_county
 							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
 						}
 						scope:actor = { #进行宣战
 							start_war = { 
 								casus_belli = tentacleswarm_religious_war 
 								target = scope:target_character
-								target_title = scope:target.kingdom
+								target_title = scope:target_county.kingdom
 							}
 						}
 					}

@@ -21,6 +21,7 @@ tentacleswarm_slave.0001 = {
 	}
 	trigger = {
 		is_female = yes
+		fertility >= 0.1
 		is_tentacle_slave = no
 	}
 	option = {
@@ -43,6 +44,7 @@ tentacleswarm_slave.0011 = {
 	}
 	trigger = {
 		is_female = yes
+		fertility >= 0.1
 	}
 	option = {
 		name = tentacleswarm_slave.0011.a
@@ -83,6 +85,7 @@ tentacleswarm_slave.0021 = {
 	}
 	trigger = {
 		is_female = yes
+		fertility >= 0.1
 	}
 	option = {
 		name = tentacleswarm_slave.0021.a
@@ -152,6 +155,7 @@ tentacleswarm_slave.0031 = {
 	}
 	trigger = {
 		is_female = yes
+		fertility >= 0.1
 	}
 	option = {
 		name = tentacleswarm_slave.0031.a
@@ -207,6 +211,7 @@ tentacleswarm_slave.0041 = {
 	}
 	trigger = {
 		is_female = yes
+		fertility >= 0.1
 	}
 	option = {
 		name = tentacleswarm_slave.0041.a
