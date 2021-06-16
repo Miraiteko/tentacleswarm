@@ -19,9 +19,9 @@
 		add_trait = saint
 		faith = { change_fervor = 100 }
 		
-		add_achievement_global_variable_effect = {
-			VARIABLE = tentacleswarm_achievement_chaste_accomplished
-			VALUE = yes
+		set_global_variable = {
+			name = tentacleswarm_achievement_chaste_accomplished
+			value = yes
 		}
 		
 		trigger_event = { #恶趣味

@@ -51,6 +51,27 @@
  tentacleswarm_corruption_5:0 "触手地狱"
  tentacleswarm_corruption_5_desc:0 "此处已经被触手怪物完全支配了，所有的人民无一幸免地沦为了触手怪物的奴隶。\n\n省份触手腐化会因为以下原因变化：\n自然衰退 - \n高省份发展度 + \n触手奴隶的行动 +\n周围的触手巢穴 + \n敌视触手的统治者 -\n "
  
+ #省份修正通知
+ tentacleswarm_corruption.0001.t:0 "幽暗之中"
+ tentacleswarm_corruption.0001.desc:0 "从[county.GetName]传来了神秘的流言。\n据当地人说，当地出没着一种奇怪的生物，这种生物浑身上下长满着扭动的触手，触手上涂满了散发着诱人麝香气味的粘液。\n据说这种怪物喜欢在夜里捕猎出门的人类，由其是袭击年轻女性。"
+ tentacleswarm_corruption.0001.a:0 "这种荒诞的故事适合吓唬小孩子"
+ tentacleswarm_corruption.0001.b:0 "触手主人始终潜藏在我们身边"
+ tentacleswarm_corruption.0001.tt:0 "提示：你可以在右下角的更多地图模式中选择“触手腐化”模式，来查看世界各地的腐化情况。"
+ tentacleswarm_corruption.0002.t:0 "腐化之巢"
+ tentacleswarm_corruption.0002.desc:0 "触手怪物已经在[county.GetName]公然建造了巢穴。\n以巢穴为据点，它们在[county.GetName]四处肆虐，袭击着当地的居民，将男人切成肉块，将女孩拖入巢穴之中。\n触手子嗣源源不断地从散发着堕落气息的巢穴中扭动涌出，严重危害着周边地区的治安。"
+ tentacleswarm_corruption.0002.a:0 "真是可怕！"
+ tentacleswarm_corruption.0002.b:0 "主人已经有了一个温暖的家"
+ tentacleswarm_corruption.0002.tt:0 "提示：敌视触手怪物的统治者可以在决议中起动触手灭杀行动，这个行动可以有效地压制领地的触手腐化。"
+ tentacleswarm_corruption.0003.t:0 "堕落深渊"
+ tentacleswarm_corruption.0003.desc:0 "[county.GetName]已经完全被触手怪物支配了！\n每家每户的房子都沦为了触手怪物繁殖的温床，街道之上流淌着厚厚的触手怪物的粘液。\n[county.GetName]的居民，以及不幸误入该地的旅人，都惨遭触手怪物的奴役：青壮年男性被禁锢在田地上辛苦劳作直至死亡；老人和孩子捏成碎肉送入触手怪物的血盆大口之中；而年轻女性们则都被洗脑成为触手奴隶，为她们主人不停地生育后代。"
+ tentacleswarm_corruption.0003.a:0 "我感觉很不妙……"
+ tentacleswarm_corruption.0003.b:0 "触手主人获得了应有的地位"
+ tentacleswarm_corruption.0004.t:0 "触手天灾"
+ tentacleswarm_corruption.0004.desc:0 "[character.GetTitledFirstName]已经宣布自己成为了一名虔诚的触手屈服者。\n不同于以往的低调的触手奴隶，触手屈服者们不再藏匿自己，而是扬言要将触手腐化散布到世界的每一个角落，使全人类都屈服于触手主人。\n触手屈服者正在建立起自己的组织体系，组建起以狂热的触手奴隶和可怕的触手战争巨兽为核心的武装力量，并且号召所有潜藏的触手奴隶都加入到她们的伟业中来。"
+ tentacleswarm_corruption.0004.a:0 "一场威胁全世界的灾变到来了"
+ tentacleswarm_corruption.0004.b:0 "让世界屈服于主人！"
+ 
+ 
  #角色修正
  tentacleswarm_anti:0 "触手灭杀令"
  tentacleswarm_anti_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们组织了一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效压制领地内的触手腐化。"
@@ -59,7 +80,7 @@
  
  
  #决议相关
- tentacleswarm_anti_start_decision:0 "触手灭杀令"
+ tentacleswarm_anti_start_decision:0 "触手灭杀行动"
  tentacleswarm_anti_start_decision_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们需要组织一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效压制领地内的触手腐化。"
  tentacleswarm_anti_start_decision_tooltip:0 "启用触手灭杀令"
  tentacleswarm_anti_start_decision_confirm:0 "启用触手灭杀令"
@@ -68,7 +89,7 @@
  tentacleswarm_anti_end_decision_tooltip:0 "终止触手灭杀令"
  tentacleswarm_anti_end_decision_confirm:0 "终止触手灭杀令"
  
- tentacleswarm_spread_start_decision:0 "触手播种令"
+ tentacleswarm_spread_start_decision:0 "触手播种行动"
  tentacleswarm_spread_start_decision_desc:0 "为了促进人民的屈服，我们需要组织一支特殊部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效促进领地内的触手腐化。"
  tentacleswarm_spread_start_decision_tooltip:0 "启用触手播种令"
  tentacleswarm_spread_start_decision_confirm:0 "启用触手播种令"

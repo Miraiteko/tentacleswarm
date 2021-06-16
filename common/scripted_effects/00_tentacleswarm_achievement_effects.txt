@@ -19,20 +19,26 @@ tentacleswarm_yearly_check = {
 tentacleswarm_cheat_check = {
 	if = {
 		#开过debug模式
-		limit = { debug_only = yes }
-		add_achievement_global_variable_effect = {
-			VARIABLE = tentacleswarm_cheat
-			VALUE = yes
+		limit = { 
+			is_ai = no
+			debug_only = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_cheat
+			value = yes
 		}
 	}
 }
 #守身成就检查
 tentacleswarm_achievement_chaste_check = {
 	if = {
-		limit = { is_tentacle_slave = yes }
-		add_achievement_global_variable_effect = {
-			VARIABLE = tentacleswarm_achievement_chaste_fail
-			VALUE = yes
+		limit = { 
+			is_ai = no
+			is_tentacle_slave = yes 
+		}
+		set_global_variable = {
+			name = tentacleswarm_achievement_chaste_fail
+			value = yes
 		}
 	}
 	if = {

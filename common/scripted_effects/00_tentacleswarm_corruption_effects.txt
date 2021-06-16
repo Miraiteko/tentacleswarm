@@ -58,6 +58,7 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
 	else_if = { #二档
 		limit = {
@@ -86,6 +87,7 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
 	else_if = { #三档
 		limit = {
@@ -114,6 +116,7 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		tentacleswarm_appear_effect_2 = yes #通知玩家
 	}
 	else_if = { #四档
 		limit = {
@@ -142,6 +145,7 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		tentacleswarm_appear_effect_2 = yes #通知玩家
 	}
 	else = { #五档
 		every_county_province = {
@@ -174,6 +178,7 @@ tentacleswarm_corruption_county_check = {
 				days = { 10 60 }
 			}
 		}
+		tentacleswarm_appear_effect_3 = yes #通知玩家
 	}
 }
 #省份被摧毁殆尽
@@ -241,27 +246,27 @@ tentacleswarm_corruption_county_destroy_effect = {
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_1 }
 		remove_county_modifier = tentacleswarm_corruption_1
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 40 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_2 }
 		remove_county_modifier = tentacleswarm_corruption_2
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 45 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 55 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_3 }
 		remove_county_modifier = tentacleswarm_corruption_3
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_4 }
 		remove_county_modifier = tentacleswarm_corruption_4
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 55 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 65 }
 	}
 	if = {
 		limit = { has_county_modifier = tentacleswarm_corruption_5 }
 		remove_county_modifier = tentacleswarm_corruption_5
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
+		add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
 	}
 }
 
@@ -279,6 +284,98 @@ tentacleswarm_spawn_tentacle_speaker_character_effect = {
 		trigger_event = {
 			id = tentacleswarm_speaker.0002 #角色生成
 			days = 3
+		}
+	}
+}
+tentacleswarm_appear_effect_1 = {#触手怪物出现过
+	if = {
+		limit ={
+			NOT = { exists = global_var:tentacleswarm_appear_1 } 
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_1
+			value = yes
+		}
+		every_player ={ #通知玩家
+			trigger_event = {
+				id = tentacleswarm_corruption.0001
+				days = 1
+			}
+		}
+	}
+}
+tentacleswarm_appear_effect_2 = {#触手怪物筑巢
+	if = {
+		limit ={
+			NOT = { exists = global_var:tentacleswarm_appear_2 } 
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_1
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_2
+			value = yes
+		}
+		every_player ={ #通知玩家
+			trigger_event = {
+				id = tentacleswarm_corruption.0002
+				days = 1
+			}
+		}
+	}
+}
+tentacleswarm_appear_effect_3 = {#触手地狱形成
+	if = {
+		limit ={
+			NOT = { exists = global_var:tentacleswarm_appear_3 } 
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_1
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_2
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_3
+			value = yes
+		}
+		every_player ={ #通知玩家
+			trigger_event = {
+				id = tentacleswarm_corruption.0003
+				days = 1
+			}
+		}
+	}
+}
+tentacleswarm_appear_effect_4 = {#触手天灾形成
+	if = {
+		limit ={
+			NOT = { exists = global_var:tentacleswarm_appear_4 } 
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_1
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_2
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_3
+			value = yes
+		}
+		set_global_variable = {
+			name = tentacleswarm_appear_4
+			value = yes
+		}
+		every_player ={ #通知玩家
+			trigger_event = {
+				id = tentacleswarm_corruption.0004
+				days = 1
+			}
 		}
 	}
 }

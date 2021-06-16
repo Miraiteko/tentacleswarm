@@ -205,7 +205,7 @@ tentacleswarm_4VA_pulse = {
 }
 convert_to_tentacleswarm_religion_pulse = {
 	effect = {
-		become_tentacle_slave = yes
-		#convert_to_tentacleswarm_religion = yes
+		#become_tentacle_slave = yes
+		convert_to_tentacleswarm_religion = yes
 	}
 }

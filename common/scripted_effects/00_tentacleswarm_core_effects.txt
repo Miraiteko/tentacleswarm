@@ -58,7 +58,8 @@ tentacle_corrupt = {
 	
 }
 #皈依触手信仰
-convert_to_tentacleswarm_religion = {
+convert_to_tentacleswarm_religion = {	
+	save_scope_as = character
 	if	= {
 		limit = {
 			not = { has_religion = religion:tentacleswarm_religion }
@@ -97,6 +98,8 @@ convert_to_tentacleswarm_religion = {
 		}
 		#改信
 		set_character_faith = faith:tentacleswarm_slavery
+		#第一次出现改信的时候，给玩家弹事件
+		tentacleswarm_appear_effect_4 = yes
 	}
 	if = { #不是奴隶的女性成年成为奴隶
 		limit = { 
