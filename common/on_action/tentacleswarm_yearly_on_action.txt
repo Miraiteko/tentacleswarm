@@ -171,9 +171,9 @@ tentacleswarm_yearly_playable_pulse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶信奉触手宗教
 		}
-		every_courtier = {
+		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5 } }#如果廷臣是触手奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5 } }#如果宾客是触手奴隶
 		}
 		every_courtier_or_guest = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
@@ -253,7 +253,7 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 50 } #播种令
+						change_variable =  { name = tentacleswarm_corruption_growth add = 35 } #播种令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_growth 
@@ -281,6 +281,14 @@ tentacleswarm_yearly_playable_pulse = {
 					if = {
 						limit = { var:tentacleswarm_corruption = { compare_value > 300 } }
 						change_variable =  { name = tentacleswarm_corruption multiply = 0.9 }
+					}
+					if = {
+						limit = { var:tentacleswarm_corruption = { compare_value > 1000 } }
+						set_variable =  { name = tentacleswarm_corruption value = 1000 }
+					}
+					if = {
+						limit = { var:tentacleswarm_corruption = { compare_value < 0 } }
+						set_variable =  { name = tentacleswarm_corruption value = 0 }
 					}
 					
 					#计算迁出额度
@@ -523,6 +531,7 @@ tentacleswarm_yearly_modifier_check = {
 		if = {
 			limit = { 
 				faith = {has_doctrine = doctrine_tentacle_slave_evil}
+				is_tentacle_slave = no
 			}
 			#敌对者开启灭杀令
 			#通过决议

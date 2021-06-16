@@ -39,11 +39,15 @@
 			value = 0
 		}
 		character_modifier = {
+			#傻
 			learning = -10
 			#无法改信
 			faith_conversion_piety_cost_mult = 20
 			faith_creation_piety_cost_mult = 20
+			#不喜欢男人
 			opinion_of_male_rulers = -50
+			#雇不起佣兵
+			mercenary_hire_cost_mult = 1.0
 		} 
 		parameters = {
 			doctrine_tentacle_slave_worship = yes
