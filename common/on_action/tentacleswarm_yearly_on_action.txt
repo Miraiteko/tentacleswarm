@@ -102,9 +102,45 @@ tentacle_slave_yearly = {#触手奴隶年度行动触发
 				set_character_faith = location.faith
 			}
 		}
-		if = { #生育率太低的时候自己消失无踪
+		if = { #生育率太低的时候失去祝福，开始生病
 			limit = { fertility <= 0.1 }
-			death = { death_reason = death_disappearance }
+			if = {
+				limit = { has_character_flag = immune_to_disease }
+				remove_character_flag = immune_to_disease
+			}
+			if = { #体弱多病
+				limit = { NOT = { has_trait = infirm } }
+				trigger_event = {
+					id = health.7000
+				}
+			}
+			else_if = { #抑郁
+				limit = { NOT = { has_trait = depressed } }
+				trigger_event = {
+					id = health.7100
+				}
+			}
+			else_if = { #癌症
+				limit = { NOT = { has_trait = cancer } }
+				trigger_event = {
+					id = health.1007
+				}
+			}
+			else_if = { #肺痨
+				limit = { NOT = { has_trait = consumption } }
+				trigger_event = {
+					id = health.1006
+				}
+			}
+			else_if	= { #痛风
+				limit = { NOT = { has_trait = gout_ridden } }
+				trigger_event = {
+					id = health.1003
+				}
+			}
+			else = {
+				death = { death_reason = death_cancer }
+			}
 		}
 	}
 }

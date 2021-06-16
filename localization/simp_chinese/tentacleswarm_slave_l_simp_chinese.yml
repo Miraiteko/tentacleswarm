@@ -47,3 +47,10 @@ tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
 #互动相关
 tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
 tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
+
+#健康崩溃事件
+tentacleswarm_slave.1001.t:0 "囿于己身"
+tentacleswarm_slave.1001.desc:0 "自从我不再能够生育以来，我感觉触手主人赐予我的能量正在迅速的流失。我的身体在失去了主人的赐福之后，变成了残缺不全的空壳，一点点地走向了崩溃。\n\n在这个残破的身体里，我感觉自己除了静候死神的甜蜜拥吻，什么都做不了了。"
+tentacleswarm_slave.1001.a.lust:0 "我好怀念触手主人的宠爱……"
+tentacleswarm_slave.1001.a.lazy:0 "我能够好好休息一下了"
+tentacleswarm_slave.1001.a:0 "我这生命是否还有任何价值？"

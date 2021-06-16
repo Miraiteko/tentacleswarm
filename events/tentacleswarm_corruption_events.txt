@@ -1,0 +1,122 @@
+﻿namespace = tentacleswarm_corruption
+#0001-0004 天灾预警
+tentacleswarm_corruption.0001 = {
+	type = character_event
+	title = tentacleswarm_corruption.0001.t
+	desc = tentacleswarm_corruption.0001.desc
+	
+	theme = corruption
+	right_portrait = scope:county.holder
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_ai = no
+	}
+	option = {
+		trigger = { is_tentacle_slave = no }
+		name = tentacleswarm_corruption.0001.a
+		custom_tooltip = tentacleswarm_corruption.0001.tt
+	}
+	option = {
+		trigger = { 
+			OR = {
+				has_religion = religion:tentacleswarm_religion
+				is_tentacle_slave = yes
+			}
+		}
+		name = tentacleswarm_corruption.0001.b
+		custom_tooltip =tentacleswarm_corruption.0001.tt
+	}
+}
+tentacleswarm_corruption.0002 = {
+	type = character_event
+	title = tentacleswarm_corruption.0002.t
+	desc = tentacleswarm_corruption.0002.desc
+	
+	theme = corruption
+	right_portrait = scope:county.holder
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_ai = no
+	}
+	option = {
+		trigger = { is_tentacle_slave = no }
+		name = tentacleswarm_corruption.0002.a
+		custom_tooltip =tentacleswarm_corruption.0002.tt
+	}
+	option = {
+		trigger = { 
+			OR = {
+				has_religion = religion:tentacleswarm_religion
+				is_tentacle_slave = yes
+			}
+		}
+		name = tentacleswarm_corruption.0002.b
+	}
+}
+tentacleswarm_corruption.0003 = {
+	type = character_event
+	title = tentacleswarm_corruption.0003.t
+	desc = tentacleswarm_corruption.0003.desc
+	
+	theme = corruption
+	right_portrait = scope:county.holder
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_ai = no
+	}
+	option = {
+		trigger = { is_tentacle_slave = no }
+		name = tentacleswarm_corruption.0003.a
+	}
+	option = {
+		trigger = { 
+			OR = {
+				has_religion = religion:tentacleswarm_religion
+				is_tentacle_slave = yes
+			}
+		}
+		name = tentacleswarm_corruption.0003.b
+	}
+}
+tentacleswarm_corruption.0004 = {
+	type = character_event
+	title = tentacleswarm_corruption.0004.t
+	desc = tentacleswarm_corruption.0004.desc
+	
+	theme = corruption
+	right_portrait = scope:character
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_ai = no 
+		NOT = { this = scope:character }
+	}
+	option = {
+		trigger = { is_tentacle_slave = no }
+		name = tentacleswarm_corruption.0004.a
+	}
+	option = {
+		trigger = { 
+			OR = {
+				has_religion = religion:tentacleswarm_religion
+				is_tentacle_slave = yes
+			}
+		}
+		name = tentacleswarm_corruption.0004.b
+	}
+}
