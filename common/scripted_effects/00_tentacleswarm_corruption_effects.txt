@@ -178,6 +178,15 @@ tentacleswarm_corruption_county_check = {
 				days = { 10 60 }
 			}
 		}
+		#高地狱造成本地改信
+		if = {
+			limit = {
+				var:tentacleswarm_corruption = { compare_value > 150 }
+				NOT = { religion = religion:tentacleswarm_religion  }
+				holder = { has_religion = religion:tentacleswarm_religion  }
+			}
+			set_county_faith = holder.faith
+		}
 		tentacleswarm_appear_effect_3 = yes #通知玩家
 	}
 }

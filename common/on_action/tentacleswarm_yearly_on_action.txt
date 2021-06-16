@@ -225,7 +225,7 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					else_if = {
 						limit = { 
-							religion = religion:tentacleswarm_religion 
+							religion = religion:tentacleswarm_religion
 						}
 						change_variable =  { name = tentacleswarm_corruption_growth add = 30 } #本地信奉触手宗教
 					}
@@ -277,10 +277,10 @@ tentacleswarm_yearly_playable_pulse = {
 					#计算地形带来的影响
 					change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
 					
-					#腐化上限
+					#腐化超上限的话，加速衰减
 					if = {
 						limit = { var:tentacleswarm_corruption = { compare_value > 300 } }
-						set_variable =  { name = tentacleswarm_corruption value = 300 }
+						change_variable =  { name = tentacleswarm_corruption multiply = 0.9 }
 					}
 					
 					#计算迁出额度
