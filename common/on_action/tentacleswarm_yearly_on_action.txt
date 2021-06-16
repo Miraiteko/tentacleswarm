@@ -76,31 +76,19 @@ tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 		}
 	}
 }
-tentacle_slave_yearly = {#触手奴隶年度行动触发
+tentacle_slave_yearly = {#触手奴隶年度触发
 	trigger = {
 		is_tentacle_slave = yes
-		is_ai = yes
 	}
 	effect = {
 		if = {
 			limit = {
 				#如果上头有人，皈依正统信仰,揭露身份
+				is_ai = yes
 				NOT = { has_religion = religion:tentacleswarm_religion }
 				any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
 			}
 			convert_to_tentacleswarm_religion = yes
-		}
-		else = {
-			#如果上头没人，跟风当地信仰
-			if = {
-				limit = {
-					has_religion = religion:tentacleswarm_religion 
-					is_ruler = no
-					exists = location
-					exists = location.faith
-				}
-				set_character_faith = location.faith
-			}
 		}
 		if = { #生育率太低的时候失去祝福，开始生病
 			limit = { fertility <= 0.1 }

@@ -265,7 +265,7 @@ tentacleswarm_slave.1001 = {
 			text = tentacleswarm_slave.1001.a.lazy
 		}
 		name = {
-			trigger = { has_trait = lust }
+			trigger = { has_trait = lustful }
 			text = tentacleswarm_slave.1001.a.lust
 		}
 		name = {
@@ -277,7 +277,7 @@ tentacleswarm_slave.1001 = {
 		stress_impact = {
 			lazy = minor_stress_loss
 			diligent = medium_stress_gain
-			lust = medium_stress_gain
+			lustful = medium_stress_gain
 		}
 	}
 }
