@@ -109,11 +109,11 @@ tentacleswarm_auto_corrupt_decision = {
 tentacleswarm_suicide = {
 	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
 
-	desc = tentacleswarm_suicide_decision_desc
-	selection_tooltip = tentacleswarm_suicide_decision_tooltip
+	desc = tentacleswarm_suicide_desc
+	selection_tooltip = tentacleswarm_suicide_tooltip
 
 	is_shown = {
-		is_ai = no  #ai不通过这个来成为奴隶
+		is_ai = no  #ai不通过这个来自尽
 		is_tentacle_slave = yes #奴隶
 		fertility <= 0.1
 	}
@@ -123,18 +123,55 @@ tentacleswarm_suicide = {
 		fertility <= 0.1
 	}	
 	effect = {
-		death = { death_reason = death_disappearance }
-		if = {
-			limit = { 
-				is_landed = yes
-				highest_held_title_tier >=tier_county
+		#自杀的额外效果，要放在人物自杀前结算
+		hidden_effect = {
+			if ={
+				limit = {
+					faith = {
+						has_doctrine_parameter = consolamentum_active
+					}
+				}
+				add_piety_level = 1
 			}
-			custom_tooltip = tentacleswarm_suicide_tt
-			capital_county = {
-				change_variable =  { name = tentacleswarm_corruption add = 1 }
-				tentacleswarm_corruption_county_check = yes
+			if = {
+				limit = { 
+					is_landed = yes
+					highest_held_title_tier >=tier_county
+				}
+				custom_tooltip = tentacleswarm_suicide_tt
+				capital_county = {
+					change_variable =  { name = tentacleswarm_corruption add = 1 }
+					tentacleswarm_corruption_county_check = yes
+				}
 			}
 		}
+		
+		#执行自杀
+		death = { death_reason = death_disappearance }
+		
+		#后置显示自杀的额外效果
+		show_as_tooltip = {
+			if ={
+				limit = {
+					faith = {
+						has_doctrine_parameter = consolamentum_active
+					}
+				}
+				add_piety_level = 1
+			}
+			if = {
+				limit = { 
+					is_landed = yes
+					highest_held_title_tier >=tier_county
+				}
+				custom_tooltip = tentacleswarm_suicide_tt
+				capital_county = {
+					change_variable =  { name = tentacleswarm_corruption add = 1 }
+					tentacleswarm_corruption_county_check = yes
+				}
+			}
+		}
+		
 	}
 	
 	ai_check_interval = 0
