@@ -1,39 +1,8 @@
 ﻿#奴隶夺取君位结算事件
 tentacle_slave_claim_throne_setup = {
-	effect = {
-		scope:target = { #玩家被夺位的话，扮演夺位者
-			if = {
-				limit = { is_ai = no }
-				set_player_character = scope:owner
-			}
-		}
-		#获得目标头衔
-		create_title_and_vassal_change = {
-			type = usurped
-			save_scope_as = change
-			add_claim_on_loss = yes
-		}
-		scope:target = {
-			every_held_title = {
-				limit = {
-					tier >= tier_county
-				}
-				add_to_list = target_titles
-			}
-		}
-		setup_claim_cb = {
-			titles = target_titles
-			attacker = scope:owner
-			defender = scope:target
-			claimant = scope:owner
-			change = scope:change
-		}	
-		resolve_title_and_vassal_change = scope:change
-		#改信
-		convert_to_tentacleswarm_religion = yes
-		#释放费洛蒙 
-		tentacleswarm_4VA = yes
-		
+	
+	random_events = {
+		200 = tentacle_slave_claim_throne.1001 #发动政变
 	}
 }
 
