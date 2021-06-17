@@ -1,0 +1,63 @@
+﻿#天灾圣地
+
+#吉萨大方尖碑
+tentacleswarm_giza = {
+	county = c_giza
+	
+	character_modifier = {
+		name = holy_site_c_giza_effect_name
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = kerala_conversion_bonus # +50% County Conversion Speed
+}
+#马代拉亚特兰蒂斯
+tentacleswarm_madeira = {
+	county = c_madeira
+
+	character_modifier = {
+		name = holy_site_madeira_effect_name
+		development_growth_factor = 0.1
+		church_holding_build_gold_cost = -0.1
+	}
+}
+#罗德岛巨兽神像
+tentacleswarm_rhodos = {
+	county = c_rhodos
+
+	character_modifier = {
+		name = holy_site_rhodos_effect_name
+		prowess_per_piety_level = 1
+		max_combat_roll = 4
+	}
+}
+#威尔特郡巨石阵
+tentacleswarm_wiltshire = {
+	county = c_wiltshire
+
+	character_modifier = {
+		name = holy_site_wiltshire_effect_name
+		fertility = 0.2
+		attraction_opinion = 30
+	}
+}
+#伽耶共存之寺
+tentacleswarm_gaya = {
+	county = c_gaya
+
+	character_modifier = {
+		name = holy_site_gaya_effect_name
+		different_culture_opinion = 10
+		county_opinion_add = 10
+	}
+}
+#内盖夫佩特拉古城
+tentacleswarm_petra = {
+	county = c_negev
+	barony = b_baidha-petra
+
+	character_modifier = {
+		name = holy_site_petra_effect_name
+		stewardship_per_piety_level = 2
+	}
+}
+
