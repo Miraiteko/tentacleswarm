@@ -215,7 +215,7 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 85 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 95 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
@@ -299,10 +299,10 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						set_variable =  { name = tentacleswarm_corruption_imigrant value = scope:county.var:tentacleswarm_corruption }
 						change_variable =  { name = tentacleswarm_corruption_imigrant subtract = var:tentacleswarm_corruption }
-						change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.2 }
+						change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.05 }
 						if = {
 							limit = { var:tentacleswarm_corruption_imigrant = { compare_value <= 0 } }
-							set_variable =  { name = tentacleswarm_corruption_imigrant value = 0 }
+							change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.3 }
 						}
 						change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_imigrant }
 						tentacleswarm_corruption_county_check = yes

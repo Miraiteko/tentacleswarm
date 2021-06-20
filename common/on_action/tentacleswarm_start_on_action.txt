@@ -23,7 +23,7 @@ tentacleswarm_on_game_start = {
 		#所有生成天灾阈值
 		every_religion_global = {
 			every_faith = {
-				set_variable = { name = tentacleswarm_cap value = 800 } 	
+				set_variable = { name = tentacleswarm_cap value = 1200 } 	
 			}
 		}
 		#初始奴隶生成，
@@ -79,7 +79,7 @@ tentacleswarm_on_game_start = {
 			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 10 }
 			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = -1 }
 			change_variable =  { name = tentacleswarm_corruption_warbeast add = development_level }
-			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 10 } #初始的时候潜伏巨兽生成
+			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 0 } #初始的时候潜伏巨兽生成
 			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
