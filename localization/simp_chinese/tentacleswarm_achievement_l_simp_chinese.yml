@@ -9,8 +9,8 @@
  tentacleswarm_achievement_chaste_count_tooltip:0 "连续200年扮演女性统治者（当前$VALUE|V$年）"
  not_tentacleswarm_achievement_chaste_count_tooltip:0 "尚未连续200年扮演女性统治者（当前$VALUE|V$年）"
  
- tentacleswarm_achievement_chaste_decision:0 "成就：守身如玉"
+ tentacleswarm_achievement_chaste_decision:0 "#E 触手天灾成就#!：守身如玉"
  tentacleswarm_achievement_chaste_decision_desc:0 "肆虐的触手怪物威胁着这个世界上的广大女性，将她们腐化为肮脏的触手奴隶。而我们伟大的家族却用历史证明，我们有能力守护住我们的高贵和纯洁。"
- tentacleswarm_achievement_chaste_decision_tooltip:0 "完成触手天灾成就【守身如玉】"
- tentacleswarm_achievement_chaste_decision_confirm:0 "完成触手天灾成就【守身如玉】"
- tentacleswarm_achievement_chaste_get:0 "完成触手天灾成就【守身如玉】"
+ tentacleswarm_achievement_chaste_decision_tooltip:0 "完成#E 触手天灾成就#!【守身如玉】"
+ tentacleswarm_achievement_chaste_decision_confirm:0 "完成#E 触手天灾成就#!【守身如玉】"
+ tentacleswarm_achievement_chaste_get:0 "完成#E 触手天灾成就#!【守身如玉】"

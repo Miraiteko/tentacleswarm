@@ -28,7 +28,9 @@ become_tentacle_slave = {
 			add_trait = tentacle_slave
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
-		add_character_modifier = tentacle_slve_hide_modifier
+		hidden_effect = {
+			add_character_modifier = tentacle_slve_hide_modifier
+		}
 	}	
 }
 #被触手腐化
@@ -41,6 +43,27 @@ tentacle_corrupt = {
 		}
 		become_tentacle_slave = yes
 	}
+	if = {
+		limit = {
+			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
+			NOT = { has_character_flag = tentacle_baby_corruption }
+		}
+		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+	}
+	if = {
+		limit = {
+			is_pregnant = yes #如果作为玩家有未被赐福的flag，移除该flag
+			has_character_flag = tentacle_baby_corruption_not_yet
+		}
+		remove_character_flag = tentacle_baby_corruption_not_yet
+	}
+}
+#被触手腐化,但是作为玩家，拒绝了
+tentacle_corrupt_refuse = {
+	hidden_effect = {
+		add_character_modifier = tentacle_slve_hide_modifier
+	}
+	add_stress = medium_stress_gain
 	if = {
 		limit = {
 			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
@@ -235,8 +258,10 @@ tentacleswarm_4VA = {
 #遗传结算
 become_congenital_tentacle_slave = { #成为天生奴隶
 	#成为纯合子
-	add_character_flag = congenital_tentacle_slave 
-	add_character_modifier = congenital_tentacle_slave_hide_modifier
+	add_character_flag = congenital_tentacle_slave
+	hidden_effect = {
+		add_character_modifier = congenital_tentacle_slave_hide_modifier
+	}
 	#测试用标记
 	if = {
 		limit = { 

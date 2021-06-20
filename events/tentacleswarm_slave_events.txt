@@ -5,6 +5,7 @@
 #0031主动要求赐福
 #0041被监禁者腐化
 #1001奴隶健康崩溃事件
+#2001玩家拒绝成为奴隶后续事件
 
 #天生奴隶成为真正的奴隶
 tentacleswarm_slave.0001 = {
@@ -27,6 +28,21 @@ tentacleswarm_slave.0001 = {
 	option = {
 		name = tentacleswarm_slave.0001.a
 		tentacle_corrupt = yes
+	}
+	option = {
+		trigger = {
+			is_ai = no
+			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+		}
+		name = tentacleswarm_slave.refuse
+		hidden_effect = { 
+			add_character_modifier = tentacle_slve_hide_modifier
+		}
+		add_stress = medium_stress_gain
+		trigger_event= {
+			id = tentacleswarm_slave.2002
+			months =1
+		}
 	}
 }
 #来自监护人的特别的成年礼物
@@ -68,6 +84,18 @@ tentacleswarm_slave.0012 = {
 	option = {
 		name = tentacleswarm_slave.0012.a
 		tentacle_corrupt = yes
+	}
+	option = {
+		trigger = {
+			is_ai = no
+			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+		}
+		name = tentacleswarm_slave.refuse
+		tentacle_corrupt_refuse = yes
+		trigger_event= {
+			id = tentacleswarm_slave.2001
+			months =1
+		}
 	}
 }
 #水井杀
@@ -123,6 +151,18 @@ tentacleswarm_slave.0022 = {
 	option = {
 		name = tentacleswarm_slave.0022.a
 		tentacle_corrupt = yes
+	}
+	option = {
+		trigger = {
+			is_ai = no
+			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+		}
+		name = tentacleswarm_slave.refuse
+		tentacle_corrupt_refuse = yes
+		trigger_event= {
+			id = tentacleswarm_slave.2001
+			months =1
+		}
 	}
 }
 
@@ -194,6 +234,18 @@ tentacleswarm_slave.0032 = {
 		name = tentacleswarm_slave.0032.a
 		tentacle_corrupt = yes
 	}
+	option = {
+		trigger = {
+			is_ai = no
+			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+		}
+		name = tentacleswarm_slave.refuse
+		tentacle_corrupt_refuse = yes
+		trigger_event= {
+			id = tentacleswarm_slave.2001
+			months =1
+		}
+	}
 }
 
 #被囚禁者腐化
@@ -251,6 +303,18 @@ tentacleswarm_slave.0042 = {
 		name = tentacleswarm_slave.0042.a
 		tentacle_corrupt = yes
 	}
+	option = {
+		trigger = {
+			is_ai = no
+			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+		}
+		name = tentacleswarm_slave.refuse
+		tentacle_corrupt_refuse = yes
+		trigger_event= {
+			id = tentacleswarm_slave.2001
+			months =1
+		}
+	}
 }
 tentacleswarm_slave.1001 = {
 	type = character_event
@@ -284,5 +348,59 @@ tentacleswarm_slave.1001 = {
 			diligent = medium_stress_gain
 			lustful = medium_stress_gain
 		}
+	}
+}
+tentacleswarm_slave.2001 = {
+	type = character_event
+	title = tentacleswarm_slave.2001.t
+	desc = tentacleswarm_slave.2001.desc
+	theme = seduction
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_female = yes
+		fertility >= 0.1
+		is_tentacle_slave = no
+	}
+	option = {
+		name = tentacleswarm_slave.2001.a
+		become_tentacle_slave = yes
+	}
+	option = {
+		trigger = { is_ai = no } 
+		name = tentacleswarm_slave.2001.b
+		add_stress = monumental_stress_gain
+		custom_tooltip = tentacleswarm_slave.2001.b.tt
+	}
+}
+tentacleswarm_slave.2002 = {
+	type = character_event
+	title = tentacleswarm_slave.2002.t
+	desc = tentacleswarm_slave.2002.desc
+	theme = seduction
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_female = yes
+		fertility >= 0.1
+		is_tentacle_slave = no
+	}
+	option = {
+		name = tentacleswarm_slave.2002.a
+		become_tentacle_slave = yes
+	}
+	option = {
+		trigger = { is_ai = no } 
+		name = tentacleswarm_slave.2002.b
+		add_stress = monumental_stress_gain
+		custom_tooltip = tentacleswarm_slave.2002.b.tt
 	}
 }

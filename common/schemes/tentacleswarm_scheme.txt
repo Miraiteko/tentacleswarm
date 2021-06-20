@@ -4,11 +4,24 @@ tentacle_slave_claim_throne = {
 	skill = intrigue
 	hostile = yes
 	
+	power_per_skill_point = 2.0
+	resistance_per_skill_point = 1.75
+	power_per_agent_skill_point = 1
+	
+	minimum_progress_chance = 60
+	maximum_progress_chance = 90
+	minimum_success = 5
+	maximum_secrecy = 95
+	maximum_success = 95
+	spymaster_power_per_skill_point = 0
+	spymaster_resistance_per_skill_point = 0
+	
 	allow = {
 		is_tentacle_slave = yes
 		is_imprisoned = no
 		scope:target = { 
-			holds_landed_title = yes
+			is_landed = yes #有地
+			highest_held_title_tier >=tier_county
 			OR = {
 				is_consort_of = scope:owner
 				is_parent_of = scope:owner
@@ -21,7 +34,8 @@ tentacle_slave_claim_throne = {
 		is_imprisoned = no
 		scope:target = { 
 			is_ai = yes #暂且给玩家一些保护
-			holds_landed_title = yes
+			is_landed = yes #有地
+			highest_held_title_tier >=tier_county
 			OR = {
 				is_consort_of = scope:owner
 				is_parent_of = scope:owner
@@ -31,15 +45,17 @@ tentacle_slave_claim_throne = {
 
 	valid_agent = {
 		age >= 14
+		OR = {
+			has_religion = religion:tentacleswarm_religion
+			is_tentacle_slave = yes
+		}
 	}
 	
 	agent_join_chance = {
 		base = 0
-		
-		modifier = {
-			add = -30
-			desc = BASE_RELUCTANCE
-		}
+
+		#阴谋基础值
+		hostile_murder_agent_base_join_chance_modifier = yes
 
 		#Is Owner sending a gift in the invite interaction?
 		modifier = {
@@ -59,70 +75,37 @@ tentacle_slave_claim_throne = {
 			root = { is_tentacle_slave = yes }
 			desc = "TENTACLE_SLAVE_PATNER"
 		}
-		hostile_murder_agent_base_join_chance_modifier = yes # TODO, make a more claim throne-flavored version of this
 	}
 	
 	base_success_chance = {
-		base = 5
+		base = 0
 		
-		compare_modifier = {
-			desc = "SCHEME_MY_LEARNING"
-			value = scope:owner.learning
-			multiplier = 2
-		}
-
-		compare_modifier = {
-			desc = "SCHEME_MY_INTRIGUE"
-			value = scope:owner.intrigue
-		}
+		#阴谋基础值
+		hostile_scheme_base_chance_modifier = yes
 		
+		#首都省份腐化
 		modifier = {
-			desc = "SCHEME_I_AM_COUNCILLOR_OF_TARGET"
-			add = 25
-			scope:owner = {
-				is_councillor_of = scope:target
+			add = scope:target.capital_county.var:tentacleswarm_corruption
+			scope:target = {
+				exists = capital_county
 			}
-		}
-
+			desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_CAPITAL_CORRUPTION
+		}		
+		#对方执行剿杀
 		modifier = {
 			add = -30
-			always = scope:exposed
-			desc = "SCHEME_IS_EXPOSED"
+			scope:target = {
+				has_character_modifier = tentacleswarm_anti
+			}
+			desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_ANTI
 		}
 	}
 	
 	agent_success_chance = {
 		base = 0
 
-		compare_modifier = {
-			desc = "SCHEME_AGENT_INTRIGUE"
-			value = intrigue
-			multiplier = 2
-		}
-		
-		modifier = {
-			add = 25
-			desc = CLAIM_THRONE_SCHEME_AGENT_COUNCILLOR
-			is_councillor_of = scope:target
-			trigger_if = {
-				limit = { exists = scope:target.cp:councillor_court_chaplain }
-				NOT = { this = scope:target.cp:councillor_court_chaplain }
-			}
-		}
-
-		modifier = {
-			add = 50
-			desc = CLAIM_THRONE_SCHEME_AGENT_COURT_CHAPLAIN
-			exists = scope:target.cp:councillor_court_chaplain
-			this = scope:target.cp:councillor_court_chaplain
-		}
-
-		modifier = {
-			add = 10
-			DESC = CLAIM_THRONE_SCHEME_AGENT_VASSAL
-			is_vassal_of = scope:target
-			NOT = { is_councillor_of = scope:target }
-		}
+		#阴谋基础值
+		hostile_scheme_agent_success_chance_modifier = yes
 	}
 	
 	agent_leave_threshold = -10
@@ -158,19 +141,6 @@ tentacle_slave_claim_throne = {
 	
 	on_invalidated = {
 	}
-	
-	
-	power_per_skill_point = 3
-	power_per_agent_skill_point = 1
-	spymaster_power_per_skill_point = 0 # Needed to stop the Spymaster from affecting the scheme
-	resistance_per_skill_point = 2
-	spymaster_resistance_per_skill_point = 0 # Needed to stop the Spymaster from affecting the scheme
-	
-	minimum_progress_chance = 80
-	maximum_progress_chance = 100
-	minimum_success = 5
-	maximum_secrecy = 95
-	maximum_success = 90
 	
 	success_desc = "CLAIM_THRONE_SUCCESS_DESC"
 	discovery_desc = "CLAIM_THRONE_DISCOVERY_DESC"
