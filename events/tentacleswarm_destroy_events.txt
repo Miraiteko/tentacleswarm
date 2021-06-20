@@ -61,7 +61,7 @@ tentacleswarm_destroy.0011 = {
 				limit = { NOT = { exists = scope:lucky }  }
 				random_living_character = {
 					limit = {
-						is_pool_character = yes
+						is_ruler = no
 						is_tentacle_slave = no
 						not = { has_religion = religion:tentacleswarm_religion }
 					}
