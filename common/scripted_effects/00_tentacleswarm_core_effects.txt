@@ -28,9 +28,7 @@ become_tentacle_slave = {
 			add_trait = tentacle_slave
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
-		hidden_effect = {
-			add_character_modifier = tentacle_slve_hide_modifier
-		}
+		add_character_flag = tentacle_slave_body
 	}	
 }
 #被触手腐化
@@ -60,9 +58,7 @@ tentacle_corrupt = {
 }
 #被触手腐化,但是作为玩家，拒绝了
 tentacle_corrupt_refuse = {
-	hidden_effect = {
-		add_character_modifier = tentacle_slve_hide_modifier
-	}
+	add_character_flag = tentacle_slave_body
 	add_stress = medium_stress_gain
 	if = {
 		limit = {
@@ -259,9 +255,6 @@ tentacleswarm_4VA = {
 become_congenital_tentacle_slave = { #成为天生奴隶
 	#成为纯合子
 	add_character_flag = congenital_tentacle_slave
-	hidden_effect = {
-		add_character_modifier = congenital_tentacle_slave_hide_modifier
-	}
 	#测试用标记
 	if = {
 		limit = { 

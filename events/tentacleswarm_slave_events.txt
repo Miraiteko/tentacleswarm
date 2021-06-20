@@ -32,7 +32,7 @@ tentacleswarm_slave.0001 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+			NOT = { has_character_flag = tentacle_slave_body }
 		}
 		name = tentacleswarm_slave.refuse
 		hidden_effect = { 
@@ -88,7 +88,7 @@ tentacleswarm_slave.0012 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+			NOT = { has_character_flag = tentacle_slave_body }
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -155,7 +155,7 @@ tentacleswarm_slave.0022 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+			NOT = { has_character_flag = tentacle_slave_body }
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -237,7 +237,7 @@ tentacleswarm_slave.0032 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+			NOT = { has_character_flag = tentacle_slave_body }
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -306,7 +306,7 @@ tentacleswarm_slave.0042 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_modifier = tentacle_slve_hide_modifier }
+			NOT = { has_character_flag = tentacle_slave_body }
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
