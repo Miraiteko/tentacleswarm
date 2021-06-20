@@ -85,7 +85,7 @@ tentacleswarm_on_game_start = {
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
 			if = {
 				limit = { is_coastal_county = yes} #伯爵领靠海
-				change_variable =  { name = tentacleswarm_corruption_nature add = 0.2 }
+				change_variable =  { name = tentacleswarm_corruption_nature add = 1 }
 			}
 			every_county_province = { 
 				if = { #每块丛林

@@ -21,28 +21,6 @@ tentacleswarm_on_war_won_attacker = {
 				tentacleswarm_4VA = yes
 			}
 		} 
-		#抗击剿灭失败，天灾阈值抬高/巢穴入侵成功，目标信仰无视度提高
-		if = { 
-			limit = {
-				scope:war = {
-					OR = {
-						using_cb = tentacleswarm_religious_war 
-						using_cb = tentacleswarm_conquest 
-					}
-				}
-			}
-			scope:defender = {
-				faith = {
-					if = { 
-						limit = { has_variable = tentacleswarm_cap }
-						change_variable = { name = tentacleswarm_cap add = 50 }	
-					}
-					else = {
-						set_variable = { name = tentacleswarm_cap value = 800 }	
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -57,28 +35,6 @@ tentacleswarm_on_war_won_defender = {
 				tentacleswarm_4VA = yes
 			}
 		} 
-		#抗击剿灭胜利，天灾阈值降低/巢穴入侵成功，目标信仰无视度降低
-		if = { 
-			limit = {
-				scope:war = {
-					OR = {
-						using_cb = tentacleswarm_religious_war 
-						using_cb = tentacleswarm_conquest 
-					}
-				}
-			}
-			scope:defender = {
-				faith = {
-					if = { 
-						limit = { has_variable = tentacleswarm_cap }
-						change_variable = { name = tentacleswarm_cap multiply = 0.9 }	
-					}
-					else = {
-						set_variable = { name = tentacleswarm_cap value = 800 }	
-					}
-				}
-			}
-		}
 	}
 }
 

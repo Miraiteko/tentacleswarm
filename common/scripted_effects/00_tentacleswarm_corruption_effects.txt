@@ -183,7 +183,7 @@ tentacleswarm_corruption_county_check = {
 			limit = {
 				var:tentacleswarm_corruption = { compare_value > 150 }
 				NOT = { religion = religion:tentacleswarm_religion  }
-				holder = { has_religion = religion:tentacleswarm_religion  }
+				#holder = { has_religion = religion:tentacleswarm_religion  }
 			}
 			set_county_faith = holder.faith
 		}

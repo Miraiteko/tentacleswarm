@@ -92,6 +92,7 @@ tentacleswarm_destroy.0011 = {
 				limit = { 
 					tier = tier_county 
 				}
+				set_county_faith = scope:lucky.faith
 				save_scope_as = target
 				scope:target = {#拿头衔
 					change_title_holder_include_vassals = {

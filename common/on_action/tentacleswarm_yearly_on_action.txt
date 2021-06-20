@@ -161,23 +161,23 @@ tentacleswarm_yearly_playable_pulse = {
 		}	
 		if = {
 			limit = { has_religion = religion:tentacleswarm_religion } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 0 } #如果统治者信奉触手宗教
+			change_variable =  { name = tentacleswarm_corruption_add add = 0 } #如果统治者信奉
 		}
 		every_spouse = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是触手奴隶，配偶一般也是宾客
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶信奉触手宗教
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶信奉
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0.5 } }#如果宾客是触手奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1 } }#如果宾客是奴隶
 		}
 		every_courtier_or_guest = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0  } }#如果宾客信奉触手宗教
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0  } }#如果宾客信奉
 		}
 		if = {
 			limit = { #摧毁失去所有栖息地的触手领主的国家
@@ -215,26 +215,26 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#计算自然增长率
-					set_variable =  { name = tentacleswarm_corruption_growth value = 95 } #基础衰减	
+					set_variable =  { name = tentacleswarm_corruption_growth value = 90 } #基础衰减	
 					#本地信仰修正
 					if = {
 						limit = { 
 							faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = -30 } #本地敌视
+						change_variable =  { name = tentacleswarm_corruption_growth add = -60 } #本地敌视
 					}
 					else_if = {
 						limit = { 
 							religion = religion:tentacleswarm_religion
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 30 } #本地信奉触手宗教
+						change_variable =  { name = tentacleswarm_corruption_growth add = 30 } #本地信奉触手宗教 
 					}
 					else_if = {
 						limit = { 
 							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
 							faith = { has_doctrine_parameter = adultery_female_crime }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = -20 } #本地罪行
+						change_variable =  { name = tentacleswarm_corruption_growth add = -30 } #本地罪行
 					}
 					else_if = {
 						limit = { 
@@ -253,13 +253,13 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_growth add = 35 } #播种令
+						change_variable =  { name = tentacleswarm_corruption_growth add = 50 } #播种令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_growth 
 						add = {
 							value = development_level 
-							multiply = 1.5
+							multiply = 2.0
 						}
 					}
 					if = {
@@ -279,8 +279,8 @@ tentacleswarm_yearly_playable_pulse = {
 					
 					#腐化超上限的话，加速衰减
 					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 300 } }
-						change_variable =  { name = tentacleswarm_corruption multiply = 0.9 }
+						limit = { var:tentacleswarm_corruption = { compare_value > 200 } }
+						change_variable =  { name = tentacleswarm_corruption multiply = 0.8 }
 					}
 					if = {
 						limit = { var:tentacleswarm_corruption = { compare_value > 1000 } }
@@ -299,10 +299,10 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						set_variable =  { name = tentacleswarm_corruption_imigrant value = scope:county.var:tentacleswarm_corruption }
 						change_variable =  { name = tentacleswarm_corruption_imigrant subtract = var:tentacleswarm_corruption }
-						change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.05 }
+						change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.3 }
 						if = {
 							limit = { var:tentacleswarm_corruption_imigrant = { compare_value <= 0 } }
-							change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0.3 }
+							change_variable =  { name = tentacleswarm_corruption_imigrant multiply = 0 }
 						}
 						change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_imigrant }
 						tentacleswarm_corruption_county_check = yes
