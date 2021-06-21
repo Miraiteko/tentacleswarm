@@ -46,16 +46,19 @@ tentacleswarm_destroy.0011 = {
 				tier = tier_county 
 			}
 			save_scope_as = target
-			random_living_character = {
-				limit = {
-					is_pool_character = yes
-					is_tentacle_slave = no
-					is_male = yes
-					not = { has_religion = religion:tentacleswarm_religion }
-					has_culture_group = scope:target.culture_group
-					fertility > 0
+			if = {
+				limit = { NOT = { exists = scope:lucky }  }
+				random_living_character = {
+					limit = {
+						is_pool_character = yes
+						is_tentacle_slave = no
+						is_male = yes
+						not = { has_religion = religion:tentacleswarm_religion }
+						has_culture_group = scope:target.culture_group
+						fertility > 0
+					}
+					save_scope_as = lucky
 				}
-				save_scope_as = lucky
 			}
 			if = {
 				limit = { NOT = { exists = scope:lucky }  }
@@ -65,6 +68,18 @@ tentacleswarm_destroy.0011 = {
 						is_tentacle_slave = no
 						not = { has_religion = religion:tentacleswarm_religion }
 					}
+					save_scope_as = lucky
+				}
+			}
+			if = {
+				limit = { NOT = { exists = scope:lucky }  }
+				create_character = {
+					age = 30
+					gender = male
+					random_traits = yes
+					location = scope:target.title_province
+					culture = scope:target.culture
+					faith = faith:pagan 
 					save_scope_as = lucky
 				}
 			}
@@ -137,6 +152,7 @@ tentacleswarm_destroy.0011 = {
 			limit = { 
 				tier = tier_county 
 			}
+			set_county_faith = scope:lucky.faith
 			save_scope_as = target
 			scope:target = {#拿头衔
 				change_title_holder_include_vassals = {

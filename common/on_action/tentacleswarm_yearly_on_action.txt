@@ -49,6 +49,20 @@ tentacleswarm_yearly_global_pulse = {
 		}
 		#成就检测
 		tentacleswarm_yearly_check = yes
+		#每年刷一个爬杆男出来，防止找接盘侠不到人
+		random_county = {
+			save_scope_as = target
+		}
+		create_character = {
+			age = 30
+			name = "Cheri"
+			gender = male
+			random_traits = yes
+			location = scope:target.title_province
+			culture = scope:target.culture
+			faith = faith:pagan 
+			save_scope_as = lucky
+		}
 	}
 }
 #每个人年度触发
