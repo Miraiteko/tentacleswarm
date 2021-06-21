@@ -1,5 +1,5 @@
 ﻿#费洛蒙响应
-tentacleswarm_4VA_pulse = {
+tentacleswarm_4VA_pulse = { 
 	effect = {
 		save_scope_as = actor
 		if = {

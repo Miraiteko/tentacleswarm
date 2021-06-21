@@ -166,6 +166,17 @@ tentacleswarm_4VA = {
 	}
 
 	
+	if ={
+		limit = { 
+			debug_only = yes 
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+			capital_county = {
+				NOT =  { has_county_modifier = tentacleswarm_destroy }
+			}
+		}
+		capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
+	}
 	#释放费洛蒙给周围领主
 	save_scope_as = 4VA_from 
 	custom_tooltip = tentacle_neighboring_4VA_tooltip
@@ -181,12 +192,6 @@ tentacleswarm_4VA = {
 					days = { 10 60 }
 				}
 			}
-			if ={
-				limit = { 
-					debug_only = yes 
-				}
-				every_county_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
-			}
 		}
 		#上级领主
 		every_liege_or_above = {
@@ -200,12 +205,6 @@ tentacleswarm_4VA = {
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
 				days = { 10 60 }
-			}
-			if ={
-				limit = { 
-					debug_only = yes 
-				}
-				capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
 			}
 		}
 		#封臣
@@ -221,12 +220,6 @@ tentacleswarm_4VA = {
 				on_action = tentacleswarm_4VA_pulse
 				days = { 10 60 }
 			}
-			if ={
-				limit = { 
-					debug_only = yes 
-				}
-				capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
-			}
 		}
 		#战争对象
 		every_war_enemy = {
@@ -240,12 +233,6 @@ tentacleswarm_4VA = {
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
 				days = { 10 60 }
-			}
-			if ={
-				limit = { 
-					debug_only = yes 
-				}
-				capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
 			}
 		}
 	}

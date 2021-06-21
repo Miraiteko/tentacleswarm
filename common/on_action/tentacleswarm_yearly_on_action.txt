@@ -283,8 +283,8 @@ tentacleswarm_yearly_playable_pulse = {
 						change_variable =  { name = tentacleswarm_corruption multiply = 0.8 }
 					}
 					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 1000 } }
-						set_variable =  { name = tentacleswarm_corruption value = 1000 }
+						limit = { var:tentacleswarm_corruption = { compare_value > 300 } }
+						set_variable =  { name = tentacleswarm_corruption value = 300 }
 					}
 					if = {
 						limit = { var:tentacleswarm_corruption = { compare_value < 0 } }
@@ -440,21 +440,6 @@ tentacleswarm_yearly_playable_pulse = {
 								#还能从破坏中获得钱和虔诚
 								add_gold = 50
 								add_piety = 50
-							}
-						}
-					}
-					#高沉睡巨兽数量会造成4VA
-					if = {
-						limit = {
-							NOT =  { has_county_modifier = tentacleswarm_destroy }
-							var:tentacleswarm_corruption_warbeast = { 
-								compare_value >= faith:tentacleswarm_slavery.var:tentacleswarm_cap 
-							}
-						}
-						holder = { 
-							trigger_event = {
-								on_action = tentacleswarm_4VA_pulse
-								days = { 10 60 }
 							}
 						}
 					}

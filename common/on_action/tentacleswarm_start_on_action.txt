@@ -20,12 +20,6 @@ tentacleswarm_on_game_start = {
 				}
 			}
 		}
-		#所有生成天灾阈值
-		every_religion_global = {
-			every_faith = {
-				set_variable = { name = tentacleswarm_cap value = 1200 } 	
-			}
-		}
 		#初始奴隶生成，
 		set_global_variable = { name = start_tentacle_slave_count value = 0 }
 		random_ruler = {
@@ -120,9 +114,6 @@ on_faith_created = {
 }
 tentacleswarm_on_faith_created = {
 	effect = {
-		faith = {
-			set_variable = { name = tentacleswarm_cap value = scope:old_faith.var:tentacleswarm_cap }
-		}
 	}
 }
 on_death = {
