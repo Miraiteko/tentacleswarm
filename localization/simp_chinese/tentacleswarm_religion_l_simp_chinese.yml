@@ -85,3 +85,18 @@ tentacleswarm_remarry_decision_desc_f:0 "根据我们的宗教信仰，男性通
 tentacleswarm_remarry_decision_desc_m:0 "根据我们的宗教信仰，女性通常在婚姻中从属于男性。\n但是由于某些原因，我却错误地从属于我身份卑微的妻子。\n是时候拨乱反正了。"
 tentacleswarm_remarry_decision_tooltip:0 "获得婚姻主导权"
 tentacleswarm_remarry_decision_confirm:0 "纠正错误的婚姻"
+
+#圣地相关
+ holy_site_tentacleswarm_petra_name:0 "佩特拉"
+ holy_site_tentacleswarm_petra_effects:0 "#S;EMP 原初之城：#!\n主人初次降临人间。"
+ holy_site_tentacleswarm_giza_name:0 "吉萨"
+ holy_site_tentacleswarm_giza_effects:0 "#S;EMP 大方尖碑：#!\n古代的屈服者们为主人修建了巨大的方尖碑来宣誓主人的权威。"
+ holy_site_c_giza_effect_name:0 "#S;EMP 大方尖碑：#!\n"
+ holy_site_tentacleswarm_madeira_name:0 "马代拉"
+ holy_site_tentacleswarm_madeira_effects:0 "#S;EMP 亚特兰蒂斯：#!\n曾经，屈服者们试图建立一座腐化巢城。"
+ holy_site_tentacleswarm_rhodos_name:0 "罗德岛"
+ holy_site_tentacleswarm_rhodos_effects:0 "#S;EMP 巨兽王座：#!\n最为强大的触手巨兽在此统治。"
+ holy_site_tentacleswarm_wiltshire_name:0 "威尔特"
+ holy_site_tentacleswarm_wiltshire_effects:0 "#S;EMP 奴隶花冠：#!\n最美丽的触手奴隶在所有人的仰慕之下被献给主人。"
+ holy_site_tentacleswarm_gaya_name:0 "伽耶"
+ holy_site_tentacleswarm_gaya_effects:0 "#S;EMP 远古颂唱：#!\n人类的先贤寻找和触手主人和睦共处的方式。"

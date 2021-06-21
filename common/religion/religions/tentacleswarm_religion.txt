@@ -197,12 +197,12 @@
 			color = { 0.37 0.15 0.61 }
 			icon = tentacleswarm_slavery
 
+			holy_site = tentacleswarm_petra
 			holy_site = tentacleswarm_giza
 			holy_site = tentacleswarm_madeira
 			holy_site = tentacleswarm_rhodos
 			holy_site = tentacleswarm_wiltshire
 			holy_site = tentacleswarm_gaya
-			holy_site = tentacleswarm_petra
 			
 			doctrine = tenet_carnal_exaltation #纵欲
 			doctrine = tenet_warmonger #战狂
