@@ -7,8 +7,13 @@ tentacle_baby_corruption_not_yet_tooltip = {
 }
 is_hidden_tentacle_slave_tooltip = {
 	global = is_hidden_tentacle_slave_tooltip
-	first = I_am_hidden_tentacle_slave_tooltip
+	first = has_tentacle_slave_body
 	global_not = not_hidden_tentacle_slave_tooltip
+}
+has_tentacle_slave_body_tooltip = {
+	global = has_tentacle_slave_body_tooltip
+	first = I_have_tentacle_slave_body_tooltip
+	global_not = not_has_tentacle_slave_body_tooltip
 }
 tentacleswarm_achievement_chaste_count_tooltip = {
 	global = tentacleswarm_achievement_chaste_count_tooltip

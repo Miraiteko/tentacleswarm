@@ -32,12 +32,12 @@ tentacleswarm_slave.0001 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_flag = tentacle_slave_body }
+			has_tentacle_slave_body = no
+		}
+		show_as_unavailable = { 
+			always = yes
 		}
 		name = tentacleswarm_slave.refuse
-		hidden_effect = { 
-			add_character_modifier = tentacle_slve_hide_modifier
-		}
 		add_stress = medium_stress_gain
 		trigger_event= {
 			id = tentacleswarm_slave.2002
@@ -88,7 +88,10 @@ tentacleswarm_slave.0012 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_flag = tentacle_slave_body }
+			has_tentacle_slave_body = no
+		}
+		show_as_unavailable = {
+			always = yes
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -155,7 +158,10 @@ tentacleswarm_slave.0022 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_flag = tentacle_slave_body }
+			has_tentacle_slave_body = no
+		}
+		show_as_unavailable = {
+			always = yes
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -237,7 +243,10 @@ tentacleswarm_slave.0032 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_flag = tentacle_slave_body }
+			has_tentacle_slave_body = no
+		}
+		show_as_unavailable = {
+			always = yes
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -264,7 +273,7 @@ tentacleswarm_slave.0041 = {
 	trigger = {
 		is_female = yes
 		fertility >= 0.1
-	}
+	}  
 	option = {
 		name = tentacleswarm_slave.0041.a
 		trigger_event = {
@@ -306,7 +315,10 @@ tentacleswarm_slave.0042 = {
 	option = {
 		trigger = {
 			is_ai = no
-			NOT = { has_character_flag = tentacle_slave_body }
+			has_tentacle_slave_body = no
+		}
+		show_as_unavailable = {
+			always = yes
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes

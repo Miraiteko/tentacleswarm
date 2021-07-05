@@ -28,6 +28,10 @@
 			id = tentacleswarm_slave.0021 #水井杀
 			days = { 50 200 }
 		}
+		trigger_event = { #恶趣味
+			id = tentacleswarm_slave.0021 #再来一次
+			days = { 400 500 }
+		}
 	}
 	
 	ai_check_interval = 0
