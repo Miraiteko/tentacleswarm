@@ -1,12 +1,12 @@
 ﻿tentacleswarm_warbeast = {
-	type = heavy_cavalry
+	type = tentacleswarm_warbeast
 	
 	can_recruit = no #只有事件能出
 
 	damage = 1600
 	toughness = 800
 	pursuit = 200
-	screen = 50
+	screen = 100
 	
 	siege_tier = 4
 	siege_value = 1

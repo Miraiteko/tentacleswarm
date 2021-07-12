@@ -1,0 +1,7 @@
+﻿tentacleswarm_corruption = {
+	parent = county_modifier
+}
+
+tentacleswarm_warbeast = {
+	parent = men_at_arms
+}

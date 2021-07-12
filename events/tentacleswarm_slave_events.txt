@@ -35,7 +35,7 @@ tentacleswarm_slave.0001 = {
 			has_tentacle_slave_body = no
 		}
 		show_as_unavailable = { 
-			always = yes
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		add_stress = medium_stress_gain
@@ -91,7 +91,7 @@ tentacleswarm_slave.0012 = {
 			has_tentacle_slave_body = no
 		}
 		show_as_unavailable = {
-			always = yes
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -161,7 +161,7 @@ tentacleswarm_slave.0022 = {
 			has_tentacle_slave_body = no
 		}
 		show_as_unavailable = {
-			always = yes
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -246,7 +246,7 @@ tentacleswarm_slave.0032 = {
 			has_tentacle_slave_body = no
 		}
 		show_as_unavailable = {
-			always = yes
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
@@ -318,7 +318,7 @@ tentacleswarm_slave.0042 = {
 			has_tentacle_slave_body = no
 		}
 		show_as_unavailable = {
-			always = yes
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_refuse = yes
