@@ -676,7 +676,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 					random_realm_county = {
 						limit = { 
 							development_level >= scope:actor.var:max_held_development
-							building_garrison <= scope:actor.max_military_strength #能围下来
+							building_levies <= scope:actor.max_military_strength #能围下来
 						}
 						save_scope_as = target
 					}

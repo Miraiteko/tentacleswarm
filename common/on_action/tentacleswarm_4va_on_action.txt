@@ -171,14 +171,14 @@ tentacleswarm_4VA_pulse = {
 							holder = {
 								target_is_same_character_or_above = scope:4VA_from
 							}
-							building_garrison <= scope:actor.max_military_strength #能围下来
+							building_levies <= scope:actor.max_military_strength #能围下来
 						}
 						save_scope_as = target_county
 					}
 					if = { #否则就打首都
 						limit = {
 							NOT = { exists = scope:target_county }
-							scope:target_character.capital_county.building_garrison <= scope:actor.max_military_strength #能围下首都
+							scope:target_character.capital_county.building_levies <= scope:actor.max_military_strength #能围下首都
 						}
 						scope:target_character = {
 							capital_county = {
