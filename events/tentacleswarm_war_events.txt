@@ -204,6 +204,7 @@ tentacleswarm_war.0002 ={
 			random_realm_county = {
 				limit = { 
 					development_level >= scope:actor.var:max_held_development
+					building_garrison <= scope:actor.max_military_strength #足够弱
 				}
 				save_scope_as = target
 			}

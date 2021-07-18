@@ -676,12 +676,14 @@ tentacleswarm_random_yearly_playable_pulse = {
 					random_realm_county = {
 						limit = { 
 							development_level >= scope:actor.var:max_held_development
+							building_garrison <= scope:actor.max_military_strength #能围下来
 						}
 						save_scope_as = target
 					}
 					if = {
 						limit = {
 							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+							exists = scope:target
 						}
 						scope:actor = {
 							start_war = { 
