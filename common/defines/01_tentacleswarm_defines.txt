@@ -1,0 +1,25 @@
+﻿
+NCourt = {
+	# Number of spouses and commanders that should be available in a court.
+	# Characters will be spawned at game start and on succession, if no matching characters are available.
+	GENERATED_SPOUSES_BARONY_PER_HOLDING_KEYS = { "castle_holding" }
+	GENERATED_SPOUSES_BARONY_PER_HOLDING_VALUES = { 0 }
+	GENERATED_SPOUSES_COUNTY = 1
+	GENERATED_SPOUSES_DUCHY = 1
+	GENERATED_SPOUSES_KINGDOM = 1
+	GENERATED_SPOUSES_EMPIRE = 1
+	GENERATED_COMMANDERS_BARONY_PER_HOLDING_KEYS = {}
+	GENERATED_COMMANDERS_BARONY_PER_HOLDING_VALUES = {}
+	GENERATED_COMMANDERS_COUNTY = 0
+	GENERATED_COMMANDERS_DUCHY = 0
+	GENERATED_COMMANDERS_KINGDOM = 0
+	GENERATED_COMMANDERS_EMPIRE = 0
+
+	# Maximum number of adult courtiers and guests, per ruler tier. While it won't throw anyone out if the limit is exceeded, no new guests will arrive while at or above the cap. See also: MIN_GUESTS_PER_TIER.
+	MAX_COURTIERS_AND_GUESTS_PER_TIER = { 0 0 3 4 6 10 }
+	# Minimum number of adult guests, per ruler tier. Overrides MAX_COURTIERS_AND_GUESTS_PER_TIER to make sure there are always some guests even if the courtiers have reached the cap.
+	MIN_GUESTS_PER_TIER = { 0 0 0 0 0 0 }
+
+	# If the pools are empty and guests need to be generated, generate at most this many per month
+	MAX_GUESTS_TO_GENERATE = 1
+}
