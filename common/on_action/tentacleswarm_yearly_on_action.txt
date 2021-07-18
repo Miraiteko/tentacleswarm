@@ -518,10 +518,20 @@ tentacleswarm_yearly_modifier_check = {
 				limit = { has_character_modifier = tentacleswarm_spread}
 				remove_character_modifier = tentacleswarm_spread
 			}
-			#退出触手征服战争
+			#退出触手征服进攻战争
 			every_character_war = {
 				limit = { 
 					using_cb = tentacleswarm_conquest 
+					is_attacker = prev
+					NOT = { is_war_leader = prev }
+				}
+				remove_participant = prev
+			}
+			#退出触手剿灭防御战争
+			every_character_war = {
+				limit = { 
+					using_cb = tentacleswarm_religious_war
+					is_defender = prev
 					NOT = { is_war_leader = prev }
 				}
 				remove_participant = prev
@@ -540,10 +550,20 @@ tentacleswarm_yearly_modifier_check = {
 				limit = { has_character_modifier = tentacleswarm_anti}
 				remove_character_modifier = tentacleswarm_anti
 			}
-			#退出触手灭杀战争
+			#退出触手征服防御战争
 			every_character_war = {
 				limit = { 
 					using_cb = tentacleswarm_religious_war
+					is_attacker = prev
+					NOT = { is_war_leader = prev }
+				}
+				remove_participant = prev
+			}
+			#退出触手剿灭进攻战争
+			every_character_war = {
+				limit = { 
+					using_cb = tentacleswarm_conquest
+					is_defender = prev
 					NOT = { is_war_leader = prev }
 				}
 				remove_participant = prev
