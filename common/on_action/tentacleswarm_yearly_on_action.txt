@@ -518,6 +518,15 @@ tentacleswarm_yearly_modifier_check = {
 				limit = { has_character_modifier = tentacleswarm_spread}
 				remove_character_modifier = tentacleswarm_spread
 			}
+		}
+		if = {
+			limit = { 
+				faith = {has_doctrine = doctrine_tentacle_slave_evil}
+				is_tentacle_slave = no
+			}
+			#敌对者开启灭杀令
+			#通过决议
+			
 			#退出触手征服进攻战争
 			every_character_war = {
 				limit = { 
@@ -536,14 +545,6 @@ tentacleswarm_yearly_modifier_check = {
 				}
 				remove_participant = prev
 			}
-		}
-		if = {
-			limit = { 
-				faith = {has_doctrine = doctrine_tentacle_slave_evil}
-				is_tentacle_slave = no
-			}
-			#敌对者开启灭杀令
-			#通过决议
 		}
 		else = {
 			if = { #非敌对者灭杀令无效化
