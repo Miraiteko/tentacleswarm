@@ -1,4 +1,5 @@
 ﻿l_simp_chinese:
+    #cb相关
     msg_tentacleswarm_war_invalidated_message:0 "[war.GetName]结束了：[defender.GetTitledFirstName]不再控制目标区域的任何土地。"
     tentacleswarm_cb_victory_desc_attacker:1 "你获得受争夺的[title|E]。\n如果你是独立领主的话，你会放弃已经被触手主人破坏殆尽的旧有土地。\n如果你是封臣的话，你将会把原来的土地归还给领主然后独立。"
     tentacleswarm_cb_victory_desc:0 "[attacker.GetShortUIName|U]获得受争夺的头衔。"
@@ -13,4 +14,30 @@
     
     RELIGIOUS_TENTACLE_WAR_NAME:0 "$ORDER$[TITLE.GetBaseName]触手剿灭圣战"
     HOLY_WAR_TENTACLE_NAME:0 "触手剿灭之圣战"
- 
+      
+     #巨兽相关
+     tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
+     tentacleswarm_corruption_warbeast.desc:0 "破坏[county.GetName]的强大触手怪物带着掠夺的财富加入了你的军队。"
+     tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
+     tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
+     
+     game_concept_tentacleswarm_warbeast:0 "触手战争巨兽"
+     game_concept_tentacleswarm_warbeast_desc:0 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。\n触手战争巨兽战斗力十分强悍，还能极大地加快攻城速度；但是，只有触手的奴隶们能够获得这些巨兽的帮助。"
+     tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
+     tentacleswarm_warbeast:0 "触手战争巨兽"
+     tentacleswarm_warbeast_flavor:1 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。"
+    tentacleswarm_warbeast_damage_mult:0 "[tentacleswarm_warbeast|E][damage|E]"
+    tentacleswarm_warbeast_toughness_mult:0 "[tentacleswarm_warbeast|E][toughness|E]"
+    tentacleswarm_warbeast_pursuit_mult:0 "[tentacleswarm_warbeast|E][pursuit|E]"
+    tentacleswarm_warbeast_screen_mult:0 "[tentacleswarm_warbeast|E][screen|E]"
+    tentacleswarm_warbeast_siege_value_mult:0 "[tentacleswarm_warbeast|E][siege_weapon|E]"
+    innovation_liquid_fire:0 "希腊火"
+    innovation_liquid_fire_desc:0 "希腊火是东罗马帝国所发明的一种可以在水上或水里燃烧的液态燃烧剂，为早期热兵器，主要应用于海战中。但是由于P社蠢驴没有制作海战，我们改为将希腊火用在陆战之中，用于高效消灭触手怪物。"
+    liquid_fire:0 "希腊火投掷兵"
+    liquid_fire_flavor:0 "#F 希腊火通常被应用于海战之中，但也可以装在罐子里面进行投掷，达到在战场上纵火的目的。#!"
+    innovation_gunpowder:0 "黑火药"
+    innovation_gunpowder_desc:0 "中国的炼丹家们在以外中发现这种能够引发爆炸的物质。随着工艺的改进，火药逐渐被应用到军事上来，引起了军事科技的重大变革。"
+    gunpowder:0 "火药箭"
+    gunpowder_flavor:0 "#F 早期的黑火药爆炸威力不强，但是纵火发烟的效果十分显著。可以附着在箭矢上射出，给与敌人强力的震慑。#!"
+    
+    #反触手兵种

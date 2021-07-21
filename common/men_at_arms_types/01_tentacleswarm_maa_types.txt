@@ -39,3 +39,60 @@
 	ai_quality = 1000
 	icon = war_elephants
 }
+liquid_fire = { #希腊火
+	type = skirmishers
+	
+	damage = 24
+	toughness = 14
+	pursuit = 0
+	screen = 30
+	
+	terrain_bonus = {
+		forest = { damage = 10 }
+		jungle = { damage = 8 }
+		wetlands = { damage = -5 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+		light_infantry = 1
+		tentacleswarm_warbeast = 10
+	}
+
+	buy_cost = { gold = 80 }
+	low_maintenance_cost = { gold = 0.5 }
+	high_maintenance_cost = { gold = 0.9 }
+	
+	stack = 100
+	ai_quality = { value = 60 }
+	icon = skirmishers
+}
+
+gunpowder = { #黑火药
+	type = archers
+	
+	damage = 35
+	toughness = 20
+	pursuit = 0
+	screen = 30
+	
+	terrain_bonus = {
+		hills = { damage = 10 toughness = 4 }
+		mountains = { damage = 8 toughness = 2 }
+		desert_mountains = { damage = 8 toughness = 2 }
+	}
+	
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		tentacleswarm_warbeast = 15
+	}
+
+	buy_cost = { gold = 90 }
+	low_maintenance_cost = { gold = 0.5 }
+	high_maintenance_cost = { gold = 0.9 }
+	
+	stack = 100
+	ai_quality = { value = 60 }
+	icon = skirmishers
+}

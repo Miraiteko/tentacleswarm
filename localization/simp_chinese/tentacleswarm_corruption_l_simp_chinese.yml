@@ -21,23 +21,7 @@
  tentacleswarm_destroy.0011.a:0 "这是我最好的归宿"
  tentacleswarm_destroy.0011.lucky.tt:0 "在你的国家毁灭之后，一些无名小卒占据了这片废土。"
  tentacleswarm_destroy.0011.b:0 "我想看看这片土地上还会发生什么故事"
- 
- #巨兽相关
- tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
- tentacleswarm_corruption_warbeast.desc:0 "破坏[county.GetName]的强大触手怪物带着掠夺的财富加入了你的军队。"
- tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
- tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
- 
- game_concept_tentacleswarm_warbeast:0 "触手战争巨兽"
- game_concept_tentacleswarm_warbeast_desc:0 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。\n触手战争巨兽战斗力十分强悍，还能极大地加快攻城速度；但是，只有触手的奴隶们能够获得这些巨兽的帮助。"
- tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
- tentacleswarm_warbeast:0 "触手战争巨兽"
- tentacleswarm_warbeast_flavor:1 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。"
-tentacleswarm_warbeast_damage_mult:0 "[tentacleswarm_warbeast|E][damage|E]"
-tentacleswarm_warbeast_toughness_mult:0 "[tentacleswarm_warbeast|E][toughness|E]"
-tentacleswarm_warbeast_pursuit_mult:0 "[tentacleswarm_warbeast|E][pursuit|E]"
-tentacleswarm_warbeast_screen_mult:0 "[tentacleswarm_warbeast|E][screen|E]"
-tentacleswarm_warbeast_siege_value_mult:0 "[tentacleswarm_warbeast|E][siege_weapon|E]"
+
  
  
  

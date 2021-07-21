@@ -1,0 +1,27 @@
+﻿innovation_liquid_fire = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_longboats.dds"
+
+	potential = {
+		this.culture_group = culture_group:byzantine_group
+	}
+
+	unlock_maa = liquid_fire
+
+	flag = global_maa
+}
+
+innovation_gunpowder = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_maa_01.dds"
+
+	potential = {
+		this.culture_group = culture_group:chinese_group
+	}
+
+	unlock_maa = gunpowder
+
+	flag = global_maa
+}
