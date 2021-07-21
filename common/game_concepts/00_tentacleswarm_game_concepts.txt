@@ -2,6 +2,6 @@
 	parent = county_modifier
 }
 
-tentacleswarm_warbeast = {
+tentacleswarm_warbeast_type = {
 	parent = men_at_arms
 }

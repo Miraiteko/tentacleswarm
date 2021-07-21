@@ -16,8 +16,8 @@ tentacle_slave = {
 	opinion_of_male_rulers = -100 
 	
 	#巨兽加成
-	tentacleswarm_warbeast_pursuit_mult = 1
-	tentacleswarm_warbeast_screen_mult = 1
+	tentacleswarm_warbeast_type_pursuit_mult = 1
+	tentacleswarm_warbeast_type_screen_mult = 1
 	
 	#蝗虫性格
 	ai_greed = very_high_positive_ai_value #贪婪

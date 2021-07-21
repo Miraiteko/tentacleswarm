@@ -1,5 +1,5 @@
 ﻿tentacleswarm_warbeast = {
-	type = tentacleswarm_warbeast
+	type = tentacleswarm_warbeast_type
 	
 	can_recruit = no #只有事件能出
 
@@ -55,7 +55,7 @@ liquid_fire = { #希腊火
 
 	counters = {
 		heavy_infantry = 1
-		tentacleswarm_warbeast = 10
+		tentacleswarm_warbeast_type = 10
 	}
 
 	buy_cost = { gold = 80 }
@@ -84,7 +84,7 @@ gunpowder = { #黑火药
 	counters = {
 		skirmishers = 1
 		heavy_infantry = 1
-		tentacleswarm_warbeast = 15
+		tentacleswarm_warbeast_type = 15
 	}
 
 	buy_cost = { gold = 95 }

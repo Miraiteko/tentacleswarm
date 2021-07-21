@@ -12,11 +12,11 @@
 		}		
 		character_modifier = {
 			#禁用巨兽
-			tentacleswarm_warbeast_damage_mult = -1
-			tentacleswarm_warbeast_toughness_mult = -1
-			tentacleswarm_warbeast_pursuit_mult = -1
-			tentacleswarm_warbeast_screen_mult = -1
-			tentacleswarm_warbeast_siege_value_mult = -1
+			tentacleswarm_warbeast_type_damage_mult = -1
+			tentacleswarm_warbeast_type_toughness_mult = -1
+			tentacleswarm_warbeast_type_pursuit_mult = -1
+			tentacleswarm_warbeast_type_screen_mult = -1
+			tentacleswarm_warbeast_type_siege_value_mult = -1
 		} 
 	}
 	doctrine_tentacle_slave_adultery = {#视作通奸
@@ -31,11 +31,11 @@
 		}		
 		character_modifier = {
 			#禁用巨兽
-			tentacleswarm_warbeast_damage_mult = -0.8
-			tentacleswarm_warbeast_toughness_mult = -0.8
-			tentacleswarm_warbeast_pursuit_mult = -0.8
-			tentacleswarm_warbeast_screen_mult = -0.8
-			tentacleswarm_warbeast_siege_value_mult = -0.8
+			tentacleswarm_warbeast_type_damage_mult = -0.8
+			tentacleswarm_warbeast_type_toughness_mult = -0.8
+			tentacleswarm_warbeast_type_pursuit_mult = -0.8
+			tentacleswarm_warbeast_type_screen_mult = -0.8
+			tentacleswarm_warbeast_type_siege_value_mult = -0.8
 		} 
 	}
 	doctrine_tentacle_slave_worship = {#推崇
