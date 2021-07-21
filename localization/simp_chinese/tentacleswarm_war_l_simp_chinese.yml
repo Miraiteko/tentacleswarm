@@ -24,7 +24,7 @@
      game_concept_tentacleswarm_warbeast:0 "触手战争巨兽"
      game_concept_tentacleswarm_warbeast_desc:0 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。\n触手战争巨兽战斗力十分强悍，还能极大地加快攻城速度；但是，只有触手的奴隶们能够获得这些巨兽的帮助。"
      tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
-     tentacleswarm_warbeast:0 "触手战争巨兽"
+     tentacleswarm_warbeast:2 "[tentacleswarm_warbeast|E]"
      tentacleswarm_warbeast_flavor:1 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。"
     tentacleswarm_warbeast_damage_mult:0 "[tentacleswarm_warbeast|E][damage|E]"
     tentacleswarm_warbeast_toughness_mult:0 "[tentacleswarm_warbeast|E][toughness|E]"

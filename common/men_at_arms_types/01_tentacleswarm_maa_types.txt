@@ -55,7 +55,6 @@ liquid_fire = { #希腊火
 
 	counters = {
 		heavy_infantry = 1
-		light_infantry = 1
 		tentacleswarm_warbeast = 10
 	}
 
@@ -64,14 +63,14 @@ liquid_fire = { #希腊火
 	high_maintenance_cost = { gold = 0.9 }
 	
 	stack = 100
-	ai_quality = { value = 60 }
+	ai_quality = { value = 50 }
 	icon = skirmishers
 }
 
 gunpowder = { #黑火药
 	type = archers
 	
-	damage = 35
+	damage = 36
 	toughness = 20
 	pursuit = 0
 	screen = 30
@@ -88,11 +87,11 @@ gunpowder = { #黑火药
 		tentacleswarm_warbeast = 15
 	}
 
-	buy_cost = { gold = 90 }
-	low_maintenance_cost = { gold = 0.5 }
-	high_maintenance_cost = { gold = 0.9 }
+	buy_cost = { gold = 95 }
+	low_maintenance_cost = { gold = 0.4 }
+	high_maintenance_cost = { gold = 1.2 }
 	
 	stack = 100
-	ai_quality = { value = 60 }
-	icon = skirmishers
+	ai_quality = { value = 70 }
+	icon = archers
 }
