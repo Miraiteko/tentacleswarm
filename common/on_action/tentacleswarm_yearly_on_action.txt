@@ -308,8 +308,15 @@ tentacleswarm_yearly_playable_pulse = {
 					
 					#衰减额的80%不会消失，而是迁移到随机相邻省份
 					set_variable =  { name = tentacleswarm_corruption_emigrant value = var:tentacleswarm_corruption_decrease }
-					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.8 }
+					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.4 } #迁移两次，每次40%
 					
+					random_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							NOT = { has_county_modifier = tentacleswarm_destroy }
+						}
+						change_variable =  { name = tentacleswarm_corruption add = scope:county.var:tentacleswarm_corruption_emigrant }
+						tentacleswarm_corruption_county_check = yes
+					}
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							NOT = { has_county_modifier = tentacleswarm_destroy }
