@@ -42,19 +42,8 @@ tentacleswarm_test_decision = {
 			limit = { 
 				tier = tier_county 
 			}
-			save_scope_as = target
+			add_county_modifier = county_increased_opinion_modifier
 		}
-		create_character = {
-			age = 30
-			name = "Cheri"
-			gender = male
-			random_traits = yes
-			location = scope:target.title_province
-			culture = scope:target.culture
-			faith = faith:pagan 
-			save_scope_as = lucky
-		}
-		scope:lucky = { add_gold = 100 }
 	}
 	
 	ai_check_interval = 0
