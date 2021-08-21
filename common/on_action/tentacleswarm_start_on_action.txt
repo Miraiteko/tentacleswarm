@@ -74,7 +74,7 @@ tentacleswarm_on_game_start = {
 			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = -1 }
 			change_variable =  { name = tentacleswarm_corruption_warbeast add = development_level }
 			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 0 } #初始的时候潜伏巨兽生成
-			set_variable =  { name = tentacleswarm_corruption_growth value = 60 }	
+			set_variable =  { name = tentacleswarm_corruption_decay value = 30 }	
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
 			if = {
