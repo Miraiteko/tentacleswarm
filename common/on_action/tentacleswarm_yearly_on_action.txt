@@ -310,36 +310,38 @@ tentacleswarm_yearly_playable_pulse = {
 					set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = var:tentacleswarm_corruption_decay }
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
-					
-					random_title_to_title_neighboring_and_across_water_county = {
-						limit = {
-							NOT = { has_county_modifier = tentacleswarm_destroy }
-						}
-						change_variable =  {
-							name = tentacleswarm_corruption 
-							add = {
-								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.5
+					if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
+						limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
+						random_title_to_title_neighboring_and_across_water_county = {
+							limit = {
+								NOT = { has_county_modifier = tentacleswarm_destroy }
 							}
-						}
-						tentacleswarm_corruption_county_check = yes
-					}					
-					random_title_to_title_neighboring_and_across_water_county = {
-						limit = {
-							NOT = { has_county_modifier = tentacleswarm_destroy }
-						}
-						change_variable =  {
-							name = tentacleswarm_corruption 
-							add = {
-								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.3
+							change_variable =  {
+								name = tentacleswarm_corruption 
+								add = {
+									value = scope:county.var:tentacleswarm_corruption_decrease 
+									multiply = 0.5
+								}
 							}
+							tentacleswarm_corruption_county_check = yes
+						}					
+						random_title_to_title_neighboring_and_across_water_county = {
+							limit = {
+								NOT = { has_county_modifier = tentacleswarm_destroy }
+							}
+							change_variable =  {
+								name = tentacleswarm_corruption 
+								add = {
+									value = scope:county.var:tentacleswarm_corruption_decrease 
+									multiply = 0.3
+								}
+							}
+							tentacleswarm_corruption_county_check = yes
 						}
-						tentacleswarm_corruption_county_check = yes
+						
+						#计算腐化度衰退
+						change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					}
-					
-					#计算腐化度衰退
-					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					
 					#领主宫廷带来的增长
 					change_variable =  { name = tentacleswarm_corruption add = holder.var:tentacleswarm_corruption_add }
