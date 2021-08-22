@@ -177,6 +177,12 @@ tentacleswarm_yearly_playable_pulse = {
 			limit = { has_religion = religion:tentacleswarm_religion } 
 			change_variable =  { name = tentacleswarm_corruption_add add = 0 } #如果统治者信奉
 		}
+		if = {
+			limit = { 
+				has_character_modifier = tentacleswarm_spread
+			}
+			change_variable =  { name = tentacleswarm_corruption_add add = 10 }  #如果统治者执行播种令
+		}
 		every_spouse = {
 			limit = { is_tentacle_slave = yes  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是奴隶，配偶一般也是宾客
@@ -301,27 +307,34 @@ tentacleswarm_yearly_playable_pulse = {
 
 					
 					#计算衰减额度
-					save_scope_as = county
 					set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = var:tentacleswarm_corruption_decay }
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
 					
-					#衰减额的80%不会消失，而是迁移到随机相邻省份
-					set_variable =  { name = tentacleswarm_corruption_emigrant value = var:tentacleswarm_corruption_decrease }
-					change_variable =  { name = tentacleswarm_corruption_emigrant multiply = 0.4 } #迁移两次，每次40%
-					
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							NOT = { has_county_modifier = tentacleswarm_destroy }
 						}
-						change_variable =  { name = tentacleswarm_corruption add = scope:county.var:tentacleswarm_corruption_emigrant }
+						change_variable =  {
+							name = tentacleswarm_corruption 
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.5
+							}
+						}
 						tentacleswarm_corruption_county_check = yes
-					}
+					}					
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							NOT = { has_county_modifier = tentacleswarm_destroy }
 						}
-						change_variable =  { name = tentacleswarm_corruption add = scope:county.var:tentacleswarm_corruption_emigrant }
+						change_variable =  {
+							name = tentacleswarm_corruption 
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.3
+							}
+						}
 						tentacleswarm_corruption_county_check = yes
 					}
 					
