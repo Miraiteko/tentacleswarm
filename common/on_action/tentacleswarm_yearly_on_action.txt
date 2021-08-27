@@ -247,7 +247,7 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							religion = religion:tentacleswarm_religion
 						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = -30 } #本地信奉触手宗教 
+						change_variable =  { name = tentacleswarm_corruption_decay add = -20 } #本地信奉触手宗教 
 					}
 					else_if = {
 						limit = { 

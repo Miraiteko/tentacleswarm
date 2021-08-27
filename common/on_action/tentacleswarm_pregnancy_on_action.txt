@@ -74,6 +74,18 @@ tentacleswarm_baby_corruption = {
 						add = 20
 						is_tentacle_slave = yes
 					}
+					modifier = { #美貌特质
+						add = 5
+						has_trait = beauty_good_1
+					}
+					modifier = { #美貌特质
+						add = 10
+						has_trait = beauty_good_2
+					}
+					modifier = { #美貌特质
+						add = 20
+						has_trait = beauty_good_3
+					}
 					trigger_event = {
 						id = tentacleswarm_slave.0021 #水井杀
 					}

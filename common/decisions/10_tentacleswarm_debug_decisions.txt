@@ -38,12 +38,7 @@ tentacleswarm_test_decision = {
 		exists = global_var:tentacleswarm_cheat
 	}	
 	effect = {
-		random_held_title = {
-			limit = { 
-				tier = tier_county 
-			}
-			add_county_modifier = county_increased_opinion_modifier
-		}
+		change_trait_rank = { trait = beauty_good rank = -4 max = 3 }
 	}
 	
 	ai_check_interval = 0

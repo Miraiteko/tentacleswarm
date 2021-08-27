@@ -74,7 +74,7 @@ tentacleswarm_destroy.0011 = {
 			if = {
 				limit = { NOT = { exists = scope:lucky }  }
 				create_character = {
-					age = 30
+					age = 16
 					gender = male
 					random_traits = yes
 					location = scope:target.title_province
