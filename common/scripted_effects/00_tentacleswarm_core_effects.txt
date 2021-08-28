@@ -260,9 +260,9 @@ become_congenital_tentacle_slave = { #成为天生奴隶
 	}
 	#受到祝福
 	random_list = {
-		60 = { change_trait_rank = { trait = beauty_good rank = 1 max = 3 } }
-		30 = { add_trait = fecund }
-		10 = { add_trait = albino }
+		85 = { change_trait_rank = { trait = beauty_good rank = 1 max = 3 } }
+		10 = { add_trait = fecund }
+		5 = { add_trait = albino }
 	}
 }
 become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者

@@ -123,7 +123,7 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 			else_if = { #体弱多病
 				limit = { NOT = { has_trait = infirm } }
 				trigger_event = {
-					id = health.7000
+					id = tentacleswarm_slave.1001
 				}
 			}
 			else_if = { #抑郁

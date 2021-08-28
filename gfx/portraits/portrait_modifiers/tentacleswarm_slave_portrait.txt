@@ -1,0 +1,42 @@
+﻿congenital_tentacle_slave = {
+
+	usage = game
+
+	congenital_tentacle_slave = {
+		dna_modifiers = {
+			morph = {
+				mode = modify
+				gene = gene_bs_eye_size
+				value = 1.0
+				template = eye_size_pos
+			}
+			morph = {
+				mode = modify
+				gene = gene_eye_shut
+				value = -0.3
+				template = eye_shut_pos
+			}
+			color = {
+				gene = skin_color
+				mode = modify
+				
+				x = 0.0
+				y = -0.05
+			}
+			color = {
+				gene = eye_color
+				mode = replace
+					
+				x = 1.0
+				y = 0.3
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				is_congenital_tentacle_slave = yes
+			}			
+		}
+	}
+}

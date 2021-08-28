@@ -8,7 +8,7 @@ tentacle_slave = {
 	health_trait = yes #健康特质
 	
 	#高生育
-	fertility = 0.5
+	#fertility = 0.5
 	
 	#讨厌其他宗教
 	opinion_of_different_faith = -100
