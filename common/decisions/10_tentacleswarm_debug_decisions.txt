@@ -35,10 +35,19 @@ tentacleswarm_test_decision = {
 	
 	is_valid = { 
 		is_ai = no
-		exists = global_var:tentacleswarm_cheat
 	}	
 	effect = {
-		change_trait_rank = { trait = beauty_good rank = -4 max = 3 }
+		hidden_effect = {
+			every_county = {
+				set_variable =  { name = tentacleswarm_corruption value = 300 }
+				tentacleswarm_corruption_county_check = yes 
+			}
+		}
+		capital_county = {
+			#add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
+			#set_variable =  { name = tentacleswarm_corruption value = 300 }
+			#tentacleswarm_corruption_county_check = yes 
+		}
 	}
 	
 	ai_check_interval = 0

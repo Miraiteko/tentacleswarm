@@ -32,9 +32,7 @@ tentacleswarm_conquest = {
 	ignore_effect = change_title_holder #头衔变更类的效果不会在文本中显示
 
 	ai_can_target_all_titles = { #只有满足以下条件的AI会去考虑进攻任一目标。其余只攻击相邻
-		is_at_war = no
-		#max_military_strength > 15000
-		piety > 5000
+		always = no
 	}
 	
 	ai_score_mult = { #AI对目标的选择

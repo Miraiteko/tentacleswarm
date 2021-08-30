@@ -301,6 +301,7 @@ tentacleswarm_spread_start_decision = {
 	}	
 	effect = {
 		add_character_modifier = tentacleswarm_spread
+		change_government = tentacleswarm_government
 	}
 	
 	ai_check_interval = 0 #触手信仰自动开始

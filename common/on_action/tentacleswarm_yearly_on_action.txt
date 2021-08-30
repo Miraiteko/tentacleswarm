@@ -4,8 +4,8 @@ yearly_global_pulse = {
 		tentacleswarm_yearly_global_pulse
 	}
 }
-tentacleswarm_yearly_global_pulse = {
-	effect = {
+tentacleswarm_yearly_global_pulse = { 
+	effect = { 
 		#切分领主对象，避免O(n^2)的运算
 		clear_global_variable_list = tentacleswarm_slave_ruler #奴隶领主
 		clear_global_variable_list = tentacleswarm_main_slave_ruler #公爵以上奴隶领主
@@ -295,6 +295,10 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { var:tentacleswarm_corruption = { compare_value > 500 } }
 						change_variable =  { name = tentacleswarm_corruption_decay add = 20 }
 					}
+					if = {
+						limit = { var:tentacleswarm_corruption = { compare_value > 2000 } }
+						set_variable =  { name = tentacleswarm_corruption_decay value = 2000 }
+					}
 					#规范化
 					if = {
 						limit = { var:tentacleswarm_corruption_decay = { compare_value > 80 } }
@@ -540,6 +544,17 @@ tentacleswarm_yearly_modifier_check = {
 					is_tentacle_slave = yes #非奴隶没有兴趣
 				}
 				add_character_modifier = tentacleswarm_spread
+			}
+			if = { #信徒变政体
+				limit = { 
+					NOT = { has_government = tentacleswarm_government }
+					is_ai = yes #玩家自己点决议
+					is_tentacle_slave = yes #非奴隶没有兴趣
+					any_directly_owned_province = {
+						has_holding_type = tentacleswarm_holding
+					}
+				}
+				change_government = tentacleswarm_government
 			}
 		}
 		else = {
