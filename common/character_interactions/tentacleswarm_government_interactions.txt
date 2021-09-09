@@ -3,7 +3,7 @@
 	common_interaction = yes
 	interface_priority = 88
 	
-	cooldown_against_recipient = { years = 5 } #冷却时间
+	cooldown_against_recipient = { years = 3 } #冷却时间
 	
 	is_shown = {
 		scope:actor = { has_government = tentacleswarm_government }
@@ -21,7 +21,7 @@
 		scope:recipient = { 
 			is_vassal_or_below_of = scope:actor #是我境内的封臣
 			highest_held_title_tier > tier_county #伯爵以上
-			has_government = tentacleswarm_government #同为奴隶摄政
+			#has_government = tentacleswarm_government #同为奴隶摄政
 			is_landed = yes
 		}
 	}
@@ -86,7 +86,7 @@
 		highest_held_title_tier > tier_duchy
 	}
 	
-	ai_frequency = 3 #AI多久考虑一次	
+	ai_frequency = 1 #AI多久考虑一次	
 		
 	ai_targets = {
 		ai_recipients = vassals

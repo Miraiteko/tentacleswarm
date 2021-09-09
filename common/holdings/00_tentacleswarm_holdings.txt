@@ -1,6 +1,0 @@
-﻿tentacleswarm_holding = {
-	flag = tentacleswarm_holding
-	primary_building = tentacleswarm_cave_01
-	buildings = {
-	}
-}

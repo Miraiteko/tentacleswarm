@@ -550,9 +550,6 @@ tentacleswarm_yearly_modifier_check = {
 					NOT = { has_government = tentacleswarm_government }
 					is_ai = yes #玩家自己点决议
 					is_tentacle_slave = yes #非奴隶没有兴趣
-					any_directly_owned_province = {
-						has_holding_type = tentacleswarm_holding
-					}
 				}
 				change_government = tentacleswarm_government
 			}

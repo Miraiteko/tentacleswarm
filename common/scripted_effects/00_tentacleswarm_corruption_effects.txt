@@ -198,15 +198,6 @@ tentacleswarm_corruption_county_check = {
 					set_county_faith = faith:tentacleswarm_slavery
 				}
 			}
-			#地产类型变成深渊
-			title_province = { 
-				if = {
-					limit = {
-						NOT = { has_holding_type = tentacleswarm_holding }
-					}
-					set_holding_type = tentacleswarm_holding 
-				}
-			}
 		}
 		tentacleswarm_appear_effect_3 = yes #通知玩家
 	}

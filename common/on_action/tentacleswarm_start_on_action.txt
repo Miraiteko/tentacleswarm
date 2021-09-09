@@ -31,7 +31,7 @@ tentacleswarm_on_game_start = {
 		every_living_character = {
 			if = {
 				random_list = {
-					80 = {
+					0 = {
 					}
 					20 = {
 						become_congenital_tentacle_slave_carry = yes
