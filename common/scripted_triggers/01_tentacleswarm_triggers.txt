@@ -67,7 +67,6 @@ secret_tentacle_slave_is_evil_trigger = {
 	}
 }
 #是否是圣战
-
 is_religious_war = {
 	OR = {
 		using_cb = minor_religious_war
@@ -87,6 +86,15 @@ using_non_ghw_holy_war_cb_trigger = {
 		using_cb = major_religious_war
 		using_cb = tentacleswarm_conquest
 		using_cb = tentacleswarm_religious_war
+	}
+}
+#是否可以联盟均分继承
+can_have_confederate_partition_succession_law_trigger = {
+	OR = {
+		has_government = feudal_government
+		has_government = tribal_government
+		has_government = clan_government
+		has_government = tentacleswarm_government
 	}
 }
 #勒索是否可以执行。覆盖原版条件，导致兼容性下降

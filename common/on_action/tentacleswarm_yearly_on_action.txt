@@ -528,7 +528,6 @@ tentacleswarm_yearly_modifier_check = {
 					is_landed = yes
 				}
 				change_government = tentacleswarm_government
-				add_realm_law_skip_effects = tentacleswarm_single_heir_succession_law
 			}
 		}
 		else = {

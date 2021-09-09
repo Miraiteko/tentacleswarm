@@ -37,16 +37,12 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
+		become_congenital_tentacle_slave = yes
 		hidden_effect = {
 			every_county = {
-				set_variable =  { name = tentacleswarm_corruption value = 120 }
+				set_variable =  { name = tentacleswarm_corruption value = 100 }
 				tentacleswarm_corruption_county_check = yes 
 			}
-		}
-		capital_county = {
-			#add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
-			#set_variable =  { name = tentacleswarm_corruption value = 300 }
-			#tentacleswarm_corruption_county_check = yes 
 		}
 	}
 	
