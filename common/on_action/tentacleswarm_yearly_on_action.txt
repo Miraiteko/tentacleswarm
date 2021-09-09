@@ -516,6 +516,7 @@ tentacleswarm_yearly_modifier_check = {
 					NOT = { has_character_modifier = tentacleswarm_spread }
 					is_ai = yes #玩家自己点决议
 					is_tentacle_slave = yes #非奴隶没有兴趣
+					is_landed = yes
 				}
 				add_character_modifier = tentacleswarm_spread
 			}
@@ -524,6 +525,7 @@ tentacleswarm_yearly_modifier_check = {
 					NOT = { has_government = tentacleswarm_government }
 					is_ai = yes #玩家自己点决议
 					is_tentacle_slave = yes #非奴隶没有兴趣
+					is_landed = yes
 				}
 				change_government = tentacleswarm_government
 				add_realm_law_skip_effects = tentacleswarm_single_heir_succession_law

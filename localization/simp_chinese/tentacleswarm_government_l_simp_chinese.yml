@@ -1,6 +1,6 @@
 ﻿l_simp_chinese:
  #政体
- tentacleswarm_government:0 "触手天灾制"
+ tentacleswarm_government:0 "天灾制"
  tentacleswarm_government_desc:0 "在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n但是在统合大片的土地，以及团结力量进行对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。\n\n统治者可以直辖大量的土地\n\n统治者可以随意地将封臣献祭，并且收回其土地\n\n统治者难以创建头衔\n\n统治低腐化的领地时会受到严重的控制力惩罚"
  tentacleswarm_succession_order_laws:0 "继承法"
  tentacleswarm_single_heir_succession_law:0 "首席奴隶继承"

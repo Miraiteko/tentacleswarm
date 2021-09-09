@@ -39,7 +39,7 @@ tentacleswarm_test_decision = {
 	effect = {
 		hidden_effect = {
 			every_county = {
-				set_variable =  { name = tentacleswarm_corruption value = 300 }
+				set_variable =  { name = tentacleswarm_corruption value = 120 }
 				tentacleswarm_corruption_county_check = yes 
 			}
 		}
