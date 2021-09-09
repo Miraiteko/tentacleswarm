@@ -401,15 +401,11 @@ tentacleswarm_yearly_playable_pulse = {
 						change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
 						if = {
 							limit = { development_level > 0 } 
+							change_development_level = -1
 							holder = {
 								save_scope_as = holder
 								if = {
-									limit = { has_religion = religion:tentacleswarm_religion }
-									scope:county = {
-										change_development_level = -1
-									}
-								}
-								else = {
+									limit = { NOT = { has_religion = religion:tentacleswarm_religion } }
 									send_interface_message = {
 										type = event_steward_task_bad
 										title = tentacleswarm_corruption_destroy.notification
@@ -418,9 +414,8 @@ tentacleswarm_yearly_playable_pulse = {
 										left_icon = scope:county
 										right_icon = scope:holder
 										goto = scope:county
-
 										scope:county = {
-											change_development_level = -1
+											custom_tooltip = tentacleswarm_achievement_chaste_get
 										}
 									}
 								}
@@ -430,21 +425,20 @@ tentacleswarm_yearly_playable_pulse = {
 						else = {
 							tentacleswarm_corruption_county_destroy_effect = yes #省份摧毁结算
 							holder = {
-								save_scope_as = holder
-								send_interface_message = {
-									type = event_steward_task_bad
-									title = tentacleswarm_corruption_destroy1.notification
-									desc = tentacleswarm_corruption_destroy1.desc
+								# send_interface_message = {
+									# type = event_steward_task_bad
+									# title = tentacleswarm_corruption_destroy1.notification
+									# desc = tentacleswarm_corruption_destroy1.desc
 									
-									left_icon = scope:county
-									right_icon = scope:holder
-									goto = scope:county
-									show_as_tooltip = {
-										scope:county = {
-											add_county_modifier = tentacleswarm_destroy
-										}
-									}
-								}
+									# left_icon = scope:county
+									# right_icon = scope:holder
+									# goto = scope:county
+									# show_as_tooltip = {
+										# scope:county = {
+											# add_county_modifier = tentacleswarm_destroy
+										# }
+									# }
+								# }
 							}
 						}
 						
@@ -453,20 +447,7 @@ tentacleswarm_yearly_playable_pulse = {
 								holder = { has_religion = religion:tentacleswarm_religion }
 							}
 							holder = { #战争巨兽
-								save_scope_as = holder
 								change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
-								send_interface_message = {
-									type = event_marshal_task_good
-									title = tentacleswarm_corruption_warbeast.notification
-									desc = tentacleswarm_corruption_warbeast.desc
-									
-									left_icon = scope:county
-									right_icon = scope:holder
-									goto = scope:county
-									#还能从破坏中获得钱和虔诚
-									add_gold = 50
-									add_piety = 50
-								}
 							}
 						}
 						else = { #否则的话，巨兽在破坏完之后，沉睡了
@@ -480,20 +461,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
 						holder = { #战争巨兽
-							save_scope_as = holder
 							change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
-							send_interface_message = {
-								type = event_marshal_task_good
-								title = tentacleswarm_corruption_warbeast1.notification
-								desc = tentacleswarm_corruption_warbeast1.desc
-								
-								left_icon = scope:county
-								right_icon = scope:holder
-								goto = scope:county
-								#还能从破坏中获得钱和虔诚
-								add_gold = 50
-								add_piety = 50
-							}
 						}
 					}
 				}

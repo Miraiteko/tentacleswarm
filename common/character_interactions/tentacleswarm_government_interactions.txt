@@ -16,7 +16,7 @@
 		scope:actor = { has_government = tentacleswarm_government }
 		NOT = { scope:recipient = scope:actor }#不能搞自己
 		scope:actor  = {
-			highest_held_title_tier > tier_duchy
+			highest_held_title_tier >= tier_duchy
 			is_landed = yes
 		}
 		scope:recipient = { 
@@ -27,7 +27,7 @@
 	is_valid = {
 		scope:recipient = { 
 			is_vassal_or_below_of = scope:actor #是我境内的封臣
-			highest_held_title_tier > tier_county #伯爵以上
+			highest_held_title_tier >= tier_county #伯爵以上
 			#has_government = tentacleswarm_government #同为奴隶摄政
 			is_landed = yes
 		}

@@ -140,10 +140,6 @@ tentacleswarm_suicide = {
 					highest_held_title_tier >=tier_county
 				}
 				custom_tooltip = tentacleswarm_suicide_tt
-				capital_county = {
-					change_variable =  { name = tentacleswarm_corruption add = 1 }
-					tentacleswarm_corruption_county_check = yes
-				}
 			}
 		}
 		
