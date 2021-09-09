@@ -403,18 +403,25 @@ tentacleswarm_yearly_playable_pulse = {
 							limit = { development_level > 0 } 
 							holder = {
 								save_scope_as = holder
-								send_interface_message = {
-									type = event_steward_task_bad
-									title = tentacleswarm_corruption_destroy.notification
-									desc = tentacleswarm_corruption_destroy.desc
-									
-									left_icon = scope:county
-									right_icon = scope:holder
-									goto = scope:county
-									#tooltip = tentacleswarm_corruption_destroy.tooltip
-
+								if = {
+									limit = { has_religion = religion:tentacleswarm_religion }
 									scope:county = {
 										change_development_level = -1
+									}
+								}
+								else = {
+									send_interface_message = {
+										type = event_steward_task_bad
+										title = tentacleswarm_corruption_destroy.notification
+										desc = tentacleswarm_corruption_destroy.desc
+										
+										left_icon = scope:county
+										right_icon = scope:holder
+										goto = scope:county
+
+										scope:county = {
+											change_development_level = -1
+										}
 									}
 								}
 							}
@@ -464,7 +471,6 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						else = { #否则的话，巨兽在破坏完之后，沉睡了
 							change_variable =  { name = tentacleswarm_corruption_warbeast add = 100 }
-							#高沉睡数量造成4VA
 						}
 					}
 					if = {
@@ -552,6 +558,7 @@ tentacleswarm_yearly_modifier_check = {
 					is_tentacle_slave = yes #非奴隶没有兴趣
 				}
 				change_government = tentacleswarm_government
+				add_realm_law_skip_effects = tentacleswarm_single_heir_succession_law
 			}
 		}
 		else = {

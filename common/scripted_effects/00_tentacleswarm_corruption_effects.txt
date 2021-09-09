@@ -30,6 +30,36 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_0 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_0
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
+		}
 	}
 	else_if = { #一档
 		limit = {
@@ -57,6 +87,36 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
+		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_0 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_0
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
 		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
@@ -87,6 +147,36 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_1 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_1
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
+		}
 		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
 	else_if = { #三档
@@ -115,6 +205,36 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
+		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_2 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_2
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
 		tentacleswarm_appear_effect_2 = yes #通知玩家
 	}
@@ -145,6 +265,36 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
 			remove_county_modifier = tentacleswarm_corruption_5
 		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_3 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_3
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
+		}
 		tentacleswarm_appear_effect_2 = yes #通知玩家
 	}
 	else = { #五档
@@ -170,6 +320,36 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_5 }}
 			add_county_modifier = tentacleswarm_corruption_5
+		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_4 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_4
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_4
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_4
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
 		}
 		#地狱造成本地4VA
 		holder = { 
@@ -288,6 +468,27 @@ tentacleswarm_corruption_county_destroy_effect = {
 		limit = { has_county_modifier = tentacleswarm_corruption_5 }
 		remove_county_modifier = tentacleswarm_corruption_5
 		add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
+	}
+	#清除控制力修正
+	if = {
+		limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+		remove_county_modifier = tentacleswarm_corruption_control_0
+	}
+	if = {
+		limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+		remove_county_modifier = tentacleswarm_corruption_control_1
+	}
+	if = {
+		limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+		remove_county_modifier = tentacleswarm_corruption_control_2
+	}
+	if = {
+		limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+		remove_county_modifier = tentacleswarm_corruption_control_3
+	}
+	if = {
+		limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+		remove_county_modifier = tentacleswarm_corruption_control_4
 	}
 }
 

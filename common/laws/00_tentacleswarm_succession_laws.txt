@@ -1,86 +1,5 @@
 ﻿tentacleswarm_succession_order_laws = {
 	flag = succession_order_laws
-
-	tentacleswarm_partition_succession_law = {
-		can_keep = {
-			has_government = tentacleswarm_government
-		}
-		can_pass = {
-			has_government = tentacleswarm_government
-		}
-		can_have = {
-			has_government = tentacleswarm_government
-		}
-		should_start_with = {
-			has_government = tentacleswarm_government
-		}
-		succession = {
-			order_of_succession = inheritance
-			traversal_order = children
-			rank = oldest
-			title_division = partition
-			faith = same_religion
-		}
-		flag = partition_succession_law
-		modifier = {
-			direct_vassal_opinion = 5
-			player_heir_opinion = 10
-			eligible_child_except_player_heir_opinion = 5
-		}
-		pass_cost = {
-			prestige = change_succession_law_prestige_cost
-		}
-
-		ai_will_do = {
-			if = {
-				limit = { has_realm_law = confederate_partition_succession_law }
-				value = 1
-			}
-		}
-	}
-
-	tentacleswarm_high_partition_succession_law = {
-		can_keep = {
-			has_government = tentacleswarm_government
-		}
-		can_pass = {
-			has_government = tentacleswarm_government
-		}
-		can_have = {
-			has_government = tentacleswarm_government
-		}
-		should_start_with = {
-			always = no
-		}
-		succession = {
-			order_of_succession = inheritance
-			traversal_order = children
-			rank = oldest
-			title_division = partition
-			primary_heir_minimum_share = 0.5
-			faith = same_religion
-		}
-		flag = partition_succession_law
-		modifier = {
-			direct_vassal_opinion = 5
-			player_heir_opinion = 15
-		}
-		pass_cost = {
-			prestige = change_succession_law_prestige_cost
-		}
-
-		ai_will_do = {
-			if = {
-				limit = {
-					OR = {
-						has_realm_law = confederate_partition_succession_law
-						has_realm_law = tentacleswarm_partition_succession_law
-					}
-				}
-				value = 2
-			}
-		}
-	}
 	
 	tentacleswarm_single_heir_succession_law = {
 		can_keep = {
@@ -103,10 +22,6 @@
 			faith = same_religion
 		}
 		flag = advanced_succession_law
-		modifier = {
-			player_heir_opinion = 20
-			eligible_child_except_player_heir_opinion = -5
-		}
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
 		}
@@ -115,45 +30,7 @@
 		}
 
 		ai_will_do = {
-			value = 0
-		}
-	}
-	
-	tentacleswarm_single_heir_succession_law_youngest = {
-		can_keep = {
-			has_government = tentacleswarm_government
-		}
-		can_pass = {
-			has_government = tentacleswarm_government
-		}
-		can_have = {
-			has_government = tentacleswarm_government
-		}
-		should_start_with = {
-			always = no
-		}
-		succession = {
-			order_of_succession = inheritance
-			traversal_order = children
-			rank = youngest
-			title_division = single_heir
-			faith = same_religion
-		}
-		
-		flag = advanced_succession_law
-		modifier = {
-			player_heir_opinion = 20
-			eligible_child_except_player_heir_opinion = -5
-		}
-		pass_cost = {
-			prestige = change_succession_law_prestige_cost
-		}
-		revoke_cost = {
-			prestige = change_succession_law_prestige_cost
-		}
-
-		ai_will_do = {
-			value = 0
+			value = 5
 		}
 	}
 }

@@ -11,7 +11,7 @@
 
 	fallback = 2
 	
-	create_cadet_branches = yes
+	create_cadet_branches = no
 	rulers_should_have_dynasty = yes
 	dynasty_named_realms = yes
 
@@ -19,7 +19,7 @@
 
 	character_modifier = {
 		ai_war_chance = 1.0
-		domain_limit = 300
+		domain_limit = 1000
 		
 		title_creation_cost_mult = 100 #不让建头衔（不然会把扒掉的地又建好头衔封出去）
 		feudal_government_vassal_opinion = -20

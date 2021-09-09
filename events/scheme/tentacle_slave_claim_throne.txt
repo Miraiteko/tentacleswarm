@@ -53,6 +53,7 @@ tentacle_slave_claim_throne.1001 = {
 					every_held_title = {
 						limit = {
 							tier >= tier_county
+							is_landed = yes
 						}
 						add_to_list = target_titles
 					}

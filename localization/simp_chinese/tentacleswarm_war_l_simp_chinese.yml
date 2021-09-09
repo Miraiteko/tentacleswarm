@@ -17,7 +17,7 @@
       
      #巨兽相关
      tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
-     tentacleswarm_corruption_warbeast.desc:0 "破坏[county.GetName]的强大触手怪物带着掠夺的财富加入了你的军队。"
+     tentacleswarm_corruption_warbeast.desc:0 "强大的触手怪物破坏了[county.GetName]的聚落，带着掠夺的财富加入了你的军队。"
      tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
      tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
      
