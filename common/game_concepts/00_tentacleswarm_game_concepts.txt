@@ -5,3 +5,7 @@
 tentacleswarm_warbeast_type = {
 	parent = men_at_arms
 }
+
+tentacleswarm_government = {
+	parent = government
+}

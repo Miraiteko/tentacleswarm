@@ -98,7 +98,6 @@
 	}
 	ai_potential = {
 		highest_held_title_tier > tier_duchy
-		NOT = { is_close_or_extended_family_of = scope:recipient }#AI不会对近亲使用
 	}
 	
 	ai_frequency = 3 #AI多久考虑一次	
@@ -107,6 +106,17 @@
 		ai_recipients = vassals
 	}
 	ai_will_do = {
-		base = 300
+		base = 100
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				OR = {#AI不会对近亲或朋友使用
+					has_relation_friend = scope:actor
+					has_relation_best_friend = scope:actor
+					has_relation_soulmate = scope:actor
+					is_close_or_extended_family_of = = scope:actor
+				}
+			}
+		}
 	}
 }

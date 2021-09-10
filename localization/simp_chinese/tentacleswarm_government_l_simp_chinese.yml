@@ -1,7 +1,13 @@
 ﻿l_simp_chinese:
  #政体
+ 
+ game_concept_tentacleswarm_government:0 "天灾制"
+ game_concept_tentacleswarm_government_desc:0 "首席触手奴隶代替触手主人管理征服的土地，并且拥有绝对的权威。但是如果领地的腐化程度不足，就无法进行管理。"
  tentacleswarm_government:0 "天灾制"
- tentacleswarm_government_desc:0 "\n在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n\n但是在统合大片的土地，以及团结力量进行对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。"
+ tentacleswarm_government_adjective:0 "天灾制"
+ tentacleswarm_government_realm:0 "天灾领"
+ tentacleswarm_government_desc:0 "$game_concept_tentacleswarm_government_desc$\n\n#F 在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n但是在统合大片的土地，以及团结力量处理对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。#!"
+ 
  tentacleswarm_succession_order_laws:0 "继承法"
  tentacleswarm_single_heir_succession_law:0 "首席奴隶继承"
  tentacleswarm_supreme_power:0 "允许持有无限的[holdings|E]，并可以通过献祭收回[vassal|E][titles|E]"
