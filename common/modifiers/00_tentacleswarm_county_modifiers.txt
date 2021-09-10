@@ -35,25 +35,25 @@ tentacleswarm_corruption_5 = {
 #0-20
 tentacleswarm_corruption_control_0 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -1.0
+	monthly_county_control_change_add = -3.0
 }
 #20-35
 tentacleswarm_corruption_control_1 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -0.5
+	monthly_county_control_change_add = -1.5
 }
 #35-60
 tentacleswarm_corruption_control_2 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -0.2
+	monthly_county_control_change_add = -0.5
 }
 #60-100
 tentacleswarm_corruption_control_3 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 0.2
+	monthly_county_control_change_add = 0.5
 }
 #100+
 tentacleswarm_corruption_control_4 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 0.5
+	monthly_county_control_change_add = 1.5
 }

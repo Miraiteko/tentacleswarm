@@ -40,7 +40,7 @@ tentacleswarm_test_decision = {
 		become_congenital_tentacle_slave = yes
 		hidden_effect = {
 			every_county = {
-				set_variable =  { name = tentacleswarm_corruption value = 100 }
+				set_variable =  { name = tentacleswarm_corruption value = 50 }
 				tentacleswarm_corruption_county_check = yes 
 			}
 		}

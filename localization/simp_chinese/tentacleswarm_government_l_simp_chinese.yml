@@ -1,6 +1,12 @@
 ﻿l_simp_chinese:
  #政体
  tentacleswarm_government:0 "天灾制"
- tentacleswarm_government_desc:0 "在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n但是在统合大片的土地，以及团结力量进行对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。\n\n统治者可以直辖大量的土地\n\n统治者可以随意地将封臣献祭，并且收回其土地\n\n统治者难以创建头衔\n\n统治低腐化的领地时会受到严重的控制力惩罚"
+ tentacleswarm_government_desc:0 "\n在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n\n但是在统合大片的土地，以及团结力量进行对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。"
  tentacleswarm_succession_order_laws:0 "继承法"
  tentacleswarm_single_heir_succession_law:0 "首席奴隶继承"
+ tentacleswarm_supreme_power:0 "允许持有无限的[holdings|E]，并可以通过献祭收回[vassal|E][titles|E]"
+ tentacleswarm_low_corruption_lose_control:0 "过低的[tentacleswarm_corruption|E]会导致[counties|E][control|E]迅速下降"
+ tentacleswarm_force_death_interaction:0 "献祭给触手主人"
+ tentacleswarm_force_death_interaction_desc:0 "命令[recipient.GetShortUINameNoTooltip]放弃一切，然后永远地成为主人的巢穴的一部分。"
+ TENTACLESWARM_FORCE_DEATH_INTERACTION_NOTIFICATION:0 "对我们触手奴隶来说，侍奉主人是天性，而统治领地是一种折磨。\n\n我现在赐予你将自己献给主人的机会，而我将替你承受俗世中的一切。"
+ IS_TENTACLE_SLAVE_REASON:0 "触手奴隶：$VALUE|=+0$"

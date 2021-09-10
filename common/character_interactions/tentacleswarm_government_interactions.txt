@@ -1,10 +1,16 @@
 ﻿tentacleswarm_force_death_interaction = { #赐予解放
-	category = interaction_category_hostile
+	category = interaction_category_vassal
+	interface_priority = 61
+	
+	ai_maybe = yes
 	ai_min_reply_days = 4
 	ai_max_reply_days = 9
-	interface_priority = 88
 	
-	interface_priority = 61
+	can_send_despite_rejection = yes #即使会失败也能寄出要求
+	
+	popup_on_receive = yes
+	pause_on_receive = yes#收到要求时弹出提示并暂停
+	
 	desc = tentacleswarm_force_death_interaction_desc
 	
 	greeting = positive
@@ -44,7 +50,7 @@
 		scope:recipient = {
 			every_held_title = {
 				limit = { tier = tier_county }
-				change_title_holder_include_vassals = {
+				change_title_holder = {
 					holder = scope:actor
 					change = scope:change
 				}
@@ -87,18 +93,19 @@
 				is_tentacle_slave = yes
 			}
 			add = 1000
+			desc = IS_TENTACLE_SLAVE_REASON
 		}
 	}
 	ai_potential = {
 		highest_held_title_tier > tier_duchy
+		NOT = { is_close_or_extended_family_of = scope:recipient }#AI不会对近亲使用
 	}
 	
-	ai_frequency = 1 #AI多久考虑一次	
+	ai_frequency = 3 #AI多久考虑一次	
 		
 	ai_targets = {
 		ai_recipients = vassals
 	}
-	
 	ai_will_do = {
 		base = 300
 	}

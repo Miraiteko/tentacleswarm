@@ -27,7 +27,7 @@
 		republic_government_vassal_opinion = -20
 	}
 	flag = government_can_raid_rule #可以劫掠
-	#flag = tentacleswarm_low_corruption_lose_control #低腐化导致低控制
-	#flag = tentacleswarm_supreme_power #持有大量土地并且可以献祭封臣
+	flag = tentacleswarm_supreme_power #持有大量土地并且可以献祭封臣
+	flag = tentacleswarm_low_corruption_lose_control #低腐化导致低控制
 	color = { 0.37 0.15 0.61 }
 }
