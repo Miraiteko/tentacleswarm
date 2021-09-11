@@ -297,7 +297,6 @@ tentacleswarm_spread_start_decision = {
 	}	
 	effect = {
 		add_character_modifier = tentacleswarm_spread
-		change_government = tentacleswarm_government
 	}
 	
 	ai_check_interval = 0 #触手信仰自动开始
@@ -330,6 +329,37 @@ tentacleswarm_spread_end_decision = {
 	}
 	
 	ai_check_interval = 0 #非触手信仰角色自动取消
+
+	ai_potential = {
+		always = no 
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#采用天灾制度
+tentacleswarm_government_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+
+	desc = tentacleswarm_government_decision_desc
+	selection_tooltip = tentacleswarm_government_decision_tooltip
+	confirm_text = tentacleswarm_government_decision
+
+	is_shown = {
+		has_religion = religion:tentacleswarm_religion
+		NOT = { has_government = tentacleswarm_government }
+	}
+	
+	is_valid = {
+		has_religion = religion:tentacleswarm_religion
+	}	
+	effect = {
+		change_government = tentacleswarm_government
+	}
+	
+	ai_check_interval = 0 #触手信仰自动开始
 
 	ai_potential = {
 		always = no 
