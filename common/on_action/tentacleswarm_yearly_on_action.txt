@@ -610,13 +610,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 				has_religion = religion:tentacleswarm_religion
 				is_at_war = no
 				is_ai = yes
-				highest_held_title_tier >= tier_duchy #公爵以上
-				OR = {
-					is_independent_ruler = yes
-					capital_county = {  #附庸只在首都发展度不足的情况下发动战争。
-						development_level <= 8
-					}
-				}
+				is_independent_ruler = yes #独立
 				max_military_strength > 4000 #有一定兵力积蓄
 			}
 			save_scope_as = actor

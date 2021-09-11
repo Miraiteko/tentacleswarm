@@ -13,8 +13,8 @@ tentacleswarm_war.0001 = {
 	immediate = {
 		every_ruler = { #在外交范围内领主
 			limit = {
-				highest_held_title_tier >= tier_county #至少是个大夫
-				max_military_strength > 300 #有一定兵力
+				highest_held_title_tier >= tier_duchy #至少是个公爵
+				max_military_strength > 1000 #有一定兵力
 				is_landed = yes
 				is_ai = yes #AI才会介入
 				in_diplomatic_range = scope:war.primary_attacker
@@ -72,6 +72,7 @@ tentacleswarm_war.0002 ={
 	#注意，这时候主攻击者和主防御者可能已经发生改变了，不能继续使用scope:attacker而要使用scope:war.primary_attacker
 	
 	trigger = {
+		is_ai = yes
 		exists = scope:war
 		highest_held_title_tier >= tier_county #至少是个伯爵
 		is_landed = yes	#有地	

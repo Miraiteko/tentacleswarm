@@ -103,7 +103,7 @@ tentacleswarm_4VA_pulse = {
 				is_landed = yes
 				is_ai = yes
 				is_at_war = no
-				highest_held_title_tier >= tier_county
+				highest_held_title_tier >= tier_duchy
 				faith = {
 					has_doctrine = doctrine_tentacle_slave_evil #敌视
 				}
