@@ -1,14 +1,4 @@
-﻿NGame = {
-	GAME_SPEED_TICKS = {	# how many seconds should a day take in every game speed
-		2
-		0.8
-		0.3
-		0.1
-		0.0
-	}
-}
-
-NCourt = {
+﻿NCourt = {
 	# Number of spouses and commanders that should be available in a court.
 	# Characters will be spawned at game start and on succession, if no matching characters are available.
 	GENERATED_SPOUSES_BARONY_PER_HOLDING_KEYS = { "castle_holding" }
