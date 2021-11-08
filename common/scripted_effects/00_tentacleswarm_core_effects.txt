@@ -29,14 +29,9 @@ become_tentacle_slave = {
 			add_trait = tentacle_slave
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
-		add_character_flag = tentacle_slave_body
 	}	
 }
 #被触手腐化
-
-
-
-
 tentacle_corrupt = {
 	if = {
 		limit = {
@@ -84,19 +79,6 @@ tentacle_corrupt = {
 		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #皈依触手信仰
 convert_to_tentacleswarm_religion = {	

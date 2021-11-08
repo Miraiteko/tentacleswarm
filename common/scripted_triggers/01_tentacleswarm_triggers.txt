@@ -19,7 +19,7 @@ has_tentacle_slave_body = {
 		text = has_tentacle_slave_body_tooltip
 		OR = {
 			is_tentacle_slave = yes
-			has_character_flag = tentacle_slave_body
+			has_trait = tentacle_body_corrupt
 		}
 	}
 }

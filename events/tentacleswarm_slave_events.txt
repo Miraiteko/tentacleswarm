@@ -31,14 +31,17 @@ tentacleswarm_slave.0001 = {
 		become_tentacle_slave = yes
 		add_trait = tentacle_womb_corrupt
 		add_trait = tentacle_body_corrupt
-		add_stress = medium_stress_loss
+		add_stress = massive_stress_loss
 	}
 	option = {
+		trigger = {
+			is_tentacle_slave = no
+		}
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = medium_stress_gain
+		add_stress = massive_stress_gain
 		add_trait = tentacle_womb_corrupt
 		add_trait = tentacle_body_corrupt
 	}
@@ -83,14 +86,15 @@ tentacleswarm_slave.0012 = {
 		name = tentacleswarm_slave.0012.a
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
-		add_stress = medium_stress_loss
+		add_stress = massive_stress_loss
 	}
 	option = {
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = medium_stress_gain
+		tentacle_corrupt = yes
+		add_stress = massive_stress_gain
 	}
 }
 #水井杀
@@ -147,14 +151,18 @@ tentacleswarm_slave.0022 = {
 		name = tentacleswarm_slave.0022.a
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
-		add_stress = medium_stress_loss
+		add_stress = massive_stress_loss
 	}
 	option = {
+		trigger = {
+			is_tentacle_slave = no
+		}
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = medium_stress_gain
+		tentacle_corrupt = yes
+		add_stress = massive_stress_gain
 	}
 }
 
@@ -226,14 +234,18 @@ tentacleswarm_slave.0032 = {
 		name = tentacleswarm_slave.0032.a
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
-		add_stress = medium_stress_loss
+		add_stress = massive_stress_loss
 	}
 	option = {
+		trigger = {
+			is_tentacle_slave = no
+		}
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = medium_stress_gain
+		tentacle_corrupt = yes
+		add_stress = massive_stress_gain
 	}
 }
 
@@ -292,14 +304,18 @@ tentacleswarm_slave.0042 = {
 		name = tentacleswarm_slave.0042.a
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
-		add_stress = medium_stress_loss
+		add_stress = massive_stress_loss
 	}
 	option = {
+		trigger = {
+			is_tentacle_slave = no
+		}
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = medium_stress_gain
+		tentacle_corrupt = yes
+		add_stress = massive_stress_gain
 	}
 }
 tentacleswarm_slave.1001 = {
@@ -359,7 +375,6 @@ tentacleswarm_slave.2001 = {
 		custom_tooltip = tentacleswarm_slave.2001.b.tt
 	}
 	option = {
-		trigger = { is_ai = no } 
 		name = tentacleswarm_slave.2001.b
 		add_trait = tentacle_womb_corrupt
 		custom_tooltip = tentacleswarm_slave.2001.b.tt
@@ -383,15 +398,65 @@ tentacleswarm_slave.2002 = {
 	}
 	option = {
 		name = tentacleswarm_slave.2002.a
-		become_tentacle_slave = yes
 		add_trait = tentacle_body_corrupt
 		custom_tooltip = tentacleswarm_slave.2002.b.tt
+		trigger_event = {
+			id = tentacleswarm_slave.0031
+			days = 3 
+		}
+		#成瘾性事件
+		trigger_event = { 
+			id = tentacleswarm_slave.3001
+			months = 3
+		}
 	}
 	option = {
-		trigger = { is_ai = no } 
 		name = tentacleswarm_slave.2002.b
-		add_stress = monumental_stress_gain
 		add_trait = tentacle_body_corrupt
 		custom_tooltip = tentacleswarm_slave.2002.b.tt
+		add_stress = massive_stress_gain
+		#成瘾性事件
+		trigger_event = { 
+			id = tentacleswarm_slave.3001
+			months = 3
+		}
+	}
+}
+tentacleswarm_slave.3001 = {
+	type = character_event
+	title = tentacleswarm_slave.2002.t
+	desc = tentacleswarm_slave.2002.desc
+	theme = seduction
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_female = yes
+		fertility >= 0.1
+		has_trait = tentacle_body_corrupt
+	}
+	option = {
+		name = tentacleswarm_slave.2002.a
+		trigger_event = {
+			id = tentacleswarm_slave.0031
+			days = 3 
+		}
+		#成瘾性事件
+		trigger_event = { 
+			id = tentacleswarm_slave.3001
+			months = 3
+		}
+	}
+	option = {
+		name = tentacleswarm_slave.2002.b
+		add_stress = massive_stress_gain
+		#成瘾性事件
+		trigger_event = { 
+			id = tentacleswarm_slave.3001
+			months = 3
+		}
 	}
 }
