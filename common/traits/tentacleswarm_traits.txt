@@ -83,3 +83,63 @@ tentacle_slave_even_hide = {
 	index = 323
 	shown_in_ruler_designer = no
 }
+#主人
+tentacle_monster = {
+	index = 325
+	
+	same_opinion = 30
+	
+	valid_sex =  male
+	health_trait = yes #健康特质
+	
+	life_expectancy = 50#命长
+	years_of_fertility = 150#一直能生
+    health = 5 #非常健康
+	fertility = 100#能生
+	
+	#能力修正
+	intrigue = -10
+	stewardship = -10
+	learning = -10
+	martial = -10
+	diplomacy = -10
+	prowess = 20
+	
+	#讨厌其他宗教
+	opinion_of_different_faith = -100
+	#不喜欢男性领主
+	opinion_of_male_rulers = -100 
+	
+	#巨兽加成
+	tentacleswarm_warbeast_type_pursuit_mult = 1
+	tentacleswarm_warbeast_type_screen_mult = 1
+	
+	#蝗虫性格
+	ai_greed = very_high_positive_ai_value #贪婪
+	ai_energy = very_high_positive_ai_value #活力
+	ai_zeal = very_high_positive_ai_value #狂热
+	ai_sociability = high_positive_ai_value #好交际
+	ai_boldness = high_positive_ai_value #勇敢
+	
+	ai_compassion = very_high_negative_ai_value #无慈悲
+	ai_honor = high_negative_ai_value #无荣耀
+	ai_rationality = high_negative_ai_value #无理智
+	ai_war_chance = 20 #好战的
+	ai_war_cooldown = -0.5
+	
+	#宗教偏见
+	triggered_opinion = {
+		parameter = doctrine_tentacle_slave_evil
+		opinion_modifier = tentacle_slave_evil
+		ignore_opinion_value_if_same_trait = yes
+	}	
+}
+
+#堕落阶段标记
+tentacle_womb_corrupt = {
+	index = 330
+}
+
+tentacle_body_corrupt = {
+	index = 331
+}

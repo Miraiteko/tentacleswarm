@@ -3,6 +3,7 @@ become_tentacle_slave = {
 	if = {
 		limit = { #不是触手奴隶
 			is_tentacle_slave = no
+			is_female = yes
 		}
 		if = {
 			limit = { 
@@ -32,15 +33,11 @@ become_tentacle_slave = {
 	}	
 }
 #被触手腐化
+
+
+
+
 tentacle_corrupt = {
-	#不是奴隶的话成为奴隶
-	if = {
-		limit = { 
-			is_female = yes
-			is_tentacle_slave = no 
-		}
-		become_tentacle_slave = yes
-	}
 	if = {
 		limit = {
 			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
@@ -55,27 +52,52 @@ tentacle_corrupt = {
 		}
 		remove_character_flag = tentacle_baby_corruption_not_yet
 	}
-}
-#被触手腐化,但是作为玩家，拒绝了
-tentacle_corrupt_refuse = {
-	add_character_flag = tentacle_slave_body
-	add_stress = medium_stress_gain
 	if = {
+		#尚未一阶段腐化，进行腐化
 		limit = {
-			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
-			NOT = { has_character_flag = tentacle_baby_corruption }
+			NOT = { has_trait = tentacle_womb_corrupt }
+		}
+		trigger_event = {
+			id = tentacleswarm_slave.2001
+			days = 7
+		}
+	}
+	else_if = {
+		#如果已经一阶段腐化，则必然被赐福
+		limit = {
+			is_pregnant = no
+		}
+		create_character = {
+			name = "TENTACLE_LORD"
+			location = root.capital_province
+			template = default_tentacle_monster_character
+			save_scope_as = tentacle_monster
+			dynasty = none
+		}
+		make_pregnant = {
+			father = scope:tentacle_monster
+		}
+		scope:tentacle_monster = {
+			set_sexuality = heterosexual
+			death = { death_reason = death_disappearance }
 		}
 		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 	}
-	if = {
-		limit = {
-			is_pregnant = yes #如果作为玩家有未被赐福的flag，移除该flag
-			has_character_flag = tentacle_baby_corruption_not_yet
-		}
-		remove_character_flag = tentacle_baby_corruption_not_yet
-	}
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #皈依触手信仰
 convert_to_tentacleswarm_religion = {	
 	save_scope_as = character

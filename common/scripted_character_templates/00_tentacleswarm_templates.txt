@@ -20,3 +20,15 @@
 	culture = scope:employer.culture
 	faith = scope:employer.faith
 }
+default_tentacle_monster_character = {
+	age = { 18 35 }
+	
+	gender = male
+	
+	trait = lustful
+	trait = tentacle_monster
+	dynasty = none
+	random_traits = yes
+	faith = faith:tentacleswarm_slavery
+	culture = this.culture
+}

@@ -93,7 +93,7 @@ tentacle_slave_claim_throne = {
 		}		
 		#对方执行剿杀
 		modifier = {
-			add = -30
+			add = -50
 			scope:target = {
 				has_character_modifier = tentacleswarm_anti
 			}
