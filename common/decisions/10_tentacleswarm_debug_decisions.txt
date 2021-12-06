@@ -37,23 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		create_character = {
-			name = "TENTACLE_LORD"
-			location = root.capital_province
-			template = default_tentacle_monster_character
-			save_scope_as = tentacle_monster
-			dynasty = none
-		}
-		#had_sex_with_effect = {
-		#	CHARACTER = scope:tentacle_monster
-		#	PREGNANCY_CHANCE = 100
-		#}
-		make_pregnant = {
-			father = scope:tentacle_monster
-		}
-		scope:tentacle_monster = {
-			set_sexuality = heterosexual
-			death = { death_reason = death_disappearance }
+		open_view_data = {
+			view = OW_XZ_MB_window
 		}
 	}
 	

@@ -92,7 +92,7 @@ tentacleswarm_baby_corruption = {
 						id = tentacleswarm_slave.0021 #水井杀
 					}
 				}
-				100 = {
+				1000 = {
 					modifier = {
 						add = location.county.minus_tentacleswarm_corruption
 						exists = location
@@ -350,7 +350,7 @@ tentacleswarm_adult_pulse = {
 						id = tentacleswarm_slave.0021 #水井杀
 					}
 				}
-				100 = {
+				1000 = {
 					modifier = {
 						add = location.county.minus_tentacleswarm_corruption
 						exists = location

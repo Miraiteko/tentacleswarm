@@ -70,6 +70,7 @@ random_yearly_everyone_pulse = {
 	on_actions = { 
 		tentacleswarm_bliever_yearly
 		tentacle_slave_yearly
+		tentacle_encounter_yearly
 	}
 }
 tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
@@ -86,6 +87,33 @@ tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 			}
 			trigger_event = {
 				id = tentacleswarm_slave.0031 #虔诚赐福
+			}
+		}
+	}
+}
+tentacle_encounter_yearly = {#遭遇年度触发
+	trigger = {
+		is_female = yes
+		fertility >= 0.1
+	}
+	effect = {
+		random_list = {
+			0 = {
+				modifier = {
+					add = location.county.var:tentacleswarm_corruption
+					exists = location
+					exists = location.county
+				}
+				trigger_event = {
+					id = tentacleswarm_slave.0021 #水井杀
+				}
+			}
+			300 = {
+				modifier = {
+					add = location.county.minus_tentacleswarm_corruption
+					exists = location
+					exists = location.county
+				}
 			}
 		}
 	}

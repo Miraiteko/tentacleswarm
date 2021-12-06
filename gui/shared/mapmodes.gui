@@ -512,11 +512,13 @@ types MapModes
 				}
 				button_tertiary = {
 					name = "tentacleswarm_corruption_map"
+					visible = "[And(CanChangeMapMode,GetScriptedGui('tentacleswarm_corruption_map').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+					enabled = "[GetScriptedGui('tentacleswarm_corruption_map').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[CanChangeMapMode]"
 					parentanchor = hcenter
 
 					size = { 110 25 }
-					onclick = "[GetScriptedGui('tentacleswarm_corruption_map').Execute(GuiScope.End)]"
+					onclick = "[GetScriptedGui('tentacleswarm_corruption_map').Execute(GuiScope.SetRoot( GetPlayer.MakeScope )End)]"
 					onclick = "[SetMapMode('tentacleswarm_corruption_map')]"
 
 					text = "tentacleswarm_corruption_map"
