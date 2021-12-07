@@ -29,8 +29,7 @@ tentacleswarm_slave.0001 = {
 	option = {
 		name = tentacleswarm_slave.0001.a
 		become_tentacle_slave = yes
-		add_trait = tentacle_womb_corrupt
-		add_trait = tentacle_body_corrupt
+		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
 		add_stress = massive_stress_loss
 	}
 	option = {
@@ -42,8 +41,7 @@ tentacleswarm_slave.0001 = {
 		}
 		name = tentacleswarm_slave.refuse
 		add_stress = massive_stress_gain
-		add_trait = tentacle_womb_corrupt
-		add_trait = tentacle_body_corrupt
+		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
 	}
 }
 #来自监护人的特别的成年礼物
@@ -149,7 +147,7 @@ tentacleswarm_slave.0022 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0022.a
-		become_tentacle_slave = yes
+		become_tentacle_slave = yes 
 		tentacle_corrupt = yes
 		add_stress = massive_stress_loss
 	}
@@ -352,6 +350,7 @@ tentacleswarm_slave.1001 = {
 		}
 	}
 }
+#子宫腐化事件，发生在被触手赐福七天后
 tentacleswarm_slave.2001 = {
 	type = character_event
 	title = tentacleswarm_slave.2001.t
@@ -366,20 +365,21 @@ tentacleswarm_slave.2001 = {
 	trigger = {
 		is_female = yes
 		fertility >= 0.1
-		NOT = { has_trait = tentacle_womb_corrupt }
+		is_tentacle_womb_corrupted = no
 	}
-	option = {
+	option = { #成为奴隶
 		name = tentacleswarm_slave.2001.a
 		become_tentacle_slave = yes
-		add_trait = tentacle_womb_corrupt
+		tentacle_womb_corrupt = yes
 		custom_tooltip = tentacleswarm_slave.2001.b.tt
 	}
-	option = {
+	option = { #拒绝屈服
 		name = tentacleswarm_slave.2001.b
-		add_trait = tentacle_womb_corrupt
+		tentacle_womb_corrupt = yes
 		custom_tooltip = tentacleswarm_slave.2001.b.tt
 	}
 }
+#身体腐化事件，由于怀上了主人的孩子而发生
 tentacleswarm_slave.2002 = {
 	type = character_event
 	title = tentacleswarm_slave.2002.t
@@ -394,12 +394,13 @@ tentacleswarm_slave.2002 = {
 	trigger = {
 		is_female = yes
 		fertility >= 0.1
-		NOT = { has_trait = tentacle_body_corrupt }
+		is_tentacle_body_corrupted = no
 	}
 	option = {
 		name = tentacleswarm_slave.2002.a
-		add_trait = tentacle_body_corrupt
+		tentacle_body_corrupt = yes
 		custom_tooltip = tentacleswarm_slave.2002.b.tt
+		#立刻去寻求赐福
 		trigger_event = {
 			id = tentacleswarm_slave.0031
 			days = 3 
@@ -407,21 +408,23 @@ tentacleswarm_slave.2002 = {
 		#成瘾性事件
 		trigger_event = { 
 			id = tentacleswarm_slave.3001
-			months = 3
+			months = { 2 12 }
 		}
 	}
 	option = {
 		name = tentacleswarm_slave.2002.b
-		add_trait = tentacle_body_corrupt
+		tentacle_body_corrupt = yes
 		custom_tooltip = tentacleswarm_slave.2002.b.tt
+		#忍受，增加压力
 		add_stress = massive_stress_gain
 		#成瘾性事件
 		trigger_event = { 
 			id = tentacleswarm_slave.3001
-			months = 3
+			months = { 2 12 }
 		}
 	}
 }
+#成瘾性事件，定期需要去接受赐福，否则增加压力
 tentacleswarm_slave.3001 = {
 	type = character_event
 	title = tentacleswarm_slave.2002.t
@@ -436,10 +439,11 @@ tentacleswarm_slave.3001 = {
 	trigger = {
 		is_female = yes
 		fertility >= 0.1
-		has_trait = tentacle_body_corrupt
+		is_tentacle_body_corrupted = yes
 	}
 	option = {
 		name = tentacleswarm_slave.2002.a
+		#立刻去寻求赐福
 		trigger_event = {
 			id = tentacleswarm_slave.0031
 			days = 3 
@@ -447,16 +451,17 @@ tentacleswarm_slave.3001 = {
 		#成瘾性事件
 		trigger_event = { 
 			id = tentacleswarm_slave.3001
-			months = 3
+			months = { 2 12 }
 		}
 	}
 	option = {
 		name = tentacleswarm_slave.2002.b
+		#忍耐，增加压力
 		add_stress = massive_stress_gain
 		#成瘾性事件
 		trigger_event = { 
 			id = tentacleswarm_slave.3001
-			months = 3
+			months = { 2 12 }
 		}
 	}
 }

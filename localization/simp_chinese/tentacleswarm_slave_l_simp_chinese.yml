@@ -7,6 +7,8 @@
  is_hidden_tentacle_slave_tooltip:0 "是隐藏中的触手奴隶"
  I_am_hidden_tentacle_slave_tooltip:0 "我是隐藏中的触手奴隶"
  not_hidden_tentacle_slave_tooltip:0 "不是隐藏中的触手奴隶"
+ trait_tentacle_monster:0 "触手怪物"
+ trait_tentacle_monster_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]是潜伏于人间的触手怪物。"
  
  #4VA
  tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"

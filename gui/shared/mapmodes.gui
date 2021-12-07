@@ -526,21 +526,6 @@ types MapModes
 					using = tooltip_ws
 				}
 				button_tertiary = {
-					name = "tentacleswarm_corruption_map_simple"
-					visible = "[And(CanChangeMapMode,GetScriptedGui('tentacleswarm_corruption_map_simple').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
-					enabled = "[GetScriptedGui('tentacleswarm_corruption_map_simple').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					parentanchor = hcenter
-
-					size = { 110 25 }
-					onclick = "[GetScriptedGui('tentacleswarm_corruption_map_simple').Execute(GuiScope.SetRoot( GetPlayer.MakeScope )End)]"
-					onclick = "[SetMapMode('tentacleswarm_corruption_map_simple')]"
-
-					text = "tentacleswarm_corruption_map_simple"
-
-					tooltip = "tentacleswarm_corruption_map_simple_tooltip"
-					using = tooltip_ws
-				}
-				button_tertiary = {
 					name = "map_mode_counties_button"
 					visible = "[CanChangeMapMode]"
 					parentanchor = hcenter

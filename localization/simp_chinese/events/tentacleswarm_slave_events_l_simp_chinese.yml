@@ -58,6 +58,10 @@ tentacleswarm_slave.2002.desc:0 "在你被意识到自己的触手血脉之后�
 tentacleswarm_slave.2002.a:0 "我需要坦然地接受这个事实"
 tentacleswarm_slave.2002.b:0 "只要我永远不再去想起这些事情，我就不会堕落！"
 tentacleswarm_slave.2002.b.tt:0 "#X 当你遭遇触手怪物的时候，你不会有拒绝堕落的选项！#!"
+
+has_tentacle_slave_womb_tooltip:0 "该角色的子宫已向触手屈服"
+I_have_tentacle_slave_womb_tooltip:0 "你的子宫已向触手屈服"
+not_has_tentacle_slave_womb_tooltip:0 "该角色的子宫尚未被触手影响"
 has_tentacle_slave_body_tooltip:0 "该角色的身体早已彻底堕落"
-I_have_tentacle_slave_body_tooltip:0 "你的身体早已彻底堕落，无法再度拒绝成为触手奴隶！"
+I_have_tentacle_slave_body_tooltip:0 "你的身体早已彻底堕落"
 not_has_tentacle_slave_body_tooltip:0 "该角色的身体尚未堕落"

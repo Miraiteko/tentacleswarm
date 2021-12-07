@@ -2,7 +2,7 @@
 is_tentacle_slave = {
 	custom_description = {
 		text = is_tentacle_slave_tooltip
-		has_character_flag = tentacle_slave
+		has_character_flag = flag_tentacle_slave
 	}
 }
 is_hidden_tentacle_slave = {
@@ -11,13 +11,16 @@ is_hidden_tentacle_slave = {
 		any_secret = { secret_type = secret_tentacle_slave }
 	}
 }
-has_tentacle_slave_body = {
+is_tentacle_womb_corrupted = { #苗床
 	custom_description = {
-		text = has_tentacle_slave_body_tooltip
-		OR = {
-			is_tentacle_slave = yes
-			has_trait = tentacle_body_corrupt
-		}
+		text = is_tentacle_womb_corrupted_tooltip
+		has_character_flag = flag_tentacle_womb_corrupted
+	}
+}
+is_tentacle_body_corrupted = { #成瘾
+	custom_description = {
+		text = is_tentacle_body_corrupted_tooltip
+		has_character_flag = flag_tentacle_body_corrupted
 	}
 }
 #怀孕了但未被赐福判断

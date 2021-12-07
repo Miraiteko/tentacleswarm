@@ -92,7 +92,7 @@ tentacle_monster = {
 	valid_sex =  male
 	health_trait = yes #健康特质
 	
-	life_expectancy = 50#命长
+	life_expectancy = 100#命长
 	years_of_fertility = 150#一直能生
     health = 5 #非常健康
 	fertility = 100#能生
@@ -103,7 +103,7 @@ tentacle_monster = {
 	learning = -10
 	martial = -10
 	diplomacy = -10
-	prowess = 20
+	prowess = 100
 	
 	#讨厌其他宗教
 	opinion_of_different_faith = -100
@@ -133,13 +133,4 @@ tentacle_monster = {
 		opinion_modifier = tentacle_slave_evil
 		ignore_opinion_value_if_same_trait = yes
 	}	
-}
-
-#堕落阶段标记
-tentacle_womb_corrupt = {
-	index = 330
-}
-
-tentacle_body_corrupt = {
-	index = 331
 }

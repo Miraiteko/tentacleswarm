@@ -29,7 +29,7 @@ become_tentacle_slave = {
 			add_trait = tentacle_slave
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
-		add_character_flag = tentacle_slave #添加flag，用于判断检测
+		add_character_flag = flag_tentacle_slave #添加flag，用于判断检测
 	}	
 }
 #被触手腐化
@@ -51,7 +51,7 @@ tentacle_corrupt = {
 	if = {
 		#尚未一阶段腐化，进行腐化
 		limit = {
-			NOT = { has_trait = tentacle_womb_corrupt }
+			NOT = { is_tentacle_womb_corrupted = yes }
 		}
 		trigger_event = {
 			id = tentacleswarm_slave.2001
@@ -63,22 +63,33 @@ tentacle_corrupt = {
 		limit = {
 			is_pregnant = no
 		}
-		create_character = {
-			name = "TENTACLE_LORD"
-			location = root.capital_province
-			template = default_tentacle_monster_character
-			save_scope_as = tentacle_monster
-			dynasty = none
+		hidden_effect = {
+			create_character = {
+				name = "TENTACLE_LORD"
+				location = root.capital_province
+				template = default_tentacle_monster_character
+				save_scope_as = tentacle_monster
+				dynasty = none
+			}
+			make_pregnant = {
+				father = scope:tentacle_monster
+			}
+			scope:tentacle_monster = {
+				set_sexuality = heterosexual
+				death = { death_reason = death_disappearance }
+			}
+			add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 		}
-		make_pregnant = {
-			father = scope:tentacle_monster
-		}
-		scope:tentacle_monster = {
-			set_sexuality = heterosexual
-			death = { death_reason = death_disappearance }
-		}
-		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 	}
+}
+
+#子宫腐化
+tentacle_womb_corrupt = {
+	add_character_flag = flag_tentacle_womb_corrupted
+}
+#身体腐化
+tentacle_body_corrupt = {
+	add_character_flag = flag_tentacle_body_corrupted
 }
 
 #皈依触手信仰

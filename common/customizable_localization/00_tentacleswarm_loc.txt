@@ -1,60 +1,60 @@
-﻿Tentacleswarn_Corruption_Map_Loc = {
+﻿#基础腐化程度信息
+Tentacleswarn_Corruption_Map_Loc = {
 	type = landed_title
+	
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_DESTROY
 		trigger = {
 			has_county_modifier = tentacleswarm_destroy
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_DESTROY
 	}
 	text = {
-		trigger = {
-			var:tentacleswarm_corruption = { compare_value < 10 }
-		}
 		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_LOW
+		trigger = {
+			var:tentacleswarm_corruption = { compare_value < 10 } 
+		}
 	}
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_LOW
 		trigger = {
 			var:tentacleswarm_corruption = { compare_value < 20 } 
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_LOW
 	}
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_MID
 		trigger = {
 			var:tentacleswarm_corruption = { compare_value < 35 } 
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_MID
 	}
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH
 		trigger = {
 			var:tentacleswarm_corruption = { compare_value < 60 } 
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH
 	}
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH
 		trigger = {
 			var:tentacleswarm_corruption = { compare_value < 100 } 
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH
 	}
 	text = {
 		fallback = yes
 		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_HELL
 	}
 }
-Tentacleswarn_Corruption_Char = {
+#奴隶获取详细信息
+Tentacleswarn_Corruption_Map_Slave_Loc = {
 	type = character
+	
 	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_VISIBLE
 		trigger = {
-			has_character_flag = immune_to_disease
-			#可以填is_female = yes
-			#可以填has_character_flag = immune_to_disease
-			#不能填has_trait = tentacle_slave
-			#不能填any_secret = { secret_type = secret_tentacle_slave }
+			has_character_flag = flag_tentacle_slave
 		}
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP
 	}
 	text = {
 		fallback = yes
-		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_HELL
+		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_INVISIBLE
 	}
 }
