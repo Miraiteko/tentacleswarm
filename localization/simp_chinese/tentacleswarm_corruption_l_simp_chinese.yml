@@ -2,7 +2,8 @@
  #地图模式 
  tentacleswarm_corruption_map:0 "触手腐化" 
  tentacleswarm_corruption_map_tooltip:0 "在触手腐化地图下你可以纵览各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。\n黄色表示该领地已经被触手天灾所摧毁。"
- TENTACLESWARM_CORRUPTION_MAP_MODE_SIMPLE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n[GetPlayer.Custom2_Title( 'Tentacleswarn_Corruption_Map_Slave_Loc', ROOT.Province.GetCounty.GetTitle )]\n"
+ #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[SelectLocalization(GetPlayer.IsValid, '替换', '指派' )][ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n[GetPlayer.Custom2_Title( 'Tentacleswarn_Corruption_Map_Slave_Loc', ROOT.Province.GetCounty.GetTitle )]\n"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n[SelectLocalization(GetPlayer.IsValid, GetPlayer.Custom2_Title( 'Tentacleswarn_Corruption_Map_Slave_Loc', ROOT.Province.GetCounty.GetTitle ),'观察者模式' )]\n"
  #基础信息
  TENTACLESWARM_CORRUPTION_MAP_MODE_DESTROY:0 "#T 伯爵领触手腐化：毁灭#!"
  TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_LOW:0 "#T 伯爵领触手腐化：极低#!"
