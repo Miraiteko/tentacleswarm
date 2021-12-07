@@ -83,12 +83,14 @@ tentacle_corrupt = {
 	}
 }
 
-#子宫腐化
+#纹理腐化
 tentacle_womb_corrupt = {
+	custom_tooltip = tentacle_womb_corrupt.tt
 	add_character_flag = flag_tentacle_womb_corrupted
 }
 #身体腐化
 tentacle_body_corrupt = {
+	custom_tooltip = tentacle_body_corrupt.tt
 	add_character_flag = flag_tentacle_body_corrupted
 }
 
