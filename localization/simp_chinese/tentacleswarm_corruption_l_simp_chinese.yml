@@ -1,9 +1,19 @@
 ﻿l_simp_chinese:
  #地图模式
- tentacleswarm_corruption_map:0 "触手腐化"
- tentacleswarm_corruption_map_tooltip:0 "在触手腐化地图下你可以看到各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。\n黄色表示该领地已经被触手天灾所摧毁。"
- TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n腐蚀衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_decay').GetValue|0]%\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|0]%"
- #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0]#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n"
+ tentacleswarm_corruption_map:0 "触手感知"
+ tentacleswarm_corruption_map_tooltip:0 "作为触手奴隶，你可以感知世界各地的触手具体腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。\n黄色表示该领地已经被触手天灾所摧毁。"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|1]#!\n腐蚀衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_decay').GetValue|1]%\n沉睡的战争巨兽：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_warbeast').GetValue|0]\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|0]\n毁坏进度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_destroy').GetValue|1]%"
+ 
+ tentacleswarm_corruption_map_simple:0 "触手腐化" 
+ tentacleswarm_corruption_map_simple_tooltip:0 "在触手腐化地图下你可以纵览各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。\n黄色表示该领地已经被触手天灾所摧毁。"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_SIMPLE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom('Tentacleswarn_Corruption_Map_Loc')]\n在“触手腐化”地图模式下，你只能看到粗略的信息；\n触手奴隶可以查看“触手感知”地图了解精确的腐化情况。"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_DESTROY:0 "#T 伯爵领触手腐化：毁灭#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_LOW:0 "#T 伯爵领触手腐化：极低#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_LOW:0 "#T 伯爵领触手腐化：低#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_MID:0 "#T 伯爵领触手腐化：中等#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH:0 "#T 伯爵领触手腐化：严重#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH:0 "#T 伯爵领触手腐化：极为严重#!"
+ TENTACLESWARM_CORRUPTION_MAP_MODE_HELL:0 "#T 伯爵领触手腐化：化为地狱#!"
  
  #省份破坏
  tentacleswarm_corruption_destroy.notification:0 "触手破坏"

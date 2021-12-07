@@ -59,8 +59,79 @@ tentacleswarm_corruption_map = {
 		}
 	}
 	is_shown = {
-		any_player = {
+		OR = {
+			debug_only = yes
 			is_tentacle_slave = yes #只有奴隶才能查看的地图
+		}
+	}
+	is_valid = {
+		always = yes
+	}
+}
+#简化腐化度地图，适用于非奴隶角色
+tentacleswarm_corruption_map_simple = {
+	effect = {
+		#检查每个省份的腐化度，上色
+		every_county = {
+			if = {
+				limit = {
+					has_county_modifier = tentacleswarm_destroy
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 10 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_very_low_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 20 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_low_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 35 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_mid_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 60 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_high_corruption_province } 
+				}
+			}
+			else_if = {
+				limit = {
+					var:tentacleswarm_corruption = { compare_value < 100 }
+				}
+				every_county_province = {
+					barony = { set_color_from_title = title:d_very_high_corruption_province } 
+				}
+			}
+			else = {
+				every_county_province = {
+					barony = { set_color_from_title = title:d_hell_corruption_province } 
+				}
+			}
+		}
+	}
+	is_shown = {
+		OR = {
+			debug_only = yes
+			is_tentacle_slave = no #只有非奴隶才能查看的地图
 		}
 	}
 	is_valid = {

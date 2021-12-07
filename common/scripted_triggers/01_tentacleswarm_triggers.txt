@@ -2,10 +2,7 @@
 is_tentacle_slave = {
 	custom_description = {
 		text = is_tentacle_slave_tooltip
-		OR = {
-			has_trait = tentacle_slave
-			any_secret = { secret_type = secret_tentacle_slave }
-		}
+		has_character_flag = tentacle_slave
 	}
 }
 is_hidden_tentacle_slave = {
