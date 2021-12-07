@@ -104,16 +104,20 @@ tentacle_encounter_yearly = {#遭遇年度触发
 					exists = location
 					exists = location.county
 				}
+				modifier = { #苗床
+					factor = 3
+					is_tentacle_womb_corrupted = yes
+				}
+				modifier = { #成瘾
+					factor = 2
+					is_tentacle_body_corrupted = yes
+				}
 				trigger_event = {
 					id = tentacleswarm_slave.0021 #水井杀
+					months = { 1 8 }
 				}
 			}
-			300 = {
-				modifier = {
-					add = location.county.minus_tentacleswarm_corruption
-					exists = location
-					exists = location.county
-				}
+			1000 = {
 			}
 		}
 	}

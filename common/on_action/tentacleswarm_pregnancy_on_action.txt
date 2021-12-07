@@ -72,31 +72,33 @@ tentacleswarm_baby_corruption = {
 						exists = location
 						exists = location.county
 					}
-					modifier = { #已经是奴隶了，权重+20
-						add = 20
-						is_tentacle_slave = yes
+					modifier = { #苗床
+						factor = 3
+						is_tentacle_womb_corrupted = yes
+					}
+					modifier = { #成瘾
+						factor = 2
+						is_tentacle_body_corrupted = yes
 					}
 					modifier = { #美貌特质
-						add = 5
+						factor = 2
 						has_trait = beauty_good_1
 					}
 					modifier = { #美貌特质
-						add = 10
+						factor = 3
 						has_trait = beauty_good_2
 					}
 					modifier = { #美貌特质
-						add = 20
+						factor = 5
 						has_trait = beauty_good_3
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0021 #水井杀
+						months = { 1 8 }
 					}
 				}
-				1000 = {
+				300 = {
 					modifier = {
-						add = location.county.minus_tentacleswarm_corruption
-						exists = location
-						exists = location.county
 					}
 				}
 			}
