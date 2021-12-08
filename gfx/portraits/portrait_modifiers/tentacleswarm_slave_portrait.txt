@@ -1,21 +1,17 @@
-﻿congenital_tentacle_slave = {
+﻿womb_corrupted_portrait = {
 
 	usage = game
 
-	congenital_tentacle_slave = {
+	womb_corrupted_portrait = {
 		dna_modifiers = {
+			#去除面部瑕疵
 			morph = {
-				mode = modify
-				gene = gene_bs_eye_size
+				mode = replace
+				gene = complexion
+				template = complexion_beauty_1
 				value = 1.0
-				template = eye_size_pos
 			}
-			morph = {
-				mode = modify
-				gene = gene_eye_shut
-				value = -0.3
-				template = eye_shut_pos
-			}
+			#肤色变白
 			color = {
 				gene = skin_color
 				mode = modify
@@ -23,6 +19,38 @@
 				x = 0.0
 				y = -0.05
 			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				is_tentacle_womb_corrupted = yes
+			}			
+		}
+	}
+}
+
+body_corrupted_portrait = {
+
+	usage = game
+
+	body_corrupted_portrait = {
+		dna_modifiers = {
+			#眼睛变大
+			morph = {
+				mode = modify
+				gene = gene_bs_eye_size
+				value = 1.0
+				template = eye_size_pos
+			}
+			#眼睛睁开
+			morph = {
+				mode = modify
+				gene = gene_eye_shut
+				value = -0.3
+				template = eye_shut_pos
+			}
+			#眼睛变蓝
 			color = {
 				gene = eye_color
 				mode = replace
@@ -35,7 +63,7 @@
 			base = 0
 			modifier = {
 				add = 100
-				is_congenital_tentacle_slave = yes
+				is_tentacle_body_corrupted = yes
 			}			
 		}
 	}

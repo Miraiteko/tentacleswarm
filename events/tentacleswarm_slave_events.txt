@@ -248,21 +248,21 @@ tentacleswarm_slave.0032 = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant = yes
+					is_pregnant = no
 				}
 				desc = tentacleswarm_slave.0032.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant = no
+					is_pregnant = yes
 				}
 				desc = tentacleswarm_slave.0032.desc2
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
-					is_pregnant = yes
+					is_pregnant = no
 				}
 				desc = tentacleswarm_slave.0032.desc3
 			}
@@ -332,21 +332,21 @@ tentacleswarm_slave.0042 = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant = yes
+					is_pregnant = no
 				}
 				desc = tentacleswarm_slave.0042.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant = no
+					is_pregnant = yes
 				}
 				desc = tentacleswarm_slave.0042.desc2
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
-					is_pregnant = yes
+					is_pregnant = no
 				}
 				desc = tentacleswarm_slave.0042.desc3
 			}
@@ -409,6 +409,11 @@ tentacleswarm_slave.1001 = {
 			text = tentacleswarm_slave.1001.a
 		}
 
+		if = {
+			limit = { has_character_flag = immune_to_disease }
+			remove_character_flag = immune_to_disease
+		}
+		
 		add_trait = infirm
 
 		stress_impact = {
@@ -537,8 +542,8 @@ tentacleswarm_slave.3001 = { #预处理事件，怀孕的奴隶角色延迟触�
 }
 tentacleswarm_slave.3002 = { #成瘾选项事件
 	type = character_event
-	title = tentacleswarm_slave.2002.t
-	desc = tentacleswarm_slave.2002.desc
+	title = tentacleswarm_slave.3002.t
+	desc = tentacleswarm_slave.3002.desc
 	theme = seduction
 	left_portrait = this
 	
@@ -552,7 +557,7 @@ tentacleswarm_slave.3002 = { #成瘾选项事件
 		is_tentacle_body_corrupted = yes
 	}
 	option = {
-		name = tentacleswarm_slave.2002.a
+		name = tentacleswarm_slave.3002.a
 		#立刻去寻求赐福
 		trigger_event = {
 			id = tentacleswarm_slave.0031
@@ -560,7 +565,7 @@ tentacleswarm_slave.3002 = { #成瘾选项事件
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.2002.b
+		name = tentacleswarm_slave.3002.b
 		#忍耐，增加压力
 		add_stress = massive_stress_gain
 	}
