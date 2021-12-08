@@ -33,6 +33,12 @@ tentacle_baby_corruption_not_yet = {
 		}
 	}
 }
+#已经赐福的奴隶，她们不会再被袭击事件打扰
+is_baby_corrupted_tentacle_slave = {
+	is_tentacle_slave = yes #是奴隶
+	is_pregnant = yes #已经怀孕了
+	has_character_flag = tentacle_baby_corruption_not_yet #已经赐福了
+}
 #遗传判断
 is_congenital_tentacle_slave = { #天生奴隶
 	has_character_flag = congenital_tentacle_slave
