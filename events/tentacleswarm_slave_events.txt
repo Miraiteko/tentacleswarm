@@ -8,6 +8,7 @@
 #2001一级腐化事件，由赐福触发
 #2002二级腐化事件，由怀孕触发
 #3001成瘾事件
+#4001生育事件
 
 #天生奴隶成为真正的奴隶
 tentacleswarm_slave.0001 = {
@@ -307,7 +308,10 @@ tentacleswarm_slave.0032 = {
 		}
 	}
 	theme = faith
-	left_portrait = this
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
 	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -544,7 +548,10 @@ tentacleswarm_slave.2002 = {
 	title = tentacleswarm_slave.2002.t
 	desc = tentacleswarm_slave.2002.desc
 	theme = seduction
-	left_portrait = this
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
 	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -587,7 +594,7 @@ tentacleswarm_slave.2002 = {
 	}
 }
 #成瘾性事件，定期需要去接受赐福，否则增加压力
-tentacleswarm_slave.3001 = { #预处理事件，怀孕的奴隶角色延迟触发
+tentacleswarm_slave.3001 = { #预处理事件，怀孕的奴隶角色延迟触发 
 	hidden = yes
 	immediate = {
 		if = {
@@ -612,7 +619,10 @@ tentacleswarm_slave.3002 = { #成瘾选项事件
 	title = tentacleswarm_slave.3002.t
 	desc = tentacleswarm_slave.3002.desc
 	theme = seduction
-	left_portrait = this
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
 	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -651,5 +661,107 @@ tentacleswarm_slave.3002 = { #成瘾选项事件
 			id = tentacleswarm_slave.3001
 			months = { 2 12 }
 		}
+	}
+}
+#生育事件
+tentacleswarm_slave.4001 = {
+	type = character_event
+	title = tentacleswarm_slave.4001.t
+	desc =  {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+				}
+				desc = tentacleswarm_slave.4001.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.4001.desc2
+			}
+		}
+	}
+	theme = seduction
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = {
+		is_female = yes
+		is_pregnant = yes
+	}
+	immediate = {
+		#确认通知的配偶
+		if = {
+			limit = {
+				exists = primary_partner
+			}
+			primary_partner = {
+				save_scope_as = spouse
+			}
+		}
+	}
+
+	option = {
+		name = tentacleswarm_slave.4001.default
+		end_pregnancy = yes
+		custom_tooltip = tentacleswarm_suicide_tt
+		#结束妊娠
+		hidden_effect = {
+			pregnancy_cleanup_effect = yes
+		}
+		
+		#告知配偶
+		if = {
+			limit = {
+				exists = scope:spouse
+			}
+			if = { #如果你信奉,配偶得到好消息
+				limit = {
+					has_religion = religion:tentacleswarm_religion
+				}
+				#scope:spouse = { trigger_event = tentacleswarm_slave.4002 }
+			}
+			else = {
+				scope:spouse = { trigger_event = pregnancy.2102 }
+			}
+		}
+
+	}
+}
+#配偶得知消息
+tentacleswarm_slave.4002 = {
+	type = character_event
+	title = tentacleswarm_slave.2001.t
+	desc =  {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+				}
+				desc = tentacleswarm_slave.2001.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.2001.desc2
+			}
+		}
+	}
+	theme = seduction
+	left_portrait = this
+	
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = tentacleswarm_slave.4001.default
 	}
 }

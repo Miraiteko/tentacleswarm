@@ -28,7 +28,7 @@ default_tentacle_monster_character = {
 	trait = lustful
 	trait = tentacle_monster
 	dynasty = none
-	random_traits = yes
+	random_traits = no
 	faith = faith:tentacleswarm_slavery
 	culture = this.culture
 }

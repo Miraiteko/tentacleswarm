@@ -95,6 +95,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 	trigger = {
 		is_female = yes
 		fertility >= 0.1
+		is_adult = yes
 	}
 	effect = {
 		random_list = {

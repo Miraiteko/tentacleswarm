@@ -61,12 +61,16 @@ tentacle_corrupt = {
 	else_if = {
 		#如果已经一阶段腐化，则必然被赐福
 		limit = {
+			is_female = yes
 			is_pregnant = no
+			can_have_children = yes
+			fertility > 0.1
+			is_adult = yes
 		}
 		hidden_effect = {
 			create_character = {
 				name = "TENTACLE_LORD"
-				location = root.capital_province
+				location = root.location
 				template = default_tentacle_monster_character
 				save_scope_as = tentacle_monster
 				dynasty = none
