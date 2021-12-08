@@ -1,0 +1,42 @@
+﻿#调整ai接受腐化的可能性，用于events之中
+ai_accept_corrupt_modifier = {
+	#贪婪和社交增加腐化可能，理智为扣减
+	ai_value_modifier = {
+		ai_greed = 0.3
+		ai_sociability = 0.3
+		ai_rationality = -0.3
+	}
+	#根据当前压力增加腐化可能
+	modifier = {
+		add = stress
+	}
+}
+
+ai_reject_corrupt_modifier = {
+	#贪婪和社交减少拒绝可能，理智为增加
+	ai_value_modifier = {
+		ai_greed = -0.3
+		ai_sociability = -0.3
+		ai_rationality = 0.3
+	}
+	#根据狂热度增加拒绝可能
+	modifier = {
+		add = {
+			value = ai_zeal
+			if = {
+				limit = { #极为排斥
+					faith = {
+						has_doctrine_parameter = doctrine_tentacle_slave_evil
+					}
+				}
+				multiply = 2
+			}
+			else_if = { #欢迎触手
+				limit = {
+					religion = religion:tentacleswarm_religion
+				}
+				multiply = -1
+			}
+		}
+	}
+}

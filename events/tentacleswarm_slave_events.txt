@@ -32,6 +32,11 @@ tentacleswarm_slave.0001 = {
 		become_tentacle_slave = yes
 		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
 		add_stress = massive_stress_loss
+		
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		trigger = {
@@ -43,6 +48,11 @@ tentacleswarm_slave.0001 = {
 		name = tentacleswarm_slave.refuse
 		add_stress = massive_stress_gain
 		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
+		
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 }
 #来自监护人的特别的成年礼物
@@ -96,6 +106,11 @@ tentacleswarm_slave.0012 = {
 				}
 			}
 		}
+		
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		show_as_unavailable = { 
@@ -113,6 +128,11 @@ tentacleswarm_slave.0012 = {
 					reveal_to = root
 				}
 			}
+		}
+		
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
 		}
 	}
 }
@@ -186,6 +206,11 @@ tentacleswarm_slave.0022 = {
 		become_tentacle_slave = yes 
 		tentacle_corrupt = yes
 		add_stress = massive_stress_loss
+		
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		trigger = {
@@ -197,6 +222,11 @@ tentacleswarm_slave.0022 = {
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt = yes
 		add_stress = massive_stress_gain
+		
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 }
 
@@ -286,6 +316,11 @@ tentacleswarm_slave.0032 = {
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
 		add_stress = massive_stress_loss
+		
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		trigger = {
@@ -297,6 +332,11 @@ tentacleswarm_slave.0032 = {
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt = yes
 		add_stress = massive_stress_gain
+		
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 }
 
@@ -371,6 +411,11 @@ tentacleswarm_slave.0042 = {
 		become_tentacle_slave = yes
 		tentacle_corrupt = yes
 		add_stress = massive_stress_loss
+		
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		trigger = {
@@ -382,6 +427,11 @@ tentacleswarm_slave.0042 = {
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt = yes
 		add_stress = massive_stress_gain
+		
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 }
 tentacleswarm_slave.1001 = {
@@ -469,6 +519,10 @@ tentacleswarm_slave.2001 = {
 		name = tentacleswarm_slave.2001.a
 		become_tentacle_slave = yes
 		tentacle_womb_corrupt = yes
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 	option = { #拒绝屈服
 		trigger = {
@@ -476,6 +530,10 @@ tentacleswarm_slave.2001 = {
 		}
 		name = tentacleswarm_slave.2001.b
 		tentacle_womb_corrupt = yes
+		
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 #身体腐化事件，由于怀上了主人的孩子而发生
@@ -503,12 +561,20 @@ tentacleswarm_slave.2002 = {
 			id = tentacleswarm_slave.0031
 			days = 3 
 		}
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		name = tentacleswarm_slave.2002.b
 		tentacle_body_corrupt = yes
 		#忍受，增加压力
 		add_stress = massive_stress_gain
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 	after = {
 		#下一次成瘾事件
@@ -563,11 +629,19 @@ tentacleswarm_slave.3002 = { #成瘾选项事件
 			id = tentacleswarm_slave.0031
 			days = 3 
 		}
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
 	}
 	option = {
 		name = tentacleswarm_slave.3002.b
 		#忍耐，增加压力
 		add_stress = massive_stress_gain
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
 	}
 	
 	after = {
