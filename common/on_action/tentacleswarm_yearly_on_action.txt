@@ -115,10 +115,18 @@ tentacle_encounter_yearly = {#遭遇年度触发
 				}
 				trigger_event = {
 					id = tentacleswarm_slave.0021 #水井杀
-					months = { 1 8 }
+					months = { 6 9 }
 				}
 			}
 			1000 = {
+			}
+		}
+		#成瘾角色，还要触发成瘾遭遇
+		if = {
+			limit = { is_tentacle_body_corrupted = yes }
+			trigger_event = {
+				id = tentacleswarm_slave.3002 #成瘾事件
+				months = { 1 5 }
 			}
 		}
 	}
