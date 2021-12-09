@@ -37,9 +37,6 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		open_view_data = {
-			view = OW_XZ_MB_window
-		}
 	}
 	
 	ai_check_interval = 0

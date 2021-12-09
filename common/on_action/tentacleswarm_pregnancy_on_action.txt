@@ -73,7 +73,7 @@ tentacleswarm_baby_corruption = {
 						exists = location.county
 					}
 					modifier = { #苗床
-						factor = 3
+						factor = 10
 						is_tentacle_womb_corrupted = yes
 					}
 					modifier = { #成瘾

@@ -106,7 +106,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 					exists = location.county
 				}
 				modifier = { #苗床
-					factor = 5
+					factor = 10
 					is_tentacle_womb_corrupted = yes
 				}
 				modifier = { #成瘾
@@ -285,7 +285,7 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 60 } #本地敌视
+						change_variable =  { name = tentacleswarm_corruption_decay add = 40 } #本地敌视
 					}
 					else_if = {
 						limit = { 
@@ -298,7 +298,7 @@ tentacleswarm_yearly_playable_pulse = {
 							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
 							faith = { has_doctrine_parameter = adultery_female_crime }
 						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 30 } #本地罪行
+						change_variable =  { name = tentacleswarm_corruption_decay add = 20 } #本地罪行
 					}
 					else_if = {
 						limit = { 
@@ -311,13 +311,13 @@ tentacleswarm_yearly_playable_pulse = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_anti }
 						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 35 } #绞杀令
+						change_variable =  { name = tentacleswarm_corruption_decay add = 40 } #绞杀令
 					}
 					if = {
 						limit = { 
 							county_controller = { has_character_modifier = tentacleswarm_spread }
 						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = -35 } #播种令
+						change_variable =  { name = tentacleswarm_corruption_decay add = -40 } #播种令
 					}
 					change_variable =  { #发展度
 						name = tentacleswarm_corruption_decay 
@@ -360,7 +360,7 @@ tentacleswarm_yearly_playable_pulse = {
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
 					if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
 						limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
-						#60%传播给一个相邻伯爵领
+						#50%传播给一个相邻伯爵领
 						random_title_to_title_neighboring_and_across_water_county = {
 							limit = {
 								NOT = { has_county_modifier = tentacleswarm_destroy }
@@ -369,7 +369,7 @@ tentacleswarm_yearly_playable_pulse = {
 								name = tentacleswarm_corruption 
 								add = {
 									value = scope:county.var:tentacleswarm_corruption_decrease 
-									multiply = 0.6
+									multiply = 0.50
 								}
 							}
 							tentacleswarm_corruption_county_check = yes
@@ -383,7 +383,7 @@ tentacleswarm_yearly_playable_pulse = {
 								name = tentacleswarm_corruption 
 								add = {
 									value = scope:county.var:tentacleswarm_corruption_decrease 
-									multiply = 0.3
+									multiply = 0.30
 								}
 							}
 							tentacleswarm_corruption_county_check = yes
@@ -580,6 +580,13 @@ tentacleswarm_yearly_modifier_check = {
 			if = { #非信徒播种令无效化
 				limit = { has_character_modifier = tentacleswarm_spread}
 				remove_character_modifier = tentacleswarm_spread
+			}
+			if = { #非信徒关闭政体
+				limit = { 
+					has_government = tentacleswarm_government
+					is_landed = yes
+				}
+				change_government = feudal_government #暂且先变封建
 			}
 		}
 		if = {
