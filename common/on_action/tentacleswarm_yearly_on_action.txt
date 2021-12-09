@@ -106,7 +106,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 					exists = location.county
 				}
 				modifier = { #苗床
-					factor = 3
+					factor = 5
 					is_tentacle_womb_corrupted = yes
 				}
 				modifier = { #成瘾
@@ -352,6 +352,7 @@ tentacleswarm_yearly_playable_pulse = {
 					change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
 					if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
 						limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
+						#60%传播给一个相邻伯爵领
 						random_title_to_title_neighboring_and_across_water_county = {
 							limit = {
 								NOT = { has_county_modifier = tentacleswarm_destroy }
@@ -360,11 +361,12 @@ tentacleswarm_yearly_playable_pulse = {
 								name = tentacleswarm_corruption 
 								add = {
 									value = scope:county.var:tentacleswarm_corruption_decrease 
-									multiply = 0.5
+									multiply = 0.6
 								}
 							}
 							tentacleswarm_corruption_county_check = yes
 						}					
+						#30%传播给另一个相邻伯爵领
 						random_title_to_title_neighboring_and_across_water_county = {
 							limit = {
 								NOT = { has_county_modifier = tentacleswarm_destroy }

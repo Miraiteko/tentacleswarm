@@ -89,7 +89,7 @@ tentacle_slave_claim_throne = {
 			scope:target = {
 				exists = capital_county
 			}
-			desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_CAPITAL_CORRUPTION
+			#desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_CAPITAL_CORRUPTION
 		}		
 		#对方执行剿杀
 		modifier = {
@@ -97,7 +97,7 @@ tentacle_slave_claim_throne = {
 			scope:target = {
 				has_character_modifier = tentacleswarm_anti
 			}
-			desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_ANTI
+			#desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_ANTI
 		}
 	}
 	
