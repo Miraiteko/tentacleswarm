@@ -1,0 +1,11 @@
+﻿# Can the character refund their perks? Scope is the character
+can_refund_perks = {
+	perk_points_assigned >= 1
+	NOT = { has_perk = tentacle_corruption_01_perk }
+	custom_description = {
+		text = already_reset_perks
+		NOT = {
+			has_character_flag = has_refunded_perks
+		}
+	}
+}
