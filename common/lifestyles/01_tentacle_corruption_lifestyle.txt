@@ -3,6 +3,7 @@
 		is_female = yes
 	}
 	is_valid = {
+		always = no
 		is_ai = no
 	}
 	xp_per_level = 1000
