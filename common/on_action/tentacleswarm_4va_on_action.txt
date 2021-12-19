@@ -205,7 +205,10 @@ tentacleswarm_4VA_pulse = {
 		}
 	}
 }
-convert_to_tentacleswarm_religion_pulse = {
+convert_to_tentacleswarm_religion_pulse = { #ai会响应领主改信
+	trigger = {
+		is_ai = yes
+	}
 	effect = {
 		#become_tentacle_slave = yes
 		convert_to_tentacleswarm_religion = yes
