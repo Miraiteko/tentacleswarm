@@ -1,15 +1,17 @@
-﻿tentacle_corruption_01_perk = {
+﻿#恶堕芬芳
+tentacle_corruption_01_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
 	position = { 6 6 }
 	icon = node_intrigue
 	can_be_auto_selected = { always = no }
 	character_modifier = {
-		learning = 10
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_01_perk_tt
 	}
 }
+#本性狂躁
 tentacle_corruption_11_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -20,11 +22,13 @@ tentacle_corruption_11_perk = {
 	can_be_auto_selected = { always = no }
 	
 	character_modifier = {
-		learning = 20
+		stress_gain_mult = 0.5
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_11_perk_tt
 	}
 }
+#堕落烙印
 tentacle_corruption_12_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -37,8 +41,10 @@ tentacle_corruption_12_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_12_perk_tt
 	}
 }
+#梦魇缠身
 tentacle_corruption_21_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -51,8 +57,10 @@ tentacle_corruption_21_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_21_perk_tt
 	}
 }
+#深渊恩赐
 tentacle_corruption_22_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -65,9 +73,10 @@ tentacle_corruption_22_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_22_perk_tt
 	}
 }
-#上位魅种
+#永生屈服
 tentacle_corruption_31_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -81,8 +90,10 @@ tentacle_corruption_31_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_31_perk_tt
 	}
 }
+#瘴气成瘾
 tentacle_corruption_41_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -95,8 +106,10 @@ tentacle_corruption_41_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_41_perk_tt
 	}
 }
+#触手宫廷
 tentacle_corruption_42_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -109,6 +122,7 @@ tentacle_corruption_42_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_42_perk_tt
 	}
 }
 tentacle_corruption_51_perk = {
@@ -125,6 +139,7 @@ tentacle_corruption_51_perk = {
 	effect = {
 	}
 }
+#腐化阴谋
 tentacle_corruption_52_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -137,6 +152,7 @@ tentacle_corruption_52_perk = {
 	character_modifier = {
 	}
 	effect = {
+		custom_tooltip = tentacle_corruption_52_perk_tt
 	}
 }
 tentacle_corruption_61_perk = {
