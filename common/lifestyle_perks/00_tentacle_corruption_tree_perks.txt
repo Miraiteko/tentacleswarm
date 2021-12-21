@@ -22,7 +22,6 @@ tentacle_corruption_11_perk = {
 	can_be_auto_selected = { always = no }
 	
 	character_modifier = {
-		stress_gain_mult = 0.5
 	}
 	effect = {
 		custom_tooltip = tentacle_corruption_11_perk_tt
@@ -125,6 +124,7 @@ tentacle_corruption_42_perk = {
 		custom_tooltip = tentacle_corruption_42_perk_tt
 	}
 }
+#
 tentacle_corruption_51_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
