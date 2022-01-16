@@ -89,6 +89,9 @@ tentacle_corruption_31_perk = {
 	character_modifier = {
 	}
 	effect = {
+		hidden_effect = {
+			become_tentacle_slave = yes
+		}
 		custom_tooltip = tentacle_corruption_31_perk_tt
 	}
 }

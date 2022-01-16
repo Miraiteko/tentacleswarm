@@ -85,7 +85,11 @@ tentacleswarm_slave.0012 = {
 	title = tentacleswarm_slave.0012.t
 	desc = tentacleswarm_slave.0012.desc
 	theme = seduction
-	left_portrait = this
+	left_portrait = {
+		character = this
+		animation = personality_zealous
+	}
+	
 	right_portrait = scope:guardian
 	
 	widget = {
@@ -198,7 +202,10 @@ tentacleswarm_slave.0022 = {
 		} 
 	}
 	theme = seduction
-	left_portrait = this
+	left_portrait = {
+		character = this
+		animation = personality_zealous
+	}
 	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -256,7 +263,11 @@ tentacleswarm_slave.0031 = {
 		}
 	}
 	theme = faith
-	left_portrait = this
+	left_portrait = {
+		character = this
+		animation = personality_zealous
+	}
+	
 	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -405,7 +416,11 @@ tentacleswarm_slave.0042 = {
 		}
 	}
 	theme = dungeon
-	left_portrait = this
+	left_portrait = {
+		character = this
+		animation = personality_zealous
+	}
+	
 	right_portrait = scope:imprisoner
 	
 	widget = {
