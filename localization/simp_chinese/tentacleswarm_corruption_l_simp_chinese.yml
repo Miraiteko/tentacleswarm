@@ -113,5 +113,14 @@
  tentacleswarm_spread_end_decision_tooltip:0 "终止触手播种令"
  tentacleswarm_spread_end_decision_confirm:0 "终止触手播种令"
  
+ #宫廷职位
+ 
+ tentacle_hunter_court_position:0 "触手猎人"
+ tentacle_hunter_court_position_custom_effect_description:1 "减少领地的触手腐蚀\n有可能发现宫廷中的触手奴隶\n@warning_icon!#X 若加入针对你的[hostile_schemes|E]，会成为极有威胁的[agent|E]#!"
+ tentacle_hunter_court_position_desc:1 "$tentacle_hunter_court_position$检查领地的每个角落，从宫廷内院到郊外的水井，消灭一切有可能滋生的邪秽。"
+ tentacle_missionary_court_position:0 "触手播种人"
+ tentacle_missionary_court_position_custom_effect_description:1 "增加领地的触手腐蚀\n将宫廷中女性转化为触手奴隶\n@warning_icon!#X 若加入针对你的[hostile_schemes|E]，会成为极有威胁的[agent|E]#!"
+ tentacle_missionary_court_position_desc:1 "$tentacle_missionary_court_position$检查领地的每个角落，从宫廷内院到郊外的水井，为主人寻找一切有可能滋生的温床。"
+ 
  Cheri:0 "切莉"
  TENTACLE_LORD:0 "触手主人"

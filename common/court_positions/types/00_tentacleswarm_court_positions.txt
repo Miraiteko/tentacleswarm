@@ -1,0 +1,246 @@
+﻿tentacle_hunter_court_position = {
+	skill = learning
+	max_available_positions = 1
+	category = court_position_category_special
+	minimum_rank = county
+
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+	
+	aptitude = {
+		value = 1
+		add = {
+			value = learning
+			multiply = 2
+			max = 50
+			desc = court_position_skill_learning
+		}
+		add = {
+			value = stewardship
+			multiply = 1
+			max = 20
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = intrigue
+			multiply = 1
+			max = 20
+			desc = court_position_skill_intrigue
+		}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_low_penalty_value
+	}
+	
+	#职位条件
+	is_shown = {
+		faith = {
+			has_doctrine= doctrine_tentacle_slave_evil #敌视触手
+		}
+	}
+	valid_position = {
+		faith = {
+			has_doctrine= doctrine_tentacle_slave_evil #敌视触手
+		}
+	}
+	
+	#可雇佣条件
+	valid_character = {
+		scope:employee = {
+			is_imprisoned = no
+			learning >= 8
+		}
+	}
+	
+	revoke_cost = {
+		prestige = major_court_position_prestige_revoke_cost
+	}
+	
+	salary = {
+		round = no
+		gold = major_court_position_salary
+	}
+	
+	#对雇主的效果
+	
+	
+	base_employer_modifier = {
+	}
+	scaling_employer_modifiers = {
+		aptitude_level_1 = {
+			enemy_hostile_scheme_success_chance_add = -1
+		}
+		aptitude_level_2 = {
+			enemy_hostile_scheme_success_chance_add = -2
+		}
+		aptitude_level_3 = {
+			enemy_hostile_scheme_success_chance_add = -3
+		}
+		aptitude_level_4 = {
+			enemy_hostile_scheme_success_chance_add = -4
+		}
+		aptitude_level_5 = {
+			enemy_hostile_scheme_success_chance_add = -5 
+		}
+	}
+	custom_employer_modifier_description = tentacle_hunter_court_position_custom_effect_description
+	
+	#给被雇佣者的加成
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	
+	on_court_position_received = {
+		basic_gained_court_position_effect = yes
+	}
+	on_court_position_revoked = {
+		basic_revoked_court_position_effect = yes
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+	}
+	#ai会用这个职位吗
+	candidate_score = {
+		value = 100
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
+		add = court_position_debt_considerations_value
+		if = {
+			limit = {
+				is_tentacle_slave = yes
+			}
+			factor = 0
+		}
+	}
+}
+tentacle_missionary_court_position = {
+	skill = diplomacy
+	max_available_positions = 1
+	category = court_position_category_special
+	minimum_rank = county
+
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+	
+	aptitude = {
+		value = 1
+		add = {
+			value = diplomacy
+			multiply = 2
+			max = 50
+			desc = court_position_skill_diplomacy
+		}
+		add = {
+			value = stewardship
+			multiply = 1
+			max = 20
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = intrigue
+			multiply = 1
+			max = 20
+			desc = court_position_skill_intrigue
+		}
+		if = {
+			limit = {
+				is_female = no
+			}
+			add = { 
+				value = -20
+				desc = IS_MALE_CHARACTER_TRIGGER_CONDITION
+			}
+		}
+		if = {
+			limit = {
+				is_tentacle_slave = yes
+			}
+			add = { 
+				value = 20
+				desc = is_tentacle_slave_tooltip
+			}
+		}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_low_penalty_value
+	}
+	
+	#职位条件
+	is_shown = {
+		faith = {
+			has_doctrine= doctrine_tentacle_slave_worship #崇拜触手
+		}
+	}
+	valid_position = {
+		faith = {
+			has_doctrine= doctrine_tentacle_slave_worship #崇拜触手
+		}
+	}
+	
+	#可雇佣条件
+	valid_character = {
+		scope:employee = {
+			is_imprisoned = no
+			diplomacy >= 8
+		}
+	}
+	
+	revoke_cost = {
+		prestige = major_court_position_prestige_revoke_cost
+	}
+	
+	salary = {
+		round = no
+		gold = major_court_position_salary
+	}
+	
+	#对雇主的效果
+	
+	
+	base_employer_modifier = {
+	}
+	scaling_employer_modifiers = {
+		aptitude_level_1 = {
+			owned_hostile_scheme_success_chance_add = 1
+		}
+		aptitude_level_2 = {
+			owned_hostile_scheme_success_chance_add = 2
+		}
+		aptitude_level_3 = {
+			owned_hostile_scheme_success_chance_add = 3
+		}
+		aptitude_level_4 = {
+			owned_hostile_scheme_success_chance_add = 4
+		}
+		aptitude_level_5 = {
+			owned_hostile_scheme_success_chance_add = 5 
+		}
+	}
+	custom_employer_modifier_description = tentacle_missionary_court_position_custom_effect_description 
+	
+	#给被雇佣者的加成
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	
+	on_court_position_received = {
+		basic_gained_court_position_effect = yes
+	}
+	on_court_position_revoked = {
+		basic_revoked_court_position_effect = yes
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+	}
+	#ai会用这个职位吗
+	candidate_score = {
+		value = 100
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
+		add = court_position_debt_considerations_value
+	}
+}
