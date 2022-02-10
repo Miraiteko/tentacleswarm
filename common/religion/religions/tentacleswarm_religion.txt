@@ -49,6 +49,7 @@
 	localization = {
 		#HighGod
 		HighGodName = tentacleswarm_high_god_name
+		HighGodName2 = tentacleswarm_high_god_name
 		HighGodNamePossessive = tentacleswarm_high_god_name_possessive
 		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
@@ -134,6 +135,8 @@
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
 		PantheonTerm = tentacleswarm_high_god_name
+		PantheonTerm2 = tentacleswarm_high_god_name
+		PantheonTerm3 = tentacleswarm_high_god_name
 		PantheonTermHasHave = pantheon_term_has
 		GoodGodNames = {
 			tentacleswarm_high_god_name
@@ -149,9 +152,15 @@
 			tentacleswarm_devil_name
 		}
 		HouseOfWorship = tentacleswarm_house_of_worship
+		HouseOfWorship2 = tentacleswarm_house_of_worship
+		HouseOfWorship3 = tentacleswarm_house_of_worship
 		HouseOfWorshipPlural = tentacleswarm_house_of_worship_plural
 		ReligiousSymbol = tentacleswarm_religious_symbol
+		ReligiousSymbol2 = tentacleswarm_religious_symbol
+		ReligiousSymbol3 = tentacleswarm_religious_symbol
 		ReligiousText = tentacleswarm_religious_text
+		ReligiousText2 = tentacleswarm_religious_text
+		ReligiousText3 = tentacleswarm_religious_text
 		ReligiousHeadName = tentacleswarm_religious_head_title
 		ReligiousHeadTitleName = tentacleswarm_religious_head_title_name
 		DevoteeMale = tentacleswarm_devotee_male
@@ -174,8 +183,14 @@
 		BishopNeuter = tentacleswarm_bishop
 		BishopNeuterPlural = tentacleswarm_bishop_plural
 		DivineRealm = tentacleswarm_positive_afterlife
+		DivineRealm2 = tentacleswarm_positive_afterlife
+		DivineRealm3 = tentacleswarm_positive_afterlife
 		PositiveAfterLife = tentacleswarm_positive_afterlife
+		PositiveAfterLife2 = tentacleswarm_positive_afterlife
+		PositiveAfterLife3 = tentacleswarm_positive_afterlife
 		NegativeAfterLife = tentacleswarm_negative_afterlife
+		NegativeAfterLife2 = tentacleswarm_negative_afterlife
+		NegativeAfterLife3 = tentacleswarm_negative_afterlife
 		DeathDeityName = tentacleswarm_death_deity_name
 		DeathDeityNamePossessive = tentacleswarm_death_deity_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_HE

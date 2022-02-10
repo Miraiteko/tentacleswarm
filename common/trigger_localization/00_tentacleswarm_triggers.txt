@@ -30,3 +30,6 @@ WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED = {
 FEMALE_DOMINATED = {
 	global = FEMALE_DOMINATED
 }
+cant_blackmail_another_tentacle_slave = {
+	first_not = I_CANNOT_BLACKMAIL_TENTACLE_SLAVE
+}

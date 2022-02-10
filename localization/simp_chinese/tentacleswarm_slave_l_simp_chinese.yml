@@ -22,7 +22,7 @@
  secret_tentacle_slave_type_desc:0 "该角色屈服于触手怪物。"
  secret_tentacle_slave_tooltip_desc:0 "该角色屈服于触手怪物。"
  secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
- cant_blackmail_another_tentacle_slave:0 "不能勒索奴隶姐妹"
+ I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他奴隶姐妹"
  
  #决议相关
  tentacleswarm_start_decision:0 "宣告触手霸权"

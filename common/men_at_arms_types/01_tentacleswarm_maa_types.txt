@@ -44,10 +44,6 @@
 liquid_fire = { #希腊火
 	type = skirmishers
 	
-	can_recruit = {
-		culture = { has_cultural_pillar = heritage_byzantine }
-	}
-	
 	damage = 24
 	toughness = 14
 	pursuit = 0
@@ -80,13 +76,6 @@ gunpowder = { #黑火药
 	toughness = 20
 	pursuit = 0
 	screen = 30
-	
-	can_recruit = {
-		culture = { 
-			has_cultural_pillar = heritage_chinese 
-			has_cultural_era_or_later = culture_era_high_medieval
-		}
-	}
 	
 	terrain_bonus = {
 		hills = { damage = 10 toughness = 4 }
