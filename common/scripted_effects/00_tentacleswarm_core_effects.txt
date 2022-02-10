@@ -320,7 +320,12 @@ convert_to_tentacleswarm_religion = {
 				faith.religious_head = this
 			}
 			destroy_title =  faith.religious_head_title
-			faith = { change_fervor = -100 }
+			faith = { 
+				change_fervor = {
+					value = -100
+					desc = fervor_loss_scandalous_priest
+				} 
+			}
 		}
 		if = { #贞洁者变成堕邪者
 			limit = { 
@@ -329,7 +334,12 @@ convert_to_tentacleswarm_religion = {
 			}
 			remove_nickname = yes
 			give_nickname = nick_the_depraved
-			faith = { change_fervor = -100 }
+			faith = { 
+				change_fervor = {
+					value = -100
+					desc = fervor_loss_the_depraved
+				} 
+			}
 			custom_tooltip = convert_to_tentacleswarm_depraved.tt
 			hidden_effect = {
 				every_living_character = {

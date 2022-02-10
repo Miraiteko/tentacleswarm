@@ -54,8 +54,7 @@ tentacleswarm_destroy.0011 = {
 						is_tentacle_slave = no
 						is_male = yes
 						not = { has_religion = religion:tentacleswarm_religion }
-						has_culture_group = scope:target.culture_group
-						fertility > 0
+						culture = { has_same_culture_heritage = scope:target.culture }
 					}
 					save_scope_as = lucky
 				}

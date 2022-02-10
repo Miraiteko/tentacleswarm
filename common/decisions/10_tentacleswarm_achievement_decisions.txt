@@ -17,7 +17,12 @@
 		custom_tooltip = tentacleswarm_achievement_chaste_get 
 		give_nickname = nick_the_chaste #贞洁者
 		add_trait = saint
-		faith = { change_fervor = 100 }
+		faith = { 
+			change_fervor = {
+				value = 100
+				desc = fervor_gain_the_chaste
+			} 
+		}
 		
 		set_global_variable = {
 			name = tentacleswarm_achievement_chaste_accomplished

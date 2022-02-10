@@ -39,8 +39,8 @@ tentacleswarm_war.0001 = {
 			else_if = {
 				limit = {
 					OR = {
-						has_same_culture_group_as = scope:war.primary_attacker #攻击方同文化组
-						has_same_culture_group_as = scope:war.primary_defender #防御方同文化组
+						culture = { has_same_culture_heritage = scope:war.primary_attacker.culture } #攻击方同文化组
+						culture = { has_same_culture_heritage = scope:war.primary_defender.culture } #防御方同文化组
 					}
 				}
 				trigger_event = {
@@ -151,8 +151,8 @@ tentacleswarm_war.0002 ={
 				NOR = {
 					character_is_realm_neighbor = scope:war.primary_attacker #攻击方相邻
 					character_is_realm_neighbor = scope:war.primary_defender #防御方相邻
-					has_same_culture_group_as = scope:war.primary_attacker #攻击方同文化组
-					has_same_culture_group_as = scope:war.primary_defender #防御方同文化组
+					culture = { has_same_culture_heritage = scope:war.primary_attacker.culture } #攻击方同文化组
+					culture = { has_same_culture_heritage = scope:war.primary_defender.culture } #防御方同文化组
 				}
 			}		
 		}

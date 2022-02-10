@@ -318,7 +318,7 @@ tentacleswarm_conquest = {
 								is_tentacle_slave = no
 								is_male = yes
 								not = { has_religion = religion:tentacleswarm_religion }
-								has_culture_group = scope:target.culture_group
+								culture = { has_same_culture_heritage = scope:target.culture }
 							}
 							save_scope_as = lucky
 						}
@@ -428,7 +428,7 @@ tentacleswarm_conquest = {
 								is_tentacle_slave = no
 								is_male = yes
 								not = { has_religion = religion:tentacleswarm_religion }
-								has_culture_group = scope:target.culture_group
+								culture = { has_same_culture_heritage = scope:target.culture }
 							}
 							save_scope_as = lucky
 						}
