@@ -10,4 +10,3 @@ can_refund_perks 被腐化的角色不能重置技能点数
 修改了以下原版文件
 \gfx\map\map_modes\map_modes.txt 新的地图模式
 \gui\shared\mapmodes.gui 修改地图模式切换界面以启用新的地图模式
-\events\dlc\fp1\fp1_jomsvikings_events.txt 修复了在本mod中当约姆斯维京人骑士团被摧毁之后依然会被人互动导致的报错问题
