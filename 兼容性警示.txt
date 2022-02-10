@@ -10,3 +10,4 @@ can_refund_perks 被腐化的角色不能重置技能点数
 修改了以下原版文件
 \gfx\map\map_modes\map_modes.txt 新的地图模式
 \gui\shared\mapmodes.gui 修改地图模式切换界面以启用新的地图模式
+\common\council_tasks\00_court_chaplain_tasks.txt 腐化度对传教的影响
