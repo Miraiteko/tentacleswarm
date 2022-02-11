@@ -201,6 +201,7 @@
 		WitchGodHerHim = CHARACTER_HERHIM_HIM
 		WitchGodMistressMaster = master
 		WitchGodMotherFather = father
+		WitchGodNamePossessive = tentacleswarm_witchgodname_the_horned_god
 
 
 		GHWName = ghw_purification

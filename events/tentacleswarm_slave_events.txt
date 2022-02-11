@@ -704,7 +704,7 @@ tentacleswarm_slave.4001 = {
 				limit = {
 					has_religion = religion:tentacleswarm_religion
 				}
-				#scope:spouse = { trigger_event = tentacleswarm_slave.4002 }
+				scope:spouse = { trigger_event = tentacleswarm_slave.4002 }
 			}
 			else = {
 				scope:spouse = { trigger_event = pregnancy.2102 }

@@ -60,6 +60,10 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
 			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_5 }
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
 	}
 	else_if = { #一档
 		limit = {
@@ -75,65 +79,6 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_2 }
 			remove_county_modifier = tentacleswarm_corruption_2
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_3 }
-			remove_county_modifier = tentacleswarm_corruption_3
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_4 }
-			remove_county_modifier = tentacleswarm_corruption_4
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_5 }
-			remove_county_modifier = tentacleswarm_corruption_5
-		}
-		if = {
-			limit = { 
-				NOT = {has_county_modifier = tentacleswarm_corruption_control_0 }
-				holder = { has_government = tentacleswarm_government }
-			}
-			add_county_modifier = tentacleswarm_corruption_control_0
-		}
-		if = {
-			limit = { 
-				has_county_modifier = tentacleswarm_corruption_control_0
-				NOT = { holder = { has_government = tentacleswarm_government }}
-			}
-			remove_county_modifier = tentacleswarm_corruption_control_0
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
-			remove_county_modifier = tentacleswarm_corruption_control_1
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
-			remove_county_modifier = tentacleswarm_corruption_control_2
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
-			remove_county_modifier = tentacleswarm_corruption_control_3
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
-			remove_county_modifier = tentacleswarm_corruption_control_4
-		}
-		tentacleswarm_appear_effect_1 = yes #通知玩家
-	}
-	else_if = { #二档
-		limit = {
-			var:tentacleswarm_corruption = { compare_value < 35 }
-		}
-		every_county_province = {
-			barony = { set_color_from_title = title:d_mid_corruption_province } 
-		}
-		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_1 }
-			remove_county_modifier = tentacleswarm_corruption_1
-		}
-		if = {
-			limit = { NOT = { has_county_modifier = tentacleswarm_corruption_2 }}
-			add_county_modifier = tentacleswarm_corruption_2
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_3 }
@@ -177,26 +122,30 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
 			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_5 }
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
 		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
-	else_if = { #三档
+	else_if = { #二档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 60 }
+			var:tentacleswarm_corruption = { compare_value < 35 }
 		}
 		every_county_province = {
-			barony = { set_color_from_title = title:d_high_corruption_province } 
+			barony = { set_color_from_title = title:d_mid_corruption_province } 
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_1 }
 			remove_county_modifier = tentacleswarm_corruption_1
 		}
 		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_2 }
-			remove_county_modifier = tentacleswarm_corruption_2
+			limit = { NOT = { has_county_modifier = tentacleswarm_corruption_2 }}
+			add_county_modifier = tentacleswarm_corruption_2
 		}
 		if = {
-			limit = { NOT ={ has_county_modifier = tentacleswarm_corruption_3 }}
-			add_county_modifier = tentacleswarm_corruption_3
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_4 }
@@ -236,14 +185,18 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
 			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
-		tentacleswarm_appear_effect_2 = yes #通知玩家
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_5 }
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
+		tentacleswarm_appear_effect_1 = yes #通知玩家
 	}
-	else_if = { #四档
+	else_if = { #三档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 100 }
+			var:tentacleswarm_corruption = { compare_value < 60 }
 		}
 		every_county_province = {
-			barony = { set_color_from_title = title:d_very_high_corruption_province } 
+			barony = { set_color_from_title = title:d_high_corruption_province } 
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_1 }
@@ -254,12 +207,12 @@ tentacleswarm_corruption_county_check = {
 			remove_county_modifier = tentacleswarm_corruption_2
 		}
 		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_3 }
-			remove_county_modifier = tentacleswarm_corruption_3
+			limit = { NOT ={ has_county_modifier = tentacleswarm_corruption_3 }}
+			add_county_modifier = tentacleswarm_corruption_3
 		}
 		if = {
-			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_4 }}
-			add_county_modifier = tentacleswarm_corruption_4
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_5 }
@@ -295,11 +248,18 @@ tentacleswarm_corruption_county_check = {
 			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
 			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_5 }
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
 		tentacleswarm_appear_effect_2 = yes #通知玩家
 	}
-	else = { #五档
+	else_if = { #四档
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 100 }
+		}
 		every_county_province = {
-			barony = { set_color_from_title = title:d_hell_corruption_province } 
+			barony = { set_color_from_title = title:d_very_high_corruption_province } 
 		}
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_1 }
@@ -314,12 +274,12 @@ tentacleswarm_corruption_county_check = {
 			remove_county_modifier = tentacleswarm_corruption_3
 		}
 		if = {
-			limit = { has_county_modifier = tentacleswarm_corruption_4 }
-			remove_county_modifier = tentacleswarm_corruption_4
+			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_4 }}
+			add_county_modifier = tentacleswarm_corruption_4
 		}
 		if = {
-			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_5 }}
-			add_county_modifier = tentacleswarm_corruption_5
+			limit = { has_county_modifier = tentacleswarm_corruption_5 }
+			remove_county_modifier = tentacleswarm_corruption_5
 		}
 		if = {
 			limit = { 
@@ -350,6 +310,70 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
 			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_5 }
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
+		tentacleswarm_appear_effect_2 = yes #通知玩家
+	}
+	else = { #五档
+		every_county_province = {
+			barony = { set_color_from_title = title:d_hell_corruption_province } 
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_1 }
+			remove_county_modifier = tentacleswarm_corruption_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_2 }
+			remove_county_modifier = tentacleswarm_corruption_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_3 }
+			remove_county_modifier = tentacleswarm_corruption_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_4 }
+			remove_county_modifier = tentacleswarm_corruption_4
+		}
+		if = {
+			limit = { NOT = {has_county_modifier = tentacleswarm_corruption_5 }}
+			add_county_modifier = tentacleswarm_corruption_5
+		}
+		if = {
+			limit = { 
+				NOT = {has_county_modifier = tentacleswarm_corruption_control_5 }
+				holder = { has_government = tentacleswarm_government }
+			}
+			add_county_modifier = tentacleswarm_corruption_control_5
+		}
+		if = {
+			limit = { 
+				has_county_modifier = tentacleswarm_corruption_control_5
+				NOT = { holder = { has_government = tentacleswarm_government }}
+			}
+			remove_county_modifier = tentacleswarm_corruption_control_5
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+			remove_county_modifier = tentacleswarm_corruption_control_0
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+			remove_county_modifier = tentacleswarm_corruption_control_1
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+			remove_county_modifier = tentacleswarm_corruption_control_2
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+			remove_county_modifier = tentacleswarm_corruption_control_3
+		}
+		if = {
+			limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
 		#地狱造成本地4VA
 		holder = { 

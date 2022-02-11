@@ -25,6 +25,12 @@ is_tentacle_body_corrupted_tooltip = {
 	first = I_have_tentacle_slave_body_tooltip
 	global_not = not_has_tentacle_slave_body_tooltip
 }
+tentacleswarm_never_cheat_tooltip = {
+	global = tentacleswarm_never_cheat_tooltip
+}
+tentacleswarm_never_slave_tooltip = {
+	global = tentacleswarm_never_slave_tooltip
+}
 tentacleswarm_achievement_chaste_count_tooltip = {
 	global = tentacleswarm_achievement_chaste_count_tooltip
 	first = tentacleswarm_achievement_chaste_count_tooltip_first
