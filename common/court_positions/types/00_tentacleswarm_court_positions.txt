@@ -116,13 +116,13 @@
 			limit = {
 				scope:liege.capital_county.var:tentacleswarm_corruption  = { compare_value < 10 }
 			}
-			factor = 0
+			multiply = 0
 		}
 		if = { #奴隶不会启用
 			limit = {
 				scope:liege = { is_tentacle_slave = yes }
 			}
-			factor = 0
+			multiply = 0
 		}
 	}
 }
@@ -161,8 +161,8 @@ tentacle_missionary_court_position = {
 			limit = {
 				is_female = no
 			}
-			add = { 
-				value = -20
+			multiply = { 
+				value = 0.5
 				desc = gender_male
 			}
 		}
@@ -170,8 +170,8 @@ tentacle_missionary_court_position = {
 			limit = {
 				is_tentacle_slave = yes
 			}
-			add = { 
-				value = 20
+			multiply = { 
+				value = 2
 				desc = is_tentacle_slave_tooltip
 			}
 		}
