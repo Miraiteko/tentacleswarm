@@ -1,13 +1,18 @@
 ﻿is_tentacle_slave_tooltip = {
 	global = is_tentacle_slave_tooltip
 	global_not = not_tentacle_slave_tooltip
+	first = I_am_tentacle_slave_tooltip
+	first_not = I_amnot_tentacle_slave_tooltip
+	third = she_is_tentacle_slave_tooltip
+	third_not = she_isnot_tentacle_slave_tooltip
 }
 tentacle_baby_corruption_not_yet_tooltip = {
 	global = tentacle_baby_corruption_not_yet_tooltip
+	first = I_tentacle_baby_corruption_not_yet_tooltip
 }
 is_hidden_tentacle_slave_tooltip = {
 	global = is_hidden_tentacle_slave_tooltip
-	first = has_tentacle_slave_body
+	first = I_am_hidden_tentacle_slave_tooltip
 	global_not = not_hidden_tentacle_slave_tooltip
 }
 is_tentacle_womb_corrupted_tooltip = {
@@ -22,6 +27,7 @@ is_tentacle_body_corrupted_tooltip = {
 }
 tentacleswarm_achievement_chaste_count_tooltip = {
 	global = tentacleswarm_achievement_chaste_count_tooltip
+	first = tentacleswarm_achievement_chaste_count_tooltip_first
 	global_not = not_tentacleswarm_achievement_chaste_count_tooltip
 }
 WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED = {

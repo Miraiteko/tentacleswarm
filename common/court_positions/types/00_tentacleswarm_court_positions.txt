@@ -102,14 +102,25 @@
 	}
 	#ai会用这个职位吗
 	candidate_score = {
-		value = 100
+		value = 0
 		add = scope:base_value
 		add = court_position_candidate_score_base_value
 		add = court_position_candidate_aptitude_value
 		add = court_position_debt_considerations_value
-		if = {
+		add = {
+			value = scope:liege.capital_county.var:tentacleswarm_corruption #腐化越高越爱用
+			multiply = 4
+		}
+		add = scope:liege.ai_zeal #虔诚的领主喜欢启用
+		if = { #我这里没有腐化呀，不启用
 			limit = {
-				is_tentacle_slave = yes
+				scope:liege.capital_county.var:tentacleswarm_corruption  = { compare_value < 10 }
+			}
+			factor = 0
+		}
+		if = { #奴隶不会启用
+			limit = {
+				scope:liege = { is_tentacle_slave = yes }
 			}
 			factor = 0
 		}
@@ -152,7 +163,7 @@ tentacle_missionary_court_position = {
 			}
 			add = { 
 				value = -20
-				desc = IS_MALE_CHARACTER_TRIGGER_CONDITION
+				desc = gender_male
 			}
 		}
 		if = {
@@ -242,5 +253,11 @@ tentacle_missionary_court_position = {
 		add = court_position_candidate_score_base_value
 		add = court_position_candidate_aptitude_value
 		add = court_position_debt_considerations_value
+		if = { #奴隶偏爱启用
+			limit = {
+				scope:liege = { is_tentacle_slave = yes }
+			}
+			factor = 2
+		}
 	}
 }

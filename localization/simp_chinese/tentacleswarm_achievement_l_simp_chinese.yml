@@ -7,6 +7,7 @@
  tentacleswarm_never_slave_tooltip:0 "不曾扮演触手奴隶"
  tentacleswarm_ever_slave_tooltip:0 "曾扮演触手奴隶"
  tentacleswarm_achievement_chaste_count_tooltip:0 "连续200年扮演女性统治者（当前$VALUE|V$年）"
+ tentacleswarm_achievement_chaste_count_tooltip_first:0 "你已连续200年扮演女性统治者（当前$VALUE|V$年）"
  not_tentacleswarm_achievement_chaste_count_tooltip:0 "尚未连续200年扮演女性统治者（当前$VALUE|V$年）"
  
  tentacleswarm_achievement_chaste_decision:0 "#E 触手天灾成就#!：守身如玉"
