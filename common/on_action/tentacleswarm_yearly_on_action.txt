@@ -304,81 +304,30 @@ tentacleswarm_yearly_playable_pulse = {
 				}
 				#否则，进行滋生
 				else = {
+					#发展度计算
+					if = {
+						limit = { 
+							development_towards_level_increase < 0.2 
+							var:tentacleswarm_corruption = { compare_value >= 10 }
+						}
+						if = {
+							limit = {
+								development_level > 0
+							}
+							change_development_progress_with_overflow = - 0.2
+						}
+						#如果发展度已经为零了，省份被破坏殆尽
+						else = {
+							tentacleswarm_corruption_county_destroy_effect = yes #省份摧毁结算
+						}
+					}
+						
 					#计算衰减率
-					set_variable =  { name = tentacleswarm_corruption_decay value = 10 } #基础衰减	
-					#本地信仰修正
-					if = {
-						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 40 } #本地敌视
-					}
-					else_if = {
-						limit = { 
-							religion = religion:tentacleswarm_religion
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = -20 } #本地信奉触手宗教 
-					}
-					else_if = {
-						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
-							faith = { has_doctrine_parameter = adultery_female_crime }
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 20 } #本地罪行
-					}
-					else_if = {
-						limit = { 
-							faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
-							faith = { has_doctrine_parameter = adultery_female_shunned }
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 10 } #本地忌讳
-					}
-					if = {
-						limit = { 
-							county_controller = { has_character_modifier = tentacleswarm_anti }
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = 40 } #绞杀令
-					}
-					if = {
-						limit = { 
-							county_controller = { has_character_modifier = tentacleswarm_spread }
-						}
-						change_variable =  { name = tentacleswarm_corruption_decay add = -40 } #播种令
-					}
-					change_variable =  { #发展度
-						name = tentacleswarm_corruption_decay 
-						add = {
-							value = development_level 
-							multiply = -2.0
-						}
-					}
-					#腐化超上限的话（过于拥挤），加速衰减
-					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 150 } }
-						change_variable =  { name = tentacleswarm_corruption_decay add = 20 }
-					}
-					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 300 } }
-						change_variable =  { name = tentacleswarm_corruption_decay add = 20 }
-					}
-					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 500 } }
-						change_variable =  { name = tentacleswarm_corruption_decay add = 20 }
-					}
-					if = {
-						limit = { var:tentacleswarm_corruption = { compare_value > 2000 } }
-						set_variable =  { name = tentacleswarm_corruption_decay value = 2000 }
-					}
-					#规范化
-					if = {
-						limit = { var:tentacleswarm_corruption_decay = { compare_value > 80 } }
-						set_variable =  { name = tentacleswarm_corruption_decay value = 80 }
-					}	
-					if = {
-						limit = { var:tentacleswarm_corruption_decay = { compare_value < 5 } }
-						set_variable =  { name = tentacleswarm_corruption_decay value = 5 }
-					}	
-
+					#基础衰减，固定10%
+					set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
+					#饥饿衰减，取决于当地的食物供应于现有腐化度的比例
+					set_variable =  { name = tentacleswarm_corruption_hunger_decay value = tentacleswarm_corruption_hunger_value } 	
+					change_variable =  { name = tentacleswarm_corruption_decay add = var:tentacleswarm_corruption_hunger_decay } 	
 					
 					#计算衰减额度
 					set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
@@ -426,17 +375,15 @@ tentacleswarm_yearly_playable_pulse = {
 					change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
 					
 
-					
-					
 					#五档：10,20,35,60,100
 					tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
 					
-					#破坏发展度
+					#巨兽生成
 					if = {
 						limit = { #零档，无腐化
 							var:tentacleswarm_corruption = { compare_value < 10 }
 						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 0 } #获得省份破坏进度
+						change_variable =  { name = tentacleswarm_corruption_destroy add = 0 }
 					}
 					else_if = { #一档
 						limit = {
@@ -467,13 +414,11 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					
 					if = {
-						limit = { #破坏点数满100时候，掉1点发展度，生一队巨兽
+						limit = { #破坏点数满100时候，生一队巨兽
 							var:tentacleswarm_corruption_destroy = { compare_value >= 100 }
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
 						if = {
-							limit = { development_level > 0 } 
-							change_development_level = -1
 							holder = {
 								save_scope_as = holder
 								if = {
@@ -486,44 +431,9 @@ tentacleswarm_yearly_playable_pulse = {
 										left_icon = scope:county
 										right_icon = scope:holder
 										goto = scope:county
-										scope:county = {
-											change_development_level = -1
-										}
 									}
 								}
 							}
-						}
-						#如果发展度已经为零了，省份被破坏殆尽
-						else = {
-							tentacleswarm_corruption_county_destroy_effect = yes #省份摧毁结算
-							holder = {
-								# send_interface_message = {
-									# type = event_steward_task_bad
-									# title = tentacleswarm_corruption_destroy1.notification
-									# desc = tentacleswarm_corruption_destroy1.desc
-									
-									# left_icon = scope:county
-									# right_icon = scope:holder
-									# goto = scope:county
-									# show_as_tooltip = {
-										# scope:county = {
-											# add_county_modifier = tentacleswarm_destroy
-										# }
-									# }
-								# }
-							}
-						}
-						
-						if = { #如果领主是本宗教的，在破坏时直接获得一队巨兽
-							limit = {
-								holder = { has_religion = religion:tentacleswarm_religion }
-							}
-							holder = { #战争巨兽
-								change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
-							}
-						}
-						else = { #否则的话，巨兽在破坏完之后，沉睡了
-							change_variable =  { name = tentacleswarm_corruption_warbeast add = 100 }
 						}
 					}
 					if = {

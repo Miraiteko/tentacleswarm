@@ -8,27 +8,27 @@ tentacleswarm_destroy = {
 #10-20
 tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
-	development_growth_factor = -0.1
+	development_growth = -0.2
 }
 #20-35
 tentacleswarm_corruption_2 = {
 	icon = outdoors_negative
-	development_growth_factor = -0.2
+	development_growth = -0.4
 }
 #35-60
 tentacleswarm_corruption_3 = {
 	icon = outdoors_negative
-	development_growth_factor = -0.35
+	development_growth = -0.7
 }
 #60-100
 tentacleswarm_corruption_4 = {
 	icon = outdoors_negative
-	development_growth_factor = -0.6
+	development_growth = -1.2
 }
 #100+
 tentacleswarm_corruption_5 = {
 	icon = outdoors_negative
-	development_growth_factor = -1.0
+	development_growth = -2.0
 }
 
 #特色政体腐化度影响控制力
