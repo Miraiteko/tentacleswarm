@@ -403,6 +403,14 @@ tentacleswarm_4VA = {
 				convert_to_tentacleswarm_religion = yes
 			}
 		}
+		
+		every_held_title = { #名下所有伯爵领检查修正
+			limit = { 
+				tier = tier_county
+				NOT = { has_county_modifier = tentacleswarm_destroy }
+			}
+			tentacleswarm_corruption_county_check = yes
+		}
 	}
 
 	
