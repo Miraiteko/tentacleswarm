@@ -318,7 +318,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						#如果发展度已经为零了，省份被破坏殆尽
 						else = {
-							tentacleswarm_corruption_county_destroy_effect = yes #省份摧毁结算
+							#tentacleswarm_corruption_county_destroy_effect = yes #暂时取消摧毁代价机制试试看。
 						}
 					}
 						
@@ -418,28 +418,32 @@ tentacleswarm_yearly_playable_pulse = {
 							var:tentacleswarm_corruption_destroy = { compare_value >= 100 }
 						}
 						change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
-						if = {
-							holder = {
-								save_scope_as = holder
-								if = {
-									limit = { NOT = { has_religion = religion:tentacleswarm_religion } }
-									send_interface_message = {
-										type = event_steward_task_bad
-										title = tentacleswarm_corruption_destroy.notification
-										desc = tentacleswarm_corruption_destroy.desc
-										
-										left_icon = scope:county
-										right_icon = scope:holder
-										goto = scope:county
-									}
+						holder = { 
+							if = {
+								limit = { 
+									has_religion = religion:tentacleswarm_religion
 								}
+								change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
+							}
+							else = {
+								save_scope_as = holder
+								send_interface_message = {
+									type = event_steward_task_bad
+									title = tentacleswarm_corruption_destroy.notification
+									desc = tentacleswarm_corruption_destroy.desc
+									
+									left_icon = scope:county
+									right_icon = scope:holder
+									goto = scope:county
+								}
+								change_variable =  { name = tentacleswarm_corruption_warbeast add = 100 }
 							}
 						}
 					}
 					if = {
 						limit = { #本宗教领主可以唤醒沉睡的巨兽
 							var:tentacleswarm_corruption_warbeast = { compare_value >= 100 }
-							holder = {has_religion = religion:tentacleswarm_religion }
+							holder = { has_religion = religion:tentacleswarm_religion }
 						}
 						change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
 						holder = { #战争巨兽
@@ -450,6 +454,7 @@ tentacleswarm_yearly_playable_pulse = {
 			}
 			if = { #按照上面统计的数量生成战争巨兽
 				limit = { 
+					always = no
 					var:tentacleswarm_warbeast_gain = { compare_value >= 1 } 
 				}
 				spawn_army = {

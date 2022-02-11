@@ -9,26 +9,31 @@ tentacleswarm_destroy = {
 tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
 	development_growth = -0.2
+	county_opinion_add = -10
 }
 #20-35
 tentacleswarm_corruption_2 = {
 	icon = outdoors_negative
 	development_growth = -0.4
+	county_opinion_add = -20
 }
 #35-60
 tentacleswarm_corruption_3 = {
 	icon = outdoors_negative
 	development_growth = -0.7
+	county_opinion_add = -35
 }
 #60-100
 tentacleswarm_corruption_4 = {
 	icon = outdoors_negative
 	development_growth = -1.2
+	county_opinion_add = -60
 }
 #100+
 tentacleswarm_corruption_5 = {
 	icon = outdoors_negative
 	development_growth = -2.0
+	county_opinion_add = -100
 }
 
 #特色政体腐化度影响控制力
@@ -36,24 +41,29 @@ tentacleswarm_corruption_5 = {
 tentacleswarm_corruption_control_0 = {
 	icon = county_modifier_control_negative
 	monthly_county_control_change_add = -3.0
+	county_opinion_add = -100
 }
 #20-35
 tentacleswarm_corruption_control_1 = {
 	icon = county_modifier_control_negative
 	monthly_county_control_change_add = -1.5
+	county_opinion_add = -50
 }
 #35-60
 tentacleswarm_corruption_control_2 = {
 	icon = county_modifier_control_negative
 	monthly_county_control_change_add = -0.5
+	county_opinion_add = 50
 }
 #60-100
 tentacleswarm_corruption_control_3 = {
 	icon = county_modifier_control_positive
 	monthly_county_control_change_add = 0.5
+	county_opinion_add = 150
 }
 #100+
 tentacleswarm_corruption_control_4 = {
 	icon = county_modifier_control_positive
 	monthly_county_control_change_add = 1.5
+	county_opinion_add = 150
 }

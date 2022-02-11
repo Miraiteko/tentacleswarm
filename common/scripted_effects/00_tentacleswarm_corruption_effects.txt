@@ -358,28 +358,39 @@ tentacleswarm_corruption_county_check = {
 				days = { 10 60 }
 			}
 		}
-		#高地狱情况
-		if = {
+		tentacleswarm_appear_effect_3 = yes #通知玩家
+	}
+	#改信情况
+	#腐化过高改信天灾
+	if = {
+		limit = {
+			var:tentacleswarm_corruption = { compare_value > 100 }
+			NOT = { religion = religion:tentacleswarm_religion  }
+		}
+		set_county_faith = faith:tentacleswarm_slavery
+	}
+	#腐化过低改信别的
+	if = {
+		limit = {
+			var:tentacleswarm_corruption = { compare_value < 10 }
+			religion = religion:tentacleswarm_religion
+		}
+		random_living_character = { #同传承宗教优先
 			limit = {
-				var:tentacleswarm_corruption = { compare_value > 150 }
+				not = { has_religion = religion:tentacleswarm_religion }
+				culture = { has_same_culture_heritage = scope:county.culture }
 			}
-			#造成本地改信
-			if = {
-				limit = {
-					NOT = { religion = religion:tentacleswarm_religion  }
-				}
-				if = {
-					limit = {
-						holder = { has_religion = religion:tentacleswarm_religion  }
-					}	
-					set_county_faith = holder.faith
-				}
-				else = {
-					set_county_faith = faith:tentacleswarm_slavery
+			faith = { save_scope_as = lucky }
+		}
+		if = { #否则就随机一个宗教
+			limit = { NOT = { exists = scope:lucky }  }
+			random_religion_global = {
+				random_faith = {
+					save_scope_as = lucky
 				}
 			}
 		}
-		tentacleswarm_appear_effect_3 = yes #通知玩家
+		set_county_faith = scope:lucky
 	}
 }
 #省份被摧毁殆尽
