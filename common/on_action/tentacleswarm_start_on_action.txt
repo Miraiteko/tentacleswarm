@@ -59,7 +59,7 @@ tentacleswarm_on_game_start = {
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
-			set_variable =  { name = tentacleswarm_corruption value = 150 }
+			set_variable =  { name = tentacleswarm_corruption value = 1500 }
 			set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
 			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 10 }

@@ -26,13 +26,13 @@ tentacleswarm_corruption_hunger_value = {
 				limit = {
 					faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 				}
-				multiply = 2
+				multiply = 2.5
 			}
 			if = {
 				limit = {
 					faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
 				}
-				multiply = 3
+				multiply = 3.5
 			}
 			if = {
 				limit = {
@@ -50,7 +50,7 @@ tentacleswarm_corruption_hunger_value = {
 				limit = {
 					county_controller = { has_character_modifier = tentacleswarm_spread }
 				}
-				multiply = 1.5
+				multiply = 2
 			}
 			#食物供应除以腐化度得到饱食度
 			divide = { value = var:tentacleswarm_corruption min = 1 }

@@ -68,12 +68,12 @@ tentacleswarm_corruption_control_3 = {
 #60-100
 tentacleswarm_corruption_control_4 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 1.0
+	monthly_county_control_change_add = 1.5
 	county_opinion_add = 100
 }
 #100+
 tentacleswarm_corruption_control_5 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 1.5
+	monthly_county_control_change_add = 2.5
 	county_opinion_add = 150
 }

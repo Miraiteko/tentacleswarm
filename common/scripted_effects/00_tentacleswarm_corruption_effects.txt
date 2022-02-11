@@ -396,7 +396,7 @@ tentacleswarm_corruption_county_check = {
 	#腐化过低改信别的
 	if = {
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 10 }
+			var:tentacleswarm_corruption = { compare_value < 20 }
 			religion = religion:tentacleswarm_religion
 		}
 		random_living_character = { #同传承宗教优先
