@@ -19,40 +19,42 @@ minus_tentacleswarm_corruption = {
 tentacleswarm_corruption_hunger_value = {
 	value = 1.0
 	subtract = {
-		value = development_level
-		#食物供应额度以复杂度为基础，受到教义影响
-		if = {
-			limit = {
-				faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
+		value = {
+			value = development_level
+			#食物供应额度以复杂度为基础，受到教义影响
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
+				}
+				multiply = 2
 			}
-			multiply = 2
-		}
-		if = {
-			limit = {
-				faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = doctrine_tentacle_slave_adultery }
+				}
+				multiply = 3
 			}
-			multiply = 3
-		}
-		if = {
-			limit = {
-				religion = religion:tentacleswarm_religion
+			if = {
+				limit = {
+					religion = religion:tentacleswarm_religion
+				}
+				multiply = 5
 			}
-			multiply = 5
-		}
-		if = {
-			limit = {
-				county_controller = { has_character_modifier = tentacleswarm_anti }
+			if = {
+				limit = {
+					county_controller = { has_character_modifier = tentacleswarm_anti }
+				}
+				multiply = 0.8
 			}
-			multiply = 0.8
-		}
-		if = {
-			limit = {
-				county_controller = { has_character_modifier = tentacleswarm_spread }
+			if = {
+				limit = {
+					county_controller = { has_character_modifier = tentacleswarm_spread }
+				}
+				multiply = 1.5
 			}
-			multiply = 1.5
+			#食物供应除以腐化度得到饱食度
+			divide = { value = var:tentacleswarm_corruption min = 1 }
 		}
-		#食物供应除以腐化度得到饱食度
-		divide = { value = tentacleswarm_corruption min = 1 }
 	}
 	multiply = 70 #满饥饿的情况下有70%的衰减
 	min = 0

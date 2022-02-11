@@ -314,7 +314,7 @@ tentacleswarm_yearly_playable_pulse = {
 							limit = {
 								development_level > 0
 							}
-							change_development_progress_with_overflow = - 0.2
+							change_development_progress_with_overflow = -0.2
 						}
 						#如果发展度已经为零了，省份被破坏殆尽
 						else = {

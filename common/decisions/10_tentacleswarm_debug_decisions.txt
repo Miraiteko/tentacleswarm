@@ -27,7 +27,7 @@
 }
 tentacleswarm_test_decision = {
 	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
 
 	is_shown = {
 		debug_only = yes #测试用
@@ -38,6 +38,10 @@ tentacleswarm_test_decision = {
 	}	
 	effect = {
 		tentacle_corruption_perk_add = yes 
+		add_gold = age_plus_10
+		capital_county = {
+			change_development_progress_with_overflow = tentacleswarm_corruption_hunger_value 
+		}
 	}
 
 	ai_check_interval = 0
