@@ -6,6 +6,18 @@ tentacle_slave = {
 	
 	valid_sex =  female
 	health_trait = yes #健康特质
+		
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tentacle_slave_desc
+			}
+			desc = trait_tentacle_slave_character_desc
+		}
+	}
 	
 	#高生育
 	#fertility = 0.5
@@ -91,6 +103,18 @@ tentacle_monster = {
 	
 	valid_sex =  male
 	health_trait = yes #健康特质
+		
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tentacle_monster_desc
+			}
+			desc = trait_tentacle_monster_character_desc
+		}
+	}
 	
 	life_expectancy = 100#命长
 	years_of_fertility = 150#一直能生
