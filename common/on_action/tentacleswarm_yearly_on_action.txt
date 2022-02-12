@@ -369,7 +369,10 @@ tentacleswarm_yearly_playable_pulse = {
 						name = tentacleswarm_corruption 
 						add = {
 							value = holder.var:tentacleswarm_corruption_add 
-							#max = development_level #0发展的省份是种不了的
+							max = { #0发展的省份是种不了的
+								value = development_level
+								multiply = 5
+							}
 						}
 					}
 				
