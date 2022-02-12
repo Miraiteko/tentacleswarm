@@ -59,6 +59,6 @@ tentacleswarm_corruption_hunger_value = {
 			divide = { value = var:tentacleswarm_corruption min = 1 }
 		}
 	}
-	multiply = 80 #满饥饿的情况下有80%的衰减
+	multiply = 89 #满饥饿的情况下有89%的衰减，加上基础衰减就是99%
 	min = 0
 }
