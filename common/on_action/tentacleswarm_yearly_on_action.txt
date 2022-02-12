@@ -313,9 +313,17 @@ tentacleswarm_yearly_playable_pulse = {
 					#计算衰减率
 					#基础衰减，固定10%
 					set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
-					#饥饿衰减，取决于当地的食物供应于现有腐化度的比例
-					set_variable =  { name = tentacleswarm_corruption_hunger_decay value = tentacleswarm_corruption_hunger_value } 	
-					change_variable =  { name = tentacleswarm_corruption_decay add = var:tentacleswarm_corruption_hunger_decay } 	
+					#饥饿衰减，取决于当地的食物供应于现有腐化度的比例	
+					change_variable =  { name = tentacleswarm_corruption_decay add = tentacleswarm_corruption_hunger_value } 	
+					#规范化，使衰减比例介于1%到99%，避免溢出
+					if = { 
+						limit = { var:tentacleswarm_corruption_decay = { compare_value > 99 } } 
+						set_variable =  { name = tentacleswarm_corruption_decay value = 99 } 	
+					}
+					else_if = { 
+						limit = { var:tentacleswarm_corruption_decay = { compare_value < 1 } } 
+						set_variable =  { name = tentacleswarm_corruption_decay value = 1 } 	
+					}
 					
 					#计算衰减额度
 					set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
