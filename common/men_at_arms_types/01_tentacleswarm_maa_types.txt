@@ -97,3 +97,32 @@ gunpowder = { #黑火药
 	ai_quality = { value = 70 }
 	icon = archers
 }
+#不存在的一个兵种，用于借用来生成一个modifier
+for_corrupt = {
+	type = for_corrupt_type
+	
+	can_recruit = {
+		always = no #只有事件能出
+	}
+
+	damage = 1600
+	toughness = 800
+	pursuit = 200
+	screen = 100
+	
+
+	winter_bonus = {
+	}
+
+	counters = {
+	}
+	terrain_bonus = {
+	}
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+	
+	stack = 10
+	ai_quality = 1000
+	icon = war_elephants
+}

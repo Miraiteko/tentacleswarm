@@ -40,7 +40,10 @@ tentacleswarm_test_decision = {
 		tentacle_corruption_perk_add = yes 
 		add_gold = age_plus_10
 		capital_county = {
-			change_development_progress_with_overflow = tentacleswarm_corruption_hunger_value 
+			change_development_progress_with_overflow = {
+				value = var:tentacleswarm_corruption
+				multiply = -0.5
+			} 
 		}
 	}
 

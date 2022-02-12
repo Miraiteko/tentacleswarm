@@ -241,7 +241,7 @@ tentacleswarm_yearly_playable_pulse = {
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 5 } #如果统治者是奴隶
+			change_variable =  { name = tentacleswarm_corruption_add add = 25 } #如果统治者是奴隶
 		}	
 		if = {
 			limit = { has_religion = religion:tentacleswarm_religion } 
@@ -255,7 +255,7 @@ tentacleswarm_yearly_playable_pulse = {
 		}
 		every_spouse = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 2 } }#如果配偶是奴隶，配偶一般也是宾客
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 15 } }#如果配偶是奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
@@ -263,7 +263,7 @@ tentacleswarm_yearly_playable_pulse = {
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 1 } }#如果宾客是奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果宾客是奴隶
 		}
 		every_courtier_or_guest = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
@@ -305,21 +305,9 @@ tentacleswarm_yearly_playable_pulse = {
 				#否则，进行滋生
 				else = {
 					#发展度计算
-					if = {
-						limit = { 
-							development_towards_level_increase < 0.2 
-							var:tentacleswarm_corruption = { compare_value >= 10 }
-						}
-						if = {
-							limit = {
-								development_level > 0
-							}
-							change_development_progress_with_overflow = -0.2
-						}
-						#如果发展度已经为零了，省份被破坏殆尽
-						else = {
-							#tentacleswarm_corruption_county_destroy_effect = yes #暂时取消摧毁代价机制试试看。
-						}
+					change_development_progress_with_overflow = {
+						value = tentacleswarm_corruption_eaten
+						multiply = 0.5
 					}
 						
 					#计算衰减率
@@ -470,6 +458,7 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					location = root.capital_province
 					name = tentacleswarm_warbeast_event_troops
+					inheritable = no #不可继承
 				}
 			}
 			#对于玩家来说，如果没有发展度大于3的省份，予以预警

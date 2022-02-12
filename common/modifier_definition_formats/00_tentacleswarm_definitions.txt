@@ -1,0 +1,28 @@
+﻿#巨兽的各项修正，百分数形式，不保留小数
+tentacleswarm_warbeast_type_damage_mult = {
+	decimals = 0
+	percent = yes
+}
+tentacleswarm_warbeast_type_toughness_mult = {
+	decimals = 0
+	percent = yes
+}
+tentacleswarm_warbeast_type_pursuit_mult = {
+	decimals = 0
+	percent = yes
+}
+tentacleswarm_warbeast_type_screen_mult = {
+	decimals = 0
+	percent = yes
+}
+tentacleswarm_warbeast_type_siege_value_mult = {
+	decimals = 0
+	percent = yes
+}
+for_corrupt_type_damage_mult = {
+	decimals = 0
+	percent = yes
+}
+for_corrupt_type_damage_add = {
+	decimals = 1
+}
