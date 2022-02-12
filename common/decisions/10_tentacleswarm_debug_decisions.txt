@@ -41,8 +41,8 @@ tentacleswarm_test_decision = {
 		add_gold = age_plus_10
 		capital_county = {
 			change_development_progress_with_overflow = {
-				value = var:tentacleswarm_corruption
-				multiply = -0.5
+				value = tentacleswarm_corruption_eaten
+				multiply = -0.5 
 			} 
 		}
 	}

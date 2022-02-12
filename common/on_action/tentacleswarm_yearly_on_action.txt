@@ -241,7 +241,7 @@ tentacleswarm_yearly_playable_pulse = {
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 25 } #如果统治者是奴隶
+			change_variable =  { name = tentacleswarm_corruption_add add = 15 } #如果统治者是奴隶
 		}	
 		if = {
 			limit = { has_religion = religion:tentacleswarm_religion } 
@@ -255,7 +255,7 @@ tentacleswarm_yearly_playable_pulse = {
 		}
 		every_spouse = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 15 } }#如果配偶是奴隶，配偶一般也是宾客
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }#如果配偶是奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
 			limit = { has_religion = religion:tentacleswarm_religion  }
@@ -307,7 +307,7 @@ tentacleswarm_yearly_playable_pulse = {
 					#发展度计算
 					change_development_progress_with_overflow = {
 						value = tentacleswarm_corruption_eaten
-						multiply = 0.5
+						multiply = -0.5
 					}
 						
 					#计算衰减率
@@ -357,7 +357,13 @@ tentacleswarm_yearly_playable_pulse = {
 					}
 					
 					#领主宫廷带来的增长
-					change_variable =  { name = tentacleswarm_corruption add = holder.var:tentacleswarm_corruption_add }
+					change_variable =  { 
+						name = tentacleswarm_corruption 
+						add = {
+							value = holder.var:tentacleswarm_corruption_add 
+							max = development_level #0发展的省份是种不了的
+						}
+					}
 				
 					#计算地形带来的影响
 					change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
@@ -366,77 +372,15 @@ tentacleswarm_yearly_playable_pulse = {
 					#五档：10,20,35,60,100
 					tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
 					
-					#巨兽生成 
+					#巨兽生成于腐化大于120的省份；如果被天灾信徒持有，-10腐化生成1队巨兽
 					if = {
-						limit = { #零档，无腐化
-							var:tentacleswarm_corruption = { compare_value < 10 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 0 }
-					}
-					else_if = { #一档
 						limit = {
-							var:tentacleswarm_corruption = { compare_value < 20 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 1 }
-					}
-					else_if = { #二档
-						limit = {
-							var:tentacleswarm_corruption = { compare_value < 35 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 4 }
-					}
-					else_if = { #三档
-						limit = {
-							var:tentacleswarm_corruption = { compare_value < 60 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 12 }
-					}
-					else_if = { #四档
-						limit = {
-							var:tentacleswarm_corruption = { compare_value < 100 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 36 }
-					}
-					else = { #五档
-						change_variable =  { name = tentacleswarm_corruption_destroy add = 100 }
-					}
-					
-					if = {
-						limit = { #破坏点数满100时候，生一队巨兽
-							var:tentacleswarm_corruption_destroy = { compare_value >= 100 }
-						}
-						change_variable =  { name = tentacleswarm_corruption_destroy add = -100 }
-						holder = { 
-							if = {
-								limit = { 
-									has_religion = religion:tentacleswarm_religion
-								}
-								change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
-							}
-							else = {
-								save_scope_as = holder
-								send_interface_message = {
-									type = event_steward_task_bad
-									title = tentacleswarm_corruption_destroy.notification
-									desc = tentacleswarm_corruption_destroy.desc
-									
-									left_icon = scope:county
-									right_icon = scope:holder
-									goto = scope:county
-								}
-								scope:county = {
-									change_variable =  { name = tentacleswarm_corruption_warbeast add = 100 }
-								}
-							}
-						}
-					}
-					if = {
-						limit = { #本宗教领主可以唤醒沉睡的巨兽
-							var:tentacleswarm_corruption_warbeast = { compare_value >= 100 }
+							var:tentacleswarm_corruption = { compare_value > 120 }
+							exists = holder
 							holder = { has_religion = religion:tentacleswarm_religion }
 						}
-						change_variable =  { name = tentacleswarm_corruption_warbeast add = -100 }
-						holder = { #战争巨兽
+						change_variable =  { name = tentacleswarm_corruption add = -10 }
+						holder = { 
 							change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
 						}
 					}

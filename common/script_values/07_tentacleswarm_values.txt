@@ -18,8 +18,9 @@ minus_tentacleswarm_corruption = {
 #进食掉的发展度
 tentacleswarm_corruption_eaten = {
 	#食物供应额度以复杂度为基础，受到教义影响
-	value = development_level
-	multiply = 3 #默认能够供养3倍
+	value = 0
+	add = development_level
+	multiply = 3.0 #默认能够供养3倍
 	if = { #省份敌意
 		limit = {
 			faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
