@@ -35,7 +35,7 @@ tentacle_corrupt = {
 						is_known_by = scope:owner
 					}
 				}
-				is_hidden_tentacle_slave = no
+				is_tentacle_slave = no
 			}
 			exists = location
 			in_diplomatic_range = scope:owner 
