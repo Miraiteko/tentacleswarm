@@ -399,7 +399,6 @@ tentacleswarm_yearly_playable_pulse = {
 			}
 			if = { #按照上面统计的数量生成战争巨兽
 				limit = { 
-					#always = no
 					var:tentacleswarm_warbeast_gain = { compare_value >= 1 } 
 				}
 				spawn_army = {

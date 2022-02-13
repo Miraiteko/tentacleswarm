@@ -3,6 +3,7 @@ is_religious_war 触手巢穴和剿灭战争判定为宗教战争
 using_non_ghw_holy_war_cb_trigger 触手巢穴和剿灭战争判定为宗教战争
 is_blackmailable_secret_trigger 触手奴隶之间不能用此秘密相互勒索
 can_have_confederate_partition_succession_law_trigger 天灾制可以使用均分继承
+can_be_combatant_based_on_gender_trigger 天灾信仰可以让女性成为战士（无论什么文化）
 
 覆盖了以下原版scripted_ruler:
 can_refund_perks 被腐化的角色不能重置技能点数

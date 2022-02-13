@@ -206,3 +206,33 @@ is_blackmailable_secret_trigger = { #Should not include is known
 		}
 	}
 }
+#什么性别可以成为战士，崇拜屈服的领主可以让女性成为战士
+can_be_combatant_based_on_gender_trigger = {
+	custom_description = {
+		text = "can_be_combatant_based_on_gender"
+		object = this
+		subject = $ARMY_OWNER$
+		OR = {
+			$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_equal_combatant } }
+			AND = {
+				$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_male_only_combatant } }
+				is_male = yes
+			}
+			AND = {
+				$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_female_only_combatant } }
+				is_female = yes
+			}
+			AND = {
+				$ARMY_OWNER$ = {
+					culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+				}
+				# No need to gender diversify this: if they're a right-gender shieldperson of the culture, then they've already got permission to fight from the previous AND conditions.
+				has_trait = shieldmaiden
+			}
+			AND = {
+				$ARMY_OWNER$ = { faith = { has_doctrine= doctrine_tentacle_slave_worship } }
+				is_female = yes
+			}
+		}
+	}
+}
