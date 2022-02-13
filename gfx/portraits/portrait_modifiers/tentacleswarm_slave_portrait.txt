@@ -40,7 +40,7 @@ body_corrupted_portrait = {
 			morph = {
 				mode = modify
 				gene = gene_bs_eye_size
-				value = 1.0
+				value = 0.5
 				template = eye_size_pos
 			}
 			#眼睛睁开
