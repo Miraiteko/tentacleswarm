@@ -254,7 +254,9 @@ tentacleswarm_yearly_playable_pulse = {
 			change_variable =  { name = tentacleswarm_corruption_add add = 10 }  #如果统治者执行播种令
 		}
 		every_spouse = {
-			limit = { is_tentacle_slave = yes  }
+			limit = { 
+				is_tentacle_slave = yes  
+			}
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }#如果配偶是奴隶，配偶一般也是宾客
 		}
 		every_spouse = {
