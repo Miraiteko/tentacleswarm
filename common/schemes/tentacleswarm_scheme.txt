@@ -12,13 +12,12 @@ tentacle_corrupt = {
 	
 	minimum_progress_chance = 10
 	maximum_progress_chance = 90
+	maximum_secrecy = 95
 	minimum_success = 5
-	maximum_secrecy = 85
-	maximum_success = 85
+	maximum_success = 95
 	
 	allow = {
-		is_adult = yes
-		is_landed = yes
+		is_tentacle_slave = yes
 		is_imprisoned = no
 	}
 	
@@ -28,18 +27,18 @@ tentacle_corrupt = {
 			is_adult = yes
 			is_female = yes
 			is_imprisoned = no
+			NOT = { has_trait = tentacle_slave } #如果本来就公开了，没必要再下手了
+			trigger_if = {#如果知道对方是隐藏的了，就没必要再下手了
+				limit = {
+					any_secret = {
+						secret_type = secret_tentacle_slave
+						is_known_by = scope:owner
+					}
+				}
+				is_hidden_tentacle_slave = no
+			}
 			exists = location
 			in_diplomatic_range = scope:owner 
-		}
-		# Special AI exceptions
-		NOT = {
-			scope:owner = {
-				is_ai = yes
-				has_opinion_modifier = {
-					target = scope:target
-					modifier = repentant_opinion
-				}
-			}
 		}
 	}
 
