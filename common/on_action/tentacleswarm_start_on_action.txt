@@ -59,7 +59,7 @@ tentacleswarm_on_game_start = {
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
-			set_variable =  { name = tentacleswarm_corruption value = 1 }
+			set_variable =  { name = tentacleswarm_corruption value = 100 }
 			set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
 			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
 			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 10 }
@@ -71,7 +71,7 @@ tentacleswarm_on_game_start = {
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
 			if = {
 				limit = { is_coastal_county = yes} #伯爵领靠海
-				change_variable =  { name = tentacleswarm_corruption_nature add = 1 }
+				change_variable =  { name = tentacleswarm_corruption_nature add = 0.5 }
 			}
 			every_county_province = { 
 				if = { #每块丛林

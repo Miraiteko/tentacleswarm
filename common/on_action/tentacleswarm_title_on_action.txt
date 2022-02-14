@@ -1,0 +1,44 @@
+﻿#头衔转换相关设置，用于检测是否应该变化纹章
+
+#头衔获得时的设置
+# root = the new holder
+# scope:title = the title that changes hands
+# scope:previous_holder = previous holder. Might be dead
+on_title_gain = {
+	on_actions = { 
+		tentacleswarm_on_title_gain
+	}
+}
+tentacleswarm_on_title_gain = {
+	effect = {
+		tentacleswarm_coa_check = yes
+	}
+}
+
+# 夺得宣称的头衔时的触发
+# root = the claimant
+# scope:title = the title that is claimed
+on_explicit_claim_gain = {
+	on_actions = { 
+		tentacleswarm_on_explicit_claim_gain
+	}
+}
+tentacleswarm_on_explicit_claim_gain = {
+	effect = {
+		tentacleswarm_coa_check = yes
+	}
+}
+
+# 角色改变宗教
+# Root is the character
+# scope:old_faith is the faith they used to have
+on_character_faith_change = {
+	on_actions = { 
+		tentacleswarm_on_character_faith_change
+	}
+}
+tentacleswarm_on_character_faith_change = {
+	effect = {
+		tentacleswarm_coa_check = yes
+	}
+}

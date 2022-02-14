@@ -8,6 +8,13 @@ can_be_combatant_based_on_gender_trigger 天灾信仰可以让女性成为战士
 覆盖了以下原版scripted_ruler:
 can_refund_perks 被腐化的角色不能重置技能点数
 
+覆盖了以下原版coa脚本:
+coat_of_arms_template_lists：all 天灾宗教采用腐化纹理
+coat_of_arms_template_lists：faction 天灾叛军采用腐化纹理
+color_lists：normal_colors 天灾配色
+color_lists：metal_colors 天灾配色
+colored_emblem_texture_lists：charge 天灾纹理
+
 修改了以下原版文件
 \gfx\map\map_modes\map_modes.txt 新的地图模式
 \gui\shared\mapmodes.gui 修改地图模式切换界面以启用新的地图模式

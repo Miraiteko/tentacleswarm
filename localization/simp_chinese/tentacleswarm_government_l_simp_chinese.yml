@@ -20,3 +20,7 @@
  tentacleswarm_government_decision:0 "采用天灾制"
  tentacleswarm_government_decision_desc:0 "在被主人征服的土地上，人民由主人所支配，凭本能而屈服。繁杂的社会管理体系已经没有存在的必要了。\n\n我将废除旧的体系，建立适合主人统治的社会制度。"
  tentacleswarm_government_decision_tooltip:0 "改变[government|E]类型，成为[tentacleswarm_government|E]"
+ 
+ 
+ TENTACLESWARM_CREATED_TITLE_NAME:0 "堕落[old_title.GetNameNoTierNoTooltip]"
+ COA_DESIGNER_CATEGORY_cherilewd:0 "切莉的堕落纹理"

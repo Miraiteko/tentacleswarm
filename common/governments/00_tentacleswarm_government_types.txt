@@ -11,7 +11,7 @@
 
 	fallback = 2
 	
-	create_cadet_branches = no
+	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
 	dynasty_named_realms = no
 
