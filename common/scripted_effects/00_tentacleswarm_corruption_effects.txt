@@ -418,114 +418,114 @@ tentacleswarm_corruption_county_check = {
 	}
 }
 #省份被摧毁殆尽
-tentacleswarm_corruption_county_destroy_effect = { 
-	save_scope_as = destroy
+# tentacleswarm_corruption_county_destroy_effect = { 
+	# save_scope_as = destroy
 	
 	
-	#发展度进度清零
-	change_development_progress = -100 
-	#破坏进度清零
-	set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
-	#建筑破坏
-	every_county_province = { #通过变换地产类型来清建筑
-		if = {
-			limit= {
-				has_holding_type = castle_holding
-			}
-			set_holding_type = tribal_holding #城堡变成部落
-		}
-		else_if = {
-			limit= {
-				has_holding_type = tribal_holding
-			}
-			set_holding_type = city_holding
-			set_holding_type = tribal_holding
-		}
-		else_if = {
-			limit= {
-				has_holding_type = city_holding
-			}
-			set_holding_type = tribal_holding
-			set_holding_type = city_holding
-		}
-		else_if = {
-			limit= {
-				has_holding_type = church_holding
-			}
-			set_holding_type = tribal_holding
-			set_holding_type = church_holding
-		}
-		else_if = {
-			limit= {
-				has_holding = yes
-			}
-			set_holding_type = tribal_holding
-		}
-	}
-	#腐化转移到相邻地区
-	random_title_to_title_neighboring_and_across_water_county = {
-		limit = {
-			NOT = { has_county_modifier = tentacleswarm_destroy }
-		}
-		change_variable =  { name = tentacleswarm_corruption add = scope:destroy.var:tentacleswarm_corruption }
-		tentacleswarm_corruption_county_check = yes
-	}
-	set_variable =  { name = tentacleswarm_corruption value = 0 }
+	# #发展度进度清零
+	# change_development_progress = -100 
+	# #破坏进度清零
+	# set_variable =  { name = tentacleswarm_corruption_destroy value = 0 }
+	# #建筑破坏
+	# every_county_province = { #通过变换地产类型来清建筑
+		# if = {
+			# limit= {
+				# has_holding_type = castle_holding
+			# }
+			# set_holding_type = tribal_holding #城堡变成部落
+		# }
+		# else_if = {
+			# limit= {
+				# has_holding_type = tribal_holding
+			# }
+			# set_holding_type = city_holding
+			# set_holding_type = tribal_holding
+		# }
+		# else_if = {
+			# limit= {
+				# has_holding_type = city_holding
+			# }
+			# set_holding_type = tribal_holding
+			# set_holding_type = city_holding
+		# }
+		# else_if = {
+			# limit= {
+				# has_holding_type = church_holding
+			# }
+			# set_holding_type = tribal_holding
+			# set_holding_type = church_holding
+		# }
+		# else_if = {
+			# limit= {
+				# has_holding = yes
+			# }
+			# set_holding_type = tribal_holding
+		# }
+	# }
+	# #腐化转移到相邻地区
+	# random_title_to_title_neighboring_and_across_water_county = {
+		# limit = {
+			# NOT = { has_county_modifier = tentacleswarm_destroy }
+		# }
+		# change_variable =  { name = tentacleswarm_corruption add = scope:destroy.var:tentacleswarm_corruption }
+		# tentacleswarm_corruption_county_check = yes
+	# }
+	# set_variable =  { name = tentacleswarm_corruption value = 0 }
 	
 	
-	#变颜色
-	every_county_province = {
-		barony = { set_color_from_title = title:d_tentacleswarm_destroy }
-	}
+	# #变颜色
+	# every_county_province = {
+		# barony = { set_color_from_title = title:d_tentacleswarm_destroy }
+	# }
 	
-	#清除腐化修正，根据腐化等级，给不同时长的发展度惩罚修正
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_1 }
-		remove_county_modifier = tentacleswarm_corruption_1
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_2 }
-		remove_county_modifier = tentacleswarm_corruption_2
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 55 }
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_3 }
-		remove_county_modifier = tentacleswarm_corruption_3
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_4 }
-		remove_county_modifier = tentacleswarm_corruption_4
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 65 }
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_5 }
-		remove_county_modifier = tentacleswarm_corruption_5
-		add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
-	}
-	#清除控制力修正
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
-		remove_county_modifier = tentacleswarm_corruption_control_0
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
-		remove_county_modifier = tentacleswarm_corruption_control_1
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
-		remove_county_modifier = tentacleswarm_corruption_control_2
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
-		remove_county_modifier = tentacleswarm_corruption_control_3
-	}
-	if = {
-		limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
-		remove_county_modifier = tentacleswarm_corruption_control_4
-	}
-}
+	# #清除腐化修正，根据腐化等级，给不同时长的发展度惩罚修正
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_1 }
+		# remove_county_modifier = tentacleswarm_corruption_1
+		# add_county_modifier = { modifier = tentacleswarm_destroy years = 50 }
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_2 }
+		# remove_county_modifier = tentacleswarm_corruption_2
+		# add_county_modifier = { modifier = tentacleswarm_destroy years = 55 }
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_3 }
+		# remove_county_modifier = tentacleswarm_corruption_3
+		# add_county_modifier = { modifier = tentacleswarm_destroy years = 60 }
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_4 }
+		# remove_county_modifier = tentacleswarm_corruption_4
+		# add_county_modifier = { modifier = tentacleswarm_destroy years = 65 }
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_5 }
+		# remove_county_modifier = tentacleswarm_corruption_5
+		# add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
+	# }
+	# #清除控制力修正
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_control_0 }
+		# remove_county_modifier = tentacleswarm_corruption_control_0
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_control_1 }
+		# remove_county_modifier = tentacleswarm_corruption_control_1
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_control_2 }
+		# remove_county_modifier = tentacleswarm_corruption_control_2
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_control_3 }
+		# remove_county_modifier = tentacleswarm_corruption_control_3
+	# }
+	# if = {
+		# limit = { has_county_modifier = tentacleswarm_corruption_control_4 }
+		# remove_county_modifier = tentacleswarm_corruption_control_4
+	# }
+# }
 
 #创建触手传教者
 tentacleswarm_spawn_tentacle_speaker_character_effect = {
@@ -643,7 +643,7 @@ tentacleswarm_coa_check = {
 		tentacleswarm_coa_corrupt = yes
 	}
 	else = {
-		tentacleswarm_coa_purify
+		tentacleswarm_coa_purify = yes
 	}
 }
 tentacleswarm_coa_corrupt = {
@@ -657,7 +657,7 @@ tentacleswarm_coa_corrupt = {
 			limit = { NOT = { has_variable = back_coa } }
 			create_dynamic_title = { 
 				tier = duchy
-				name = test
+				name = TENTACLE_LORD
 			}
 			scope:new_title = {
 				set_coa = prev
@@ -691,7 +691,7 @@ tentacleswarm_coa_purify = {
 			limit = { NOT = { has_variable = back_tent_coa } }
 			create_dynamic_title = {
 				tier = duchy
-				name = test
+				name = TENTACLE_LORD
 			}
 			scope:new_title = {
 				set_coa = prev

@@ -37,7 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		convert_to_tentacleswarm_religion = yes
+		convert_to_tentacleswarm_religion = yes 
 	}
 
 	ai_check_interval = 0

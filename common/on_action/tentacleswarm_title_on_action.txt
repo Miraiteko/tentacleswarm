@@ -1,5 +1,24 @@
 ﻿#头衔转换相关设置，用于检测是否应该变化纹章
 
+# 角色改变宗教
+# Root is the character
+# scope:old_faith is the faith they used to have
+on_faith_created = {
+	on_actions = { 
+		tentacleswarm_on_character_faith_change 
+	}
+}
+on_character_faith_change = {
+	on_actions = { 
+		tentacleswarm_on_character_faith_change 
+	}
+}
+tentacleswarm_on_character_faith_change = {
+	effect = {
+		tentacleswarm_coa_check = yes #这个东西的触发有一天的延迟，推测是p社把头衔结算放在宗教结算的后面，导致再结算头衔要到第二天
+	}
+}
+
 #头衔获得时的设置
 # root = the new holder
 # scope:title = the title that changes hands
@@ -29,16 +48,3 @@ tentacleswarm_on_explicit_claim_gain = {
 	}
 }
 
-# 角色改变宗教
-# Root is the character
-# scope:old_faith is the faith they used to have
-on_character_faith_change = {
-	on_actions = { 
-		tentacleswarm_on_character_faith_change
-	}
-}
-tentacleswarm_on_character_faith_change = {
-	effect = {
-		tentacleswarm_coa_check = yes
-	}
-}
