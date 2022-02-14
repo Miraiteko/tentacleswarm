@@ -241,7 +241,7 @@
 			
 			doctrine = tenet_carnal_exaltation #纵欲
 			doctrine = tenet_ritual_celebrations #庆典
-			doctrine = tenet_consolamentum #神慰圣事
+			doctrine = tenet_hedonistic #享乐
 		}
 	}
 }
