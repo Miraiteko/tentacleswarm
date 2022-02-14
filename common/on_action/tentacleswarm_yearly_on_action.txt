@@ -409,6 +409,7 @@ tentacleswarm_yearly_playable_pulse = {
 			#对于玩家来说，如果没有发展度大于3的省份，予以预警
 			if = {
 				limit = {
+					always = no
 					is_ai = no
 					has_religion = religion:tentacleswarm_religion
 					NOT = { has_character_flag = tentacleswarm_destroy_alert }
