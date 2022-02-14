@@ -10,6 +10,11 @@
  tentacleswarm_slavery_adj:0 "触手屈服者" 
  tentacleswarm_slavery_adherent:0 "触手屈服者" 
  tentacleswarm_slavery_adherent_plural:0 "触手屈服者" 
+ tentacleswarm_carns:0 "触手纵欲者" 
+ tentacleswarm_carns_desc:0 "触手纵欲者是的触手天灾变种。\n这些触手奴隶侍奉的触手主人并不是那么热爱征服，而是更愿意把时间花在和奴隶享乐之上。" 
+ tentacleswarm_carns_adj:0 "触手纵欲者" 
+ tentacleswarm_carns_adherent:0 "触手纵欲者" 
+ tentacleswarm_carns_adherent_plural:0 "触手纵欲者" 
  
  tentacleswarm_high_god_name:0 "触手主人"
  tentacleswarm_high_god_name_possessive:0 "触手主人"

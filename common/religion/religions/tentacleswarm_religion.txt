@@ -31,9 +31,9 @@
 	
 	traits = {
 		virtues = { tentacle_slave = 10 }
-		virtues = { lustful = 3 }
+		virtues = { lustful = 1 }
 		virtues = { greedy ambitious zealous }
-		sins = { chaste = 3 }
+		sins = { chaste = 1 }
 		sins = { temperate lazy content cynical } 
 	}
 	custom_faith_icons = {
@@ -222,6 +222,25 @@
 			
 			doctrine = tenet_carnal_exaltation #纵欲
 			doctrine = tenet_warmonger #战狂
+			doctrine = tenet_consolamentum #神慰圣事
+		}
+	}
+	faiths = {
+		tentacleswarm_carns = {
+			color = { 0.68 0.25 0.61 }
+			icon = tentacleswarm_carns
+
+			doctrine = doctrine_pluralism_pluralistic #多元主义
+			doctrine = doctrine_clerical_function_alms_and_pacification #神职人员负责施舍
+			holy_site = tentacleswarm_petra
+			holy_site = tentacleswarm_giza
+			holy_site = tentacleswarm_madeira
+			holy_site = tentacleswarm_rhodos
+			holy_site = tentacleswarm_wiltshire
+			holy_site = tentacleswarm_gaya
+			
+			doctrine = tenet_carnal_exaltation #纵欲
+			doctrine = tenet_ritual_celebrations #庆典
 			doctrine = tenet_consolamentum #神慰圣事
 		}
 	}
