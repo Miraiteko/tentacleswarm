@@ -107,6 +107,7 @@
 	ai_potential = {
 		always = no
 	}
+	ai_frequency = 12
 	ai_will_do = {
 		base = 0
 	}

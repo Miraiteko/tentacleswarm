@@ -15,7 +15,11 @@ color_lists：normal_colors 天灾配色
 color_lists：metal_colors 天灾配色
 colored_emblem_texture_lists：charge 天灾纹理
 
+覆盖了以下核心定义
+NCourt 减少火星人生成
+
 修改了以下原版文件
+\common\ai_war_stances\00_ai_war_stances 让ai军队不会乱跑，节约计算量
 \gfx\map\map_modes\map_modes.txt 新的地图模式
 \gui\shared\mapmodes.gui 修改地图模式切换界面以启用新的地图模式
 \common\council_tasks\00_court_chaplain_tasks.txt 腐化度对传教的影响

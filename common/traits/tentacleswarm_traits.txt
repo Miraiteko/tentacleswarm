@@ -22,7 +22,7 @@ tentacle_slave = {
 	#fertility = 0.5
 	
 	#讨厌其他宗教
-	opinion_of_different_faith = -100
+	opinion_of_different_faith = -50
 	#不喜欢男性领主
 	opinion_of_male_rulers = -100 
 	
