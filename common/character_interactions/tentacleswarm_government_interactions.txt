@@ -110,12 +110,10 @@
 		base = 100
 		modifier = {
 			factor = 0
-			scope:recipient = {
-				OR = {#AI不会对近亲或朋友使用
-					has_relation_friend = scope:actor
-					has_relation_best_friend = scope:actor
-					has_relation_soulmate = scope:actor
-					is_close_or_extended_family_of = scope:actor
+			scope:recipient = { #如果对方以及足够喜欢自己了，没必要动她
+				opinion = {
+					target = scope:actor
+					value > 0
 				}
 			}
 		}
