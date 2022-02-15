@@ -16,17 +16,23 @@
     HOLY_WAR_TENTACLE_NAME:0 "触手剿灭之圣战"
       
      #巨兽相关
-     tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
-     tentacleswarm_corruption_warbeast.desc:0 "强大的触手怪物破坏了[county.GetName]的聚落，带着掠夺的财富加入了你的军队。"
-     tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
-     tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
-     
-     game_concept_tentacleswarm_warbeast_type:0 "触手战争巨兽"
-     game_concept_tentacleswarm_warbeast_type_desc:0 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。\n触手战争巨兽战斗力十分强悍，还能极大地加快攻城速度；但是，只有触手的奴隶们能够获得这些巨兽的帮助。"
-     tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
-     tentacleswarm_warbeast_type:2 "[tentacleswarm_warbeast_type|E]"
-     tentacleswarm_warbeast:2 "触手战争巨兽"
-     tentacleswarm_warbeast_flavor:1 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。"
+    tentacleswarm_warbeast_decision:0 "召唤触手巨兽战团"	
+    tentacleswarm_warbeast_decision_desc:0 "我们的触手巢穴正在遭受攻击，为了应对这一危机，我需要恳求触手主人的援助。"
+    tentacleswarm_warbeast_decision_tooltip:0 "召唤触手巨兽战团"
+    tentacleswarm_warbeast_decision_confirm:0 "召唤触手巨兽战团"
+    tentacle_warbeast_effect.tt:0 "每个[GetModifier('tentacleswarm_corruption_5').GetNameWithTooltip][domain|E]失去#N 15#!腐化度，为你的提供一支[tentacleswarm_warbeast_type|E]部队"
+    
+    tentacleswarm_corruption_warbeast.notification:0 "触手巨兽战团"
+    tentacleswarm_corruption_warbeast.desc:0 "强大的触手怪物破坏了[county.GetName]的聚落，带着掠夺的财富加入了你的军队。"
+    tentacleswarm_corruption_warbeast1.notification:0 "唤醒战争巨兽"
+    tentacleswarm_corruption_warbeast1.desc:0 "在[county.GetName]地下深处沉眠的触手战争巨兽在你的感召下苏醒了。"
+
+    game_concept_tentacleswarm_warbeast_type:0 "触手战争巨兽"
+    game_concept_tentacleswarm_warbeast_type_desc:0 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。\n触手战争巨兽战斗力十分强悍，还能极大地加快攻城速度；但是，只有触手的奴隶们能够获得这些巨兽的帮助。"
+    tentacleswarm_warbeast_event_troops:0 "触手巨兽战团"
+    tentacleswarm_warbeast_type:2 "[tentacleswarm_warbeast_type|E]"
+    tentacleswarm_warbeast:2 "触手战争巨兽"
+    tentacleswarm_warbeast_flavor:1 "一些大型触手怪物个体不像它们大多数同胞一样害怕疼痛，而是享受在奴隶的引导下作为[men_at_arms|E]在战场上尽情虐杀。"
     tentacleswarm_warbeast_type_damage_mult:0 "[tentacleswarm_warbeast_type|E][damage|E]"
     tentacleswarm_warbeast_type_toughness_mult:0 "[tentacleswarm_warbeast_type|E][toughness|E]"
     tentacleswarm_warbeast_type_pursuit_mult:0 "[tentacleswarm_warbeast_type|E][pursuit|E]"
@@ -41,6 +47,6 @@
     innovation_gunpowder_desc:0 "中国的炼丹家们在以外中发现这种能够引发爆炸的物质。随着工艺的改进，火药逐渐被应用到军事上来，引起了军事科技的重大变革。"
     gunpowder:0 "火药箭"
     gunpowder_flavor:0 "#F 早期的黑火药爆炸威力不强，但是纵火发烟的效果十分显著。可以附着在箭矢上射出，给与敌人强力的震慑。#!"
-    
+
     for_corrupt_type_damage_mult:0 "每年[domain|E][tentacleswarm_corruption|E]衰减额度"
     for_corrupt_type_damage_add:0 "每年[domain|E][tentacleswarm_corruption|E]增长"

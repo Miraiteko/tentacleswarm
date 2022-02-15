@@ -373,37 +373,6 @@ tentacleswarm_yearly_playable_pulse = {
 
 					#五档：10,20,35,60,100
 					tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
-					
-					#巨兽生成于腐化大于120的省份；如果被天灾信徒持有，-10腐化生成1队巨兽
-					if = {
-						limit = {
-							var:tentacleswarm_corruption = { compare_value > 120 }
-							exists = holder
-							holder = { has_religion = religion:tentacleswarm_religion }
-						}
-						change_variable =  { name = tentacleswarm_corruption add = -10 }
-						holder = { 
-							change_variable = { name = tentacleswarm_warbeast_gain add = 1 }
-						}
-					}
-				}
-			}
-			if = { #按照上面统计的数量生成战争巨兽
-				limit = { 
-					var:tentacleswarm_warbeast_gain = { compare_value >= 1 } 
-				}
-				spawn_army = {
-					levies = {
-						value = var:tentacleswarm_warbeast_gain
-						multiply = 100
-					}
-					men_at_arms = {
-						type = tentacleswarm_warbeast
-						stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
-					}
-					location = root.capital_province
-					name = tentacleswarm_warbeast_event_troops
-					inheritable = no #不可继承
 				}
 			}
 			#对于玩家来说，如果没有发展度大于3的省份，予以预警

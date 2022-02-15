@@ -455,7 +455,7 @@ tentacleswarm_remarry_decision_male = {
 	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
 
 	title = tentacleswarm_remarry_decision
-	desc = tentacleswarm_remarry_decision_desc_m
+	desc = tentacleswarm_remarry_decision_desc
 	selection_tooltip = tentacleswarm_remarry_decision_tooltip
 	confirm_text = tentacleswarm_remarry_decision_confirm
 
@@ -522,6 +522,46 @@ tentacleswarm_remarry_decision_male = {
 		always = no
 	}
 
+	ai_will_do = {
+		base = 100
+	}
+}
+#动员巨兽
+tentacleswarm_warbeast_decision = {
+	major = yes
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds" 
+
+	title = tentacleswarm_warbeast_decision	
+	desc = tentacleswarm_warbeast_decision_desc
+	selection_tooltip = tentacleswarm_warbeast_decision_tooltip
+	confirm_text = tentacleswarm_warbeast_decision_confirm
+
+	is_shown = {
+		has_religion = religion:tentacleswarm_religion
+	}
+	
+	is_valid = {
+		is_at_war_as_defender = yes
+		is_tentacle_slave = yes
+		any_held_title = {
+			tier = tier_county
+			has_county_modifier = tentacleswarm_corruption_5
+		}
+	}	
+	
+	cooldown = { years = 3 }
+	
+	effect = {
+		#召唤战争巨兽
+		tentacle_warbeast_effect = yes
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 6
+	
 	ai_will_do = {
 		base = 100
 	}
