@@ -455,7 +455,7 @@ tentacleswarm_remarry_decision_male = {
 	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
 
 	title = tentacleswarm_remarry_decision
-	desc = tentacleswarm_remarry_decision_desc
+	desc = tentacleswarm_remarry_decision_desc_m
 	selection_tooltip = tentacleswarm_remarry_decision_tooltip
 	confirm_text = tentacleswarm_remarry_decision_confirm
 
@@ -543,14 +543,13 @@ tentacleswarm_warbeast_decision = {
 	is_valid = {
 		is_at_war_as_defender = yes
 		is_tentacle_slave = yes
-		any_held_title = {
-			tier = tier_county
+		any_realm_county = {
 			has_county_modifier = tentacleswarm_corruption_5
-		}
+		} 
 	}	
 	
 	cooldown = { years = 3 }
-	
+
 	effect = {
 		#召唤战争巨兽
 		tentacle_warbeast_effect = yes

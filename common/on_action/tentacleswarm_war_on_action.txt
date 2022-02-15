@@ -43,7 +43,7 @@ on_war_started = {
         tentacleswarm_on_war_started
     }
 }
-
+ 
 tentacleswarm_on_war_started = {
     effect = { 
 		#剿灭战争开始时，周围领主加入战争

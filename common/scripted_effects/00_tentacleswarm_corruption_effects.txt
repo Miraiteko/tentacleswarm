@@ -402,7 +402,7 @@ tentacleswarm_corruption_county_check = {
 		random_living_character = { #同传承宗教优先
 			limit = {
 				not = { has_religion = religion:tentacleswarm_religion }
-				culture = { has_same_culture_heritage = scope:county.culture }
+				culture = { has_same_culture_heritage = scope:checked_county.culture }
 			}
 			faith = { save_scope_as = lucky }
 		}
@@ -665,9 +665,9 @@ tentacleswarm_coa_corrupt = {
 				name = TENTACLE_LORD
 			}
 			scope:new_title = {
+				set_capital_county = prev.title_capital_county
 				set_landless_title = yes
 				set_coa = prev
-				set_capital_county = prev.title_capital_county
 			}
 			set_variable = {
 				name = back_coa
@@ -712,9 +712,9 @@ tentacleswarm_coa_purify = {
 				name = TENTACLE_LORD
 			}
 			scope:new_title = {
+				set_capital_county = prev.title_capital_county
 				set_landless_title = yes
 				set_coa = prev
-				set_capital_county = prev.title_capital_county
 			}
 			set_variable = {
 				name = back_tent_coa
@@ -740,41 +740,42 @@ tentacleswarm_coa_purify = {
 #召唤战争巨兽
 tentacle_warbeast_effect = {
 	custom_tooltip = tentacle_warbeast_effect.tt
-	#统计地狱的数目
-	set_variable = { 
-		name = tentacleswarm_warbeast_gain 
-		value = 0 
-	}
-	every_held_title = {
-		limit = {
-			tier = tier_county
-			has_county_modifier = tentacleswarm_corruption_5
+	hidden_effect = {
+		#统计地狱的数目
+		set_variable = { 
+			name = tentacleswarm_warbeast_gain 
+			value = 0 
 		}
-		#消耗腐化
-		change_variable = { 
-			name = tentacleswarm_corruption 
-			add = -15 
-		}
-		tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff
-		#增加1队
-		holder = {
+		every_realm_county = {
+			limit = {
+				has_county_modifier = tentacleswarm_corruption_5
+			}
+			#消耗腐化
 			change_variable = { 
-				name = tentacleswarm_warbeast_gain 
-				add = 1
+				name = tentacleswarm_corruption 
+				add = -15 
+			}
+			tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff
+			#增加1队
+			holder = {
+				change_variable = { 
+					name = tentacleswarm_warbeast_gain 
+					add = 1
+				}
 			}
 		}
-	}
-	spawn_army = {
-		levies = {
-			value = var:tentacleswarm_warbeast_gain
-			multiply = 100
+		spawn_army = {
+			levies = {
+				value = var:tentacleswarm_warbeast_gain
+				multiply = 100
+			}
+			men_at_arms = {
+				type = tentacleswarm_warbeast
+				stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+			}
+			location = root.capital_province
+			name = tentacleswarm_warbeast_event_troops
+			inheritable = no #不可继承
 		}
-		men_at_arms = {
-			type = tentacleswarm_warbeast
-			stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
-		}
-		location = root.capital_province
-		name = tentacleswarm_warbeast_event_troops
-		inheritable = no #不可继承
 	}
 }

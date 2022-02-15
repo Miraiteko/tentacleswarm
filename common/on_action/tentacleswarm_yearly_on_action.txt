@@ -297,7 +297,7 @@ tentacleswarm_yearly_playable_pulse = {
 				else = {
 					#发展度计算
 					change_development_progress_with_overflow = {
-						value = tentacleswarm_corruption_eaten
+						value = var:tentacleswarm_corruption
 						multiply = -0.2
 					}
 						
