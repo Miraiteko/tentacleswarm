@@ -40,8 +40,8 @@ tentacle_slave = {
 	ai_compassion = very_high_negative_ai_value #无慈悲
 	ai_honor = high_negative_ai_value #无荣耀
 	ai_rationality = high_negative_ai_value #无理智
-	ai_war_chance = 20 #好战的
-	ai_war_cooldown = -0.5
+	ai_war_chance = 50 #好战的
+	ai_war_cooldown = -0.8
 	
 	compatibility = {
 		tentacle_slave = 80

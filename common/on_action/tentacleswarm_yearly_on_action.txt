@@ -538,34 +538,16 @@ tentacleswarm_random_yearly_playable_pulse = {
 		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征
 		if = {
 			limit = {
+				always = no #暂时关闭远征机制，反正打不出去也不会立刻就死
 				has_religion = religion:tentacleswarm_religion
 				is_at_war = no
 				is_ai = yes
 				is_independent_ruler = yes #独立
 				max_military_strength > 4000 #有一定兵力积蓄
+				gold > 0 #没负债
+				piety > 100 #虔诚限制
 			}
 			save_scope_as = actor
-			#搜索最大发展度的土地
-			scope:actor = {
-				set_variable =  { name = max_held_development value = 1 }
-				every_held_title = {
-					limit = { 
-						tier = tier_county
-					}
-					if = {
-						limit = { 
-							development_level > scope:actor.var:max_held_development
-						}
-						scope:actor = { set_variable =  { name = max_held_development value = prev.development_level }}
-					}
-				}
-				change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
-				
-				if = {	
-					limit = { is_independent_ruler = yes }
-					set_variable =  { name = max_held_development value = 1 } #独立领主的话，就不在意那么多
-				}
-			}
 			#确定战争对象
 			random_in_global_list = {
 				variable = tentacleswarm_main_target_ruler
@@ -574,7 +556,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 					is_landed = yes #有地
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教
 					capital_county = {  #首都有较高发展度
-						development_level >= scope:actor.var:max_held_development
+						development_level >= 3
 					}
 					ROOT = { #需要符合宣战条件
 						is_character_interaction_valid = {
@@ -598,7 +580,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 						is_landed = yes #有地
 						NOT = { has_religion = religion:tentacleswarm_religion } #异教
 						capital_county = {  #首都有较高发展度
-							development_level >= scope:actor.var:max_held_development
+							development_level >= 3
 						}
 						ROOT = { #需要符合宣战条件
 							is_character_interaction_valid = {
@@ -619,7 +601,7 @@ tentacleswarm_random_yearly_playable_pulse = {
 				scope:target_character = {
 					random_realm_county = {
 						limit = { 
-							development_level >= scope:actor.var:max_held_development
+							development_level >= 3
 							building_max_garrison <= scope:actor.max_military_strength #能围下来
 						}
 						save_scope_as = target

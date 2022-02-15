@@ -664,6 +664,7 @@ tentacleswarm_coa_corrupt = {
 				name = TENTACLE_LORD
 			}
 			scope:new_title = {
+				set_landless_title = yes
 				set_coa = prev
 			}
 			set_variable = {
@@ -708,6 +709,7 @@ tentacleswarm_coa_purify = {
 				name = TENTACLE_LORD
 			}
 			scope:new_title = {
+				set_landless_title = yes
 				set_coa = prev
 			}
 			set_variable = {

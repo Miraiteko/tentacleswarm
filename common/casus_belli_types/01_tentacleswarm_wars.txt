@@ -15,26 +15,22 @@ tentacleswarm_conquest = {
 
 	allowed_against_character = {
 		scope:defender = {
-			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
 			is_independent_ruler = yes #独立
-		}
-		scope:defender = {
-			any_sub_realm_county = {
-				development_level > 0
-			}
 		}
 	}
 	valid_to_start = {
 	}
-	target_titles = all #O(n+)
+	target_titles = all
 	target_title_tier = kingdom
 	target_de_jure_regions_above = yes #针对法理土地宣战，不需要目标实际持有头衔
 	ignore_effect = change_title_holder #头衔变更类的效果不会在文本中显示
-
-	ai_can_target_all_titles = { #只有满足以下条件的AI会去考虑进攻任一目标。其余只攻击相邻
-		always = no
-	}
 	
+	ai_can_target_all_titles = { #不满足这个条件的话，只会打周围的目标
+		max_military_strength > 4000 #有一定兵力积蓄
+		capital_county = {  #首都发展度不足了
+			development_level <= 5
+		}
+	}
 	ai_score_mult = { #AI对目标的选择
 		value = 200
 		#优先攻击异教徒
@@ -50,7 +46,7 @@ tentacleswarm_conquest = {
 		if = {
 			limit = {
 				scope:defender = { 
-					capital_province.county = { 
+					capital_county = { 
 						development_level > 0
 					}
 				}
@@ -60,7 +56,7 @@ tentacleswarm_conquest = {
 		if = {
 			limit = {
 				scope:defender = { 
-					capital_province.county = { 
+					capital_county = { 
 						development_level > 5
 					}
 				}
@@ -70,7 +66,7 @@ tentacleswarm_conquest = {
 		if = {
 			limit = {
 				scope:defender = { 
-					capital_province.county = { 
+					capital_county = { 
 						development_level > 15
 					}
 				}
@@ -84,29 +80,14 @@ tentacleswarm_conquest = {
 					is_tentacle_slave = yes
 				}
 			}
-			add = -100
+			multiply = 0.2
 		}
 	}
 
 	should_invalidate = {
 		OR = {
-			NOT = { #目标境内的目标头衔中没有适合的土地了
-				any_in_list = {
-					list = target_titles
-					any_in_de_jure_hierarchy = {
-						tier = tier_county
-						development_level > 0
-						holder = {
-							target_is_same_character_or_above = scope:defender
-						}
-					}
-				}
-			}
 			scope:attacker = { #进攻方改信了
 				NOT = { has_religion = religion:tentacleswarm_religion }
-			}
-			scope:defender = { #防守方改信了
-				has_religion = religion:tentacleswarm_religion 
 			}
 		}
 	}
@@ -116,56 +97,20 @@ tentacleswarm_conquest = {
 	on_invalidated = {
 	}
 
+
 	cost = {
 		piety = {
-			value = 0 #基础消耗虔诚
-			if = { # 进攻宗教领袖消耗虔诚
+			value = 0
+			if = {
 				limit = {
-					exists = scope:attacker.faith.religious_head
-					scope:attacker.faith.religious_head = scope:defender
-				}
-				if = {
-					limit = {
-						scope:attacker.faith = {
-							has_doctrine = doctrine_spiritual_head
-						}
-					}
-					add = {
-						value = massive_piety_value
-						desc = CB_ATTACKER_HOF
-					}
-				}
-				else = {
-					add = {
-						value = medium_piety_value
-						desc = CB_ATTACKER_HOF
-					}
-				}
-			}
-			if = { #攻击同宗教神权统治者消耗虔诚
-				limit = {
-					scope:attacker.faith = scope:defender.faith
-					scope:defender = {
-						has_government = theocracy_government
-					}
+					scope:defender.faith = scope:attacker.faith
 				}
 				add = {
 					value = medium_piety_value
-					desc = CB_ATTACKER_THEOCRACY
+					desc = CB_SAME_FAITH_COST
 				}
 			}
-			if = { #攻击触手奴隶统治者消耗虔诚
-				limit = {
-					scope:defender = {
-						is_tentacle_slave = yes
-					}
-				}
-				add = {
-					value = 200
-					desc = CB_TENTACLE_PARTNER
-				}
-			}
-			if = { #部落制虔诚消耗减半
+			if = {
 				limit = {
 					scope:attacker = { has_government = tribal_government }
 				}
@@ -175,7 +120,8 @@ tentacleswarm_conquest = {
 				}
 			}
 
-			if = { #革新修正
+			#Innovation Piety Discounts
+			if = {
 				limit = {
 					scope:attacker = {
 						culture = {
@@ -188,8 +134,9 @@ tentacleswarm_conquest = {
 					desc = CB_RECONQUISTA_COST
 				}
 			}
-			
-			if = { #技能修正
+
+			# Bellum Justum Perk
+			if = {
 				limit = {
 					scope:attacker = {
 						has_perk = bellum_justum_perk
@@ -202,7 +149,8 @@ tentacleswarm_conquest = {
 				}
 			}
 
-			if = { #传承修正
+			# Dynasty Warfare Perk
+			if = {
 				limit = {
 					scope:attacker = {
 						has_dynasty = yes
@@ -217,7 +165,23 @@ tentacleswarm_conquest = {
 				}
 			}
 
-			if = { #契约修正
+			# Culture
+			if = {
+				limit = {
+					scope:attacker = {
+						culture = {
+							has_cultural_parameter = cheaper_cbs
+						}
+					}
+				}
+				multiply = {
+					value = 0.8
+					desc = "CB_ATTACKER_CULTURE"
+				}
+			}
+
+			# Vassal contract in-realm cost reduction
+			if = {
 				limit = {
 					scope:attacker = {
 						is_independent_ruler = no
@@ -231,7 +195,156 @@ tentacleswarm_conquest = {
 				}
 			}
 
-			if = { #规则修正
+			if = {
+				limit = {
+					has_game_rule = no_cost_casus_belli_costs
+				}
+				multiply = {
+					value = 0
+					desc = CB_GAME_RULE_NO_COST
+				}
+			}
+		}
+		prestige = {
+			value = 0
+			if = {
+				limit = {
+					NOT = { scope:defender.faith = scope:attacker.faith }
+				}
+				add = {
+					value = medium_prestige_value
+					desc = CB_COST_DIFFERENT_FAITH
+				}
+			}
+			if = {
+				limit = {
+					scope:attacker = { has_government = tribal_government }
+				}
+				multiply = {
+					value = 0.5
+					desc = CB_TRIBAL_COST
+				}
+			}
+
+			#Innovation Prestige Discounts
+			if = {
+				limit = {
+					scope:attacker = {
+						culture = {
+							has_innovation = innovation_chronicle_writing
+							has_innovation = innovation_land_grants
+							has_innovation = innovation_rightful_ownership
+						}
+					}
+				}
+				multiply = {
+					value = 0.7
+					desc = CB_ATTACKER_INNOVATIONS
+				}
+			}
+			else_if = {
+				limit = {
+					scope:attacker = {
+						culture = {
+							OR = {
+								has_innovation = innovation_chronicle_writing
+								has_innovation = innovation_land_grants
+							}
+							OR = {
+								has_innovation = innovation_land_grants
+								has_innovation = innovation_rightful_ownership
+							}
+							OR = {
+								has_innovation = innovation_chronicle_writing
+								has_innovation = innovation_rightful_ownership
+							}
+						}
+					}
+				}
+				multiply = {
+					value = 0.8
+					desc = CB_ATTACKER_INNOVATIONS
+				}
+			}
+			else_if = {
+				limit = {
+					scope:attacker = {
+						culture = {
+							OR = {
+								has_innovation = innovation_chronicle_writing
+								has_innovation = innovation_land_grants
+								has_innovation = innovation_rightful_ownership
+							}
+						}
+					}
+				}
+				multiply = {
+					value = 0.9
+					desc = CB_ATTACKER_INNOVATIONS
+				}
+			}
+
+			# Bellum Justum Perk
+			if = {
+				limit = {
+					scope:attacker = {
+						has_perk = bellum_justum_perk
+					}
+				}
+				multiply = {
+					add = bellum_justum_discount_percentage
+					divide = 100
+					desc = CB_ATTACKER_BELLUM_JUSTUM
+				}
+			}
+
+			# Dynasty Warfare Perk
+			if = {
+				limit = {
+					scope:attacker = {
+						has_dynasty = yes
+						dynasty = {
+							has_dynasty_perk = warfare_legacy_2
+						}
+					}
+				}
+				multiply = {
+					value = warfare_legacy_2_discount
+					desc = CB_ATTACKER_DYNASTY_WARFARE
+				}
+			}
+
+			# Culture
+			if = {
+				limit = {
+					scope:attacker = {
+						culture = {
+							has_cultural_parameter = cheaper_cbs
+						}
+					}
+				}
+				multiply = {
+					value = 0.8
+					desc = "CB_ATTACKER_CULTURE"
+				}
+			}
+
+			# Vassal contract in-realm cost reduction
+			if = {
+				limit = {
+					scope:attacker = {
+						is_independent_ruler = no
+						vassal_contract_has_flag = vassal_contract_war_override
+						liege = scope:defender.liege
+					}
+				}
+				multiply = {
+					value = war_declaration_rights_allowed_cost_reduction
+					desc = "CB_ATTACKER_VASSAL_CONTRACT"
+				}
+			}
+
+			if = {
 				limit = {
 					has_game_rule = no_cost_casus_belli_costs
 				}
@@ -457,10 +570,17 @@ tentacleswarm_religious_war = {
 			has_religion = religion:tentacleswarm_religion
 		}
 	}
-	target_titles = neighbor_land_or_water
-	target_title_tier = all
-	target_de_jure_regions_above = yes
-	ignore_effect = change_title_holder
+	target_titles = all
+	target_title_tier = kingdom
+	target_de_jure_regions_above = yes #针对法理土地宣战，不需要目标实际持有头衔
+	ignore_effect = change_title_holder #头衔变更类的效果不会在文本中显示
+	
+	ai_can_target_all_titles = { #不满足这个条件的话，只会打周围的目标
+		max_military_strength > 4000 #有一定兵力积蓄
+		is_independent_ruler = yes #独立
+		ai_zeal > 20 #虔诚的
+		ai_energy > 20 #有干劲的
+	}
 
 	valid_to_start = {
 		scope:target = {

@@ -37,7 +37,7 @@ tentacleswarm_corruption_eaten = {
 		limit = {
 			religion = religion:tentacleswarm_religion
 		}
-		multiply = 2
+		multiply = 10
 	}
 	if = { #统治者屈服
 		limit = {

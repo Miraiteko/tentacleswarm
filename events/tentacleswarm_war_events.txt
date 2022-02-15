@@ -1,4 +1,4 @@
-﻿#0001-0003 战争干预事件
+﻿#0001-0003 剿灭战争的干预事件。
 namespace = tentacleswarm_war
 
 #宣战者事件，引发周围的人参战
@@ -76,7 +76,7 @@ tentacleswarm_war.0002 ={
 		exists = scope:war
 		highest_held_title_tier >= tier_county #至少是个伯爵
 		is_landed = yes	#有地	
-		max_military_strength > 300 #有一定兵力
+		max_military_strength > 1000 #有一定兵力
 		is_at_war = no
 		in_diplomatic_range = scope:war.primary_attacker
 		in_diplomatic_range = scope:war.primary_defender
@@ -91,19 +91,8 @@ tentacleswarm_war.0002 ={
 	option = {
 		name = tentacleswarm_war.0002.atk
 		trigger = {
-			OR = {
-				#和攻击者同信仰
-				faith = scope:attacker.faith 
-				#防御方是邪恶的奴隶
-				AND = {
-					faith = {
-						has_doctrine_parameter = doctrine_tentacle_slave_evil
-					}
-					scope:war.primary_defender = {
-						has_religion = religion:tentacleswarm_religion
-					}
-				}
-			}
+			#和攻击者同信仰
+			faith = scope:attacker.faith
 		}
 		#加入进攻方
 		scope:war = { add_attacker = PREV }
@@ -120,10 +109,6 @@ tentacleswarm_war.0002 ={
 				opinion_target = scope:war.primary_defender
 				multiplier = -1
 			}
-			modifier = {#不是我的信仰
-				factor = 0.3
-				NOT = { faith = scope:attacker.faith }
-			}
 			modifier = {#我是奴隶
 				factor = 0
 				is_tentacle_slave = yes
@@ -136,6 +121,11 @@ tentacleswarm_war.0002 ={
 			base = 300
 			ai_value_modifier = {
 				ai_zeal = -2
+				ai_energy = -1
+			}		
+			modifier = {#忙着呢
+				factor = 3
+				is_at_war = yes
 			}				
 			modifier = {#与我关系不大
 				factor = 3
@@ -176,27 +166,6 @@ tentacleswarm_war.0002 ={
 		#奴隶反击通过宣战进攻方的形式
 		
 		save_scope_as = actor
-		#搜索最大发展度的土地
-		scope:actor = {
-			set_variable =  { name = max_held_development value = 1 }
-			every_held_title = {
-				limit = { 
-					tier = tier_county
-				}
-				if = {
-					limit = { 
-						development_level > scope:actor.var:max_held_development
-					}
-					scope:actor = { set_variable =  { name = max_held_development value = prev.development_level }}
-				}
-			}
-			change_variable = { name = max_held_development multiply = 2 } #目标地要是原来的两倍以上发展度
-			
-			if = {	
-				limit = { is_independent_ruler = yes }
-				set_variable =  { name = max_held_development value = 1 } #独立领主的话，就不在意那么多
-			}
-		}
 		scope:war.primary_attacker = {
 			save_scope_as = target_character
 			save_scope_as = recipient
@@ -204,7 +173,7 @@ tentacleswarm_war.0002 ={
 		scope:target_character = {
 			random_realm_county = {
 				limit = { 
-					development_level >= scope:actor.var:max_held_development
+					development_level >= 3
 					building_max_garrison <= scope:actor.max_military_strength #足够弱
 				}
 				save_scope_as = target

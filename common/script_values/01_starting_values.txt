@@ -154,7 +154,8 @@ culture_acceptance_baseline = {
 		limit = { # To stop errors in observe mode
 			exists = root
 			exists = scope:culture
-
+			culture_number_of_counties > 0
+			scope:culture = { culture_number_of_counties > 0 }
 			# Set up some scopes we'll need
 			trigger_if = {
 				limit = {

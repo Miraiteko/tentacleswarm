@@ -150,6 +150,10 @@ tentacleswarm_4VA_pulse = {
 					modifier = { 
 						add = ai_zeal
 					}
+					#人物狂热值
+					modifier = { 
+						add = ai_energy
+					}
 					modifier = { #兵力不够不打 
 						factor = var:military_strength_ratio
 					}
