@@ -37,8 +37,9 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		primary_title.var:back_coa = {
-			set_coa = root.primary_title
+		capital_county = { 
+			add_county_modifier = tentacleswarm_corruption_5
+			set_variable =  { name = tentacleswarm_corruption value = 1000000 }
 		}
 	}
 
