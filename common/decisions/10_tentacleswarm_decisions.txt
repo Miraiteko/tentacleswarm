@@ -543,13 +543,16 @@ tentacleswarm_warbeast_decision = {
 	is_valid = {
 		is_at_war = yes
 		is_tentacle_slave = yes
+		is_independent_ruler = yes
 		any_realm_county = {
 			has_county_modifier = tentacleswarm_corruption_5
 		} 
 	}	
 	
 	cooldown = { years = 1 }
-
+	cost = {
+		piety = 200
+	}
 	effect = {
 		#召唤战争巨兽
 		tentacle_warbeast_effect = yes

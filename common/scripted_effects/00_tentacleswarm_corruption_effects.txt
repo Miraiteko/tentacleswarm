@@ -636,104 +636,157 @@ tentacleswarm_appear_effect_4 = {#触手天灾形成
 		}
 	}
 }
-#将头衔变为腐化的样式，或者变回去——包括直辖头衔以及租赁给祭司或骑士团的圣殿
-tentacleswarm_coa_check = {
+#将头衔变为腐化的样式，或者变回去:针对角色的直辖头衔以及租赁给祭司或骑士团的圣殿
+tentacleswarm_character_coa_check = {
 	if = {
-		limit = { has_religion = religion:tentacleswarm_religion }
-		tentacleswarm_coa_corrupt = yes
+		limit = { 
+			has_religion = religion:tentacleswarm_religion
+			is_female = yes
+		}
+		tentacleswarm_character_coa_corrupt = yes
 	}
 	else = {
-		tentacleswarm_coa_purify = yes
+		tentacleswarm_character_coa_purify = yes
 	}
 }
-tentacleswarm_coa_corrupt = {
+tentacleswarm_character_coa_corrupt = {
 	#头衔纹章变成腐化的
 	every_held_title = {  
 		limit = { 
 			NOT = { has_variable = tentacleswarm_coa } #未被腐化的头衔
 			is_landless_type_title = no #不是无地的
 		}
-		if = { #如果纯净纹章尚未备份，创建一个头衔备份原纯净纹章
-			limit = { 
-				OR = {
-					NOT = { has_variable = back_coa }
-					NOT = { exists = var:back_coa }
-				}
-			}
-			create_dynamic_title = { 
-				tier = duchy
-				name = TENTACLE_LORD
-			}
-			scope:new_title = {
-				set_capital_county = prev.title_capital_county
-				set_landless_title = yes
-				set_coa = prev
-			}
-			set_variable = {
-				name = back_coa
-				value = scope:new_title
+		tentacleswarm_title_coa_corrupt = yes
+	}
+}
+tentacleswarm_character_coa_purify = {
+	#头衔纹章变成未腐化的
+	every_held_title = { 
+		limit = { 
+			has_variable = tentacleswarm_coa #被腐化的头衔
+			is_landless_type_title = no #不是无地的
+			tier > tier_barony #伯爵以上
+		}
+		tentacleswarm_title_coa_purify = yes
+	}
+}
+#将头衔变为腐化的样式，或者变回去:仅针对单一头衔
+tentacleswarm_title_coa_check = {
+	if = {
+		limit = { 
+			exists = holder
+			holder = {
+				has_religion = religion:tentacleswarm_religion
+				is_female = yes
 			}
 		}
-		else = { #否则更新备份
-			var:back_coa = {
-				set_coa = prev
-			}
+		tentacleswarm_title_coa_corrupt = yes
+	}
+	else = {
+		tentacleswarm_title_coa_purify = yes
+	}
+}
+tentacleswarm_title_coa_corrupt = {
+	if = {#如果腐化纹章有备份，改回原腐化纹章
+		limit = { has_variable = back_tent_coa }
+		set_coa = var:back_tent_coa 
+	}
+	else_if = { #未曾被纯净过，保持不变
+		limit = { 
+			NOT = { has_variable = back_coa }
 		}
-		if = {#如果腐化纹章有备份，改回原腐化纹章
-			limit = { has_variable = back_tent_coa }
-			set_coa = var:back_tent_coa 
+		#添加为腐化备份
+		create_dynamic_title = {
+			tier = duchy
+			name = TENTACLE_LORD
 		}
-		else = {
-			generate_coa = yes #否则新生成一个腐化纹章
+		scope:new_title = {
+			set_capital_county = province:1.county
+			set_landless_title = yes
+			set_coa = prev
 		}
-		#标记为腐化
+		set_variable = {
+			name = back_tent_coa
+			value = scope:new_title
+		}
+	}
+	else = {
+		#否则新生成一个腐化纹章
+		generate_coa = yes 
+		#添加为腐化备份
+		create_dynamic_title = {
+			tier = duchy
+			name = TENTACLE_LORD
+		}
+		scope:new_title = {
+			set_capital_county = province:1.county
+			set_landless_title = yes
+			set_coa = prev
+		}
+		set_variable = {
+			name = back_tent_coa
+			value = scope:new_title
+		}
+	}
+	#标记为腐化
+	if = {
+		limit = { NOT = { has_variable = tentacleswarm_coa } }
 		set_variable = {
 			name = tentacleswarm_coa
 			value = 0
 		}
 	}
 }
-tentacleswarm_coa_purify = {
-	#头衔纹章变成未腐化的
-	every_held_title = { 
+tentacleswarm_title_coa_purify = {
+	if = { #如果原纯净纹章有备份，改回原纯净纹章
+		limit = { has_variable = back_coa }
+		set_coa = var:back_coa 
+	}
+	else_if = { #未曾被腐化过，保持不变
 		limit = { 
-			has_variable = tentacleswarm_coa #被腐化的头衔
-			is_landless_type_title = no #不是无地的
+			NOT = { has_variable = back_tent_coa }
 		}
-		if = { #如果腐化纹章尚未备份，创建一个头衔备份原腐化纹章
-			limit = { 
-				OR = {
-					NOT = { has_variable = back_tent_coa }
-					NOT = { exists = var:back_tent_coa }
-				}
-			}
-			create_dynamic_title = {
-				tier = duchy
-				name = TENTACLE_LORD
-			}
-			scope:new_title = {
-				set_capital_county = prev.title_capital_county
-				set_landless_title = yes
-				set_coa = prev
-			}
-			set_variable = {
-				name = back_tent_coa
-				value = scope:new_title
-			}
+		#添加为纯净备份
+		create_dynamic_title = {
+			tier = duchy
+			name = TENTACLE_LORD
 		}
-		else = { #否则更新备份
-			var:back_tent_coa = {
-				set_coa = prev
-			}
+		scope:new_title = {
+			set_capital_county = prev.title_capital_county
+			set_landless_title = yes
+			set_coa = prev
 		}
-		if = { #如果原纯净纹章有备份，改回原纯净纹章
-			limit = { has_variable = back_coa }
-			set_coa = var:back_coa 
+		set_variable = {
+			name = back_coa
+			value = scope:new_title
 		}
-		else = {
-			generate_coa = yes #否则新生成一个纯净纹章
+	}
+	else = {
+		#否则新生成一个纯净纹章
+		generate_coa = yes 
+		#添加为纯净备份
+		create_dynamic_title = {
+			tier = duchy
+			name = TENTACLE_LORD
 		}
-		#解除腐化标记
+		scope:new_title = {
+			set_capital_county = prev.title_capital_county
+			set_landless_title = yes
+			set_coa = prev
+		}
+		set_variable = {
+			name = back_coa
+			value = scope:new_title
+		}
+	}
+	if = {#有动态纹章的话，采用动态纹章
+		limit = { is_landless_type_title = no } #无地头衔不能用下面这个语句
+		update_dynamic_coa = yes 
+	}
+	
+	#解除腐化标记
+	if = {
+		limit = { has_variable = tentacleswarm_coa }
 		remove_variable = tentacleswarm_coa
 	}
 }
@@ -757,7 +810,7 @@ tentacle_warbeast_effect = {
 			}
 			tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff
 			#增加1队
-			holder = {
+			prev = {
 				change_variable = { 
 					name = tentacleswarm_warbeast_gain 
 					add = 1

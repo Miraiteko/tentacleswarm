@@ -24,17 +24,17 @@ tentacleswarm_corruption_resist = {
 		}
 		multiply = 2
 	}
-	if = { #灭杀
-		limit = {
-			county_controller = { has_character_modifier = tentacleswarm_anti }
-		}
-		multiply = 2.5
-	}
 	if = { #省份屈服
 		limit = {
 			religion = religion:tentacleswarm_religion
 		}
 		multiply = 0.1
+	}
+	if = { #灭杀
+		limit = {
+			county_controller = { has_character_modifier = tentacleswarm_anti }
+		}
+		multiply = 2.5
 	}
 	if = { #播种令
 		limit = {

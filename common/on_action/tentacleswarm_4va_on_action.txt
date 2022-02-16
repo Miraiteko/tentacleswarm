@@ -194,6 +194,9 @@ tentacleswarm_4VA_pulse = {
 						limit = {
 							exists = scope:target_county
 							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+							scope:target_character = { #攻击目标为触手宗教
+								has_religion = religion:tentacleswarm_religion
+							}
 						}
 						scope:actor = { #进行宣战
 							start_war = { 

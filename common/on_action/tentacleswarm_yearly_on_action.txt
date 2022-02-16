@@ -361,18 +361,22 @@ tentacleswarm_yearly_playable_pulse = {
 					#领主宫廷带来的增长
 					change_variable =  { 
 						name = tentacleswarm_corruption 
-						add = {
-							value = holder.var:tentacleswarm_corruption_add 
-							max = { #0发展的省份是种不了的
-								value = development_level
-								multiply = 5
-							}
+						add = holder.var:tentacleswarm_corruption_add 
+					}
+					
+					#计算地形带来的影响
+					change_variable =  { 
+						name = tentacleswarm_corruption 
+						add = var:tentacleswarm_corruption_nature
+					}
+					#0发展度省份不会增长腐化
+					if = {
+						limit = { development_level = 0 } 
+						set_variable =  { 
+							name = tentacleswarm_corruption 
+							value = 0
 						}
 					}
-				
-					#计算地形带来的影响
-					change_variable =  { name = tentacleswarm_corruption add = var:tentacleswarm_corruption_nature }
-					
 
 					#五档：10,20,35,60,100
 					tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
@@ -510,9 +514,10 @@ tentacleswarm_random_yearly_playable_pulse = {
 		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征
 		if = {
 			limit = {
+				is_ai = yes
 				has_religion = religion:tentacleswarm_religion
 				is_at_war = no
-				is_ai = yes
+				is_tentacle_slave = yes #是奴隶
 				is_independent_ruler = yes #独立
 				max_military_strength > 4000 #有一定兵力积蓄
 				gold > 0 #没负债

@@ -37,8 +37,15 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		capital_county = {
-			change_variable =  { name = tentacleswarm_corruption add = 10000 }
+		province:1.county = {
+			 add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
+		}
+		every_realm_county = {
+			#消耗腐化
+			change_variable = { 
+				name = tentacleswarm_corruption 
+				add = 15000 
+			}
 		}
 	}
 

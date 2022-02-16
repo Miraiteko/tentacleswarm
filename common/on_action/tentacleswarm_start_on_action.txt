@@ -91,6 +91,20 @@ tentacleswarm_on_game_start = {
 				}
 			}
 		}
+		#每个有地头衔，备份一下纹章
+		#男爵领玩家不关注，备份不备份无所谓
+		every_empire = {
+			tentacleswarm_title_coa_check = yes
+		}
+		every_kingdom = {
+			tentacleswarm_title_coa_check = yes
+		}
+		every_duchy = {
+			tentacleswarm_title_coa_check = yes
+		}
+		every_county = {
+			tentacleswarm_title_coa_check = yes
+		}
 		#触发一下年度全局事件避免bug
 		trigger_event = {
 			on_action = tentacleswarm_yearly_global_pulse

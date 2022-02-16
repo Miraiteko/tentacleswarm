@@ -335,7 +335,7 @@ tentacleswarm_slave.0032 = {
 		add_stress = massive_stress_loss
 		
 		ai_chance = {
-			base = 100
+			base = 1000 #被赐福的情况下，更有可能接受
 			ai_accept_corrupt_modifier = yes
 		}
 	}
@@ -688,12 +688,10 @@ tentacleswarm_slave.4001 = {
 
 	option = {
 		name = tentacleswarm_slave.4001.default
-		end_pregnancy = yes
-		custom_tooltip = tentacleswarm_suicide_tt
 		#结束妊娠
-		hidden_effect = {
-			pregnancy_cleanup_effect = yes
-		}
+		end_pregnancy = yes
+		pregnancy_cleanup_effect = yes
+		custom_tooltip = tentacleswarm_suicide_tt
 		
 		#告知配偶
 		if = {

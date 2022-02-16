@@ -358,7 +358,7 @@ convert_to_tentacleswarm_religion = {
 		#改信
 		set_character_faith = faith:tentacleswarm_slavery
 		#改纹章
-		tentacleswarm_coa_check = yes 
+		tentacleswarm_character_coa_check = yes 
 		#第一次出现改信的时候，给玩家弹事件
 		tentacleswarm_appear_effect_4 = yes
 	}
