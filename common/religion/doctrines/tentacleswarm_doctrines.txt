@@ -55,9 +55,8 @@
 			value = 0
 		}
 		character_modifier = {
-			#傻
-			learning = -10
 			#无法改信
+			for_corrupt_type_damage_mult = -0.9
 			faith_conversion_piety_cost_mult = 20
 			faith_creation_piety_cost_mult = 20
 			#不喜欢男人

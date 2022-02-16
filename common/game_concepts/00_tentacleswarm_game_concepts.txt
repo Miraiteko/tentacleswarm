@@ -1,4 +1,7 @@
-﻿tentacleswarm_corruption = {
+﻿tentacleswarm_resist = {
+	parent = county_modifier
+}
+tentacleswarm_corruption = {
 	parent = county_modifier
 }
 

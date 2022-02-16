@@ -15,6 +15,7 @@ tentacleswarm_conquest = {
 
 	allowed_against_character = {
 		scope:defender = {
+			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
 			is_independent_ruler = yes #独立
 		}
 	}
@@ -26,10 +27,7 @@ tentacleswarm_conquest = {
 	ignore_effect = change_title_holder #头衔变更类的效果不会在文本中显示
 	
 	ai_can_target_all_titles = { #不满足这个条件的话，只会打周围的目标
-		max_military_strength > 4000 #有一定兵力积蓄
-		capital_county = {  #首都发展度不足了
-			development_level <= 5
-		}
+		always = no #用事件决定远征目标
 	}
 	ai_score_mult = { #AI对目标的选择
 		value = 200
@@ -73,14 +71,14 @@ tentacleswarm_conquest = {
 			}
 			add = 100
 		}
-		#不喜欢攻击奴隶
+		#不攻击奴隶
 		if = {
 			limit = {
 				scope:defender = { 
 					is_tentacle_slave = yes
 				}
 			}
-			multiply = 0.2
+			multiply = 0
 		}
 	}
 
@@ -88,6 +86,9 @@ tentacleswarm_conquest = {
 		OR = {
 			scope:attacker = { #进攻方改信了
 				NOT = { has_religion = religion:tentacleswarm_religion }
+			}
+			scope:defender = { #防守方改信了
+				has_religion = religion:tentacleswarm_religion 
 			}
 		}
 	}

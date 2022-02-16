@@ -15,72 +15,40 @@ minus_tentacleswarm_corruption = {
 	value = 0
 	subtract = var:tentacleswarm_corruption
 }
-#天灾猎食效率，取决于腐化度对发展度的优势，以及教义
-tentacleswarm_corruption_eat_efficiency = {
-	#腐化度^2/(腐化度^2+发展度^2*抵抗强度)
-	value = var:tentacleswarm_corruption
-	multiply = var:tentacleswarm_corruption
-	divide = {
-		value = 1
-		add = {
-			value = var:tentacleswarm_corruption
-			multiply = var:tentacleswarm_corruption
+#天灾抵抗力量
+tentacleswarm_corruption_resist = {
+	value = 10 #基础抵制强度
+	if = { #省份敌意
+		limit = {
+			faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 		}
-		add = {
-			value = development_level
-			multiply = development_level
-			multiply = {
-				value = 10 #基础抵抗强度
-				if = { #省份敌意
-					limit = {
-						faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
-					}
-					multiply = 2
-				}
-				if = { #灭杀
-					limit = {
-						county_controller = { has_character_modifier = tentacleswarm_anti }
-					}
-					multiply = 2.5
-				}
-				if = { #省份屈服
-					limit = {
-						religion = religion:tentacleswarm_religion
-					}
-					multiply = 0.1
-				}
-				if = { #播种令
-					limit = {
-						county_controller = { has_character_modifier = tentacleswarm_spread }
-					}
-					multiply = 0.3
-				}
-			}
-		}
+		multiply = 2
 	}
-	max = 1
-	min = 0
-}
-#进食掉的发展度
-tentacleswarm_corruption_eaten = {
-	#食物供应额度以发展度为基础，乘上天灾猎食效率
-	value = 0
-	add = development_level
-	multiply = 5.0 #默认能够供养5倍
-	multiply = tentacleswarm_corruption_eat_efficiency
-	#最终消耗不超过腐化度
-	max = var:tentacleswarm_corruption
-}
-#饥饿带来的衰减额度
-tentacleswarm_corruption_hunger_value = {
-	value = 1.0
-	subtract = {
-		value = {
-			#食物消耗量
-			value = tentacleswarm_corruption_eaten
-			#除以腐化度得到饱食度
-			divide = { value = var:tentacleswarm_corruption min = 1 }
+	if = { #灭杀
+		limit = {
+			county_controller = { has_character_modifier = tentacleswarm_anti }
 		}
+		multiply = 2.5
+	}
+	if = { #省份屈服
+		limit = {
+			religion = religion:tentacleswarm_religion
+		}
+		multiply = 0.1
+	}
+	if = { #播种令
+		limit = {
+			county_controller = { has_character_modifier = tentacleswarm_spread }
+		}
+		multiply = 0.3
+	}
+}
+#饥饿带来的衰减额度 = 抵制强度/(发展度+抵制强度) *70%
+tentacleswarm_corruption_hunger_value = {
+	value = tentacleswarm_corruption_resist
+	divide = {
+		value = development_level
+		add = tentacleswarm_corruption_resist
 	}
 	multiply = 70 #满饥饿的情况下有70%的衰减，加上基础衰减就是80%
 	min = 0

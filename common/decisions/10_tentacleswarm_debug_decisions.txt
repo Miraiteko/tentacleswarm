@@ -37,10 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		#tentacleswarm_coa_corrupt = yes
-		tentacleswarm_coa_check = yes
-		every_held_title = { 
-			#generate_coa = yes
+		capital_county = {
+			change_variable =  { name = tentacleswarm_corruption add = 10000 }
 		}
 	}
 

@@ -48,5 +48,5 @@
     gunpowder:0 "火药箭"
     gunpowder_flavor:0 "#F 早期的黑火药爆炸威力不强，但是纵火发烟的效果十分显著。可以附着在箭矢上射出，给与敌人强力的震慑。#!"
 
-    for_corrupt_type_damage_mult:0 "每年[domain|E][tentacleswarm_corruption|E]衰减额度"
+    for_corrupt_type_damage_mult:0 "[domain|E][tentacleswarm_resist|E]"
     for_corrupt_type_damage_add:0 "每年[domain|E][tentacleswarm_corruption|E]增长"

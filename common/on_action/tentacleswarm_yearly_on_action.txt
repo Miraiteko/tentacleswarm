@@ -14,8 +14,10 @@ tentacleswarm_yearly_global_pulse = {
 		clear_global_variable_list = tentacleswarm_protected_ruler #被保护的领主
 		
 		every_ruler = {
-			limit = { highest_held_title_tier >= tier_county } #只考虑伯爵以上
-			add_to_global_variable_list = { name = tentacleswarm_main_target_ruler target = this }
+			limit = { #只考虑伯爵以上
+				highest_held_title_tier >= tier_county 
+				is_landed = yes
+			} 
 			if = {#奴隶领主
 				limit = { has_religion = religion:tentacleswarm_religion }
 				add_to_global_variable_list = { name = tentacleswarm_slave_ruler target = this }	
@@ -29,9 +31,10 @@ tentacleswarm_yearly_global_pulse = {
 			}
 			else_if = {
 				limit = { 
+					is_tentacle_slave = no
 					any_held_title = {
 						tier = tier_county
-						development_level > 0
+						development_level >= 3
 					}
 				}
 				add_to_global_variable_list = { name = tentacleswarm_target_ruler target = this }	
@@ -304,7 +307,7 @@ tentacleswarm_yearly_playable_pulse = {
 					#计算衰减率
 					#基础衰减，固定10%
 					set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
-					#饥饿衰减，取决于当地的食物供应于现有腐化度的比例	
+					#饥饿衰减 = 抵制强度/(发展度+抵制强度) *70%
 					change_variable =  { name = tentacleswarm_corruption_decay add = tentacleswarm_corruption_hunger_value } 	
 					#规范化，使衰减比例介于1%到99%，避免溢出
 					if = { 
@@ -507,7 +510,6 @@ tentacleswarm_random_yearly_playable_pulse = {
 		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征
 		if = {
 			limit = {
-				always = no #暂时关闭远征机制，反正打不出去也不会立刻就死
 				has_religion = religion:tentacleswarm_religion
 				is_at_war = no
 				is_ai = yes
@@ -524,43 +526,15 @@ tentacleswarm_random_yearly_playable_pulse = {
 					highest_held_title_tier >= tier_duchy #不啃独立小伯爵
 					is_landed = yes #有地
 					NOT = { has_religion = religion:tentacleswarm_religion } #异教
-					capital_county = {  #首都有较高发展度
-						development_level >= 3
-					}
 					ROOT = { #需要符合宣战条件
 						is_character_interaction_valid = {
 						   recipient = PREV
 						   interaction = declare_war_interaction
 						}
 					}
-					is_at_war = yes #优先打处于战争中的目标
 				}
 				save_scope_as = target_character
 				save_scope_as = recipient
-			}
-			if = {
-				limit = { 
-					NOT = { exists = scope:target_character }
-				}
-				random_in_global_list = { #否则的话，和平的目标的也打
-					variable = tentacleswarm_main_target_ruler
-					limit = {
-						highest_held_title_tier >= tier_duchy #不啃独立小伯爵
-						is_landed = yes #有地
-						NOT = { has_religion = religion:tentacleswarm_religion } #异教
-						capital_county = {  #首都有较高发展度
-							development_level >= 3
-						}
-						ROOT = { #需要符合宣战条件
-							is_character_interaction_valid = {
-							   recipient = PREV
-							   interaction = declare_war_interaction
-							}
-						}
-					}
-					save_scope_as = target_character
-					save_scope_as = recipient
-				}
 			}
 			#确定目标，发动战争
 			if = {
