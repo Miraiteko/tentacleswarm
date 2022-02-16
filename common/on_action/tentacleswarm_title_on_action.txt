@@ -2,7 +2,6 @@
 
 on_rank_up = {#角色升级：处理创建新头衔的情况
 	on_actions = { 
-		tentacleswarm_on_character_coa_change  
 	}
 }
 on_character_culture_change = {#角色改变文化：避免改文化的时候把腐化纹章盖掉
@@ -34,6 +33,7 @@ on_title_destroyed = { #头衔被摧毁，coa腐化消失
 }
 on_title_gain = { #头衔被获得，按获得者的情况调整coa
 	on_actions = { 
+		delay = { days = 1 }#问题：刚创建的新头衔有时没有coa，会导致无coa的头衔被储存;需要delay一天
 		tentacleswarm_on_title_coa_change
 	}
 }
@@ -52,7 +52,10 @@ tentacleswarm_on_title_coa_change = { #检查单个头衔的coa
 		if = {
 			limit = { 
 				exists = scope:title 
-				scope:title  = { tier > tier_barony }
+				scope:title  = { 
+					tier > tier_barony 
+					is_landless_type_title = no
+				}
 			}
 			scope:title = {
 				tentacleswarm_title_coa_check = yes

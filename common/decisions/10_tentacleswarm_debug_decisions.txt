@@ -11,7 +11,7 @@
 		debug_only = yes
 	}	
 	effect = {
-		trigger_event = {
+		trigger_event = { 
 			on_action = tentacleswarm_on_game_start
 		}
 	}
@@ -37,15 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		province:1.county = {
-			 add_county_modifier = { modifier = tentacleswarm_destroy years = 70 }
-		}
-		every_realm_county = {
-			#消耗腐化
-			change_variable = { 
-				name = tentacleswarm_corruption 
-				add = 15000 
-			}
+		primary_title.var:back_coa = {
+			set_coa = root.primary_title
 		}
 	}
 

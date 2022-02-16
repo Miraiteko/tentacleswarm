@@ -638,15 +638,12 @@ tentacleswarm_appear_effect_4 = {#触手天灾形成
 }
 #将头衔变为腐化的样式，或者变回去:针对角色的直辖头衔以及租赁给祭司或骑士团的圣殿
 tentacleswarm_character_coa_check = {
-	if = {
+	every_held_title = {  
 		limit = { 
-			has_religion = religion:tentacleswarm_religion
-			is_female = yes
+			is_landless_type_title = no #不是无地的
+			tier > tier_barony #伯爵以上
 		}
-		tentacleswarm_character_coa_corrupt = yes
-	}
-	else = {
-		tentacleswarm_character_coa_purify = yes
+		tentacleswarm_title_coa_check = yes
 	}
 }
 tentacleswarm_character_coa_corrupt = {
@@ -655,6 +652,7 @@ tentacleswarm_character_coa_corrupt = {
 		limit = { 
 			NOT = { has_variable = tentacleswarm_coa } #未被腐化的头衔
 			is_landless_type_title = no #不是无地的
+			tier > tier_barony #伯爵以上
 		}
 		tentacleswarm_title_coa_corrupt = yes
 	}
@@ -687,6 +685,7 @@ tentacleswarm_title_coa_check = {
 	}
 }
 tentacleswarm_title_coa_corrupt = {
+	save_scope_as = title
 	if = {#如果腐化纹章有备份，改回原腐化纹章
 		limit = { has_variable = back_tent_coa }
 		set_coa = var:back_tent_coa 
@@ -698,12 +697,11 @@ tentacleswarm_title_coa_corrupt = {
 		#添加为腐化备份
 		create_dynamic_title = {
 			tier = duchy
-			name = TENTACLE_LORD
+			name = TENTACLESWARM_BACK_TENT_COA_NAME
 		}
 		scope:new_title = {
-			set_capital_county = province:1.county
-			set_landless_title = yes
-			set_coa = prev
+			set_coa = scope:title
+			#set_de_jure_liege_title = title:k_tentacleswarm_color
 		}
 		set_variable = {
 			name = back_tent_coa
@@ -716,12 +714,11 @@ tentacleswarm_title_coa_corrupt = {
 		#添加为腐化备份
 		create_dynamic_title = {
 			tier = duchy
-			name = TENTACLE_LORD
+			name = TENTACLESWARM_BACK_TENT_COA_NAME
 		}
 		scope:new_title = {
-			set_capital_county = province:1.county
-			set_landless_title = yes
-			set_coa = prev
+			set_coa = scope:title
+			#set_de_jure_liege_title = title:k_tentacleswarm_color
 		}
 		set_variable = {
 			name = back_tent_coa
@@ -738,6 +735,7 @@ tentacleswarm_title_coa_corrupt = {
 	}
 }
 tentacleswarm_title_coa_purify = {
+	save_scope_as = title
 	if = { #如果原纯净纹章有备份，改回原纯净纹章
 		limit = { has_variable = back_coa }
 		set_coa = var:back_coa 
@@ -749,12 +747,11 @@ tentacleswarm_title_coa_purify = {
 		#添加为纯净备份
 		create_dynamic_title = {
 			tier = duchy
-			name = TENTACLE_LORD
+			name = TENTACLESWARM_BACK_COA_NAME
 		}
 		scope:new_title = {
-			set_capital_county = prev.title_capital_county
-			set_landless_title = yes
-			set_coa = prev
+			set_coa = scope:title
+			#set_de_jure_liege_title = title:k_tentacleswarm_color
 		}
 		set_variable = {
 			name = back_coa
@@ -767,12 +764,11 @@ tentacleswarm_title_coa_purify = {
 		#添加为纯净备份
 		create_dynamic_title = {
 			tier = duchy
-			name = TENTACLE_LORD
+			name = TENTACLESWARM_BACK_COA_NAME
 		}
 		scope:new_title = {
-			set_capital_county = prev.title_capital_county
-			set_landless_title = yes
-			set_coa = prev
+			set_coa = scope:title
+			set_de_jure_liege_title = title:k_tentacleswarm_color
 		}
 		set_variable = {
 			name = back_coa
