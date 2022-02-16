@@ -541,14 +541,14 @@ tentacleswarm_warbeast_decision = {
 	}
 	
 	is_valid = {
-		is_at_war_as_defender = yes
+		is_at_war = yes
 		is_tentacle_slave = yes
 		any_realm_county = {
 			has_county_modifier = tentacleswarm_corruption_5
 		} 
 	}	
 	
-	cooldown = { years = 3 }
+	cooldown = { years = 1 }
 
 	effect = {
 		#召唤战争巨兽
@@ -559,9 +559,22 @@ tentacleswarm_warbeast_decision = {
 		always = yes
 	}
 
-	ai_check_interval = 6
+	ai_check_interval = 6 
 	
 	ai_will_do = {
 		base = 100
+		#我已经够强了
+		modifier = {
+			factor = 0.5
+			max_military_strength > 2000
+		}
+		modifier = {
+			factor = 0.5
+			max_military_strength > 5000
+		}
+		modifier = {
+			factor = 0.5
+			max_military_strength > 12000
+		}
 	}
 }

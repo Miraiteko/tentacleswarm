@@ -767,7 +767,7 @@ tentacle_warbeast_effect = {
 		spawn_army = {
 			levies = {
 				value = var:tentacleswarm_warbeast_gain
-				multiply = 100
+				multiply = 490
 			}
 			men_at_arms = {
 				type = tentacleswarm_warbeast
