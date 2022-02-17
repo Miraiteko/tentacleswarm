@@ -359,7 +359,7 @@ tentacleswarm_government_decision = {
 	}	
 	effect = {
 		change_government = tentacleswarm_government
-		add_piety = 100
+		tentacleswarm_character_coa_check = yes 
 	}
 	
 	ai_check_interval = 0

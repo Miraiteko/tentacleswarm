@@ -37,10 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		capital_county = { 
-			add_county_modifier = tentacleswarm_corruption_5
-			set_variable =  { name = tentacleswarm_corruption value = 1000000 }
-		}
+		change_government = clan_government
 	}
 
 	ai_check_interval = 0

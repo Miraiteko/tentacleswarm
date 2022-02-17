@@ -27,7 +27,7 @@ color_lists = {
 		0 = "purple"
 		special_selection = { #天灾用色
 			trigger = {
-				scope:faith.religion = religion:tentacleswarm_religion
+				coa_corrupt_trigger = yes
 			}
 			#深色，冷色
 			10000 = {115 13 77}
@@ -229,7 +229,7 @@ color_lists = {
 		26 = "white"
 		special_selection = {#天灾用色
 			trigger = {
-				scope:faith.religion = religion:tentacleswarm_religion
+				coa_corrupt_trigger = yes
 			}
 			#浅色，暖色
 			10000 = {218 143 239}

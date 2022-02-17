@@ -577,7 +577,7 @@ colored_emblem_texture_lists = {
 		#天灾制纹章
 		special_selection = {
 			trigger = {
-				scope:faith.religion = religion:tentacleswarm_religion
+				coa_corrupt_trigger = yes
 			}
 			10000 =	"carn_ce_womb_1.dds"	
 			10000 =	"carn_ce_womb_2.dds"	

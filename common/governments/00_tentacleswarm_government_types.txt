@@ -2,7 +2,7 @@
 	#奴隶摄政，可以吃掉同样为奴隶摄政的封臣的地
 	#需要有至少一个持有的tentacleswarm_holding，才能变这个政体
 	primary_holding = castle_holding
-	valid_holdings = { castle_holding city_holding church_holding }  #可以直接持有的其他地产
+	valid_holdings = { castle_holding city_holding }  #可以直接持有的其他地产
 	required_county_holdings = {  castle_holding city_holding church_holding } #在建新地产之前，需要先满这些
 	
 	#regiments_prestige_as_gold = yes #用威望招兵

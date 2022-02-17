@@ -181,7 +181,12 @@ tentacleswarm_war.0002 ={
 			if = {
 				limit = {
 					exists = scope:target
-					war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
+					is_at_war = no
+					is_tentacle_slave = yes #是奴隶
+					is_independent_ruler = yes #独立
+					max_military_strength > 2000 #有一定兵力积蓄
+					gold > 0 #没负债
+					piety > 100 #虔诚限制
 				}
 				scope:actor = {
 					start_war = { 
