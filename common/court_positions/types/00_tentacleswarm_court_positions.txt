@@ -50,7 +50,6 @@
 	valid_character = {
 		scope:employee = {
 			is_imprisoned = no
-			learning >= 8
 		}
 	}
 	
@@ -71,23 +70,23 @@
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
 			enemy_hostile_scheme_success_chance_add = -1
-			for_corrupt_type_damage_mult = 0.1
+			for_corrupt_type_damage_mult = 0.2
 		}
 		aptitude_level_2 = {
 			enemy_hostile_scheme_success_chance_add = -2
-			for_corrupt_type_damage_mult = 0.2
+			for_corrupt_type_damage_mult = 0.4
 		}
 		aptitude_level_3 = {
 			enemy_hostile_scheme_success_chance_add = -3
-			for_corrupt_type_damage_mult = 0.3
+			for_corrupt_type_damage_mult = 0.6
 		}
 		aptitude_level_4 = {
 			enemy_hostile_scheme_success_chance_add = -4
-			for_corrupt_type_damage_mult = 0.4
+			for_corrupt_type_damage_mult = 0.8
 		}
 		aptitude_level_5 = {
 			enemy_hostile_scheme_success_chance_add = -5 
-			for_corrupt_type_damage_mult = 0.5
+			for_corrupt_type_damage_mult = 1.0
 		}
 	}
 	custom_employer_modifier_description = tentacle_hunter_court_position_custom_effect_description
@@ -201,7 +200,6 @@ tentacle_missionary_court_position = {
 	valid_character = {
 		scope:employee = {
 			is_imprisoned = no
-			diplomacy >= 8
 		}
 	}
 	
@@ -222,23 +220,23 @@ tentacle_missionary_court_position = {
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
 			owned_hostile_scheme_success_chance_add = 1
-			for_corrupt_type_damage_add = 5
+			for_corrupt_type_damage_add = 4
 		}
 		aptitude_level_2 = {
 			owned_hostile_scheme_success_chance_add = 2
-			for_corrupt_type_damage_add = 10
+			for_corrupt_type_damage_add = 8
 		}
 		aptitude_level_3 = {
 			owned_hostile_scheme_success_chance_add = 3
-			for_corrupt_type_damage_add = 15
+			for_corrupt_type_damage_add = 12
 		}
 		aptitude_level_4 = {
 			owned_hostile_scheme_success_chance_add = 4
-			for_corrupt_type_damage_add = 20
+			for_corrupt_type_damage_add = 16
 		}
 		aptitude_level_5 = {
 			owned_hostile_scheme_success_chance_add = 5 
-			for_corrupt_type_damage_add = 25
+			for_corrupt_type_damage_add = 20
 		}
 	}
 	custom_employer_modifier_description = tentacle_missionary_court_position_custom_effect_description 

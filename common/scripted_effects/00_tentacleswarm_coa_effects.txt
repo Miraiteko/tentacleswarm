@@ -12,7 +12,7 @@ tentacleswarm_character_coa_check = {
 tentacleswarm_title_coa_check = {
 	if = { #推迟处理的情况
 		limit = { 
-			founder_named_dynastis_trigger = yes 
+			founder_named_dynasties_trigger = yes 
 		}
 		tentacleswarm_title_coa_delay = yes
 	}

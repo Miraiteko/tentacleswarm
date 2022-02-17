@@ -263,6 +263,55 @@ tentacleswarm_yearly_playable_pulse = {
 			limit = { is_tentacle_slave = yes  }
 			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果宾客是奴隶
 		}
+		if = { #雇佣了播种人
+			limit = {
+				employs_court_position = tentacle_missionary_court_position
+			}
+			every_court_position_holder = {
+				type = tentacle_missionary_court_position
+				#根据称职度程度给予腐化
+				if = {
+					limit = {
+						aptitude = {
+							court_position = tentacle_missionary_court_position
+							value = 1
+						}
+					}
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 4 } }
+				}
+				else_if = {
+					limit = {
+						aptitude = {
+							court_position = tentacle_missionary_court_position
+							value = 2
+						}
+					}
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 8 } }
+				}
+				else_if = {
+					limit = {
+						aptitude = {
+							court_position = tentacle_missionary_court_position
+							value = 3
+						}
+					}
+					change_variable =  { name = tentacleswarm_corruption_add add = 12 }
+				}
+				else_if = {
+					limit = {
+						aptitude = {
+							court_position = tentacle_missionary_court_position
+							value = 4
+						}
+					}
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 16 } }
+				}
+				else = {
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 20 } }
+				}
+			}
+		}
+		
 		if = {
 			limit = { #摧毁失去所有栖息地的触手领主的国家
 				has_religion = religion:tentacleswarm_religion

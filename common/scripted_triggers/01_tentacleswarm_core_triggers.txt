@@ -90,7 +90,7 @@ coa_corrupt_trigger = {
 #是否如果这个头衔采用家族名，暂时不设置它的腐化/净化盾徽
 founder_named_dynasties_trigger = {
 	#公爵以上头衔
-	highest_held_title_tier >= tier_duchy
+	tier >= tier_duchy
 	exists = holder
 	holder = { 
 		#天灾信仰却没有天灾制度

@@ -37,7 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		change_government = clan_government
+		add_gold = capital_county.tentacleswarm_corruption_resist
 	}
 
 	ai_check_interval = 0
