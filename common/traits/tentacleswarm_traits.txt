@@ -18,8 +18,8 @@ tentacle_slave = {
 		}
 	}
 	
-	#高生育
-	#fertility = 0.5
+	#年轻容颜，以后会移动到腐化项里面去
+	life_expectancy = 50
 	
 	#讨厌其他宗教
 	opinion_of_different_faith = -50

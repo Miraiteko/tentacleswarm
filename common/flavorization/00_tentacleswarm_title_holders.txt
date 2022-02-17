@@ -1,0 +1,64 @@
+﻿count_female_tentacleswarm_religion = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 20
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+county_tentacleswarm_religion = {
+	type = title
+	tier = county
+	priority = 20
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+duch_female_tentacleswarm_religion = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 30
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+duchy_tentacleswarm_religion = {
+	type = title
+	tier = duchy
+	priority = 30
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+king_female_tentacleswarm_religion = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 50
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+kingdom_tentacleswarm_religion = {
+	type = title
+	tier = kingdom
+	priority = 50
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+emperor_female_tentacleswarm_religion = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 120
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+empire_tentacleswarm_religion = {
+	type = title
+	tier = empire
+	priority = 120
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}

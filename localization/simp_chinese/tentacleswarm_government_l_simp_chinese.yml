@@ -21,6 +21,14 @@
  tentacleswarm_government_decision_desc:0 "在被主人征服的土地上，人民由主人所支配，凭本能而屈服。繁杂的社会管理体系已经没有存在的必要了。\n\n我将废除旧的体系，建立适合主人统治的社会制度。"
  tentacleswarm_government_decision_tooltip:0 "改变[government|E]类型，成为[tentacleswarm_government|E]"
  
+ count_female_tentacleswarm_religion:0 "侍妾"
+ county_tentacleswarm_religion:0 "巢穴"
+ duch_female_tentacleswarm_religion:0 "奴隶女公爵"
+ duchy_tentacleswarm_religion:0 "堕落公国"
+ king_female_tentacleswarm_religion:0 "奴隶女王"
+ kingdom_tentacleswarm_religion:0 "堕落王国"
+ emperor_female_tentacleswarm_religion:0 "奴隶女皇"
+ empire_tentacleswarm_religion:0 "堕落帝国"
  
  TENTACLESWARM_BACK_TENT_COA_NAME:0 "堕落[title.GetNameNoTierNoTooltip]"
  TENTACLESWARM_BACK_COA_NAME:0 "纯净[title.GetNameNoTierNoTooltip]"
