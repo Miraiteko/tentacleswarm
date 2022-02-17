@@ -120,7 +120,10 @@ tentacleswarm_title_coa_purify = {
 		}
 	}
 	if = {#有动态纹章的话，采用动态纹章
-		limit = { is_landless_type_title = no } #无地头衔不能用下面这个语句
+		limit = { 
+			is_landless_type_title = no #无地头衔不能用下面这个语句
+			exists = holder #无主头衔不能用下面这个语句
+		} 
 		update_dynamic_coa = yes 
 	}
 }

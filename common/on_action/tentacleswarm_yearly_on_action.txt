@@ -292,7 +292,7 @@ tentacleswarm_yearly_playable_pulse = {
 					limit = {
 						aptitude = {
 							court_position = tentacle_missionary_court_position
-							value = 3
+							value = 3 
 						}
 					}
 					change_variable =  { name = tentacleswarm_corruption_add add = 12 }

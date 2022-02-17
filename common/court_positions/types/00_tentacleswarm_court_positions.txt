@@ -50,6 +50,8 @@
 	valid_character = {
 		scope:employee = {
 			is_imprisoned = no
+			is_landed = no
+			#is_eligible_for_court_positions = yes 规则里面已经规定了，非无能的成年人才会考虑职位
 		}
 	}
 	
