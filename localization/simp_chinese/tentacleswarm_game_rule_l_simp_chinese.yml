@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+    rule_gamerule_tentacleswarm_corrupt_coa:0 "#difficulty_hard 触手天灾：#! #high 盾徽样式#!"
+    setting_tentacleswarm_corrupt_coa_rule:0 "#high 堕落纹章#!"
+    setting_tentacleswarm_corrupt_coa_rule_desc:0 "触手奴隶领主会采用堕落的盾徽样式。\n@warning_icon!#X 这一选项会增加较多内存负荷#!"
+    setting_tentacleswarm_default_coa_rule:0 "原版样式"
+    setting_tentacleswarm_default_coa_rule_desc:0 "使用原版的盾徽样式。"
+    rule_gamerule_tentacleswarm_start_corruption:0 "#difficulty_hard 触手天灾：#! #high 初始腐化度#!"
+    setting_tentacleswarm_start_corruption_minor:0 "#difficulty_easy 无人知晓#!"
+    setting_tentacleswarm_start_corruption_minor_desc:0 "没有人听说过触手怪物。\n开局时每个伯爵领都没有触手腐化"
+    setting_tentacleswarm_start_corruption_medium:0 "#difficulty_medium 危机四伏#!"
+    setting_tentacleswarm_start_corruption_medium_desc:0 "触手怪物在各处出没。\n开局时每个伯爵领都是[GetModifier('tentacleswarm_corruption_2').GetNameWithTooltip]"
+    setting_tentacleswarm_start_corruption_major:0 "#difficulty_hard 巨像轰击#!"
+    setting_tentacleswarm_start_corruption_major_desc:0 "异星文明使用巨像武器向这个星球灌注了大量的触手瘴气。\n开局时每个伯爵领都是[GetModifier('tentacleswarm_corruption_5').GetNameWithTooltip]"

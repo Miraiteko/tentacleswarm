@@ -295,7 +295,7 @@ tentacleswarm_yearly_playable_pulse = {
 							value = 3 
 						}
 					}
-					change_variable =  { name = tentacleswarm_corruption_add add = 12 }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 12 } }
 				}
 				else_if = {
 					limit = {

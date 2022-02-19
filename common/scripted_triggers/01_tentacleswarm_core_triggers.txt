@@ -74,6 +74,7 @@ secret_tentacle_slave_is_evil_trigger = {
 }
 #是否采用腐化盾徽
 coa_corrupt_trigger = {
+	has_game_rule = tentacleswarm_corrupt_coa_rule #规则选项
 	OR = {
 		AND = {
 			exists = ROOT

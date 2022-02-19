@@ -10,23 +10,27 @@ tentacleswarm_character_coa_check = {
 }
 #将头衔变为腐化的样式，或者变回去:仅针对单一头衔
 tentacleswarm_title_coa_check = {
-	if = { #推迟处理的情况
-		limit = { 
-			founder_named_dynasties_trigger = yes 
-		}
-		tentacleswarm_title_coa_delay = yes
+	if = { #需要规则规定采用腐化样式
+		limit = { has_game_rule = tentacleswarm_corrupt_coa_rule }
 	}
-	else_if = { #应该腐化的情况
-		limit = { 
-			exists = holder
-			holder = {
-				coa_corrupt_trigger = yes
+		if = { #推迟处理的情况
+			limit = { 
+				founder_named_dynasties_trigger = yes 
 			}
+			tentacleswarm_title_coa_delay = yes
 		}
-		tentacleswarm_title_coa_corrupt = yes
-	}
-	else = { #应该净化的情况
-		tentacleswarm_title_coa_purify = yes
+		else_if = { #应该腐化的情况
+			limit = { 
+				exists = holder
+				holder = {
+					coa_corrupt_trigger = yes
+				}
+			}
+			tentacleswarm_title_coa_corrupt = yes
+		}
+		else = { #应该净化的情况
+			tentacleswarm_title_coa_purify = yes
+		}
 	}
 }
 #推迟6个月再检查

@@ -59,13 +59,17 @@ tentacleswarm_on_game_start = {
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {
+			#初始化
 			set_variable =  { name = tentacleswarm_corruption value = 0 }
-			set_variable =  { name = tentacleswarm_corruption_warbeast value = development_level }
-			change_variable =  { name = tentacleswarm_corruption_warbeast modulo = 10 }
-			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = -1 }
-			change_variable =  { name = tentacleswarm_corruption_warbeast add = development_level }
-			change_variable =  { name = tentacleswarm_corruption_warbeast multiply = 0 } #初始的时候潜伏巨兽生成
 			set_variable =  { name = tentacleswarm_corruption_decay value = 30 }	
+			if = {
+				limit = { has_game_rule = tentacleswarm_start_corruption_medium }
+				change_variable =  { name = tentacleswarm_corruption add = 30 }
+			}
+			else_if = {
+				limit = { has_game_rule = tentacleswarm_start_corruption_major }
+				change_variable =  { name = tentacleswarm_corruption add = 120 }
+			}
 			#初始化自然生长
 			set_variable =  { name = tentacleswarm_corruption_nature value = 0 }
 			if = {
@@ -91,21 +95,27 @@ tentacleswarm_on_game_start = {
 				}
 			}
 		}
+		
+		#腐化纹章初始化
 		#每个有地头衔，备份一下纹章
 		#男爵领玩家不关注，备份不备份无所谓
-		every_empire = {
-			tentacleswarm_title_coa_check = yes
+		if = {
+			limit = { has_game_rule = tentacleswarm_corrupt_coa_rule }
+			every_empire = {
+				tentacleswarm_title_coa_check = yes
+			}
+			every_kingdom = {
+				tentacleswarm_title_coa_check = yes
+			}
+			every_duchy = {
+				tentacleswarm_title_coa_check = yes
+			}
+			every_county = {
+				tentacleswarm_title_coa_check = yes
+			}
 		}
-		every_kingdom = {
-			tentacleswarm_title_coa_check = yes
-		}
-		every_duchy = {
-			tentacleswarm_title_coa_check = yes
-		}
-		every_county = {
-			tentacleswarm_title_coa_check = yes
-		}
-		#触发一下年度全局事件避免bug
+		
+		#最后触发一下年度全局事件避免bug
 		trigger_event = {
 			on_action = tentacleswarm_yearly_global_pulse
 		}

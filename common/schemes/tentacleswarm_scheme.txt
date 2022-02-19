@@ -17,6 +17,8 @@ tentacle_corrupt = {
 	maximum_success = 95
 	
 	allow = {
+		debug_only = yes
+		is_ai = no
 		is_tentacle_slave = yes
 		is_imprisoned = no
 	}
@@ -426,10 +428,27 @@ tentacle_slave_claim_throne = {
 	base_secrecy = 10
 
 	on_ready = {
-		scheme_target.primary_title = { save_scope_as = target_title }
-		scheme_owner = {
-			trigger_event = {
-					on_action = tentacle_slave_claim_throne_setup
+		if = {
+			limit = {
+				scheme_owner = {
+					is_tentacle_slave = yes
+					is_imprisoned = no
+				}
+				scope:target = { 
+					is_ai = yes #暂且给玩家一些保护
+					is_landed = yes #有地
+					highest_held_title_tier >=tier_county
+					OR = {
+						is_consort_of = scope:owner
+						is_parent_of = scope:owner
+					}
+				}
+			}
+			scheme_target.primary_title = { save_scope_as = target_title }
+			scheme_owner = {
+				trigger_event = {
+						on_action = tentacle_slave_claim_throne_setup
+				}
 			}
 		}
 	}
