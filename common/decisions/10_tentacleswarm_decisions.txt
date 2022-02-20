@@ -358,8 +358,14 @@ tentacleswarm_government_decision = {
 		has_religion = religion:tentacleswarm_religion
 	}	
 	effect = {
-		change_government = tentacleswarm_government
+		change_government = tentacleswarm_government 
 		tentacleswarm_character_coa_check = yes 
+		every_held_title = {
+			limit = {
+				tier >= tier_duchy
+			}
+			add_title_law = tentacleswarm_elective_succession_law
+		}
 	}
 	
 	ai_check_interval = 0

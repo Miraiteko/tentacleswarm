@@ -20,6 +20,12 @@
  tentacleswarm_government_decision:0 "采用天灾制"
  tentacleswarm_government_decision_desc:0 "在被主人征服的土地上，人民由主人所支配，凭本能而屈服。繁杂的社会管理体系已经没有存在的必要了。\n\n我将废除旧的体系，建立适合主人统治的社会制度。"
  tentacleswarm_government_decision_tooltip:0 "改变[government|E]类型，成为[tentacleswarm_government|E]"
+ tentacleswarm_elective_succession_law:0 "触手奴隶选举制"
+ tentacleswarm_elective_electors:0 "封臣、宣称者、近亲(仅限触手奴隶)"
+ tentacleswarm_elective_electors_tooltip:0 "要想成为触手奴隶选举制下的有效选举人:\n$EFFECT_LIST_BULLET$必须公开具有特质[GetTrait('tentacle_slave').GetName( GetNullCharacter)]，\n还要符合以下条件之一：\n$EFFECT_LIST_BULLET$是当前统治者的[close_family|E]\n$EFFECT_LIST_BULLET$是统治者的[direct_vassal|E]\n$EFFECT_LIST_BULLET$是该头衔的[de_jure|E]封臣\n$EFFECT_LIST_BULLET$是该头衔的[claimants|E]"
+ tentacleswarm_elective_candidates:"封臣、宣称者、近亲"
+ tentacleswarm_elective_candidates_tooltip:0 "要想成为触手奴隶选举制下的有效候选，角色需要符合以下条件之一：\n$EFFECT_LIST_BULLET$是当前统治者的[close_family|E]\n$EFFECT_LIST_BULLET$是统治者的[direct_vassal|E]\n$EFFECT_LIST_BULLET$是该头衔的[de_jure|E]封臣\n$EFFECT_LIST_BULLET$是该头衔的[claimants|E]\n公开具有特质[GetTrait('tentacle_slave').GetName( GetNullCharacter)]的角色将在选举中获得极大的优势"
+ tooltip_tentacleswarm_elector_slave:1 "[candidate.GetSheHe|U]是个光荣的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
  
  count_female_tentacleswarm_religion:0 "侍妾"
  county_tentacleswarm_religion:0 "巢穴"
@@ -33,3 +39,4 @@
  TENTACLESWARM_BACK_TENT_COA_NAME:0 "堕落[title.GetNameNoTierNoTooltip]"
  TENTACLESWARM_BACK_COA_NAME:0 "纯净[title.GetNameNoTierNoTooltip]"
  COA_DESIGNER_CATEGORY_cherilewd:0 "切莉的堕落纹理"
+ 

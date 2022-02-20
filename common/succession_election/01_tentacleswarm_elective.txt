@@ -1,0 +1,137 @@
+﻿# The entry should be named in the same way that the elective succession law is named to define it's voter's logic.
+# Root scope - Elector, the character voting in the election.
+# scope:candidate scope - Candidate, Character considered for the title.
+# scope:title scope - Title, The title the nomination is for.
+# scope:holder scope - Ruler, The ruler currently holding the title.
+# scope:holder_candidate scope - Favored Candidate, The title owner's candidate.
+# The voter will vote for the top score candidate calculated from this script.
+
+tentacleswarm_elective = {
+	elector_vote_strength = {
+		base = 1
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 2
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 1
+			highest_held_title_tier = 4
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 2
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Papal Influence
+			desc = tooltip_feudal_vote_strength_pope
+			add = 4 #If the Pope is an elector, his vote is the most important of all.
+			NOT = { this = scope:holder }
+			root = scope:holder.faith.religious_head
+			#TODO_CD:Possible trigger checking for investiture succession?
+		}
+	}
+	
+
+	electors = {
+		add = {
+			type = holder
+			limit = {
+				#奴隶领主
+				has_trait = tentacle_slave
+			}
+		}
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				#奴隶封臣
+				has_trait = tentacle_slave
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				#奴隶封臣
+				has_trait = tentacle_slave
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				#奴隶宣称者
+				has_trait = tentacle_slave
+			}
+		}
+		add = {
+			type = holder_close_family
+			limit = {
+				#奴隶家人
+				has_trait = tentacle_slave
+				is_close_family_of = scope:holder
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+		holder_voting_pattern_feudal_elective_modifier = yes
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+		modifier = {
+			add = 100
+			desc = tooltip_tentacleswarm_elector_slave
+			scope:candidate = { has_trait = tentacle_slave }
+			has_trait = tentacle_slave
+		}	
+		modifier = { #男性
+			desc = tooltip_feudal_elector_vote_enatic_man
+			add = -100
+			scope:candidate = {
+				is_female = no
+			}
+			has_trait = tentacle_slave
+		}
+		modifier = { #太老
+			desc = tooltip_feudal_elector_vote_oldtimer
+			add = -100
+			scope:candidate = {
+				fertility <= 0.1
+			}
+			NOT = { this = scope:candidate }
+			has_trait = tentacle_slave
+		}
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+		}
+		add = {
+			type = title_dejure_vassals
+		}
+		add = {
+			type = title_claimants
+		}
+		add = {
+			type = holder_close_family
+			limit = {
+				is_close_family_of = scope:holder
+			}
+		}
+	}
+}

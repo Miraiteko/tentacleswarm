@@ -44,7 +44,7 @@ tentacle_slave = {
 	ai_war_cooldown = -0.8
 	
 	compatibility = {
-		tentacle_slave = 80
+		tentacle_slave = 100
 		lustful = 30
 		greedy = 15
 		ambitious =15

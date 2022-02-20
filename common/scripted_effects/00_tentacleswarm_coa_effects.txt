@@ -12,7 +12,7 @@ tentacleswarm_character_coa_check = {
 tentacleswarm_title_coa_check = {
 	if = { #需要规则规定采用腐化样式
 		limit = { has_game_rule = tentacleswarm_corrupt_coa_rule }
-	}
+
 		if = { #推迟处理的情况
 			limit = { 
 				founder_named_dynasties_trigger = yes 

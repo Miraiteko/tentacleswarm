@@ -477,6 +477,12 @@ tentacleswarm_yearly_modifier_check = {
 					is_landed = yes
 				}
 				change_government = tentacleswarm_government
+				every_held_title = {
+					limit = {
+						tier >= tier_duchy
+					}
+					add_title_law = tentacleswarm_elective_succession_law
+				}
 			}
 		}
 		else = {
