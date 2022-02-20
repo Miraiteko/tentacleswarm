@@ -45,6 +45,7 @@ tentacleswarm_elective = {
 	
 
 	electors = {
+		#有地
 		add = {
 			type = holder
 			limit = {
@@ -93,8 +94,15 @@ tentacleswarm_elective = {
 		elector_voting_pattern_opinion_feudal_elective_modifier = yes
 		modifier = {
 			add = 100
+			desc = tooltip_tentacleswarm_elector_slave_I
+			THIS = scope:candidate
+			has_trait = tentacle_slave
+		}	
+		modifier = {
+			add = 100
 			desc = tooltip_tentacleswarm_elector_slave
 			scope:candidate = { has_trait = tentacle_slave }
+			NOT = { THIS = scope:candidate }
 			has_trait = tentacle_slave
 		}	
 		modifier = { #男性
@@ -132,6 +140,9 @@ tentacleswarm_elective = {
 			limit = {
 				is_close_family_of = scope:holder
 			}
+		}
+		add = {
+			type = holder_spouses
 		}
 	}
 }

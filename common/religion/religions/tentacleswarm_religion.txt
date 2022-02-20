@@ -30,7 +30,7 @@
 	doctrine = doctrine_clerical_succession_temporal_appointment #世俗领主决定神职人员
 	
 	traits = {
-		virtues = { tentacle_slave = 3 }
+		virtues = { tentacle_slave = 5 }
 		virtues = { greedy ambitious zealous }
 		sins = { lazy content cynical } 
 	}

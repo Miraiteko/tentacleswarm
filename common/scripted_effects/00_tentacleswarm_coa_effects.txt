@@ -1,17 +1,23 @@
-﻿#将头衔变为腐化的样式，或者变回去:针对角色的直辖头衔以及租赁给祭司或骑士团的圣殿
+﻿#has_game_rule = tentacleswarm_corrupt_dynamic_coa_rule
+#在这个规则之下，头衔会按照持有者的宗教，变化样式
+
+#将头衔变为腐化的样式，或者变回去:针对角色的直辖头衔以及租赁给祭司或骑士团的圣殿
 tentacleswarm_character_coa_check = {
-	every_held_title = {  
-		limit = { 
-			is_landless_type_title = no #不是无地的
-			tier > tier_barony #伯爵以上
+	if = { #需要规则规定采用腐化样式
+		limit = { has_game_rule = tentacleswarm_corrupt_dynamic_coa_rule }
+		every_held_title = {  
+			limit = { 
+				is_landless_type_title = no #不是无地的
+				tier > tier_barony #伯爵以上
+			}
+			tentacleswarm_title_coa_check = yes
 		}
-		tentacleswarm_title_coa_check = yes
 	}
 }
 #将头衔变为腐化的样式，或者变回去:仅针对单一头衔
 tentacleswarm_title_coa_check = {
 	if = { #需要规则规定采用腐化样式
-		limit = { has_game_rule = tentacleswarm_corrupt_coa_rule }
+		limit = { has_game_rule = tentacleswarm_corrupt_dynamic_coa_rule }
 
 		if = { #推迟处理的情况
 			limit = { 

@@ -1,8 +1,6 @@
 ﻿#奴隶
 tentacle_slave = {
 	
-	same_opinion = 30
-	
 	valid_sex =  female
 	health_trait = yes #健康特质
 		
