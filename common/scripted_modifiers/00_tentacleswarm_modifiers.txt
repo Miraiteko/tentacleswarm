@@ -4,7 +4,8 @@ ai_accept_corrupt_modifier = {
 	ai_value_modifier = {
 		ai_greed = 0.3
 		ai_honor = -0.3
-		ai_rationality = -0.5
+		ai_rationality = -0.6
+		min = -99
 	}
 	#根据当前压力增加腐化可能
 	modifier = {
@@ -17,7 +18,7 @@ ai_reject_corrupt_modifier = {
 	ai_value_modifier = {
 		ai_greed = -0.3
 		ai_honor = 0.3
-		ai_rationality = 0.5
+		ai_rationality = 0.6
 	}
 	#根据狂热度增加拒绝可能
 	modifier = {
@@ -29,19 +30,14 @@ ai_reject_corrupt_modifier = {
 						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
 				}
-				multiply = 1
+				multiply = 0.5
 			}
 			else_if = { #欢迎触手
 				limit = {
 					religion = religion:tentacleswarm_religion
 				}
-				multiply = -1
+				multiply = -0.5
 			}
 		}
-	}
-	#奴隶不会拒绝
-	modifier = {
-		factor = 0
-		is_tentacle_slave = yes
 	}
 }

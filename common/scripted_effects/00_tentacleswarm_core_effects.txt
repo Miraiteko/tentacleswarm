@@ -100,6 +100,7 @@ tentacle_corruption_perk_add = {
 				has_perk = tentacle_corruption_21_perk 
 				has_perk = tentacle_corruption_22_perk 
 			} 
+			custom_tooltip = become_tentacle_slave_tt
 			add_perk = tentacle_corruption_31_perk 
 		}
 		#随机情况
