@@ -3,7 +3,10 @@
 		has_perk = tentacle_corruption_01_perk
 	}
 	is_valid = {
-		is_ai = no
+		OR = {
+			is_ai = no
+			debug_only = yes
+		}
 		has_perk = tentacle_corruption_01_perk
 	}
 	xp_per_level = 1000

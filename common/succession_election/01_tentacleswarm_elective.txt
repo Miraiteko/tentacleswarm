@@ -74,14 +74,6 @@ tentacleswarm_elective = {
 				has_trait = tentacle_slave
 			}
 		}
-		add = {
-			type = holder_close_family
-			limit = {
-				#奴隶家人
-				has_trait = tentacle_slave
-				is_close_family_of = scope:holder
-			}
-		}
 	}
 
 	candidate_score = {
@@ -93,56 +85,52 @@ tentacleswarm_elective = {
 		elector_voting_pattern_traits_feudal_elective_modifier = yes
 		elector_voting_pattern_opinion_feudal_elective_modifier = yes
 		modifier = {
-			add = 100
+			add = 75
 			desc = tooltip_tentacleswarm_elector_slave_I
 			THIS = scope:candidate
 			has_trait = tentacle_slave
 		}	
 		modifier = {
-			add = 100
+			add = 50
 			desc = tooltip_tentacleswarm_elector_slave
 			scope:candidate = { has_trait = tentacle_slave }
 			NOT = { THIS = scope:candidate }
 			has_trait = tentacle_slave
 		}	
-		modifier = { #男性
-			desc = tooltip_feudal_elector_vote_enatic_man
-			add = -100
-			scope:candidate = {
-				is_female = no
-			}
-			has_trait = tentacle_slave
-		}
-		modifier = { #太老
-			desc = tooltip_feudal_elector_vote_oldtimer
-			add = -100
-			scope:candidate = {
-				fertility <= 0.1
-			}
-			NOT = { this = scope:candidate }
-			has_trait = tentacle_slave
-		}
 	}
 	
 	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
 	candidates = {
 		add = {
 			type = holder_direct_vassals
+			limit = {
+				is_female = yes
+			}
 		}
 		add = {
 			type = title_dejure_vassals
+			limit = {
+				is_female = yes
+			}
 		}
 		add = {
 			type = title_claimants
+			limit = {
+				is_female = yes
+			}
 		}
 		add = {
 			type = holder_close_family
 			limit = {
 				is_close_family_of = scope:holder
+				is_female = yes
 			}
 		}
 		add = {
 			type = holder_spouses
+			limit = {
+				is_female = yes
+			}
 		}
 	}
 }

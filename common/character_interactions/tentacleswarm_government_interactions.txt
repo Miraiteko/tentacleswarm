@@ -31,6 +31,7 @@
 	}
 
 	is_valid = {
+		always = no
 		scope:recipient = { 
 			is_vassal_or_below_of = scope:actor #是我境内的封臣
 			highest_held_title_tier >= tier_county #伯爵以上

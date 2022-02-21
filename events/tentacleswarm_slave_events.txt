@@ -213,7 +213,7 @@ tentacleswarm_slave.0022 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0022.a
-		become_tentacle_slave = yes 
+		tentacle_corruption_perk_add = yes
 		tentacle_corrupt = yes
 		add_stress = massive_stress_loss
 		
@@ -226,13 +226,18 @@ tentacleswarm_slave.0022 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		show_as_unavailable = { 
-			is_tentacle_slave = no
-		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt = yes
+		random_list = {
+			100 = {
+				ai_accept_corrupt_modifier = yes
+				tentacle_corruption_perk_add = yes
+			}
+			100 = {
+				ai_reject_corrupt_modifier = yes
+			}
+		}
 		add_stress = massive_stress_gain
-		
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes

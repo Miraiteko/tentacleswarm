@@ -151,7 +151,10 @@ tentacle_encounter_yearly = {#遭遇年度触发
 			}
 			#成瘾角色，还要触发成瘾遭遇
 			if = {
-				limit = { is_tentacle_body_corrupted = yes }
+				limit = { 
+					always = no #暂时关掉，以后会移除
+					is_tentacle_body_corrupted = yes
+				}
 				trigger_event = {
 					id = tentacleswarm_slave.3002 #成瘾事件
 					months = { 1 5 }
@@ -473,13 +476,19 @@ tentacleswarm_yearly_modifier_check = {
 				limit = { 
 					NOT = { has_government = tentacleswarm_government }
 					is_ai = yes #玩家自己点决议
-					is_tentacle_slave = yes #非奴隶没有兴趣
 					is_landed = yes
 				}
 				change_government = tentacleswarm_government
+			}
+			if = { #锁继承法
+				limit = { 
+					has_government = tentacleswarm_government
+					is_landed = yes
+				}
 				every_held_title = {
 					limit = {
 						tier >= tier_duchy
+						NOT = { has_title_law = tentacleswarm_elective_succession_law }
 					}
 					add_title_law = tentacleswarm_elective_succession_law
 				}

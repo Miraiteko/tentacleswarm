@@ -1,10 +1,10 @@
 ﻿#调整ai接受腐化的可能性，用于events之中
 ai_accept_corrupt_modifier = {
-	#贪婪和社交增加腐化可能，理智为扣减
+	#贪婪增加腐化可能，荣誉和理智为扣减
 	ai_value_modifier = {
 		ai_greed = 0.3
-		ai_sociability = 0.3
-		ai_rationality = -0.3
+		ai_honor = -0.3
+		ai_rationality = -0.5
 	}
 	#根据当前压力增加腐化可能
 	modifier = {
@@ -13,11 +13,11 @@ ai_accept_corrupt_modifier = {
 }
 
 ai_reject_corrupt_modifier = {
-	#贪婪和社交减少拒绝可能，理智为增加
+	#贪婪减少拒绝可能，荣誉和理智为增加
 	ai_value_modifier = {
 		ai_greed = -0.3
-		ai_sociability = -0.3
-		ai_rationality = 0.3
+		ai_honor = 0.3
+		ai_rationality = 0.5
 	}
 	#根据狂热度增加拒绝可能
 	modifier = {
@@ -29,7 +29,7 @@ ai_reject_corrupt_modifier = {
 						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
 				}
-				multiply = 2
+				multiply = 1
 			}
 			else_if = { #欢迎触手
 				limit = {
