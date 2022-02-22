@@ -72,25 +72,9 @@ tentacleswarm_baby_corruption = {
 						exists = location
 						exists = location.county
 					}
-					modifier = { #苗床
+					modifier = { #恶堕芬芳
 						factor = 10
-						is_tentacle_womb_corrupted = yes
-					}
-					modifier = { #成瘾
-						factor = 2
-						is_tentacle_body_corrupted = yes
-					}
-					modifier = { #美貌特质
-						factor = 2
-						has_trait = beauty_good_1
-					}
-					modifier = { #美貌特质
-						factor = 3
-						has_trait = beauty_good_2
-					}
-					modifier = { #美貌特质
-						factor = 5
-						has_trait = beauty_good_3
+						has_perk = tentacle_corruption_01_perk
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0021 #水井杀
@@ -105,17 +89,14 @@ tentacleswarm_baby_corruption = {
 		}
 	}
 }
-tentacleswarm_body_corruption = {
+tentacleswarm_body_corruption = { #暂时封印这个事件
 	trigger = { 
+		always = no
 		is_female = yes
 		is_pregnant = yes
 		scope:real_father = { has_trait = tentacle_monster } #如果怀的是主人的孩子，腐化升级
 	}
 	effect = {
-		trigger_event = {
-			id = tentacleswarm_slave.2002
-			months =  { 1 4 }
-		}
 	}
 }
 tentacleswarm_near_birth_pulse = {

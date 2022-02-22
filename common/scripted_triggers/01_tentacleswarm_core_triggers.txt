@@ -1,4 +1,12 @@
 ﻿#核心判断
+is_tentaclable_female = { #育龄女性
+	custom_description = {
+		text = is_tentaclable_female_tooltip
+		is_female = yes
+		can_have_children = yes
+		fertility > 0.1
+	}
+}
 is_tentacle_slave = {
 	custom_description = {
 		text = is_tentacle_slave_tooltip
@@ -9,18 +17,6 @@ is_hidden_tentacle_slave = {
 	custom_description = {
 		text = is_hidden_tentacle_slave_tooltip
 		any_secret = { secret_type = secret_tentacle_slave }
-	}
-}
-is_tentacle_womb_corrupted = { #苗床
-	custom_description = {
-		text = is_tentacle_womb_corrupted_tooltip
-		has_character_flag = flag_tentacle_womb_corrupted
-	}
-}
-is_tentacle_body_corrupted = { #成瘾
-	custom_description = {
-		text = is_tentacle_body_corrupted_tooltip
-		has_character_flag = flag_tentacle_body_corrupted
 	}
 }
 #怀孕了但未被赐福判断

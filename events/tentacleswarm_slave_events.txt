@@ -5,9 +5,6 @@
 #0031主动要求赐福
 #0041被监禁者腐化
 #1001奴隶健康崩溃事件
-#2001一级腐化事件，由赐福触发
-#2002二级腐化事件，由怀孕触发
-#3001成瘾事件
 #4001生育事件
 
 #天生奴隶成为真正的奴隶
@@ -24,14 +21,12 @@ tentacleswarm_slave.0001 = {
 		container = "custom_widgets_container"
 	}
 	trigger = {
-		is_female = yes
-		fertility >= 0.1
+		is_tentaclable_female = yes
 		is_tentacle_slave = no
 	}
 	option = {
 		name = tentacleswarm_slave.0001.a
 		become_tentacle_slave = yes
-		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
 		add_stress = massive_stress_loss
 		
 		ai_chance = {
@@ -48,7 +43,6 @@ tentacleswarm_slave.0001 = {
 		}
 		name = tentacleswarm_slave.refuse
 		add_stress = massive_stress_gain
-		tentacle_womb_corrupt = yes #天生奴隶自带子宫腐化
 		
 		ai_chance = {
 			base = 100
@@ -155,9 +149,7 @@ tentacleswarm_slave.0021 = {
 		container = "custom_widgets_container"
 	}
 	trigger = {
-		is_female = yes
-		fertility >= 0.1
-		
+		is_tentaclable_female = yes
 		is_baby_corrupted_tentacle_slave = no #怀孕且已经赐福的奴隶，不会被这个事件打扰
 	}
 	option = {
@@ -305,8 +297,7 @@ tentacleswarm_slave.0031 = {
 		container = "custom_widgets_container"
 	}
 	trigger = {
-		is_female = yes
-		fertility >= 0.1
+		is_tentaclable_female = yes
 	}
 	option = {
 		name = tentacleswarm_slave.0031.a
@@ -402,8 +393,7 @@ tentacleswarm_slave.0041 = {
 		container = "custom_widgets_container"
 	}
 	trigger = {
-		is_female = yes
-		fertility >= 0.1
+		is_tentaclable_female = yes
 	}  
 	option = {
 		name = tentacleswarm_slave.0041.a
@@ -522,155 +512,6 @@ tentacleswarm_slave.1001 = {
 			lazy = minor_stress_loss
 			diligent = medium_stress_gain
 			lustful = medium_stress_gain
-		}
-	}
-}
-#子宫腐化事件，发生在被触手赐福七天后
-tentacleswarm_slave.2001 = {
-	type = character_event
-	title = tentacleswarm_slave.2001.t
-	desc =  {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					is_tentacle_slave = yes
-				}
-				desc = tentacleswarm_slave.2001.desc1
-			}
-			triggered_desc = {
-				trigger = {
-					always = yes
-				}
-				desc = tentacleswarm_slave.2001.desc2
-			}
-		}
-	}
-	theme = seduction
-	left_portrait = this
-	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-	trigger = {
-		is_female = yes
-		fertility >= 0.1
-		is_tentacle_womb_corrupted = no
-	}
-	option = { #已为奴隶
-		trigger = {
-			is_tentacle_slave = yes
-		}
-		name = tentacleswarm_slave.2001.default
-		tentacle_womb_corrupt = yes
-	}
-	option = { #成为奴隶
-		trigger = {
-			is_tentacle_slave = no
-		}
-		name = tentacleswarm_slave.2001.a
-		become_tentacle_slave = yes
-		tentacle_womb_corrupt = yes
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-	option = { #拒绝屈服
-		trigger = {
-			is_tentacle_slave = no
-		}
-		name = tentacleswarm_slave.2001.b
-		tentacle_womb_corrupt = yes
-		
-		ai_chance = {
-			base = 100
-		}
-	}
-}
-#身体腐化事件，由于怀上了主人的孩子而发生
-tentacleswarm_slave.2002 = {
-	type = character_event
-	title = tentacleswarm_slave.2002.t
-	desc = tentacleswarm_slave.2002.desc
-	theme = seduction
-	left_portrait = {
-		character = root
-		animation = personality_cynical
-	}
-	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-	trigger = {
-		is_female = yes
-		fertility >= 0.1
-		is_tentacle_body_corrupted = no
-	}
-	option = {
-		name = tentacleswarm_slave.2002.a
-		tentacle_body_corrupt = yes
-		#立刻去寻求赐福
-		trigger_event = {
-			id = tentacleswarm_slave.0031
-			days = 3 
-		}
-		ai_chance = {
-			base = 100
-			ai_accept_corrupt_modifier = yes
-		}
-	}
-	option = {
-		name = tentacleswarm_slave.2002.b
-		tentacle_body_corrupt = yes
-		#忍受，增加压力
-		add_stress = massive_stress_gain
-		ai_chance = {
-			base = 100
-			ai_reject_corrupt_modifier = yes
-		}
-	}
-}
-#成瘾性事件，定期需要去接受赐福，否则增加压力
-tentacleswarm_slave.3002 = { #成瘾选项事件
-	type = character_event
-	title = tentacleswarm_slave.3002.t
-	desc = tentacleswarm_slave.3002.desc
-	theme = seduction
-	left_portrait = {
-		character = root
-		animation = personality_cynical
-	}
-	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-	trigger = {
-		is_female = yes
-		fertility >= 0.1
-		is_baby_corrupted_tentacle_slave = no #怀孕且已经赐福的奴隶，不会被这个事件打扰
-	}
-	option = {
-		name = tentacleswarm_slave.3002.a
-		#立刻去寻求赐福
-		trigger_event = {
-			id = tentacleswarm_slave.0031
-			days = 3 
-		}
-		ai_chance = {
-			base = 100
-			ai_accept_corrupt_modifier = yes
-		}
-	}
-	option = {
-		name = tentacleswarm_slave.3002.b
-		#忍耐，增加压力
-		add_stress = massive_stress_gain
-		ai_chance = {
-			base = 100
-			ai_reject_corrupt_modifier = yes
 		}
 	}
 }

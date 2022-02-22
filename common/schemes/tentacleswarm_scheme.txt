@@ -26,8 +26,7 @@ tentacle_corrupt = {
 	valid = {
 		is_landed = yes
 		scope:target = {
-			is_adult = yes
-			is_female = yes
+			is_tentaclable_female = yes
 			is_imprisoned = no
 			NOT = { has_trait = tentacle_slave } #如果本来就公开了，没必要再下手了
 			trigger_if = {#如果知道对方是隐藏的了，就没必要再下手了

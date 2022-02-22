@@ -1,16 +1,9 @@
-﻿womb_corrupted_portrait = {
+﻿tentacle_corruption_01_portrait = {
 
 	usage = game
 
-	womb_corrupted_portrait = {
+	corruption_01_portrait = {
 		dna_modifiers = {
-			#去除面部瑕疵
-			morph = {
-				mode = replace
-				gene = complexion
-				template = complexion_beauty_1
-				value = 1.0
-			}
 			#肤色变白
 			color = {
 				gene = skin_color
@@ -24,17 +17,16 @@
 			base = 0
 			modifier = {
 				add = 100
-				is_tentacle_womb_corrupted = yes
+				has_perk = tentacle_corruption_01
 			}			
 		}
 	}
 }
-
-body_corrupted_portrait = {
+tentacle_corruption_12_portrait = {
 
 	usage = game
 
-	body_corrupted_portrait = {
+	corruption_12_portrait = {
 		dna_modifiers = {
 			#眼睛变大
 			morph = {
@@ -50,6 +42,45 @@ body_corrupted_portrait = {
 				value = -0.3
 				template = eye_shut_pos
 			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				has_perk = tentacle_corruption_12
+			}			
+		}
+	}
+}
+
+tentacle_corruption_21_portrait = {
+
+	usage = game
+
+	corruption_21_portrait = {
+		#去除面部瑕疵
+		morph = {
+			mode = replace
+			gene = complexion
+			template = complexion_beauty_1
+			value = 1.0
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				has_perk = tentacle_corruption_21
+			}			
+		}
+	}
+}
+
+tentacle_corruption_31_portrait = {
+
+	usage = game
+
+	corruption_31_portrait = {
+		dna_modifiers = {
 			#眼睛变蓝
 			color = {
 				gene = eye_color
@@ -63,7 +94,7 @@ body_corrupted_portrait = {
 			base = 0
 			modifier = {
 				add = 100
-				is_tentacle_body_corrupted = yes
+				has_perk = tentacle_corruption_31
 			}			
 		}
 	}

@@ -24,20 +24,16 @@ tentacleswarm_speaker.0001 = {
 				scope:county.holder = {
 					if = {
 						limit = {
-							is_female = yes 
-							is_adult = yes
+							is_tentaclable_female = yes
 							is_tentacle_slave = no
-							fertility > 0
 						}
 						save_scope_as = target
 					}
 					else = {
 						random_courtier_or_guest = {
 							limit = {
-								is_female = yes 
-								is_adult = yes
+								is_tentaclable_female = yes
 								is_tentacle_slave = no
-								fertility > 0
 							}
 							save_scope_as = target
 						}

@@ -49,40 +49,41 @@ tentacle_corrupt = {
 		remove_character_flag = tentacle_baby_corruption_not_yet
 	}
 	if = {
-		#尚未一阶段腐化，进行腐化
+		#检测是否会怀孕
 		limit = {
-			NOT = { is_tentacle_womb_corrupted = yes }
-		}
-		trigger_event = {
-			id = tentacleswarm_slave.2001
-			days = 7
-		}
-	}
-	else_if = {
-		#如果已经一阶段腐化，则必然被赐福
-		limit = {
-			is_female = yes
+			is_tentaclable_female = yes #适孕女性
 			is_pregnant = no
-			can_have_children = yes
-			fertility > 0.1
-			is_adult = yes
+			has_perk = tentacle_corruption_01_perk #需要有恶堕芬芳
 		}
-		hidden_effect = {
-			create_character = {
-				name = "TENTACLE_LORD"
-				location = province:1
-				template = default_tentacle_monster_character
-				save_scope_as = tentacle_monster
-				dynasty = none
+		random_list = {
+			200 = {
+				modifier = {
+					factor = 0
+					has_perk = tentacle_corruption_12_perk #如果有堕落烙印，必定怀孕
+				}
 			}
-			make_pregnant = {
-				father = scope:tentacle_monster
+			100 = {
+				modifier = {
+					factor = fertility 
+				}
+				hidden_effect = {
+					create_character = {
+						name = "TENTACLE_LORD"
+						location = province:5
+						template = default_tentacle_monster_character
+						save_scope_as = tentacle_monster
+						dynasty = dynasty:5
+					}
+					make_pregnant = {
+						father = scope:tentacle_monster
+					}
+					scope:tentacle_monster = {
+						set_sexuality = heterosexual
+						death = { death_reason = death_disappearance }
+					}
+					add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+				}
 			}
-			scope:tentacle_monster = {
-				set_sexuality = heterosexual
-				death = { death_reason = death_disappearance }
-			}
-			add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 		}
 	}
 }
@@ -296,16 +297,6 @@ tentacle_corruption_perk_add = {
 		}
 	}
 }
-#纹理腐化
-tentacle_womb_corrupt = {
-	custom_tooltip = tentacle_womb_corrupt.tt
-	add_character_flag = flag_tentacle_womb_corrupted
-}
-#身体腐化
-tentacle_body_corrupt = {
-	custom_tooltip = tentacle_body_corrupt.tt
-	add_character_flag = flag_tentacle_body_corrupted
-}
 
 #皈依触手信仰
 convert_to_tentacleswarm_religion = {	
@@ -365,8 +356,7 @@ convert_to_tentacleswarm_religion = {
 	}
 	if = { #不是奴隶的女性成年成为奴隶
 		limit = { 
-			is_adult = yes
-			is_female = yes
+			is_tentaclable_female = yes
 			is_tentacle_slave = no
 		}
 		trigger_event = {

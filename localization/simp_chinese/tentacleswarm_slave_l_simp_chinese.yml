@@ -1,68 +1,74 @@
 ﻿l_simp_chinese:
- #核心内容
- trait_tentacle_slave:0 "触手奴隶"
- trait_tentacle_slave_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]屈服于触手怪物。"
- trait_tentacle_slave_desc:0 "这个女人屈服于触手怪物。"
- is_tentacle_slave_tooltip:0 "是触手奴隶"
- not_tentacle_slave_tooltip:0 "不是触手奴隶"
- I_am_tentacle_slave_tooltip:0 "你是触手奴隶"
- I_amnot_tentacle_slave_tooltip:0 "你不是触手奴隶"
- she_is_tentacle_slave_tooltip:0 "[CHARACTER.GetShortUIName|V]是触手奴隶"
- she_isnot_tentacle_slave_tooltip:0 "[CHARACTER.GetShortUIName|V]不是触手奴隶"
- is_hidden_tentacle_slave_tooltip:0 "是隐藏中的触手奴隶"
- I_am_hidden_tentacle_slave_tooltip:0 "你是隐藏中的触手奴隶"
- not_hidden_tentacle_slave_tooltip:0 "不是隐藏中的触手奴隶"
- trait_tentacle_monster:0 "触手怪物"
- trait_tentacle_monster_desc:0 "该角色是潜伏于人间的触手怪物。"
- trait_tentacle_monster_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]是潜伏于人间的触手怪物。"
- 
- #4VA
- tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"
- tentacle_neighboring_4VA_tooltip:0 "附近的触手奴隶们将进行响应"
+     #核心内容
+    trait_tentacle_slave:0 "触手奴隶"
+    trait_tentacle_slave_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]屈服于触手怪物。"
+    trait_tentacle_slave_desc:0 "这个女人屈服于触手怪物。"
+    is_tentacle_slave_tooltip:0 "是触手奴隶"
+    not_tentacle_slave_tooltip:0 "不是触手奴隶"
+    I_am_tentacle_slave_tooltip:0 "你是触手奴隶"
+    I_amnot_tentacle_slave_tooltip:0 "你不是触手奴隶"
+    she_is_tentacle_slave_tooltip:0 "[CHARACTER.GetShortUIName|V]是触手奴隶"
+    she_isnot_tentacle_slave_tooltip:0 "[CHARACTER.GetShortUIName|V]不是触手奴隶"
+    is_hidden_tentacle_slave_tooltip:0 "是隐藏中的触手奴隶"
+    I_am_hidden_tentacle_slave_tooltip:0 "你是隐藏中的触手奴隶"
+    not_hidden_tentacle_slave_tooltip:0 "不是隐藏中的触手奴隶"
+    is_tentaclable_female_tooltip:0 "是适孕女性"
+    isnot_tentaclable_female_tooltip:0 "不是适孕女性"
+    I_am_tentaclable_female_tooltip:0 "我是适孕女性"
+    I_amnot_tentaclable_female_tooltip:0 "我不是适孕女性"
+    she_is_tentaclable_female_tooltip:0 "[CHARACTER.GetShortUIName|V]是适孕女性"
+    she_isnot_tentaclable_female_tooltip:0 "[CHARACTER.GetShortUIName|V]不是适孕女性"
+    trait_tentacle_monster:0 "触手怪物"
+    trait_tentacle_monster_desc:0 "该角色是潜伏于人间的触手怪物。"
+    trait_tentacle_monster_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]是潜伏于人间的触手怪物。"
+
+    #4VA
+    tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"
+    tentacle_neighboring_4VA_tooltip:0 "附近的触手奴隶们将进行响应"
 
 
 
- #秘密相关
- secret_tentacle_slave:0 "触手奴隶"
- secret_tentacle_slave_desc:0 "是触手奴隶"
- secret_tentacle_slave_type_desc:0 "该角色屈服于触手怪物。"
- secret_tentacle_slave_tooltip_desc:0 "该角色屈服于触手怪物。"
- secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
- I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他奴隶姐妹"
- 
- #决议相关
- tentacleswarm_start_decision:0 "宣告触手霸权"
- tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
- tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶身份"
- tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
- 
- tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
- I_tentacle_baby_corruption_not_yet_tooltip:0 "你已经怀孕了但尚未被主人赐福"
- tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
- tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
- tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
- tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
- tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
- 
- tentacleswarm_become_openly_tentacle_slave_decision:0 "公开触手奴隶身份"
- tentacleswarm_become_openly_tentacle_slave_decision_desc:0 "既然我已经公开崇拜触手主人了，我就没有必要继续隐藏我的触手奴隶身份。"
- tentacleswarm_become_openly_tentacle_slave_decision_tooltip:0 "公开你的触手奴隶身份"
- tentacleswarm_become_openly_tentacle_slave_decision_confirm:0 "光荣地承认身份"
- 
- tentacleswarm_suicide:0 "永远留在触手巢穴之中"
- tentacleswarm_suicide_desc:0 "我的青春已经一去不复返了，触手主人们不再有兴趣给予人老珠黄的我任何的恩赐。在这世间继续生存下去对我来说似乎已经成为了一种折磨。\n\n作为触手主人的忠诚奴仆，我更愿意进入巢穴，沉浸在在主人的温暖拥抱中，陷入到甜美的无边黑暗里，结束我作为人类的此生，永远成为巢穴的美妙血肉的一部分。"
- tentacleswarm_suicide_tooltip:0 "在触手巢穴之中结束生命"
- tentacleswarm_suicide_confirm:0 "我爱你……主人……"
- tentacleswarm_suicide_tt:0 "你首都的腐化程度得到了略微的提高。"
- 
- #密谋相关
- TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
-tentacle_slave_claim_throne:0 "夺取权位"
-tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
+    #秘密相关
+    secret_tentacle_slave:0 "触手奴隶"
+    secret_tentacle_slave_desc:0 "是触手奴隶"
+    secret_tentacle_slave_type_desc:0 "该角色屈服于触手怪物。"
+    secret_tentacle_slave_tooltip_desc:0 "该角色屈服于触手怪物。"
+    secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
+    I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他奴隶姐妹"
 
-#互动相关
-tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
-tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
-tentacle_corrupt_desc_general:0 "腐化为触手奴隶"
-tentacle_slave_claim_throne_desc_general:0 "为主人夺取权位"
+    #决议相关
+    tentacleswarm_start_decision:0 "宣告触手霸权"
+    tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
+    tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶身份"
+    tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
+
+    tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
+    I_tentacle_baby_corruption_not_yet_tooltip:0 "你已经怀孕了但尚未被主人赐福"
+    tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
+    tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
+    tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
+    tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
+    tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
+
+    tentacleswarm_become_openly_tentacle_slave_decision:0 "公开触手奴隶身份"
+    tentacleswarm_become_openly_tentacle_slave_decision_desc:0 "既然我已经公开崇拜触手主人了，我就没有必要继续隐藏我的触手奴隶身份。"
+    tentacleswarm_become_openly_tentacle_slave_decision_tooltip:0 "公开你的触手奴隶身份"
+    tentacleswarm_become_openly_tentacle_slave_decision_confirm:0 "光荣地承认身份"
+
+    tentacleswarm_suicide:0 "永远留在触手巢穴之中"
+    tentacleswarm_suicide_desc:0 "我的青春已经一去不复返了，触手主人们不再有兴趣给予人老珠黄的我任何的恩赐。在这世间继续生存下去对我来说似乎已经成为了一种折磨。\n\n作为触手主人的忠诚奴仆，我更愿意进入巢穴，沉浸在在主人的温暖拥抱中，陷入到甜美的无边黑暗里，结束我作为人类的此生，永远成为巢穴的美妙血肉的一部分。"
+    tentacleswarm_suicide_tooltip:0 "在触手巢穴之中结束生命"
+    tentacleswarm_suicide_confirm:0 "我爱你……主人……"
+    tentacleswarm_suicide_tt:0 "你首都的腐化程度得到了略微的提高。"
+
+    #密谋相关
+    TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
+    tentacle_slave_claim_throne:0 "夺取权位"
+    tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
+
+    #互动相关
+    tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
+    tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
+    tentacle_corrupt_desc_general:0 "腐化为触手奴隶"
+    tentacle_slave_claim_throne_desc_general:0 "为主人夺取权位"
 

@@ -84,8 +84,7 @@ tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 	effect = {
 		if = { #没有成为奴隶的成年女性成为奴隶
 			limit = {
-				is_female = yes
-				is_adult = yes
+				is_tentaclable_female = yes
 				not = { has_trait = tentacle_slave }
 			}
 			trigger_event = {
@@ -122,9 +121,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 		#适龄女性，可能受到袭击
 		if = {
 			limit = {
-				is_female = yes
-				fertility >= 0.1
-				is_adult = yes
+				is_tentaclable_female = yes
 			}
 			random_list = {
 				0 = {
@@ -133,13 +130,9 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						exists = location
 						exists = location.county
 					}
-					modifier = { #苗床
+					modifier = { #恶堕芬芳
 						factor = 10
-						is_tentacle_womb_corrupted = yes
-					}
-					modifier = { #成瘾
-						factor = 2
-						is_tentacle_body_corrupted = yes
+						has_perk = tentacle_corruption_01_perk
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0021 #水井杀
@@ -147,17 +140,6 @@ tentacle_encounter_yearly = {#遭遇年度触发
 					}
 				}
 				300 = {
-				}
-			}
-			#成瘾角色，还要触发成瘾遭遇
-			if = {
-				limit = { 
-					always = no #暂时关掉，以后会移除
-					is_tentacle_body_corrupted = yes
-				}
-				trigger_event = {
-					id = tentacleswarm_slave.3002 #成瘾事件
-					months = { 1 5 }
 				}
 			}
 		}
@@ -178,7 +160,9 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 			convert_to_tentacleswarm_religion = yes
 		}
 		if = { #生育率太低的时候失去祝福，开始生病
-			limit = { fertility <= 0.1 }
+			limit = { 
+				is_tentclable_female = no
+			}
 			if = {
 				limit = { has_character_flag = immune_to_disease }
 				remove_character_flag = immune_to_disease

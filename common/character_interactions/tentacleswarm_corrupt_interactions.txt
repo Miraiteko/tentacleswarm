@@ -137,16 +137,14 @@ tentacleswarm_imprisoner_interaction = {
 
 	is_valid = {
 		scope:recipient = { 
-			is_female = yes
-			is_adult = yes
+			is_tentaclable_female = yes
 			is_tentacle_slave = no 
 		}
 	}
 	
 	is_highlighted = {
 		scope:recipient = { 
-			is_female = yes
-			is_adult = yes
+			is_tentaclable_female = yes
 			is_tentacle_slave = no 
 		}
 	}

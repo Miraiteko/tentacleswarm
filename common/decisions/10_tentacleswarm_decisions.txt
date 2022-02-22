@@ -74,8 +74,7 @@ tentacleswarm_auto_corrupt_decision = {
 
 	is_shown = {
 		is_ai = no  #ai不通过这个来成为奴隶
-		is_female = yes
-		fertility >= 0.1
+		is_tentaclable_female = yes 
 		OR = {
 			is_tentacle_slave = yes #触手奴隶
 			has_religion = religion:tentacleswarm_religion #触手信仰
@@ -84,7 +83,7 @@ tentacleswarm_auto_corrupt_decision = {
 	
 	is_valid = {
 		is_imprisoned = no #不能被囚禁
-		is_adult = yes #成年
+		is_tentaclable_female = yes 
 		OR = {
 			is_tentacle_slave = no #不是奴隶的话，可以请赐
 			tentacle_baby_corruption_not_yet = yes #怀孕了但未被赐福，可以请赐
@@ -118,12 +117,12 @@ tentacleswarm_suicide = {
 	is_shown = {
 		is_ai = no  #ai不通过这个来自尽
 		is_tentacle_slave = yes #奴隶
-		fertility <= 0.1
+		is_tentaclable_female = no
 	}
 	
 	is_valid = {
 		is_tentacle_slave = yes #奴隶
-		fertility <= 0.1
+		is_tentaclable_female = no
 	}	
 	effect = {
 		#自杀的额外效果，要放在人物自杀前结算

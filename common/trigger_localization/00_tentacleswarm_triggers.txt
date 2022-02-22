@@ -15,15 +15,13 @@ is_hidden_tentacle_slave_tooltip = {
 	first = I_am_hidden_tentacle_slave_tooltip
 	global_not = not_hidden_tentacle_slave_tooltip
 }
-is_tentacle_womb_corrupted_tooltip = {
-	global = has_tentacle_slave_womb_tooltip
-	first = I_have_tentacle_slave_womb_tooltip
-	global_not = not_has_tentacle_slave_womb_tooltip
-}
-is_tentacle_body_corrupted_tooltip = {
-	global = has_tentacle_slave_body_tooltip
-	first = I_have_tentacle_slave_body_tooltip
-	global_not = not_has_tentacle_slave_body_tooltip
+is_tentaclable_female_tooltip = {
+	global = is_tentaclable_female_tooltip
+	global_not = isnot_tentaclable_female_tooltip
+	first = I_am_tentaclable_female_tooltip
+	first_not = I_amnot_tentaclable_female_tooltip
+	third = she_is_tentaclable_female_tooltip
+	third_not = she_isnot_tentaclable_female_tooltip
 }
 tentacleswarm_never_cheat_tooltip = {
 	global = tentacleswarm_never_cheat_tooltip

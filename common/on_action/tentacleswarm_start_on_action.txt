@@ -44,12 +44,8 @@ tentacleswarm_on_game_start = {
 		every_living_character = {
 			if = {
 				limit = { 
-					#is_lowborn = yes
-					is_female = yes 
-					is_adult = yes
-					has_faith = faith:catholic 
-					#has_faith = faith:orthodox
 					always = no
+					is_tentaclable_female = yes 
 				}
 				#become_congenital_tentacle_slave = yes
 				#become_congenital_tentacle_slave_carry = yes
