@@ -26,7 +26,7 @@ tentacleswarm_slave.0001 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0001.a
-		become_tentacle_slave = yes
+		tentacle_corruption_perk_add = yes
 		add_stress = massive_stress_loss
 		
 		ai_chance = {
@@ -92,8 +92,8 @@ tentacleswarm_slave.0012 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0012.a
-		become_tentacle_slave = yes
 		tentacle_corrupt = yes
+		tentacle_corruption_perk_add = yes
 		add_stress = massive_stress_loss
 		#知晓了监护人的秘密
 		scope:guardian = {
@@ -146,7 +146,7 @@ tentacleswarm_slave.0021 = {
 	
 	widget = {
 		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
+		container = "custom_widgets_container" 
 	}
 	trigger = {
 		is_tentaclable_female = yes
@@ -205,6 +205,7 @@ tentacleswarm_slave.0022 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0022.a
+		tentacle_corrupt = yes
 		tentacle_corruption_perk_add = yes
 		if = {
 			limit = { has_perk = tentacle_corruption_11_perk }
@@ -352,8 +353,8 @@ tentacleswarm_slave.0032 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0032.a
-		become_tentacle_slave = yes
 		tentacle_corrupt = yes
+		tentacle_corruption_perk_add = yes
 		add_stress = massive_stress_loss
 		
 		ai_chance = {
@@ -450,8 +451,8 @@ tentacleswarm_slave.0042 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0042.a
-		become_tentacle_slave = yes
 		tentacle_corrupt = yes
+		tentacle_corruption_perk_add = yes
 		add_stress = massive_stress_loss
 		
 		ai_chance = {

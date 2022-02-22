@@ -15,6 +15,26 @@ minus_tentacleswarm_corruption = {
 	value = 0
 	subtract = var:tentacleswarm_corruption
 }
+
+tentacleswarm_corruption_resist = {
+	value = 0 #基础抵制强度
+}
+tentacle_pregnancy_chance = { #怀孕概率
+	value = 100
+	multiply = fertility
+	if = { #未腐化过
+		limit = {
+			NOT = { has_perk = tentacle_corruption_01_perk }
+		}
+		multiply = 0 #没有恶堕芬芳
+	}
+	if = { #堕落烙印
+		limit = {
+			has_perk = tentacle_corruption_12_perk 
+		}
+		multiply = 3
+	}
+}
 #天灾抵抗力量
 tentacleswarm_corruption_resist = {
 	value = 0 #基础抵制强度

@@ -52,37 +52,27 @@ tentacle_corrupt = {
 		#检测是否会怀孕
 		limit = {
 			is_tentaclable_female = yes #适孕女性
+			is_adult = yes
 			is_pregnant = no
-			has_perk = tentacle_corruption_01_perk #需要有恶堕芬芳
 		}
-		random_list = {
-			200 = {
-				modifier = {
-					factor = 0
-					has_perk = tentacle_corruption_12_perk #如果有堕落烙印，必定怀孕
+		hidden_effect = {
+			random = {
+				chance = tentacle_pregnancy_chance 
+				create_character = {
+					name = "TENTACLE_LORD"
+					location = province:5
+					template = default_tentacle_monster_character
+					save_scope_as = tentacle_monster
+					dynasty = dynasty:5
 				}
-			}
-			100 = {
-				modifier = {
-					factor = fertility 
+				make_pregnant = {
+					father = scope:tentacle_monster
 				}
-				hidden_effect = {
-					create_character = {
-						name = "TENTACLE_LORD"
-						location = province:5
-						template = default_tentacle_monster_character
-						save_scope_as = tentacle_monster
-						dynasty = dynasty:5
-					}
-					make_pregnant = {
-						father = scope:tentacle_monster
-					}
-					scope:tentacle_monster = {
-						set_sexuality = heterosexual
-						death = { death_reason = death_disappearance }
-					}
-					add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+				scope:tentacle_monster = {
+					set_sexuality = heterosexual
+					death = { death_reason = death_disappearance }
 				}
+				add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 			}
 		}
 	}

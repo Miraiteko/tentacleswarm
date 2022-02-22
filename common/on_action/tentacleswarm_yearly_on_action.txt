@@ -161,7 +161,7 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 		}
 		if = { #生育率太低的时候失去祝福，开始生病
 			limit = { 
-				is_tentclable_female = no
+				is_tentaclable_female = no
 			}
 			if = {
 				limit = { has_character_flag = immune_to_disease }

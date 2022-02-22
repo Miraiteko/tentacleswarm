@@ -3,7 +3,7 @@
 		has_perk = tentacle_corruption_01_perk
 	}
 	is_valid = {
-		is_ai = no
+		#is_ai = no
 		has_perk = tentacle_corruption_01_perk
 	}
 	xp_per_level = 1000

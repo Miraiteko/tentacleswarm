@@ -17,7 +17,7 @@
 			base = 0
 			modifier = {
 				add = 100
-				has_perk = tentacle_corruption_01
+				has_perk = tentacle_corruption_01_perk
 			}			
 		}
 	}
@@ -47,7 +47,7 @@ tentacle_corruption_12_portrait = {
 			base = 0
 			modifier = {
 				add = 100
-				has_perk = tentacle_corruption_12
+				has_perk = tentacle_corruption_12_perk
 			}			
 		}
 	}
@@ -58,18 +58,20 @@ tentacle_corruption_21_portrait = {
 	usage = game
 
 	corruption_21_portrait = {
+		dna_modifiers = {
 		#去除面部瑕疵
-		morph = {
-			mode = replace
-			gene = complexion
-			template = complexion_beauty_1
-			value = 1.0
+			morph = {
+				mode = replace
+				gene = complexion
+				template = complexion_beauty_1
+				value = 1.0
+			}
 		}
 		weight = {
 			base = 0
 			modifier = {
 				add = 100
-				has_perk = tentacle_corruption_21
+				has_perk = tentacle_corruption_21_perk
 			}			
 		}
 	}
@@ -94,7 +96,7 @@ tentacle_corruption_31_portrait = {
 			base = 0
 			modifier = {
 				add = 100
-				has_perk = tentacle_corruption_31
+				has_perk = tentacle_corruption_31_perk
 			}			
 		}
 	}
