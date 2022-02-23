@@ -26,8 +26,7 @@ tentacleswarm_slave.0001 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0001.a
-		tentacle_corruption_perk_add = yes
-		add_stress = massive_stress_loss
+		tentacle_corrupt_accept_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -42,7 +41,7 @@ tentacleswarm_slave.0001 = {
 			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
-		add_stress = massive_stress_gain
+		tentacle_corrupt_reject_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -92,9 +91,7 @@ tentacleswarm_slave.0012 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0012.a
-		tentacle_corrupt = yes
-		tentacle_corruption_perk_add = yes
-		add_stress = massive_stress_loss
+		tentacle_corrupt_accept_effect = yes
 		#知晓了监护人的秘密
 		scope:guardian = {
 			if = {
@@ -112,12 +109,15 @@ tentacleswarm_slave.0012 = {
 		}
 	}
 	option = {
-		show_as_unavailable = { 
-			is_tentacle_slave = no
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk }
+		}
+		show_as_unavailable = {
+			NOT = { has_perk = tentacle_corruption_31_perk }
+			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_slave.refuse
-		tentacle_corrupt = yes
-		add_stress = massive_stress_gain
+		tentacle_corrupt_reject_effect = yes
 		#知晓了监护人的秘密
 		scope:guardian = {
 			if = {
@@ -205,16 +205,7 @@ tentacleswarm_slave.0022 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0022.a
-		tentacle_corrupt = yes
-		tentacle_corruption_perk_add = yes
-		if = {
-			limit = { has_perk = tentacle_corruption_11_perk }
-			add_stress = -100
-		}
-		else = {
-			add_stress = -50
-		}
-		
+		tentacle_corrupt_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -229,34 +220,7 @@ tentacleswarm_slave.0022 = {
 			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_slave.refuse
-		tentacle_corrupt = yes
-		show_as_tooltip = { 
-			if = {
-				limit = { has_perk = tentacle_corruption_11_perk }
-				add_stress = 100 
-			}
-			else = {
-				add_stress = 50
-			}
-		}
-		random_list = {
-			100 = {
-	 			ai_accept_corrupt_modifier = yes
-				tentacle_corruption_perk_add = yes
-			}
-			100 = {
-				ai_reject_corrupt_modifier = yes
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = { has_perk = tentacle_corruption_11_perk }
-				add_stress = 100
-			}
-			else = {
-				add_stress = 50
-			}
-		}
+		tentacle_corrupt_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -353,9 +317,7 @@ tentacleswarm_slave.0032 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0032.a
-		tentacle_corrupt = yes
-		tentacle_corruption_perk_add = yes
-		add_stress = massive_stress_loss
+		tentacle_corrupt_accept_effect = yes
 		
 		ai_chance = {
 			base = 1000 #被赐福的情况下，更有可能接受
@@ -363,15 +325,15 @@ tentacleswarm_slave.0032 = {
 		}
 	}
 	option = {
-		trigger = {
-			is_tentacle_slave = no
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk }
 		}
-		show_as_unavailable = { 
-			is_tentacle_slave = no
+		show_as_unavailable = {
+			NOT = { has_perk = tentacle_corruption_31_perk }
+			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_slave.refuse
-		tentacle_corrupt = yes
-		add_stress = massive_stress_gain
+		tentacle_corrupt_reject_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -451,9 +413,7 @@ tentacleswarm_slave.0042 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0042.a
-		tentacle_corrupt = yes
-		tentacle_corruption_perk_add = yes
-		add_stress = massive_stress_loss
+		tentacle_corrupt_accept_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -461,15 +421,15 @@ tentacleswarm_slave.0042 = {
 		}
 	}
 	option = {
-		trigger = {
-			is_tentacle_slave = no
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk }
 		}
-		show_as_unavailable = { 
-			is_tentacle_slave = no
+		show_as_unavailable = {
+			NOT = { has_perk = tentacle_corruption_31_perk }
+			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_slave.refuse
-		tentacle_corrupt = yes
-		add_stress = massive_stress_gain
+		tentacle_corrupt_reject_effect = yes
 		
 		ai_chance = {
 			base = 100

@@ -287,7 +287,38 @@ tentacle_corruption_perk_add = {
 		}
 	}
 }
-
+#接受赐福
+tentacle_corrupt_accept_effect = {
+	tentacle_corrupt = yes
+	tentacle_corruption_perk_add = yes
+	if = {
+		limit = { has_perk = tentacle_corruption_11_perk }
+		add_stress = -100
+	}
+	else = {
+		add_stress = -50
+	}
+}
+#反抗赐福
+tentacle_corrupt_reject_effect = {
+	tentacle_corrupt = yes
+	if = {
+		limit = { has_perk = tentacle_corruption_11_perk }
+		add_stress = 100 
+	}
+	else = {
+		add_stress = 50
+	}
+	random_list = {
+		100 = {
+			ai_accept_corrupt_modifier = yes
+			tentacle_corruption_perk_add = yes
+		}
+		100 = {
+			ai_reject_corrupt_modifier = yes
+		}
+	}
+}
 #皈依触手信仰
 convert_to_tentacleswarm_religion = {	
 	save_scope_as = character
@@ -466,41 +497,5 @@ tentacleswarm_4VA = {
 				days = { 10 60 }
 			}
 		}
-	}
-}
-
-#遗传结算
-become_congenital_tentacle_slave = { #成为天生奴隶
-	#成为纯合子
-	add_character_flag = congenital_tentacle_slave
-	#测试用标记
-	if = {
-		limit = { 
-			debug_only = yes 
-		}
-		add_trait = congenital_tentacle_slave
-	}
-	#当然也是携带者
-	become_congenital_tentacle_slave_carry = yes
-	#15岁以上成为奴隶
-	if ={
-		limit = { 
-			age >= 15
-		}
-		become_tentacle_slave = yes
-	}
-	#受到祝福
-	random_list = {
-		85 = { change_trait_rank = { trait = beauty_good rank = 1 max = 3 } }
-		10 = { add_trait = fecund }
-		5 = { add_trait = albino }
-	}
-}
-become_congenital_tentacle_slave_carry = { #成为天生奴隶基因携带者
-	add_character_flag = congenital_tentacle_slave_carry
-	#受到祝福
-	if = {
-		limit = { has_trait = beauty_bad }
-		change_trait_rank = { trait = beauty_bad rank = -3 max = 3 }
 	}
 }
