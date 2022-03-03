@@ -37,7 +37,9 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		add_gold = capital_county.tentacleswarm_corruption_resist
+		tentacle_corruption_perk_add = yes
+		add_perk = tentacle_hidden_modifier_01_perk
+		#add_gold = capital_county.tentacleswarm_corruption_resist
 	}
 
 	ai_check_interval = 0

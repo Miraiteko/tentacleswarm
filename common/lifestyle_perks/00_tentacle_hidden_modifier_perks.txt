@@ -1,0 +1,74 @@
+﻿#假怀孕
+tentacle_pregnant_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -10
+	}
+	effect = {
+	}
+}
+#生育力受损
+fertility_loss_01_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -0.1
+	}
+	effect = {
+	}
+}
+fertility_loss_02_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -0.2
+	}
+	effect = {
+	}
+}
+fertility_loss_03_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -0.3
+	}
+	effect = {
+	}
+}
+fertility_loss_04_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -0.4
+	}
+	effect = {
+	}
+}
+fertility_loss_05_perk = {
+	lifestyle = tentacle_hidden_modifier_lifestyle
+	tree = tentacle_hidden_modifier_tree
+	position = { 6 6 }
+	icon = node_intrigue
+	can_be_auto_selected = { always = no }
+	character_modifier = {
+		fertility = -0.5
+	}
+	effect = {
+	}
+}
