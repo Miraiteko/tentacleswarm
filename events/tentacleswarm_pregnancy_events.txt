@@ -1,5 +1,6 @@
 ﻿namespace = tentacleswarm_pregnancy
 #0001-0009月度结算
+#1001-1031怀孕事件
 #4001触手分娩
 
 #月度结算
@@ -24,6 +25,9 @@ tentacleswarm_pregnancy.0002 = { #第二月显露身孕
 			add = 1
 		}
 		add_trait = pregnant 
+		trigger_event = {
+			on_action = on_tentacle_pregnancy_mother #触发怀孕事件组
+		}
 		trigger_event = {
 			id = tentacleswarm_pregnancy.0003
 			months = 1
@@ -94,23 +98,275 @@ tentacleswarm_pregnancy.0007 = { #第七月触手分娩
 		}
 	}
 }
+#怀孕事件
+#正常怀孕
+tentacleswarm_pregnancy.1001 = {
+	title = tentacleswarm_pregnancy.1001.t
+	desc = tentacleswarm_pregnancy.1001.d
+	theme = pregnancy
+	left_portrait = root
+
+	trigger = {
+		#触手宗教或公开触手奴隶
+		OR = {
+			has_religion = religion:tentacleswarm_religion
+			has_trait = tentacle_slave
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_succession"
+	}
+	
+	option = {
+		name = tentacleswarm_pregnancy.1001.a
+	}
+}
+#未婚先孕
+tentacleswarm_pregnancy.1011 = { 
+	title = tentacleswarm_pregnancy.1011.t
+	desc = {
+		desc = tentacleswarm_pregnancy.1011.opening
+		desc = tentacleswarm_pregnancy.1011.desc
+	}
+	theme = pregnancy
+	left_portrait = root
+
+	trigger = {
+		#不信仰触手宗教
+		#不是公开的触手奴隶
+		NOR = {
+			has_religion = religion:tentacleswarm_religion
+			has_trait = tentacle_slave
+		}
+		#没有配偶
+		any_consort = {
+			exists = this
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_succession"
+	}
+
+	option = { #Publicly name the father!
+		name = tentacleswarm_pregnancy.1011.a
+		trigger = {
+			is_hidden_tentacle_slave = yes #只有潜藏的触手奴隶能够公开孩子
+		}
+		become_openly_tentacle_slave_effect = {
+			SECRET_EXPOSER = ROOT #我揭露我自己
+		}
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = 0.5
+				ai_compassion = 0.25
+			}
+		}
+	}
+
+	option = { #Keep it secret!
+		name = tentacleswarm_pregnancy.1011.b
+		flavor = tentacleswarm_pregnancy.1011.b.tt
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
+				factor = 0
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+	}
+
+	option = { #Attempt to terminate the pregnancy
+		name = tentacleswarm_pregnancy.1031.c
+		#pregnancy_termination_attempt_effect = yes
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
+				factor = 0
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+	}
+}
+#婚外孕育
+tentacleswarm_pregnancy.1021 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.1021.t
+	desc = tentacleswarm_pregnancy.1021.desc
+	theme = pregnancy
+	left_portrait = ROOT
+	right_portrait = scope:spouse
+	
+	trigger = {
+		#不信仰触手宗教或者是公开奴隶
+		NOR = {
+			has_religion = religion:tentacleswarm_religion
+			has_trait = tentacle_slave
+		}
+		#有男性配偶
+		any_consort = {
+			exists = this
+			is_male = yes
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_succession"
+
+		save_scope_as = mother
+		hidden_effect = {	
+			if = {
+				limit = {
+					exists = primary_partner
+					primary_partner = { is_male = yes }
+				}
+				primary_partner = {
+					save_scope_as = spouse
+				}
+			}
+			else = {
+				random_consort = {
+					limit = { is_male = yes }
+					save_scope_as = spouse
+				}
+			}
+		}
+	}
+
+	option = { #Confess
+		name = tentacleswarm_pregnancy.1021.a
+		add_fornicator_trait_or_nothing_effect = yes
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	option = { #Keep it secret!
+		name = tentacleswarm_pregnancy.1021.b
+		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
+		stress_impact = {
+			honest = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+		}
+	}
+
+	option = { #Attempt to get rid of the child
+		name = tentacleswarm_pregnancy.1021.c
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+#同性婚育
+tentacleswarm_pregnancy.1031 = {
+	title = tentacleswarm_pregnancy.1031.t
+	desc = tentacleswarm_pregnancy.1031.desc
+	theme = pregnancy
+	left_portrait = root
+
+	trigger = {
+		#不信仰触手宗教
+		#不是公开的触手奴隶
+		NOR = {
+			has_religion = religion:tentacleswarm_religion
+			has_trait = tentacle_slave
+		}
+		#没有男性配偶
+		any_consort = {
+			exists = this
+		}
+		NOT = {
+			any_consort = {
+				exists = this
+				is_male = yes
+			}
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_succession"
+	}
+
+	option = { #Publicly name the father!
+		name = tentacleswarm_pregnancy.1031.a
+		trigger = {
+			is_hidden_tentacle_slave = yes #只有潜藏的触手奴隶能够公开孩子
+		}
+		become_openly_tentacle_slave_effect = {
+			SECRET_EXPOSER = ROOT #我揭露我自己
+		}
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = 0.5
+				ai_compassion = 0.25
+			}
+		}
+	}
+
+	option = { #Keep it secret!
+		name = tentacleswarm_pregnancy.1031.b
+		flavor = tentacleswarm_pregnancy.1031.b.tt
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
+				factor = 0
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+	}
+
+	option = { #Attempt to terminate the pregnancy
+		name = tentacleswarm_pregnancy.1031.c
+		#pregnancy_termination_attempt_effect = yes
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
+				factor = 0
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+	}
+}
 #生育事件
 tentacleswarm_pregnancy.4001 = {
 	type = character_event
-	title = tentacleswarm_slave.4001.t
+	title = tentacleswarm_pregnancy.4001.t
 	desc =  {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 				}
-				desc = tentacleswarm_slave.4001.desc1
+				desc = tentacleswarm_pregnancy.4001.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.4001.desc2
+				desc = tentacleswarm_pregnancy.4001.desc2
 			}
 		}
 	}
@@ -138,7 +394,7 @@ tentacleswarm_pregnancy.4001 = {
 	}
 
 	option = {
-		name = tentacleswarm_slave.4001.default
+		name = tentacleswarm_pregnancy.4001.default
 		#结束妊娠
 		tentacle_end_pregnancy = yes
 		

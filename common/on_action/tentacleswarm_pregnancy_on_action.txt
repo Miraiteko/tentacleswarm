@@ -1,4 +1,14 @@
-﻿#怀孕触发
+﻿#触手怀孕触发
+on_tentacle_pregnancy_mother = {
+	events = {
+		tentacleswarm_pregnancy.1001 #公开触手妊娠
+		tentacleswarm_pregnancy.1011 #未婚触手妊娠
+		tentacleswarm_pregnancy.1021 #已婚触手妊娠
+		tentacleswarm_pregnancy.1031 #女同触手妊娠
+	}
+}
+
+#怀孕触发
 on_pregnancy_mother = { #define设置，怀孕之后280天出生，60天时知道怀孕
 	on_actions = {
 		tentacleswarm_on_pregnancy_pulse

@@ -1,0 +1,33 @@
+﻿l_simp_chinese:
+    #怀孕事件
+    tentacleswarm_pregnancy.1001.t:0 "怀孕！"
+    tentacleswarm_pregnancy.1001.d:0 "触手主人的子嗣正在我的子宫内生长。我感到很自豪！"
+    tentacleswarm_pregnancy.1001.a:0 "很好！"
+    
+    tentacleswarm_pregnancy.1011.t:0 "非婚而孕"
+    tentacleswarm_pregnancy.1011.opening:0 "我已经急坏了，因为迹象已经十分明显。我怀上了孩子！"
+    tentacleswarm_pregnancy.1011.desc:0 "\n\n毫无疑问，在我的子宫里生长着的是触手的子嗣。"
+    tentacleswarm_pregnancy.1011.a:0 "我会让所有人都知道谁是孩子的父亲！"
+    tentacleswarm_pregnancy.1011.b:0 "我不能告诉#EMP 任何人#!……"
+    tentacleswarm_pregnancy.1011.b.tt:0 "你希望没人发现！"
+    tentacleswarm_pregnancy.1011.c:0 "我必须找位女智者来调制一份药水。"
+
+    tentacleswarm_pregnancy.1021.t:0 "另有其人"
+    tentacleswarm_pregnancy.1021.desc:0 "我已经急坏了，因为迹象已经十分明显。我怀上了孩子！\n\n可我却一点也欢喜不起来，因为毫无疑问在我的子宫里生长着的是触手的子嗣，而不是我的[ROOT.Char.Custom2('RelationToMe', SCOPE.sC('spouse'))]的孩子！"
+    tentacleswarm_pregnancy.1021.a:0 "我坦白我的不忠！"
+    tentacleswarm_pregnancy.1021.b:0 "谁都不能知道。"
+    tentacleswarm_pregnancy.1021.b.tt:1 "#F 你希望能一直保密#!"
+    tentacleswarm_pregnancy.1021.c:0 "我需要一位女智者调制的药水。"
+    
+    tentacleswarm_pregnancy.1031.t:0 "别人的种"
+    tentacleswarm_pregnancy.1031.desc:0 "我已经急坏了，因为迹象已经十分明显。我怀上了孩子！\n\n可我却一点也欢喜不起来，因为毫无疑问在我的子宫里生长着的是触手的子嗣！"
+    tentacleswarm_pregnancy.1031.a:0 "我会让所有人都知道谁是孩子的父亲！"
+    tentacleswarm_pregnancy.1031.b:0 "我不能告诉#EMP 任何人#!……"
+    tentacleswarm_pregnancy.1031.b.tt:0 "你希望没人发现！"
+    tentacleswarm_pregnancy.1031.c:0 "我必须找位女智者来调制一份药水。"
+    
+    #分娩
+    tentacleswarm_pregnancy.4001.t:0 "触手分娩"
+    tentacleswarm_pregnancy.4001.desc1:0 "这一天终于到来了。不断有液体从你的身体里流出，古老的本能让你立马明白了当下的情况。你借故离席，急忙赶到了一个没人的地方，躺下来张开双腿，开始生产。许多触手慢慢从你的身体中爬出，你因为分娩快感而呻吟起来。\n\n在终于生下了所有的孩子之后，你沉浸在高潮的余韵之中，而新出世的触手们则爬上你的乳房，贪婪地吮吸着……"
+    tentacleswarm_pregnancy.4001.desc2:0 "这一天终于到来了。不断有液体从你的身体里流出，古老的本能让你立马明白了当下的情况。你借故离席，急忙赶到了一个没人的地方，躺下来张开双腿，开始生产。许多触手慢慢从你的身体中爬出，你因为分娩快感而呻吟起来。\n\n在终于生下了所有的孩子之后，你沉浸在高潮的余韵之中，而新出世的触手们则爬上你的乳房，贪婪地吮吸着……"
+    tentacleswarm_pregnancy.4001.default:0 "我会让最忠实的仆人来进行妥善的处理"
