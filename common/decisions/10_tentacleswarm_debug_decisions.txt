@@ -37,9 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		tentacle_corruption_perk_add = yes
-		add_perk = tentacle_hidden_modifier_01_perk
-		#add_gold = capital_county.tentacleswarm_corruption_resist
+		create_artifact_tentacle_armor_scale = yes
 	}
 
 	ai_check_interval = 0

@@ -1,0 +1,21 @@
+﻿#制作触手鳞甲
+create_artifact_tentacle_armor_scale = {
+	create_artifact = { 
+		name = artifact_tentacle_armor_scale
+		description = artifact_tentacle_armor_scale_desc
+		type = armor_scale
+		visuals = armor
+		template = tentacle_armor_template
+		
+		modifier = artifact_prowess_10_modifier #勇武
+		modifier = artifact_fertility_gain_4_modifier #生育力
+		
+		wealth = 100 #有多么的珍贵
+		quality = 100 #质量，能够用多久
+		decaying = yes
+		history = {
+			type = created_before_history
+		}
+		save_scope_as = newly_created_artifact
+	}
+}
