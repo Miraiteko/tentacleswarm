@@ -6,7 +6,7 @@ tentacle_pregnant_perk = {
 	icon = node_intrigue
 	can_be_auto_selected = { always = no }
 	character_modifier = {
-		fertility = -10
+		fertility = -100
 	}
 	effect = {
 	}

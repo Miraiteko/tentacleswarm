@@ -1,6 +1,6 @@
 ﻿#全局年度触发
 yearly_global_pulse = {
-	on_actions = { 
+	on_actions = {  
 		tentacleswarm_yearly_global_pulse
 	}
 }

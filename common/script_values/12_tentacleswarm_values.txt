@@ -26,7 +26,7 @@ tentacle_pregnancy_chance = { #怀孕概率
 		limit = {
 			NOT = { has_perk = tentacle_corruption_01_perk }
 		}
-		multiply = 0 #没有恶堕芬芳
+		multiply = 0.01 #没有恶堕芬芳
 	}
 	if = { #堕落烙印
 		limit = {
@@ -154,4 +154,18 @@ tentacleswarm_corruption_hunger_value = {
 	}
 	multiply = 70 #满饥饿的情况下有70%的衰减，加上基础衰减就是80%
 	min = 0
+}
+#替代原版怀孕月数的取值
+#Pregnancy
+pregnancy_month = {
+	value = pregnancy_days
+	divide = 30
+	if = {
+		limit = {
+			exists = var:tentacle_pregnancy_month
+		}
+		add = var:tentacle_pregnancy_month
+	}
+	floor = yes
+	min = 1
 }

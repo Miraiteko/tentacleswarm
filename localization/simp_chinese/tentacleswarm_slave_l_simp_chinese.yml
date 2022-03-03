@@ -21,7 +21,7 @@
     trait_tentacle_monster:0 "触手怪物"
     trait_tentacle_monster_desc:0 "该角色是潜伏于人间的触手怪物。"
     trait_tentacle_monster_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]是潜伏于人间的触手怪物。"
-
+    tentacle_impregnate_tt:0 "怀上触手主人的孩子"
     #4VA
     tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"
     tentacle_neighboring_4VA_tooltip:0 "附近的触手奴隶们将进行响应"

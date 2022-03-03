@@ -36,14 +36,14 @@ become_tentacle_slave = {
 tentacle_corrupt = {
 	if = {
 		limit = {
-			is_pregnant = yes #怀孕了但没有被赐福的话，被赐福
+			is_pregnant_nature_or_tentacle = yes #怀孕了但没有被赐福的话，被赐福
 			NOT = { has_character_flag = tentacle_baby_corruption }
 		}
 		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 	}
 	if = {
 		limit = {
-			is_pregnant = yes #如果作为玩家有未被赐福的flag，移除该flag
+			is_pregnant_nature_or_tentacle = yes #如果作为玩家有未被赐福的flag，移除该flag
 			has_character_flag = tentacle_baby_corruption_not_yet
 		}
 		remove_character_flag = tentacle_baby_corruption_not_yet
@@ -53,27 +53,51 @@ tentacle_corrupt = {
 		limit = {
 			is_tentaclable_female = yes #适孕女性
 			is_adult = yes
-			is_pregnant = no
+			is_pregnant_nature_or_tentacle = no
 		}
+		random = {
+			chance = tentacle_pregnancy_chance 
+			tentacle_impregnate = yes
+		}
+	}
+}
+#触手妊娠
+tentacle_impregnate = {
+	if = {
+		limit = {
+			is_tentaclable_female = yes #适孕女性
+			is_adult = yes
+			is_pregnant_nature_or_tentacle = no
+		}
+		custom_tooltip = tentacle_impregnate_tt
 		hidden_effect = {
-			random = {
-				chance = tentacle_pregnancy_chance 
-				create_character = {
-					name = "TENTACLE_LORD"
-					location = province:5
-					template = default_tentacle_monster_character
-					save_scope_as = tentacle_monster
-					dynasty = dynasty:5
-				}
-				make_pregnant = {
-					father = scope:tentacle_monster
-				}
-				scope:tentacle_monster = {
-					set_sexuality = heterosexual
-					death = { death_reason = death_disappearance }
-				}
-				add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
+			set_variable = { #标记为触手怀孕
+				name = tentacle_pregnancy_month
+				value = 0
 			}
+			add_perk = tentacle_pregnant_perk #扣生育力，阻止再度怀孕
+			add_character_flag = { flag = tentacle_baby_corruption months = 10 } #胎儿赐福
+			trigger_event = {
+				id = tentacleswarm_pregnancy.0001
+				days = 5 #很快就进入第一月
+			}
+		}
+	}
+}
+#触手分娩
+tentacle_end_pregnancy = {
+	custom_tooltip = tentacleswarm_suicide_tt
+	hidden_effect = {
+		remove_variable = tentacle_pregnancy_month
+		remove_trait = pregnant
+		remove_perk = tentacle_pregnant_perk
+		if = {
+			limit = { has_character_flag = tentacle_baby_corruption }
+			remove_character_flag = tentacle_baby_corruption
+		}
+		if = {
+			limit = { has_character_flag = tentacle_baby_corruption_not_yet }
+			remove_character_flag = tentacle_baby_corruption_not_yet
 		}
 	}
 }

@@ -4,5 +4,4 @@
 4.天灾制重做
 5.特殊文化？
 6.腐化度可视化？
-7.宝物？
-8.命名习惯中有 founder_named_dynasties = yes 的文化，会用族名当头衔名 
+9.命名习惯中有 founder_named_dynasties = yes 的文化，会用族名当头衔名，族徽取代头衔徽，导致腐化纹章无法正常储存

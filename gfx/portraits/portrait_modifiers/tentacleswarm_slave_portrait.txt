@@ -127,10 +127,8 @@ tentacle_pregnancy = {
 							NOT = { this = character:animation_test_female_pregnant }
 						}
 						multiply = {
-							add = pregnancy_days
-							divide = 10
-							round = yes
-							multiply = 10
+							add = var:tentacle_pregnancy_month
+							multiply = 30
 							divide = 250 # PREGNANCY_DAYS is 280; we want 1 month at 100%
 							max = 1
 						}
@@ -142,7 +140,9 @@ tentacle_pregnancy = {
 			base = 0
 			modifier = {
 				add = 100
-				has_perk = tentacle_pregnant_perk
+				portrait_has_trait_trigger = { TRAIT = pregnant } #怀孕
+				exists = var:tentacle_pregnancy_month #是触手怀孕
+				pregnancy_days < 30 #如果在一些情况下和真实怀孕重叠了，按真实怀孕计算
 			}			
 		}
 	}
