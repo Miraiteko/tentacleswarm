@@ -119,6 +119,7 @@ tentacleswarm_pregnancy.1001 = {
 	}
 	
 	option = {
+		add_trait_force_tooltip = pregnant
 		name = tentacleswarm_pregnancy.1001.a
 	}
 }
@@ -150,8 +151,9 @@ tentacleswarm_pregnancy.1011 = {
 
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1011.a
+		add_trait_force_tooltip = pregnant
 		add_trait = tentacle_defiled #触手受害者
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 20
 			ai_value_modifier = {
@@ -165,7 +167,8 @@ tentacleswarm_pregnancy.1011 = {
 	option = { #Keep it secret!
 		name = tentacleswarm_pregnancy.1011.b
 		flavor = tentacleswarm_pregnancy.1011.b.tt
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_trait_force_tooltip = pregnant
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
@@ -176,8 +179,9 @@ tentacleswarm_pregnancy.1011 = {
 
 	option = { #Attempt to terminate the pregnancy
 		name = tentacleswarm_pregnancy.1031.c
-		#pregnancy_termination_attempt_effect = yes
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_trait_force_tooltip = pregnant
+		pregnancy_termination_attempt_effect = yes
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
@@ -237,8 +241,10 @@ tentacleswarm_pregnancy.1021 = {
 
 	option = { #Confess
 		name = tentacleswarm_pregnancy.1021.a
+		add_trait_force_tooltip = pregnant
 		add_trait = tentacle_defiled #受害者
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
+		custom_tooltip = tentacleswarm_pregnancy.1021.a.tt
 		ai_chance = {
 			base = 0
 		}
@@ -247,6 +253,7 @@ tentacleswarm_pregnancy.1021 = {
 	option = { #Keep it secret!
 		name = tentacleswarm_pregnancy.1021.b
 		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
+		add_trait_force_tooltip = pregnant
 		stress_impact = {
 			honest = major_stress_impact_gain
 		}
@@ -260,7 +267,8 @@ tentacleswarm_pregnancy.1021 = {
 
 	option = { #Attempt to get rid of the child
 		name = tentacleswarm_pregnancy.1021.c
-
+		add_trait_force_tooltip = pregnant
+		pregnancy_termination_attempt_effect = yes
 		ai_chance = {
 			base = 0
 		}
@@ -298,8 +306,9 @@ tentacleswarm_pregnancy.1031 = {
 
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1031.a
+		add_trait_force_tooltip = pregnant
 		add_trait = tentacle_defiled #受害者
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
 		ai_chance = {
 			base = 20
 			ai_value_modifier = {
@@ -312,8 +321,9 @@ tentacleswarm_pregnancy.1031 = {
 
 	option = { #Keep it secret!
 		name = tentacleswarm_pregnancy.1031.b
+		add_trait_force_tooltip = pregnant
 		flavor = tentacleswarm_pregnancy.1031.b.tt
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
@@ -324,8 +334,9 @@ tentacleswarm_pregnancy.1031 = {
 
 	option = { #Attempt to terminate the pregnancy
 		name = tentacleswarm_pregnancy.1031.c
-		#pregnancy_termination_attempt_effect = yes
-		add_fornicator_trait_or_nothing_effect = yes #私通者
+		add_trait_force_tooltip = pregnant
+		pregnancy_termination_attempt_effect = yes
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
 		ai_chance = {
 			base = 0
 		}

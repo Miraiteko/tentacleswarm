@@ -103,6 +103,15 @@ tentacle_end_pregnancy = {
 			limit = { has_character_flag = tentacle_baby_corruption_not_yet }
 			remove_character_flag = tentacle_baby_corruption_not_yet
 		}
+		if = {
+			limit = { 
+				exists = location 
+				exists = location.county
+			}
+			location.county = {
+				change_variable =  { name = tentacleswarm_corruption add = 5 }
+			}
+		}
 	}
 }
 #腐化树程度增加

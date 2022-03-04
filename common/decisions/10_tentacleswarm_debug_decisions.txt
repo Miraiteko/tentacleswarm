@@ -37,7 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		tentacle_corruption_perk_add = yes
+		tentacle_corruption_perk_add = yes 
 		tentacle_impregnate = yes
 	}
 
