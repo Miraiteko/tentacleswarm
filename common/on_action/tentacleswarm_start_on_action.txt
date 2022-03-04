@@ -73,21 +73,9 @@ tentacleswarm_on_game_start = {
 				change_variable =  { name = tentacleswarm_corruption_nature add = 0.5 }
 			}
 			every_county_province = { 
-				if = { #每块丛林
-					limit = { terrain = jungle }
-					#prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.2 } }
-				}
-				else_if = { #每块湿地
+				if = { #每块湿地
 					limit = { terrain = wetlands }
-					#prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.3 } }
-				}
-				else_if = { #森林
-					limit = { terrain = forest }
-					#prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.2 } }
-				}
-				else_if = { #洪泛平原
-					limit = { terrain = floodplains }
-					#prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 0.1 } }
+					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 1 } }
 				}
 			}
 		}
