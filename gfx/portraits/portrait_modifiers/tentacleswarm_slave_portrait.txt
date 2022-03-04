@@ -67,6 +67,7 @@ tentacle_corruption_21_portrait = {
 				value = 1.0
 			}
 		}
+		#age_preset_aging_definition_female
 		weight = {
 			base = 0
 			modifier = {
