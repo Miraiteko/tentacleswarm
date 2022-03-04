@@ -139,7 +139,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						months = { 6 9 }
 					}
 				}
-				300 = {
+				100 = {
 				}
 			}
 		}

@@ -25,7 +25,7 @@ tentacleswarm_on_pregnancy_pulse = {
 tentacleswarm_baby_corruption = {
 	trigger = { 
 		is_female = yes
-		is_pregnant_nature_or_tentacle = yes #自然怀孕
+		is_pregnant = yes
 	}
 	effect = {
 		if = {
@@ -98,7 +98,9 @@ tentacleswarm_baby_corruption = {
 	}
 }
 tentacleswarm_near_birth_pulse = {
-	trigger = { is_pregnant_nature_or_tentacle = yes } #如果提前流产了的话，就不用考虑了 
+	trigger = { 
+		is_pregnant = yes
+	}		#如果提前流产了的话，就不用考虑了 
 	effect = {
 		#进行基因检定，判断孩子是否是天生奴隶
 		#天生奴遗传确认，该性状为伴X半隐性基因，男性只会是携带者。

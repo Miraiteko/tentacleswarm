@@ -65,55 +65,6 @@ tentacle_corrupt = {
 		}
 	}
 }
-#触手妊娠
-tentacle_impregnate = {
-	if = {
-		limit = {
-			is_tentaclable_female = yes #适孕女性
-			is_adult = yes
-			is_pregnant_nature_or_tentacle = no
-		}
-		custom_tooltip = tentacle_impregnate_tt
-		hidden_effect = {
-			set_variable = { #标记为触手怀孕
-				name = tentacle_pregnancy_month
-				value = 0
-			}
-			add_perk = tentacle_pregnant_perk #扣生育力，阻止再度怀孕
-			add_character_flag = { flag = tentacle_baby_corruption months = 10 } #胎儿赐福
-			trigger_event = {
-				id = tentacleswarm_pregnancy.0001
-				days = 5 #很快就进入第一月
-			}
-		}
-	}
-}
-#触手分娩
-tentacle_end_pregnancy = {
-	custom_tooltip = tentacleswarm_suicide_tt
-	hidden_effect = {
-		remove_variable = tentacle_pregnancy_month
-		remove_trait = pregnant
-		remove_perk = tentacle_pregnant_perk
-		if = {
-			limit = { has_character_flag = tentacle_baby_corruption }
-			remove_character_flag = tentacle_baby_corruption
-		}
-		if = {
-			limit = { has_character_flag = tentacle_baby_corruption_not_yet }
-			remove_character_flag = tentacle_baby_corruption_not_yet
-		}
-		if = {
-			limit = { 
-				exists = location 
-				exists = location.county
-			}
-			location.county = {
-				change_variable =  { name = tentacleswarm_corruption add = 5 }
-			}
-		}
-	}
-}
 #腐化树程度增加
 tentacle_corruption_perk_add = {
 	if = { #还不是奴隶，点下级perk
