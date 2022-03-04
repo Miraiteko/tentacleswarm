@@ -1,8 +1,8 @@
 ﻿l_simp_chinese:
      #核心内容
-    trait_tentacle_defiled_group:0 "[tentacle_defiled_group|E]"
-    game_concept_tentacle_defiled_group:0 "触手受害者"
-    game_concept_tentacle_defiled_group_desc:0 "触手受害者是指受到过[GetTrait('tentacle_monster').GetName( GetNullCharacter )]袭击的女性，包括了[GetTrait('tentacle_defiled').GetName( GetNullCharacter )]和[GetTrait('tentacle_slave').GetName( GetNullCharacter )]。\n大多数宗教对她们都有着严重的歧视，因此她们会倾向于隐藏自己的身份。"
+    trait_tentacle_slave_group:0 "[tentacle_slave_group|E]"
+    game_concept_tentacle_slave_group:0 "触手受害者"
+    game_concept_tentacle_slave_group_desc:0 "触手受害者是指受到过[GetTrait('tentacle_monster').GetName( GetNullCharacter )]袭击的女性，包括了[GetTrait('tentacle_defiled').GetName( GetNullCharacter )]和[GetTrait('tentacle_slave').GetName( GetNullCharacter )]。\n大多数宗教对她们都有着严重的歧视，因此她们会倾向于隐藏自己的身份。"
     trait_tentacle_defiled:0 "被触手玷污"
     trait_tentacle_defiled_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]曾经被触手怪物所玷污。"
     trait_tentacle_defiled_desc:0 "这个女人曾经被触手怪物所玷污。"

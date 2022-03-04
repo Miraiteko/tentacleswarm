@@ -51,7 +51,7 @@ tentacleswarm_become_openly_tentacle_slave_decision = {
 	}	
 	effect = {
 		change_trait_rank = {
-			trait = tentacle_defiled_group
+			trait = tentacle_slave_group
 			rank = 2
 			max = 2
 		}

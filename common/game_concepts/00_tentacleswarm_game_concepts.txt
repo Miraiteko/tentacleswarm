@@ -12,6 +12,6 @@ tentacleswarm_warbeast_type = {
 tentacleswarm_government = {
 	parent = government
 }
-tentacle_defiled_group = {
+tentacle_slave_group = {
 	parent = trait
 }

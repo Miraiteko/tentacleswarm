@@ -3,7 +3,7 @@ tentacle_slave = {
 	opposites = {
 		tentacle_defiled
 	}
-	group = tentacle_defiled_group
+	group = tentacle_slave_group
 	level = 2
 	
 	valid_sex =  female
@@ -79,7 +79,7 @@ tentacle_defiled = {
 	opposites = {
 		tentacle_slave
 	}
-	group = tentacle_defiled_group
+	group = tentacle_slave_group
 	level = 1
 	
 	valid_sex =  female

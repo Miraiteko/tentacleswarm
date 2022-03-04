@@ -27,7 +27,7 @@ become_tentacle_slave = {
 		#否则直接拿特质
 		else = {
 			change_trait_rank = {
-				trait = tentacle_defiled_group
+				trait = tentacle_slave_group
 				rank = 2
 				max = 2
 			}
@@ -417,7 +417,7 @@ convert_to_tentacleswarm_religion = {
 			is_hidden_tentacle_slave = yes
 		}
 		change_trait_rank = {
-			trait = tentacle_defiled_group
+			trait = tentacle_slave_group
 			rank = 2
 			max = 2
 		}
