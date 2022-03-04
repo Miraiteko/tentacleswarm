@@ -37,7 +37,12 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		tentacle_impregnate = yes
+		change_trait_rank = {
+			trait = tentacle_defiled_group
+			rank = 3
+			max = 3
+		}
+		#tentacle_impregnate = yes
 	}
 
 	ai_check_interval = 0

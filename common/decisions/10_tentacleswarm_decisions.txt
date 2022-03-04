@@ -50,7 +50,11 @@ tentacleswarm_become_openly_tentacle_slave_decision = {
 		has_religion = religion:tentacleswarm_religion
 	}	
 	effect = {
-		add_trait = tentacle_slave
+		change_trait_rank = {
+			trait = tentacle_defiled_group
+			rank = 2
+			max = 2
+		}
 		add_piety = 200
 	}
 	

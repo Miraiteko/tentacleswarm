@@ -26,7 +26,11 @@ become_tentacle_slave = {
 		}
 		#否则直接拿特质
 		else = {
-			add_trait = tentacle_slave
+			change_trait_rank = {
+				trait = tentacle_defiled_group
+				rank = 2
+				max = 2
+			}
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
 		add_character_flag = flag_tentacle_slave #添加flag，用于判断检测
@@ -412,7 +416,11 @@ convert_to_tentacleswarm_religion = {
 		limit = { 
 			is_hidden_tentacle_slave = yes
 		}
-		add_trait = tentacle_slave
+		change_trait_rank = {
+			trait = tentacle_defiled_group
+			rank = 2
+			max = 2
+		}
 	}
 }
 

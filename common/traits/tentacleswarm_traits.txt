@@ -1,5 +1,10 @@
 ﻿#奴隶
 tentacle_slave = {
+	opposites = {
+		tentacle_defiled
+	}
+	group = tentacle_defiled_group
+	level = 2
 	
 	valid_sex =  female
 	health_trait = yes #健康特质
@@ -16,8 +21,10 @@ tentacle_slave = {
 		}
 	}
 	
+	#相同
+	same_opinion = 10
 	#讨厌其他宗教
-	opinion_of_different_faith = -50
+	opinion_of_different_faith = -30
 	#不喜欢男性领主
 	opinion_of_male_rulers = -100 
 	
@@ -40,6 +47,7 @@ tentacle_slave = {
 	
 	compatibility = {
 		tentacle_slave = 100
+		tentacle_defiled = 30
 		lustful = 30
 		greedy = 15
 		ambitious =15
@@ -57,17 +65,53 @@ tentacle_slave = {
 	}
 	triggered_opinion = {
 		parameter = adultery_female_crime
-		female_only = yes
 		opinion_modifier = adulterer_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
 		parameter = adultery_female_shunned
-		female_only = yes
 		opinion_modifier = adulterer_intolerant
 		ignore_opinion_value_if_same_trait = yes
 	}
+}
+#被玷污过
+tentacle_defiled = {
+	opposites = {
+		tentacle_slave
+	}
+	group = tentacle_defiled_group
+	level = 1
 	
+	valid_sex =  female
+	fame = yes #名誉特质特质
+		
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tentacle_defiled_desc
+			}
+			desc = trait_tentacle_defiled_character_desc
+		}
+	}
+	
+	same_opinion = 5
+	ai_rationality = -10
+	
+	compatibility = {
+		tentacle_slave = 30
+		tentacle_defiled = 30
+		lustful = 30
+		chaste = -15 
+	}
+	#宗教偏见
+	triggered_opinion = {
+		parameter = doctrine_tentacle_slave_evil
+		opinion_modifier = tentacle_slave_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
 }
 #天生奴
 congenital_tentacle_slave = {
@@ -90,7 +134,7 @@ tentacle_monster = {
 	same_opinion = 30
 	
 	valid_sex =  male
-	health_trait = yes #健康特质
+	#genetic = yes #遗传特质
 		
 	desc = {
 		first_valid = {
