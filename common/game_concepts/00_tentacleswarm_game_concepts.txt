@@ -13,5 +13,6 @@ tentacleswarm_government = {
 	parent = government
 }
 tentacle_slave_group = {
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
 	parent = trait
 }

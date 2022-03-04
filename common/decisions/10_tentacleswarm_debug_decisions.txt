@@ -37,12 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		change_trait_rank = {
-			trait = tentacle_slave_group
-			rank = 3
-			max = 3
-		}
-		#tentacle_impregnate = yes
+		tentacle_corruption_perk_add = yes
+		tentacle_impregnate = yes
 	}
 
 	ai_check_interval = 0

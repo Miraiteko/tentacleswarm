@@ -125,10 +125,7 @@ tentacleswarm_pregnancy.1001 = {
 #未婚先孕
 tentacleswarm_pregnancy.1011 = { 
 	title = tentacleswarm_pregnancy.1011.t
-	desc = {
-		desc = tentacleswarm_pregnancy.1011.opening
-		desc = tentacleswarm_pregnancy.1011.desc
-	}
+	desc = tentacleswarm_pregnancy.1011.desc
 	theme = pregnancy
 	left_portrait = root
 
@@ -140,8 +137,10 @@ tentacleswarm_pregnancy.1011 = {
 			has_trait = tentacle_slave
 		}
 		#没有配偶
-		any_consort = {
-			exists = this
+		NOT = {
+			any_consort = {
+				exists = this
+			}
 		}
 	}
 
@@ -151,12 +150,8 @@ tentacleswarm_pregnancy.1011 = {
 
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1011.a
-		trigger = {
-			is_hidden_tentacle_slave = yes #只有潜藏的触手奴隶能够公开孩子
-		}
-		become_openly_tentacle_slave_effect = {
-			SECRET_EXPOSER = ROOT #我揭露我自己
-		}
+		add_trait = tentacle_defiled #触手受害者
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 20
 			ai_value_modifier = {
@@ -170,14 +165,11 @@ tentacleswarm_pregnancy.1011 = {
 	option = { #Keep it secret!
 		name = tentacleswarm_pregnancy.1011.b
 		flavor = tentacleswarm_pregnancy.1011.b.tt
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
 				ai_rationality = 0.5
-			}
-			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
-				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
 			}
 		}
 	}
@@ -185,6 +177,7 @@ tentacleswarm_pregnancy.1011 = {
 	option = { #Attempt to terminate the pregnancy
 		name = tentacleswarm_pregnancy.1031.c
 		#pregnancy_termination_attempt_effect = yes
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
@@ -244,7 +237,8 @@ tentacleswarm_pregnancy.1021 = {
 
 	option = { #Confess
 		name = tentacleswarm_pregnancy.1021.a
-		add_fornicator_trait_or_nothing_effect = yes
+		add_trait = tentacle_defiled #受害者
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 0
 		}
@@ -304,12 +298,8 @@ tentacleswarm_pregnancy.1031 = {
 
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1031.a
-		trigger = {
-			is_hidden_tentacle_slave = yes #只有潜藏的触手奴隶能够公开孩子
-		}
-		become_openly_tentacle_slave_effect = {
-			SECRET_EXPOSER = ROOT #我揭露我自己
-		}
+		add_trait = tentacle_defiled #受害者
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 20
 			ai_value_modifier = {
@@ -323,14 +313,11 @@ tentacleswarm_pregnancy.1031 = {
 	option = { #Keep it secret!
 		name = tentacleswarm_pregnancy.1031.b
 		flavor = tentacleswarm_pregnancy.1031.b.tt
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
 				ai_rationality = 0.5
-			}
-			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
-				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
 			}
 		}
 	}
@@ -338,15 +325,9 @@ tentacleswarm_pregnancy.1031 = {
 	option = { #Attempt to terminate the pregnancy
 		name = tentacleswarm_pregnancy.1031.c
 		#pregnancy_termination_attempt_effect = yes
+		add_fornicator_trait_or_nothing_effect = yes #私通者
 		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_rationality = 0.5
-			}
-			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
-				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
-			}
+			base = 0
 		}
 	}
 }
