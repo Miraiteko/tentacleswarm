@@ -255,7 +255,6 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 }
 #检查配偶是否起疑
 tentacle_pregnancy_spouse_suspicion_effect = {
-	add_trait_force_tooltip = pregnant
 	if = {
 		limit = {
 			NOT = { exists = scope:spouse }

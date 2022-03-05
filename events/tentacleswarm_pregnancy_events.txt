@@ -240,8 +240,11 @@ tentacleswarm_pregnancy.1021 = {
 		name = tentacleswarm_pregnancy.1021.b
 		add_trait_force_tooltip = pregnant
 		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
-		trigger_event = { 
-			id = tentacleswarm_pregnancy.2020
+		scope:spouse = {
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2020
+				days = 1
+			}
 		}
 		ai_chance = {
 			base = 50
@@ -252,9 +255,9 @@ tentacleswarm_pregnancy.1021 = {
 	}
 
 	option = { #Keep it secret!
-		name = tentacleswarm_pregnancy.1021.b
-		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
+		name = tentacleswarm_pregnancy.1021.c
 		add_trait_force_tooltip = pregnant
+		custom_tooltip = tentacleswarm_pregnancy.1021.c.tt
 		tentacle_pregnancy_spouse_suspicion_effect = yes
 		stress_impact = {
 			honest = major_stress_impact_gain
@@ -268,7 +271,7 @@ tentacleswarm_pregnancy.1021 = {
 	}
 
 	option = { #Attempt to get rid of the child
-		name = tentacleswarm_pregnancy.1021.c
+		name = tentacleswarm_pregnancy.1021.d
 		add_trait_force_tooltip = pregnant
 		tentacle_pregnancy_spouse_suspicion_effect = yes
 		tentacle_pregnancy_termination_attempt_effect = yes
@@ -332,8 +335,11 @@ tentacleswarm_pregnancy.1031 = {
 		add_trait_force_tooltip = pregnant
 		flavor = tentacleswarm_pregnancy.1031.b.tt
 		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
-		trigger_event = { 
-			id = tentacleswarm_pregnancy.2020
+		scope:spouse = {
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2020
+				days = 1
+			}
 		}
 		ai_chance = {
 			base = 50
@@ -686,7 +692,7 @@ tentacleswarm_pregnancy.2010 = {
 	option = { #秘密调查
 		name = tentacleswarm_pregnancy.2010.b
 		
-		spy_on_mother_pregnancy_adultery_effect = yes
+		spy_on_mother_tentacle_pregnancy_adultery_effect = yes
 
 		stress_impact = {
 			trusting = major_stress_impact_gain
@@ -1225,7 +1231,7 @@ tentacleswarm_pregnancy.2016 = {
 		name = tentacleswarm_pregnancy.2016.a
 	}
 }
-#直接告诉丈夫
+#丈夫被告知
 tentacleswarm_pregnancy.2020 = {
 	type = character_event
 	title = tentacleswarm_pregnancy.2020.t
