@@ -109,7 +109,7 @@ tentacle_defiled = {
 	#宗教偏见
 	triggered_opinion = {
 		parameter = doctrine_tentacle_slave_evil
-		opinion_modifier = tentacle_slave_shunned
+		opinion_modifier = tentacle_slave_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 }

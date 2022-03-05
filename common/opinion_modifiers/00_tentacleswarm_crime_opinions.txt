@@ -7,10 +7,10 @@
 	divorce_reason = yes
 }
 tentacle_slave_crime = {
-	opinion = -40
+	opinion = -20
 	imprisonment_reason = yes
 	revoke_title_reason = yes
 }
 tentacle_slave_shunned = {
-	opinion = -20
+	opinion = -10
 }

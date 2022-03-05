@@ -1,7 +1,8 @@
 ﻿namespace = tentacleswarm_pregnancy
-#0001-0009月度结算
-#1001-1031怀孕事件
-#4001触手分娩
+#0000月度结算
+#1000怀孕事件
+#2000怀孕影响
+#4000触手分娩
 
 #月度结算
 tentacleswarm_pregnancy.0001 = { #第一月没有效果
@@ -107,11 +108,8 @@ tentacleswarm_pregnancy.1001 = {
 	left_portrait = root
 
 	trigger = {
-		#触手宗教或公开触手奴隶
-		OR = {
-			has_religion = religion:tentacleswarm_religion
-			has_trait = tentacle_slave
-		}
+		#触手宗教
+		has_religion = religion:tentacleswarm_religion
 	}
 
 	immediate = {
@@ -119,8 +117,10 @@ tentacleswarm_pregnancy.1001 = {
 	}
 	
 	option = {
-		add_trait_force_tooltip = pregnant
 		name = tentacleswarm_pregnancy.1001.a
+		add_trait_force_tooltip = pregnant
+		add_piety = 50
+		tentacle_bastardy_pregnancy_announcement_effect = yes #公开孩子的血统
 	}
 }
 #未婚先孕
@@ -132,10 +132,8 @@ tentacleswarm_pregnancy.1011 = {
 
 	trigger = {
 		#不信仰触手宗教
-		#不是公开的触手奴隶
-		NOR = {
+		NOT = {
 			has_religion = religion:tentacleswarm_religion
-			has_trait = tentacle_slave
 		}
 		#没有配偶
 		NOT = {
@@ -152,8 +150,7 @@ tentacleswarm_pregnancy.1011 = {
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1011.a
 		add_trait_force_tooltip = pregnant
-		add_trait = tentacle_defiled #触手受害者
-		add_adulterer_fornicator_trait_or_nothing_effect = yes #私通者
+		tentacle_bastardy_pregnancy_announcement_effect = yes #公开孩子的血统
 		ai_chance = {
 			base = 20
 			ai_value_modifier = {
@@ -183,14 +180,7 @@ tentacleswarm_pregnancy.1011 = {
 		add_adulterer_fornicator_trait_or_nothing_effect = yes #私通者
 		tentacle_pregnancy_termination_attempt_effect = yes 
 		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_rationality = 0.5
-			}
-			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
-				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
-			}
+			base = 0
 		}
 	}
 }
@@ -204,10 +194,9 @@ tentacleswarm_pregnancy.1021 = {
 	right_portrait = scope:spouse
 	
 	trigger = {
-		#不信仰触手宗教或者是公开奴隶
-		NOR = {
+		#不信仰触手宗教
+		NOT = {
 			has_religion = religion:tentacleswarm_religion
-			has_trait = tentacle_slave
 		}
 		#有男性配偶
 		any_consort = {
@@ -238,15 +227,27 @@ tentacleswarm_pregnancy.1021 = {
 			}
 		}
 	}
-
 	option = { #Confess
 		name = tentacleswarm_pregnancy.1021.a
 		add_trait_force_tooltip = pregnant
-		add_trait = tentacle_defiled #受害者
-		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
-		custom_tooltip = tentacleswarm_pregnancy.1021.a.tt
+		tentacle_bastardy_pregnancy_announcement_effect = yes #公开孩子的血统
 		ai_chance = {
 			base = 0
+		}
+	}
+
+	option = { #只告诉配偶
+		name = tentacleswarm_pregnancy.1021.b
+		add_trait_force_tooltip = pregnant
+		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
+		trigger_event = { 
+			id = tentacleswarm_pregnancy.2020
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = 0.5
+			}
 		}
 	}
 
@@ -254,6 +255,7 @@ tentacleswarm_pregnancy.1021 = {
 		name = tentacleswarm_pregnancy.1021.b
 		custom_tooltip = tentacleswarm_pregnancy.1021.b.tt
 		add_trait_force_tooltip = pregnant
+		tentacle_pregnancy_spouse_suspicion_effect = yes
 		stress_impact = {
 			honest = major_stress_impact_gain
 		}
@@ -268,6 +270,7 @@ tentacleswarm_pregnancy.1021 = {
 	option = { #Attempt to get rid of the child
 		name = tentacleswarm_pregnancy.1021.c
 		add_trait_force_tooltip = pregnant
+		tentacle_pregnancy_spouse_suspicion_effect = yes
 		tentacle_pregnancy_termination_attempt_effect = yes
 		ai_chance = {
 			base = 0
@@ -280,13 +283,12 @@ tentacleswarm_pregnancy.1031 = {
 	desc = tentacleswarm_pregnancy.1031.desc
 	theme = pregnancy
 	left_portrait = root
+	right_portrait = scope:spouse
 
 	trigger = {
 		#不信仰触手宗教
-		#不是公开的触手奴隶
-		NOR = {
+		NOT = {
 			has_religion = religion:tentacleswarm_religion
-			has_trait = tentacle_slave
 		}
 		#没有男性配偶
 		any_consort = {
@@ -302,28 +304,53 @@ tentacleswarm_pregnancy.1031 = {
 
 	immediate = {
 		play_music_cue = "mx_cue_succession"
+		if = {
+			limit = {
+				exists = primary_partner
+			}
+			primary_partner = {
+				save_scope_as = spouse
+			}
+		}
+		else = {
+			random_consort = {
+				save_scope_as = spouse
+			}
+		}
 	}
 
 	option = { #Publicly name the father!
 		name = tentacleswarm_pregnancy.1031.a
 		add_trait_force_tooltip = pregnant
-		add_trait = tentacle_defiled #受害者
-		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
+		tentacle_bastardy_pregnancy_announcement_effect = yes #公开孩子的血统
 		ai_chance = {
-			base = 20
+			base = 0
+		}
+	}
+	option = { #只告诉配偶
+		name = tentacleswarm_pregnancy.1031.b
+		add_trait_force_tooltip = pregnant
+		flavor = tentacleswarm_pregnancy.1031.b.tt
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
+		trigger_event = { 
+			id = tentacleswarm_pregnancy.2020
+		}
+		ai_chance = {
+			base = 50
 			ai_value_modifier = {
 				ai_honor = 0.5
-				ai_boldness = 0.5
-				ai_compassion = 0.25
 			}
 		}
 	}
 
 	option = { #Keep it secret!
-		name = tentacleswarm_pregnancy.1031.b
+		name = tentacleswarm_pregnancy.1031.c
 		add_trait_force_tooltip = pregnant
-		flavor = tentacleswarm_pregnancy.1031.b.tt
+		flavor = tentacleswarm_pregnancy.1031.c.tt
 		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
+		stress_impact = {
+			honest = major_stress_impact_gain
+		}
 		ai_chance = {
 			base = 100
 			ai_value_modifier = {
@@ -333,7 +360,7 @@ tentacleswarm_pregnancy.1031 = {
 	}
 
 	option = { #Attempt to terminate the pregnancy
-		name = tentacleswarm_pregnancy.1031.c
+		name = tentacleswarm_pregnancy.1031.d
 		add_trait_force_tooltip = pregnant
 		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸者
 		tentacle_pregnancy_termination_attempt_effect = yes
@@ -342,6 +369,1041 @@ tentacleswarm_pregnancy.1031 = {
 		}
 	}
 }
+#公开消息
+#信仰触手的配偶得知此事
+tentacleswarm_pregnancy.2001 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2001.t
+	desc = tentacleswarm_pregnancy.2001.desc
+	theme = pregnancy
+	left_portrait = scope:mother
+
+	option = {
+		name = tentacleswarm_pregnancy.2001.a
+		add_piety = 25
+	}
+}
+#不信仰触手的配偶得知此事
+tentacleswarm_pregnancy.2002 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2002.t
+	desc = tentacleswarm_pregnancy.2002.desc
+	theme = pregnancy
+	left_portrait = scope:mother
+
+	immediate = {
+		play_music_cue = "mx_cue_prison"
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2002.a
+		custom_tooltip = tentacleswarm_pregnancy_announcement_the_child_will_be_a_bastard
+	}
+}
+#家人得知此事
+tentacleswarm_pregnancy.2003 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2003.t
+	desc = {
+		desc = tentacleswarm_pregnancy.2003.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:spouse
+				}
+				desc = tentacleswarm_pregnancy.2003.mother_married
+			}
+			desc = tentacleswarm_pregnancy.2003.mother_unmarried
+		}
+	}
+	theme = pregnancy
+	left_portrait = scope:mother
+
+	immediate = {
+		play_music_cue = "mx_cue_prison"
+		scope:mother = {
+			if = {
+				limit = { exists = primary_partner }
+				primary_partner = {
+					save_scope_as = spouse
+				}
+			}
+		}
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2003.a
+		custom_tooltip = tentacleswarm_pregnancy_announcement_the_child_will_be_a_bastard
+	}
+}
+#我被其他人揭露了
+tentacleswarm_pregnancy.2004 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2004.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					exists = scope:adultery_spouse
+					scope:secret_exposer = scope:adultery_spouse
+				}
+				desc = tentacleswarm_pregnancy.2004.spouse_reveal
+			}
+			desc = tentacleswarm_pregnancy.2004.other_reveal
+		}
+		desc = tentacleswarm_pregnancy.2004.desc
+	}
+	left_portrait = {
+		character = scope:mother
+		animation = flirtation
+	}
+	right_portrait = {
+		character = scope:secret_exposer
+		animation = shock
+	}
+	theme = bastardy
+
+	immediate = {
+		play_music_cue = mx_cue_seduction
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2004.a
+		add_trait = tentacle_defiled #获得特质触手受害者特质
+		add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸或者私通
+	}
+}
+#信仰触手的配偶得知此事
+tentacleswarm_pregnancy.2005 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:secret_exposer = root
+				}
+				desc = tentacleswarm_pregnancy.2005.spouse_exposer
+			}
+			desc = tentacleswarm_pregnancy.2005.desc
+		}
+	}
+	theme = pregnancy
+	left_portrait = scope:mother
+
+	option = {
+		name = tentacleswarm_pregnancy.2001.a
+		add_piety = 25
+	}
+}
+#不信仰触手的配偶得知此事
+tentacleswarm_pregnancy.2006 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2006.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:secret_exposer = root
+				}
+				desc = tentacleswarm_pregnancy.2006.spouse_exposer
+			}
+			desc = tentacleswarm_pregnancy.2006.desc
+		}
+	}
+	theme = pregnancy
+	left_portrait = scope:mother
+
+	immediate = {
+		play_music_cue = "mx_cue_prison"
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2006.a
+		custom_tooltip = tentacleswarm_pregnancy_announcement_the_child_will_be_a_bastard
+	}
+}
+#家人得知此事
+tentacleswarm_pregnancy.2007 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2007.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					opinion = {
+						target = scope:mother
+						value < 10
+					}
+				}
+				desc = tentacleswarm_pregnancy.2007.dislike_desc
+			}
+			desc = tentacleswarm_pregnancy.2007.like_desc
+		}
+	}
+	left_portrait = {
+		character = scope:mother
+		animation = shame
+	}
+	theme = bastardy
+
+	immediate = {
+		play_music_cue = mx_cue_seduction	
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2007.a
+	}
+}
+#配偶的怀疑
+tentacleswarm_pregnancy.2010 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2010.t
+	desc = {
+		desc = tentacleswarm_pregnancy.2010.opening
+		first_valid = {
+			first_valid = {
+				triggered_desc = {
+					trigger = {
+						OR = {
+							AND = {
+								has_opinion_modifier = {
+									modifier = love_opinion
+									target = scope:mother
+								}
+								opinion = {
+									target = scope:mother
+									value >= 0
+								}
+							}
+							opinion = {
+								target = scope:mother
+								value > 50
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.hard_to_believe
+				}
+				triggered_desc = {
+					trigger = {
+						OR = {
+							AND = {
+								has_opinion_modifier = {
+									modifier = hate_opinion
+									target = scope:mother
+								}
+								opinion = {
+									target = scope:mother
+									value < 0
+								}
+							}
+							opinion = {
+								target = scope:mother
+								value < -50
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.easy_to_believe
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = sadistic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_sadistic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = lustful
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_lustful
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = deceitful
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_deceitful
+				}
+				triggered_desc = {
+					trigger = {
+						has_trait = trusting
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_root_trusting
+				}
+				triggered_desc = {
+					trigger = {
+						has_trait = lunatic
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_root_lunatic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = lunatic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2010.desc_lunatic
+				}
+			}
+			desc = tentacleswarm_pregnancy.2010.default
+		}
+	}
+	left_portrait = scope:mother
+	theme = pregnancy
+
+	immediate = {
+		save_scope_as = adultery_spouse
+	}
+	
+	option = { #当面对质
+		name = tentacleswarm_pregnancy.2010.a
+		custom_tooltip = tentacleswarm_pregnancy.2010.a.tt
+		hidden_effect = {
+			scope:mother = {
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2012
+					days = { 1 3 }
+				}
+			}
+		}
+		stress_impact = {
+			trusting = minor_stress_impact_gain
+			patient = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 1
+			}
+		}
+	}
+
+	option = { #秘密调查
+		name = tentacleswarm_pregnancy.2010.b
+		
+		spy_on_mother_pregnancy_adultery_effect = yes
+
+		stress_impact = {
+			trusting = major_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+		}
+	}
+	
+	option = { #没事的啦
+		name = tentacleswarm_pregnancy.2010.c
+		custom_tooltip = tentacleswarm_pregnancy.2010.c.tt
+		stress_impact = {
+			vengeful = minor_stress_impact_gain
+			impatient = minor_stress_impact_gain
+			cynical = minor_stress_impact_gain
+			paranoid = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 0
+			ai_value_modifier = {
+				ai_energy = -1
+			}
+			opinion_modifier = {
+				opinion_target = scope:mother
+				multiplier = 0.5
+			}
+		}
+	}
+}
+#当面对质
+tentacleswarm_pregnancy.2012 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2012.t
+	desc = {
+		first_valid = {
+			random_valid = {
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							has_trait = paranoid
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_paranoid
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							OR = {
+								has_trait = chaste
+								has_trait = zealous
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_chaste
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							OR = {
+								has_trait = craven
+								has_trait = shy
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_craven
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							OR = {
+								has_trait = vengeful
+								has_trait = wrathful
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_vengeful
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							has_trait = sadistic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_sadistic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							has_trait = lunatic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_lunatic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:adultery_spouse = {
+							OR = {
+								has_trait = compassionate
+								AND = {
+									NOR = {
+										has_trait = callous
+										has_trait = sadistic
+									}
+									has_opinion_modifier = {
+										modifier = love_opinion
+										target = root
+									}
+									opinion = {
+										target = root
+										value > 0
+									}
+								}
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2012.desc_compassionate
+				}
+			}
+			desc = tentacleswarm_pregnancy.2012.worried
+		}
+		desc = tentacleswarm_pregnancy.2012.conclusion
+	}
+	theme = pregnancy
+	
+	left_portrait = {
+		character = scope:adultery_spouse
+		triggered_animation = {
+			trigger = {
+				scope:adultery_spouse = {
+					OR = {
+						has_trait = paranoid
+						has_trait = lunatic
+					}
+				}
+			}
+			animation = paranoia
+		}
+		triggered_animation = {
+			trigger = {
+				scope:adultery_spouse = {
+					OR = {
+						has_trait = craven
+						has_trait = shy
+					}
+				}
+			}
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = {
+				scope:adultery_spouse = {
+					OR = {
+						has_trait = vengeful
+						has_trait = wrathful
+					}
+				}
+			}
+			animation = anger
+		}
+		triggered_animation = {
+			trigger = {
+				scope:adultery_spouse = {
+					has_trait = sadistic
+				}
+			}
+			animation = schadenfreude
+		}
+		triggered_animation = {
+			trigger = { always = yes }
+			animation = personality_cynical
+		}
+	}
+
+	trigger = {
+		scope:mother = {
+			has_trait = pregnant
+			is_tentacle_pregnant = yes
+		}
+	}
+
+	immediate = {
+		get_quirk_character_effect = yes
+	}
+	
+	option = { #承认这件事
+		name = tentacleswarm_pregnancy.2012.a
+		custom_tooltip = tentacleswarm_pregnancy.2012.a.confession_tt
+
+		scope:adultery_spouse = {
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2014
+				days = { 1 3 }
+			}
+		}
+		stress_impact = {
+			deceitful = major_stress_impact_gain
+			shy = minor_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_rationality = -0.5
+				ai_compassion = -0.25
+				ai_boldness = 0.5
+			}
+		}
+	}
+
+	option = { #坚持无辜
+		name = tentacleswarm_pregnancy.2012.b
+		custom_tooltip = tentacleswarm_pregnancy.2012.b.tt
+		scope:adultery_spouse = {
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2013
+				days = { 1 3 }
+			}
+		}
+		stress_impact = {
+			honest = major_stress_impact_gain
+			trusting = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+#母亲坚持孩子是丈夫的
+tentacleswarm_pregnancy.2013 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2012.t
+	desc = tentacleswarm_pregnancy.2013.desc
+	left_portrait = scope:mother
+	theme = pregnancy
+	
+	trigger = {
+		scope:mother = {
+			has_trait = pregnant
+			is_tentacle_pregnant = yes
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { is_ai = no }
+			scope:mother = {
+				assign_quirk_effect = yes
+			}
+		}
+	}
+
+	option = { #I only needed to hear you say it
+		name = tentacleswarm_pregnancy.2013.a
+		custom_tooltip = tentacleswarm_pregnancy.2013.a.tt
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_compassion = 0.5
+			}
+			opinion_modifier = {
+				opinion_target = scope:mother
+				multiplier = 0.5
+			}
+		}
+	}
+
+	option = { #Hm, I don't believe it
+		name = tentacleswarm_pregnancy.2013.b
+		spy_on_mother_tentacle_pregnancy_adultery_effect = yes
+
+		stress_impact = {
+			trusting = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 200
+				has_trait = paranoid
+			}
+			modifier = {
+				add = -100
+				has_trait = trusting
+			}
+			ai_value_modifier = {
+				ai_energy = 0.5
+				ai_vengefulness = 0.25
+			}
+		}
+	}
+}
+#秘密调查成功，妻子坦白
+tentacleswarm_pregnancy.2014 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2012.t
+	desc = {
+		first_valid = {
+			random_valid = {
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = tentacle_slave
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_tentacle_slave
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = callous
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_callous
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = sadistic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_sadistic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = gluttonous
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_gluttonous
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = deceitful
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_deceitful
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = compassionate
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_compassionate
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = honest
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_honest
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = lunatic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_lunatic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							opinion = {
+								target = root
+								value > 60
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_positive_opinion
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							opinion = {
+								target = root
+								value < -30
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2014.reaction_negative_opinion
+				}
+			}
+			desc = tentacleswarm_pregnancy.2014.default_reaction
+		}
+		desc = tentacleswarm_pregnancy.2014.default_admission
+	}
+	left_portrait = {
+		character = scope:mother
+		triggered_animation = {
+			trigger = {
+				scope:mother = {
+					OR = {
+						has_trait = callous
+						scope:mother = {
+							opinion = {
+								target = root
+								value < -30
+							}
+						}
+					}
+				}
+			}
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = {
+				scope:mother = {
+					has_trait = sadistic
+				}
+			}
+			animation = schadenfreude
+		}
+		triggered_animation = {
+			trigger = { always = yes }
+			animation = sadness
+		}
+	}
+	theme = bastardy
+
+	trigger = {
+		is_consort_of = scope:mother
+		scope:mother = {
+			is_pregnant = yes
+			is_tentacle_pregnant = yes
+		}
+	}
+	
+	immediate = {
+		play_music_cue = mx_cue_death
+	}
+
+	option = { #隐瞒这件事
+		name = tentacleswarm_pregnancy.2014.a
+		scope:mother = {
+			trigger_event = { #妻子得知被发现了
+				id = tentacleswarm_pregnancy.2016
+				days = { 1 5 }
+			}
+		}
+		flavor = tentacleswarm_pregnancy.2014.a.tt
+		stress_impact = {
+			vengeful = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+				ai_compassion = 0.25
+			}
+			opinion_modifier = {
+				opinion_target = scope:mother
+				multiplier = 0.5
+			}
+		}
+	}
+
+	option = { #公开这一切
+		name = tentacleswarm_pregnancy.2014.c
+		tentacle_bastardy_pregnancy_announcement_effect = yes
+		stress_impact = {
+			content = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_vengefulness = 1
+				ai_boldness = 0.5
+			}
+		}
+	}
+}
+#知道丈夫已经知道了
+tentacleswarm_pregnancy.2016 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2016.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:adultery_spouse = {
+						opinion = {
+							target = scope:mother
+							value > 50
+						}
+					}
+				}
+				desc = tentacleswarm_pregnancy.2016.very_positive_opinion
+			}
+			triggered_desc = {
+				trigger = {
+					scope:adultery_spouse = {
+						OR = {
+							opinion = {
+								target = scope:mother
+								value < -40
+							}
+							has_trait = sadistic
+						}
+						NOT = {
+							has_trait = compassionate
+						}
+					}
+				}
+				desc = tentacleswarm_pregnancy.2016.very_negative_opinion
+			}
+			desc = tentacleswarm_pregnancy.2016.fallback
+		}
+		desc = tentacleswarm_pregnancy.2016.conclusion
+	}
+	theme = pregnancy
+	left_portrait = scope:adultery_spouse
+	
+
+	trigger = {
+		scope:mother = {
+			has_trait = pregnant
+			is_tentacle_pregnant = yes
+		}
+	}
+
+	option = {
+		name = tentacleswarm_pregnancy.2016.a
+	}
+}
+#直接告诉丈夫
+tentacleswarm_pregnancy.2020 = {
+	type = character_event
+	title = tentacleswarm_pregnancy.2020.t
+	desc = {
+		first_valid = {
+			random_valid = {
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = tentacle_slave
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_tentacle_slave
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = callous
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_callous
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = sadistic
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_sadistic
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = gluttonous
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_gluttonous
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = deceitful
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_deceitful
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = compassionate
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_compassionate
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							has_trait = honest
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_honest
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							opinion = {
+								target = root
+								value > 60
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_positive_opinion
+				}
+				triggered_desc = {
+					trigger = {
+						scope:mother = {
+							opinion = {
+								target = root
+								value < -30
+							}
+						}
+					}
+					desc = tentacleswarm_pregnancy.2020.reaction_negative_opinion
+				}
+			}
+			desc = tentacleswarm_pregnancy.2020.default_reaction
+		}
+		desc = tentacleswarm_pregnancy.2020.default_admission
+	}
+	left_portrait = {
+		character = scope:mother
+		triggered_animation = {
+			trigger = {
+				scope:mother = {
+					OR = {
+						has_trait = callous
+						scope:mother = {
+							opinion = {
+								target = root
+								value < -30
+							}
+						}
+					}
+				}
+			}
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = {
+				scope:mother = {
+					has_trait = sadistic
+				}
+			}
+			animation = schadenfreude
+		}
+		triggered_animation = {
+			trigger = { always = yes }
+			animation = sadness
+		}
+	}
+	theme = bastardy
+
+	trigger = {
+		is_consort_of = scope:mother
+		scope:mother = {
+			is_pregnant = yes
+			is_tentacle_pregnant = yes
+		}
+	}
+	
+	immediate = {
+		play_music_cue = mx_cue_death
+		save_scope_as = adultery_spouse
+	}
+
+	option = { #隐瞒这件事
+		name = tentacleswarm_pregnancy.2020.a
+		scope:mother = {
+			trigger_event = { #妻子得知被发现了
+				id = tentacleswarm_pregnancy.2016
+				days = { 1 5 }
+			}
+		}
+		flavor = tentacleswarm_pregnancy.2020.a.tt
+		stress_impact = {
+			vengeful = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 0.5
+				ai_compassion = 0.25
+			}
+			opinion_modifier = {
+				opinion_target = scope:mother
+				multiplier = 0.5
+			}
+		}
+	}
+
+	option = { #公开这一切
+		name = tentacleswarm_pregnancy.2020.c
+		tentacle_bastardy_pregnancy_announcement_effect = yes
+		stress_impact = {
+			content = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_vengefulness = 1
+				ai_boldness = 0.5
+			}
+		}
+	}
+}
+
 #生育事件
 tentacleswarm_pregnancy.4001 = {
 	type = character_event

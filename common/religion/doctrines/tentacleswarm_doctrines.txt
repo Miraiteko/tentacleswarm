@@ -44,11 +44,11 @@
 			
 			custom_description = {	
 				text = WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED
-				flag:doctrine_adultery_women_accepted = { is_in_list = selected_doctrines }
+				flag:doctrine_adultery_women_accepted = { is_in_list = selected_doctrines } #必须接受女性通奸
 			}			
 			custom_description = {	
 				text = FEMALE_DOMINATED
-				flag:doctrine_gender_female_dominated = { is_in_list = selected_doctrines }
+				flag:doctrine_gender_female_dominated = { is_in_list = selected_doctrines } #必须是女性主导
 			}
 		}
 		piety_cost = {

@@ -38,6 +38,7 @@
     tentacleswarm_warbeast_type_pursuit_mult:0 "[tentacleswarm_warbeast_type|E][pursuit|E]"
     tentacleswarm_warbeast_type_screen_mult:0 "[tentacleswarm_warbeast_type|E][screen|E]"
     tentacleswarm_warbeast_type_siege_value_mult:0 "[tentacleswarm_warbeast_type|E][siege_weapon|E]"
+    
     #反触手兵种
     innovation_liquid_fire:0 "希腊火"
     innovation_liquid_fire_desc:0 "希腊火是东罗马帝国所发明的一种可以在水上或水里燃烧的液态燃烧剂，为早期热兵器，主要应用于海战中。但是由于P社蠢驴没有制作海战，我们改为将希腊火用在陆战之中，用于高效消灭触手怪物。"

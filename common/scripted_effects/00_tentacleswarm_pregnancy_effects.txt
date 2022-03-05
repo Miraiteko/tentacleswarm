@@ -8,6 +8,7 @@ tentacle_impregnate = {
 		}
 		custom_tooltip = tentacle_impregnate_tt
 		hidden_effect = {
+			save_scope_as = mother
 			set_variable = { #标记为触手怀孕
 				name = tentacle_pregnancy_month
 				value = 0
@@ -19,6 +20,462 @@ tentacle_impregnate = {
 				days = 5 #很快就进入第一月
 			}
 		}
+	}
+}
+#公开标明是触手妊娠
+tentacle_bastardy_pregnancy_announcement_effect = {
+	custom_tooltip = bastardy_pregnancy_announcement_tooltip #整个世界都知道了这个孩子的真实血统
+	if = {
+		limit = {
+			this = scope:mother
+		}
+		tentacle_bastard_pregnancy_mother_announcement_effect = yes #由自己公开
+	}
+	else = {
+		tentacle_bastard_pregnancy_other_announcement_effect = yes #被别人公开
+	}
+}
+#自己公开触手妊娠
+tentacle_bastard_pregnancy_mother_announcement_effect = {
+	add_trait = tentacle_defiled #获得特质触手受害者特质
+	add_adulterer_fornicator_trait_or_nothing_effect = yes #通奸或者私通
+	
+	scope:mother = {
+		add_to_temporary_list = notified_of_bastardy
+		
+		every_spouse = { #配偶反应
+			if = {
+				limit = { #推崇屈服
+					has_religion = religion:tentacleswarm_religion
+				}
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2001
+					days = 3
+				}
+			}
+			else = { #其他情况
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2002
+					days = 3
+				}
+			}
+			add_to_temporary_list = notified_of_bastardy
+		}
+		every_close_family_member = { #近亲反应
+			limit = {
+				NOT = { is_in_list = notified_of_bastardy }
+			}
+			if = {
+				limit = {
+					NOT = { has_religion = religion:tentacleswarm_religion }
+				}
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2003
+					days = 1
+				}
+				add_to_temporary_list = notified_of_bastardy
+			}
+			else = {
+				add_to_temporary_list = to_be_notified_of_bastardy
+			}
+		}
+		#其他亲人、领主，稍后进行简要通知
+		every_close_or_extended_family_member = {
+			limit = {
+				NOT = { is_in_list = notified_of_bastardy }
+			}
+			add_to_temporary_list = to_be_notified_of_bastardy
+		}
+		if = {
+			limit = {
+				is_landed = yes
+				exists = liege
+				liege = { NOT = { is_in_list = notified_of_bastardy } }
+			}
+			liege = {
+				add_to_temporary_list = to_be_notified_of_bastardy
+			}
+		}
+	}
+
+	hidden_effect = {
+		every_in_list = {
+			list = to_be_notified_of_bastardy
+			limit = {
+				NOT = { is_in_list = notified_of_bastardy }
+			}
+			if = {
+				limit = {
+					has_religion = religion:tentacleswarm_religion
+				}
+				send_interface_message = {
+					type = event_spouse_task_good
+					title = tentacleswarm_pregnancy.2003.t
+					desc = tentacleswarm_pregnancy.announcement.pos
+					left_icon = scope:mother
+
+					show_as_tooltip = {
+						scope:mother = {
+							add_trait_force_tooltip = tentacle_defiled
+							add_trait_force_tooltip = pregnant
+						}
+					}
+				}
+			}
+			else = {
+				send_interface_message = {
+					type = event_spouse_task_bad
+					title = tentacleswarm_pregnancy.2003.t
+					desc = tentacleswarm_pregnancy.announcement.neg
+					left_icon = scope:mother
+
+					show_as_tooltip = {
+						scope:mother = {
+							add_trait_force_tooltip = tentacle_defiled
+							add_trait_force_tooltip = pregnant
+						}
+					}
+				}
+			}
+			add_to_temporary_list = notified_of_bastardy
+		}
+	}
+}
+#被人公开怀孕子嗣
+tentacle_bastard_pregnancy_other_announcement_effect = {
+	save_scope_as = secret_exposer
+	#notified_of_bastardy储存已经知道这件事的人
+	#to_be_notified_of_bastardy储存需要知道这件事的人
+	add_to_temporary_list = notified_of_bastardy #公开者当然知道这件事情
+
+	scope:mother = {
+		trigger_event = { #自己
+			id = tentacleswarm_pregnancy.2004
+			days = 1
+		}
+		add_to_temporary_list = notified_of_bastardy
+		
+		every_spouse = { #配偶
+			if = {
+				limit = { #推崇屈服
+					has_religion = religion:tentacleswarm_religion
+				}
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2005
+					days = 3
+				}
+			}
+			else = { #其他情况
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2006
+					days = 3
+				}
+			}
+			add_to_temporary_list = notified_of_bastardy
+		}
+		every_close_family_member = { #近亲反应
+			limit = {
+				NOT = { is_in_list = notified_of_bastardy }
+			}
+			if = {
+				limit = {
+					NOT = { has_religion = religion:tentacleswarm_religion }
+				}
+				trigger_event = {
+					id = tentacleswarm_pregnancy.2007
+					days = 1
+				}
+				add_to_temporary_list = notified_of_bastardy
+			}
+			else = {
+				add_to_temporary_list = to_be_notified_of_bastardy
+			}
+		}
+		#其他亲人、领主，稍后进行简要通知
+		every_close_or_extended_family_member = {
+			limit = {
+				NOT = { is_in_list = notified_of_bastardy }
+			}
+			add_to_temporary_list = to_be_notified_of_bastardy
+		}
+		if = {
+			limit = {
+				is_landed = yes
+				exists = liege
+				liege = { NOT = { is_in_list = notified_of_bastardy } }
+			}
+			liege = {
+				add_to_temporary_list = to_be_notified_of_bastardy
+			}
+		}
+	}
+
+	every_in_list = {
+		list = to_be_notified_of_bastardy
+		limit = {
+			NOT = { is_in_list = notified_of_bastardy }
+		}
+		if = {
+			limit = {
+				has_religion = religion:tentacleswarm_religion
+			}
+			send_interface_message = {
+				type = event_spouse_task_good
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.other.announcement.pos
+				left_icon = scope:mother
+				right_icon = scope:secret_exposer
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = event_spouse_task_bad
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.other.announcement.neg
+				left_icon = scope:mother
+				right_icon = scope:secret_exposer
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
+		add_to_temporary_list = notified_of_bastardy
+	}
+}
+#检查配偶是否起疑
+tentacle_pregnancy_spouse_suspicion_effect = {
+	add_trait_force_tooltip = pregnant
+	if = {
+		limit = {
+			NOT = { exists = scope:spouse }
+			exists = primary_spouse
+		}
+		primary_spouse = {
+			save_scope_as = spouse
+		}
+	}
+	if = {
+		limit = { exists = scope:spouse }
+		scope:spouse = {
+			hidden_effect = {
+				random_list = {
+					0 = { #配偶起疑心了
+						trigger = {
+							NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }} #多边恋信仰的话，不起疑
+						}
+						tentacle_pregnancy_spouse_suspicion_effect_modifier = yes #权重计算
+						trigger_event = tentacleswarm_pregnancy.2010 #疑惑事件
+					}
+					100 = { #不起疑心，正常弹通知
+						trigger = {
+							NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }}
+						}
+
+						if = {
+							limit = {
+								OR = {
+									any_child = { count < 1 } #首个孩子
+									AND = { #首个自己家族的孩子
+										NOT = { any_child = { dynasty = scope:spouse.dynasty } }
+										scope:spouse = { matrilinear_marriage = no }
+									}
+								}
+							}
+							trigger_event = pregnancy.1002
+						}
+						else = {
+							send_interface_toast = {
+								left_icon = scope:mother
+								title = pregnancy_not_first_child_message
+								show_as_tooltip = {
+									scope:mother = {
+										add_trait_force_tooltip = pregnant
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+#配偶发起秘密调查
+spy_on_mother_tentacle_pregnancy_adultery_effect = {
+	show_as_tooltip = {
+		if = { #如果间谍总管技能高，间谍总管来调查
+			limit = {
+				exists = cp:councillor_spymaster
+				NOT = { cp:councillor_spymaster = scope:mother }
+				cp:councillor_spymaster.intrigue > intrigue
+			}
+			cp:councillor_spymaster = {
+				duel = { #技能对抗
+					skill = intrigue
+					target = scope:mother
+
+					6 = {
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = 0.5
+							min = -5
+						}
+						desc = adultery.1003.duel_success
+						root = {
+							custom_tooltip = adultery.1003.duel_success_tt
+						}
+					}
+
+					4 = {
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = -0.5
+							min = -3
+						}
+						desc = adultery.1003.duel_failure
+						root = {
+							reverse_add_opinion = {
+								target = scope:mother
+								modifier = spied_on_me_opinion
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			duel = {
+				skill = intrigue
+				target = scope:mother
+
+				6 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+						min = -5
+					}
+					desc = adultery.1003.duel_success
+					custom_tooltip = adultery.1003.duel_success_tt
+				}
+
+				4 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+						min = -3
+					}
+					desc = adultery.1003.duel_failure
+					reverse_add_opinion = {
+						target = scope:mother
+						modifier = spied_on_me_opinion
+					}
+				}
+			}
+		}
+	}
+	#上面是文本描述，下面才是真实调查
+	hidden_effect = {
+		scope:mother = {
+			add_character_flag = {
+				flag = father_suspects_this_pregnancy
+				months = 8
+			}
+		}
+
+		if = { # Check whether root or Spymaster should spy
+			limit = {
+				exists = cp:councillor_spymaster
+				NOT = { cp:councillor_spymaster = scope:mother }
+				cp:councillor_spymaster.intrigue > intrigue
+			}
+			cp:councillor_spymaster = {
+				duel = {
+					skill = intrigue
+					target = scope:mother
+
+					6 = {
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = 0.5
+							min = -5
+						}
+						trigger = {
+							is_tentacle_slave = no #如果间谍总管是奴隶的话，不会帮你调查
+						}
+						root = {
+							trigger_event = {
+								id = tentacleswarm_pregnancy.2014
+								days = { 10 15 }
+							}
+						}
+					}
+
+					4 = { #没找到证据
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = -0.5
+							min = -3
+						}
+						root = {
+							trigger_event = {
+								id = adultery.1009
+								days = { 10 15 }
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			duel = {
+				skill = intrigue
+				target = scope:mother
+
+				6 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+						min = -5
+					}
+					trigger_event = {
+						id = tentacleswarm_pregnancy.2014
+						days = { 10 15 }
+					}
+				}
+
+				4 = { #没找到证据
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+						min = -3
+					}
+					compare_modifier = {
+						trigger = {
+							exists = cp:councillor_spymaster
+							cp:councillor_spymaster = { is_tentacle_slave = yes } #间谍总管是奴隶的话，会阻挠
+						}
+						target = cp:councillor_spymaster
+						value = intrigue
+						multiplier = 5
+					}
+					trigger_event = {
+						id = adultery.1009
+						days = { 10 15 }
+					}
+				}
+			}
+		}			
 	}
 }
 #触手分娩
@@ -56,7 +513,7 @@ tentacle_pregnancy_termination_attempt_effect = {
 			hidden_effect = {
 				trigger_event = {
 					id = pregnancy.2005
-					days = { 3 10 }
+					days = { 15 20 }
 				}
 			}
 		}
@@ -69,7 +526,7 @@ tentacle_pregnancy_termination_attempt_effect = {
 			hidden_effect = {
 				trigger_event = {
 					id = pregnancy.2007
-					days = { 3 10 }
+					days = { 15 20 }
 				}
 			}
 		}

@@ -37,8 +37,27 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		tentacle_corruption_perk_add = yes 
-		tentacle_impregnate = yes
+		random_spouse = {
+			save_scope_as = mother
+		}
+		random_vassal = {
+			save_scope_as = secret_exposer
+		}
+		
+		send_interface_message = {
+			type = event_spouse_task_good
+			title = tentacleswarm_pregnancy.2003.t
+			desc = tentacleswarm_pregnancy.other.announcement.pos
+			left_icon = scope:mother
+			right_icon = scope:secret_exposer
+
+			show_as_tooltip = {
+				scope:mother = {
+					add_trait_force_tooltip = tentacle_defiled
+					add_trait_force_tooltip = pregnant
+				}
+			}
+		}
 	}
 
 	ai_check_interval = 0

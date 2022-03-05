@@ -1,5 +1,9 @@
 ﻿title_succession_laws = {
 	tentacleswarm_elective_succession_law = {
+		can_keep = {
+			has_government = tentacleswarm_government
+			highest_held_title_tier >= tier_duchy
+		}
 		can_have = {
 			has_government = tentacleswarm_government
 			highest_held_title_tier >= tier_duchy
