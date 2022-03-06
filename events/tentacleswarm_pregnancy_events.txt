@@ -1465,7 +1465,19 @@ tentacleswarm_pregnancy.4001 = {
 				limit = {
 					has_religion = religion:tentacleswarm_religion
 				}
-				#还没做
+				scope:spouse = {
+					send_interface_message = {
+						type = event_spouse_task_good
+						title = tentacleswarm_pregnancy.4001.spouse
+						desc = tentacleswarm_pregnancy.4001.spouse.desc
+						left_icon = scope:mother
+						show_as_tooltip = {
+							scope:mother = {
+								custom_tooltip = tentacleswarm_suicide_tt
+							}
+						}
+					}
+				}
 			}
 			else = { #否则，配偶认为是流产
 				scope:spouse = { trigger_event = pregnancy.2102 }
