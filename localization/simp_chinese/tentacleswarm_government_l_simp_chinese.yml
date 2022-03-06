@@ -7,6 +7,7 @@
  tentacleswarm_government_adjective:0 "天灾制"
  tentacleswarm_government_realm:0 "天灾领地"
  tentacleswarm_government_desc:0 "$game_concept_tentacleswarm_government_desc$\n\n#F 在被触手怪物支配的土地上，触手主人凭着本能肆虐，触手奴隶们凭着本能屈服，不需要进行社会管理。\n但是在统合大片的土地，以及团结力量处理对外事务的时候，需要有一位最受触手主人宠爱的首席奴隶，来作为帝国的代理统治者。#!"
+ tentacleswarm_government_vassals_label:1 "天灾臣属[obligations|E]基于[opinion|E]"
  
  tentacleswarm_succession_order_laws:0 "继承法"
  tentacleswarm_supreme_power:0 "允许持有无限的[holdings|E]，并可以通过献祭收回[vassal|E][titles|E]"
@@ -17,6 +18,8 @@
  tentacleswarm_government_decision_desc:0 "在被主人征服的土地上，人民由主人所支配，凭本能而屈服。繁杂的社会管理体系已经没有存在的必要了。\n\n我将废除旧的体系，建立适合主人统治的社会制度。"
  tentacleswarm_government_decision_tooltip:0 "改变[government|E]类型，成为[tentacleswarm_government|E]"
  tentacleswarm_elective_succession_law:0 "触手奴隶选举制"
+ tentacleswarm_elective_succession_law_subname:0 "堕落会议"
+ tentacleswarm_elective_succession_law_effects:1 "公开具有[GetTrait('tentacle_slave').GetName( GetNullCharacter)]特质的[ruler|E]、[vassals|E]与[claimants|E]可以提名一位女性作为[title_heir|E]。"
  tentacleswarm_elective_electors:0 "统治者、封臣、宣称者(仅限触手奴隶)"
  tentacleswarm_elective_electors_tooltip:0 "要想成为触手奴隶选举制下的有效选举人:\n$EFFECT_LIST_BULLET$必须公开具有[GetTrait('tentacle_slave').GetName( GetNullCharacter)]特质\n$EFFECT_LIST_BULLET$必须有领地\n还要符合以下条件之一：\n$EFFECT_LIST_BULLET$是当前统治者\n$EFFECT_LIST_BULLET$是统治者的[direct_vassal|E]\n$EFFECT_LIST_BULLET$是该头衔的[de_jure|E]封臣\n$EFFECT_LIST_BULLET$是该头衔的[claimants|E]"
  tentacleswarm_elective_candidates:"封臣、宣称者、近亲(仅限女性)"
