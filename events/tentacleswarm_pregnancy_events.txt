@@ -1127,7 +1127,6 @@ tentacleswarm_pregnancy.2014 = {
 	trigger = {
 		is_consort_of = scope:mother
 		scope:mother = {
-			is_pregnant = yes
 			is_tentacle_pregnant = yes
 		}
 	}
@@ -1357,7 +1356,6 @@ tentacleswarm_pregnancy.2020 = {
 	trigger = {
 		is_consort_of = scope:mother
 		scope:mother = {
-			is_pregnant = yes
 			is_tentacle_pregnant = yes
 		}
 	}
