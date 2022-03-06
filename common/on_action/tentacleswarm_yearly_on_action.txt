@@ -134,12 +134,20 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						factor = 10
 						has_perk = tentacle_corruption_01_perk
 					}
+					modifier = { #年轻
+						factor = 3
+						effective_age <= 25
+					}
+					modifier = { #年迈
+						factor = 0.5
+						effective_age > 35
+					}
 					trigger_event = {
 						id = tentacleswarm_slave.0021 #水井杀
 						months = { 6 9 }
 					}
 				}
-				100 = {
+				200 = {
 				}
 			}
 		}

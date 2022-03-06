@@ -37,9 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		tentacle_corruption_perk_add = yes
 		hidden_effect = { 
-			#every_living_character = { tentacle_impregnate = yes }
+			every_living_character = { tentacle_impregnate = yes }
 		}
 	}
 

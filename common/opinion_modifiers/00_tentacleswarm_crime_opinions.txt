@@ -1,5 +1,5 @@
 ﻿tentacle_slave_evil = {
-	opinion = -300
+	opinion = -100
 	imprisonment_reason = yes
 	banish_reason = yes
 	execute_reason = yes
@@ -7,10 +7,10 @@
 	divorce_reason = yes
 }
 tentacle_slave_crime = {
-	opinion = -20
+	opinion = -10
 	imprisonment_reason = yes
-	revoke_title_reason = yes
+	#revoke_title_reason = yes
 }
 tentacle_slave_shunned = {
-	opinion = -10
+	opinion = -5
 }
