@@ -21,10 +21,10 @@
 		flag = elective_succession_law
 		title_allegiance_opinion = 10
 		revoke_cost = {
-			prestige = change_hre_title_succession_law_prestige_cost
+			prestige = 10
 		}
 		pass_cost = {
-			prestige = 0
+			prestige = 10
 		}
 	}
 }

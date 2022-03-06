@@ -464,10 +464,11 @@ tentacleswarm_yearly_modifier_check = {
 				}
 				change_government = tentacleswarm_government
 			}
-			if = { #锁继承法
+			if = { #开继承法
 				limit = { 
 					has_government = tentacleswarm_government
 					is_landed = yes
+					is_ai = yes
 				}
 				every_held_title = {
 					limit = {
@@ -490,9 +491,10 @@ tentacleswarm_yearly_modifier_check = {
 				}
 				change_government = feudal_government #暂且先变封建
 			}
-			if = { #继承法无效
+			if = { #关继承法
 				limit = { 
 					is_landed = yes
+					is_ai = yes
 				}
 				every_held_title = {
 					limit = {

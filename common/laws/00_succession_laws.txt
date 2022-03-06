@@ -1,6 +1,5 @@
 ﻿succession_order_laws = {
 	flag = succession_order_laws
-
 	confederate_partition_succession_law = {
 		can_keep = {
 			always = yes

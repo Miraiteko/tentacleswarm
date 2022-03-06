@@ -37,8 +37,10 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
+		remove_realm_law = confederate_partition_succession_law
+		add_realm_law = tentacleswarm_succession_law 
 		hidden_effect = {
-			every_living_character = { tentacle_impregnate = yes }
+			#every_living_character = { tentacle_impregnate = yes }
 		}
 	}
 
