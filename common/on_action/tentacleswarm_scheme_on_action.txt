@@ -1,12 +1,7 @@
-﻿#触手腐化结算事件
-tentacle_corrupt_outcome = {	
+﻿#触手腐化阴谋就位，选择腐化方式
+tentacle_corrupt_setup = {	
 	random_events = {
-		200 = tentacle_corrupt_scheme.1001 #发起腐化
-	}
-}
-tentacle_corrupt_success = {	
-	random_events = {
-		200 = tentacle_corrupt_scheme.1003 
+		200 = tentacle_corrupt_scheme.1001 #水井投放
 	}
 }
 #触手腐化月度事件

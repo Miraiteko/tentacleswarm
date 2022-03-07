@@ -6,21 +6,28 @@ tentacle_corrupt = {
 	hostile = yes
 	icon = icon_scheme_hostile
 
-	power_per_skill_point = 10
+	cooldown = { years = 1 }
+	is_secret = yes
+	 
+	power_per_skill_point = 5
 	resistance_per_skill_point = 1
 	power_per_agent_skill_point = 1
 	
-	minimum_progress_chance = 99
+	minimum_progress_chance = 1
 	maximum_progress_chance = 99
+	base_secrecy = 10
 	maximum_secrecy = 99
-	minimum_success = 10
+	minimum_success = 50
 	maximum_success = 99
 	
 	allow = {
-		debug_only = yes
-		is_ai = no
-		#is_tentacle_slave = yes
-		is_imprisoned = no
+		OR = {
+			debug_only = yes #debug模式无所畏惧
+			AND = {
+				is_tentacle_slave = yes
+				is_imprisoned = no
+			}
+		}
 	}
 	
 	valid = {
@@ -85,9 +92,21 @@ tentacle_corrupt = {
 	}
 	
 	base_success_chance = {
-		base = 0
+		base = 30
 		
 		hostile_scheme_base_chance_modifier = yes
+		
+		#腐化程度
+		modifier = {
+			add = {
+				value = scope:target.tentacle_corruption_lifestyle_perks
+				multiply = 10
+			}
+			desc = target_corruption_lifestyle_perks
+			scope:target = {
+				tentacle_corruption_lifestyle_perks >= 1
+			}
+		}
 		
 		# Spiritual Head of Faith
 		modifier = {
@@ -158,25 +177,22 @@ tentacle_corrupt = {
 	
 	agent_leave_threshold = -25
 		
-	cooldown = { years = 1 }
-	is_secret = yes
-	base_secrecy = 10
 
 	on_ready = {
 		scheme_owner = {
 			if = { #避免一天弹两个腐化事件
 				limit = {
 					always = no
-					#has_character_flag = is_in_event_tentacle_corrupt_outcome_0001
+					has_character_flag = is_in_event_tentacle_corrupt_outcome_0001
 				}
 				trigger_event = {
-					on_action = tentacle_corrupt_outcome
+					id = tentacle_corrupt_scheme.0001
 					days = 1
 				}
 			}
 			else = {
 				trigger_event = {
-					on_action = tentacle_corrupt_outcome
+					id = tentacle_corrupt_scheme.0001
 				}
 			}
 		}
