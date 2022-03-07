@@ -13,6 +13,9 @@ tentacle_corrupt_scheme_power_mult = {
 	decimals = 0
 	percent = yes
 }
+max_tentacle_corrupt_schemes_add = {
+	decimals = 0
+}
 #巨兽的各项修正，百分数形式，不保留小数
 tentacleswarm_warbeast_type_damage_mult = {
 	decimals = 0

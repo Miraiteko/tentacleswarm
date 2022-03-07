@@ -540,12 +540,12 @@ tentacleswarm_warbeast_decision = {
 	confirm_text = tentacleswarm_warbeast_decision_confirm
 
 	is_shown = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacle_slave = yes
 	}
 	
 	is_valid = {
 		is_at_war = yes
-		is_tentacle_slave = yes
+		has_religion = religion:tentacleswarm_religion
 		is_independent_ruler = yes
 		any_realm_county = {
 			has_county_modifier = tentacleswarm_corruption_5
