@@ -1,6 +1,23 @@
-﻿#奴隶夺取君位结算事件
+﻿#触手腐化结算事件
+tentacle_corrupt_outcome = {	
+	random_events = {
+		200 = tentacle_corrupt_scheme.1001 #发起腐化
+	}
+}
+tentacle_corrupt_success = {	
+	random_events = {
+		200 = tentacle_corrupt_scheme.1003 
+	}
+}
+#触手腐化月度事件
+tentacle_corrupt_ongoing = {
+	random_events = {
+		chance_to_happen = 5
+		50 = 0
+	}
+}
+#奴隶夺取君位结算事件
 tentacle_slave_claim_throne_setup = {
-	
 	random_events = {
 		200 = tentacle_slave_claim_throne.1001 #发动政变
 	}

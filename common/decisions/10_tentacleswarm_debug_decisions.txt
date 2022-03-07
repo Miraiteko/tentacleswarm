@@ -17,13 +17,13 @@
 	}
 	
 	ai_check_interval = 0
+	
 	ai_potential = {
 		always = no
 	}
 	ai_will_do = {
 		base = 0
 	}
-	
 }
 tentacleswarm_test_decision = {
 	major = yes
@@ -38,7 +38,12 @@ tentacleswarm_test_decision = {
 	}	
 	effect = {
 		hidden_effect = { 
-			every_living_character = { tentacle_impregnate = yes } 
+			every_vassal = {
+				start_scheme = {
+					type = tentacle_corrupt
+					target = ROOT
+				}
+			}
 		}
 	}
 

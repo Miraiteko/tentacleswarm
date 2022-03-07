@@ -75,5 +75,23 @@
     #互动相关
     tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
     tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
-    tentacle_corrupt_desc_general:0 "腐化为触手奴隶"
+    
+    tentacle_corrupt_start_scheme_interaction:1 "触手腐化"
+    tentacle_corrupt_start_scheme_interaction_desc:1 "[recipient.GetShortUIName]将很快成为触手主人的玩物！"
+    
+    start_tentacle_corrupt_notification:0 "开始腐化阴谋"
+    tentacle_corrupt:1 "触手腐化"
+    tentacle_corrupt_action:0 "腐化"
+    tentacle_corrupt_desc:0 "寻找把[SCHEME.GetTarget.GetShortUINameNoTooltip]献给触手主人的机会。"
+    tentacle_corrupt_desc_general:2 "$tentacle_corrupt$[scheme|E]是一种[hostile_scheme|E]，意图腐化目标。\n[scheme_owner|E]若成功执行计划，[scheme_target|E]将会受到触手怪物的侵袭，从而逐渐堕落为[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]。"
+    tentacle_corrupt_successful_roll_tt:0 "[target.GetShortUINameNoTooltip]成为我的阶下囚！"
+    tentacle_corrupt_success_discovery_tt:0 "成功的绑架将暴露我的身份\n否则："
+    tentacle_corrupt_become_discovered_roll_tt:0 "我暴露了！"
+    tentacle_corrupt_scheme_invalidated_title:1 "@scheme_icon!腐化密谋结束"
+    tentacle_corrupt_scheme_i_imprisoned_them_message:0 "[target.GetShortUIName|U]已经是我的阶下囚了，我可以随意玩弄她。"
+    tentacle_corrupt_scheme_she_is_slave_message:0 "[target.GetShortUIName|U]已经屈服于触手主人了。"
+    tentacle_corrupt_scheme_she_is_old_message:0 "[target.GetShortUIName|U]不再受到触手主人青睐了。"
+    TENTACLE_CORRUPT_SUCCESS_DESC:2 "[TARGET_CHARACTER.GetShortUIName|U]遭到触手主人的侵袭。"
+    TENTACLE_CORRUPT_DISCOVERY_DESC:1 "[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]身份未暴露"
     tentacle_slave_claim_throne_desc_general:0 "为主人夺取权位"
+

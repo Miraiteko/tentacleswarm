@@ -399,7 +399,7 @@ tentacleswarm_corruption_county_check = {
 			var:tentacleswarm_corruption = { compare_value < 20 }
 			religion = religion:tentacleswarm_religion
 		}
-		random_living_character = { #同传承宗教优先
+		random_ruler = { #同传承宗教优先
 			limit = {
 				not = { has_religion = religion:tentacleswarm_religion }
 				culture = { has_same_culture_heritage = scope:checked_county.culture }

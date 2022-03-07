@@ -2,6 +2,7 @@
 	icon = icon_hostile
 	interface_priority = 70
 	category = interaction_category_hostile
+	desc = tentacle_corrupt_start_scheme_interaction_desc
 
 	send_name = START_SCHEME
 
@@ -9,39 +10,10 @@
 	ignores_pending_interaction_block = yes
 	
 	is_shown = {
-		scope:actor = { is_tentacle_slave = yes }
+		#scope:actor = { is_tentacle_slave = yes }
 		NOR = {
-			scope:recipient = scope:actor
-			scope:recipient = { is_imprisoned_by = scope:actor }
-		}
-		
-		
-		NAND = { # Game Rules!
-			has_game_rule = no_players_multiplayer_murder_schemes
-			scope:actor = {
-				is_ai = no
-			}
-			scope:recipient = {
-				is_ai = no
-			}
-		}
-		
-		NAND = {
-			has_game_rule = no_player_families_multiplayer_murder_schemes
-			scope:actor = {
-				is_ai = no
-			}
-			scope:recipient = {
-				OR = {
-					is_ai = no
-					any_close_family_member = {
-						AND = {
-							is_ai = no
-							NOT = { this = scope:actor }
-						}
-					}
-				}
-			}
+			#scope:recipient = scope:actor
+			scope:recipient = { is_imprisoned = yes }
 		}
 	}
 
@@ -55,20 +27,6 @@
 		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
 	}
 
-	desc = {
-		triggered_desc = {
-			trigger = {
-				scope:actor = {
-					can_start_scheme = {
-						type = tentacle_corrupt
-						target = scope:recipient
-					}
-				}
-			}
-			desc = scheme_interaction_tt_abduct_approved
-		}
-	}
-
 	on_accept = {
 		scope:actor = {
 			stress_impact = {
@@ -80,7 +38,7 @@
 		hidden_effect = {
 			scope:actor = {
 				send_interface_toast = {
-					title = start_abduct_notification
+					title = start_tentacle_corrupt_notification
 
 					left_icon = scope:actor					
 					right_icon = scope:recipient
@@ -108,6 +66,24 @@
 		always = no
 	}
 	ai_frequency = 12
+	
+	ai_targets = {
+		ai_recipients = family
+		max = 2
+	}
+	ai_targets = {
+		ai_recipients = guests
+		ai_recipients = courtiers
+	}
+	
+	ai_targets = {
+		ai_recipients = realm_characters
+		max = 10
+	}
+	
+	ai_target_quick_trigger = {							# Quick triggers for the ai_targets
+		adult = yes
+	}
 	ai_will_do = {
 		base = 0
 	}
