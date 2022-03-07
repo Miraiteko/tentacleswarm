@@ -104,38 +104,9 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 			limit = {
 				NOT = { is_in_list = notified_of_bastardy }
 			}
-			if = {
-				limit = {
-					has_religion = religion:tentacleswarm_religion
-				}
-				send_interface_message = {
-					type = event_spouse_task_good
-					title = tentacleswarm_pregnancy.2003.t
-					desc = tentacleswarm_pregnancy.announcement.pos
-					left_icon = scope:mother
-
-					show_as_tooltip = {
-						scope:mother = {
-							add_trait_force_tooltip = tentacle_defiled
-							add_trait_force_tooltip = pregnant
-						}
-					}
-				}
-			}
-			else = {
-				send_interface_message = {
-					type = event_spouse_task_bad
-					title = tentacleswarm_pregnancy.2003.t
-					desc = tentacleswarm_pregnancy.announcement.neg
-					left_icon = scope:mother
-
-					show_as_tooltip = {
-						scope:mother = {
-							add_trait_force_tooltip = tentacle_defiled
-							add_trait_force_tooltip = pregnant
-						}
-					}
-				}
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2008
+				days = 1
 			}
 			add_to_temporary_list = notified_of_bastardy
 		}
@@ -210,47 +181,18 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 		}
 	}
 
-	every_in_list = {
-		list = to_be_notified_of_bastardy
-		limit = {
-			NOT = { is_in_list = notified_of_bastardy }
-		}
-		if = {
+	hidden_effect = {
+		every_in_list = {
+			list = to_be_notified_of_bastardy
 			limit = {
-				has_religion = religion:tentacleswarm_religion
+				NOT = { is_in_list = notified_of_bastardy }
 			}
-			send_interface_message = {
-				type = event_spouse_task_good
-				title = tentacleswarm_pregnancy.2003.t
-				desc = tentacleswarm_pregnancy.other.announcement.pos
-				left_icon = scope:mother
-				right_icon = scope:secret_exposer
-
-				show_as_tooltip = {
-					scope:mother = {
-						add_trait_force_tooltip = tentacle_defiled
-						add_trait_force_tooltip = pregnant
-					}
-				}
+			trigger_event = {
+				id = tentacleswarm_pregnancy.2009
+				days = 1
 			}
+			add_to_temporary_list = notified_of_bastardy
 		}
-		else = {
-			send_interface_message = {
-				type = event_spouse_task_bad
-				title = tentacleswarm_pregnancy.2003.t
-				desc = tentacleswarm_pregnancy.other.announcement.neg
-				left_icon = scope:mother
-				right_icon = scope:secret_exposer
-
-				show_as_tooltip = {
-					scope:mother = {
-						add_trait_force_tooltip = tentacle_defiled
-						add_trait_force_tooltip = pregnant
-					}
-				}
-			}
-		}
-		add_to_temporary_list = notified_of_bastardy
 	}
 }
 #检查配偶是否起疑

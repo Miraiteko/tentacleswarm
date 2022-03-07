@@ -38,7 +38,7 @@ tentacleswarm_test_decision = {
 	}	
 	effect = {
 		hidden_effect = { 
-			every_living_character = { tentacle_impregnate = yes }
+			every_living_character = { tentacle_impregnate = yes } 
 		}
 	}
 

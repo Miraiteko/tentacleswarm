@@ -2,6 +2,9 @@
 #0000月度结算
 #1000怀孕事件
 #2000怀孕影响
+	#2001-2007触手妊娠曝光
+	#2010-2016质疑忠贞
+	#2020坦白
 #4000触手分娩
 
 #月度结算
@@ -559,6 +562,85 @@ tentacleswarm_pregnancy.2007 = {
 
 	option = {
 		name = tentacleswarm_pregnancy.2007.a
+	}
+}
+#收到通知
+tentacleswarm_pregnancy.2008 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				has_religion = religion:tentacleswarm_religion
+			}
+			send_interface_message = {
+				type = event_spouse_task_good
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.announcement.pos
+				left_icon = scope:mother
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = event_spouse_task_bad
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.announcement.neg
+				left_icon = scope:mother
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
+	}
+}
+tentacleswarm_pregnancy.2009 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				has_religion = religion:tentacleswarm_religion
+			}
+			send_interface_message = {
+				type = event_spouse_task_good
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.other.announcement.pos
+				left_icon = scope:mother
+				right_icon = scope:secret_exposer
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = event_spouse_task_bad
+				title = tentacleswarm_pregnancy.2003.t
+				desc = tentacleswarm_pregnancy.other.announcement.neg
+				left_icon = scope:mother
+				right_icon = scope:secret_exposer
+
+				show_as_tooltip = {
+					scope:mother = {
+						add_trait_force_tooltip = tentacle_defiled
+						add_trait_force_tooltip = pregnant
+					}
+				}
+			}
+		}
 	}
 }
 #配偶的怀疑
@@ -1466,16 +1548,9 @@ tentacleswarm_pregnancy.4001 = {
 					has_religion = religion:tentacleswarm_religion
 				}
 				scope:spouse = {
-					send_interface_message = {
-						type = event_spouse_task_good
-						title = tentacleswarm_pregnancy.4001.spouse
-						desc = tentacleswarm_pregnancy.4001.spouse.desc
-						left_icon = scope:mother
-						show_as_tooltip = {
-							scope:mother = {
-								custom_tooltip = tentacleswarm_suicide_tt
-							}
-						}
+					trigger_event = {
+						id = tentacleswarm_pregnancy.4002
+						days = 1
 					}
 				}
 			}
@@ -1483,6 +1558,22 @@ tentacleswarm_pregnancy.4001 = {
 				scope:spouse = { trigger_event = pregnancy.2102 }
 			}
 		}
+	}
+}
 
+tentacleswarm_pregnancy.4002 = { #配偶收到提示
+	hidden = yes
+	immediate = {
+		send_interface_message = {
+			type = event_spouse_task_good
+			title = tentacleswarm_pregnancy.4001.spouse
+			desc = tentacleswarm_pregnancy.4001.spouse.desc
+			left_icon = scope:mother
+			show_as_tooltip = {
+				scope:mother = {
+					custom_tooltip = tentacleswarm_suicide_tt
+				}
+			}
+		}
 	}
 }
