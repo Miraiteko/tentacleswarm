@@ -73,17 +73,17 @@
     tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
 
     #腐化囚犯
-    tentacleswarm_imprisoner_interaction:0 "腐化为触手奴隶"
-    tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]成为触手主人的奴隶。"
+    tentacleswarm_imprisoner_interaction:0 "强迫触手赐福"
+    tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]接受触手主人的赐福。"
     
     #腐化阴谋
     tentacle_corrupt_start_scheme_interaction:1 "触手腐化"
-    tentacle_corrupt_start_scheme_interaction_desc:1 "[recipient.GetShortUIName]将很快成为触手主人的玩物！"
+    tentacle_corrupt_start_scheme_interaction_desc:1 "[recipient.GetShortUIName]很适合成为触手主人的下一个奴隶。\n我会帮她安排好接受洗脑的机会，使她一步步地走向堕落，最终加入我们。"
     start_tentacle_corrupt_notification:0 "开始腐化阴谋"
     tentacle_corrupt:1 "触手腐化"
     tentacle_corrupt_action:0 "腐化"
     tentacle_corrupt_desc:0 "我将把[SCHEME.GetTarget.GetShortUINameNoTooltip]变成触手主人的玩物！"
-    tentacle_corrupt_desc_general:2 "$tentacle_corrupt$[scheme|E]是一种[hostile_scheme|E]，意图腐化目标。\n[scheme_owner|E]若成功执行计划，[scheme_target|E]将会受到触手怪物的袭击，从而逐渐堕落为[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]。"
+    tentacle_corrupt_desc_general:2 "$tentacle_corrupt$[scheme|E]是一种[hostile_scheme|E]，意图使目标触手恶堕。\n[scheme_owner|E]若成功执行计划，[scheme_target|E]将会受到触手怪物的袭击，从而逐渐堕落为[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]。"
     tentacle_corrupt_scheme_resistance_mult:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_resistance|E]"
     tentacle_corrupt_scheme_resistance_add:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_resistance|E]"
     tentacle_corrupt_scheme_power_mult:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_power|E]"
