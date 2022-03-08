@@ -1513,10 +1513,6 @@ tentacleswarm_pregnancy.4001 = {
 	theme = seduction
 	left_portrait = this
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		is_female = yes
 		is_tentacle_pregnant = yes

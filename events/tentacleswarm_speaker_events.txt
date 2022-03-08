@@ -46,7 +46,7 @@ tentacleswarm_speaker.0001 = {
 					}
 					scope:target = {
 						trigger_event = {
-							id = tentacleswarm_slave.0021
+							id = tentacleswarm_slave.0001
 						}
 					}
 					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果

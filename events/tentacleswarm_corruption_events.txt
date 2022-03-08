@@ -8,10 +8,6 @@ tentacleswarm_corruption.0001 = {
 	theme = corruption
 	right_portrait = scope:checked_county.holder
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		is_ai = no
 	}
@@ -39,10 +35,6 @@ tentacleswarm_corruption.0002 = {
 	theme = corruption
 	right_portrait = scope:checked_county.holder
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		is_ai = no
 	}
@@ -69,10 +61,6 @@ tentacleswarm_corruption.0003 = {
 	theme = corruption
 	right_portrait = scope:checked_county.holder
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		is_ai = no
 	}
@@ -98,10 +86,6 @@ tentacleswarm_corruption.0004 = {
 	theme = corruption
 	right_portrait = scope:character
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		is_ai = no 
 		NOT = { this = scope:character }

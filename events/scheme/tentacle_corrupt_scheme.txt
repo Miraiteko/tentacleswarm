@@ -123,7 +123,7 @@ tentacle_corrupt_scheme.1003 = {
 	immediate = {
 		custom_tooltip = tentacle_corrupt_scheme_successful_roll_tt
 		scope:target = {
-			trigger_event = tentacleswarm_slave.0022 #目标被腐化
+			trigger_event = tentacleswarm_slave.0002 #目标被腐化
 		}
 	}
 	option = { #下次继续

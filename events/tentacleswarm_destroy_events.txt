@@ -9,10 +9,6 @@ tentacleswarm_destroy.0001 = {
 	theme = corruption
 	left_portrait = this
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	option = {
 		name = tentacleswarm_destroy.0001.a
 		add_character_flag = { flag = tentacleswarm_destroy_alert years = 5 }
@@ -26,10 +22,6 @@ tentacleswarm_destroy.0011 = {
 	theme = corruption
 	left_portrait = this
 	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
 	trigger = {
 		has_religion = religion:tentacleswarm_religion
 		NOT = {

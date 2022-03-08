@@ -1,49 +1,159 @@
 ﻿namespace = tentacleswarm_slave
-#0001天生奴隶
+#0001经典水井杀
 #0011成年礼物
-#0021经典水井杀
+#0021天生奴隶
 #0031主动要求赐福
 #0041被监禁者腐化
 #1001奴隶健康崩溃事件
 
-#天生奴隶成为真正的奴隶
+#水井杀，样板戏
+#一个触手样板戏应该包括起承转合四部分
+#起：故事的起因，主人公是在什么背景下受到触手的袭击的。此处不应该出现触手侵害过程的描述。可以用来处理一些条件判断
+#承：故事的发展，主人公是如何被触手抓获的，以及侵害进行的过程。这里应该针对主人公的现状（是否是奴隶，是否怀孕，是否有意被腐化）进行分类描述。
+#转：故事的高潮，主人公是如何恶堕的。这一部分事件通过perk_event来实现，即便故事背景不同，也有统一的描述。
+#合：故事的收尾，主人公是如何恢复神智的。
+#水井杀起
 tentacleswarm_slave.0001 = {
 	type = character_event
 	title = tentacleswarm_slave.0001.t
-	desc = tentacleswarm_slave.0001.desc
+	desc = tentacleswarm_slave.0001.desc #故事背景的介绍
 	
 	theme = seduction
 	left_portrait = this
-	 
-	trigger = {
+	
+	trigger = { #处理条件判断
 		is_tentaclable_female = yes
-		is_tentacle_slave = no
+		#is_baby_corrupted_tentacle_slave = no #怀孕且已经赐福的奴隶，不会被这个事件打扰
 	}
-	option = {
+	option = { #主人公在这个故事背景里面的反应
 		name = tentacleswarm_slave.0001.a
+		trigger_event= {
+			id = tentacleswarm_slave.0002
+		}
+	}
+}
+#水井杀承
+tentacleswarm_slave.0002 = {
+	type = character_event
+	title = tentacleswarm_slave.0002.t	
+	desc = {
+		#如何被抓获的
+		desc = tentacleswarm_slave.0002.desc
+		#根据是否是奴隶，是否怀孕，选择被侵害时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					is_pregnant_nature_or_tentacle = no
+				}
+				desc = tentacleswarm_slave.slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					is_pregnant_nature_or_tentacle = yes
+				}
+				desc = tentacleswarm_slave.slave_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					is_pregnant_nature_or_tentacle = no
+				}
+				desc = tentacleswarm_slave.not_slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					is_pregnant_nature_or_tentacle = yes
+				}
+				desc = tentacleswarm_slave.not_slave_pregnant
+			}
+		} 
+	}
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = rage
+	}
+	#已经发生的事件，被触手主人侵袭了
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
+	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
+	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
+	
+	#接受选项
+	option = {
+		name = tentacleswarm_slave.accept_slave #奴隶接受文本
+		trigger = {
+			is_tentacle_slave = yes
+		}
 		tentacle_corrupt_accept_effect = yes
-		
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
 		}
 	}
 	option = {
+		name = tentacleswarm_slave.accept #非奴隶接受文本
 		trigger = {
 			is_tentacle_slave = no
 		}
-		show_as_unavailable = { 
-			is_tentacle_slave = no
+		tentacle_corrupt_accept_effect = yes
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
 		}
-		name = tentacleswarm_slave.refuse
+	}
+	#拒绝选项
+	option = {
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk } #如果瘴气成瘾了，这个选项不能选
+		}
+		show_as_unavailable = {
+			is_tentacle_slave = no
+			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
+		}
+		name = tentacleswarm_slave.reject
 		tentacle_corrupt_reject_effect = yes
-		
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
 		}
 	}
+	#一天之后，结算【合】部分
+	after = {
+		trigger_event= {
+			id = tentacleswarm_slave.0003
+			days = 1
+		}
+	}
 }
+#水井杀合
+tentacleswarm_slave.0003 = {
+	type = character_event
+	title = tentacleswarm_slave.0003.t
+	desc = tentacleswarm_slave.0003.desc #尾声时间
+	
+	theme = seduction
+	left_portrait = this
+	option = {
+		name = tentacleswarm_slave.0003.a #开心
+	}
+	option = {
+		name = tentacleswarm_slave.0003.b #厌恶
+		trigger = {  
+			is_tentacle_slave = no
+		}
+	}
+	after = {
+		#在这里可以清理一下各种flag什么的
+	}
+}
+
 #来自监护人的特别的成年礼物
 tentacleswarm_slave.0011 = {
 	type = character_event
@@ -122,7 +232,7 @@ tentacleswarm_slave.0012 = {
 		}
 	}
 }
-#水井杀
+#天生奴隶成为真正的奴隶
 tentacleswarm_slave.0021 = {
 	type = character_event
 	title = tentacleswarm_slave.0021.t
@@ -130,87 +240,36 @@ tentacleswarm_slave.0021 = {
 	
 	theme = seduction
 	left_portrait = this
-	
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container" 
-	}
+	 
 	trigger = {
 		is_tentaclable_female = yes
-		is_baby_corrupted_tentacle_slave = no #怀孕且已经赐福的奴隶，不会被这个事件打扰
+		is_tentacle_slave = no
 	}
 	option = {
-		name = tentacleswarm_slave.0021.a
-		trigger_event= {
-			id = tentacleswarm_slave.0022
-		}
-	}
-}
-tentacleswarm_slave.0022 = {
-	type = character_event
-	title = tentacleswarm_slave.0022.t	
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					is_tentacle_slave = yes
-					is_pregnant_nature_or_tentacle = no
-				}
-				desc = tentacleswarm_slave.0022.desc1
-			}
-			triggered_desc = {
-				trigger = {
-					is_tentacle_slave = yes
-					is_pregnant_nature_or_tentacle = yes
-				}
-				desc = tentacleswarm_slave.0022.desc2
-			}
-			triggered_desc = {
-				trigger = {
-					is_tentacle_slave = no
-					is_pregnant_nature_or_tentacle = no
-				}
-				desc = tentacleswarm_slave.0022.desc3
-			}
-			triggered_desc = {
-				trigger = {
-					always = yes
-				}
-				desc = tentacleswarm_slave.0022.desc4
-			}
-		} 
-	}
-	theme = seduction
-	left_portrait = {
-		character = this
-		animation = personality_zealous
-	}
-	 
-	option = {
-		name = tentacleswarm_slave.0022.a
+		name = tentacleswarm_slave.0001.a
 		tentacle_corrupt_accept_effect = yes
+		
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
 		}
 	}
 	option = {
-		trigger = {  
-			NOT = { has_perk = tentacle_corruption_22_perk }
+		trigger = {
+			is_tentacle_slave = no
 		}
-		show_as_unavailable = {
-			NOT = { has_perk = tentacle_corruption_31_perk }
-			has_perk = tentacle_corruption_22_perk
+		show_as_unavailable = { 
+			is_tentacle_slave = no
 		}
 		name = tentacleswarm_slave.refuse
 		tentacle_corrupt_reject_effect = yes
+		
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
 		}
 	}
 }
-
 #要求赐福
 tentacleswarm_slave.0031 = {
 	type = character_event

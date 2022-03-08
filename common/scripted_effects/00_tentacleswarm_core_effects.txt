@@ -37,248 +37,252 @@ become_tentacle_slave = {
 	}	
 }
 #被触手腐化
-tentacle_corrupt = {
-	if = {
-		limit = {
-			is_pregnant_nature_or_tentacle = yes #怀孕了但没有被赐福的话，被赐福
-			NOT = { has_character_flag = tentacle_baby_corruption }
+tentacle_corrupt_effect = {
+	custom_tooltip = tentacle_corrupt_effect.tt
+	hidden_effect = {
+		if = {
+			limit = {
+				is_pregnant_nature_or_tentacle = yes #怀孕了但没有被赐福的话，被赐福
+				NOT = { has_character_flag = tentacle_baby_corruption }
+			}
+			add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
 		}
-		add_character_flag = { flag = tentacle_baby_corruption months = 10 } 
-	}
-	if = {
-		limit = {
-			is_pregnant_nature_or_tentacle = yes #如果作为玩家有未被赐福的flag，移除该flag
-			has_character_flag = tentacle_baby_corruption_not_yet
+		if = {
+			limit = {
+				is_pregnant_nature_or_tentacle = yes #如果作为玩家有未被赐福的flag，移除该flag
+				has_character_flag = tentacle_baby_corruption_not_yet
+			}
+			remove_character_flag = tentacle_baby_corruption_not_yet
 		}
-		remove_character_flag = tentacle_baby_corruption_not_yet
-	}
-	if = {
-		#检测是否会怀孕
-		limit = {
-			is_tentaclable_female = yes #适孕女性
-			is_adult = yes
-			is_pregnant_nature_or_tentacle = no
-		}
-		random = {
-			chance = tentacle_pregnancy_chance 
-			tentacle_impregnate = yes
+		if = {
+			#检测是否会怀孕
+			limit = {
+				is_tentaclable_female = yes #适孕女性
+				is_adult = yes
+				is_pregnant_nature_or_tentacle = no
+			}
+			random = {
+				chance = tentacle_pregnancy_chance 
+				tentacle_impregnate = yes
+			}
 		}
 	}
 }
 #腐化树程度增加
 tentacle_corruption_perk_add = {
-	if = { #还不是奴隶，点下级perk
-		limit = { NOT = { has_perk = tentacle_corruption_31_perk } }
-		#两种确定情况
-		if = {
-			limit = { NOT = { has_perk = tentacle_corruption_01_perk } }
-			add_perk = tentacle_corruption_01_perk
+	custom_tooltip = tentacle_corruption_perk_add.tt
+	hidden_effect = {
+		if = { #还不是奴隶，点下级perk
+			limit = { NOT = { has_perk = tentacle_corruption_31_perk } }
+			#两种确定情况
+			if = {
+				limit = { NOT = { has_perk = tentacle_corruption_01_perk } }
+				add_perk = tentacle_corruption_01_perk
+			}
+			else_if = {
+				limit = { 
+					has_perk = tentacle_corruption_21_perk 
+					has_perk = tentacle_corruption_22_perk 
+				} 
+				custom_tooltip = become_tentacle_slave_tt
+				add_perk = tentacle_corruption_31_perk 
+			}
+			#随机情况
+			else = {
+				random_list = {
+					1 = {
+						add_perk = tentacle_corruption_11_perk
+						modifier = {
+							factor = 0
+							has_perk = tentacle_corruption_11_perk
+						}
+					}
+					1 = {
+						add_perk = tentacle_corruption_12_perk
+						modifier = {
+							factor = 0
+							has_perk = tentacle_corruption_12_perk
+						}
+					}
+					1 = {
+						add_perk = tentacle_corruption_21_perk
+						modifier = {
+							factor = 0
+							NOT = { has_perk = tentacle_corruption_12_perk }
+						}
+						modifier = {
+							factor = 0
+							has_perk = tentacle_corruption_21_perk
+						}
+					}
+					1 = {
+						add_perk = tentacle_corruption_22_perk
+						modifier = {
+							factor = 0
+							NOT = { has_perk = tentacle_corruption_11_perk }
+						}
+						modifier = {
+							factor = 0
+							has_perk = tentacle_corruption_22_perk
+						}
+					}
+				}
+			}
 		}
-		else_if = {
-			limit = { 
-				has_perk = tentacle_corruption_21_perk 
-				has_perk = tentacle_corruption_22_perk 
-			} 
-			custom_tooltip = become_tentacle_slave_tt
-			add_perk = tentacle_corruption_31_perk 
-		}
-		#随机情况
-		else = {
+		else = { #已经是奴隶了,点上级perk
 			random_list = {
-				1 = {
-					add_perk = tentacle_corruption_11_perk
+				1 = { #中期走左线
 					modifier = {
 						factor = 0
-						has_perk = tentacle_corruption_11_perk
+						has_perk = tentacle_corruption_61_perk
+					}
+					if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_41_perk } 
+						}
+						add_perk = tentacle_corruption_41_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_51_perk } 
+						}
+						add_perk = tentacle_corruption_51_perk
+					}
+					else = {
+						add_perk = tentacle_corruption_61_perk
 					}
 				}
-				1 = {
-					add_perk = tentacle_corruption_12_perk
+				1 = { #中期走右线
 					modifier = {
 						factor = 0
-						has_perk = tentacle_corruption_12_perk
+						has_perk = tentacle_corruption_62_perk
+					}
+					if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_42_perk } 
+						}
+						add_perk = tentacle_corruption_42_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_52_perk } 
+						}
+						add_perk = tentacle_corruption_52_perk
+					}
+					else = {
+						add_perk = tentacle_corruption_62_perk
 					}
 				}
-				1 = {
-					add_perk = tentacle_corruption_21_perk
+				1 = { #末期走左线
 					modifier = {
 						factor = 0
-						NOT = { has_perk = tentacle_corruption_12_perk }
+						OR = {
+							NOT = { has_perk = tentacle_corruption_61_perk }
+							has_perk = tentacle_corruption_111_perk
+						}
 					}
+					if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_71_perk } 
+						}
+						add_perk = tentacle_corruption_71_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_81_perk } 
+						}
+						add_perk = tentacle_corruption_81_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_91_perk } 
+						}
+						add_perk = tentacle_corruption_91_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_101_perk } 
+						}
+						add_perk = tentacle_corruption_101_perk
+					}
+					else = {
+						add_perk = tentacle_corruption_111_perk
+					}
+				}
+				1 = { #末期走右线
 					modifier = {
 						factor = 0
-						has_perk = tentacle_corruption_21_perk
+						OR = {
+							NOT = { has_perk = tentacle_corruption_62_perk }
+							has_perk = tentacle_corruption_112_perk
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_74_perk } 
+						}
+						add_perk = tentacle_corruption_74_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_83_perk } 
+						}
+						add_perk = tentacle_corruption_83_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_92_perk } 
+						}
+						add_perk = tentacle_corruption_92_perk
+					}
+					else_if = {
+						limit = {
+							NOT = { has_perk = tentacle_corruption_102_perk } 
+						}
+						add_perk = tentacle_corruption_102_perk
+					}
+					else = {
+						add_perk = tentacle_corruption_112_perk
 					}
 				}
-				1 = {
-					add_perk = tentacle_corruption_22_perk
+				#末期中线的几个零散位置
+				1 = { #72
 					modifier = {
 						factor = 0
-						NOT = { has_perk = tentacle_corruption_11_perk }
+						OR = {
+							NOT = { has_perk = tentacle_corruption_61_perk }
+							has_perk = tentacle_corruption_72_perk
+						}
 					}
+					add_perk = tentacle_corruption_72_perk
+				}
+				1 = { #73
 					modifier = {
 						factor = 0
-						has_perk = tentacle_corruption_22_perk
+						OR = {
+							NOT = { has_perk = tentacle_corruption_62_perk }
+							has_perk = tentacle_corruption_73_perk
+						}
 					}
+					add_perk = tentacle_corruption_73_perk
 				}
-			}
-		}
-	}
-	else = { #已经是奴隶了,点上级perk
-		random_list = {
-			1 = { #中期走左线
-				modifier = {
-					factor = 0
-					has_perk = tentacle_corruption_61_perk
-				}
-				if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_41_perk } 
+				1 = { #82
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { has_perk = tentacle_corruption_72_perk }
+							NOT = { has_perk = tentacle_corruption_73_perk }
+							has_perk = tentacle_corruption_82_perk
+						}
 					}
-					add_perk = tentacle_corruption_41_perk
+					add_perk = tentacle_corruption_82_perk
 				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_51_perk } 
-					}
-					add_perk = tentacle_corruption_51_perk
-				}
-				else = {
-					add_perk = tentacle_corruption_61_perk
-				}
-			}
-			1 = { #中期走右线
-				modifier = {
-					factor = 0
-					has_perk = tentacle_corruption_62_perk
-				}
-				if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_42_perk } 
-					}
-					add_perk = tentacle_corruption_42_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_52_perk } 
-					}
-					add_perk = tentacle_corruption_52_perk
-				}
-				else = {
-					add_perk = tentacle_corruption_62_perk
-				}
-			}
-			1 = { #末期走左线
-				modifier = {
-					factor = 0
-					OR = {
-						NOT = { has_perk = tentacle_corruption_61_perk }
-						has_perk = tentacle_corruption_111_perk
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_71_perk } 
-					}
-					add_perk = tentacle_corruption_71_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_81_perk } 
-					}
-					add_perk = tentacle_corruption_81_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_91_perk } 
-					}
-					add_perk = tentacle_corruption_91_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_101_perk } 
-					}
-					add_perk = tentacle_corruption_101_perk
-				}
-				else = {
-					add_perk = tentacle_corruption_111_perk
-				}
-			}
-			1 = { #末期走右线
-				modifier = {
-					factor = 0
-					OR = {
-						NOT = { has_perk = tentacle_corruption_62_perk }
-						has_perk = tentacle_corruption_112_perk
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_74_perk } 
-					}
-					add_perk = tentacle_corruption_74_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_83_perk } 
-					}
-					add_perk = tentacle_corruption_83_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_92_perk } 
-					}
-					add_perk = tentacle_corruption_92_perk
-				}
-				else_if = {
-					limit = {
-						NOT = { has_perk = tentacle_corruption_102_perk } 
-					}
-					add_perk = tentacle_corruption_102_perk
-				}
-				else = {
-					add_perk = tentacle_corruption_112_perk
-				}
-			}
-			#末期中线的几个零散位置
-			1 = { #72
-				modifier = {
-					factor = 0
-					OR = {
-						NOT = { has_perk = tentacle_corruption_61_perk }
-						has_perk = tentacle_corruption_72_perk
-					}
-				}
-				add_perk = tentacle_corruption_72_perk
-			}
-			1 = { #73
-				modifier = {
-					factor = 0
-					OR = {
-						NOT = { has_perk = tentacle_corruption_62_perk }
-						has_perk = tentacle_corruption_73_perk
-					}
-				}
-				add_perk = tentacle_corruption_73_perk
-			}
-			1 = { #82
-				modifier = {
-					factor = 0
-					OR = {
-						NOT = { has_perk = tentacle_corruption_72_perk }
-						NOT = { has_perk = tentacle_corruption_73_perk }
-						has_perk = tentacle_corruption_82_perk
-					}
-				}
-				add_perk = tentacle_corruption_82_perk
 			}
 		}
 	}
 }
 #接受赐福
 tentacle_corrupt_accept_effect = {
-	tentacle_corrupt = yes
-	tentacle_corruption_perk_add = yes
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
 		add_stress = -100
@@ -286,10 +290,10 @@ tentacle_corrupt_accept_effect = {
 	else = {
 		add_stress = -50
 	}
+	tentacle_corruption_perk_add = yes
 }
 #反抗赐福
 tentacle_corrupt_reject_effect = {
-	tentacle_corrupt = yes
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
 		add_stress = 100 
@@ -304,6 +308,7 @@ tentacle_corrupt_reject_effect = {
 		}
 		100 = {
 			ai_reject_corrupt_modifier = yes
+			custom_tooltip = tentacle_corrupt_reject_success.tt
 		}
 	}
 }
@@ -386,7 +391,7 @@ convert_to_tentacleswarm_religion = {
 
 tentacle_corrupt_effect = {
 	scope:target = {
-		trigger_event = tentacleswarm_slave.0021
+		trigger_event = tentacleswarm_slave.0001
 	}
 }
 #4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利

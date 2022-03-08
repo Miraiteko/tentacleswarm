@@ -143,7 +143,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						effective_age > 35
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0021 #水井杀
+						id = tentacleswarm_slave.0001 #水井杀
 						months = { 6 9 }
 					}
 				}
