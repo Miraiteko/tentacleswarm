@@ -1,4 +1,5 @@
-﻿namespace = tentacleswarm_speaker
+﻿#开局彩蛋奴隶
+namespace = tentacleswarm_speaker
 
 tentacleswarm_speaker.0001 = {
 	hidden = yes

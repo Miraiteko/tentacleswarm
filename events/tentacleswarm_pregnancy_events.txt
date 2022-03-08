@@ -1,4 +1,5 @@
-﻿namespace = tentacleswarm_pregnancy
+﻿#触手怀孕事件
+namespace = tentacleswarm_pregnancy
 #0000月度结算
 #1000怀孕事件
 #2000怀孕影响

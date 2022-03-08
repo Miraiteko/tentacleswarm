@@ -1,5 +1,7 @@
-﻿#1001 触手腐化
+﻿#腐化阴谋事件
 namespace = tentacle_corrupt_scheme
+#0001预处理
+#1001样板水井杀
 
 #阴谋就位
 tentacle_corrupt_scheme.0001 = {
@@ -11,7 +13,7 @@ tentacle_corrupt_scheme.0001 = {
 			days = 1
 		}
 		trigger_event = {
-			on_action = tentacle_corrupt_setup
+			on_action = tentacle_corrupt_setup #挑选方法
 		}
 	}
 }

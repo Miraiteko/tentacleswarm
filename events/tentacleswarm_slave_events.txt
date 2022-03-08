@@ -1,4 +1,5 @@
-﻿namespace = tentacleswarm_slave
+﻿#触手袭击事件
+namespace = tentacleswarm_slave
 #0001经典水井杀
 #0011成年礼物
 #0021天生奴隶
