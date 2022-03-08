@@ -35,7 +35,7 @@ tentacleswarm_slave.0001 = {
 #水井杀承
 tentacleswarm_slave.0002 = {
 	type = character_event
-	title = tentacleswarm_slave.0002.t	
+	title = tentacleswarm_slave.t	
 	desc = {
 		#如何被抓获的
 		desc = tentacleswarm_slave.0002.desc
@@ -74,7 +74,7 @@ tentacleswarm_slave.0002 = {
 	theme = seduction
 	left_portrait = {
 		character = this
-		animation = rage
+		animation = shock
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
@@ -136,17 +136,48 @@ tentacleswarm_slave.0002 = {
 tentacleswarm_slave.0003 = {
 	type = character_event
 	title = tentacleswarm_slave.0003.t
-	desc = tentacleswarm_slave.0003.desc #尾声时间
+	desc = { #尾声
+		#根据是否是奴隶，选择尾声时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						is_tentacle_slave = yes
+						has_character_flag = willing_to_be_corrupted
+					}
+				}
+				desc = tentacleswarm_slave.0003.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_slave.0003.desc2
+			}
+		} 
+	}
 	
 	theme = seduction
-	left_portrait = this
+	left_portrait = {
+		character = this
+		animation = personality_coward #乖巧
+	}
 	option = {
 		name = tentacleswarm_slave.0003.a #开心
+		trigger = {  
+			OR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
+		}
 	}
 	option = {
 		name = tentacleswarm_slave.0003.b #厌恶
 		trigger = {  
-			is_tentacle_slave = no
+			NOR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
 		}
 	}
 	after = {
@@ -307,7 +338,8 @@ tentacleswarm_slave.0031 = {
 	}
 	option = {
 		name = tentacleswarm_slave.0031.a
-		trigger_event= {
+		add_character_flag = willing_to_be_corrupted #主动接受赐福，说明你是想被腐化的 
+		trigger_event = {
 			id = tentacleswarm_slave.0032
 		}
 	}

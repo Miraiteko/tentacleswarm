@@ -281,7 +281,7 @@ tentacle_corruption_perk_add = {
 		}
 	}
 }
-#接受赐福
+#接受恶堕
 tentacle_corrupt_accept_effect = {
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
@@ -292,7 +292,7 @@ tentacle_corrupt_accept_effect = {
 	}
 	tentacle_corruption_perk_add = yes
 }
-#反抗赐福
+#反抗恶堕
 tentacle_corrupt_reject_effect = {
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
@@ -309,7 +309,54 @@ tentacle_corrupt_reject_effect = {
 		100 = {
 			ai_reject_corrupt_modifier = yes
 			custom_tooltip = tentacle_corrupt_reject_success.tt
+			hidden_effect = {
+				tentacle_corrupt_stress_trait_check = yes
+			}
 		}
+	}
+}
+#如果有减压特质，反抗无效，出事件消除然后继续恶堕
+tentacle_corrupt_stress_trait_check = {
+	if = { #酒鬼
+		limit = { has_trait = drunkard }
+	}
+	else_if = { #吃货
+		limit = { has_trait = comfort_eater }
+	}
+	else_if = { #放荡
+		limit = { has_trait = rakish }
+	}
+	else_if = { #自戕
+		limit = { has_trait = flagellant }
+	}
+	else_if = { #健身
+		limit = { has_trait = athletic }
+	}
+	else_if = { #烦躁
+		limit = { has_trait = irritable }
+	}
+	else_if = { #蛰居
+		limit = { has_trait = reclusive }
+	}
+	else_if = { #挥霍
+		limit = { has_trait = profligate }
+	}
+	else_if = { #短视
+		limit = { has_trait = improvident }
+	}
+	else_if = { #不食
+		limit = { has_trait = inappetetic }
+	}
+	else_if = { #懊悔
+		limit = { has_trait = contrite }
+	}
+	else_if = { #日记
+		limit = { has_trait = journaller }
+	}
+	else_if = { #倾诉
+		limit = { has_trait = confider }
+	}
+	else = {
 	}
 }
 #皈依触手信仰
@@ -389,11 +436,6 @@ convert_to_tentacleswarm_religion = {
 	}
 }
 
-tentacle_corrupt_effect = {
-	scope:target = {
-		trigger_event = tentacleswarm_slave.0001
-	}
-}
 #4VA：4-乙烯基苯甲醚——来源，奴隶领主揭露身份，奴隶夫人夺权成功，奴隶领主战争胜利
 tentacleswarm_4VA = {
 	custom_tooltip = tentacle_courtier_and_vassal_4VA_tooltip

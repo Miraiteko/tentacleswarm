@@ -24,6 +24,20 @@ is_hidden_tentacle_slave = {
 		any_secret = { secret_type = secret_tentacle_slave }
 	}
 }
+is_tentacle_slave_known_by = {
+	OR = {
+		has_trait = tentacle_slave
+		custom_description = {
+			text = has_a_tentacle_slave_secret_known_by_character
+			subject = this
+			object = $CHARACTER$
+			any_secret = {
+				secret_type = secret_tentacle_slave
+				is_known_by = $CHARACTER$
+			}
+		}
+	}
+}
 #触手妊娠中
 is_tentacle_pregnant = {
 	exists = var:tentacle_pregnancy_month

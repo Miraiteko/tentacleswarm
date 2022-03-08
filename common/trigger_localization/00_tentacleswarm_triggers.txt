@@ -15,6 +15,12 @@ is_hidden_tentacle_slave_tooltip = {
 	first = I_am_hidden_tentacle_slave_tooltip
 	global_not = not_hidden_tentacle_slave_tooltip
 }
+
+has_a_tentacle_slave_secret_known_by_character = {
+	third = CHARCTER_HAS_A_TENTACLE_SLAVE_SECRET_KNOWN_BY_CHARACTER
+	third_not = CHARCTER_HAS_A_TENTACLE_SLAVE_SECRET_NOT_KNOWN_BY_CHARACTER
+	global = HAS_A_TENTACLE_SLAVE_SECRET_KNOWN_BY_CHARACTER
+}
 is_tentaclable_female_tooltip = {
 	global = is_tentaclable_female_tooltip
 	global_not = isnot_tentaclable_female_tooltip
