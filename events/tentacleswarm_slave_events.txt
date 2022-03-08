@@ -44,28 +44,28 @@ tentacleswarm_slave.0002 = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant_nature_or_tentacle = no
+					NOT = { has_trait = pregnant }
 				}
 				desc = tentacleswarm_slave.slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
-					is_pregnant_nature_or_tentacle = yes
+					has_trait = pregnant
 				}
 				desc = tentacleswarm_slave.slave_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
-					is_pregnant_nature_or_tentacle = no
+					NOT = { has_trait = pregnant }
 				}
 				desc = tentacleswarm_slave.not_slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
-					is_pregnant_nature_or_tentacle = yes
+					has_trait = pregnant
 				}
 				desc = tentacleswarm_slave.not_slave_pregnant
 			}

@@ -1,0 +1,256 @@
+﻿#perk加深事件
+namespace = tentacleswarm_perk
+
+tentacleswarm_perk.01 = {
+	type = character_event
+	title = tentacleswarm_perk.01.t
+	desc = tentacleswarm_perk.01.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.01.a
+		add_perk = tentacle_corruption_01_perk
+	}
+}
+
+tentacleswarm_perk.11 = {
+	type = character_event
+	title = tentacleswarm_perk.11.t
+	desc = tentacleswarm_perk.11.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.11.a
+		add_perk = tentacle_corruption_11_perk
+	}
+}
+
+tentacleswarm_perk.12 = {
+	type = character_event
+	title = tentacleswarm_perk.12.t
+	desc = tentacleswarm_perk.12.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.12.a
+		add_perk = tentacle_corruption_12_perk
+	}
+}
+
+tentacleswarm_perk.21 = {
+	type = character_event
+	title = tentacleswarm_perk.21.t
+	desc = tentacleswarm_perk.21.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.21.a
+		add_perk = tentacle_corruption_21_perk
+	}
+}
+
+tentacleswarm_perk.22 = {
+	type = character_event
+	title = tentacleswarm_perk.22.t
+	desc = tentacleswarm_perk.22.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.22.a
+		add_perk = tentacle_corruption_22_perk
+	}
+}
+
+tentacleswarm_perk.31 = {
+	type = character_event
+	title = tentacleswarm_perk.31.t
+	desc = tentacleswarm_perk.31.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = personality_zealous
+	}
+	option = {
+		name = tentacleswarm_perk.31.a
+		custom_tooltip = become_tentacle_slave_tt
+		hidden_effect = {
+			add_perk = tentacle_corruption_31_perk
+		}
+	}
+}
+
+tentacleswarm_perk.41 = {
+	type = character_event
+	title = tentacleswarm_perk.41.t
+	desc = tentacleswarm_perk.41.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.41.a
+		add_perk = tentacle_corruption_41_perk
+	}
+}
+
+tentacleswarm_perk.42 = {
+	type = character_event
+	title = tentacleswarm_perk.42.t
+	desc = tentacleswarm_perk.42.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.42.a
+		add_perk = tentacle_corruption_42_perk
+	}
+}
+
+tentacleswarm_perk.51 = {
+	type = character_event
+	title = tentacleswarm_perk.51.t
+	desc = tentacleswarm_perk.51.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.51.a
+		add_perk = tentacle_corruption_51_perk
+	}
+}
+
+tentacleswarm_perk.52 = {
+	type = character_event
+	title = tentacleswarm_perk.52.t
+	desc = tentacleswarm_perk.52.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.52.a
+		add_perk = tentacle_corruption_52_perk
+	}
+}
+
+tentacleswarm_perk.61 = {
+	type = character_event
+	title = tentacleswarm_perk.61.t
+	desc = tentacleswarm_perk.61.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.61.a
+		add_perk = tentacle_corruption_61_perk
+	}
+}
+tentacleswarm_perk.62 = {
+	type = character_event
+	title = tentacleswarm_perk.62.t
+	desc = tentacleswarm_perk.62.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.62.a
+		add_perk = tentacle_corruption_62_perk
+	}
+}
+tentacleswarm_perk.71 = {
+	type = character_event
+	title = tentacleswarm_perk.71.t
+	desc = tentacleswarm_perk.71.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.71.a
+		add_perk = tentacle_corruption_71_perk
+	}
+}
+tentacleswarm_perk.72 = {
+	type = character_event
+	title = tentacleswarm_perk.72.t
+	desc = tentacleswarm_perk.72.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.72.a
+		add_perk = tentacle_corruption_72_perk
+	}
+}
+tentacleswarm_perk.73 = {
+	type = character_event
+	title = tentacleswarm_perk.73.t
+	desc = tentacleswarm_perk.73.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.73.a
+		add_perk = tentacle_corruption_73_perk
+	}
+}
+tentacleswarm_perk.74 = {
+	type = character_event
+	title = tentacleswarm_perk.74.t
+	desc = tentacleswarm_perk.74.desc
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	option = {
+		name = tentacleswarm_perk.74.a
+		add_perk = tentacle_corruption_74_perk
+	}
+}

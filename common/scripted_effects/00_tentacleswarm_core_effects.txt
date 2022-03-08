@@ -77,35 +77,34 @@ tentacle_corruption_perk_add = {
 			#两种确定情况
 			if = {
 				limit = { NOT = { has_perk = tentacle_corruption_01_perk } }
-				add_perk = tentacle_corruption_01_perk
+				trigger_event = tentacleswarm_perk.01
 			}
 			else_if = {
 				limit = { 
 					has_perk = tentacle_corruption_21_perk 
 					has_perk = tentacle_corruption_22_perk 
 				} 
-				custom_tooltip = become_tentacle_slave_tt
-				add_perk = tentacle_corruption_31_perk 
+				trigger_event = tentacleswarm_perk.31 
 			}
 			#随机情况
 			else = {
 				random_list = {
 					1 = {
-						add_perk = tentacle_corruption_11_perk
+						trigger_event = tentacleswarm_perk.11
 						modifier = {
 							factor = 0
 							has_perk = tentacle_corruption_11_perk
 						}
 					}
 					1 = {
-						add_perk = tentacle_corruption_12_perk
+						trigger_event = tentacleswarm_perk.12
 						modifier = {
 							factor = 0
 							has_perk = tentacle_corruption_12_perk
 						}
 					}
 					1 = {
-						add_perk = tentacle_corruption_21_perk
+						trigger_event = tentacleswarm_perk.21
 						modifier = {
 							factor = 0
 							NOT = { has_perk = tentacle_corruption_12_perk }
@@ -116,7 +115,7 @@ tentacle_corruption_perk_add = {
 						}
 					}
 					1 = {
-						add_perk = tentacle_corruption_22_perk
+						trigger_event = tentacleswarm_perk.22
 						modifier = {
 							factor = 0
 							NOT = { has_perk = tentacle_corruption_11_perk }
@@ -140,16 +139,16 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_41_perk } 
 						}
-						add_perk = tentacle_corruption_41_perk
+						trigger_event = tentacleswarm_perk.41
 					}
 					else_if = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_51_perk } 
 						}
-						add_perk = tentacle_corruption_51_perk
+						trigger_event = tentacleswarm_perk.51
 					}
 					else = {
-						add_perk = tentacle_corruption_61_perk
+						trigger_event = tentacleswarm_perk.61
 					}
 				}
 				1 = { #中期走右线
@@ -161,16 +160,16 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_42_perk } 
 						}
-						add_perk = tentacle_corruption_42_perk
+						trigger_event = tentacleswarm_perk.42
 					}
 					else_if = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_52_perk } 
 						}
-						add_perk = tentacle_corruption_52_perk
+						trigger_event = tentacleswarm_perk.52
 					}
 					else = {
-						add_perk = tentacle_corruption_62_perk
+						trigger_event = tentacleswarm_perk.62
 					}
 				}
 				1 = { #末期走左线
@@ -185,7 +184,7 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_71_perk } 
 						}
-						add_perk = tentacle_corruption_71_perk
+						trigger_event = tentacleswarm_perk.71
 					}
 					else_if = {
 						limit = {
@@ -221,7 +220,7 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_74_perk } 
 						}
-						add_perk = tentacle_corruption_74_perk
+						trigger_event = tentacleswarm_perk.74
 					}
 					else_if = {
 						limit = {
@@ -254,7 +253,7 @@ tentacle_corruption_perk_add = {
 							has_perk = tentacle_corruption_72_perk
 						}
 					}
-					add_perk = tentacle_corruption_72_perk
+					trigger_event = tentacleswarm_perk.72
 				}
 				1 = { #73
 					modifier = {
@@ -264,7 +263,7 @@ tentacle_corruption_perk_add = {
 							has_perk = tentacle_corruption_73_perk
 						}
 					}
-					add_perk = tentacle_corruption_73_perk
+					trigger_event = tentacleswarm_perk.73
 				}
 				1 = { #82
 					modifier = {
