@@ -185,7 +185,10 @@ tentacleswarm_slave.0012 = {
 	}
 	
 	right_portrait = scope:guardian
-	 
+	
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
 	option = {
 		name = tentacleswarm_slave.0012.a
 		tentacle_corrupt_accept_effect = yes
@@ -349,6 +352,9 @@ tentacleswarm_slave.0032 = {
 		animation = happiness
 	}
 	 
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
 	option = {
 		name = tentacleswarm_slave.0032.a
 		tentacle_corrupt_accept_effect = yes
@@ -437,6 +443,9 @@ tentacleswarm_slave.0042 = {
 	
 	right_portrait = scope:imprisoner
 	 
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
 	option = {
 		name = tentacleswarm_slave.0042.a
 		tentacle_corrupt_accept_effect = yes
