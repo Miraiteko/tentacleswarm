@@ -73,17 +73,25 @@
 	auto_accept = yes
 	
 	ai_potential = {
-		always = no
+		OR = {
+			is_landed = yes
+			intrigue >= 8 #谋略较高的ai才会考虑腐化别人
+		}
 	}
 	ai_frequency = 12
 	
 	ai_targets = {
-		ai_recipients = family
+		ai_recipients = dynasty
+		max = 2
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
 		max = 2
 	}
 	ai_targets = {
 		ai_recipients = guests
 		ai_recipients = courtiers
+		ai_recipients = scripted_relations
 	}
 	
 	ai_targets = {
@@ -91,11 +99,58 @@
 		max = 10
 	}
 	
-	ai_target_quick_trigger = {							# Quick triggers for the ai_targets
+	ai_target_quick_trigger = {
 		adult = yes
 	}
 	ai_will_do = {
-		base = 0
+		base = 50
+		#已经在执行腐化了
+		modifier = {
+			factor = 0.1
+			scope:actor = {
+				trigger_if = {
+					limit = { has_perk = tentacle_corruption_62_perk }
+					any_scheme = {
+						count >= 3
+						scheme_type = tentacle_corrupt
+					}
+				}
+				trigger_else = {
+					any_scheme = {
+						scheme_type = tentacle_corrupt
+					}
+				}
+			}
+		}
+		
+		#性格
+		modifier = {
+			factor = 0.5
+			scope:actor = {
+				OR = {
+					has_trait = just
+					has_trait = honest
+					has_trait = compassionate
+				}
+			}
+		}
+		#优先考虑腐化统治者
+		modifier = {
+			factor = 1.5
+			scope:recipient = {
+				is_landed = yes
+			}
+		}
+		#已经有人在腐化她了
+		modifier = {
+			factor = 0.2
+			scope:recipient = {
+				is_ai = yes
+				any_targeting_scheme = {
+					scheme_type = tentacle_corrupt
+				}
+			}
+		}
 	}
 }
 tentacleswarm_imprisoner_interaction = {

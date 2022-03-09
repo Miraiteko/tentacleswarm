@@ -3,8 +3,16 @@
 		has_perk = tentacle_corruption_01_perk
 	}
 	is_valid = {
-		#is_ai = no
 		has_perk = tentacle_corruption_01_perk
+		OR = {
+			has_trait = tentacle_slave #公开奴隶
+			any_secret = {
+				secret_type = secret_tentacle_slave
+				any_secret_knower = {
+					is_ai = no #被玩家知晓的奴隶
+				}
+			}
+		}
 	}
 	xp_per_level = 1000
 	base_xp_gain = 0

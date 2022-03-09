@@ -37,12 +37,10 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		hidden_effect = { 
-			every_vassal = {
-				start_scheme = {
-					type = tentacle_corrupt
-					target = ROOT
-				}
+		every_secret = {
+			limit = { secret_type = secret_tentacle_slave}
+			every_secret_knower = {
+				add_gold = 100
 			}
 		}
 	}
