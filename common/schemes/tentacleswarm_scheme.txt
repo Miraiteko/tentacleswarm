@@ -104,6 +104,11 @@ tentacle_corrupt = {
 			}
 			desc = "SCHEME_WITH_GIFT"
 		}
+		modifier = {
+			add = 100
+			root = { is_tentacle_slave_known_by = { CHARACTER = scope:owner } }
+			desc = "TENTACLE_SLAVE_PATNER"
+		}
 
 		#Default Hostile Scheme modifiers
 		hostile_murder_agent_base_join_chance_modifier = yes
@@ -114,7 +119,7 @@ tentacle_corrupt = {
 		
 		hostile_scheme_base_chance_modifier = yes
 		
-		#腐化程度
+		#恶堕程度
 		modifier = {
 			add = {
 				value = scope:target.tentacle_corruption_lifestyle_perks
@@ -123,6 +128,63 @@ tentacle_corrupt = {
 			desc = target_corruption_lifestyle_perks
 			scope:target = {
 				tentacle_corruption_lifestyle_perks >= 1
+			}
+		}
+		
+		#年龄
+		modifier = {
+			add = 40
+			desc = target_young_woman_bonus
+			scope:target = {
+				age <= 28
+			}
+		}
+		modifier = {
+			add = 20
+			desc = target_adult_woman_bonus
+			scope:target = {
+				age > 28
+				age <= 40
+			}
+		}
+		#所在省份腐化
+		modifier = {
+			add = scope:target.location.county.var:tentacleswarm_corruption
+			desc = target_location_tentacleswarm_corruption
+			scope:target = {
+				exists = location
+				exists = location.county
+			}
+		}		
+		modifier = {
+			add = 50
+			desc = target_on_the_sea
+			scope:target = {
+				exists = location
+				NOT = { exists = location.county }
+			}
+		}		
+		#灭杀令
+		modifier = {
+			add = -30
+			desc = target_tentacleswarm_anti_modifier
+			scope:target = {
+				is_alive = yes
+				is_ruler = yes
+				has_character_modifier = tentacleswarm_anti
+			}
+		}
+		modifier = {
+			add = -30
+			desc = target_liege_tentacleswarm_anti_modifier
+			scope:target = {
+				is_alive = yes
+				is_ruler = no
+				exists = court_owner
+				court_owner = {
+					has_character_modifier = tentacleswarm_anti
+				}
+				NOT = { court_owner = scope:owner }
 			}
 		}
 		
@@ -157,7 +219,7 @@ tentacle_corrupt = {
 		# Various penalties
 		first_valid = {
 			modifier = { # Foreign Rulers are very hard to kidnap
-				add = -75
+				add = -50
 				desc = "sway_foreign_target"
 				scope:target = {
 					is_ruler = yes
@@ -167,7 +229,7 @@ tentacle_corrupt = {
 				}
 			}
 			modifier = { # Foreign subjects less so
-				add = -40
+				add = -30
 				desc = "sway_foreign_target"
 				scope:target = {
 					is_foreign_court_or_pool_guest = no
@@ -177,7 +239,7 @@ tentacle_corrupt = {
 				}
 			}
 			modifier = { # Rulers are harder to kidnap
-				add = -50
+				add = -30
 				desc = "FABRICATE_HOOK_RULER_TARGET"
 				scope:target = {
 					is_ruler = yes

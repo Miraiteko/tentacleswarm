@@ -36,7 +36,20 @@
     tentacle_courtier_and_vassal_4VA_tooltip:0 "廷臣与封臣中的触手奴隶将进行响应"
     tentacle_neighboring_4VA_tooltip:0 "附近的触手奴隶们将进行响应"
 
+    #决议
+    tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
+    I_tentacle_baby_corruption_not_yet_tooltip:0 "你已经怀孕了但尚未被主人赐福"
+    tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
+    tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
+    tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
+    tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
+    tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
 
+    tentacleswarm_suicide:0 "永远留在触手巢穴之中"
+    tentacleswarm_suicide_desc:0 "我的青春已经一去不复返了，触手主人们不再有兴趣给予人老珠黄的我任何的恩赐。在这世间继续生存下去对我来说似乎已经成为了一种折磨。\n\n作为触手主人的忠诚奴仆，我更愿意进入巢穴，沉浸在在主人的温暖拥抱中，陷入到甜美的无边黑暗里，结束我作为人类的此生，永远成为巢穴的美妙血肉的一部分。"
+    tentacleswarm_suicide_tooltip:0 "在触手巢穴之中结束生命"
+    tentacleswarm_suicide_confirm:0 "我爱你……主人……"
+    tentacleswarm_suicide_tt:0 "所在伯爵领的腐化度得到了略微的提高。"
 
     #秘密相关
     secret_tentacle_slave:0 "触手奴隶"
@@ -46,76 +59,11 @@
     secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
     I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他奴隶姐妹"
 
-    #决议相关
-    tentacleswarm_start_decision:0 "宣告触手霸权"
-    tentacleswarm_start_decision_desc:0 "长久以来，触手奴隶们都被迫隐藏自己的身份。而触手主人们则被迫隐藏在黑暗处以躲避人类的清剿。\n\n现在既然我已经作为一位领主统治这片土地，我就有必要履行自己作为忠诚奴隶的义务，让主人们回到阳光下来，像支配我一样支配我的每一个人民。"
-    tentacleswarm_start_decision_tooltip:0 "公开你的触手奴隶身份"
-    tentacleswarm_start_decision_confirm:0 "这个世界将变成主人的巢穴！"
-
-    tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
-    I_tentacle_baby_corruption_not_yet_tooltip:0 "你已经怀孕了但尚未被主人赐福"
-    tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
-    tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
-    tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
-    tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
-    tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
-
-    tentacleswarm_become_openly_tentacle_slave_decision:0 "公开触手奴隶身份"
-    tentacleswarm_become_openly_tentacle_slave_decision_desc:0 "既然我已经公开崇拜触手主人了，我就没有必要继续隐藏我的触手奴隶身份。"
-    tentacleswarm_become_openly_tentacle_slave_decision_tooltip:0 "公开你的触手奴隶身份"
-    tentacleswarm_become_openly_tentacle_slave_decision_confirm:0 "光荣地承认身份"
-
-    tentacleswarm_suicide:0 "永远留在触手巢穴之中"
-    tentacleswarm_suicide_desc:0 "我的青春已经一去不复返了，触手主人们不再有兴趣给予人老珠黄的我任何的恩赐。在这世间继续生存下去对我来说似乎已经成为了一种折磨。\n\n作为触手主人的忠诚奴仆，我更愿意进入巢穴，沉浸在在主人的温暖拥抱中，陷入到甜美的无边黑暗里，结束我作为人类的此生，永远成为巢穴的美妙血肉的一部分。"
-    tentacleswarm_suicide_tooltip:0 "在触手巢穴之中结束生命"
-    tentacleswarm_suicide_confirm:0 "我爱你……主人……"
-    tentacleswarm_suicide_tt:0 "所在伯爵领的腐化度得到了略微的提高。"
-
-    #密谋相关
-    TENTACLE_SLAVE_PATNER:0 "触手奴隶伙伴"
-    tentacle_slave_claim_throne:0 "夺取权位"
-    tentacle_slave_claim_throne_desc:0 "夺取领主的头衔"
 
     #腐化囚犯
     tentacleswarm_imprisoner_interaction:0 "强迫触手赐福"
     tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]接受触手主人的赐福。"
     
-    #腐化阴谋
-    tentacle_corrupt_start_scheme_interaction:1 "触手腐化"
-    tentacle_corrupt_start_scheme_interaction_desc:1 "[recipient.GetShortUIName]很适合成为触手主人的下一个奴隶。\n我会帮她安排好接受洗脑的机会，使她一步步地走向堕落，最终加入我们。"
-    start_tentacle_corrupt_notification:0 "开始腐化阴谋"
-    tentacle_corrupt:1 "触手腐化"
-    tentacle_corrupt_action:0 "腐化"
-    tentacle_corrupt_desc:0 "我将把[SCHEME.GetTarget.GetShortUINameNoTooltip]变成触手主人的玩物！"
-    tentacle_corrupt_desc_general:2 "$tentacle_corrupt$[scheme|E]是一种[hostile_scheme|E]，意图使目标触手恶堕。\n[scheme_owner|E]若成功执行计划，[scheme_target|E]将会受到触手怪物的袭击，从而逐渐堕落为[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]。"
-    tentacle_corrupt_scheme_resistance_mult:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_resistance|E]"
-    tentacle_corrupt_scheme_resistance_add:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_resistance|E]"
-    tentacle_corrupt_scheme_power_mult:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_power|E]"
-    tentacle_corrupt_scheme_power_add:1 "[GetScheme('tentacle_corrupt').GetTypeName][scheme_power|E]"
-    max_tentacle_corrupt_schemes_add:1 "同时[GetScheme('tentacle_corrupt').GetTypeName][scheme|E]"
-    tentacle_corrupt_scheme_successful_roll_tt:0 "[target.GetShortUINameNoTooltip]被触手主人赐福！"
-    tentacle_corrupt_scheme_become_discovered_roll_tt:0 "我暴露了！"
-    target_corruption_lifestyle_perks:0 "[target.GetShortUINameNoTooltip]已受腐化：$VALUE|+0=-+$"
-    do_not_execute_tentacle_corrupt_tooltip:0 "暂时不要行动"
-    tentacle_corrupt_scheme_invalidated_title:1 "@scheme_icon!腐化密谋结束"
-    tentacle_corrupt_scheme_i_imprisoned_them_message:0 "[target.GetShortUIName|U]已经是我的阶下囚了，我可以随意玩弄她。"
-    tentacle_corrupt_scheme_she_is_slave_message:0 "[target.GetShortUIName|U]已经屈服于触手主人了。"
-    tentacle_corrupt_scheme_she_is_old_message:0 "[target.GetShortUIName|U]不再受到触手主人青睐了。"
-    TENTACLE_CORRUPT_SUCCESS_DESC:2 "[TARGET_CHARACTER.GetShortUIName|U]将被触手主人的赐福。"
-    TENTACLE_CORRUPT_DISCOVERY_DESC:1 "[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]身份未暴露"
-    tentacle_corrupt_scheme.1001.t:1 "水井"
-    tentacle_corrupt_scheme.1001.desc:1 "在深夜探查当地时，你发现了几个被触手洗脑的女仆。据她们所说[target.GetShortUINameNoTooltip]经常在夜间路过庭院的水井。\n你可以让触手主人在井里潜伏，然后在合适的时机突然涌出并抓住她，任意摆布她挣扎的身体。"
-    tentacle_corrupt_scheme.1001.a:1 "让这些女仆偷偷放触手进去"
-    tentacle_corrupt_scheme.1001.b:1 "这个计划并不完善"
-    tentacle_corrupt_scheme.1003.t:1 "水井"
-    tentacle_corrupt_scheme.1003.desc:1 "当[target.GetShortUINameNoTooltip]朝着庭院里的井口走到半路时，黏糊糊的触手从井底的裂缝中伸出并以惊人的速度向她扫来，将她直接拖入了触手主人的怀抱中……\n\n触手主人的腐化能量灌入了她的身体之中，使她陷入了无尽的欢愉。\n\n最终，触手主人消失在了黑暗之中，而[target.GetShortUINameNoTooltip]的瘫倒在地上，回味着主人的赐福。"
-    tentacle_corrupt_scheme.1003.a:1 "她是我们的囊中之物"
-    tentacle_corrupt_scheme.1003.b:1 "今夜愉快，我的奴隶妹妹"
-    tentacle_corrupt_scheme.1004.t:1 "水井"
-    tentacle_corrupt_scheme.1004.desc:1 "[target.GetShortUINameNoTooltip]似乎已经觉察到什么了，她减少了夜间出行的次数，并且远离了阴暗潮湿的地方。她派卫兵认真地检查着庭院的角落。\n\n幸好，井中的触手主人已经被奴隶女仆们提前转移走了。"
-    tentacle_corrupt_scheme.1004.a:1 "越是机敏的女人越有献给触手主人的价值"
     
     
-    #夺取权位
-    tentacle_slave_claim_throne_desc_general:0 "为主人夺取权位"
 
