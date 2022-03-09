@@ -18,6 +18,11 @@
 					scope:recipient = scope:actor
 					scope:recipient = { is_imprisoned = yes }
 				}
+				NOT = {
+					scope:recipient = {
+						is_tentacle_slave_known_by = { CHARACTER = scope:actor }
+					}
+				}
 			}
 		}
 	}
