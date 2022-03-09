@@ -10,6 +10,7 @@
     tentacleswarm_slave.reject:0 "我必须抗拒这种快感！"
     tentacle_corrupt_effect.tt:0 "你被触手主人赐福了"
     tentacle_corruption_perk_add.tt:0 "你的触手恶堕程度加深了"
+    tentacle_corrupt_reject_success.t:0 "抵制恶堕"
     tentacle_corrupt_reject_success.tt:0 "你抵制了触手腐化"
     
     #从水井中来

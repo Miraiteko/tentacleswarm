@@ -24,7 +24,13 @@ tentacleswarm_slave.0001 = {
 	
 	trigger = { #处理条件判断
 		is_tentaclable_female = yes
-		#is_baby_corrupted_tentacle_slave = no #怀孕且已经赐福的奴隶，不会被这个事件打扰
+		NOT = { has_character_flag = is_being_tentacled }
+	}
+	immediate = {
+		add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
+			flag = is_being_tentacled
+			days = 7
+		}
 	}
 	option = { #主人公在这个故事背景里面的反应
 		name = tentacleswarm_slave.0001.a

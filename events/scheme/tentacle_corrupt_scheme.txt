@@ -128,20 +128,8 @@ tentacle_corrupt_scheme.1003 = {
 			trigger_event = tentacleswarm_slave.0002 #目标被腐化
 		}
 	}
-	option = { #下次继续
+	option = { #恶堕完成了
 		name = tentacle_corrupt_scheme.1003.a
-		trigger = {
-			scope:target = { is_tentacle_slave = no }
-		}
-		scope:scheme = {
-			add_scheme_progress = -3
-		}
-		ai_chance = {
-			base = 100
-		}
-	}
-	option = { #结束了
-		name = tentacle_corrupt_scheme.1003.b
 		trigger = {
 			scope:target = { is_tentacle_slave = yes }
 		}
@@ -150,6 +138,42 @@ tentacle_corrupt_scheme.1003 = {
 				limit = { secret_type = secret_tentacle_slave }
 				reveal_to = scope:owner
 			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { #恶堕加深了
+		name = tentacle_corrupt_scheme.1003.a
+		trigger = {
+			scope:target = { 
+				is_tentacle_slave = no 
+				NOT = { has_character_flag = tentacle_corrupt_reject_success }
+			}
+		}
+		scope:target = {
+			custom_tooltip = tentacle_corruption_perk_add.tt
+		}
+		scope:scheme = {
+			add_scheme_progress = -3
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { #目标抵制了恶堕
+		name = tentacle_corrupt_scheme.1003.c
+		trigger = {
+			scope:target = { 
+				is_tentacle_slave = no 
+				has_character_flag = tentacle_corrupt_reject_success
+			}
+		}
+		scope:target = {
+			custom_tooltip = tentacle_corrupt_reject_success.tt
+		}
+		scope:scheme = {
+			add_scheme_progress = -3
 		}
 		ai_chance = {
 			base = 100
