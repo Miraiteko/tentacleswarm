@@ -144,7 +144,7 @@ tentacle_corrupt_scheme.1003 = {
 		}
 	}
 	option = { #恶堕加深了
-		name = tentacle_corrupt_scheme.1003.a
+		name = tentacle_corrupt_scheme.1003.b
 		trigger = {
 			scope:target = { 
 				is_tentacle_slave = no 
@@ -152,7 +152,7 @@ tentacle_corrupt_scheme.1003 = {
 			}
 		}
 		scope:target = {
-			custom_tooltip = tentacle_corruption_perk_add.tt
+			#custom_tooltip = tentacle_corruption_perk_add.tt
 		}
 		scope:scheme = {
 			add_scheme_progress = -3
@@ -170,7 +170,7 @@ tentacle_corrupt_scheme.1003 = {
 			}
 		}
 		scope:target = {
-			custom_tooltip = tentacle_corrupt_reject_success.tt
+			#custom_tooltip = tentacle_corrupt_reject_success.tt
 		}
 		scope:scheme = {
 			add_scheme_progress = -3
