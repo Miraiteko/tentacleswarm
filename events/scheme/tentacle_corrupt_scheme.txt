@@ -104,7 +104,6 @@ tentacle_corrupt_scheme.1002 = {
 		else = {
 			trigger_event = tentacle_corrupt_scheme.1004
 		}
-		#被发现了 exists = scope:scheme_discovered
 	}
 }
 #成功了
@@ -127,6 +126,21 @@ tentacle_corrupt_scheme.1003 = {
 		scope:target = {
 			trigger_event = tentacleswarm_slave.0002 #目标被腐化
 		}
+		#被发现了
+		if = {
+			limit = {
+				exists = scope:scheme_discovered
+			}
+			scope:owner = {
+				random_secret = {
+					limit = { 
+						secret_type = secret_tentacle_slave 
+						NOT = { is_known_by = scope:target }
+					}
+					reveal_to = scope:target
+				}
+			}
+		}
 	}
 	option = { #恶堕完成了
 		name = tentacle_corrupt_scheme.1003.a
@@ -135,7 +149,10 @@ tentacle_corrupt_scheme.1003 = {
 		}
 		scope:target = {
 			random_secret = {
-				limit = { secret_type = secret_tentacle_slave }
+				limit = { 
+					secret_type = secret_tentacle_slave 
+					NOT = { is_known_by = scope:owner }
+				}
 				reveal_to = scope:owner
 			}
 		}
@@ -196,6 +213,21 @@ tentacle_corrupt_scheme.1004 = {
 		container = "custom_widgets_container"
 	}
 	immediate = {
+		#被发现了
+		if = {
+			limit = {
+				exists = scope:scheme_discovered
+			}
+			scope:owner = {
+				random_secret = {
+					limit = { 
+						secret_type = secret_tentacle_slave 
+						NOT = { is_known_by = scope:target }
+					}
+					reveal_to = scope:target
+				}
+			}
+		}
 	}
 	option = { #下回继续
 		name = tentacle_corrupt_scheme.1004.a

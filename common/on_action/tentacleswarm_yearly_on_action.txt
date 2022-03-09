@@ -136,18 +136,18 @@ tentacle_encounter_yearly = {#遭遇年度触发
 					}
 					modifier = { #年轻
 						factor = 3
-						effective_age <= 25
+						effective_age <= 28
 					}
 					modifier = { #年迈
 						factor = 0.5
-						effective_age > 35
+						effective_age > 40
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0001 #水井杀
 						months = { 6 9 }
 					}
 				}
-				200 = {
+				500 = {
 				}
 			}
 		}

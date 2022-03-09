@@ -10,19 +10,14 @@
 	ignores_pending_interaction_block = yes
 	
 	is_shown = {
-		OR = {
-			debug_only = yes #debug模式无所畏惧
-			AND = {
-				scope:actor = { is_tentacle_slave = yes }
-				NOR = {
-					scope:recipient = scope:actor
-					scope:recipient = { is_imprisoned = yes }
-				}
-				NOT = {
-					scope:recipient = {
-						is_tentacle_slave_known_by = { CHARACTER = scope:actor }
-					}
-				}
+		scope:actor = { is_tentacle_slave = yes }
+		NOR = {
+			scope:recipient = scope:actor
+			scope:recipient = { is_imprisoned = yes }
+		}
+		NOT = {
+			scope:recipient = {
+				is_tentacle_slave_known_by = { CHARACTER = scope:actor }
 			}
 		}
 	}
