@@ -16,6 +16,11 @@ ai_accept_corrupt_modifier = {
 		add = 1000
 		has_character_flag = willing_to_be_corrupted 
 	}
+	#未成年人不懂得拒绝
+	modifier = {
+		add = 1000
+		is_adult = no 
+	}
 }
 
 ai_reject_corrupt_modifier = {

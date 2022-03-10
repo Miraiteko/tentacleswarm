@@ -7,8 +7,7 @@ is_tentaclable_female = { #适龄女性
 			limit = { is_pregnant_nature_or_tentacle = no } 
 			can_have_children = yes
 			fertility > 0.1
-			#is_adult = yes
-			age >= 12
+			is_adult = yes
 		}
 	}
 }
