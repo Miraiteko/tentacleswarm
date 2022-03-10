@@ -59,10 +59,6 @@
     secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
     I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他奴隶姐妹"
 
-
-    #腐化囚犯
-    tentacleswarm_imprisoner_interaction:0 "强迫触手赐福"
-    tentacleswarm_imprisoner_interaction_desc:0 "强迫[recipient.GetShortUINameNoTooltip]接受触手主人的赐福。"
     
     
     

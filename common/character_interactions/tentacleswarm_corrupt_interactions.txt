@@ -155,6 +155,7 @@ tentacleswarm_imprisoner_interaction = {
 	common_interaction = yes
 	interface_priority = 100
 	desc = tentacleswarm_imprisoner_interaction_desc
+	cooldown_against_recipient = { months = 1 } #冷却时间
 	
 	ai_frequency = 3 #AI多久考虑一次
 	
@@ -190,13 +191,12 @@ tentacleswarm_imprisoner_interaction = {
 	}
 	on_accept = {
 		scope:actor = { save_scope_as = imprisoner }
+		scope:recipient = { save_scope_as = recipient }
 		scope:recipient = {
 			trigger_event = {
 				id = tentacleswarm_slave.0041 #被囚禁者腐化
 			}
-			show_as_tooltip = {
-				become_tentacle_slave = yes
-			}
+			custom_tooltip = tentacleswarm_slave.imprisoner.tt
 		}
 	}
 	
@@ -223,7 +223,7 @@ ask_for_tentacle_corruption_interaction = {
 	can_send_despite_rejection = yes #即使会失败也能寄出要求
 	popup_on_receive = yes
 	greeting = positive
-	notification_text = TENTACLESWARM_FORCE_DEATH_INTERACTION_NOTIFICATION
+	notification_text = ASK_FOR_TENTACLE_CORRUPTION_INTERACTION_NOTIFICATION
 	cooldown_against_recipient = { years = 1 } #冷却时间
 	
 	is_shown = {
