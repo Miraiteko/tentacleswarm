@@ -433,6 +433,7 @@ types MapModes
 
 		flowcontainer = {
 			visible = "[GetVariableSystem.Exists( 'mapmodes_expand' )]"
+			visible_at_creation = no
 			parentanchor = top|right
 			widgetanchor = bottom|right
 			position = { -0 25 }

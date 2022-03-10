@@ -37,8 +37,31 @@
     tentacle_corruption_61_perk_tt:0 "#N 围攻胜利后掠取发展度到你的首都#!\n在触手主人的蹂躏下，奴隶常常会坏掉。\n因此我们需要源源不断的新奴隶来服务主人，而战争是掠取奴隶的最常规手段。"
     tentacle_corruption_62_perk_name:0 "触网恢恢"
     tentacle_corruption_62_perk_tt:0 "#N 可以同时腐化多位女性#!\n触手主人身上长着无数的触手，而合格的触手传道者能为每条触手都找到合适的玩具。"
-    tentacle_corruption_73_perk_name:0 "万千魅态"
-    tentacle_corruption_73_perk_tt_1:0 "#N 你的勾引变得难以抗拒#!"
-    tentacle_corruption_73_perk_tt_2:0 "#N 你的情人无法用触手奴隶秘密勒索你#!\n为了侍奉触手主人，你的女性身体已经趋于至臻至美。\n想要迷倒一个凡人更是轻而易举的事情了。"
     
+    #后期腐化
+    #tentacle_corruption_73_perk_name:0 "万千魅态"
+    #tentacle_corruption_73_perk_tt_1:0 "#N 你的勾引变得难以抗拒#!"
+    #tentacle_corruption_73_perk_tt_2:0 "#N 你的情人无法用触手奴隶秘密勒索你#!\n为了侍奉触手主人，你的女性身体已经趋于至臻至美。\n想要迷倒一个凡人更是轻而易举的事情了。"
+    
+    tentacle_corruption_71_perk_name:0 "暂未开放"
+    tentacle_corruption_72_perk_name:0 "暂未开放"
+    tentacle_corruption_73_perk_name:0 "暂未开放"
+    tentacle_corruption_74_perk_name:0 "暂未开放"
+    tentacle_corruption_81_perk_name:0 "暂未开放"
+    tentacle_corruption_82_perk_name:0 "暂未开放"
+    tentacle_corruption_83_perk_name:0 "暂未开放"
+    tentacle_corruption_91_perk_name:0 "暂未开放"
+    tentacle_corruption_92_perk_name:0 "暂未开放"
+    tentacle_corruption_101_perk_name:0 "暂未开放"
+    tentacle_corruption_102_perk_name:0 "暂未开放"
+    tentacle_corruption_111_perk_name:0 "暂未开放"
+    tentacle_corruption_112_perk_name:0 "暂未开放"
+    
+    #隐藏修正
+    tentacle_pregnant_perk_name:0 "触手怀孕"
+    fertility_loss_01_perk_name:0 "生育力损伤I"
+    fertility_loss_02_perk_name:0 "生育力损伤II"
+    fertility_loss_03_perk_name:0 "生育力损伤III"
+    fertility_loss_04_perk_name:0 "生育力损伤IV"
+    fertility_loss_05_perk_name:0 "生育力损伤V"
     

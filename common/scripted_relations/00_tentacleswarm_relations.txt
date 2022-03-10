@@ -1,0 +1,10 @@
+﻿#恶堕引路人
+tentacle_mentor = {
+	corresponding = tentacle_student
+	opinion = 20
+}
+#恶堕追随者
+tentacle_student = {
+	corresponding = tentacle_mentor
+	opinion = 30
+}

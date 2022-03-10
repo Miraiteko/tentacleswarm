@@ -77,6 +77,7 @@ tentacleswarm_auto_corrupt_decision = {
 	selection_tooltip = tentacleswarm_auto_corrupt_decision_tooltip
 
 	is_shown = {
+		always = no
 		is_ai = no  #ai不通过这个来成为奴隶
 		is_tentaclable_female = yes 
 		OR = {

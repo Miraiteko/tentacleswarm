@@ -340,13 +340,20 @@ tentacleswarm_slave.0031 = {
 		animation = personality_zealous
 	}
 	
+	immediate = {
+		if = {
+			limit = { 
+				NOT = { has_character_flag = willing_to_be_corrupted } 
+			}
+			add_character_flag = willing_to_be_corrupted
+		}
+	}
 	 
 	trigger = {
 		is_tentaclable_female = yes
 	}
 	option = {
 		name = tentacleswarm_slave.0031.a
-		add_character_flag = willing_to_be_corrupted #主动接受赐福，说明你是想被腐化的 
 		trigger_event = {
 			id = tentacleswarm_slave.0032
 		}
@@ -512,6 +519,37 @@ tentacleswarm_slave.0042 = {
 		}
 	}
 }
+#引路人腐化预处理
+tentacleswarm_slave.0050 = {
+	hidden = yes
+	trigger = {
+		is_tentacle_slave = no
+		num_of_relation_tentacle_mentor > 0
+	}
+	immediate = {
+		#找到引路人
+        random_relation = {
+			type = tentacle_mentor
+			save_scope_as = tentacle_mentor
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			#触发主事件
+			trigger_event = {
+				id = tentacleswarm_slave.0051
+			}
+		}
+		else = {
+			#推迟触发
+			trigger_event = {
+				id = tentacleswarm_slave.0050
+				days = 7
+			}
+		}
+	}
+}
 #引路人起
 tentacleswarm_slave.0051 = {
 	type = character_event
@@ -522,20 +560,20 @@ tentacleswarm_slave.0051 = {
 				trigger = { #第一次
 					NOT = { has_perk = tentacle_corruption_01_perk }
 				}
-				desc = tentacleswarm_slave.0052.desc1
+				desc = tentacleswarm_slave.0051.desc1
 			}
 			triggered_desc = { 
 				trigger = { #最后一次
 					has_perk = tentacle_corruption_21_perk 
 					has_perk = tentacle_corruption_22_perk 
 				}
-				desc = tentacleswarm_slave.0052.desc3
+				desc = tentacleswarm_slave.0051.desc3
 			}
 			triggered_desc = {
 				trigger = { #其他情况
 					always = yes
 				}
-				desc = tentacleswarm_slave.0052.desc2
+				desc = tentacleswarm_slave.0051.desc2
 			}
 		}
 	}
@@ -549,19 +587,38 @@ tentacleswarm_slave.0051 = {
 		NOT = { has_character_flag = is_being_tentacled }
 	}
 	immediate = {
-		add_character_flag = is_being_tentacled
+		add_character_flag = {
+			flag = is_being_tentacled
 			days = 7
 		}
 	}
 	option = {
 		name = tentacleswarm_slave.0051.a
-		add_character_flag = willing_to_be_corrupted
+		if = {
+			limit = { 
+				NOT = { has_character_flag = willing_to_be_corrupted } 
+			}
+			add_character_flag = willing_to_be_corrupted
+		}
 		trigger_event= {
 			id = tentacleswarm_slave.0052
 		}
+		ai_chance = {
+			base = 100
+		}
 	}
 	option = {
-		name = tentacleswarm_slave.0052.b #我不干了
+		name = tentacleswarm_slave.0051.b #我不干了
+		if = {
+			limit = { 
+				has_character_flag = willing_to_be_corrupted 
+			}
+			remove_character_flag = willing_to_be_corrupted
+		}
+		remove_relation_tentacle_mentor = scope:tentacle_mentor
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 #引路人承
@@ -662,7 +719,7 @@ tentacleswarm_slave.0052 = {
 		}
 	}
 }
-tentacleswarm_slave.0003 = {
+tentacleswarm_slave.0053 = {
 	type = character_event
 	title = tentacleswarm_slave.0003.t
 	desc = {
@@ -687,7 +744,7 @@ tentacleswarm_slave.0003 = {
 		character = this
 		animation = personality_coward #乖巧
 	}
-	left_portrait = {
+	right_portrait = {
 		character = scope:tentacle_mentor
 		animation = personality_coward #乖巧
 	}
@@ -697,6 +754,10 @@ tentacleswarm_slave.0003 = {
 			is_tentacle_slave = no
 		}
 		custom_tooltip = tentacleswarm_slave.0053.a.tt
+		trigger_event = {
+			id = tentacleswarm_slave.0050
+			days = 15
+		}
 	}
 	option = {
 		name = tentacleswarm_slave.0053.b #完成了
@@ -705,7 +766,6 @@ tentacleswarm_slave.0003 = {
 		}
 	}
 	after = {
-		remove_character_flag = willing_to_be_corrupted 
 	}
 }
 tentacleswarm_slave.1001 = {

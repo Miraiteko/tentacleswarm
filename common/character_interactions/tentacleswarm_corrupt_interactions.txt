@@ -1,4 +1,5 @@
-﻿tentacle_corrupt_start_scheme_interaction = {
+﻿#开始腐化密谋
+tentacle_corrupt_start_scheme_interaction = {
 	icon = icon_hostile
 	interface_priority = 70
 	category = interaction_category_hostile
@@ -148,6 +149,7 @@
 		}
 	}
 }
+#腐化囚犯
 tentacleswarm_imprisoner_interaction = {
 	category = interaction_category_prison
 	common_interaction = yes
@@ -204,6 +206,90 @@ tentacleswarm_imprisoner_interaction = {
 	
 	auto_accept = yes
 	
+	ai_will_do = {
+		base = 100
+	}
+}
+#主动要求恶堕
+ask_for_tentacle_corruption_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	interface_priority = 100
+	desc = ask_for_tentacle_corruption_interaction_desc
+	
+	ai_maybe = yes
+	ai_min_reply_days = 4
+	ai_max_reply_days = 9
+	can_send_despite_rejection = yes #即使会失败也能寄出要求
+	popup_on_receive = yes
+	greeting = positive
+	notification_text = TENTACLESWARM_FORCE_DEATH_INTERACTION_NOTIFICATION
+	cooldown_against_recipient = { years = 1 } #冷却时间
+	
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = { 
+			is_tentaclable_female = yes
+			is_tentacle_slave = no
+			num_of_relation_tentacle_mentor = 0 #没有引路人
+		}
+	}
+
+	is_valid = {
+		scope:recipient = { 
+			is_tentacle_slave_known_by = { CHARACTER = scope:actor }
+		}
+	}
+	
+	is_highlighted = {
+		scope:actor = { 
+			has_religion = religion:tentacleswarm_religion
+		}
+	}
+	on_send = {
+		scope:actor = {
+			if = {
+				limit = { 
+					NOT = { has_character_flag = willing_to_be_corrupted } 
+				}
+				add_character_flag = willing_to_be_corrupted
+			}
+		}
+	}
+	on_accept = {
+		scope:actor = {
+			set_relation_tentacle_mentor = scope:recipient
+			trigger_event = {
+				id = tentacleswarm_slave.0050 #主动恶堕
+			}
+		}
+	}
+	on_decline = {
+		scope:actor = { 
+			add_prestige = -100
+		}
+	}
+	ai_accept = {
+		base = 100
+	}
+	ai_potential = {
+		has_religion = religion:tentacleswarm_religion
+	}
+	
+	ai_frequency = 12
+	
+	ai_targets = {
+		ai_recipients = guests
+		ai_recipients = courtiers
+		ai_recipients = scripted_relations
+		ai_recipients = peer_vassals
+		ai_recipients = liege
+	}
+	
+	
+	ai_target_quick_trigger = {
+		adult = yes
+	}
 	ai_will_do = {
 		base = 100
 	}

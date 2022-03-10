@@ -172,7 +172,7 @@ tentacle_corruption_perk_add = {
 						trigger_event = tentacleswarm_perk.62
 					}
 				}
-				1 = { #末期走左线
+				0 = { #末期走左线
 					modifier = {
 						factor = 0
 						OR = {
@@ -184,7 +184,7 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_71_perk } 
 						}
-						trigger_event = tentacleswarm_perk.71
+						add_perk = tentacle_corruption_71_perk
 					}
 					else_if = {
 						limit = {
@@ -208,7 +208,7 @@ tentacle_corruption_perk_add = {
 						add_perk = tentacle_corruption_111_perk
 					}
 				}
-				1 = { #末期走右线
+				0 = { #末期走右线
 					modifier = {
 						factor = 0
 						OR = {
@@ -220,7 +220,7 @@ tentacle_corruption_perk_add = {
 						limit = {
 							NOT = { has_perk = tentacle_corruption_74_perk } 
 						}
-						trigger_event = tentacleswarm_perk.74
+						add_perk = tentacle_corruption_74_perk
 					}
 					else_if = {
 						limit = {
@@ -245,7 +245,7 @@ tentacle_corruption_perk_add = {
 					}
 				}
 				#末期中线的几个零散位置
-				1 = { #72
+				0 = { #72
 					modifier = {
 						factor = 0
 						OR = {
@@ -253,9 +253,9 @@ tentacle_corruption_perk_add = {
 							has_perk = tentacle_corruption_72_perk
 						}
 					}
-					trigger_event = tentacleswarm_perk.72
+					add_perk = tentacle_corruption_72_perk
 				}
-				1 = { #73
+				0 = { #73
 					modifier = {
 						factor = 0
 						OR = {
@@ -263,9 +263,9 @@ tentacle_corruption_perk_add = {
 							has_perk = tentacle_corruption_73_perk
 						}
 					}
-					trigger_event = tentacleswarm_perk.73
+					add_perk = tentacle_corruption_73_perk
 				}
-				1 = { #82
+				0 = { #82
 					modifier = {
 						factor = 0
 						OR = {

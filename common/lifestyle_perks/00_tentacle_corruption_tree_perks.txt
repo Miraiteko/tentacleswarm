@@ -232,7 +232,6 @@ tentacle_corruption_72_perk = {
 	effect = {
 	}
 }
-#万千魅态
 tentacle_corruption_73_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -243,11 +242,11 @@ tentacle_corruption_73_perk = {
 	can_be_auto_selected = { always = no }
 	
 	character_modifier = {
-		seduce_scheme_power_add = 50
+		#seduce_scheme_power_add = 50
 	}
 	effect = {
-		custom_tooltip = tentacle_corruption_73_perk_tt_1
-		custom_tooltip = tentacle_corruption_73_perk_tt_2
+		#custom_tooltip = tentacle_corruption_73_perk_tt_1
+		#custom_tooltip = tentacle_corruption_73_perk_tt_2
 	}
 }
 tentacle_corruption_74_perk = {
