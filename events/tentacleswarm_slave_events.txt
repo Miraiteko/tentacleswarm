@@ -519,7 +519,7 @@ tentacleswarm_slave.0042 = {
 		}
 	}
 }
-#引路人腐化预处理
+#引路人预处理
 tentacleswarm_slave.0050 = {
 	hidden = yes
 	trigger = {
@@ -527,6 +527,7 @@ tentacleswarm_slave.0050 = {
 		num_of_relation_tentacle_mentor > 0
 	}
 	immediate = {
+		save_scope_as = tentacle_student
 		#找到引路人
         random_relation = {
 			type = tentacle_mentor
@@ -600,8 +601,11 @@ tentacleswarm_slave.0051 = {
 			}
 			add_character_flag = willing_to_be_corrupted
 		}
-		trigger_event= {
-			id = tentacleswarm_slave.0052
+		#引路人被告知，之后再跳转到承部分
+		scope:tentacle_mentor = {
+			trigger_event= {
+				id = tentacleswarm_slave.0054
+			}
 		}
 		ai_chance = {
 			base = 100
@@ -614,6 +618,11 @@ tentacleswarm_slave.0051 = {
 				has_character_flag = willing_to_be_corrupted 
 			}
 			remove_character_flag = willing_to_be_corrupted
+		}
+		scope:tentacle_mentor = {
+			trigger_event = {
+				id = tentacleswarm_slave.0055
+			}
 		}
 		remove_relation_tentacle_mentor = scope:tentacle_mentor
 		ai_chance = {
@@ -719,6 +728,7 @@ tentacleswarm_slave.0052 = {
 		}
 	}
 }
+#引路人合
 tentacleswarm_slave.0053 = {
 	type = character_event
 	title = tentacleswarm_slave.0003.t
@@ -766,6 +776,96 @@ tentacleswarm_slave.0053 = {
 		}
 	}
 	after = {
+	}
+}
+#引路人被告知事件
+tentacleswarm_slave.0054 = {
+	type = character_event
+	title = tentacleswarm_slave.0054.t	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { #第一次
+					scope:tentacle_student = {
+						NOT = { has_perk = tentacle_corruption_01_perk }
+					}
+				}
+				desc = tentacleswarm_slave.0054.desc1
+			}
+			triggered_desc = { 
+				trigger = { #最后一次
+					scope:tentacle_student = {
+						has_perk = tentacle_corruption_21_perk 
+						has_perk = tentacle_corruption_22_perk 
+					}
+				}
+				desc = tentacleswarm_slave.0054.desc3
+			}
+			triggered_desc = {
+				trigger = { #其他情况
+					always = yes
+				}
+				desc = tentacleswarm_slave.0054.desc2
+			}
+		}
+	}
+	theme = seduction
+	left_portrait = {
+		character = scope:tentacle_student
+		animation = personality_zealous
+	}
+	right_portrait = {
+		character = scope:tentacle_mentor
+		animation = personality_coward
+	}
+	
+	immediate = {
+		scope:tentacle_student = {
+			trigger_event = {
+				id = tentacleswarm_slave.0052 #承
+			}
+		}
+	}
+	
+	option = {
+		name = tentacleswarm_slave.0054.a
+		trigger = {
+			NOT = {
+				scope:tentacle_student = {
+					has_perk = tentacle_corruption_21_perk 
+					has_perk = tentacle_corruption_22_perk 
+				}
+			}
+		}
+	}
+	option = { #最后一次事件
+		name = tentacleswarm_slave.0054.b
+		trigger = {
+			scope:tentacle_student = {
+				has_perk = tentacle_corruption_21_perk 
+				has_perk = tentacle_corruption_22_perk 
+			}
+		}
+	}
+}
+tentacleswarm_slave.0055 = {
+	type = character_event
+	title = tentacleswarm_slave.0055.t	
+	desc = tentacleswarm_slave.0055.desc
+	theme = seduction
+	left_portrait = {
+		character = scope:tentacle_student
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:tentacle_mentor
+		animation = personality_coward
+	}
+	option = {
+		name = tentacleswarm_slave.0055.a
+		show_as_tooltip = {
+			remove_relation_tentacle_student = scope:tentacle_student
+		}
 	}
 }
 tentacleswarm_slave.1001 = {
