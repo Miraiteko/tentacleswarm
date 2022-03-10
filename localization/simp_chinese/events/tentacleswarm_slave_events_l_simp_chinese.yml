@@ -70,12 +70,13 @@
     tentacleswarm_slave.0051.desc3:0 "你每天都焦躁不安，渴望再次成为触手怪物的玩物。最后，[tentacle_mentor.GetTitledFirstName]来带你前往她触手主人的巢穴，在那里你将被彻底地、不可挽回地堕落成一个触手奴隶！"
     tentacleswarm_slave.0051.a:0 "跟着她进入黑暗"
     tentacleswarm_slave.0051.a:0 "我不再想当触手奴隶了"
-    tentacleswarm_slave.0052.desc:0 "你随着[tentacle_mentor.GetTitledFirstName]来到一个触手主人的巢穴，呼唤着触手主人们，恳求他们给予赐福。在你们散发出的气味的刺激下，饥饿的触手觉察到了你们的存在，纷纷涌向来，迅速将你们吞噬在他们悸动的触须中……" 
+    tentacleswarm_slave.0052.desc:0 "当你们进入一处有温热潮湿的洞穴中时，一股浓烈的麝香味袭来，甜美而带着咸味的气息使你的意识逐渐模糊。你看到[tentacle_mentor.GetTitledFirstName]媚笑着任由触手所拘束。在触手的怀抱中，她发出的甜美的呻吟。而你发现，这个怪物的腕足开始缠绕着你的身体。" 
     tentacleswarm_slave.0053.t:0 "余韵"
     tentacleswarm_slave.0053.desc1:0 "在尽兴地玩弄了你之后，触手主人消失在了巢穴之中\n\n而你精疲力尽地瘫倒在地上，肿胀的腹中充斥着温暖的触手能量。[tentacle_mentor.GetTitledFirstName]拥抱着瘫倒在地的你，你的身体被滚烫的触手精液所覆盖。她微笑着在你的耳畔呢喃，你能做的只有抱紧她，并沉浸于与触手交尾的余韵之中。" 
-    tentacleswarm_slave.0003.desc2:0 "在尽兴地玩弄了你之后，触手主人消失在了巢穴之中\n\n而你精疲力尽地瘫倒在地上，肿胀的腹中充斥着温暖的触手能量。当你瘫倒在地，沉浸在高潮中难以自拔。[tentacle_mentor.GetTitledFirstName]拥抱并深深吻着你。你的回应炙热无比，热切地从她的舌头和嘴唇上舔着残存的精液。她告诉你，她很欢迎你作为一个新的育种奴隶加入她的行列......" 
-    tentacleswarm_slave.0003.a:0 "太爽了……！"
-    tentacleswarm_slave.0003.b:0 "谢谢你腐化我，我的好姐妹"
+    tentacleswarm_slave.0053.desc2:0 "在尽兴地玩弄了你之后，触手主人消失在了巢穴之中\n\n而你精疲力尽地瘫倒在地上，肿胀的腹中充斥着温暖的触手能量。当你瘫倒在地，沉浸在高潮中难以自拔。[tentacle_mentor.GetTitledFirstName]拥抱并深深吻着你。你的回应炙热无比，热切地从她的舌头和嘴唇上舔着残存的精液。她告诉你，她很欢迎你作为一个新的育种奴隶加入她的行列......" 
+    tentacleswarm_slave.0053.a:0 "太爽了……！"
+    tentacleswarm_slave.0053.a.tt:0 "你期待着下一次的赐福"
+    tentacleswarm_slave.0053.b:0 "谢谢你腐化我，我的好姐妹"
     
     #健康崩溃事件
     tentacleswarm_slave.1001.t:0 "囿于己身"

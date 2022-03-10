@@ -1,15 +1,20 @@
-﻿#调整ai接受腐化的可能性，用于events之中
+﻿#调整ai接受恶堕的可能性，用于events之中
 ai_accept_corrupt_modifier = {
-	#贪婪增加腐化可能，荣誉和理智为扣减
+	#贪婪增加恶堕可能，荣誉和理智为扣减
 	ai_value_modifier = {
 		ai_greed = 0.3
 		ai_honor = -0.3
 		ai_rationality = -0.6
 		min = -99
 	}
-	#根据当前压力增加腐化可能
+	#根据当前压力增加恶堕可能
 	modifier = {
 		add = stress
+	}
+	#已经同意了，增加恶堕可能
+	modifier = {
+		add = 1000
+		has_character_flag = willing_to_be_corrupted 
 	}
 }
 
