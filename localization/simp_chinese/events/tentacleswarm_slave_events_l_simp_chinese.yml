@@ -12,6 +12,8 @@
     tentacle_corruption_perk_add.tt:0 "你的触手恶堕程度加深了"
     tentacle_corrupt_reject_success.t:0 "抵制恶堕"
     tentacle_corrupt_reject_success.tt:0 "你抵制了触手腐化"
+    tentacle_corrupt_reject_fail.t:0 "抵制失败"
+    tentacle_corrupt_reject_fail.tt:0 "你没能成功抵制触手腐化"
     
     #从水井中来
     tentacleswarm_slave.0001.t:0 "夜晚"
@@ -61,6 +63,20 @@
     tentacleswarm_slave.0042.desc4:0 "[imprisoner.GetTitledFirstName]走到一边，露出一个触手怪物巨大而扭曲的轮廓。当它涌入你的房间时，肉眼可见的腐化气浪涌向了你，使你的身体逐渐瘫软。你无力抵抗，被触手钉在墙上。你试图放声大叫，但触手却插进了你的嘴中让你发不出任何声响。\n\n触手的腐化瘴气灌入了你的身体之中，侵蚀着你胎中的孩子。你的身体被触手的能量重新塑造，变成了会因触手的瘴气而极度快乐的体质。\n\n最终，触手主人消失在了黑暗之中，而你的瘫倒在地上，回味着主人的赐福。你的小腹上浮现出了心形的腐化纹理，表明了你已经不可逆转地成为了触手主人的虔诚奴隶。\n\n[imprisoner.GetTitledFirstName]从暗中出现，祝贺你成为了触手奴隶的一员。" #不是奴隶，已怀孕
     tentacleswarm_slave.0042.a:0 "感谢您给我的奖励"
 
+    #同意被腐化
+    tentacleswarm_slave.0051.t:0 "迎接触手"
+    tentacleswarm_slave.0051.desc1:0 "[tentacle_mentor.GetTitledFirstName]来参加你的第一次洗脑，她的眼睛里充满了热切的光芒。正如你所答应的，她把你带到她的触手主人的巢穴，在那里你被那怪物强奸，你作为触手奴隶的第一粒种子被种下。"
+    tentacleswarm_slave.0051.desc2:0 "自从你第一次遇到触手怪物，你开始做奇怪的充满肉欲的梦。今晚，[tentacle_mentor.GetTitledFirstName]的来了，带着洗脑后的喜悦微笑着带你去见她的触手主人。在它的怀抱中，你梦中的不洁而淫乱的性幻想将再次成为现实。"
+    tentacleswarm_slave.0051.desc3:0 "你每天都焦躁不安，渴望再次成为触手怪物的玩物。最后，[tentacle_mentor.GetTitledFirstName]来带你前往她触手主人的巢穴，在那里你将被彻底地、不可挽回地堕落成一个触手奴隶！"
+    tentacleswarm_slave.0051.a:0 "跟着她进入黑暗"
+    tentacleswarm_slave.0051.a:0 "我不再想当触手奴隶了"
+    tentacleswarm_slave.0052.desc:0 "你随着[tentacle_mentor.GetTitledFirstName]来到一个触手主人的巢穴，呼唤着触手主人们，恳求他们给予赐福。在你们散发出的气味的刺激下，饥饿的触手觉察到了你们的存在，纷纷涌向来，迅速将你们吞噬在他们悸动的触须中……" 
+    tentacleswarm_slave.0053.t:0 "余韵"
+    tentacleswarm_slave.0053.desc1:0 "在尽兴地玩弄了你之后，触手主人消失在了巢穴之中\n\n而你精疲力尽地瘫倒在地上，肿胀的腹中充斥着温暖的触手能量。[tentacle_mentor.GetTitledFirstName]拥抱着瘫倒在地的你，你的身体被滚烫的触手精液所覆盖。她微笑着在你的耳畔呢喃，你能做的只有抱紧她，并沉浸于与触手交尾的余韵之中。" 
+    tentacleswarm_slave.0003.desc2:0 "在尽兴地玩弄了你之后，触手主人消失在了巢穴之中\n\n而你精疲力尽地瘫倒在地上，肿胀的腹中充斥着温暖的触手能量。当你瘫倒在地，沉浸在高潮中难以自拔。[tentacle_mentor.GetTitledFirstName]拥抱并深深吻着你。你的回应炙热无比，热切地从她的舌头和嘴唇上舔着残存的精液。她告诉你，她很欢迎你作为一个新的育种奴隶加入她的行列......" 
+    tentacleswarm_slave.0003.a:0 "太爽了……！"
+    tentacleswarm_slave.0003.b:0 "谢谢你腐化我，我的好姐妹"
+    
     #健康崩溃事件
     tentacleswarm_slave.1001.t:0 "囿于己身"
     tentacleswarm_slave.1001.desc:0 "自从你不再能够生育以来，你感觉触手主人赐予你的能量正在迅速的流失。你的身体在失去了主人的赐福之后，变成了残缺不全的空壳，一点点地走向了崩溃。\n\n在这个残破的身体里，你感觉自己除了静候死神的甜蜜拥吻，什么都做不了了。"

@@ -303,6 +303,15 @@ tentacle_corrupt_reject_effect = {
 	random_list = {
 		100 = {
 			ai_accept_corrupt_modifier = yes
+			hidden_effect = {
+				send_interface_toast = {
+					left_icon = ROOT
+					title = tentacle_corrupt_reject_fail.t
+					show_as_tooltip = {
+						custom_tooltip = tentacle_corrupt_reject_fail.tt
+					}
+				}
+			}
 			tentacle_corruption_perk_add = yes
 		}
 		100 = {
