@@ -44,6 +44,13 @@
     tentacleswarm_slave.refuse:0 "我必须抗拒这种快感"
     
     #赐福
+    tentacle_baby_corruption_not_yet_tooltip:0 "怀孕了但尚未被主人赐福"
+    I_tentacle_baby_corruption_not_yet_tooltip:0 "你已经怀孕了但尚未被主人赐福"
+    tentacleswarm_auto_corrupt_decision:0 "请求主人的赐福"
+    tentacleswarm_auto_corrupt_decision_desc:0 "每一位成年女性向都应该请求主人赐福以成为光荣的奴隶。\n每一位怀孕的奴隶都应该请求主人赐福于自己的胎儿。\n\n今日正是我履行这些义务的时刻。"
+    tentacleswarm_auto_corrupt_decision_tooltip:0 "请求触手主人赐福于你"
+    tentacleswarm_auto_corrupt_decision_confirm:0 "光荣地走入主人的巢穴"
+    tentacle_baby_corruption_tooltip:0 "获得主人的赐福"
     tentacleswarm_slave.0031.t:0 "赐福"
     tentacleswarm_slave.0031.desc:0 "你独自来到一个触手主人的巢穴，熟练地呼唤着触手主人们，恳求他们给予赐福。在你散发出的气味的刺激下，饥饿的触手觉察到了你的存在，纷纷涌向你，迅速将你吞噬在他们悸动的触须中……" #是奴隶
     tentacleswarm_slave.0031.desc1:0 "黄昏时分，你怀着紧张不安的心情向一处触手巢穴走去。在那里，你将被触手主人玩弄，你作为触手奴隶的第一粒种子被种下。\n\n一小群观众聚集在触手主人的巢穴周围，急切地围观你的第一次恶堕。\n\n当你的侍女引导你走向扭曲的触手坑时，你因恐惧而颤栗。\n\n你的侍女把你的手腕拴在祭杆上，你闭上眼睛，开始磕磕巴巴地背诵呼唤触手主人的圣诗。在你话语的刺激下，饥饿的触手觉察到了新的玩具的存在，纷纷涌向你，迅速将你吞噬在他们悸动的触须中……" #第一次
@@ -53,7 +60,7 @@
     tentacleswarm_slave.0032.t:0 "被触手夺去身心"
     tentacleswarm_slave.0032.desc:0 "触手巢穴中的温热的气息，使你的身体逐渐瘫软，在触手主人面前解除了所有的防备。" 
     tentacleswarm_slave.0032.a:0 "玩坏我吧，我的主人！"
-    tentacleswarm_slave.0033.t:0 "赐福"
+    tentacleswarm_slave.0033.t:0 "余韵"
     tentacleswarm_slave.0033.desc1:0 "怪物慢慢地把精疲力尽的你放回了地面。你揉捏、吮吸着那正滑过你涂满了黏液的身体的触手，身体依然随着触手的扭动而做出抽动的反应。接下来的很长一段时间，你无力地倒在地上，能做的只有赞叹着眼前这长满无数触手的完美造物，一遍遍地回味着刚才受到的赐福。\n\n最终，它命令你休养生息，为下一次播种做准备。你服从地站起身来，与它吻别。"
     tentacleswarm_slave.0033.desc2:0 "怪物慢慢地把精疲力尽的你放回了地面。你揉捏、吮吸着那正滑过你涂满了黏液的身体的触手，身体依然随着触手的扭动而做出抽动的反应。接下来的很长一段时间，你无力地倒在地上，能做的只有赞叹着眼前这长满无数触手的完美造物，一遍遍地回味着刚才受到的赐福。\n\n最终，它命令你休养生息，为下一次洗脑做准备。你服从地站起身来，与它吻别。"
     tentacleswarm_slave.0033.a:0 "谢谢您，我的主人"

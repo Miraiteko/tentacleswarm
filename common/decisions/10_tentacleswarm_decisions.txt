@@ -106,6 +106,7 @@ tentacleswarm_auto_corrupt_decision = {
 		}
 	}
 	
+	cooldown = { months = 3 }
 	ai_check_interval = 0
 
 	ai_potential = {
@@ -201,7 +202,7 @@ tentacleswarm_anti_start_decision = {
 
 	is_shown = {
 		faith = {
-			has_doctrine= doctrine_tentacle_slave_evil #敌视
+			has_doctrine = doctrine_tentacle_slave_evil #敌视
 		}
 		NOT = { has_character_modifier = tentacleswarm_anti }
 	}
@@ -229,7 +230,7 @@ tentacleswarm_anti_start_decision = {
 		}
 	}
 	
-	ai_check_interval = 12
+	ai_check_interval = 24
 
 	ai_potential = {
 		is_tentacle_slave = no
@@ -237,10 +238,6 @@ tentacleswarm_anti_start_decision = {
 			tier = tier_county 
 			var:tentacleswarm_corruption  = { compare_value >= 10 }
 		}
-		faith = {
-			has_doctrine = doctrine_tentacle_slave_evil #敌视
-		}
-		NOT = { has_character_modifier = tentacleswarm_anti }
 	}
 
 	ai_will_do = {
@@ -250,7 +247,7 @@ tentacleswarm_anti_start_decision = {
 			exists = capital_county
 		}
 		modifier = { #处于战争的话，没那么乐意
-			add = -20
+			add = -30
 			is_at_war = yes
 		}
 		ai_value_modifier = { #AI性格修正
