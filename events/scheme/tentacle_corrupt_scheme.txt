@@ -124,7 +124,7 @@ tentacle_corrupt_scheme.1003 = {
 	immediate = {
 		custom_tooltip = tentacle_corrupt_scheme_successful_roll_tt
 		scope:target = {
-			trigger_event = tentacleswarm_slave.0002 #目标被腐化
+			trigger_event = tentacleswarm_slave.0010 #目标被腐化
 		}
 		#被发现了
 		if = {

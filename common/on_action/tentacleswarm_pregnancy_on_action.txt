@@ -85,7 +85,7 @@ tentacleswarm_baby_corruption = {
 						has_perk = tentacle_corruption_01_perk
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0000 #水井杀
+						id = tentacleswarm_slave.0010 #水井杀
 						months = { 1 8 }
 					}
 				}
@@ -322,7 +322,7 @@ tentacleswarm_adult_pulse = {
 						save_scope_as = guardian
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0011 #监护人
+						id = tentacleswarm_slave.0010 #水井杀
 					}
 				}
 				0 = {
@@ -332,7 +332,7 @@ tentacleswarm_adult_pulse = {
 						exists = location.county
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0000 #水井杀
+						id = tentacleswarm_slave.0010 #水井杀
 					}
 				}
 				1000 = {
