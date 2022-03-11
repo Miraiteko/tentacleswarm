@@ -132,6 +132,13 @@
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
+		#DeathGod
+		DeathGodName = tentacleswarm_death_god_name
+		DeathGodNamePossessive = tentacleswarm_death_god_name_possessive
+		DeathGodSheHe = CHARACTER_SHEHE_HE
+		DeathGodHerHis = CHARACTER_HERHIS_HIS
+		DeathGodHerHim = CHARACTER_HERHIM_HIM
+		
 		PantheonTerm = tentacleswarm_high_god_name
 		PantheonTerm2 = tentacleswarm_high_god_name
 		PantheonTerm3 = tentacleswarm_high_god_name

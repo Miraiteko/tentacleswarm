@@ -421,7 +421,7 @@ convert_to_tentacleswarm_religion = {
 			faith = { 
 				change_fervor = {
 					value = -100
-					desc = fervor_loss_scandalous_priest
+					desc = fervor_loss_tentacle_corrupted_hof
 				} 
 			}
 		}
