@@ -47,7 +47,7 @@ tentacleswarm_speaker.0001 = {
 					}
 					scope:target = {
 						trigger_event = {
-							id = tentacleswarm_slave.0001
+							id = tentacleswarm_slave.0000
 						}
 					}
 					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果
@@ -123,7 +123,7 @@ tentacleswarm_speaker.0002 = { #speaker的初始化
 tentacleswarm_speaker.0003 = {
 	hidden = yes
 	trigger = { #已经足够的初始奴隶，就不再需要颂唱者了
-		global_var:start_tentacle_slave_count < 200
+		global_var:start_tentacle_slave_count < 1000
 	}
 	immediate = {
 		save_scope_as = employer

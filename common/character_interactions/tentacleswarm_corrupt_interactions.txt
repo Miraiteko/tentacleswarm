@@ -177,7 +177,7 @@ tentacleswarm_imprisoner_interaction = {
 	is_valid = {
 		scope:recipient = { 
 			is_tentaclable_female = yes
-			is_tentacle_slave = no 
+			is_tentacle_slave_known_by = { CHARACTER = scope:actor } 
 		}
 	}
 	
@@ -194,7 +194,7 @@ tentacleswarm_imprisoner_interaction = {
 		scope:recipient = { save_scope_as = recipient }
 		scope:recipient = {
 			trigger_event = {
-				id = tentacleswarm_slave.0041 #被囚禁者腐化
+				id = tentacleswarm_slave.0040 #被囚禁者腐化
 			}
 			custom_tooltip = tentacleswarm_slave.imprisoner.tt
 		}

@@ -14,6 +14,32 @@ namespace = tentacleswarm_slave
 #承：故事的发展，主人公是如何被触手抓获的，以及侵害进行的过程。这里应该针对主人公的现状（是否是奴隶，是否怀孕，是否有意被腐化）进行分类描述。
 #转：故事的高潮，主人公是如何恶堕的。这一部分事件通过perk_event来实现，即便故事背景不同，也有统一的描述。
 #合：故事的收尾，主人公是如何恢复神智的。
+
+#水井杀预处理，避免同一时机多个遇害事件
+tentacleswarm_slave.0000 = {
+	hidden = yes
+	trigger = {
+		is_tentaclable_female = yes
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			#触发主事件
+			trigger_event = {
+				id = tentacleswarm_slave.0001
+			}
+		}
+		else = {
+			#推迟触发
+			trigger_event = {
+				id = tentacleswarm_slave.0000
+				days = 7
+			}
+		}
+	}
+}
 #水井杀起
 tentacleswarm_slave.0001 = {
 	type = character_event
@@ -23,10 +49,6 @@ tentacleswarm_slave.0001 = {
 	theme = seduction
 	left_portrait = this
 	
-	trigger = { #处理条件判断
-		is_tentaclable_female = yes
-		NOT = { has_character_flag = is_being_tentacled }
-	}
 	immediate = {
 		add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
 			flag = is_being_tentacled
@@ -435,6 +457,32 @@ tentacleswarm_slave.0032 = {
 }
 
 #被囚禁者腐化
+#预处理
+tentacleswarm_slave.0000 = {
+	hidden = yes
+	trigger = {
+		is_tentaclable_female = yes
+		is_imprisoned_by = scope:imprisoner
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			#触发主事件
+			trigger_event = {
+				id = tentacleswarm_slave.0041
+			}
+		}
+		else = {
+			#推迟触发
+			trigger_event = {
+				id = tentacleswarm_slave.0040
+				days = 7
+			}
+		}
+	}
+}
 #起
 tentacleswarm_slave.0041 = {
 	type = character_event
@@ -444,9 +492,6 @@ tentacleswarm_slave.0041 = {
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	 
-	trigger = {
-		is_tentaclable_female = yes
-	}  
 	option = {
 		name = tentacleswarm_slave.0041.a
 		trigger_event = {

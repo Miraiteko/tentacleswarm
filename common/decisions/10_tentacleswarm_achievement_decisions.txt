@@ -30,11 +30,11 @@
 		}
 		
 		trigger_event = { #恶趣味
-			id = tentacleswarm_slave.0001 #水井杀
+			id = tentacleswarm_slave.0000 #水井杀
 			days = { 50 200 }
 		}
 		trigger_event = { #恶趣味
-			id = tentacleswarm_slave.0001 #再来一次
+			id = tentacleswarm_slave.0000 #再来一次
 			days = { 400 500 }
 		}
 	}
