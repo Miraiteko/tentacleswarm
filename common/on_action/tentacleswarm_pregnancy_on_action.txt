@@ -69,7 +69,7 @@ tentacleswarm_baby_corruption = {
 				}
 			}
 			trigger_event = {
-				id = tentacleswarm_slave.0031 #请赐
+				id = tentacleswarm_slave.0030 #请赐
 			}
 		}
 		else_if = {

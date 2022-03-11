@@ -85,10 +85,10 @@ tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 		if = { #没有成为奴隶的成年女性成为奴隶
 			limit = {
 				is_tentaclable_female = yes
-				not = { has_trait = tentacle_slave }
+				is_tentacle_slave = no
 			}
 			trigger_event = {
-				id = tentacleswarm_slave.0031 #虔诚赐福
+				id = tentacleswarm_slave.0030 #虔诚赐福
 			}
 		}
 	}
