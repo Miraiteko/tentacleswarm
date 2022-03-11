@@ -214,7 +214,7 @@ tentacleswarm_slave.0013 = {
 	}
 }
 
-#天生奴隶腐化
+#天生奴隶腐化，15岁触发
 tentacleswarm_slave.0021 = {
 	type = character_event
 	title = tentacleswarm_slave.0021.t
@@ -224,7 +224,7 @@ tentacleswarm_slave.0021 = {
 	left_portrait = this
 	 
 	trigger = {
-		is_tentaclable_female = yes
+		#is_tentaclable_female = yes #15岁，不是适龄
 		is_tentacle_slave = no
 	}
 	immediate = {

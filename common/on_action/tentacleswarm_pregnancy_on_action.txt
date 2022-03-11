@@ -289,28 +289,12 @@ tentacleswarm_adult_pulse = {
 				id = tentacleswarm_slave.0021 #天生腐化
 			}
 		}
-		else_if = {
-			limit = {
-				is_female = yes#被触手宗教囚禁的
-				exists = imprisoner 
-				imprisoner = {
-					OR = { 
-						is_tentacle_slave = yes
-						has_religion = religion:tentacleswarm_religion
-					}
-				}
-			}
-			imprisoner = { save_scope_as = imprisoner }
-			trigger_event = {
-				id = tentacleswarm_slave.0040 #被监禁者腐化
-			}
-		}
 		else_if = { #其他女性看成年所在地的腐化度
 			limit = { is_female = yes }
 			random_list = {
 				0 = {
 					modifier = { #监护人是奴隶
-						add = 0
+						add = 1000
 						any_relation = {
 							type = guardian
 							is_tentacle_slave = yes
@@ -323,6 +307,7 @@ tentacleswarm_adult_pulse = {
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0010 #水井杀
+						days = 400
 					}
 				}
 				0 = {
@@ -333,9 +318,10 @@ tentacleswarm_adult_pulse = {
 					}
 					trigger_event = {
 						id = tentacleswarm_slave.0010 #水井杀
+						days = 400
 					}
 				}
-				1000 = {
+				100 = {
 				}
 			}
 		}
