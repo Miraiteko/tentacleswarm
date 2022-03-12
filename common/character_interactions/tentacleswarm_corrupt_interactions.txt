@@ -194,9 +194,9 @@ tentacleswarm_imprisoner_interaction = {
 		scope:recipient = { save_scope_as = recipient }
 		scope:recipient = {
 			trigger_event = {
-				id = tentacleswarm_slave.0040 #被囚禁者腐化
+				id = tentacleswarm_scene.0040 #被囚禁者腐化
 			}
-			custom_tooltip = tentacleswarm_slave.imprisoner.tt
+			custom_tooltip = tentacleswarm_scene.imprisoner.tt
 		}
 	}
 	
@@ -260,7 +260,7 @@ ask_for_tentacle_corruption_interaction = {
 		scope:actor = {
 			set_relation_tentacle_mentor = scope:recipient
 			trigger_event = {
-				id = tentacleswarm_slave.0050 #主动恶堕
+				id = tentacleswarm_scene.0050 #主动恶堕
 			}
 		}
 	}

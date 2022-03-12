@@ -43,7 +43,7 @@ tentacleswarm_test_decision = {
 				has_character_flag = willing_to_be_corrupted #没有退缩
 			}
 			trigger_event = {
-				id = tentacleswarm_slave.0050
+				id = tentacleswarm_scene.0050
 				days = 10
 			}
 		}

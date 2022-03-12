@@ -1,4 +1,4 @@
-﻿tentacleswarm_slave_themes.txt = {
+﻿tentacleswarm_scene_themes = {
 	icon = {
 		reference = "gfx/interface/icons/event_types/type_seduction.dds"
 	}

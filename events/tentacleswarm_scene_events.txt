@@ -1,5 +1,5 @@
 ﻿#触手袭击事件
-namespace = tentacleswarm_slave
+namespace = tentacleswarm_scene
 #0011经典水井杀
 #0021天生奴隶
 #0031主动要求赐福
@@ -15,7 +15,7 @@ namespace = tentacleswarm_slave
 #合：故事的收尾，主人公是如何恢复神智的。
 
 #水井杀预处理，避免同一时机多个遇害事件
-tentacleswarm_slave.0010 = {
+tentacleswarm_scene.0010 = {
 	hidden = yes
 	trigger = {
 		is_tentaclable_female = yes
@@ -27,23 +27,23 @@ tentacleswarm_slave.0010 = {
 			}
 			#触发主事件
 			trigger_event = {
-				id = tentacleswarm_slave.0011
+				id = tentacleswarm_scene.0011
 			}
 		}
 		else = {
 			#推迟触发
 			trigger_event = {
-				id = tentacleswarm_slave.0010
+				id = tentacleswarm_scene.0010
 				days = 7
 			}
 		}
 	}
 }
 #水井杀起
-tentacleswarm_slave.0011 = {
+tentacleswarm_scene.0011 = {
 	type = character_event
-	title = tentacleswarm_slave.0011.t
-	desc = tentacleswarm_slave.0011.desc #故事背景的介绍
+	title = tentacleswarm_scene.0011.t
+	desc = tentacleswarm_scene.0011.desc #故事背景的介绍
 	
 	theme = seduction
 	left_portrait = this
@@ -55,19 +55,19 @@ tentacleswarm_slave.0011 = {
 		}
 	}
 	option = { #主人公在这个故事背景里面的反应
-		name = tentacleswarm_slave.0011.a
+		name = tentacleswarm_scene.0011.a
 		trigger_event= {
-			id = tentacleswarm_slave.0012
+			id = tentacleswarm_scene.0012
 		}
 	}
 }
 #水井杀承
-tentacleswarm_slave.0012 = {
+tentacleswarm_scene.0012 = {
 	type = character_event
-	title = tentacleswarm_slave.t	
+	title = tentacleswarm_scene.t	
 	desc = {
 		#如何被抓获的
-		desc = tentacleswarm_slave.0012.desc
+		desc = tentacleswarm_scene.0012.desc
 		#根据是否是奴隶，是否怀孕，选择被侵害时的文本
 		first_valid = {
 			triggered_desc = {
@@ -75,28 +75,28 @@ tentacleswarm_slave.0012 = {
 					is_tentacle_slave = yes
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.slave_not_pregnant
+				desc = tentacleswarm_scene.slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.slave_pregnant
+				desc = tentacleswarm_scene.slave_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.not_slave_not_pregnant
+				desc = tentacleswarm_scene.not_slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.not_slave_pregnant
+				desc = tentacleswarm_scene.not_slave_pregnant
 			}
 		} 
 	}
@@ -116,7 +116,7 @@ tentacleswarm_slave.0012 = {
 	
 	#接受选项
 	option = {
-		name = tentacleswarm_slave.accept_slave #奴隶接受文本
+		name = tentacleswarm_scene.accept_slave #奴隶接受文本
 		trigger = {
 			is_tentacle_slave = yes
 		}
@@ -127,7 +127,7 @@ tentacleswarm_slave.0012 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.accept #非奴隶接受文本
+		name = tentacleswarm_scene.accept #非奴隶接受文本
 		trigger = {
 			is_tentacle_slave = no
 		}
@@ -146,7 +146,7 @@ tentacleswarm_slave.0012 = {
 			is_tentacle_slave = no
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
-		name = tentacleswarm_slave.reject
+		name = tentacleswarm_scene.reject
 		tentacle_corrupt_reject_effect = yes
 		ai_chance = {
 			base = 100
@@ -156,15 +156,15 @@ tentacleswarm_slave.0012 = {
 	#一天之后，结算【合】部分
 	after = {
 		trigger_event= {
-			id = tentacleswarm_slave.0013
+			id = tentacleswarm_scene.0013
 			days = 1
 		}
 	}
 }
 #水井杀合
-tentacleswarm_slave.0013 = {
+tentacleswarm_scene.0013 = {
 	type = character_event
-	title = tentacleswarm_slave.0013.t
+	title = tentacleswarm_scene.0013.t
 	desc = { #尾声
 		#根据是否是奴隶，选择尾声时的文本
 		first_valid = {
@@ -175,13 +175,13 @@ tentacleswarm_slave.0013 = {
 						has_character_flag = willing_to_be_corrupted
 					}
 				}
-				desc = tentacleswarm_slave.0013.desc1
+				desc = tentacleswarm_scene.0013.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0013.desc2
+				desc = tentacleswarm_scene.0013.desc2
 			}
 		} 
 	}
@@ -192,7 +192,7 @@ tentacleswarm_slave.0013 = {
 		animation = personality_coward #乖巧
 	}
 	option = {
-		name = tentacleswarm_slave.0013.a #开心
+		name = tentacleswarm_scene.0013.a #开心
 		trigger = {  
 			OR = {
 				is_tentacle_slave = yes
@@ -201,7 +201,7 @@ tentacleswarm_slave.0013 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0013.b #厌恶
+		name = tentacleswarm_scene.0013.b #厌恶
 		trigger = {  
 			NOR = {
 				is_tentacle_slave = yes
@@ -215,10 +215,10 @@ tentacleswarm_slave.0013 = {
 }
 
 #天生奴隶腐化，15岁触发
-tentacleswarm_slave.0021 = {
+tentacleswarm_scene.0021 = {
 	type = character_event
-	title = tentacleswarm_slave.0021.t
-	desc = tentacleswarm_slave.0021.desc
+	title = tentacleswarm_scene.0021.t
+	desc = tentacleswarm_scene.0021.desc
 	
 	theme = seduction
 	left_portrait = this
@@ -233,7 +233,7 @@ tentacleswarm_slave.0021 = {
 		add_perk = tentacle_corruption_12_perk
 	}
 	option = {
-		name = tentacleswarm_slave.0021.a
+		name = tentacleswarm_scene.0021.a
 		add_perk = tentacle_corruption_21_perk
 		add_perk = tentacle_corruption_22_perk
 		
@@ -248,7 +248,7 @@ tentacleswarm_slave.0021 = {
 		show_as_unavailable = { 
 			is_tentacle_slave = no
 		}
-		name = tentacleswarm_slave.0021.b
+		name = tentacleswarm_scene.0021.b
 		add_stress = 100 
 		
 		ai_chance = {
@@ -257,7 +257,7 @@ tentacleswarm_slave.0021 = {
 	}
 }
 #要求赐福
-tentacleswarm_slave.0030 = {
+tentacleswarm_scene.0030 = {
 	hidden = yes
 	trigger = {
 		is_tentaclable_female = yes
@@ -273,21 +273,21 @@ tentacleswarm_slave.0030 = {
 			}
 			#触发主事件
 			trigger_event = {
-				id = tentacleswarm_slave.0031
+				id = tentacleswarm_scene.0031
 			}
 		}
 		else = {
 			#推迟触发
 			trigger_event = {
-				id = tentacleswarm_slave.0030
+				id = tentacleswarm_scene.0030
 				days = 7
 			}
 		}
 	}
 }
-tentacleswarm_slave.0031 = {
+tentacleswarm_scene.0031 = {
 	type = character_event
-	title = tentacleswarm_slave.0031.t
+	title = tentacleswarm_scene.0031.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -295,26 +295,26 @@ tentacleswarm_slave.0031 = {
 					#已经是奴隶了
 					is_tentacle_slave = yes
 				}
-				desc = tentacleswarm_slave.0031.desc
+				desc = tentacleswarm_scene.0031.desc
 			}
 			triggered_desc = {
 				trigger = { #第一次
 					NOT = { has_perk = tentacle_corruption_01_perk }
 				}
-				desc = tentacleswarm_slave.0031.desc1
+				desc = tentacleswarm_scene.0031.desc1
 			}
 			triggered_desc = { 
 				trigger = { #最后一次
 					has_perk = tentacle_corruption_21_perk 
 					has_perk = tentacle_corruption_22_perk 
 				}
-				desc = tentacleswarm_slave.0031.desc3
+				desc = tentacleswarm_scene.0031.desc3
 			}
 			triggered_desc = {
 				trigger = { #其他情况
 					always = yes
 				}
-				desc = tentacleswarm_slave.0031.desc2
+				desc = tentacleswarm_scene.0031.desc2
 			}
 		}
 	}
@@ -333,18 +333,18 @@ tentacleswarm_slave.0031 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0031.a
+		name = tentacleswarm_scene.0031.a
 		trigger_event = {
-			id = tentacleswarm_slave.0032
+			id = tentacleswarm_scene.0032
 		}
 	}
 }
-tentacleswarm_slave.0032 = {
+tentacleswarm_scene.0032 = {
 	type = character_event
-	title = tentacleswarm_slave.0032.t
+	title = tentacleswarm_scene.0032.t
 	desc = {
 		#如何被抓获的
-		desc = tentacleswarm_slave.0032.desc
+		desc = tentacleswarm_scene.0032.desc
 		#根据是否是奴隶，是否怀孕，选择被侵害时的文本
 		first_valid = {
 			triggered_desc = {
@@ -352,28 +352,28 @@ tentacleswarm_slave.0032 = {
 					is_tentacle_slave = yes
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.slave_not_pregnant
+				desc = tentacleswarm_scene.slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.slave_pregnant
+				desc = tentacleswarm_scene.slave_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.not_slave_not_pregnant
+				desc = tentacleswarm_scene.not_slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.not_slave_pregnant
+				desc = tentacleswarm_scene.not_slave_pregnant
 			}
 		} 
 	}
@@ -387,7 +387,7 @@ tentacleswarm_slave.0032 = {
 		tentacle_corrupt_effect = yes
 	}
 	option = {
-		name = tentacleswarm_slave.0032.a
+		name = tentacleswarm_scene.0032.a
 		tentacle_corrupt_accept_effect = yes
 		
 		ai_chance = {
@@ -403,7 +403,7 @@ tentacleswarm_slave.0032 = {
 			NOT = { has_perk = tentacle_corruption_31_perk }
 			has_perk = tentacle_corruption_22_perk
 		}
-		name = tentacleswarm_slave.refuse
+		name = tentacleswarm_scene.refuse
 		tentacle_corrupt_reject_effect = yes
 		
 		ai_chance = {
@@ -413,15 +413,15 @@ tentacleswarm_slave.0032 = {
 	}
 	after = {
 		trigger_event = {
-			id = tentacleswarm_slave.0033
+			id = tentacleswarm_scene.0033
 			days = 1
 		}
 	}
 }
 
-tentacleswarm_slave.0033 = {
+tentacleswarm_scene.0033 = {
 	type = character_event
-	title = tentacleswarm_slave.0033.t
+	title = tentacleswarm_scene.0033.t
 	desc = { #尾声
 		#根据是否是奴隶，选择尾声时的文本
 		first_valid = {
@@ -429,13 +429,13 @@ tentacleswarm_slave.0033 = {
 				trigger = {
 					is_tentacle_slave = yes
 				}
-				desc = tentacleswarm_slave.0033.desc1
+				desc = tentacleswarm_scene.0033.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0033.desc2
+				desc = tentacleswarm_scene.0033.desc2
 			}
 		} 
 	}
@@ -445,14 +445,14 @@ tentacleswarm_slave.0033 = {
 		animation = personality_coward #乖巧
 	}
 	option = {
-		name = tentacleswarm_slave.0033.a #开心
+		name = tentacleswarm_scene.0033.a #开心
 	}
 	after = {
 	}
 }
 #被囚禁者腐化
 #预处理
-tentacleswarm_slave.0040 = {
+tentacleswarm_scene.0040 = {
 	hidden = yes
 	trigger = {
 		is_tentaclable_female = yes
@@ -465,38 +465,38 @@ tentacleswarm_slave.0040 = {
 			}
 			#触发主事件
 			trigger_event = {
-				id = tentacleswarm_slave.0041
+				id = tentacleswarm_scene.0041
 			}
 		}
 		else = {
 			#推迟触发
 			trigger_event = {
-				id = tentacleswarm_slave.0040
+				id = tentacleswarm_scene.0040
 				days = 7
 			}
 		}
 	}
 }
 #起
-tentacleswarm_slave.0041 = {
+tentacleswarm_scene.0041 = {
 	type = character_event
-	title = tentacleswarm_slave.0041.t
-	desc = tentacleswarm_slave.0041.desc
+	title = tentacleswarm_scene.0041.t
+	desc = tentacleswarm_scene.0041.desc
 	theme = dungeon
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	 
 	option = {
-		name = tentacleswarm_slave.0041.a
+		name = tentacleswarm_scene.0041.a
 		trigger_event = {
-			id = tentacleswarm_slave.0042
+			id = tentacleswarm_scene.0042
 		}
 	}
 }
 #承
-tentacleswarm_slave.0042 = {
+tentacleswarm_scene.0042 = {
 	type = character_event
-	title = tentacleswarm_slave.0042.t
+	title = tentacleswarm_scene.0042.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -504,27 +504,27 @@ tentacleswarm_slave.0042 = {
 					is_tentacle_slave = yes
 					is_pregnant_nature_or_tentacle = no
 				}
-				desc = tentacleswarm_slave.0042.desc1
+				desc = tentacleswarm_scene.0042.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 					is_pregnant_nature_or_tentacle = yes
 				}
-				desc = tentacleswarm_slave.0042.desc2
+				desc = tentacleswarm_scene.0042.desc2
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					is_pregnant_nature_or_tentacle = no
 				}
-				desc = tentacleswarm_slave.0042.desc3
+				desc = tentacleswarm_scene.0042.desc3
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0042.desc4
+				desc = tentacleswarm_scene.0042.desc4
 			}
 		}
 	}
@@ -540,7 +540,7 @@ tentacleswarm_slave.0042 = {
 		tentacle_corrupt_effect = yes
 	}
 	option = {
-		name = tentacleswarm_slave.accept
+		name = tentacleswarm_scene.accept
 		tentacle_corrupt_accept_effect = yes
 		
 		ai_chance = {
@@ -556,7 +556,7 @@ tentacleswarm_slave.0042 = {
 			NOT = { has_perk = tentacle_corruption_31_perk }
 			has_perk = tentacle_corruption_22_perk
 		}
-		name = tentacleswarm_slave.reject
+		name = tentacleswarm_scene.reject
 		tentacle_corrupt_reject_effect = yes
 		
 		ai_chance = {
@@ -567,21 +567,21 @@ tentacleswarm_slave.0042 = {
 	#一天之后，结算【合】部分
 	after = {
 		trigger_event= {
-			id = tentacleswarm_slave.0043
+			id = tentacleswarm_scene.0043
 			days = 1
 		}
 		scope:imprisoner = {
 			trigger_event= {
-				id = tentacleswarm_slave.0044
+				id = tentacleswarm_scene.0044
 				days = 1
 			}
 		}
 	}
 }
 #合
-tentacleswarm_slave.0043 = {
+tentacleswarm_scene.0043 = {
 	type = character_event
-	title = tentacleswarm_slave.0043.t
+	title = tentacleswarm_scene.0043.t
 	desc = { #尾声
 		#根据是否是奴隶，选择尾声时的文本
 		first_valid = {
@@ -589,13 +589,13 @@ tentacleswarm_slave.0043 = {
 				trigger = {
 					is_tentacle_slave = yes
 				}
-				desc = tentacleswarm_slave.0043.desc1
+				desc = tentacleswarm_scene.0043.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0043.desc2
+				desc = tentacleswarm_scene.0043.desc2
 			}
 		} 
 	}
@@ -607,7 +607,7 @@ tentacleswarm_slave.0043 = {
 	}
 	right_portrait = scope:imprisoner
 	option = {
-		name = tentacleswarm_slave.0043.a #开心
+		name = tentacleswarm_scene.0043.a #开心
 		trigger = {  
 			OR = {
 				is_tentacle_slave = yes
@@ -616,7 +616,7 @@ tentacleswarm_slave.0043 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0043.b #厌恶
+		name = tentacleswarm_scene.0043.b #厌恶
 		trigger = {  
 			NOR = {
 				is_tentacle_slave = yes
@@ -627,9 +627,9 @@ tentacleswarm_slave.0043 = {
 	after = {
 	}
 }
-tentacleswarm_slave.0044 = {
+tentacleswarm_scene.0044 = {
 	type = character_event
-	title = tentacleswarm_slave.0044.t
+	title = tentacleswarm_scene.0044.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -638,13 +638,13 @@ tentacleswarm_slave.0044 = {
 						is_tentacle_slave = no
 					}
 				}
-				desc = tentacleswarm_slave.0044.desc1
+				desc = tentacleswarm_scene.0044.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0044.desc2
+				desc = tentacleswarm_scene.0044.desc2
 			}
 		} 
 	}
@@ -655,7 +655,7 @@ tentacleswarm_slave.0044 = {
 		animation = personality_coward #乖巧
 	}
 	option = {
-		name = tentacleswarm_slave.0044.a
+		name = tentacleswarm_scene.0044.a
 		trigger = {
 			scope:recipient = {
 				is_tentacle_slave = no
@@ -663,7 +663,7 @@ tentacleswarm_slave.0044 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0044.b
+		name = tentacleswarm_scene.0044.b
 		trigger = {
 			scope:recipient = {
 				is_tentacle_slave = yes
@@ -681,7 +681,7 @@ tentacleswarm_slave.0044 = {
 	}
 }
 #引路人预处理
-tentacleswarm_slave.0050 = {
+tentacleswarm_scene.0050 = {
 	hidden = yes
 	trigger = {
 		is_tentacle_slave = no
@@ -700,42 +700,42 @@ tentacleswarm_slave.0050 = {
 			}
 			#触发主事件
 			trigger_event = {
-				id = tentacleswarm_slave.0051
+				id = tentacleswarm_scene.0051
 			}
 		}
 		else = {
 			#推迟触发
 			trigger_event = {
-				id = tentacleswarm_slave.0050
+				id = tentacleswarm_scene.0050
 				days = 7
 			}
 		}
 	}
 }
 #引路人起
-tentacleswarm_slave.0051 = {
+tentacleswarm_scene.0051 = {
 	type = character_event
-	title = tentacleswarm_slave.0051.t
+	title = tentacleswarm_scene.0051.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { #第一次
 					NOT = { has_perk = tentacle_corruption_01_perk }
 				}
-				desc = tentacleswarm_slave.0051.desc1
+				desc = tentacleswarm_scene.0051.desc1
 			}
 			triggered_desc = { 
 				trigger = { #最后一次
 					has_perk = tentacle_corruption_21_perk 
 					has_perk = tentacle_corruption_22_perk 
 				}
-				desc = tentacleswarm_slave.0051.desc3
+				desc = tentacleswarm_scene.0051.desc3
 			}
 			triggered_desc = {
 				trigger = { #其他情况
 					always = yes
 				}
-				desc = tentacleswarm_slave.0051.desc2
+				desc = tentacleswarm_scene.0051.desc2
 			}
 		}
 	}
@@ -755,7 +755,7 @@ tentacleswarm_slave.0051 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0051.a
+		name = tentacleswarm_scene.0051.a
 		if = {
 			limit = { 
 				NOT = { has_character_flag = willing_to_be_corrupted } 
@@ -765,7 +765,7 @@ tentacleswarm_slave.0051 = {
 		#引路人被告知，之后再跳转到承部分
 		scope:tentacle_mentor = {
 			trigger_event= {
-				id = tentacleswarm_slave.0054
+				id = tentacleswarm_scene.0054
 			}
 		}
 		ai_chance = {
@@ -773,7 +773,7 @@ tentacleswarm_slave.0051 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0051.b #我不干了
+		name = tentacleswarm_scene.0051.b #我不干了
 		if = {
 			limit = { 
 				has_character_flag = willing_to_be_corrupted 
@@ -782,7 +782,7 @@ tentacleswarm_slave.0051 = {
 		}
 		scope:tentacle_mentor = {
 			trigger_event = {
-				id = tentacleswarm_slave.0055
+				id = tentacleswarm_scene.0055
 			}
 		}
 		remove_relation_tentacle_mentor = scope:tentacle_mentor
@@ -792,39 +792,39 @@ tentacleswarm_slave.0051 = {
 	}
 }
 #引路人承
-tentacleswarm_slave.0052 = {
+tentacleswarm_scene.0052 = {
 	type = character_event
-	title = tentacleswarm_slave.t	
+	title = tentacleswarm_scene.t	
 	desc = {
-		desc = tentacleswarm_slave.0052.desc
+		desc = tentacleswarm_scene.0052.desc
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.slave_not_pregnant
+				desc = tentacleswarm_scene.slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = yes
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.slave_pregnant
+				desc = tentacleswarm_scene.slave_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					NOT = { has_trait = pregnant }
 				}
-				desc = tentacleswarm_slave.not_slave_not_pregnant
+				desc = tentacleswarm_scene.not_slave_not_pregnant
 			}
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 					has_trait = pregnant
 				}
-				desc = tentacleswarm_slave.not_slave_pregnant
+				desc = tentacleswarm_scene.not_slave_pregnant
 			}
 		} 
 	}
@@ -844,7 +844,7 @@ tentacleswarm_slave.0052 = {
 	
 	#接受选项
 	option = {
-		name = tentacleswarm_slave.accept_slave #奴隶接受文本
+		name = tentacleswarm_scene.accept_slave #奴隶接受文本
 		trigger = {
 			is_tentacle_slave = yes
 		}
@@ -855,7 +855,7 @@ tentacleswarm_slave.0052 = {
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.accept #非奴隶接受文本
+		name = tentacleswarm_scene.accept #非奴隶接受文本
 		trigger = {
 			is_tentacle_slave = no
 		}
@@ -874,7 +874,7 @@ tentacleswarm_slave.0052 = {
 			is_tentacle_slave = no
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
-		name = tentacleswarm_slave.reject
+		name = tentacleswarm_scene.reject
 		tentacle_corrupt_reject_effect = yes
 		ai_chance = {
 			base = 100
@@ -884,28 +884,28 @@ tentacleswarm_slave.0052 = {
 	#一天之后，结算【合】部分
 	after = {
 		trigger_event= {
-			id = tentacleswarm_slave.0053
+			id = tentacleswarm_scene.0053
 			days = 1
 		}
 	}
 }
 #引路人合
-tentacleswarm_slave.0053 = {
+tentacleswarm_scene.0053 = {
 	type = character_event
-	title = tentacleswarm_slave.0013.t
+	title = tentacleswarm_scene.0013.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					is_tentacle_slave = no
 				}
-				desc = tentacleswarm_slave.0053.desc1
+				desc = tentacleswarm_scene.0053.desc1
 			}
 			triggered_desc = {
 				trigger = {
 					always = yes
 				}
-				desc = tentacleswarm_slave.0053.desc2
+				desc = tentacleswarm_scene.0053.desc2
 			}
 		} 
 	}
@@ -920,18 +920,18 @@ tentacleswarm_slave.0053 = {
 		animation = personality_coward #乖巧
 	}
 	option = {
-		name = tentacleswarm_slave.0053.a #期待下一次
+		name = tentacleswarm_scene.0053.a #期待下一次
 		trigger = {  
 			is_tentacle_slave = no
 		}
-		custom_tooltip = tentacleswarm_slave.0053.a.tt
+		custom_tooltip = tentacleswarm_scene.0053.a.tt
 		trigger_event = {
-			id = tentacleswarm_slave.0050
+			id = tentacleswarm_scene.0050
 			days = 15
 		}
 	}
 	option = {
-		name = tentacleswarm_slave.0053.b #完成了
+		name = tentacleswarm_scene.0053.b #完成了
 		trigger = {  
 			is_tentacle_slave = yes
 		}
@@ -947,9 +947,9 @@ tentacleswarm_slave.0053 = {
 	}
 }
 #引路人被告知事件
-tentacleswarm_slave.0054 = {
+tentacleswarm_scene.0054 = {
 	type = character_event
-	title = tentacleswarm_slave.0054.t	
+	title = tentacleswarm_scene.0054.t	
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -958,7 +958,7 @@ tentacleswarm_slave.0054 = {
 						NOT = { has_perk = tentacle_corruption_01_perk }
 					}
 				}
-				desc = tentacleswarm_slave.0054.desc1
+				desc = tentacleswarm_scene.0054.desc1
 			}
 			triggered_desc = { 
 				trigger = { #最后一次
@@ -967,13 +967,13 @@ tentacleswarm_slave.0054 = {
 						has_perk = tentacle_corruption_22_perk 
 					}
 				}
-				desc = tentacleswarm_slave.0054.desc3
+				desc = tentacleswarm_scene.0054.desc3
 			}
 			triggered_desc = {
 				trigger = { #其他情况
 					always = yes
 				}
-				desc = tentacleswarm_slave.0054.desc2
+				desc = tentacleswarm_scene.0054.desc2
 			}
 		}
 	}
@@ -990,13 +990,13 @@ tentacleswarm_slave.0054 = {
 	immediate = {
 		scope:tentacle_student = {
 			trigger_event = {
-				id = tentacleswarm_slave.0052 #承
+				id = tentacleswarm_scene.0052 #承
 			}
 		}
 	}
 	
 	option = {
-		name = tentacleswarm_slave.0054.a
+		name = tentacleswarm_scene.0054.a
 		trigger = {
 			NOT = {
 				scope:tentacle_student = {
@@ -1007,7 +1007,7 @@ tentacleswarm_slave.0054 = {
 		}
 	}
 	option = { #最后一次事件
-		name = tentacleswarm_slave.0054.b
+		name = tentacleswarm_scene.0054.b
 		trigger = {
 			scope:tentacle_student = {
 				has_perk = tentacle_corruption_21_perk 
@@ -1016,10 +1016,10 @@ tentacleswarm_slave.0054 = {
 		}
 	}
 }
-tentacleswarm_slave.0055 = {
+tentacleswarm_scene.0055 = {
 	type = character_event
-	title = tentacleswarm_slave.0055.t	
-	desc = tentacleswarm_slave.0055.desc
+	title = tentacleswarm_scene.0055.t	
+	desc = tentacleswarm_scene.0055.desc
 	theme = seduction
 	left_portrait = {
 		character = scope:tentacle_student
@@ -1030,17 +1030,17 @@ tentacleswarm_slave.0055 = {
 		animation = personality_coward
 	}
 	option = {
-		name = tentacleswarm_slave.0055.a
+		name = tentacleswarm_scene.0055.a
 		show_as_tooltip = {
 			remove_relation_tentacle_student = scope:tentacle_student
 		}
 	}
 }
-tentacleswarm_slave.1001 = {
+tentacleswarm_scene.1001 = {
 	type = character_event
-	title = tentacleswarm_slave.1001.t
+	title = tentacleswarm_scene.1001.t
 
-	desc = tentacleswarm_slave.1001.desc
+	desc = tentacleswarm_scene.1001.desc
 
 	left_portrait = {
 		character = root
@@ -1051,14 +1051,14 @@ tentacleswarm_slave.1001 = {
 	option = {
 		name = {
 			trigger = { has_trait = lazy }
-			text = tentacleswarm_slave.1001.a.lazy
+			text = tentacleswarm_scene.1001.a.lazy
 		}
 		name = {
 			trigger = { has_trait = lustful }
-			text = tentacleswarm_slave.1001.a.lust
+			text = tentacleswarm_scene.1001.a.lust
 		}
 		name = {
-			text = tentacleswarm_slave.1001.a
+			text = tentacleswarm_scene.1001.a
 		}
 
 		if = {

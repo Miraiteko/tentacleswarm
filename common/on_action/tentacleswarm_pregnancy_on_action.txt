@@ -41,7 +41,7 @@ tentacleswarm_baby_corruption = {
 				}
 				imprisoner = { save_scope_as = imprisoner }
 				trigger_event = {
-					id = tentacleswarm_slave.0040 #被囚禁者腐化
+					id = tentacleswarm_scene.0040 #被囚禁者腐化
 				}
 			}
 		}
@@ -69,7 +69,7 @@ tentacleswarm_baby_corruption = {
 				}
 			}
 			trigger_event = {
-				id = tentacleswarm_slave.0030 #请赐
+				id = tentacleswarm_scene.0030 #请赐
 			}
 		}
 		else_if = {
@@ -85,7 +85,7 @@ tentacleswarm_baby_corruption = {
 						has_perk = tentacle_corruption_01_perk
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0010 #水井杀
+						id = tentacleswarm_scene.0010 #水井杀
 						months = { 1 8 }
 					}
 				}
@@ -286,7 +286,7 @@ tentacleswarm_adult_pulse = {
 				is_congenital_tentacle_slave = yes 
 			}
 			trigger_event = {
-				id = tentacleswarm_slave.0021 #天生腐化
+				id = tentacleswarm_scene.0021 #天生腐化
 			}
 		}
 		else_if = { #其他女性看成年所在地的腐化度
@@ -306,7 +306,7 @@ tentacleswarm_adult_pulse = {
 						save_scope_as = guardian
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0010 #水井杀
+						id = tentacleswarm_scene.0010 #水井杀
 						days = 400
 					}
 				}
@@ -317,7 +317,7 @@ tentacleswarm_adult_pulse = {
 						exists = location.county
 					}
 					trigger_event = {
-						id = tentacleswarm_slave.0010 #水井杀
+						id = tentacleswarm_scene.0010 #水井杀
 						days = 400
 					}
 				}

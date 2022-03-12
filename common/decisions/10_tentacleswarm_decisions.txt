@@ -102,7 +102,7 @@ tentacleswarm_auto_corrupt_decision = {
 		}
 		custom_tooltip = tentacle_baby_corruption_tooltip
 		trigger_event = {
-			id = tentacleswarm_slave.0030 #虔诚赐福
+			id = tentacleswarm_scene.0030 #虔诚赐福
 		}
 	}
 	

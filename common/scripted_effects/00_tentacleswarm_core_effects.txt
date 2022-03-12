@@ -466,7 +466,7 @@ convert_to_tentacleswarm_religion = {
 			is_tentacle_slave = no
 		}
 		trigger_event = {
-			id = tentacleswarm_slave.0030 #虔诚赐福
+			id = tentacleswarm_scene.0030 #虔诚赐福
 		}
 	}
 	if = { #未公开的奴隶进行公开
