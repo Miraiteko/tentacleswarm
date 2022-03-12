@@ -82,7 +82,7 @@ tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 		is_ai = yes
 	}
 	effect = {
-		if = { #没有成为奴隶的成年女性成为奴隶
+		if = { #没有成为奴隶的成年女性寻求赐福
 			limit = {
 				is_tentaclable_female = yes
 				is_tentacle_slave = no
@@ -114,7 +114,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						months = { 1 6 }
 					}
 				}
-				30 = {
+				200 = {
 				}
 			}
 		}

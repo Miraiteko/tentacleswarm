@@ -443,7 +443,7 @@ convert_to_tentacleswarm_religion = {
 				every_living_character = {
 					limit = {
 						faith = root.faith
-						is_female = yes
+						is_tentaclable_female = yes
 						NOT = { this = root }
 					}
 					trigger_event = {
