@@ -445,30 +445,23 @@ tentacle_end_pregnancy = {
 		}
 	}
 }
-#触手人流
+#触手堕胎
 tentacle_pregnancy_termination_attempt_effect = {
 	custom_tooltip = tentacle_pregnancy_treatment_fails_tt	
 	random_list = {
 		100 = { #The pregnancy continues
 			custom_tooltip = pregnancy_treatment_fails_tt	
-			hidden_effect = {
-				trigger_event = {
-					id = pregnancy.2005
-					days = { 15 20 }
+			send_interface_toast = {
+				left_icon = ROOT
+				title = tentacle_pregnancy_termination_attempt.t
+				show_as_tooltip = {
+					custom_tooltip = tentacle_corrupt_reject_success.tt
 				}
 			}
 		}
 		10 = { #The mother dies
-			show_as_tooltip = {
-				death = {
-					death_reason = death_attempted_treatment
-				}
-			}
-			hidden_effect = {
-				trigger_event = {
-					id = pregnancy.2007
-					days = { 15 20 }
-				}
+			death = {
+				death_reason = death_attempted_treatment
 			}
 		}
 	}

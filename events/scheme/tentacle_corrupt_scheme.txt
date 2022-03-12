@@ -262,9 +262,16 @@ tentacle_corrupt_scheme.9999 = {
 			}
 		}
 		trigger_else = {
+			NOT = {
+				any_scheme = {
+					scheme_type = tentacle_corrupt
+				}
+			}
+		}
+		#没有在夺地
+		NOT = {
 			any_scheme = {
-				count < 1
-				scheme_type = tentacle_corrupt
+				scheme_type = tentacle_slave_claim_throne
 			}
 		}
 	}

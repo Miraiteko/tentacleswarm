@@ -30,7 +30,8 @@
     tentacleswarm_pregnancy.1031.c.tt:0 "你希望没人发现你怀的是触手怪物的孩子！"
     tentacleswarm_pregnancy.1031.d:0 "我必须找位女智者来调制一份药水。"
     tentacle_pregnancy_treatment_fails_tt:0 "一般的药物无法伤害到触手的子嗣"
-    
+    tentacle_pregnancy_termination_attempt.t:0 "失败"
+    tentacle_pregnancy_termination_attempt.tt:0 "触手的子嗣依然在你的子宫里生长"
     #与别人的互动
     tentacleswarm_pregnancy_announcement_the_child_will_be_a_bastard:0 "所有人都知道[mother.GetFirstNameNoTooltip]怀的是触手子嗣了"
     tentacleswarm_pregnancy.2001.t:0 "触手子嗣"
