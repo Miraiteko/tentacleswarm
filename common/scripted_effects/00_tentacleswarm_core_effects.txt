@@ -508,10 +508,6 @@ tentacleswarm_4VA = {
 		}
 		
 		every_held_title = { #名下所有伯爵领检查修正
-			limit = { 
-				tier = tier_county
-				NOT = { has_county_modifier = tentacleswarm_destroy }
-			}
 			tentacleswarm_corruption_county_check = yes
 		}
 	}
@@ -522,9 +518,6 @@ tentacleswarm_4VA = {
 			debug_only = yes 
 			is_landed = yes
 			highest_held_title_tier >= tier_county
-			capital_county = {
-				NOT =  { has_county_modifier = tentacleswarm_destroy }
-			}
 		}
 		capital_province = { barony = {set_color_from_title = title:d_tentacleswarm_4VA } }#改颜色
 	}
@@ -534,9 +527,6 @@ tentacleswarm_4VA = {
 	hidden_effect = {
 		#周围领主
 		every_character_to_title_neighboring_and_across_water_county = {
-			limit = {
-				NOT =  { has_county_modifier = tentacleswarm_destroy }
-			}
 			holder = {
 				trigger_event = {
 					on_action = tentacleswarm_4VA_pulse
@@ -549,9 +539,6 @@ tentacleswarm_4VA = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >=tier_county
-				capital_county = {
-					NOT =  { has_county_modifier = tentacleswarm_destroy }
-				}
 			}
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
@@ -563,9 +550,6 @@ tentacleswarm_4VA = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >=tier_county
-				capital_county = {
-					NOT =  { has_county_modifier = tentacleswarm_destroy }
-				}
 			}
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse
@@ -577,9 +561,6 @@ tentacleswarm_4VA = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >=tier_county
-				capital_county = {
-					NOT =  { has_county_modifier = tentacleswarm_destroy }
-				}
 			}
 			trigger_event = {
 				on_action = tentacleswarm_4VA_pulse

@@ -306,25 +306,7 @@ tentacleswarm_yearly_playable_pulse = {
 				}
 			}
 		}
-		
-		if = {
-			limit = { #摧毁失去所有栖息地的触手领主的国家
-				has_religion = religion:tentacleswarm_religion
-				any_held_title = {
-					tier = tier_county #持有伯爵领。像骑士团这样的领主，不持有伯爵领，不会被摧毁。
-				}
-				NOT = {
-					any_held_title = { #所有伯爵领都已经被摧毁
-						tier = tier_county
-						NOT = { has_county_modifier = tentacleswarm_destroy }
-					}
-				}
-			}
-			trigger_event = {
-				id = tentacleswarm_destroy.0011
-			}
-		}
-		else_if = { #如果依然持有土地的话
+		if = { #如果依然持有土地的话
 			limit = { 
 				is_alive = yes
 				is_landed = yes 
@@ -335,115 +317,89 @@ tentacleswarm_yearly_playable_pulse = {
 			every_held_title = {
 				limit = { tier = tier_county }
 				save_scope_as = county
-				if = { #已经被废弃的土地，不结算滋生
-					limit = { 
-						has_county_modifier = tentacleswarm_destroy
-					}
+				
+				#发展度计算
+				change_development_progress_with_overflow = {
+					value = var:tentacleswarm_corruption
+					multiply = -0.2
 				}
-				#否则，进行滋生
-				else = {
-					#发展度计算
-					change_development_progress_with_overflow = {
-						value = var:tentacleswarm_corruption
-						multiply = -0.2
-					}
-						
-					#计算衰减率
-					#基础衰减，固定10%
-					set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
-					#饥饿衰减 = 抵制强度/(发展度+抵制强度) *70%
-					change_variable =  { name = tentacleswarm_corruption_decay add = tentacleswarm_corruption_hunger_value } 	
-					#规范化，使衰减比例介于1%到99%，避免溢出
-					if = { 
-						limit = { var:tentacleswarm_corruption_decay = { compare_value > 99 } } 
-						set_variable =  { name = tentacleswarm_corruption_decay value = 99 } 	
-					}
-					else_if = { 
-						limit = { var:tentacleswarm_corruption_decay = { compare_value < 1 } } 
-						set_variable =  { name = tentacleswarm_corruption_decay value = 1 } 	
-					}
 					
-					#计算衰减额度
-					set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
-					change_variable =  { name = tentacleswarm_corruption_decrease multiply = var:tentacleswarm_corruption_decay }
-					change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
-					if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
-						limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
-						#40%传播给一个相邻伯爵领
-						random_title_to_title_neighboring_and_across_water_county = {
-							limit = {
-								NOT = { has_county_modifier = tentacleswarm_destroy }
-							}
-							change_variable =  {
-								name = tentacleswarm_corruption 
-								add = {
-									value = scope:county.var:tentacleswarm_corruption_decrease 
-									multiply = 0.40
-								}
-							}
-							tentacleswarm_corruption_county_check = yes
-						}					
-						#30%传播给另一个相邻伯爵领
-						random_title_to_title_neighboring_and_across_water_county = {
-							limit = {
-								NOT = { has_county_modifier = tentacleswarm_destroy }
-							}
-							change_variable =  {
-								name = tentacleswarm_corruption 
-								add = {
-									value = scope:county.var:tentacleswarm_corruption_decrease 
-									multiply = 0.30
-								}
-							}
-							tentacleswarm_corruption_county_check = yes
+				#计算衰减率
+				#基础衰减，固定10%
+				set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
+				#饥饿衰减 = 抵制强度/(发展度+抵制强度) *70%
+				change_variable =  { name = tentacleswarm_corruption_decay add = tentacleswarm_corruption_hunger_value } 	
+				#规范化，使衰减比例介于1%到99%，避免溢出
+				if = { 
+					limit = { var:tentacleswarm_corruption_decay = { compare_value > 99 } } 
+					set_variable =  { name = tentacleswarm_corruption_decay value = 99 } 	
+				}
+				else_if = { 
+					limit = { var:tentacleswarm_corruption_decay = { compare_value < 1 } } 
+					set_variable =  { name = tentacleswarm_corruption_decay value = 1 } 	
+				}
+				
+				#计算衰减额度
+				set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
+				change_variable =  { name = tentacleswarm_corruption_decrease multiply = var:tentacleswarm_corruption_decay }
+				change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
+				if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
+					limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
+					#50%传播给一个相邻伯爵领
+					random_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							development_level > 0
 						}
-						
-						#计算腐化度衰退
-						change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
-					}
-					
-					#领主宫廷带来的增长
-					change_variable =  { 
-						name = tentacleswarm_corruption 
-						add = holder.var:tentacleswarm_corruption_add 
-					}
-					
-					#计算地形带来的影响
-					change_variable =  { 
-						name = tentacleswarm_corruption 
-						add = var:tentacleswarm_corruption_nature
-					}
-					#0发展度省份不会增长腐化
-					if = {
-						limit = { development_level = 0 } 
-						set_variable =  { 
+						change_variable =  {
 							name = tentacleswarm_corruption 
-							value = 0
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.50
+							}
 						}
+						tentacleswarm_corruption_county_check = yes
+					}					
+					#35%传播给另一个相邻伯爵领
+					random_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							development_level > 0
+						}
+						change_variable =  {
+							name = tentacleswarm_corruption 
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.35
+							}
+						}
+						tentacleswarm_corruption_county_check = yes
 					}
+					
+					#计算腐化度衰退
+					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
+				}
+				
+				#领主宫廷带来的增长
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = holder.var:tentacleswarm_corruption_add 
+				}
+				
+				#计算地形带来的影响
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = var:tentacleswarm_corruption_nature
+				}
+				#0发展度省份不会增长腐化
+				if = {
+					limit = { development_level = 0 } 
+					set_variable =  { 
+						name = tentacleswarm_corruption 
+						value = 0
+					}
+				}
 
-					#五档：10,20,35,60,100
-					tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
-				}
-			}
-			#对于玩家来说，如果没有发展度大于3的省份，予以预警
-			if = {
-				limit = {
-					always = no
-					is_ai = no
-					has_religion = religion:tentacleswarm_religion
-					NOT = { has_character_flag = tentacleswarm_destroy_alert }
-					NOT = {
-						any_held_title = {
-							tier = tier_county
-							development_level > 3
-						}
-					}
-				}
-				trigger_event = {
-					id = tentacleswarm_destroy.0001
-					days = 10
-				}
+				#五档：10,20,35,60,100
+				tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
 			}
 		}
 		#成就相关

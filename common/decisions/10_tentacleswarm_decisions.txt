@@ -221,7 +221,6 @@ tentacleswarm_anti_start_decision = {
 			every_held_title = {
 				limit = {
 					tier = tier_county 
-					NOT =  { has_county_modifier = tentacleswarm_destroy }
 				}
 				every_county_province = {
 					barony = { set_color_from_title = title:d_tentacleswarm_4VA_get } #改颜色

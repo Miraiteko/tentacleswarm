@@ -1,10 +1,4 @@
-﻿#毁坏殆尽
-tentacleswarm_destroy = {
-	icon = county_modifier_development_negative
-	development_growth_factor = -1
-	tax_mult = -1
-}
-#腐化度
+﻿#腐化度
 #10-20
 tentacleswarm_corruption_1 = {
 	icon = outdoors_negative

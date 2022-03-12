@@ -73,6 +73,15 @@ tentacle_corrupt_start_scheme_interaction = {
 			is_landed = yes
 			intrigue >= 8 #谋略较高的ai才会考虑腐化别人
 		}
+		scope:recipient = {
+			effective_age <= 35 #不考虑太老的目标
+			OR = { #出生卑微的目标只有统治者夫人有价值
+				is_lowborn = yes
+				any_spouse = {
+					is_landed = yes
+				}
+			}
+		}
 	}
 	ai_frequency = 12
 	
@@ -81,22 +90,26 @@ tentacle_corrupt_start_scheme_interaction = {
 		max = 2
 	}
 	ai_targets = {
-		ai_recipients = neighboring_rulers
-		max = 2
-	}
-	ai_targets = {
-		ai_recipients = guests
 		ai_recipients = courtiers
 		ai_recipients = scripted_relations
+		max = 5
+	}
+	ai_targets = {
+		ai_recipients = liege
+		ai_recipients = vassals
+		ai_recipients = peer_vassals
+		ai_recipients = neighboring_rulers
+		max = 5
 	}
 	
 	ai_targets = {
 		ai_recipients = realm_characters
-		max = 10
+		max = 3
 	}
 	
 	ai_target_quick_trigger = {
 		adult = yes
+		prison = no
 	}
 	ai_will_do = {
 		base = 80
@@ -132,9 +145,18 @@ tentacle_corrupt_start_scheme_interaction = {
 		}
 		#优先考虑腐化统治者
 		modifier = {
-			factor = 1.5
+			factor = 2
 			scope:recipient = {
 				is_landed = yes
+			}
+		}
+		#以及统治者夫人
+		modifier = {
+			factor = 2
+			scope:recipient = {
+				any_spouse = {
+					is_landed = yes
+				}
 			}
 		}
 		#已经有人在腐化她了

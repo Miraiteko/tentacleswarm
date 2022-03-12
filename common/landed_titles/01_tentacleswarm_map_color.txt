@@ -48,14 +48,6 @@
 		can_create = { always = no }
 	}
 
-	d_tentacleswarm_destroy = {
-		color = { 200 200 0 }
-		
-		capital = c_roma
-
-		can_create = { always = no }
-	}
-
 	d_tentacleswarm_4VA = {
 		color = { 255 0 0 }
 		

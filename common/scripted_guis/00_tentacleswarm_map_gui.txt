@@ -5,14 +5,6 @@ tentacleswarm_corruption_map = {
 		every_county = {
 			if = {
 				limit = {
-					has_county_modifier = tentacleswarm_destroy
-				}
-				every_county_province = {
-					barony = { set_color_from_title = title:d_tentacleswarm_destroy }
-				}
-			}
-			else_if = {
-				limit = {
 					var:tentacleswarm_corruption = { compare_value < 10 }
 				}
 				every_county_province = {
