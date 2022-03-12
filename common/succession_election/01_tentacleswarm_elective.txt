@@ -88,15 +88,35 @@ tentacleswarm_elective = {
 			add = 75
 			desc = tooltip_tentacleswarm_elector_slave_I
 			THIS = scope:candidate
-			has_trait = tentacle_slave
+		}	
+		modifier = {
+			add = 75
+			desc = tooltip_tentacleswarm_elector_slave_young
+			scope:candidate = {
+				has_trait = tentacle_slave
+				effective_age <= 28
+			}
+			NOT = { THIS = scope:candidate }
 		}	
 		modifier = {
 			add = 50
-			desc = tooltip_tentacleswarm_elector_slave
-			scope:candidate = { has_trait = tentacle_slave }
+			desc = tooltip_tentacleswarm_elector_slave_adult
+			scope:candidate = {
+				has_trait = tentacle_slave
+				effective_age > 28
+				effective_age <= 40
+			}
 			NOT = { THIS = scope:candidate }
-			has_trait = tentacle_slave
 		}	
+		modifier = {
+			add = 15
+			desc = tooltip_tentacleswarm_elector_slave_old
+			scope:candidate = {
+				has_trait = tentacle_slave
+				effective_age > 40
+			}
+			NOT = { THIS = scope:candidate }
+		}
 	}
 	
 	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.

@@ -25,7 +25,9 @@
  tentacleswarm_elective_candidates:"封臣、宣称者、近亲(仅限女性)"
  tentacleswarm_elective_candidates_tooltip:0 "要想成为触手奴隶选举制下的有效候选人:\n$EFFECT_LIST_BULLET$必须是女性\n还需要符合以下条件之一：\n$EFFECT_LIST_BULLET$是当前统治者的[close_family|E]\n$EFFECT_LIST_BULLET$是统治者的[direct_vassal|E]\n$EFFECT_LIST_BULLET$是该头衔的[de_jure|E]封臣\n$EFFECT_LIST_BULLET$是该头衔的[claimants|E]\n公开具有[GetTrait('tentacle_slave').GetName( GetNullCharacter)]特质的角色将在选举中获得极大的优势"
  tooltip_tentacleswarm_elector_slave_I:1 "我是个光荣的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
- tooltip_tentacleswarm_elector_slave:1 "[candidate.GetSheHe|U]是个光荣的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
+ tooltip_tentacleswarm_elector_slave_young:1 "[candidate.GetSheHe|U]是个年轻的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
+ tooltip_tentacleswarm_elector_slave_adult:1 "[candidate.GetSheHe|U]是个壮年的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
+ tooltip_tentacleswarm_elector_slave_old:1 "[candidate.GetSheHe|U]是个老迈的[GetTrait('tentacle_slave').GetName( candidate.Self )]：$VALUE|=+0$"
  
  tentacleswarm_force_death_interaction:0 "献祭给触手主人"
  tentacleswarm_force_death_interaction_desc:0 "命令[recipient.GetShortUINameNoTooltip]放弃一切，然后永远地成为主人的巢穴的一部分。"
