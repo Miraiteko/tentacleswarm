@@ -16,7 +16,15 @@ tentacleswarm_on_game_start = {
 					limit = {
 						not = { has_doctrine = doctrine_tentacle_slave_worship }
 					}
-					add_doctrine = doctrine_tentacle_slave_evil
+					if = { #有圣洁自然信条的宗教不会做得太过分
+						limit = {
+							has_doctrine = tenet_sanctity_of_nature
+						}
+						add_doctrine = doctrine_tentacle_slave_adultery
+					}
+					else = { #其他宗教会严打触手
+						add_doctrine = doctrine_tentacle_slave_evil
+					}
 				}
 			}
 		}

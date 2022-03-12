@@ -11,6 +11,7 @@
 	
 	aptitude = {
 		value = 1
+		#属性
 		add = {
 			value = learning
 			multiply = 2
@@ -28,6 +29,34 @@
 			multiply = 1
 			max = 20
 			desc = court_position_skill_intrigue
+		}
+		#神秘主义者特质
+		if = {
+			limit = {
+				has_trait = mystic_3
+			}
+			add = { 
+				value = 35
+				desc = court_position_mystic_3_trait
+			}
+		}
+		else_if = {
+			limit = {
+				has_trait = mystic_2
+			}
+			add = { 
+				value = 20
+				desc = court_position_mystic_2_trait
+			}
+		}
+		else_if = {
+			limit = { 
+				has_trait = mystic_1
+			}
+			add = { 
+				value = 10
+				desc = court_position_mystic_1_trait
+			}
 		}
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_low_penalty_value
@@ -134,7 +163,7 @@
 	}
 }
 tentacle_missionary_court_position = {
-	skill = diplomacy
+	skill = learning
 	max_available_positions = 1
 	category = court_position_category_special
 	minimum_rank = county
@@ -147,10 +176,10 @@ tentacle_missionary_court_position = {
 	aptitude = {
 		value = 1
 		add = {
-			value = diplomacy
+			value = learning
 			multiply = 2
 			max = 50
-			desc = court_position_skill_diplomacy
+			desc = court_position_skill_learning
 		}
 		add = {
 			value = stewardship
@@ -159,10 +188,10 @@ tentacle_missionary_court_position = {
 			desc = court_position_skill_stewardship
 		}
 		add = {
-			value = intrigue
+			value = diplomacy
 			multiply = 1
 			max = 20
-			desc = court_position_skill_intrigue
+			desc = court_position_skill_diplomacy
 		}
 		if = {
 			limit = {
@@ -180,6 +209,34 @@ tentacle_missionary_court_position = {
 			multiply = { 
 				value = 2
 				desc = is_tentacle_slave_tooltip
+			}
+		}
+		#神秘主义者特质
+		if = {
+			limit = {
+				has_trait = mystic_3
+			}
+			add = { 
+				value = 35
+				desc = court_position_mystic_3_trait
+			}
+		}
+		else_if = {
+			limit = {
+				has_trait = mystic_2
+			}
+			add = { 
+				value = 20
+				desc = court_position_mystic_2_trait
+			}
+		}
+		else_if = {
+			limit = { 
+				has_trait = mystic_1
+			}
+			add = { 
+				value = 10
+				desc = court_position_mystic_1_trait
 			}
 		}
 		add = court_position_aptitude_family_business_value
