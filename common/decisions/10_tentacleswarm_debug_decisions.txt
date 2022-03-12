@@ -37,8 +37,60 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		trigger_event = {
-			on_action = tentacle_encounter_random_pulse #随机遭遇
+		save_scope_as = actor
+			if = {
+				limit = {
+					is_ruler = yes
+				}
+				random_courtier_or_guest = {
+					limit = {
+						is_tentaclable_female = yes
+						is_imprisoned = no
+						NOT = { THIS = scope:actor }
+						NOT = { is_tentacle_slave_known_by = { CHARACTER = scope:actor } }
+						NOT = { has_strong_hook = scope:actor }
+						scope:actor = {
+							can_start_scheme = {
+								type = tentacle_corrupt
+								target = PREV
+							}
+						}
+					}
+					save_scope_as = recipient
+				}
+			}
+			else_if = {
+				limit = {
+					exists = liege_or_court_owner
+				}
+				liege_or_court_owner = {
+					random_courtier_or_guest = {
+						limit = {
+							is_tentaclable_female = yes
+							is_imprisoned = no
+							NOT = { THIS = scope:actor }
+							NOT = { is_tentacle_slave_known_by = { CHARACTER = scope:actor } }
+							NOT = { has_strong_hook = scope:actor }
+							scope:actor = {
+								can_start_scheme = {
+									type = tentacle_corrupt
+									target = PREV
+								}
+							}
+						}
+						save_scope_as = recipient
+					}
+				}
+			}
+		#发动腐化计谋
+		if = {
+			limit = {
+				exists = scope:recipient
+			}
+			start_scheme = {
+				type = tentacle_corrupt
+				target = scope:recipient
+			}
 		}
 	}
 

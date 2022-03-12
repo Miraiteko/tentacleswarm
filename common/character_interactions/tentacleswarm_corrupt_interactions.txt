@@ -69,21 +69,9 @@ tentacle_corrupt_start_scheme_interaction = {
 	auto_accept = yes
 	
 	ai_potential = {
-		OR = {
-			is_landed = yes
-			intrigue >= 8 #谋略较高的ai才会考虑腐化别人
-		}
-		scope:recipient = {
-			effective_age <= 35 #不考虑太老的目标
-			OR = { #出生卑微的目标只有统治者夫人有价值
-				is_lowborn = yes
-				any_spouse = {
-					is_landed = yes
-				}
-			}
-		}
+		always = yes
 	}
-	ai_frequency = 12
+	ai_frequency = 24
 	
 	ai_targets = {
 		ai_recipients = dynasty

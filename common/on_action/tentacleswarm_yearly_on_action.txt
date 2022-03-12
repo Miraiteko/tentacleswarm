@@ -223,6 +223,9 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 			}
 		}
 	}
+	events = {
+		tentacle_corrupt_scheme.9999 #非领主的触手奴隶无法发动【互动】，需要用事件发动计谋
+	}
 }
 #每年触发
 yearly_playable_pulse = {

@@ -43,7 +43,7 @@ tentacle_corrupt = {
 			scope:owner = {
 				trigger_if = {
 					limit = { is_in_the_same_court_as_or_guest = scope:target }
-					 has_perk = tentacle_corruption_42_perk #触手宫廷
+					has_perk = tentacle_corruption_42_perk #触手宫廷
 				}
 				trigger_else = {
 					has_perk = tentacle_corruption_52_perk #腐化阴谋

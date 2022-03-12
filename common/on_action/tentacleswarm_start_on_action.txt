@@ -28,7 +28,7 @@ tentacleswarm_on_game_start = {
 				days = 5
 			}
 		}
-		every_living_character = {
+		every_living_character = { #15%的人带有触手血脉
 			if = {
 				random_list = {
 					85 = {

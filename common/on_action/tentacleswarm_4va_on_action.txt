@@ -2,12 +2,7 @@
 tentacleswarm_4VA_pulse = { 
 	effect = {
 		save_scope_as = actor
-		if = {
-			limit = {
-				has_character_flag = tentacleswarm_4VA_first_get #之前收到过一次4VA
-				NOT = { has_character_flag = tentacleswarm_4VA_hesitation } #距离上一次收到4VA超过一段时间
-			}
-			
+		if = {			
 			if = { #奴隶统治者，响应改信
 				limit = {
 					is_ai = yes
@@ -82,18 +77,6 @@ tentacleswarm_4VA_pulse = {
 						target = scope:target
 					}
 				}
-			}
-		}
-		else_if = {
-			limit = {
-				not = { has_religion = religion:tentacleswarm_religion } 
-			}
-			add_character_flag = { flag = tentacleswarm_4VA_first_get months = 13 } #第一次受到4VA时候不会立刻响应
-			if = { #犹豫几个月再决定是否响应
-				limit = {  
-					NOT = { has_character_flag = tentacleswarm_4VA_hesitation }
-				}
-				add_character_flag = { flag = tentacleswarm_4VA_hesitation months = 6 }
 			}
 		}
 		#敌视统治者准备剿杀
