@@ -85,7 +85,7 @@ tentacleswarm_baby_corruption = {
 						has_perk = tentacle_corruption_01_perk
 					}
 					trigger_event = {
-						id = tentacleswarm_scene.0010 #水井杀
+						on_action = tentacle_encounter_random_pulse #随机遭遇
 						months = { 1 8 }
 					}
 				}
@@ -306,7 +306,7 @@ tentacleswarm_adult_pulse = {
 						save_scope_as = guardian
 					}
 					trigger_event = {
-						id = tentacleswarm_scene.0010 #水井杀
+						on_action = tentacle_encounter_random_pulse #随机遭遇
 						days = 400
 					}
 				}
@@ -317,7 +317,7 @@ tentacleswarm_adult_pulse = {
 						exists = location.county
 					}
 					trigger_event = {
-						id = tentacleswarm_scene.0010 #水井杀
+						on_action = tentacle_encounter_random_pulse #随机遭遇
 						days = 400
 					}
 				}

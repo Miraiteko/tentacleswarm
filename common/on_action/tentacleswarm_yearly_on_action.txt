@@ -143,7 +143,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						effective_age > 40
 					}
 					trigger_event = {
-						id = tentacleswarm_scene.0010 #水井杀
+						on_action = tentacle_encounter_random_pulse #随机遭遇
 						months = { 6 9 }
 					}
 				}
@@ -676,14 +676,11 @@ tentacleswarm_cancel_holy_order_lease_pulse = { #驱逐敌对骑士团
 		}
 	}
 }
-
-tentacle_scene_random_pulse = {
+#随机发生一个触手遭遇事件
+tentacle_encounter_random_pulse = {
 	random_events = {
-		100 =
-		100 =
-		100 =
+		100 = tentacleswarm_scene.0010 #水井
+		100 = tentacleswarm_scene.0060 #床单
+		100 = tentacleswarm_scene.0070 #半路
 	}
-	fallback = tentacle_scene_default_fallback
-}
-tentacle_scene_default_fallback = {
 }

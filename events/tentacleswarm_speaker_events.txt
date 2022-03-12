@@ -47,7 +47,7 @@ tentacleswarm_speaker.0001 = {
 					}
 					scope:target = {
 						trigger_event = {
-							id = tentacleswarm_scene.0010
+							on_action = tentacle_encounter_random_pulse
 						}
 					}
 					change_variable =  { name = tentacleswarm_corrupted add = 1 } #记录战果

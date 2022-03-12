@@ -37,15 +37,8 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		if = {
-			limit = {
-				is_tentacle_slave = no
-				has_character_flag = willing_to_be_corrupted #没有退缩
-			}
-			trigger_event = {
-				id = tentacleswarm_scene.0050
-				days = 10
-			}
+		trigger_event = {
+			on_action = tentacle_encounter_random_pulse #随机遭遇
 		}
 	}
 

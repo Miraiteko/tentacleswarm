@@ -5,6 +5,8 @@ namespace = tentacleswarm_scene
 #0031主动要求赐福
 #0041被监禁者腐化
 #0051同意被腐化
+#0061蠕动的床铺
+#0071半路
 #1001奴隶健康崩溃事件
 
 #水井杀，样板戏
@@ -26,6 +28,10 @@ tentacleswarm_scene.0010 = {
 				NOT = { has_character_flag = is_being_tentacled }
 			}
 			#触发主事件
+			add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
+				flag = is_being_tentacled
+				days = 7
+			}
 			trigger_event = {
 				id = tentacleswarm_scene.0011
 			}
@@ -36,6 +42,37 @@ tentacleswarm_scene.0010 = {
 				id = tentacleswarm_scene.0010
 				days = 7
 			}
+		}
+	}
+	#随机抽取触手事件的时候，被抽到的可能性的修正
+	weight_multiplier = { 
+		base = 1
+		
+		modifier = { #少许仆从，较少发生要自己打水的情况
+			factor = 0.3
+			exists = court_owner
+			court_owner = {
+				has_royal_court = yes
+				amenity_level = {
+					type = court_servants
+					value >= 2
+				}
+			}
+		}
+		modifier = { #众多仆从，不再发生要自己打水的情况
+			factor = 0
+			exists = court_owner
+			court_owner = {
+				has_royal_court = yes
+				amenity_level = {
+					type = court_servants
+					value >= 4
+				}
+			}
+		}
+		modifier = { #囚禁在地牢里
+			factor = 0
+			is_in_prison_type = dungeon
 		}
 	}
 }
@@ -49,10 +86,6 @@ tentacleswarm_scene.0011 = {
 	left_portrait = this
 	
 	immediate = {
-		add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
-			flag = is_being_tentacled
-			days = 7
-		}
 	}
 	option = { #主人公在这个故事背景里面的反应
 		name = tentacleswarm_scene.0011.a
@@ -272,6 +305,10 @@ tentacleswarm_scene.0030 = {
 				NOT = { has_character_flag = is_being_tentacled }
 			}
 			#触发主事件
+			add_character_flag = {
+				flag = is_being_tentacled
+				days = 7
+			}
 			trigger_event = {
 				id = tentacleswarm_scene.0031
 			}
@@ -464,6 +501,10 @@ tentacleswarm_scene.0040 = {
 				NOT = { has_character_flag = is_being_tentacled }
 			}
 			#触发主事件
+			add_character_flag = {
+				flag = is_being_tentacled
+				days = 7
+			}
 			trigger_event = {
 				id = tentacleswarm_scene.0041
 			}
@@ -699,6 +740,10 @@ tentacleswarm_scene.0050 = {
 				NOT = { has_character_flag = is_being_tentacled }
 			}
 			#触发主事件
+			add_character_flag = {
+				flag = is_being_tentacled
+				days = 7
+			}
 			trigger_event = {
 				id = tentacleswarm_scene.0051
 			}
@@ -746,13 +791,8 @@ tentacleswarm_scene.0051 = {
 	
 	trigger = {
 		is_tentaclable_female = yes
-		NOT = { has_character_flag = is_being_tentacled }
 	}
 	immediate = {
-		add_character_flag = {
-			flag = is_being_tentacled
-			days = 7
-		}
 	}
 	option = {
 		name = tentacleswarm_scene.0051.a
@@ -1034,6 +1074,448 @@ tentacleswarm_scene.0055 = {
 		show_as_tooltip = {
 			remove_relation_tentacle_student = scope:tentacle_student
 		}
+	}
+}
+
+#蠕动的床铺
+#预处理
+tentacleswarm_scene.0060 = {
+	hidden = yes
+	trigger = {
+		is_tentaclable_female = yes
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			#触发主事件
+			add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
+				flag = is_being_tentacled
+				days = 7
+			}
+			trigger_event = {
+				id = tentacleswarm_scene.0061
+			}
+		}
+		else = {
+			#推迟触发
+			trigger_event = {
+				id = tentacleswarm_scene.0060
+				days = 7
+			}
+		}
+	}
+	#随机抽取触手事件的时候，被抽到的可能性的修正
+	weight_multiplier = { 
+		base = 1
+		
+		modifier = { #中等住宿，没那么容易遇袭
+			factor = 0.5
+			exists = court_owner
+			court_owner = {
+				has_royal_court = yes
+				amenity_level = {
+					type = court_lodging_standards
+					value >= 3
+				}
+			}
+		}
+		modifier = { #豪奢住宿，更不容易遇袭
+			factor = 0.5
+			exists = court_owner
+			court_owner = {
+				has_royal_court = yes
+				amenity_level = {
+					type = court_lodging_standards
+					value >= 5
+				}
+			}
+		}
+	}
+}
+#蠕动的床铺起
+tentacleswarm_scene.0061 = {
+	type = character_event
+	title = tentacleswarm_scene.0061.t
+	desc = tentacleswarm_scene.0061.desc
+	
+	theme = seduction
+	left_portrait = this
+	
+	immediate = {
+	}
+	option = { #主人公在这个故事背景里面的反应
+		name = tentacleswarm_scene.0061.a
+		trigger_event= {
+			id = tentacleswarm_scene.0062
+		}
+	}
+}
+#蠕动的床铺承
+tentacleswarm_scene.0062 = {
+	type = character_event
+	title = tentacleswarm_scene.t	
+	desc = {
+		#如何被抓获的
+		desc = tentacleswarm_scene.0062.desc
+		#根据是否是奴隶，是否怀孕，选择被侵害时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					NOT = { has_trait = pregnant }
+				}
+				desc = tentacleswarm_scene.slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					has_trait = pregnant
+				}
+				desc = tentacleswarm_scene.slave_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					NOT = { has_trait = pregnant }
+				}
+				desc = tentacleswarm_scene.not_slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					has_trait = pregnant
+				}
+				desc = tentacleswarm_scene.not_slave_pregnant
+			}
+		} 
+	}
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	#已经发生的事件，被触手主人侵袭了
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
+	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
+	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
+	
+	#接受选项
+	option = {
+		name = tentacleswarm_scene.accept_slave #奴隶接受文本
+		trigger = {
+			is_tentacle_slave = yes
+		}
+		tentacle_corrupt_accept_effect = yes
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
+	}
+	option = {
+		name = tentacleswarm_scene.accept #非奴隶接受文本
+		trigger = {
+			is_tentacle_slave = no
+		}
+		tentacle_corrupt_accept_effect = yes
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
+	}
+	#拒绝选项
+	option = {
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk } #如果瘴气成瘾了，这个选项不能选
+		}
+		show_as_unavailable = {
+			is_tentacle_slave = no
+			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
+		}
+		name = tentacleswarm_scene.reject
+		tentacle_corrupt_reject_effect = yes
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
+	}
+	#一天之后，结算【合】部分
+	after = {
+		trigger_event= {
+			id = tentacleswarm_scene.0063
+			days = 1
+		}
+	}
+}
+#蠕动的床铺合
+tentacleswarm_scene.0063 = {
+	type = character_event
+	title = tentacleswarm_scene.0063.t
+	desc = { #尾声
+		#根据是否是奴隶，选择尾声时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						is_tentacle_slave = yes
+						has_character_flag = willing_to_be_corrupted
+					}
+				}
+				desc = tentacleswarm_scene.0063.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_scene.0063.desc2
+			}
+		} 
+	}
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = personality_coward #乖巧
+	}
+	option = {
+		name = tentacleswarm_scene.0063.a #开心
+		trigger = {  
+			OR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_scene.0063.b #厌恶
+		trigger = {  
+			NOR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
+		}
+	}
+	after = {
+		#在这里可以清理一下各种flag什么的
+	}
+}
+
+#半路
+#预处理
+tentacleswarm_scene.0070 = {
+	hidden = yes
+	trigger = {
+		is_tentaclable_female = yes
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			#触发主事件
+			add_character_flag = { #每七天只会被触手袭击一次，避免过多的弹窗
+				flag = is_being_tentacled
+				days = 7
+			}
+			trigger_event = {
+				id = tentacleswarm_scene.0071
+			}
+		}
+		else = {
+			#推迟触发
+			trigger_event = {
+				id = tentacleswarm_scene.0070
+				days = 7
+			}
+		}
+	}
+	#随机抽取触手事件的时候，被抽到的可能性的修正
+	weight_multiplier = { 
+		base = 1
+		
+		modifier = { #被囚禁，不可能触发
+			factor = 0
+			is_imprisoned = yes
+		}
+		modifier = { #在活动中，很有可能触发
+			factor = 2
+			is_in_an_activity = yes
+		}
+	}
+}
+#半路起
+tentacleswarm_scene.0071 = {
+	type = character_event
+	title = tentacleswarm_scene.0071.t
+	desc = tentacleswarm_scene.0071.desc
+	
+	theme = seduction
+	left_portrait = this
+	
+	immediate = {
+	}
+	option = { #主人公在这个故事背景里面的反应
+		name = tentacleswarm_scene.0071.a
+		trigger_event= {
+			id = tentacleswarm_scene.0072
+		}
+	}
+}
+#半路承
+tentacleswarm_scene.0072 = {
+	type = character_event
+	title = tentacleswarm_scene.t	
+	desc = {
+		#如何被抓获的
+		desc = tentacleswarm_scene.0072.desc
+		#根据是否是奴隶，是否怀孕，选择被侵害时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					NOT = { has_trait = pregnant }
+				}
+				desc = tentacleswarm_scene.slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = yes
+					has_trait = pregnant
+				}
+				desc = tentacleswarm_scene.slave_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					NOT = { has_trait = pregnant }
+				}
+				desc = tentacleswarm_scene.not_slave_not_pregnant
+			}
+			triggered_desc = {
+				trigger = {
+					is_tentacle_slave = no
+					has_trait = pregnant
+				}
+				desc = tentacleswarm_scene.not_slave_pregnant
+			}
+		} 
+	}
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = shock
+	}
+	#已经发生的事件，被触手主人侵袭了
+	immediate = {
+		tentacle_corrupt_effect = yes
+	}
+	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
+	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
+	
+	#接受选项
+	option = {
+		name = tentacleswarm_scene.accept_slave #奴隶接受文本
+		trigger = {
+			is_tentacle_slave = yes
+		}
+		tentacle_corrupt_accept_effect = yes
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
+	}
+	option = {
+		name = tentacleswarm_scene.accept #非奴隶接受文本
+		trigger = {
+			is_tentacle_slave = no
+		}
+		tentacle_corrupt_accept_effect = yes
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
+	}
+	#拒绝选项
+	option = {
+		trigger = {  
+			NOT = { has_perk = tentacle_corruption_22_perk } #如果瘴气成瘾了，这个选项不能选
+		}
+		show_as_unavailable = {
+			is_tentacle_slave = no
+			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
+		}
+		name = tentacleswarm_scene.reject
+		tentacle_corrupt_reject_effect = yes
+		ai_chance = {
+			base = 100
+			ai_reject_corrupt_modifier = yes
+		}
+	}
+	#一天之后，结算【合】部分
+	after = {
+		trigger_event= {
+			id = tentacleswarm_scene.0073
+			days = 1
+		}
+	}
+}
+#半路合
+tentacleswarm_scene.0073 = {
+	type = character_event
+	title = tentacleswarm_scene.0073.t
+	desc = { #尾声
+		#根据是否是奴隶，选择尾声时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						is_tentacle_slave = yes
+						has_character_flag = willing_to_be_corrupted
+					}
+				}
+				desc = tentacleswarm_scene.0073.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_scene.0073.desc2
+			}
+		} 
+	}
+	
+	theme = seduction
+	left_portrait = {
+		character = this
+		animation = personality_coward #乖巧
+	}
+	option = {
+		name = tentacleswarm_scene.0073.a #开心
+		trigger = {  
+			OR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_scene.0073.b #厌恶
+		trigger = {  
+			NOR = {
+				is_tentacle_slave = yes
+				has_character_flag = willing_to_be_corrupted
+			}
+		}
+	}
+	after = {
+		#在这里可以清理一下各种flag什么的
 	}
 }
 tentacleswarm_scene.1001 = {

@@ -30,11 +30,11 @@
 		}
 		
 		trigger_event = { #恶趣味
-			id = tentacleswarm_scene.0010 #水井杀
+			on_action = tentacle_encounter_random_pulse #随机遭遇
 			days = { 50 200 }
 		}
 		trigger_event = { #恶趣味
-			id = tentacleswarm_scene.0010 #再来一次
+			on_action = tentacle_encounter_random_pulse #再来一次
 			days = { 400 500 }
 		}
 	}
