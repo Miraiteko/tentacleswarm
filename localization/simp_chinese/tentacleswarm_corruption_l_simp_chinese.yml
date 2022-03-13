@@ -2,7 +2,7 @@
     #地图模式 
     tentacleswarm_corruption_map:0 "触手腐化" 
     tentacleswarm_corruption_map_tooltip:0 "在触手腐化地图下你可以纵览各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐蚀衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_decay').GetValue|1V]#V %/年#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐化抵制：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]\n腐化衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_pencentage')|0V]#V %#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
     #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n[GetPlayer.Custom2_Title( 'Tentacleswarn_Corruption_Map_Slave_Loc', ROOT.Province.GetCounty.GetTitle )]\n"
     TENTACLESWARM_CORRUPTION_MAP_MODE_INVISIBLE:0 "\n由于你不是[GetTrait('tentacle_slave').GetName( GetNullCharacter )],你无法看到更多的详细信息。"
     TENTACLESWARM_CORRUPTION_MAP_MODE_VISIBLE:0 "\n作为[GetTrait('tentacle_slave').GetName( GetNullCharacter )],你还能感知到:\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐蚀衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_decay').GetValue|1V]#V %/年#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
@@ -21,7 +21,7 @@
     game_concept_tentacleswarm_corruption:0 "触手腐化"
     game_concept_tentacleswarm_corruption_desc:0 "触手腐化是由于触手怪物活动导致的[county_modifier|E]，表明了伯爵领之中有多少的平民人口已经沦为了触手怪物的奴隶。\n\n伯爵领触手腐化会因为以下原因变化：\n自然衰退 - \n高[development|E] + \n触手奴隶的行动 +\n周围的触手巢穴 + \n[tentacleswarm_resist|E] -\n "
     game_concept_tentacleswarm_resist:0 "腐化抵制"
-    game_concept_tentacleswarm_resist_desc:0 "越是抵制腐化的伯爵领，触手怪物能够获得的食物越少，[tentacleswarm_corruption|E]衰减得越快。\n这一效应在高[development|E]的伯爵领尤为明显。"
+    game_concept_tentacleswarm_resist_desc:0 "越是抵制腐化的伯爵领，触手怪物能够获得的食物越少，[tentacleswarm_corruption|E]增长得越慢，且衰减得越快。\n这一效应在高[development|E]的伯爵领尤为明显。"
 
     tentacleswarm_corruption_1:0 "触手出没"
     tentacleswarm_corruption_1_desc:0 "[tentacleswarm_corruption|E]\n人们偶尔在此处发现触手怪物的踪迹。\n[development|E]进度损失：#N 2#!到#N 4#!/年"

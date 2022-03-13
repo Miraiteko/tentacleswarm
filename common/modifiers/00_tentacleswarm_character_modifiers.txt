@@ -10,5 +10,6 @@ tentacleswarm_spread = {
 	domain_tax_mult = -0.1
 	levy_size = -0.1
 	garrison_size = -0.1
+	for_corrupt_type_damage_add = 20
 	for_corrupt_type_damage_mult = -0.7
 }

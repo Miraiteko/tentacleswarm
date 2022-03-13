@@ -242,24 +242,24 @@ tentacleswarm_yearly_playable_pulse = {
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 15 } #如果统治者是奴隶
+			change_variable =  { name = tentacleswarm_corruption_add add = 20 } #如果统治者是奴隶
 		}	
 		if = {
 			limit = { 
 				has_character_modifier = tentacleswarm_spread
 			}
-			change_variable =  { name = tentacleswarm_corruption_add add = 10 }  #如果统治者执行播种令
+			change_variable =  { name = tentacleswarm_corruption_add add = 20 }  #如果统治者执行播种令
 		}
 		every_spouse = {
 			limit = { 
 				is_tentacle_slave = yes  
 				is_in_the_same_court_as_or_guest = PREV
 			}
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }#如果配偶是奴隶，配偶需要在宫廷
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 15 } }#如果配偶是奴隶，配偶需要在宫廷
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 3 } }#如果宾客是奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 5 } }#如果宾客是奴隶
 		}
 		if = { #雇佣了播种人
 			limit = {
@@ -275,7 +275,7 @@ tentacleswarm_yearly_playable_pulse = {
 							value = 1
 						}
 					}
-					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 4 } }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 5 } }
 				}
 				else_if = {
 					limit = {
@@ -284,7 +284,7 @@ tentacleswarm_yearly_playable_pulse = {
 							value = 2
 						}
 					}
-					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 8 } }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }
 				}
 				else_if = {
 					limit = {
@@ -293,7 +293,7 @@ tentacleswarm_yearly_playable_pulse = {
 							value = 3 
 						}
 					}
-					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 12 } }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 15 } }
 				}
 				else_if = {
 					limit = {
@@ -302,10 +302,10 @@ tentacleswarm_yearly_playable_pulse = {
 							value = 4
 						}
 					}
-					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 16 } }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 20 } }
 				}
 				else = {
-					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 20 } }
+					PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 25 } }
 				}
 			}
 		}
@@ -314,41 +314,38 @@ tentacleswarm_yearly_playable_pulse = {
 				is_alive = yes
 				is_landed = yes 
 			}
-			set_variable =  { name = tentacleswarm_warbeast_gain value = 0}#用于后面计算能获得几队巨兽
 		
 			#为每个伯爵领结算腐化度
 			every_held_title = {
 				limit = { tier = tier_county }
 				save_scope_as = county
 				
-				#发展度计算
+				#发展度损耗
 				change_development_progress_with_overflow = {
 					value = var:tentacleswarm_corruption
 					multiply = -0.2
 				}
 					
-				#计算衰减率
-				#基础衰减，固定10%
-				set_variable =  { name = tentacleswarm_corruption_decay value = 10 } 
-				#饥饿衰减 = 抵制强度/(发展度+抵制强度) *70%
-				change_variable =  { name = tentacleswarm_corruption_decay add = tentacleswarm_corruption_hunger_value } 	
-				#规范化，使衰减比例介于1%到99%，避免溢出
-				if = { 
-					limit = { var:tentacleswarm_corruption_decay = { compare_value > 99 } } 
-					set_variable =  { name = tentacleswarm_corruption_decay value = 99 } 	
+				#计算增长增长
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = holder.var:tentacleswarm_corruption_add
 				}
-				else_if = { 
-					limit = { var:tentacleswarm_corruption_decay = { compare_value < 1 } } 
-					set_variable =  { name = tentacleswarm_corruption_decay value = 1 } 	
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = var:tentacleswarm_corruption_nature
 				}
 				
 				#计算衰减额度
 				set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
-				change_variable =  { name = tentacleswarm_corruption_decrease multiply = var:tentacleswarm_corruption_decay }
-				change_variable =  { name = tentacleswarm_corruption_decrease multiply = 0.01 }
+				change_variable =  { name = tentacleswarm_corruption_decrease multiply = tentacleswarm_corruption_decay_value }
 				if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
 					limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
-					#50%传播给一个相邻伯爵领
+					
+					#扣减腐化度
+					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
+					
+					#扣减额的50%传播给一个相邻伯爵领
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level > 0
@@ -362,7 +359,7 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}					
-					#35%传播给另一个相邻伯爵领
+					#扣减额的35%传播给另一个相邻伯爵领
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level > 0
@@ -376,31 +373,8 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}
-					
-					#计算腐化度衰退
-					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 				}
 				
-				#领主宫廷带来的增长
-				change_variable =  { 
-					name = tentacleswarm_corruption 
-					add = holder.var:tentacleswarm_corruption_add 
-				}
-				
-				#计算地形带来的影响
-				change_variable =  { 
-					name = tentacleswarm_corruption 
-					add = var:tentacleswarm_corruption_nature
-				}
-				#0发展度省份不会增长腐化
-				if = {
-					limit = { development_level = 0 } 
-					set_variable =  { 
-						name = tentacleswarm_corruption 
-						value = 0
-					}
-				}
-
 				#五档：10,20,35,60,100
 				tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
 			}

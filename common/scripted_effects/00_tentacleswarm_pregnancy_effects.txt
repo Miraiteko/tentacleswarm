@@ -440,7 +440,10 @@ tentacle_end_pregnancy = {
 				exists = location.county
 			}
 			location.county = {
-				change_variable =  { name = tentacleswarm_corruption add = 2 }
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = 3
+				}
 			}
 		}
 	}

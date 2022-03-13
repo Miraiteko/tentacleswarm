@@ -496,6 +496,7 @@ tentacleswarm_scene.0040 = {
 		is_imprisoned_by = scope:imprisoner
 	}
 	immediate = {
+		save_scope_as = recipient
 		if = {
 			limit = {
 				NOT = { has_character_flag = is_being_tentacled }

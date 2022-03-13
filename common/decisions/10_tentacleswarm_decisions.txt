@@ -174,7 +174,10 @@ tentacleswarm_suicide = {
 				}
 				custom_tooltip = tentacleswarm_suicide_tt
 				capital_county = {
-					change_variable =  { name = tentacleswarm_corruption add = 1 }
+					change_variable =  { 
+						name = tentacleswarm_corruption 
+						add = 3
+					}
 					tentacleswarm_corruption_county_check = yes
 				}
 			}

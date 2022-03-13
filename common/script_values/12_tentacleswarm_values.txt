@@ -16,9 +16,6 @@ minus_tentacleswarm_corruption = {
 	subtract = var:tentacleswarm_corruption
 }
 
-tentacleswarm_corruption_resist = {
-	value = 0 #基础抵制强度
-}
 tentacle_pregnancy_chance = { #怀孕概率
 	value = 100
 	multiply = fertility
@@ -145,15 +142,23 @@ tentacleswarm_corruption_resist = {
 	}
 	min = 0.1
 }
-#饥饿带来的衰减额度 = 抵制强度/(发展度+抵制强度) *70%
-tentacleswarm_corruption_hunger_value = {
+#衰减率 = 抵制/(发展度+抵制)
+tentacleswarm_corruption_decay_value = {
 	value = tentacleswarm_corruption_resist
 	divide = {
 		value = development_level
 		add = tentacleswarm_corruption_resist
 	}
-	multiply = 70 #满饥饿的情况下有70%的衰减，加上基础衰减就是80%
-	min = 0
+	min = 0.01
+	max = 0.99
+}
+tentacleswarm_corruption_decay_value_minus = {
+	value = 1
+	subtract = tentacleswarm_corruption_decay_value
+}
+tentacleswarm_corruption_decay_pencentage = {
+	value = tentacleswarm_corruption_decay_value
+	multiply = 100
 }
 #替代原版怀孕月数的取值
 #Pregnancy
