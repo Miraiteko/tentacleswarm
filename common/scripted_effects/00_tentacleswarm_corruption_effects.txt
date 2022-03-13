@@ -67,7 +67,7 @@ tentacleswarm_corruption_county_check = {
 	}
 	else_if = { #一档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 20 }
+			var:tentacleswarm_corruption = { compare_value < 20 } 
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_low_corruption_province } 
@@ -391,7 +391,17 @@ tentacleswarm_corruption_county_check = {
 			var:tentacleswarm_corruption = { compare_value > 100 }
 			NOT = { religion = religion:tentacleswarm_religion  }
 		}
-		set_county_faith = faith:tentacleswarm_slavery
+		holder = {
+			send_interface_message = {
+				type = tentacle_county_message
+				title = tentacle_county_corrupt.t
+				desc = tentacle_county_corrupt.desc
+				left_icon = scope:checked_county
+				scope:checked_county = {
+					set_county_faith = faith:tentacleswarm_slavery
+				}
+			}
+		}
 	}
 	#腐化过低改信别的
 	if = {
@@ -414,7 +424,18 @@ tentacleswarm_corruption_county_check = {
 				}
 			}
 		}
-		set_county_faith = scope:lucky
+		
+		holder = {
+			send_interface_message = {
+				type = tentacle_county_message
+				title = tentacle_county_decorrupt.t
+				desc = tentacle_county_decorrupt.desc
+				left_icon = scope:checked_county
+				scope:checked_county = {
+					set_county_faith = scope:lucky
+				}
+			}
+		}
 	}
 }
 

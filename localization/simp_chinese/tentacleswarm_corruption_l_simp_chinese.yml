@@ -66,6 +66,10 @@
     tentacleswarm_corruption.0004.a:0 "一场威胁全世界的灾变到来了"
     tentacleswarm_corruption.0004.b:0 "让世界屈服于主人！"
 
+    tentacle_county_corrupt.t:0 "伯爵领恶堕"
+    tentacle_county_corrupt.desc:0 "肆虐的触手已经支配了[checked_county.GetName]，将所有居民洗脑。"
+    tentacle_county_decorrupt.t:0 "腐化消散"
+    tentacle_county_decorrupt.desc:0 "随着腐化的降低，[checked_county.GetName]不再被触手支配。"
     #决议    
     tentacleswarm_anti_start_decision:0 "触手灭杀行动"
     tentacleswarm_anti_start_decision_desc:0 "为了扼止邪恶的触手怪物的繁殖，我们需要组织一支特殊的巡逻部队，检查领地的每个角落。\n此举能够有效压制领地内的触手腐化。"
@@ -90,7 +94,6 @@
     tentacleswarm_spread_desc:0 "为了促进人民的屈服，我们组织了一支特殊的部队巡视领地，确保触手主人在每家每户里繁衍生息。\n此举能够有效促进领地内的触手腐化。"
 
     #宫廷职位
-
     tentacle_hunter_court_position:0 "触手猎人"
     tentacle_hunter_court_position_custom_effect_description:1 "有可能发现宫廷中的触手奴隶\n@warning_icon!#X 若加入针对你的[hostile_schemes|E]，会成为极有威胁的[agent|E]#!"
     tentacle_hunter_court_position_desc:1 "$tentacle_hunter_court_position$检查领地的每个角落，从宫廷内院到郊外的水井，消灭一切有可能滋生的邪秽。"
