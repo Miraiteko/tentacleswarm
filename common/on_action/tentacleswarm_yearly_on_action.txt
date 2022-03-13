@@ -255,7 +255,7 @@ tentacleswarm_yearly_playable_pulse = {
 				is_tentacle_slave = yes  
 				is_in_the_same_court_as_or_guest = PREV
 			}
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 15 } }#如果配偶是奴隶，配偶需要在宫廷
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }#如果配偶是奴隶，配偶需要在宫廷
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
@@ -345,21 +345,35 @@ tentacleswarm_yearly_playable_pulse = {
 					#扣减腐化度
 					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					
-					#扣减额的50%传播给一个相邻伯爵领
+					#扣减额的40%传播给一个相邻伯爵领
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
-							development_level > 0
+							development_level > 2
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.50
+								multiply = 0.40
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
 					}					
-					#扣减额的35%传播给另一个相邻伯爵领
+					#扣减额的30%传播给另一个相邻伯爵领
+					random_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							development_level > 1
+						}
+						change_variable =  {
+							name = tentacleswarm_corruption 
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.30
+							}
+						}
+						tentacleswarm_corruption_county_check = yes
+					}			
+					#扣减额的20%传播给另一个相邻伯爵领
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level > 0
@@ -368,7 +382,7 @@ tentacleswarm_yearly_playable_pulse = {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.35
+								multiply = 0.20
 							}
 						}
 						tentacleswarm_corruption_county_check = yes

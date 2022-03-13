@@ -40,7 +40,7 @@ tentacleswarm_corruption_resist = {
 		limit = {
 			faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 		}
-		add = 20
+		add = 10
 	}
 	else_if = { #省份屈服
 		limit = {
@@ -49,7 +49,7 @@ tentacleswarm_corruption_resist = {
 		add = 1
 	}
 	else = { #省份忌讳
-		add = 10
+		add = 5
 	}
 	#修正项
 	multiply = {
