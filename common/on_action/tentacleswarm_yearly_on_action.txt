@@ -79,11 +79,11 @@ random_yearly_everyone_pulse = {
 tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
 	trigger = {
 		has_religion = religion:tentacleswarm_religion
-		is_ai = yes
 	}
 	effect = {
 		if = { #没有成为奴隶的成年女性寻求赐福
 			limit = {
+				is_ai = yes
 				is_tentaclable_female = yes
 				is_tentacle_slave = no
 			}
@@ -147,7 +147,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						months = { 6 9 }
 					}
 				}
-				500 = {
+				300 = {
 				}
 			}
 		}
@@ -166,6 +166,14 @@ tentacle_slave_yearly = {#触手奴隶年度触发
 				any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
 			}
 			convert_to_tentacleswarm_religion = yes
+		}
+		if = { #每年寻求一次赐福
+			limit = {
+				is_ai = yes
+			}
+			trigger_event = {
+				id = tentacleswarm_scene.0030 #虔诚赐福
+			}
 		}
 		if = { #生育率太低的时候失去祝福，开始生病
 			limit = { 
@@ -242,7 +250,7 @@ tentacleswarm_yearly_playable_pulse = {
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
-			change_variable =  { name = tentacleswarm_corruption_add add = 20 } #如果统治者是奴隶
+			change_variable =  { name = tentacleswarm_corruption_add add = 0 } #如果统治者是奴隶
 		}	
 		if = {
 			limit = { 
@@ -255,11 +263,11 @@ tentacleswarm_yearly_playable_pulse = {
 				is_tentacle_slave = yes  
 				is_in_the_same_court_as_or_guest = PREV
 			}
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 10 } }#如果配偶是奴隶，配偶需要在宫廷
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果配偶是奴隶，配偶需要在宫廷
 		}
 		every_courtier_or_guest = {
 			limit = { is_tentacle_slave = yes  }
-			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 5 } }#如果宾客是奴隶
+			PREV = { change_variable =  { name = tentacleswarm_corruption_add add = 0 } }#如果宾客是奴隶
 		}
 		if = { #雇佣了播种人
 			limit = {
@@ -309,6 +317,7 @@ tentacleswarm_yearly_playable_pulse = {
 				}
 			}
 		}
+		
 		if = { #如果依然持有土地的话
 			limit = { 
 				is_alive = yes
@@ -320,35 +329,59 @@ tentacleswarm_yearly_playable_pulse = {
 				limit = { tier = tier_county }
 				save_scope_as = county
 				
-				#发展度损耗
-				change_development_progress_with_overflow = {
-					value = var:tentacleswarm_corruption
-					multiply = -0.2
-				}
-					
-				#计算增长增长
-				change_variable =  { 
+				#先计算效果导致的变化
+				change_variable =  { #宫廷效果
 					name = tentacleswarm_corruption 
 					add = holder.var:tentacleswarm_corruption_add
 				}
-				change_variable =  { 
+				change_variable =  { #自然效果
 					name = tentacleswarm_corruption 
 					add = var:tentacleswarm_corruption_nature
 				}
 				
-				#计算衰减额度
-				set_variable =  { name = tentacleswarm_corruption_decrease value = var:tentacleswarm_corruption }
-				change_variable =  { name = tentacleswarm_corruption_decrease multiply = tentacleswarm_corruption_decay_value }
+				#接下来计算发展度导致的变化
+				#计算有多少怪物吃饱了
+				set_variable =  { 
+					name = tentacleswarm_corruption_fed
+					value = {
+						value = var:tentacleswarm_corruption
+						multiply = tentacleswarm_corruption_decay_value_minus
+					}
+				}
+				#计算有多少怪物没吃饱
+				set_variable =  { 
+					name = tentacleswarm_corruption_decrease 
+					value = {
+						value = var:tentacleswarm_corruption
+						multiply = tentacleswarm_corruption_decay_value
+					}
+				}
+				
+				#吃饱怪物造成发展度下降
+				change_development_progress_with_overflow = {
+					value = var:tentacleswarm_corruption_fed
+					multiply = -0.2
+				}
+				#吃饱的会继续繁殖
+				change_variable =  { 
+					name = tentacleswarm_corruption 
+					add = {
+						value = var:tentacleswarm_corruption_fed
+						multiply = 0.2
+					}
+				}
+				
+				#没吃饱的情况
 				if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
 					limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
 					
-					#扣减腐化度
+					#没吃饱的怪物润了或者死了
 					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					
-					#扣减额的40%传播给一个相邻伯爵领
+					#40%润一个相邻伯爵领，至少要5发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
-							development_level > 2
+							development_level >= 5
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
@@ -359,10 +392,10 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}					
-					#扣减额的30%传播给另一个相邻伯爵领
+					#30%润一个相邻伯爵领，至少要2发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
-							development_level > 1
+							development_level >= 3
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
@@ -373,10 +406,10 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}			
-					#扣减额的20%传播给另一个相邻伯爵领
+					#20%润一个相邻伯爵领，至少要1发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
-							development_level > 0
+							development_level >= 1
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
@@ -387,8 +420,10 @@ tentacleswarm_yearly_playable_pulse = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}
+					#还有10%是直接死了的
 				}
 				
+				#数值计算完毕，进行结算
 				#五档：10,20,35,60,100
 				tentacleswarm_corruption_county_check = yes #根据腐化程度结算效果：改颜色，改buff,
 			}

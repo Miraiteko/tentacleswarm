@@ -13,7 +13,7 @@ tentacle_corrupt = {
 	resistance_per_skill_point = 1 #敌暗我明，防守效率是低下的
 	power_per_agent_skill_point = 2
 	
-	minimum_progress_chance = 10
+	minimum_progress_chance = 25
 	maximum_progress_chance = 99
 	base_secrecy = 10
 	maximum_secrecy = 99

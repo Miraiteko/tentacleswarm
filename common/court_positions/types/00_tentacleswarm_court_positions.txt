@@ -143,20 +143,32 @@
 		add = court_position_candidate_score_base_value
 		add = court_position_candidate_aptitude_value
 		add = court_position_debt_considerations_value
-		add = {
-			value = scope:liege.capital_county.var:tentacleswarm_corruption #腐化越高越爱用
-			multiply = 4
-		}
 		add = scope:liege.ai_zeal #虔诚的领主喜欢启用
 		if = { #我这里没有腐化呀，不启用
 			limit = {
 				scope:liege.capital_county.var:tentacleswarm_corruption  = { compare_value < 10 }
+				scope:liege = { is_tentacle_slave = no }
 			}
 			multiply = 0
 		}
-		if = { #奴隶不会启用
+		if = { #腐化越高越爱用
+			limit = {
+				scope:liege.capital_county.var:tentacleswarm_corruption  = { compare_value >= 10 }
+				scope:liege = { is_tentacle_slave = no }
+			}
+			add = {
+				value = scope:liege.capital_county.var:tentacleswarm_corruption 
+				multiply = 4
+			}
+		}
+		if = { #奴隶不会启用，除非知道对方也是奴隶
 			limit = {
 				scope:liege = { is_tentacle_slave = yes }
+				NOT = { 
+					scope:employee = { 
+						is_tentacle_slave_known_by = { CHARACTER = scope:liege } 
+					}
+				}
 			}
 			multiply = 0
 		}
