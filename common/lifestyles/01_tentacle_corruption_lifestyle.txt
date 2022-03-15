@@ -12,6 +12,9 @@
 					is_ai = no #被玩家知晓的奴隶
 				}
 			}
+			ROOT = { #是玩家自己
+				is_ai = no
+			}
 		}
 	}
 	xp_per_level = 1000

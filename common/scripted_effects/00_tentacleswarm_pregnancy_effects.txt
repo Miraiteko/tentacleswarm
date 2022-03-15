@@ -327,13 +327,6 @@ spy_on_mother_tentacle_pregnancy_adultery_effect = {
 	}
 	#上面是文本描述，下面才是真实调查
 	hidden_effect = {
-		scope:mother = {
-			add_character_flag = {
-				flag = father_suspects_this_pregnancy
-				months = 8
-			}
-		}
-
 		if = { # Check whether root or Spymaster should spy
 			limit = {
 				exists = cp:councillor_spymaster

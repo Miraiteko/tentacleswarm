@@ -147,7 +147,7 @@ tentacle_encounter_yearly = {#遭遇年度触发
 						months = { 6 9 }
 					}
 				}
-				300 = {
+				500 = {
 				}
 			}
 		}
@@ -246,7 +246,7 @@ yearly_playable_pulse = {
 }
 tentacleswarm_yearly_playable_pulse = {
 	effect = {
-		#计算统治者的宫廷会带来多大的腐化度
+		#计算统治者的宫廷会带来多大的腐化度 
 		set_variable =  { name = tentacleswarm_corruption_add value = 0} 	#基础
 		if = {
 			limit = { is_tentacle_slave = yes } 
@@ -367,7 +367,7 @@ tentacleswarm_yearly_playable_pulse = {
 					name = tentacleswarm_corruption 
 					add = {
 						value = var:tentacleswarm_corruption_fed
-						multiply = 0.2
+						multiply = 0.05
 					}
 				}
 				

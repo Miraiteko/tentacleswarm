@@ -58,6 +58,7 @@ tentacleswarm_baby_corruption = {
 		else_if = {
 			limit = {#主要奴隶必定被赐福
 				is_ai = yes #玩家用决议
+				always = no #暂且关闭，一年一次足矣
 				OR = {
 					is_tentacle_slave = yes
 					has_religion = religion:tentacleswarm_religion

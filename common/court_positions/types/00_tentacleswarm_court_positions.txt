@@ -172,6 +172,17 @@
 			}
 			multiply = 0
 		}
+		if = { #奴隶喜欢雇佣奴隶
+			limit = {
+				scope:liege = { is_tentacle_slave = yes }
+				NOT = { 
+					scope:employee = { 
+						is_tentacle_slave_known_by = { CHARACTER = scope:liege } 
+					}
+				}
+			}
+			multiply = 100
+		}
 	}
 }
 tentacle_missionary_court_position = {
