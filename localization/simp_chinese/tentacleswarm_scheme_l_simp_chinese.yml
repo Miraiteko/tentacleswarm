@@ -43,7 +43,13 @@
     tentacle_corrupt_scheme.1004.t:1 "水井"
     tentacle_corrupt_scheme.1004.desc:1 "[target.GetShortUINameNoTooltip]似乎已经觉察到什么了，她减少了夜间出行的次数，并且远离了阴暗潮湿的地方。她派卫兵认真地检查着庭院的角落。\n\n幸好，井中的触手主人已经被奴隶女仆们提前转移走了。"
     tentacle_corrupt_scheme.1004.a:1 "越是机敏的女人越有献给触手主人的价值"
-    
+    tentacle_corrupt_scheme.9997.t:1 "目击"
+    tentacle_corrupt_scheme.9997.desc:1 "夜晚，当我路过一条街巷的时候，看见[slave.GetShortUINameNoTooltip]正在角落里和一位女仆密谈。当我仔细观察的时候，看见触手正缠绕在她们的腿上，任意摆布她们的身体。\n\n她们完全没有抵抗触手的意图，而是随着触手一起扭动，似乎沉醉在喜悦之中。"
+    tentacle_corrupt_scheme.9997.a:1 "又找到了一位好姐妹"
+    tentacle_corrupt_scheme.9997.b:1 "新鲜的秘密……"
+    tentacle_corrupt_scheme.9998.t:1 "奴隶姐妹"
+    tentacle_corrupt_scheme.9998.desc:1 "晚上，当你暗中观察[target.GetShortUINameNoTooltip]的时候，竟然发现她正在接受触手主人的赐福。\n\n她尽心尽责地侍奉着触手主人。欲火在她眼中熊熊燃烧，肆意呻吟延绵不绝，浑身散发出属于触手奴隶的强烈香气。\n\n当[target.GetShortUINameNoTooltip]气喘吁吁瘫倒在地上的时候，她的眼神是如此妩媚动人撩拨心弦，流露出被满足的喜悦。"
+    tentacle_corrupt_scheme.9998.a:1 "腐化已经完成了"
     
     #夺取权位
     tentacle_slave_claim_throne_desc_general:0 "为主人夺取权位"

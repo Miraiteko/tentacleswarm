@@ -361,13 +361,7 @@ tentacle_corrupt = {
 			limit = {
 				#已经是奴隶了
 				scope:target = { 
-					OR = {
-						has_trait = tentacle_slave
-						any_secret = {
-							secret_type = secret_tentacle_slave
-							is_known_by = scope:owner
-						}
-					}
+					is_tentacle_slave_known_by = { CHARACTER = scope:owner } #如果知道对方是奴隶了，就没必要再下手了
 				}
 			}
 			scope:owner = {

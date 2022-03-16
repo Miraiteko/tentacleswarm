@@ -658,11 +658,3 @@ tentacleswarm_cancel_holy_order_lease_pulse = { #驱逐敌对骑士团
 		}
 	}
 }
-#随机发生一个触手遭遇事件
-tentacle_encounter_random_pulse = {
-	random_events = {
-		100 = tentacleswarm_scene.0010 #水井
-		100 = tentacleswarm_scene.0060 #床单
-		100 = tentacleswarm_scene.0070 #半路
-	}
-}

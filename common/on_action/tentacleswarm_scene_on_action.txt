@@ -1,0 +1,19 @@
+﻿#随机发生一个触手遭遇事件
+tentacle_encounter_random_pulse = {
+	random_events = {
+		100 = tentacleswarm_scene.0010 #水井
+		100 = tentacleswarm_scene.0060 #床单
+		100 = tentacleswarm_scene.0070 #半路
+	}
+}
+#被触手袭击的时候
+on_tentacle_corrupt_pulse = {
+	events = {
+	}
+}
+#scope:slave是被发现的奴隶，ROOT是发现者
+tentacle_slave_discover_random_pulse = {
+	random_events = {
+		100 = tentacle_corrupt_scheme.9997 #小巷
+	}
+}

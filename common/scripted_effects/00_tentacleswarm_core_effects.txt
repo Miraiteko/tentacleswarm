@@ -76,6 +76,9 @@ tentacle_corrupt_effect = {
 				tentacle_impregnate = yes
 			}
 		}
+		trigger_event = {
+			on_action = on_tentacle_corrupt_pulse
+		}
 	}
 }
 #腐化树程度增加

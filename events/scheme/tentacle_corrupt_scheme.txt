@@ -2,6 +2,9 @@
 namespace = tentacle_corrupt_scheme
 #0001预处理
 #1001样板水井杀
+
+#9997被某人发现
+#9998知道对方是奴隶了
 #9999让非领主的ai能够发起腐化阴谋
 
 #阴谋就位
@@ -132,13 +135,35 @@ tentacle_corrupt_scheme.1003 = {
 			limit = {
 				exists = scope:scheme_discovered
 			}
-			scope:owner = {
-				random_secret = {
-					limit = { 
-						secret_type = secret_tentacle_slave 
-						NOT = { is_known_by = scope:target }
+			scope:owner = { #对方的一位廷臣知晓了秘密
+				save_scope_as = slave
+				scope:target = {
+					if = {
+						limit = { is_ruler = yes }
+						random_courtier_or_guest = {
+							limit = { is_imprisoned = no }
+							save_scope_as = knower
+						}
 					}
-					reveal_to = scope:target
+					else_if = {
+						limit = { exists = liege_or_court_owner }
+						liege_or_court_owner = {
+							random_courtier_or_guest = {
+								limit = { is_imprisoned = no }
+								save_scope_as = knower
+							}
+						}
+					}
+					if = {
+						limit = { NOT = { exists = scope:knower } }
+						save_scope_as = knower
+					}
+				}
+				scope:knower = {
+					trigger_event = {
+						on_action = tentacle_slave_discover_random_pulse
+						days = 5
+					}
 				}
 			}
 		}
@@ -219,13 +244,35 @@ tentacle_corrupt_scheme.1004 = {
 			limit = {
 				exists = scope:scheme_discovered
 			}
-			scope:owner = {
-				random_secret = {
-					limit = { 
-						secret_type = secret_tentacle_slave 
-						NOT = { is_known_by = scope:target }
+			scope:owner = { #对方的一位廷臣知晓了秘密
+				save_scope_as = slave
+				scope:target = {
+					if = {
+						limit = { is_ruler = yes }
+						random_courtier_or_guest = {
+							limit = { is_imprisoned = no }
+							save_scope_as = knower
+						}
 					}
-					reveal_to = scope:target
+					else_if = {
+						limit = { exists = liege_or_court_owner }
+						liege_or_court_owner = {
+							random_courtier_or_guest = {
+								limit = { is_imprisoned = no }
+								save_scope_as = knower
+							}
+						}
+					}
+					if = {
+						limit = { NOT = { exists = scope:knower } }
+						save_scope_as = knower
+					}
+				}
+				scope:knower = {
+					trigger_event = {
+						on_action = tentacle_slave_discover_random_pulse
+						days = 5
+					}
 				}
 			}
 		}
@@ -240,7 +287,95 @@ tentacle_corrupt_scheme.1004 = {
 		}
 	}
 }
-
+#被某人发现
+tentacle_corrupt_scheme.9997 = {
+	type = character_event
+	title = tentacle_corrupt_scheme.9997.t
+	desc = tentacle_corrupt_scheme.9997.desc
+	
+	theme = intrigue
+	left_portrait = {
+		character = scope:slave
+		animation = rage
+	}
+	trigger = {
+		scope:slave = {
+			is_hidden_tentacle_slave = yes
+			any_secret = {
+				secret_type = secret_tentacle_slave 
+				NOT = { is_known_by = ROOT }
+			}
+		}
+	}
+	option = {
+		name = {
+			trigger = {
+				OR = {
+					is_tentacle_slave = yes
+					has_character_flag = willing_to_be_corrupted
+				}
+			}
+			text = tentacle_corrupt_scheme.9997.a
+		}
+		name = {
+			trigger = {
+				NOR = {
+					is_tentacle_slave = yes
+					has_character_flag = willing_to_be_corrupted
+				}
+			}
+			text = tentacle_corrupt_scheme.9997.b
+		}
+		scope:owner = {
+			random_secret = {
+				limit = { 
+					secret_type = secret_tentacle_slave 
+					NOT = { is_known_by = ROOT }
+				}
+				reveal_to = ROOT
+			}
+		}
+	}
+}
+#发现对方是奴隶
+tentacle_corrupt_scheme.9998 = {
+	type = character_event
+	title = tentacle_corrupt_scheme.9998.t
+	desc = tentacle_corrupt_scheme.9998.desc
+	
+	theme = intrigue
+	left_portrait = {
+		character = scope:target
+		animation = rage
+	}
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	weight_multiplier = { 
+		base = 0
+		modifier = { #目标是奴隶，并且正在接受赐福，则得知情况
+			add = 10
+			scope:target = { 
+				is_tentacle_slave = yes
+				has_character_flag = is_being_tentacled
+			}
+		}
+	}
+	option = {
+		name = tentacle_corrupt_scheme.9998.a
+		scope:target = {
+			random_secret = {
+				limit = { 
+					secret_type = secret_tentacle_slave 
+					NOT = { is_known_by = scope:owner }
+				}
+				reveal_to = scope:owner
+			}
+		}
+	}
+}
+#ai发起腐化
 tentacle_corrupt_scheme.9999 = {
 	hidden = yes
 

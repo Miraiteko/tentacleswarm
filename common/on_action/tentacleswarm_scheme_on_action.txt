@@ -7,7 +7,7 @@ tentacle_corrupt_setup = {
 #触手腐化月度事件
 tentacle_corrupt_ongoing = {
 	random_events = {
-		chance_to_happen = 5
+		1000 = tentacle_corrupt_scheme.9998 #发现对方在侍奉主人，已经是奴隶了
 		50 = 0
 	}
 }
