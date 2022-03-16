@@ -1592,6 +1592,7 @@ tentacleswarm_scene.0081 = {
 			random_known_secret = {
 				limit = { 
 					secret_owner = {
+						is_ai = yes
 						is_tentacle_slave_known_by = { CHARACTER = ROOT }
 						ROOT = {
 							is_character_interaction_valid = {
@@ -1612,6 +1613,7 @@ tentacleswarm_scene.0081 = {
 			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
 			random_close_or_extended_family_member = {
 				limit = { 
+					is_ai = yes
 					is_tentacle_slave_known_by = { CHARACTER = ROOT }
 					ROOT = {
 						is_character_interaction_valid = {
@@ -1628,6 +1630,7 @@ tentacleswarm_scene.0081 = {
 			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
 			random_liege_or_above = {
 				limit = { 
+					is_ai = yes
 					is_tentacle_slave_known_by = { CHARACTER = ROOT }
 					ROOT = {
 						is_character_interaction_valid = {
@@ -1644,22 +1647,7 @@ tentacleswarm_scene.0081 = {
 			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
 			random_courtier_or_guest = {
 				limit = { 
-					is_tentacle_slave_known_by = { CHARACTER = ROOT }
-					ROOT = {
-						is_character_interaction_valid = {
-						   recipient = PREV
-						   interaction = ask_for_tentacle_corruption_interaction
-						}
-					}
-				}
-				save_scope_as = tentacle_mentor
-				ROOT = { add_character_flag = stress_threshold_option_corruption }
-			}
-		}
-		if = {
-			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
-			random_hooked_character = {
-				limit = { 
+					is_ai = yes
 					is_tentacle_slave_known_by = { CHARACTER = ROOT }
 					ROOT = {
 						is_character_interaction_valid = {
@@ -1674,12 +1662,12 @@ tentacleswarm_scene.0081 = {
 		}
 		#放荡
 		add_character_flag = stress_threshold_option_rakish
-		#蛰居
+		#自戕
 		if = {
 			limit = {
 				NOT = { has_character_flag = stress_threshold_option_corruption }
 			}
-			add_character_flag = stress_threshold_option_reclusive
+			add_character_flag = stress_threshold_option_flagellant
 		}
 		#标记压力等级
 		stress_threshold_event_post_immediate = yes
@@ -1690,7 +1678,7 @@ tentacleswarm_scene.0081 = {
 			num_of_relation_tentacle_mentor = 0
 			has_character_flag = stress_threshold_option_corruption
 		}
-		name = stress_threshold.1011.tentacle_slave.gain
+		name = tentacleswarm_scene.0081.tentacle_slave.gain
 		trait = tentacle_slave
 		if = {
 			limit = { 
@@ -1714,11 +1702,11 @@ tentacleswarm_scene.0081 = {
 		}
 		name = {
 			trigger = { NOT = { has_trait = rakish } }
-			text = stress_threshold.1011.rakish.gain
+			text = tentacleswarm_scene.0081.rakish.gain
 		}
 		name = {
 			trigger = { has_trait = rakish }
-			text = stress_threshold.1011.rakish.effect
+			text = tentacleswarm_scene.0081.rakish.effect
 		}
 		trait = rakish
 		add_trait = rakish
@@ -1727,37 +1715,40 @@ tentacleswarm_scene.0081 = {
 			base = 100
 		}
 	}
-	#蛰居
+	#自戕
 	option = {
 		trigger = {
-			has_character_flag = stress_threshold_option_reclusive
+			has_character_flag = stress_threshold_option_flagellant
 		}
 		name = {
-			trigger = { NOT = { has_trait = reclusive } }
-			text = stress_threshold.1011.reclusive.gain
+			trigger = { NOT = { has_trait = flagellant } }
+			text = tentacleswarm_scene.0081.flagellant.gain
 		}
 		name = {
-			trigger = { has_trait = reclusive }
-			text = stress_threshold.1011.reclusive.effect
+			trigger = { has_trait = flagellant }
+			text = tentacleswarm_scene.0081.flagellant.effect
 		}
-		trait = reclusive
-		add_trait = reclusive
-		reclusive_damage_relationships_effect = yes
+		add_trait = flagellant
+		trait = flagellant
+		increase_wounds_effect = {REASON = whipping}
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			add_stress = medium_stress_impact_loss
+		}
 		ai_chance = {
 			base = 50
 			modifier = {
-				add = 50
-				has_trait = shy 
-			}
-			modifier = {
-				add = 25
-				has_trait = callous
+				add = 100
+				has_trait = zealous
 			}
 		}
+
 	}
 	#忍着
 	option = {
-		name = stress_threshold.1011.endure
+		name = tentacleswarm_scene.0081.endure
 		add_stress = mental_break_opt_out_stress_gain
 		ai_chance = {
 			base = 30

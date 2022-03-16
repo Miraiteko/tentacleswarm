@@ -157,8 +157,14 @@
     
     #精神崩溃
     tentacleswarm_scene.0081.t:0 "精神崩溃：触手之梦"
-    tentacleswarm_scene.0081.desc:0 "自从你第一次遇到触手怪物，你开始做奇怪的充满欢愉的梦。在梦里你，就像是一个真正的触手奴隶一样虔诚地侍奉着触手怪物。\n\n当你醒来之后，堕落邪恶的想象仍然在你的脑海里面挥之不去。这些欲望显然妨碍了你的生活，但你该怎么办呢？"
-    stress_threshold.1011.tentacle_slave.gain:0 "让[tentacle_mentor.GetTitledFirstName]指引我成为触手奴隶吧！"
+    tentacleswarm_scene.0081.desc:0 "在你被触手怪物袭击之后，你开始做奇怪的充满欢愉的梦。在梦里你，就像是一个真正的触手奴隶一样虔诚地侍奉着触手怪物。\n\n当你醒来之后，堕落邪恶的想象仍然在你的脑海里面挥之不去。这些欲望显然妨碍了你的生活，但你该怎么办呢？"
+    tentacleswarm_scene.0081.tentacle_slave.gain:0 "让[tentacle_mentor.GetTitledFirstName]指引我成为触手奴隶吧！"
+    tentacleswarm_scene.0081.rakish.gain:0 "去妓院发泄一下应该会有所缓解！"
+    tentacleswarm_scene.0081.rakish.effect:0 "把妓院包下来，今晚只有我能进。"
+    tentacleswarm_scene.0081.flagellant.gain:0 "鞭笞的刺痛将消除我的罪恶。"
+    tentacleswarm_scene.0081.flagellant.effect:0 "我理应受到惩罚！因为我所做的一切！"
+    tentacleswarm_scene.0081.endure:0 "我会咬紧牙关，抵制这些堕落的想象！"
+    
     #健康崩溃事件
     tentacleswarm_scene.1001.t:0 "囿于己身"
     tentacleswarm_scene.1001.desc:0 "自从你不再能够生育以来，你感觉触手主人赐予你的能量正在迅速的流失。你的身体在失去了主人的赐福之后，变成了残缺不全的空壳，一点点地走向了崩溃。\n\n在这个残破的身体里，你感觉自己除了静候死神的甜蜜拥吻，什么都做不了了。"
