@@ -8,6 +8,9 @@ can_be_combatant_based_on_gender_trigger 天灾信仰可以让女性成为战士
 覆盖了以下原版scripted_ruler:
 can_refund_perks 被腐化的角色不能重置技能点数
 
+覆盖了以下原版scrip_value:
+pregnancy_month 让触手妊娠也能显示怀孕月数
+
 覆盖了以下原版coa脚本:
 coat_of_arms_template_lists：all 天灾宗教采用腐化纹理
 coat_of_arms_template_lists：faction 天灾叛军采用腐化纹理

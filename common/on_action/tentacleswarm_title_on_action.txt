@@ -65,10 +65,12 @@ tentacleswarm_on_title_coa_change = { #检查单个头衔的coa
 			limit = {
 				exists = scope:title 
 				NOT = { exists = scope:title.holder }
-				tier >= tier_duchy
-				has_title_law = tentacleswarm_elective_succession_law
+				scope:title  = { tier >= tier_duchy }
+				scope:title  = { has_title_law = tentacleswarm_elective_succession_law }
 			}
-			remove_title_law = tentacleswarm_elective_succession_law
+			scope:title = {
+				remove_title_law = tentacleswarm_elective_succession_law
+			}
 		}
 	}
 }

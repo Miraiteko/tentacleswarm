@@ -7,6 +7,7 @@ namespace = tentacleswarm_scene
 #0051同意被腐化
 #0061蠕动的床铺
 #0071半路
+#0081精神崩溃
 #1001奴隶健康崩溃事件
 
 #水井杀，样板戏
@@ -1556,5 +1557,220 @@ tentacleswarm_scene.1001 = {
 			diligent = medium_stress_gain
 			lustful = medium_stress_gain
 		}
+	}
+}
+#精神崩溃(未被囚禁)
+tentacleswarm_scene.0081 = {
+	type = character_event
+	title = tentacleswarm_scene.0081.t
+	desc = tentacleswarm_scene.0081.desc
+	
+	theme = mental_break
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	trigger = {
+		has_character_flag = is_being_tentacled
+		is_tentacle_slave = no
+	}
+	weight_multiplier = {
+		base = 100
+	}
+	widget = {
+		gui = "event_window_widget_stress"
+		container = "custom_widgets_container"
+	}
+	immediate = {
+		ROOT = { save_scope_as = stress_character } # For stress widget
+
+
+		#搜寻两个合适的减压选项，请求被腐化，放荡，蛰居
+		#请求被腐化
+		if = {
+			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
+			random_known_secret = {
+				limit = { 
+					secret_owner = {
+						is_tentacle_slave_known_by = { CHARACTER = ROOT }
+						ROOT = {
+							is_character_interaction_valid = {
+							   recipient = PREV
+							   interaction = ask_for_tentacle_corruption_interaction
+							}
+						}
+					}
+				}
+				secret_owner = {
+					save_scope_as = tentacle_mentor
+				}
+				ROOT = { add_character_flag = stress_threshold_option_corruption }
+			}
+		}
+		
+		if = {
+			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
+			random_close_or_extended_family_member = {
+				limit = { 
+					is_tentacle_slave_known_by = { CHARACTER = ROOT }
+					ROOT = {
+						is_character_interaction_valid = {
+						   recipient = PREV
+						   interaction = ask_for_tentacle_corruption_interaction
+						}
+					}
+				}
+				save_scope_as = tentacle_mentor
+				ROOT = { add_character_flag = stress_threshold_option_corruption }
+			}
+		}
+		if = {
+			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
+			random_liege_or_above = {
+				limit = { 
+					is_tentacle_slave_known_by = { CHARACTER = ROOT }
+					ROOT = {
+						is_character_interaction_valid = {
+						   recipient = PREV
+						   interaction = ask_for_tentacle_corruption_interaction
+						}
+					}
+				}
+				save_scope_as = tentacle_mentor
+				ROOT = { add_character_flag = stress_threshold_option_corruption }
+			}
+		}
+		if = {
+			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
+			random_courtier_or_guest = {
+				limit = { 
+					is_tentacle_slave_known_by = { CHARACTER = ROOT }
+					ROOT = {
+						is_character_interaction_valid = {
+						   recipient = PREV
+						   interaction = ask_for_tentacle_corruption_interaction
+						}
+					}
+				}
+				save_scope_as = tentacle_mentor
+				ROOT = { add_character_flag = stress_threshold_option_corruption }
+			}
+		}
+		if = {
+			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
+			random_hooked_character = {
+				limit = { 
+					is_tentacle_slave_known_by = { CHARACTER = ROOT }
+					ROOT = {
+						is_character_interaction_valid = {
+						   recipient = PREV
+						   interaction = ask_for_tentacle_corruption_interaction
+						}
+					}
+				}
+				save_scope_as = tentacle_mentor
+				ROOT = { add_character_flag = stress_threshold_option_corruption }
+			}
+		}
+		#放荡
+		add_character_flag = stress_threshold_option_rakish
+		#蛰居
+		if = {
+			limit = {
+				NOT = { has_character_flag = stress_threshold_option_corruption }
+			}
+			add_character_flag = stress_threshold_option_reclusive
+		}
+		#标记压力等级
+		stress_threshold_event_post_immediate = yes
+	} 
+	#恶堕
+	option = {
+		trigger = {
+			num_of_relation_tentacle_mentor = 0
+			has_character_flag = stress_threshold_option_corruption
+		}
+		name = stress_threshold.1011.tentacle_slave.gain
+		trait = tentacle_slave
+		if = {
+			limit = { 
+				NOT = { has_character_flag = willing_to_be_corrupted } 
+			}
+			add_character_flag = willing_to_be_corrupted
+		}
+		set_relation_tentacle_mentor = scope:tentacle_mentor
+		trigger_event = {
+			id = tentacleswarm_scene.0050 #主动恶堕
+		}
+		ai_chance = {
+			base = 100
+			ai_accept_corrupt_modifier = yes
+		}
+	}
+	#放荡
+	option = {
+		trigger = {
+			has_character_flag = stress_threshold_option_rakish
+		}
+		name = {
+			trigger = { NOT = { has_trait = rakish } }
+			text = stress_threshold.1011.rakish.gain
+		}
+		name = {
+			trigger = { has_trait = rakish }
+			text = stress_threshold.1011.rakish.effect
+		}
+		trait = rakish
+		add_trait = rakish
+		rakish_brothel_night_effect = yes # Stress reduction is included in this effect.
+		ai_chance = {
+			base = 100
+		}
+	}
+	#蛰居
+	option = {
+		trigger = {
+			has_character_flag = stress_threshold_option_reclusive
+		}
+		name = {
+			trigger = { NOT = { has_trait = reclusive } }
+			text = stress_threshold.1011.reclusive.gain
+		}
+		name = {
+			trigger = { has_trait = reclusive }
+			text = stress_threshold.1011.reclusive.effect
+		}
+		trait = reclusive
+		add_trait = reclusive
+		reclusive_damage_relationships_effect = yes
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = shy 
+			}
+			modifier = {
+				add = 25
+				has_trait = callous
+			}
+		}
+	}
+	#忍着
+	option = {
+		name = stress_threshold.1011.endure
+		add_stress = mental_break_opt_out_stress_gain
+		ai_chance = {
+			base = 30
+			modifier = {
+				add = 5
+				has_trait = stubborn  
+			}
+		}
+	}
+	
+	#清除flag
+	after = {
+		remove_character_flag = stress_threshold_option_corruption
+		stress_threshold_event_aftereffects = yes # Perform stress threshold event clean-up and preparation for future stress threshold events.
 	}
 }

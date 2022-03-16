@@ -34,7 +34,7 @@ become_tentacle_slave = {
 		}
 		add_character_flag = immune_to_disease #有主人赐福之后不会生病
 		add_character_flag = flag_tentacle_slave #添加flag，用于判断检测
-	}	
+	}
 }
 #被触手腐化
 tentacle_corrupt_effect = {
@@ -331,88 +331,17 @@ tentacle_corrupt_reject_effect = {
 			ai_reject_corrupt_modifier = yes
 			custom_tooltip = tentacle_corrupt_reject_success.tt
 			hidden_effect = {
-				tentacle_corrupt_stress_trait_check = yes
-			}
-		}
-	}
-}
-#如果有减压特质，反抗无效，出事件消除然后继续恶堕
-tentacle_corrupt_stress_trait_check = {
-	if = { #酒鬼
-		limit = { has_trait = drunkard }
-		remove_trait = drunkard
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #吃货
-		limit = { has_trait = comfort_eater }
-		remove_trait = comfort_eater
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #放荡
-		limit = { has_trait = rakish }
-		remove_trait = rakish
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #自戕
-		limit = { has_trait = flagellant }
-		remove_trait = flagellant
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #健身
-		limit = { has_trait = athletic }
-		remove_trait = comfort_eater
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #烦躁
-		limit = { has_trait = irritable }
-		remove_trait = irritable
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #蛰居
-		limit = { has_trait = reclusive }
-		remove_trait = reclusive
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #挥霍
-		limit = { has_trait = profligate }
-		remove_trait = profligate
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #短视
-		limit = { has_trait = improvident }
-		remove_trait = improvident
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #不食
-		limit = { has_trait = inappetetic }
-		remove_trait = inappetetic
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #懊悔
-		limit = { has_trait = contrite }
-		remove_trait = contrite
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #日记
-		limit = { has_trait = journaller }
-		remove_trait = journaller
-		tentacle_corruption_perk_add = yes
-	}
-	else_if = { #倾诉
-		limit = { has_trait = confider }
-		remove_trait = confider
-		tentacle_corruption_perk_add = yes
-	}
-	else = {
-		add_character_flag = { #成功抵制了腐化
-			flag = tentacle_corrupt_reject_success
-			days = 3
-		}
-		send_interface_toast = {
-			left_icon = ROOT
-			title = tentacle_corrupt_reject_success.t
-			show_as_tooltip = {
-				custom_tooltip = tentacle_corrupt_reject_success.tt
+				add_character_flag = { #成功抵制了腐化
+					flag = tentacle_corrupt_reject_success
+					days = 3
+				}
+				send_interface_toast = {
+					left_icon = ROOT
+					title = tentacle_corrupt_reject_success.t
+					show_as_tooltip = {
+						custom_tooltip = tentacle_corrupt_reject_success.tt
+					}
+				}
 			}
 		}
 	}

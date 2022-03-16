@@ -1,5 +1,5 @@
 ﻿#随机发生一个触手遭遇事件
-tentacle_encounter_random_pulse = {
+tentacle_encounter_random_pulse = { 
 	random_events = {
 		100 = tentacleswarm_scene.0010 #水井
 		100 = tentacleswarm_scene.0060 #床单
@@ -17,3 +17,19 @@ tentacle_slave_discover_random_pulse = {
 		100 = tentacle_corrupt_scheme.9997 #小巷
 	}
 }
+
+stress_threshold_level_1_event = {
+	random_events = {
+		100000 = tentacleswarm_scene.0081
+	}
+}
+stress_threshold_level_2_event = {
+	random_events = {
+		100000 = tentacleswarm_scene.0081
+	}
+}
+#stress_threshold_level_3_event = {
+#	random_events = {
+#		100000 = tentacleswarm_scene.0081
+#	}
+#}
