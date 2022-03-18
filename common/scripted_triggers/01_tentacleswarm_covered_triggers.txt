@@ -94,6 +94,14 @@ is_blackmailable_secret_trigger = { #Should not include is known
 			scope:is_blackmailable_secret_blackmailer = { is_tentacle_slave = yes }
 		}
 	}
+	custom_description = { #不能勒索恶堕引路人
+		text = "cant_blackmail_your_tentacle_mentor"
+		subject = scope:is_blackmailable_secret_blackmailer
+		NAND = {
+			secret_type = secret_tentacle_slave
+			scope:is_blackmailable_secret_blackmailer = { has_relation_tentacle_mentor = scope:is_blackmailable_secret_participant }
+		}
+	}
 	trigger_if = {
 		limit = { secret_type = secret_lover }
 		custom_description = {

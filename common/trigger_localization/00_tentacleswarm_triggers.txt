@@ -49,3 +49,6 @@ FEMALE_DOMINATED = {
 cant_blackmail_another_tentacle_slave = {
 	first_not = I_CANNOT_BLACKMAIL_TENTACLE_SLAVE
 }
+cant_blackmail_your_tentacle_mentor ={
+	first_not = I_CANNOT_BLACKMAIL_MY_TENTACLE_MENTOR
+}
