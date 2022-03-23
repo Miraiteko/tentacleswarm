@@ -113,15 +113,12 @@ tentacle_corrupt = {
 		
 		hostile_scheme_base_chance_modifier = yes
 		
-		#恶堕程度
+		#被对方知晓
 		modifier = {
-			add = {
-				value = scope:target.tentacle_corruption_lifestyle_perks
-				multiply = 10
-			}
-			desc = target_corruption_lifestyle_perks
-			scope:target = {
-				tentacle_corruption_lifestyle_perks >= 1
+			add = -40
+			desc = target_know_me
+			scope:owner = {
+				is_tentacle_slave_known_by = { CHARACTER = scope:target }
 			}
 		}
 		

@@ -409,12 +409,13 @@ tentacleswarm_corruption_county_check = {
 			var:tentacleswarm_corruption = { compare_value < 20 }
 			religion = religion:tentacleswarm_religion
 		}
-		random_ruler = { #同传承宗教优先
-			limit = {
-				not = { has_religion = religion:tentacleswarm_religion }
-				culture = { has_same_culture_heritage = scope:checked_county.culture }
+		random_title_to_title_neighboring_and_across_water_county = { #临近信仰优先
+			limit = { 
+				NOT = { religion = religion:tentacleswarm_religion }
 			}
-			faith = { save_scope_as = lucky }
+			faith = { 
+				save_scope_as = lucky
+			}
 		}
 		if = { #否则就随机一个宗教
 			limit = { NOT = { exists = scope:lucky }  }
@@ -424,15 +425,19 @@ tentacleswarm_corruption_county_check = {
 				}
 			}
 		}
-		
-		holder = {
-			send_interface_message = {
-				type = tentacle_county_message
-				title = tentacle_county_decorrupt.t
-				desc = tentacle_county_decorrupt.desc
-				left_icon = scope:checked_county
-				scope:checked_county = {
-					set_county_faith = scope:lucky
+		if = {
+			limit = {
+				NOT = { scope:lucky.religion = religion:tentacleswarm_religion }
+			}
+			holder = {
+				send_interface_message = {
+					type = tentacle_county_message
+					title = tentacle_county_decorrupt.t
+					desc = tentacle_county_decorrupt.desc
+					left_icon = scope:checked_county
+					scope:checked_county = {
+						set_county_faith = scope:lucky
+					}
 				}
 			}
 		}

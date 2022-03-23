@@ -1,0 +1,56 @@
+widget = {
+	name = "tentacleswarm_hud"
+	size = { 50 50 }
+	allow_outside = yes
+	parentanchor = bottom|right
+	position = { 0 -200 }
+	layer = hud_layer
+	alwaystransparent = yes
+	visible = "[And(InGameTopbar.ShouldBeVisible,And( Not( IsPauseMenuShown ), And(Not(IsRightWindowOpen), IsDefaultGUIMode)))]"
+	
+	#background elements
+	using = Animation_ShowHide_Quick
+	
+	widget = {
+		
+		visible = "[Not(IsRightWindowOpen)]"
+		size = { 300% 300% }
+
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+		}
+
+		state = {
+			name = _hide
+			duration = 0.6
+			alpha = 0
+			using = Animation_Curve_Default
+		}
+		widget_hud_main_tab = {
+			name = "tentacleswarm_corruption_map"
+			tooltip = "tentacleswarm_corruption_map_tooltip"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			blockoverride "maintab_button"
+			{						
+				texture = "gfx/interface/icons/traits/tentacle_slave.dds"
+					
+				shortcut = "map_mode_tentacleswarm_corruption"
+				onclick = "[GetScriptedGui('tentacleswarm_corruption_map').Execute(GuiScope.End)]"
+				onclick = "[SetMapMode('tentacleswarm_corruption_map')]"	
+			}
+
+			state = {
+				name = _mouse_hierarchy_enter
+				on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_institutions_leave','hud_tab_glow_institutions_enter')]"
+			}
+
+			state = {
+				name = _mouse_hierarchy_leave
+				on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_institutions_enter','hud_tab_glow_institutions_leave')]"
+			}
+		}
+	}
+}

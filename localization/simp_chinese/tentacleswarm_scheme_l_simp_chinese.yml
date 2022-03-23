@@ -15,6 +15,7 @@
     tentacle_corrupt_scheme_successful_roll_tt:0 "[target.GetShortUINameNoTooltip]被触手主人赐福！"
     tentacle_corrupt_scheme_become_discovered_roll_tt:0 "我暴露了！"
     target_corruption_lifestyle_perks:0 "[target.GetShortUINameNoTooltip]已受腐化：$VALUE|+0=-+$"
+    target_know_me:1 "知道我是触手奴隶：$VALUE|+0=-+$"
     target_young_woman_bonus:1 "[target.GetShortUINameNoTooltip]是年轻的女人：$VALUE|+0=-+$"
     target_adult_woman_bonus:1 "[target.GetShortUINameNoTooltip]是壮年的女人：$VALUE|+0=-+$"
     target_liege_tentacleswarm_anti_modifier:1 "领主正在执行触手灭杀令：$VALUE|+0=-+$"

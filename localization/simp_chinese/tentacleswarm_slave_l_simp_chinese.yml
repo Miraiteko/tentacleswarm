@@ -50,7 +50,7 @@
     secret_tentacle_slave_tooltip_desc:0 "该角色屈服于触手怪物。"
     secret_exposed_notification_effect_message_tentacle_slave:0 "[owner.GetTitledFirstNamePossessive]的触手奴隶身份被[secret_exposer.GetTitledFirstName]揭露了！"
     I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他触手奴隶姐妹"
-    I_CANNOT_BLACKMAIL_TENTACLE_MENTOR:0 "你不能勒索你的恶堕引路人"
+    I_CANNOT_BLACKMAIL_MY_TENTACLE_MENTOR:0 "你不能勒索你的恶堕引路人"
 
     
     
