@@ -13,6 +13,8 @@
     TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH:0 "#T 伯爵领触手腐化：严重#!"
     TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH:0 "#T 伯爵领触手腐化：极为严重#!"
     TENTACLESWARM_CORRUPTION_MAP_MODE_HELL:0 "#T 伯爵领触手腐化：化为地狱#!"
+    
+    TENTACLESWARM_CORRUPTION_HEADER:0 "正在显示：[tentacleswarm_corruption|E]"
 
     #传教相关
     TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"
@@ -51,7 +53,7 @@
     tentacleswarm_corruption.0001.desc:0 "从[checked_county.GetName]传来了神秘的流言。\n\n据当地人说，当地出没着一种奇怪的生物，这种生物浑身上下长满着扭动的触手，触手上涂满了散发着诱人麝香气味的粘液。\n据说这种怪物喜欢在夜里捕猎出门的人类，由其是袭击年轻女性。"
     tentacleswarm_corruption.0001.a:0 "这种荒诞的故事适合吓唬小孩子"
     tentacleswarm_corruption.0001.b:0 "触手主人始终潜藏在我们身边"
-    tentacleswarm_corruption.0001.tt:0 "提示：你可以在右下角的更多地图模式中选择“触手腐化”模式，来查看世界各地的腐化情况。"
+    tentacleswarm_corruption.0001.tt:0 "提示：你可以点击右下角的触手图标，来进入“触手腐化”地图模式，来查看世界各地的腐化情况。"
     tentacleswarm_corruption.0002.t:0 "腐化之巢"
     tentacleswarm_corruption.0002.desc:0 "触手怪物已经在[checked_county.GetName]公然建造了巢穴。\n\n以巢穴为据点，它们在[checked_county.GetName]四处肆虐，袭击着当地的居民，将男人切成肉块，将女孩拖入巢穴之中。\n\n触手子嗣源源不断地从散发着堕落气息的巢穴中扭动涌出，严重危害着周边地区的治安。"
     tentacleswarm_corruption.0002.a:0 "真是可怕！"

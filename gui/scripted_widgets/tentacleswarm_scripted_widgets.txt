@@ -1,1 +1,2 @@
-gui/tentacleswarm_hud.gui = tentacleswarm_hud
+﻿gui/tentacleswarm_hud.gui = tentacleswarm_hud
+gui/tentacleswarm_hud.gui = tentacle_hud_bottom

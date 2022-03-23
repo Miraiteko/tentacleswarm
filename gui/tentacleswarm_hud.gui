@@ -4,16 +4,17 @@ widget = {
 	allow_outside = yes
 	parentanchor = bottom|right
 	position = { 0 -200 }
-	layer = hud_layer
+	layer = bottom
+	#layer = hud_layer
 	alwaystransparent = yes
-	visible = "[And(InGameTopbar.ShouldBeVisible,And( Not( IsPauseMenuShown ), And(Not(IsRightWindowOpen), IsDefaultGUIMode)))]"
+	visible = "[InGameTopbar.ShouldBeVisible]"
 	
 	#background elements
 	using = Animation_ShowHide_Quick
 	
 	widget = {
 		
-		visible = "[Not(IsRightWindowOpen)]"
+		visible = "[And(Not(IsPauseMenuShown),And(IsDefaultGUIMode, Not(IsRightWindowOpen)))]"
 		size = { 300% 300% }
 
 		state = {
@@ -35,9 +36,8 @@ widget = {
 			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			blockoverride "maintab_button"
 			{						
-				texture = "gfx/interface/icons/traits/tentacle_slave.dds"
+				texture = "gfx/interface/icons/tentacle_icon.dds"
 					
-				shortcut = "map_mode_tentacleswarm_corruption"
 				onclick = "[GetScriptedGui('tentacleswarm_corruption_map').Execute(GuiScope.End)]"
 				onclick = "[SetMapMode('tentacleswarm_corruption_map')]"	
 			}
@@ -50,6 +50,48 @@ widget = {
 			state = {
 				name = _mouse_hierarchy_leave
 				on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_institutions_enter','hud_tab_glow_institutions_leave')]"
+			}
+		}
+	}
+}
+widget = {
+	size = { 100% 100% }
+	name = "tentacle_hud_bottom"
+	visible = "[IsDefaultGUIMode]"
+	layer = bottom_bottom
+	######################################################
+	###################### MAPMODE TEXT ##################
+	######################################################
+
+	widget = {
+		visible = "[Not(IsMapMode('realms'))]"
+		parentanchor = bottom|hcenter
+		size = { 100% 100 }
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Standard
+		}
+
+		flowcontainer = {
+			parentanchor = center
+			position = { 0 10 }
+			direction = vertical
+			ignoreinvisible = yes
+			margin = { 15 10 }
+			margin_top = 5
+
+			text_label_center = {
+				visible = "[IsMapMode('tentacleswarm_corruption_map')]"
+				text = "TENTACLESWARM_CORRUPTION_HEADER"
+				fontsize = 25
+				margin = { 30 0 }
+				align = nobaseline
 			}
 		}
 	}

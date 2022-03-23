@@ -22,7 +22,5 @@ colored_emblem_texture_lists：charge 天灾纹理
 NCourt 减少火星人生成
 
 修改了以下原版文件
-\gfx\map\map_modes\map_modes.txt 新的地图模式
-\gui\shared\mapmodes.gui 修改地图模式切换界面以启用新的地图模式
 \common\council_tasks\00_court_chaplain_tasks.txt 腐化度对传教的影响
 \common\laws\00_succession_laws.txt 修改了新版本蠢驴留下了一堆bug的性别法，避免天灾信仰采用男性继承。这个改动会导致mod兼容性大大下降，但是暂且如此。

@@ -1,15 +1,19 @@
 ﻿tentacleswarm_resist = {
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
 	parent = county_modifier
 }
 tentacleswarm_corruption = {
+	texture = "gfx/interface/icons/tentacle_icon.dds"
 	parent = county_modifier
 }
 
 tentacleswarm_warbeast_type = {
+	texture = "gfx/interface/icons/tentacle_icon.dds"
 	parent = men_at_arms
 }
 
 tentacleswarm_government = {
+	texture = "gfx/interface/icons/tentacle_icon.dds"
 	parent = government
 }
 tentacle_slave_group = {

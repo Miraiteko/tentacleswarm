@@ -409,7 +409,7 @@ tentacleswarm_corruption_county_check = {
 			var:tentacleswarm_corruption = { compare_value < 20 }
 			religion = religion:tentacleswarm_religion
 		}
-		random_title_to_title_neighboring_and_across_water_county = { #临近信仰优先
+		random_title_to_title_neighboring_county = { #临近信仰优先
 			limit = { 
 				NOT = { religion = religion:tentacleswarm_religion }
 			}
