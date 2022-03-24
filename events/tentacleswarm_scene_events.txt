@@ -83,7 +83,7 @@ tentacleswarm_scene.0011 = {
 	title = tentacleswarm_scene.0011.t
 	desc = tentacleswarm_scene.0011.desc #故事背景的介绍
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_1
 	left_portrait = this
 	
 	immediate = {
@@ -134,7 +134,7 @@ tentacleswarm_scene.0012 = {
 			}
 		} 
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
 	left_portrait = {
 		character = this
 		animation = shock
@@ -219,11 +219,13 @@ tentacleswarm_scene.0013 = {
 			}
 		} 
 	}
-	
-	theme = seduction
+	 
+	theme = tentacleswarm_scene_theme_4
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
+	}
+	immediate = { 
 	}
 	option = {
 		name = tentacleswarm_scene.0013.a #开心

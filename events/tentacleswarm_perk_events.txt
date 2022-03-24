@@ -6,10 +6,13 @@ tentacleswarm_perk.01 = {
 	title = tentacleswarm_perk.01.t
 	desc = tentacleswarm_perk.01.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.01.a
@@ -22,10 +25,13 @@ tentacleswarm_perk.11 = {
 	title = tentacleswarm_perk.11.t
 	desc = tentacleswarm_perk.11.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.11.a
@@ -38,10 +44,13 @@ tentacleswarm_perk.12 = {
 	title = tentacleswarm_perk.12.t
 	desc = tentacleswarm_perk.12.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.12.a
@@ -54,10 +63,13 @@ tentacleswarm_perk.21 = {
 	title = tentacleswarm_perk.21.t
 	desc = tentacleswarm_perk.21.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.21.a
@@ -70,10 +82,13 @@ tentacleswarm_perk.22 = {
 	title = tentacleswarm_perk.22.t
 	desc = tentacleswarm_perk.22.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.22.a
@@ -86,10 +101,13 @@ tentacleswarm_perk.31 = {
 	title = tentacleswarm_perk.31.t
 	desc = tentacleswarm_perk.31.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = personality_zealous
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.31.a
@@ -105,10 +123,13 @@ tentacleswarm_perk.41 = {
 	title = tentacleswarm_perk.41.t
 	desc = tentacleswarm_perk.41.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.41.a
@@ -121,10 +142,13 @@ tentacleswarm_perk.42 = {
 	title = tentacleswarm_perk.42.t
 	desc = tentacleswarm_perk.42.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.42.a
@@ -137,10 +161,13 @@ tentacleswarm_perk.51 = {
 	title = tentacleswarm_perk.51.t
 	desc = tentacleswarm_perk.51.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.51.a
@@ -153,10 +180,13 @@ tentacleswarm_perk.52 = {
 	title = tentacleswarm_perk.52.t
 	desc = tentacleswarm_perk.52.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.52.a
@@ -169,10 +199,13 @@ tentacleswarm_perk.61 = {
 	title = tentacleswarm_perk.61.t
 	desc = tentacleswarm_perk.61.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.61.a
@@ -184,10 +217,13 @@ tentacleswarm_perk.62 = {
 	title = tentacleswarm_perk.62.t
 	desc = tentacleswarm_perk.62.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = {
 		character = this
 		animation = shock
+	}
+	immediate = {
+		 
 	}
 	option = {
 		name = tentacleswarm_perk.62.a
