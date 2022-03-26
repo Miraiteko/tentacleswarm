@@ -37,7 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		play_music_cue = mx_mood_call_05
+		play_sound_effect = "file:/music/tentacleswarm_flavor/tentacleswarm_scene_theme_1.wav"
 	}
 
 	ai_check_interval = 0

@@ -87,9 +87,11 @@ tentacleswarm_scene.0011 = {
 	left_portrait = this
 	
 	immediate = {
+		play_music_cue = mx_cue_tentacleswarm_scene_theme_1
 	}
 	option = { #主人公在这个故事背景里面的反应
 		name = tentacleswarm_scene.0011.a
+		play_music_cue = mx_cue_tentacleswarm_scene_theme_2
 		trigger_event= {
 			id = tentacleswarm_scene.0012
 		}
@@ -226,6 +228,7 @@ tentacleswarm_scene.0013 = {
 		animation = personality_coward #乖巧
 	}
 	immediate = { 
+		play_music_cue = mx_cue_tentacleswarm_scene_theme_4
 	}
 	option = {
 		name = tentacleswarm_scene.0013.a #开心
@@ -256,7 +259,7 @@ tentacleswarm_scene.0021 = {
 	title = tentacleswarm_scene.0021.t
 	desc = tentacleswarm_scene.0021.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_3
 	left_portrait = this
 	 
 	trigger = {
@@ -358,7 +361,8 @@ tentacleswarm_scene.0031 = {
 			}
 		}
 	}
-	theme = faith
+	theme = tentacleswarm_scene_theme_1
+	override_background = { event_background = temple }
 	left_portrait = {
 		character = this
 		animation = personality_zealous
@@ -417,7 +421,8 @@ tentacleswarm_scene.0032 = {
 			}
 		} 
 	}
-	theme = faith
+	theme = tentacleswarm_scene_theme_2
+	override_background = { event_background = temple }
 	left_portrait = {
 		character = root
 		animation = happiness
@@ -479,7 +484,8 @@ tentacleswarm_scene.0033 = {
 			}
 		} 
 	}
-	theme = faith
+	theme = tentacleswarm_scene_theme_4
+	override_background = { event_background = temple }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -527,7 +533,8 @@ tentacleswarm_scene.0041 = {
 	type = character_event
 	title = tentacleswarm_scene.0041.t
 	desc = tentacleswarm_scene.0041.desc
-	theme = dungeon
+	theme = tentacleswarm_scene_theme_1
+	override_background = { event_background = dungeon }
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	 
@@ -573,7 +580,8 @@ tentacleswarm_scene.0042 = {
 			}
 		}
 	}
-	theme = dungeon
+	theme = tentacleswarm_scene_theme_2
+	override_background = { event_background = dungeon }
 	left_portrait = {
 		character = this
 		animation = personality_zealous
@@ -645,7 +653,8 @@ tentacleswarm_scene.0043 = {
 		} 
 	}
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_4
+	override_background = { event_background = dungeon }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -693,7 +702,8 @@ tentacleswarm_scene.0044 = {
 			}
 		} 
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
+	override_background = { event_background = dungeon }
 	left_portrait = scope:recipient
 	right_portrait = {
 		character = this
@@ -789,7 +799,7 @@ tentacleswarm_scene.0051 = {
 		}
 	}
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_1
 	left_portrait = this
 	right_portrait = scope:tentacle_mentor
 	
@@ -872,7 +882,7 @@ tentacleswarm_scene.0052 = {
 			}
 		} 
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
 	left_portrait = {
 		character = this
 		animation = personality_zealous
@@ -954,7 +964,7 @@ tentacleswarm_scene.0053 = {
 		} 
 	}
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_4
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -1021,7 +1031,7 @@ tentacleswarm_scene.0054 = {
 			}
 		}
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
 	left_portrait = {
 		character = scope:tentacle_student
 		animation = personality_zealous
@@ -1144,7 +1154,8 @@ tentacleswarm_scene.0061 = {
 	title = tentacleswarm_scene.0061.t
 	desc = tentacleswarm_scene.0061.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_1
+	override_background = { event_background = bedchamber }
 	left_portrait = this
 	
 	immediate = {
@@ -1195,7 +1206,8 @@ tentacleswarm_scene.0062 = {
 			}
 		} 
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
+	override_background = { event_background = bedchamber }
 	left_portrait = {
 		character = this
 		animation = shock
@@ -1281,7 +1293,8 @@ tentacleswarm_scene.0063 = {
 		} 
 	}
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_4
+	override_background = { event_background = bedchamber }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -1358,7 +1371,8 @@ tentacleswarm_scene.0071 = {
 	title = tentacleswarm_scene.0071.t
 	desc = tentacleswarm_scene.0071.desc
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_1
+	override_background = { event_background = wilderness }
 	left_portrait = this
 	
 	immediate = {
@@ -1409,7 +1423,8 @@ tentacleswarm_scene.0072 = {
 			}
 		} 
 	}
-	theme = seduction
+	theme = tentacleswarm_scene_theme_2
+	override_background = { event_background = wilderness }
 	left_portrait = {
 		character = this
 		animation = shock
@@ -1495,7 +1510,8 @@ tentacleswarm_scene.0073 = {
 		} 
 	}
 	
-	theme = seduction
+	theme = tentacleswarm_scene_theme_4
+	override_background = { event_background = wilderness }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧

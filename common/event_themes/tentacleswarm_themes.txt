@@ -25,7 +25,7 @@ tentacleswarm_scene_theme_3 = {
 		reference = "gfx/interface/icons/event_types/type_seduction.dds"
 	}
 	sound = {
-		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_social"
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_marriage"
 	}
 	background = {
 		event_background = temple

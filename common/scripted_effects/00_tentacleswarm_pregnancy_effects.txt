@@ -83,6 +83,7 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { is_in_list = notified_of_bastardy }
+				NOT = { has_religion = religion:tentacleswarm_religion }
 			}
 			add_to_temporary_list = to_be_notified_of_bastardy
 		}
@@ -90,7 +91,10 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 			limit = {
 				is_landed = yes
 				exists = liege
-				liege = { NOT = { is_in_list = notified_of_bastardy } }
+				liege = {
+					NOT = { is_in_list = notified_of_bastardy }
+					NOT = { has_religion = religion:tentacleswarm_religion }
+				}
 			}
 			liege = {
 				add_to_temporary_list = to_be_notified_of_bastardy
@@ -166,6 +170,7 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { is_in_list = notified_of_bastardy }
+				NOT = { has_religion = religion:tentacleswarm_religion }
 			}
 			add_to_temporary_list = to_be_notified_of_bastardy
 		}
@@ -173,7 +178,10 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 			limit = {
 				is_landed = yes
 				exists = liege
-				liege = { NOT = { is_in_list = notified_of_bastardy } }
+				liege = { 
+					NOT = { is_in_list = notified_of_bastardy }
+					NOT = { has_religion = religion:tentacleswarm_religion }
+				}
 			}
 			liege = {
 				add_to_temporary_list = to_be_notified_of_bastardy

@@ -1,0 +1,34 @@
+﻿mx_cue_tentacleswarm_scene_theme_1 = { 
+	music = "event:/MUSIC/Cues/Events/Secret/mx_cue_secret" #秘密揭露的那首
+	pause_factor = 25
+	can_be_interrupted = yes
+	is_prioritized_mood = yes
+	reset = yes
+}
+mx_cue_tentacleswarm_scene_theme_2 = {
+	music = "event:/MUSIC/Cues/Events/Secret/mx_cue_secret" #秘密揭露的那首
+	pause_factor = 25
+	can_be_interrupted = yes
+	is_prioritized_mood = yes
+	reset = yes
+}
+mx_cue_tentacleswarm_scene_theme_3 = {
+	music = "event:/MUSIC/Cues/Events/Positive/mx_cue_postive_effect" #等级提升那首
+	pause_factor = 25
+	can_be_interrupted = yes
+	is_prioritized_mood = yes
+	reset = yes
+}
+mx_cue_tentacleswarm_scene_theme_4 = {
+	music = "event:/MUSIC/Cues/Events/Illness/mx_cue_illness"
+	pause_factor = 25
+	can_be_interrupted = yes
+	is_prioritized_mood = yes
+	reset = yes
+}
+
+
+#music = "event:/MUSIC/Cues/Events/faith_conversion/mx_cue_faith_conversion" #新主教那首
+#music = "event:/MUSIC/Cues/Events/Touching Moment/mx_cue_touching_moment" #成就完成
+#music = "event:/MUSIC/Cues/Events/Tavern/mx_cue_meadandwine" #节庆
+#music = "event:/MUSIC/Cues/Events/Combat/mx_cue_combat_stinger" #兵败
