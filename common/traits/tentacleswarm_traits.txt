@@ -31,20 +31,7 @@ tentacle_slave = {
 	#巨兽加成
 	tentacleswarm_warbeast_type_pursuit_mult = 1
 	tentacleswarm_warbeast_type_screen_mult = 1
-	
-	#蝗虫性格
-	ai_greed = very_high_positive_ai_value #贪婪
-	ai_energy = very_high_positive_ai_value #活力
-	ai_zeal = very_high_positive_ai_value #狂热
-	ai_sociability = high_positive_ai_value #好交际
-	ai_boldness = high_positive_ai_value #勇敢
-	
-	ai_compassion = very_high_negative_ai_value #无慈悲
-	ai_honor = high_negative_ai_value #无荣耀
-	ai_rationality = high_negative_ai_value #无理智
-	ai_war_chance = 50 #好战的
-	ai_war_cooldown = -0.8
-	
+		
 	compatibility = {
 		tentacle_slave = 100
 		tentacle_defiled = 30
