@@ -1,0 +1,812 @@
+﻿#宫廷事件
+#0001 搜寻奴隶
+#0011 区域灭杀
+namespace = tentacleswarm_court
+
+#确认目标
+tentacleswarm_court.0001 = {
+	
+	hidden = yes
+	
+	trigger = {
+		#有猎人
+		employs_court_position = tentacle_hunter_court_position
+		#有未知的奴隶
+		any_courtier_or_guest = {
+			is_tentacle_slave = yes
+			is_imprisoned = no
+			NOT = { has_court_position = tentacle_hunter_court_position }
+			NOT = { is_tentacle_slave_known_by = { CHARACTER = ROOT } }
+		}
+	}	
+	weight_multiplier = {  #首都腐化越高，越倾向于触发灭杀而不是这个
+		base = 1
+		modifier = { 
+			factor = 0.5
+			exists = capital_county
+			capital_county.var:tentacleswarm_corruption  = { compare_value > 60 }
+		}
+		modifier = { 
+			factor = 0
+			exists = capital_county
+			capital_county.var:tentacleswarm_corruption  = { compare_value > 100 }
+		}
+	}	
+	immediate = {
+		#设定目标
+		random_court_position_holder = {
+			type = tentacle_hunter_court_position
+			save_scope_as = hunter
+		}
+		random_courtier_or_guest = {
+			limit = {
+				is_tentacle_slave = yes
+				is_imprisoned = no
+				NOT = { has_court_position = tentacle_hunter_court_position }
+				NOT = { is_tentacle_slave_known_by = { CHARACTER = ROOT } }
+			}
+			save_scope_as = target
+		}
+		#双方进行密谋对抗，如果成功，则直接发现秘密
+		scope:hunter = {
+			duel = { #技能对抗，初始30%成功率，每比对方高2点密谋，增加10%成功率，最高90%
+				skill = intrigue
+				target = scope:target
+
+				3 = {
+					trigger = {
+						scope:hunter  = {
+							is_tentacle_slave = no #如果猎人是奴隶的话，不会直接揪出来
+						}
+					}
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+						min = -3
+					}
+					ROOT = { trigger_event = tentacleswarm_court.0002 }
+				}
+
+				7 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+						min = -6
+					}
+					ROOT = { trigger_event = tentacleswarm_court.0003 }
+				}
+			}
+		}
+	}
+}
+#直接揪了出来
+tentacleswarm_court.0002 ={
+	
+	type = character_event
+	title = tentacleswarm_court.0002.t
+	desc = tentacleswarm_court.0002.desc
+	theme = court
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+		#有未知的奴隶
+		exists = scope:target
+	}		
+	immediate = { 
+		scope:target = {
+			random_secret = {
+				limit = { 
+					secret_type = secret_tentacle_slave 
+					NOT = { is_known_by = scope:hunter }
+				}
+				reveal_to = scope:hunter
+			}
+		}
+	}
+	left_portrait = {
+		character = scope:target
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:hunter
+		animation = personality_coward
+	}
+	option = {
+		name = tentacleswarm_court.0002.ok
+		scope:target = {
+			random_secret = {
+				limit = { 
+					secret_type = secret_tentacle_slave 
+					NOT = { is_known_by = ROOT }
+				}
+				reveal_to = ROOT
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+#要钱
+tentacleswarm_court.0003 ={
+	
+	type = character_event
+	title = tentacleswarm_court.0003.t
+	desc = tentacleswarm_court.0003.desc
+	theme = court
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+		#有未知的奴隶
+		exists = scope:target
+		#近期没有拒绝过
+		NOT = { has_character_flag = do_not_test_tentacle }
+	}		
+	immediate = { 
+	}
+	left_portrait = {
+		character = scope:hunter
+		animation = rage
+	}
+	option = { #必要的资金
+		name = tentacleswarm_court.0003.a
+		
+		remove_short_term_gold = tiny_gold_value #一个月收入
+		random_list = {
+			1 = {
+				modifier = {
+					add = scope:hunter.aptitude:tentacle_hunter_court_position
+					exists = scope:hunter
+				}
+				custom_tooltip = tentacleswarm_court.0003.correct
+				trigger_event = {
+					id =  tentacleswarm_court.0004
+					days = 5
+				}
+			}
+			4 = {
+				custom_tooltip = tentacleswarm_court.0003.noun
+				trigger_event = {
+					id =  tentacleswarm_court.0007
+					days = 5
+				}
+			}
+			5 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = -0.5
+					}
+					exists = scope:hunter
+				}
+				custom_tooltip = tentacleswarm_court.0003.mistake
+				trigger_event = {
+					id =  tentacleswarm_court.0005
+					days = 5
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+		}
+	}
+	option = { #充裕的资金
+		name = tentacleswarm_court.0003.b
+		
+		remove_short_term_gold = minor_gold_value #三个月收入
+		stress_impact = {
+			sadistic = minor_stress_impact_loss 
+			forgiving = minor_stress_impact_gain
+			greedy = medium_stress_impact_gain
+		}
+		random_list = { #无事，认错，找到
+			1 = {
+				modifier = {
+					add = scope:hunter.aptitude:tentacle_hunter_court_position
+					exists = scope:hunter
+				}
+				custom_tooltip = tentacleswarm_court.0003.correct
+				trigger_event = {
+					id =  tentacleswarm_court.0004
+					days = 5
+				}
+			}
+			5 = { #没找到的话会获得神秘主义等级
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = -0.5
+					}
+					exists = scope:hunter
+				}
+				custom_tooltip = tentacleswarm_court.0003.noun_but
+				show_as_tooltip = {
+					scope:hunter = {
+						change_trait_rank = {
+							trait = lifestyle_mystic
+							rank = 1
+							max = 3
+						}
+					}
+				}
+				add_character_flag = more_money_for_tentacle_hunter
+				trigger_event = {
+					id =  tentacleswarm_court.0007
+					days = 5
+				}
+			}
+			4 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = -1
+					}
+					exists = scope:hunter
+				}
+				custom_tooltip = tentacleswarm_court.0003.mistake
+				trigger_event = {
+					id =  tentacleswarm_court.0005
+					days = 5
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+			modifier = {
+				add = 20
+				has_trait = sadistic
+			}
+			modifier = {
+				add = -20
+				has_trait = forgiving
+			}
+			modifier = {
+				add = -30
+				has_trait = greedy
+			}
+		}
+	}
+	option = { #别干这事
+		name = tentacleswarm_court.0003.c
+		
+		stress_impact = {
+			lazy = medium_stress_impact_loss
+			diligent = medium_stress_impact_gain
+			sadistic = minor_stress_impact_gain
+			forgiving = minor_stress_impact_loss
+			zealous = medium_stress_impact_gain
+			cynical = minor_stress_impact_loss
+			greedy = medium_stress_impact_loss
+		}
+		scope:hunter = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = ROOT
+				opinion = -10
+			}
+		}
+		add_character_flag = { #三年之内不再询问是否检测
+			flag = do_not_test_tentacle
+			years = 3
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				has_trait = lazy
+			}
+			modifier = {
+				add = -20
+				has_trait = diligent
+			}
+			modifier = {
+				add = -30
+				has_trait = zealous
+			}
+			modifier = {
+				add = 30
+				has_trait = greedy
+			}
+			modifier = {
+				add = 10
+				has_trait = cynical
+			}
+		}
+	}
+}
+#检测出来了
+tentacleswarm_court.0004 ={
+	hidden = yes
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+		#有未知的奴隶
+		exists = scope:target
+	}		
+	immediate = { 
+		if = { #如果是奴隶发现了奴隶，选择包庇
+			limit = {
+				scope:hunter = { is_tentacle_slave = yes }
+				scope:target = { is_tentacle_slave = yes }
+			}
+			trigger_event = tentacleswarm_court.0007
+		}
+		else = {
+			trigger_event = tentacleswarm_court.0006
+		}
+	}
+}
+#认错人了
+tentacleswarm_court.0005 ={
+	
+	hidden = yes
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+	}		
+	immediate = { 
+		random_courtier_or_guest = {
+			limit = {
+				is_tentaclable_female = yes
+				is_tentacle_slave = no
+				is_imprisoned = no
+				NOT = { has_court_position = tentacle_hunter_court_position }
+				NOT = { is_tentacle_slave_known_by = { CHARACTER = ROOT } }
+			}
+			save_scope_as = wrong_target
+		}
+		if ={
+			limit = { NOT = { exists = scope:wrong_target } }
+			random_courtier_or_guest = {
+				limit = {
+					is_tentacle_slave = no
+					is_imprisoned = no
+					NOT = { has_court_position = tentacle_hunter_court_position }
+					NOT = { is_tentacle_slave_known_by = { CHARACTER = ROOT } }
+				}
+				save_scope_as = wrong_target
+			}
+		}
+		scope:wrong_target = { save_scope_as = target }
+		trigger_event = tentacleswarm_court.0004
+	}
+}
+#检测报告
+tentacleswarm_court.0006 ={
+	
+	type = character_event
+	title = tentacleswarm_court.0006.t
+	desc = tentacleswarm_court.0006.desc
+	theme = court
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+		#有未知的奴隶
+		exists = scope:target
+	}		
+	immediate = { 
+	}
+	left_portrait = {
+		character = scope:target
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:hunter
+		animation = personality_coward
+	}
+	option = {
+		name = tentacleswarm_court.0006.imprison
+		rightfully_imprison_character_effect = {
+			TARGET = scope:target
+			IMPRISONER = root
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_court.0006.burn
+		sacrifice_prisoner_effect = {
+			VICTIM = scope:target
+			EXECUTIONER = scope:ROOT
+		}
+		
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_compassion = 1 #怜悯
+				ai_zeal = 1 #虔诚
+			}
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+			opinion_modifier = {
+				opinion_target = scope:target
+				multiplier = -1
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_court.0006.ignore
+		scope:hunter = {
+			add_opinion = {
+				modifier = insult_opinion
+				target = ROOT
+				opinion = -20
+			}
+		}
+		scope:target = {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = ROOT
+				opinion = 20
+			}
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_energy = -1 #活力
+			}
+			opinion_modifier = {
+				opinion_target = scope:target
+				multiplier = 2
+			}
+			modifier = { #目标根本不是适龄女性呀
+				add = 200
+				scope:target = {
+					is_tentaclable_female = no
+				}
+			}
+		}
+	}
+}
+#没有找到
+tentacleswarm_court.0007 ={
+	
+	type = character_event
+	title = tentacleswarm_court.0007.t
+	desc = tentacleswarm_court.0007.desc
+	theme = court
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+	}		
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = more_money_for_tentacle_hunter
+			}
+			remove_character_flag = more_money_for_tentacle_hunter
+			scope:hunter = {
+				change_trait_rank = {
+					trait = lifestyle_mystic
+					rank = 1
+					max = 3
+				}
+			}
+		}
+	}
+	left_portrait = {
+		character = scope:hunter
+		animation = rage
+	}
+	option = {
+		name = tentacleswarm_court.0007.ok
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+#确认目标
+tentacleswarm_court.0011 = {
+	
+	hidden = yes
+	
+	trigger = {
+		#有猎人
+		any_court_position_holder = {
+			type = tentacle_hunter_court_position
+			is_tentacle_slave = no
+		}
+		#有筑巢省份
+		any_held_title = {
+			tier = tier_county
+			var:tentacleswarm_corruption = { compare_value > 35 }
+		}
+	}
+	weight_multiplier = {  #首都腐化越高，越倾向于触发这个
+		base = 1
+		modifier = { 
+			factor = 2
+			exists = capital_county
+			capital_county.var:tentacleswarm_corruption  = { compare_value > 60 }
+		}
+		modifier = { 
+			factor = 4
+			exists = capital_county
+			capital_county.var:tentacleswarm_corruption  = { compare_value > 100 }
+		}
+	}
+	immediate = {
+		#猎人
+		random_court_position_holder = {
+			type = tentacle_hunter_court_position
+			save_scope_as = hunter
+		}
+		#将腐化最高的省份设为目标
+		ordered_held_title = {
+			limit = {
+				tier = tier_county
+				var:tentacleswarm_corruption = { compare_value > 35 }
+			}
+			order_by = var:tentacleswarm_corruption
+			save_scope_as = target_county
+		}
+		trigger_event = tentacleswarm_court.0012
+	}
+}
+tentacleswarm_court.0012 ={
+	
+	type = character_event
+	title = tentacleswarm_court.0012.t
+	desc = tentacleswarm_court.0012.desc
+	theme = court
+		
+	trigger = {
+		#有猎人
+		exists = scope:hunter
+		exists = scope:target_county
+	}		
+	immediate = {
+	}
+	left_portrait = {
+		character = scope:hunter
+		animation = rage
+	}
+	option = {
+		name = tentacleswarm_court.0012.hunt
+		remove_short_term_gold = major_gold_value #一年收入
+		stress_impact = {
+			greedy = medium_stress_impact_gain
+			forgiving = medium_stress_impact_loss
+		}
+		random_list = {
+			1 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = 1
+					}
+					exists = scope:hunter
+				}
+				send_interface_toast = {	
+					title = tentacleswarm_court.0012.result
+					left_icon = scope:hunter
+					custom_tooltip = tentacleswarm_court.0012.hunt_success
+					scope:target_county = {
+						change_variable =  {
+							name = tentacleswarm_corruption
+							subtract = {
+								value = var:tentacleswarm_corruption
+								multiply = 0.75
+							}
+						}
+					}
+				}
+				hidden_effect = {
+					scope:target_county = {
+						tentacleswarm_corruption_county_check = yes
+					}
+				}
+			}
+			5 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = -0.5
+					}
+					exists = scope:hunter
+				}
+				send_interface_toast = {	
+					title = tentacleswarm_court.0012.result
+					left_icon = scope:hunter
+					custom_tooltip = tentacleswarm_court.0012.hunt_fail
+					scope:target_county = {
+						change_variable =  {
+							name = tentacleswarm_corruption
+							subtract = {
+								value = var:tentacleswarm_corruption
+								multiply = 0.25
+							}
+						}
+					}
+				}
+				hidden_effect = {
+					scope:target_county = {
+						tentacleswarm_corruption_county_check = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+			modifier = {
+				add = 50
+				has_trait = forgiving
+			}
+			modifier = {
+				add = -30
+				has_trait = greedy
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_court.0012.burn
+		remove_short_term_gold = major_gold_value #一年收入
+		stress_impact = {
+			greedy = medium_stress_impact_gain
+			forgiving = major_stress_impact_gain
+			sadistic = major_stress_impact_loss
+		}
+		add_dread = 100
+		add_tyranny = 30
+		scope:target_county = {
+			change_development_level = {
+				subtract = scope:target_county.development_level
+				multiply = 0.7
+				floor = yes
+			}
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = 1
+					}
+					exists = scope:hunter
+				}
+				send_interface_toast = {	
+					title = tentacleswarm_court.0012.result
+					left_icon = scope:hunter
+					custom_tooltip = tentacleswarm_court.0012.burn_success
+					scope:target_county = {
+						change_variable =  {
+							name = tentacleswarm_corruption
+							subtract = {
+								value = var:tentacleswarm_corruption
+								multiply = 0.75
+							}
+						}
+					}
+				}
+				hidden_effect = {
+					scope:target_county = {
+						tentacleswarm_corruption_county_check = yes
+					}
+				}
+			}
+			3 = {
+				modifier = {
+					add = {
+						value = scope:hunter.aptitude:tentacle_hunter_court_position
+						multiply = -0.5
+					}
+					exists = scope:hunter
+				}
+				send_interface_toast = {	
+					title = tentacleswarm_court.0012.result
+					left_icon = scope:hunter
+					custom_tooltip = tentacleswarm_court.0012.burn_fail
+					scope:target_county = {
+						change_variable =  {
+							name = tentacleswarm_corruption
+							subtract = {
+								value = var:tentacleswarm_corruption
+								multiply = 0.25
+							}
+						}
+					}
+				}
+				hidden_effect = {
+					scope:target_county = {
+						tentacleswarm_corruption_county_check = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = -1000
+				is_tentacle_slave = yes #奴隶不会选这项
+			}
+			modifier = {
+				add = 50
+				has_trait = sadistic
+			}
+			modifier = {
+				add = -50
+				has_trait = forgiving
+			}
+			modifier = {
+				add = -30
+				has_trait = greedy
+			}
+		}
+	}
+	option = {
+		name = tentacleswarm_court.0012.ignore
+		
+		stress_impact = {
+			lazy = medium_stress_impact_loss
+			diligent = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			forgiving = medium_stress_impact_loss
+			zealous = medium_stress_impact_gain
+			cynical = minor_stress_impact_loss
+			greedy = medium_stress_impact_loss
+		}
+		scope:hunter = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = ROOT
+				opinion = -10
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = { #没钱啦
+				add = 100
+				gold < 0
+			}
+			modifier = {
+				add = 20
+				has_trait = forgiving
+			}
+			modifier = {
+				add = 20
+				has_trait = lazy
+			}
+			modifier = {
+				add = -20
+				has_trait = diligent
+			}
+			modifier = {
+				add = -30
+				has_trait = zealous
+			}
+			modifier = {
+				add = 30
+				has_trait = greedy
+			}
+			modifier = {
+				add = 10
+				has_trait = cynical
+			}
+		}
+	}
+}

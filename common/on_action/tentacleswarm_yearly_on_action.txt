@@ -553,6 +553,7 @@ random_yearly_playable_pulse = {
 	#自带的条件，诸如有地未被囚禁等等
 	#trigger = { basic_is_valid_for_yearly_events_trigger = yes }
 	on_actions = {
+		delay = { days = 25 }
 		tentacleswarm_random_yearly_playable_pulse	
 		delay = { days = 10 }
 		tentacleswarm_cancel_holy_order_lease_pulse #驱逐异教骑士团
@@ -561,6 +562,11 @@ random_yearly_playable_pulse = {
 tentacleswarm_random_yearly_playable_pulse = {
 	trigger = { 
 		basic_is_valid_for_yearly_events_trigger = yes 
+	}
+	random_events = {
+		500 = 0
+		100 = tentacleswarm_court.0001 #发现奴隶
+		100 = tentacleswarm_court.0011 #地区灭杀
 	}
 	effect = {
 		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征

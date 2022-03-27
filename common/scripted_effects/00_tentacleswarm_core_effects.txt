@@ -80,6 +80,23 @@ tentacle_corrupt_effect = {
 			on_action = on_tentacle_corrupt_pulse
 		}
 	}
+	#压力变化
+	if = {
+		limit = { #不是奴隶，忠贞加压
+			is_tentacle_slave = no
+		}
+		stress_impact = {
+			chaste = major_stress_impact_gain #忠贞，加大量压力
+		}
+	}
+	if = {
+		limit = { #不信天灾，虔诚加压
+			not = { has_religion = religion:tentacleswarm_religion }
+		}
+		stress_impact = {
+			zealous = medium_stress_impact_gain #虔诚，加压力
+		}
+	}
 }
 #腐化树程度增加
 tentacle_corruption_perk_add = {
@@ -303,6 +320,9 @@ tentacle_corrupt_accept_effect = {
 	else = {
 		add_stress = -50
 	}
+	stress_impact = {
+		lustful = medium_stress_impact_loss #色欲，额外减压力
+	}
 	tentacle_corruption_perk_add = yes
 }
 #反抗恶堕
@@ -313,6 +333,17 @@ tentacle_corrupt_reject_effect = {
 	}
 	else = {
 		add_stress = 50
+	}
+	stress_impact = {
+		lustful = medium_stress_impact_gain #色欲，额外加压力
+	}
+	if = {
+		limit = { #信天灾，虔诚加压
+			has_religion = religion:tentacleswarm_religion
+		}
+		stress_impact = {
+			zealous = medium_stress_impact_gain #虔诚，加压力
+		}
 	}
 	random_list = {
 		100 = {
