@@ -97,38 +97,4 @@ secret_tentacle_slave_is_evil_trigger = {
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil } }
 	}
 }
-#是否采用腐化盾徽
-coa_corrupt_trigger = {
-	OR = { #规则选项
-		has_game_rule = tentacleswarm_corrupt_coa_rule #天灾制的新盾徽会采用
-		has_game_rule = tentacleswarm_corrupt_dynamic_coa_rule #所有头衔动态采用
-	}
-	OR = {
-		AND = {
-			exists = ROOT
-			has_religion = religion:tentacleswarm_religion
-			is_female = yes
-		}
-		AND = { 
-			exists = scope:faith
-			scope:faith.religion = religion:tentacleswarm_religion
-		}
-	}
-}
 
-#是否如果这个头衔采用家族名，暂时不设置它的腐化/净化盾徽
-founder_named_dynasties_trigger = {
-	#公爵以上头衔
-	tier >= tier_duchy
-	exists = holder
-	holder = { 
-		#天灾信仰却没有天灾制度
-		has_religion = religion:tentacleswarm_religion
-		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-		}
-		#家主
-		is_house_head = yes
-	}
-}

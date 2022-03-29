@@ -50,22 +50,27 @@ tentacleswarm_yearly_global_pulse = {
 				add_to_global_variable_list = { name = tentacleswarm_protected_ruler target = this }	
 			}
 		}
+		#移除已销毁头衔的奴隶选举法律
+		every_empire = {
+			limit = { 
+				NOT = { exists = holder } 
+			}
+			clear_title_laws = yes	
+		}
+		every_kingdom = {
+			limit = { 
+				NOT = { exists = holder } 
+			}
+			clear_title_laws = yes
+		}
+		every_duchy = {
+			limit = { 
+				NOT = { exists = holder } 
+			}
+			clear_title_laws = yes
+		}
 		#成就检测
 		tentacleswarm_yearly_check = yes
-		#每年刷一个爬杆男出来，防止找接盘侠不到人
-		random_county = {
-			save_scope_as = target
-		}
-		create_character = {
-			age = 30
-			name = "Cheri"
-			gender = male
-			random_traits = yes
-			location = scope:target.title_province
-			culture = scope:target.culture
-			faith = faith:pagan 
-			save_scope_as = lucky
-		}
 	}
 }
 #每个人年度触发

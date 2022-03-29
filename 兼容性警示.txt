@@ -11,13 +11,6 @@ can_refund_perks 被腐化的角色不能重置技能点数
 覆盖了以下原版scrip_value:
 pregnancy_month 让触手妊娠也能显示怀孕月数
 
-覆盖了以下原版coa脚本:
-coat_of_arms_template_lists：all 天灾宗教采用腐化纹理
-coat_of_arms_template_lists：faction 天灾叛军采用腐化纹理
-color_lists：normal_colors 天灾配色
-color_lists：metal_colors 天灾配色
-colored_emblem_texture_lists：charge 天灾纹理
-
 覆盖了以下核心定义
 NCourt 减少火星人生成
 

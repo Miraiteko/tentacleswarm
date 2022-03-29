@@ -30,18 +30,18 @@ tentacleswarm_on_game_start = {
 		}
 		#初始奴隶生成，
 		set_global_variable = { name = start_tentacle_slave_count value = 0 }
-		random_ruler = {
-			trigger_event = {
-				id = tentacleswarm_speaker.0003 #生成speaker
-				days = 5
-			}
-		}
+		#random_ruler = {
+		#	trigger_event = {
+		#		id = tentacleswarm_speaker.0003 #生成speaker
+		#		days = 5
+		#	}
+		#}
 		every_living_character = { #15%的人带有触手血脉
 			if = {
 				random_list = {
-					85 = {
+					75 = {
 					}
-					15 = {
+					25 = {
 						become_congenital_tentacle_slave_carry = yes
 					}
 				}
@@ -87,24 +87,6 @@ tentacleswarm_on_game_start = {
 			}
 		}
 		
-		#腐化纹章初始化
-		#每个有地头衔，备份一下纹章
-		#男爵领玩家不关注，备份不备份无所谓
-		if = {
-			limit = { has_game_rule = tentacleswarm_corrupt_dynamic_coa_rule } #纹章动态腐化规则开启
-			every_empire = {
-				tentacleswarm_title_coa_check = yes
-			}
-			every_kingdom = {
-				tentacleswarm_title_coa_check = yes
-			}
-			every_duchy = {
-				tentacleswarm_title_coa_check = yes
-			}
-			every_county = {
-				tentacleswarm_title_coa_check = yes
-			}
-		}
 		
 		#最后触发一下年度全局事件避免bug
 		trigger_event = {

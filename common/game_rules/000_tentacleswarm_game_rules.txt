@@ -1,14 +1,5 @@
 ﻿#使用has_game_rule = xxx 来检测是否用上了
 
-gamerule_tentacleswarm_corrupt_coa = { #盾徽选项
-	default = tentacleswarm_corrupt_coa_rule
-	tentacleswarm_default_coa_rule = { #采用原版盾徽
-	}
-	tentacleswarm_corrupt_coa_rule = { #采用腐化盾徽
-	}
-	tentacleswarm_corrupt_dynamic_coa_rule = { #动态采用腐化盾徽
-	}
-}
 gamerule_tentacleswarm_start_corruption = { #初始腐化
 	default = tentacleswarm_start_corruption_minor
 	tentacleswarm_start_corruption_minor = { #0
