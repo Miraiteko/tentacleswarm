@@ -37,7 +37,15 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		play_sound_effect = "file:/music/tentacleswarm_flavor/tentacleswarm_scene_theme_1.wav"
+		add_gold = 100
+		capital_county = {
+			change_development_progress_with_overflow = 10
+			change_variable =  { 
+				name = tentacleswarm_corruption 
+				add = 10
+			}
+			tentacleswarm_corruption_county_check = yes
+		}
 	}
 
 	ai_check_interval = 0

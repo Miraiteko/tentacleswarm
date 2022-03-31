@@ -361,23 +361,25 @@ tentacleswarm_yearly_playable_pulse = {
 						multiply = tentacleswarm_corruption_decay_value
 					}
 				}
-				
-				#吃饱怪物造成发展度下降
-				change_development_progress_with_overflow = {
-					value = var:tentacleswarm_corruption_fed
-					multiply = -0.2
-				}
-				#吃饱的会继续繁殖
-				change_variable =  { 
-					name = tentacleswarm_corruption 
-					add = {
+				if = { #大于1才结算
+					limit = { var:tentacleswarm_corruption_fed = { compare_value > 1 } } 
+					#吃饱怪物造成发展度下降
+					change_development_progress_with_overflow = {
 						value = var:tentacleswarm_corruption_fed
-						multiply = 0.05
+						multiply = -0.2
+					}
+					#吃饱的会继续繁殖
+					change_variable =  { 
+						name = tentacleswarm_corruption 
+						add = {
+							value = var:tentacleswarm_corruption_fed
+							multiply = 0.05
+						}
 					}
 				}
 				
 				#没吃饱的情况
-				if = { #如果衰减额度大于1，进行传播与衰减的结算，否则跳过。
+				if = { #大于1才结算
 					limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
 					
 					#没吃饱的怪物润了或者死了
