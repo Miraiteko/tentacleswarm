@@ -16,7 +16,7 @@ become_congenital_tentacle_slave = { #成为天生奴隶
 		limit = { 
 			age >= 15
 		}
-		become_tentacle_slave = yes
+		initial_tentacle_slave = yes
 	}
 	#受到祝福
 	random_list = {

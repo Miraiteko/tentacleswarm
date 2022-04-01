@@ -151,7 +151,7 @@
     tentacleswarm_scene.0072.desc:0 "突然，你听到一个仆人的尖叫声，转身看到触手怪正攻击队伍！你试图伸手拿武器，但触手把你拉下马，并绑住了你的四肢。" 
     tentacleswarm_scene.0073.t:0 "余韵"
     tentacleswarm_scene.0073.desc1:0 "在尽兴地玩弄了你之后，触手主人放开了你，带着你的好几位女仆消失不见了。\n\n你精疲力尽地瘫倒在地上，一遍遍地回味着刚才受到的赐福，身体还在兴奋地颤抖。" 
-    tentacleswarm_scene.0073.desc2:0 "在彻底地玩弄了你之后，触手主人放开了你，带着你的好几位女仆消失不见了。\n\n你精疲力尽地瘫倒在地上，在难以描述的余韵中一阵阵地颤抖。\n\n最终，你挣扎着爬了起来，召集了剩下的仆人，并设法清除了身上大部分的怪物粘液，但你的腹部仍散发出温暖的刺痛" 
+    tentacleswarm_scene.0073.desc2:0 "在彻底地玩弄了你之后，触手怪物放开了你，带着你的好几位女仆消失不见了。\n\n你精疲力尽地瘫倒在地上，在难以描述的余韵中一阵阵地颤抖。\n\n最终，你挣扎着爬了起来，召集了剩下的仆人，并设法清除了身上大部分的怪物粘液，但你的腹部仍散发出温暖的刺痛。" 
     tentacleswarm_scene.0073.a:0 "赞美触手主人！"
     tentacleswarm_scene.0073.b:0 "我被玷污了..."
     
@@ -164,6 +164,34 @@
     tentacleswarm_scene.0081.flagellant.gain:0 "鞭笞的刺痛将消除我的罪恶。"
     tentacleswarm_scene.0081.flagellant.effect:0 "我理应受到惩罚！因为我所做的一切！"
     tentacleswarm_scene.0081.endure:0 "我会咬紧牙关，抵制这些堕落的想象！"
+    
+    #古堡探险
+    tentacleswarm_scene.0091.t:0 "探索未知"
+    tentacleswarm_scene.0091.desc:0 "当你从城堡地下往回走的时候，你踩到了一滩滑溜溜的黏液，失足跌倒在地。\n\n你的火把熄灭了，黑暗之中，你感觉到有什么东西缠在了你的右腿上……"
+    tentacleswarm_scene.0091.a:0 "这里变得好热啊……"
+    tentacleswarm_scene.0092.desc:0 "当你意识到那是一条触手在你的右腿上抚摸时，你的心脏几乎停止跳动。当你试图挣扎着爬起来的时候，另一条触手死死地缠住了你的左腿，并将你的双腿分开。" 
+    tentacleswarm_scene.0093.t:0 "余韵"
+    tentacleswarm_scene.0093.desc1:0 "在尽兴地玩弄了你之后，触手主人放开了你，消失在了黑暗之中。\n\n你精疲力尽地瘫倒在地上，一遍遍地回味着刚才受到的赐福，身体还在兴奋地颤抖。" 
+    tentacleswarm_scene.0093.desc2:0 "在彻底地玩弄了你之后，触手怪物放开了你，消失在了黑暗之中。\n\n你精疲力尽地瘫倒在地上，在难以描述的余韵中一阵阵地颤抖。\n\n最终，你挣扎着爬了起来，逃离了城堡，并设法清除了身上大部分的怪物粘液，但你的腹部仍散发出温暖的刺痛。" 
+    tentacleswarm_scene.0093.a:0 "赞美触手主人！"
+    tentacleswarm_scene.0093.b:0 "我被玷污了..."
+    
+    #遗世之曦
+    tentacleswarm_scene.0101.t:0 "遗世之曦"
+    tentacleswarm_scene.0101.desc:0 "你和[beautiful_peasant.GetTitledFirstNameNoTooltip]的谈话很愉快。她充满魅力和智慧，有一大堆精彩的故事和见解。\n\n在谈话过程中，你几乎没有注意到她慢慢地向你靠近，直到她突然把你拉进一个温柔的吻中。当你你急切地开始回吻时，感到有什么东西抚摸着你的大腿……"
+    tentacleswarm_scene.0101.a:0 "我的身体变得好燥热……"
+    tentacleswarm_scene.0102.desc:0 "当你意识到那不是她的手，而是一只触手在你的腿上抚摸时，你的心脏几乎停止跳动。几十根蠕动的触手从被褥下钻出，将你的四肢绑住了。而[beautiful_peasant.GetTitledFirstNameNoTooltip]因黏糊糊的触手的抚摸而欢快地呻吟。" 
+    tentacleswarm_scene.0103.t:0 "余韵"
+    tentacleswarm_scene.0103.desc1:0 "在你将要晕过去之前，你看到[beautiful_peasant.GetTitledFirstNameNoTooltip]仍然精力充沛，热情地以全身侍奉那些触须。\n\n你会忍不住想她看起来有多开心，沉浸在幸福之中。" 
+    tentacleswarm_scene.0103.desc2:0 "在你将要晕过去之前，你看到[beautiful_peasant.GetTitledFirstNameNoTooltip]仍然精力充沛，热情地用全身取悦那些触须。\n\n她沉湎于罪恶之中，全然不知世间的一切。只要你活着，你就永远不会忘记这场噩梦。" 
+    tentacleswarm_scene.0103.a:0 "真是个好梦"
+    tentacleswarm_scene.0103.b:0 "我被玷污了..."
+    tentacleswarm_fake.0012.desc1:0 "第二天早上你醒来。温暖的感觉从你的腹中散发出来，使你感到放松。你浑身黏黏满是半干的触手黏液，感觉很快乐。嗯，昨晚真是太美好了。啊， 你需要那种体验。\n\n[beautiful_peasant.GetFirstNameNoTooltip]轻抚着我和她一同侍奉过的触手，看着我。\n\n“我们以后还能一起快乐地侍奉触手主人吧？”她说道。" 
+    tentacleswarm_fake.0012.desc2:0 "第二天早上你醒来。温暖的感觉从你的腹中散发出来，使你感到放松。你浑身黏黏满是半干的触手黏液……等等,触手黏液！昨晚发生的事让你崩溃了。那个奸诈的妓女和她那邪恶可憎的东西！\n\n[beautiful_peasant.GetFirstNameNoTooltip]轻抚着玷污了我的触手，看着我。\n\n“其实你也很享受触手主人的爱抚吧？”她说道。" 
+    tentacleswarm_fake.0012.a:0 "你只能留在这里"
+    tentacleswarm_fake.0012.a.tt:1 "你肯定不会再见到[beautiful_peasant.GetHerHim]了"
+    tentacleswarm_fake.0012.b:0 "你应该来我的宫廷，和我在一起"
+    tentacleswarm_fake.0012.c:0 "请把我也变成触手主人的玩物吧"
     
     #健康崩溃事件
     tentacleswarm_scene.1001.t:0 "囿于己身"

@@ -33,3 +33,15 @@ stress_threshold_level_2_event = {
 #		100000 = tentacleswarm_scene.0081
 #	}
 #}
+
+#军事生活方式事件
+martial_lifestyle_common_events = {
+	random_events = {
+		300 = tentacleswarm_fake.0001
+	}
+}
+hunt_random_pulse = {
+	random_events = {
+		100 = tentacleswarm_fake.0011
+	}
+}

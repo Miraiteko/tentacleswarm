@@ -75,16 +75,8 @@ tentacleswarm_baby_corruption = {
 		}
 		else_if = {
 			random_list = { #其他人，按省份腐化度得到赐福
-				0 = {
-					modifier = {
-						add = location.county.var:tentacleswarm_corruption
-						exists = location
-						exists = location.county
-					}
-					modifier = { #恶堕芬芳
-						factor = 10
-						has_perk = tentacle_corruption_01_perk
-					}
+				1 = {
+					tentacle_encounter_chance_modifier = yes
 					trigger_event = {
 						on_action = tentacle_encounter_random_pulse #随机遭遇
 						months = { 1 8 }
@@ -311,12 +303,8 @@ tentacleswarm_adult_pulse = {
 						days = 400
 					}
 				}
-				0 = {
-					modifier = {
-						add = location.county.var:tentacleswarm_corruption
-						exists = location
-						exists = location.county
-					}
+				1 = {
+					tentacle_encounter_chance_modifier = yes
 					trigger_event = {
 						on_action = tentacle_encounter_random_pulse #随机遭遇
 						days = 400

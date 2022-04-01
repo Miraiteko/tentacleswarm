@@ -36,6 +36,15 @@ become_tentacle_slave = {
 		add_character_flag = flag_tentacle_slave #添加flag，用于判断检测
 	}
 }
+#使一个角色直接成为触手奴隶
+initial_tentacle_slave = {
+	add_perk = tentacle_corruption_01_perk
+	add_perk = tentacle_corruption_11_perk
+	add_perk = tentacle_corruption_12_perk
+	add_perk = tentacle_corruption_21_perk
+	add_perk = tentacle_corruption_22_perk
+	add_perk = tentacle_corruption_31_perk
+}
 #被触手腐化
 tentacle_corrupt_effect = {
 	custom_tooltip = tentacle_corrupt_effect.tt

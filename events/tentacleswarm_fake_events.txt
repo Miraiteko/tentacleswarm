@@ -1,0 +1,588 @@
+﻿namespace = tentacleswarm_fake
+#军事生活方式
+#疲倦后的休息
+#探索未知
+tentacleswarm_fake.0001 = {
+	type = character_event
+	title = martial_chivalry.1011.t
+	desc = martial_chivalry.1011.desc
+
+	theme = martial_chivalry_focus
+	override_background = {
+		event_background = terrain
+	}	
+	left_portrait = root
+	
+	trigger = {
+		is_tentaclable_female = yes
+		NOT = { has_character_flag = had_haunted_castle_event }
+
+	}
+
+	weight_multiplier = {
+		base = 1
+		upweight_for_focus_modifier = { FOCUS = martial_chivalry_focus }
+		#tentacle_encounter_chance_modifier = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			get_quirk_character_effect = yes
+		}
+		add_character_flag = {
+			flag = had_haunted_castle_event
+			days = 3650
+		}
+	}
+
+	option = {
+		name = martial_chivalry.1011.a
+		stress_impact = {
+			craven = minor_stress_impact_gain
+		}
+		custom_tooltip = martial_chivalry.1011.a.tt
+		trigger_event = {
+			id = tentacleswarm_fake.0002
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_trait = brave
+			}
+		}
+	}
+
+	option = {
+		name = martial_chivalry.1011.b
+		add_character_modifier = {
+			modifier = hightened_troop_morale_modifier
+			days = 3650
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_trait = craven
+			}
+		}
+	}
+}
+
+tentacleswarm_fake.0002 = {
+	type = character_event
+	title = martial_chivalry.1012.t
+	desc = martial_chivalry.1012.desc
+
+	theme = martial_chivalry_focus
+	override_background = {
+		event_background = corridor_night
+	}	
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	
+	option = {
+		name = martial_chivalry.1012.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_trait = greedy
+			}
+		}
+		duel = {
+			skill = stewardship
+			value = average_skill_rating
+
+			50 = {
+				desc = martial_chivalry.1012.a.success
+
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = martial_chivalry.1012.a.success
+					left_icon = root
+					add_gold = major_gold_value
+				}
+			}
+			50 = {
+				desc = martial_chivalry.1012.a.failure
+
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = martial_chivalry.1012.a.failure
+					left_icon = root
+					add_gold = minor_gold_value
+				}
+			}
+		}
+	}
+
+	option = {
+		name = martial_chivalry.1012.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0.5
+				has_trait = brave
+			}
+		}
+		random_list = {
+			50 = {
+				desc = martial_chivalry.1012.b.success
+
+				compare_modifier = {
+					value = ai_boldness
+					multiplier = 0.5
+					min = -49
+				}
+
+				if = {
+					limit = {
+						AND = {
+							is_ai = no #no ai should be able to gain brave- to keep the type of characters in the game diverse
+							stress <= 25
+							NOT = { has_trait = brave }
+							number_of_personality_traits <= 3
+						}
+					}
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = martial_chivalry.1012.b.success
+						left_icon = root
+						add_trait_force_tooltip = brave
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							number_of_personality_traits = 4
+							is_ai = yes
+							stress > 25
+							has_trait = brave
+						}
+					}
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = martial_chivalry.1012.b.success
+						left_icon = root
+						add_character_modifier = {
+							modifier = faced_my_fears
+							years = 10
+						}
+					}
+				}
+			}
+			50 = {
+				desc = martial_chivalry.1012.b.tt1
+
+				compare_modifier = {
+					value = ai_boldness
+					multiplier = -0.5
+					min = -49
+				}
+
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = martial_chivalry.1012.b.failure
+					left_icon = root
+					add_dread = medium_dread_loss
+					stress_impact = {
+						base = medium_stress_gain
+					}
+				}
+			}
+		}
+		stress_impact = {
+			craven = medium_stress_impact_gain
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			add_character_flag = {
+				flag = is_being_tentacled
+				days = 7
+			}
+			trigger_event = {
+				id = tentacleswarm_scene.0091
+			}
+		}
+	}
+}
+#打猎遭遇
+tentacleswarm_fake.0011 = {
+	type = character_event
+	title = hunt.1021.t
+	desc = hunt.1021.desc
+	theme = hunt_activity
+ 	left_portrait = {
+ 		character = scope:beautiful_peasant
+ 		animation = flirtation
+ 	}
+	
+	trigger = {
+		is_tentaclable_female = yes
+		NOT = { has_character_flag = ran_into_beautiful_peasant_in_forest }
+		NOR = {
+			has_trait = celibate
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = { #Since it creates a GOOD character we don't want the ai to get it too often
+			add = -0.9
+			is_ai = yes
+		}
+		modifier = {
+			add = 0.5
+			is_ai = no
+			has_trait = lustful
+		}
+		compare_modifier = { #Less likely to happen the older you are
+			trigger = {
+				age >= 30
+			}
+			value = age
+			multiplier = -0.01
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_seduction"
+		add_character_flag = {
+			flag = ran_into_beautiful_peasant_in_forest
+			days = 3650
+		}
+		hidden_effect = {
+			create_character = {
+				location = scope:activity.activity_province
+				template = beautiful_peasant_character
+				gender = female
+				faith = scope:activity.activity_province.county.faith
+				culture = scope:activity.activity_province.county.culture
+				dynasty = none
+				save_scope_as = beautiful_peasant
+			}
+			scope:beautiful_peasant = {
+				initial_tentacle_slave = yes
+			}
+			random_list = {
+				25 = {
+					scope:beautiful_peasant = { set_sexuality = homosexual }
+				}
+				50 = {
+					scope:beautiful_peasant = { set_sexuality = bisexual }
+				}
+			}
+		}
+		change_variable = {
+			name = hunt_outcome
+			add = 2
+		}
+	}
+
+	option = { #Oh, hello you
+		name = hunt.1021.a
+		if = {
+			limit = { has_sexuality = asexual }
+			set_sexuality = homosexual
+		}
+		else_if = {
+			limit = { has_sexuality = heterosexual }
+			set_sexuality = bisexual
+		}
+		if = { #如果不在侵犯冷却期，发生特色事件
+			limit = {
+				NOT = { has_character_flag = is_being_tentacled }
+			}
+			add_character_flag = {
+				flag = is_being_tentacled
+				days = 7
+			}
+			trigger_event = {
+				id = tentacleswarm_scene.0101
+				days = { 2 4 }
+			}
+		}
+		else = { #否则发生原版事件
+			trigger_event = {
+				id = hunt.1022
+				days = { 3 7 }
+			}
+		}
+		stress_impact = {
+ 			base = medium_stress_impact_loss
+ 			lustful = minor_stress_impact_loss
+ 			rakish = minor_stress_impact_loss
+ 			chaste = major_stress_impact_gain
+ 			shy = medium_stress_impact_gain
+ 			impatient = minor_stress_impact_gain
+ 		}
+ 		ai_chance = {
+ 			base = 100
+ 			ai_value_modifier = {
+ 				ai_boldness = 1
+ 				ai_greed = 0.25
+ 				ai_honor = -0.5
+ 			}
+ 			opinion_modifier = {
+ 				trigger = { is_married = yes }
+ 				multiplier = -0.5
+ 				opinion_target = primary_spouse
+ 			}
+ 		}
+	}
+
+	option = { #I have animals to hunt!
+		name = {
+			trigger = {
+				OR = {
+					has_trait = lifestyle_hunter
+					has_trait = brave
+				}
+			}
+			text = hunt.1021.b.thrill
+		}
+		name = {
+			trigger = {
+				OR = {
+					has_trait = zealous
+					piety_level >= high_piety_level
+				}
+			}
+			text = hunt.1021.b.appropriate
+		}
+		name = {
+			trigger = {
+				OR = {
+					has_trait = sadistic
+					has_trait = callous
+					has_trait = arrogant
+				}
+			}
+			text = hunt.1021.b.cruel
+		}
+		name = hunt.1021.b.purpose
+		if = {
+			limit = {
+				faith = {
+					NOT = { has_doctrine = tenet_carnal_exaltation }
+				}
+			}
+			add_character_modifier = {
+				modifier = modifier_hunt_resisted_advances
+				days = 1825
+			}
+			add_piety = minor_piety_gain
+		}
+		trigger_event = {
+			id = hunt.9001 #To complete the activity
+			days = { 14 20 }
+		}
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+			lustful = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_energy = 0.25
+				ai_rationality = 0.5
+			}
+		}
+	}
+	
+	option = { #Let me set you up at court
+		name = hunt.1021.c
+		trigger = {
+			NOT = { has_trait = chaste }
+		}
+		remove_short_term_gold = activity_minor_gold_value
+		duel = {
+			skill = diplomacy
+			value = average_skill_rating
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				desc = hunt.1021.c.success
+				send_interface_toast = {
+					title = hunt.1021.c.success
+					left_icon = scope:beautiful_peasant
+					add_courtier = scope:beautiful_peasant
+				}
+				set_relation_potential_lover = scope:beautiful_peasant
+				change_variable = {
+					name = hunt_outcome
+					add = 1
+				}
+			}
+			10 = {
+				desc = hunt.1021.c.failure
+				send_interface_toast = {
+					title = hunt.1021.c.failure
+					left_icon = scope:beautiful_peasant
+					custom_tooltip = hunt.1021.c.failure_tt
+				}
+				change_variable = {
+					name = hunt_outcome
+					add = -1
+				}
+			}
+		}
+		trigger_event = {
+			id = hunt.9001 #To complete the activity
+			days = { 14 20 }
+		}
+		stress_impact = {
+			callous = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_compassion = 0.5
+			}
+		}
+	}
+	
+	option = { #You deserve a life at court
+		name = hunt.1021.d
+		trait = chaste
+		trigger = {
+			has_trait = chaste
+		}
+		remove_short_term_gold = activity_minor_gold_value
+		add_courtier = scope:beautiful_peasant
+		set_relation_friend = scope:beautiful_peasant
+		change_variable = {
+			name = hunt_outcome
+			add = 2
+		}
+		trigger_event = {
+			id = hunt.9001 #To complete the activity
+			days = { 14 20 }
+		}
+		ai_chance = {
+			base = 300
+			ai_value_modifier = {
+				ai_compassion = 0.5
+			}
+		}
+	}
+}
+
+
+#You spent some time in their cabin
+
+tentacleswarm_fake.0012 = {
+	type = character_event
+	title = hunt.1022.t
+	desc = { #尾声
+		#根据是否是奴隶，选择尾声时的文本
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						is_tentacle_slave = yes
+						has_character_flag = willing_to_be_corrupted
+					}
+				}
+				desc = tentacleswarm_fake.0012.desc1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = tentacleswarm_fake.0012.desc2
+			}
+		} 
+	}
+	theme = hunt_activity
+	left_portrait = {
+		character = scope:beautiful_peasant
+		animation = flirtation
+	}
+	option = { #Let's not meet again
+		name = tentacleswarm_fake.0012.a
+		flavor = tentacleswarm_fake.0012.a.tt
+		hidden_effect = {
+			scope:beautiful_peasant = {
+				if = {
+					limit = {
+						is_female = yes
+					}
+					save_scope_as = peasant_woman
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #Let me set you up at court
+		name = tentacleswarm_fake.0012.b
+		remove_short_term_gold = activity_minor_gold_value
+		add_courtier = scope:beautiful_peasant
+		set_relation_lover = scope:beautiful_peasant
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_compassion = 0.5
+			}
+		}
+	}
+	option = { #Let me join you
+		name = tentacleswarm_fake.0012.c
+		trigger = {
+			is_tentaclable_female = yes
+			is_tentacle_slave = no
+			num_of_relation_tentacle_mentor = 0 #没有引路人
+		}
+		remove_short_term_gold = activity_minor_gold_value
+		add_courtier = scope:beautiful_peasant
+		set_relation_lover = scope:beautiful_peasant
+		
+		if = {
+			limit = { 
+				NOT = { has_character_flag = willing_to_be_corrupted } 
+			}
+			add_character_flag = willing_to_be_corrupted
+		}
+		set_relation_tentacle_mentor = scope:beautiful_peasant
+		trigger_event = {
+			id = tentacleswarm_scene.0050 #主动恶堕
+			days = { 21 25 }
+		}
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_rationality = -0.5
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = hunt.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}

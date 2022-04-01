@@ -1,4 +1,33 @@
-﻿#调整ai接受恶堕的可能性，用于events之中
+﻿#受到袭击概率的修正
+tentacle_encounter_chance_modifier = {
+	modifier = {
+		factor = 50
+		NAND = {
+			exists = location
+			exists = location.county
+		}
+	}
+	modifier = {
+		factor = location.county.var:tentacleswarm_corruption
+		exists = location
+		exists = location.county
+	}
+	modifier = { #恶堕芬芳
+		factor = 10
+		has_perk = tentacle_corruption_01_perk
+	}
+	modifier = { #年轻
+		factor = 3
+		effective_age <= 28
+	}
+	modifier = { #年迈
+		factor = 0.5
+		effective_age > 40
+	}
+}
+
+
+#调整ai接受恶堕的可能性，用于events之中
 ai_accept_corrupt_modifier = {
 	#贪婪增加恶堕可能，荣誉和理智为扣减
 	ai_value_modifier = {

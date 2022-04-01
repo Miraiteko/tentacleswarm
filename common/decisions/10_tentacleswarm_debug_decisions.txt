@@ -37,15 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		add_gold = 100
-		capital_county = {
-			change_development_progress_with_overflow = 10
-			change_variable =  { 
-				name = tentacleswarm_corruption 
-				add = 10
-			}
-			tentacleswarm_corruption_county_check = yes
-		}
+		initial_tentacle_slave = yes
 	}
 
 	ai_check_interval = 0
