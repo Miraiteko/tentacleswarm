@@ -37,7 +37,6 @@ widget = {
 			blockoverride "maintab_button"
 			{						
 				texture = "gfx/interface/icons/tentacle_icon.dds"
-					
 				onclick = "[GetScriptedGui('tentacleswarm_corruption_map').Execute(GuiScope.End)]"
 				onclick = "[SetMapMode('tentacleswarm_corruption_map')]"	
 			}

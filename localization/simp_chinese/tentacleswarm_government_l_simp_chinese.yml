@@ -10,7 +10,7 @@
  tentacleswarm_government_vassals_label:1 "天灾臣属[obligations|E]基于[opinion|E]"
  
  tentacleswarm_succession_order_laws:0 "继承法"
- tentacleswarm_supreme_power:0 "允许持有无限的[holdings|E]，并可以通过献祭收回[vassal|E][titles|E]"
+ tentacleswarm_supreme_power:0 "允许持有大量的[holdings|E]"
  tentacleswarm_low_corruption_lose_control:0 "过低的[tentacleswarm_corruption|E]会导致[counties|E][control|E]迅速下降"
  tentacleswarm_can_elective:0 "可以实行#high $tentacleswarm_elective_succession_law$#![succession_law|E]"
  

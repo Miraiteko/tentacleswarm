@@ -20,9 +20,8 @@
 
 	character_modifier = {
 		ai_war_chance = 1.0
-		domain_limit = 1000
-		
-		#title_creation_cost_mult = 100 #不让建头衔（不然会把扒掉的地又建好头衔封出去）
+		domain_limit = 5
+		tentacleswarm_government_vassal_opinion = 10
 		feudal_government_vassal_opinion = -20
 		clan_government_vassal_opinion = -20
 		republic_government_vassal_opinion = -20

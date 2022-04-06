@@ -19,6 +19,7 @@
 	cooldown_against_recipient = { years = 3 } #冷却时间
 	
 	is_shown = {
+		always = no
 		scope:actor = { has_government = tentacleswarm_government }
 		NOT = { scope:recipient = scope:actor }#不能搞自己
 		scope:actor  = {
@@ -31,7 +32,6 @@
 	}
 
 	is_valid = {
-		always = no
 		scope:recipient = { 
 			is_vassal_or_below_of = scope:actor #是我境内的封臣
 			highest_held_title_tier >= tier_county #伯爵以上
