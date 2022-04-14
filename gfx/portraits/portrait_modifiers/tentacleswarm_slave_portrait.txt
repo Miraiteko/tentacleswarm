@@ -12,6 +12,13 @@
 				x = 0.0
 				y = -0.05
 			}
+			#眼睛睁开
+			morph = {
+				mode = modify
+				gene = gene_eye_shut
+				value = -0.1
+				template = eye_shut_pos
+			}
 		}
 		weight = {
 			base = 0
@@ -32,15 +39,8 @@ tentacle_corruption_12_portrait = {
 			morph = {
 				mode = modify
 				gene = gene_bs_eye_size
-				value = 0.5
+				value = 0.1
 				template = eye_size_pos
-			}
-			#眼睛睁开
-			morph = {
-				mode = modify
-				gene = gene_eye_shut
-				value = -0.3
-				template = eye_shut_pos
 			}
 		}
 		weight = {
@@ -59,12 +59,19 @@ tentacle_corruption_21_portrait = {
 
 	corruption_21_portrait = {
 		dna_modifiers = {
-		#去除面部瑕疵
+			#去除面部瑕疵
 			morph = {
 				mode = replace
 				gene = complexion
 				template = complexion_beauty_1
 				value = 1.0
+			}
+			#不老
+			morph = {
+				mode = modify
+				gene = gene_age
+				value = 1.0
+				template = no_aging
 			}
 		}
 		#age_preset_aging_definition_female

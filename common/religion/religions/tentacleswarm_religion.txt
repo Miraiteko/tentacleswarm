@@ -9,9 +9,9 @@
 	doctrine = abrahamic_hostility_doctrine #亚伯拉罕式侵略性
 	
 	#Marriage
-	doctrine = doctrine_polygamy #多配偶制
+	doctrine = doctrine_concubines #庶夫制
 	doctrine = doctrine_divorce_allowed #自主离婚
-	doctrine = doctrine_bastardry_legitimization #私生子可以合法化
+	doctrine = doctrine_bastardry_none #无私生子
 	doctrine = doctrine_consanguinity_unrestricted #无限制婚姻
 
 	#Crimes
@@ -28,6 +28,9 @@
 	doctrine = doctrine_clerical_gender_female_only #女性神职人员
 	doctrine = doctrine_clerical_marriage_allowed #神职人员可以结婚
 	doctrine = doctrine_clerical_succession_temporal_appointment #世俗领主决定神职人员
+	
+	#特殊教义
+	doctrine = special_doctrine_naked_priests 
 	
 	traits = {
 		virtues = { tentacle_slave = 5 }
