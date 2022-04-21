@@ -3,6 +3,7 @@
 	usage = game
 
 	corruption_01_portrait = {
+	
 		dna_modifiers = {
 			#肤色变白
 			color = {
@@ -11,13 +12,6 @@
 				
 				x = 0.0
 				y = -0.05
-			}
-			#眼睛睁开
-			morph = {
-				mode = modify
-				gene = gene_eye_shut
-				value = -0.1
-				template = eye_shut_pos
 			}
 		}
 		weight = {
@@ -29,30 +23,6 @@
 		}
 	}
 }
-tentacle_corruption_12_portrait = {
-
-	usage = game
-
-	corruption_12_portrait = {
-		dna_modifiers = {
-			#眼睛变大
-			morph = {
-				mode = modify
-				gene = gene_bs_eye_size
-				value = 0.1
-				template = eye_size_pos
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_perk = tentacle_corruption_12_perk
-			}			
-		}
-	}
-}
-
 tentacle_corruption_21_portrait = {
 
 	usage = game
@@ -80,6 +50,31 @@ tentacle_corruption_21_portrait = {
 			modifier = {
 				add = 100
 				has_perk = tentacle_corruption_21_perk
+			}			
+		}
+	}
+}
+
+tentacle_corruption_31_portrait = {
+
+	usage = game
+
+	corruption_31_portrait = {
+		dna_modifiers = {
+			#眼睛变蓝
+			color = {
+				gene = eye_color
+				mode = replace
+					
+				x = 1.0
+				y = 0.3
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				has_perk = tentacle_corruption_31_perk
 			}			
 		}
 	}
