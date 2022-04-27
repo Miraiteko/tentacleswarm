@@ -122,7 +122,7 @@ tentacle_corruption_41_perk = {
 		custom_tooltip = tentacle_corruption_41_perk_tt
 	}
 }
-#触手宫廷
+#触主巢穴
 tentacle_corruption_42_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree
@@ -154,7 +154,7 @@ tentacle_corruption_51_perk = {
 		custom_tooltip = tentacle_corruption_51_perk_tt
 	}
 }
-#腐化阴谋
+#散布欢愉
 tentacle_corruption_52_perk = {
 	lifestyle = tentacle_corruption_lifestyle
 	tree = tentacle_corruption_tree

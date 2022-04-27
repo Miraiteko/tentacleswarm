@@ -18,6 +18,8 @@
     target_know_me:1 "知道我是触手奴隶：$VALUE|+0=-+$"
     target_young_woman_bonus:1 "[target.GetShortUINameNoTooltip]是年轻的女人：$VALUE|+0=-+$"
     target_adult_woman_bonus:1 "[target.GetShortUINameNoTooltip]是壮年的女人：$VALUE|+0=-+$"
+    tentacle_corrupt_42_perk_bonus:0 "[GetPerk( 'tentacle_corruption_42_perk' ).GetName( GetPlayer )]：$VALUE|+0=-+$"
+    tentacle_corrupt_52_perk_bonus:0 "[GetPerk( 'tentacle_corruption_52_perk' ).GetName( GetPlayer )]：$VALUE|+0=-+$"
     target_liege_tentacleswarm_anti_modifier:1 "领主正在执行触手灭杀令：$VALUE|+0=-+$"
     target_tentacleswarm_anti_modifier:1 "正在执行触手灭杀令：$VALUE|+0=-+$"
     target_location_tentacleswarm_corruption:1 "当地触手腐化度：$VALUE|+0=-+$"

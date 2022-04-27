@@ -94,7 +94,7 @@ tentacleswarm_elective = {
 			desc = tooltip_tentacleswarm_elector_slave_young
 			scope:candidate = {
 				has_trait = tentacle_slave
-				effective_age <= 28
+				effective_age <= 25
 			}
 			NOT = { THIS = scope:candidate }
 		}	
@@ -103,8 +103,8 @@ tentacleswarm_elective = {
 			desc = tooltip_tentacleswarm_elector_slave_adult
 			scope:candidate = {
 				has_trait = tentacle_slave
-				effective_age > 28
-				effective_age <= 40
+				effective_age > 25
+				effective_age <= 35
 			}
 			NOT = { THIS = scope:candidate }
 		}	
@@ -113,7 +113,7 @@ tentacleswarm_elective = {
 			desc = tooltip_tentacleswarm_elector_slave_old
 			scope:candidate = {
 				has_trait = tentacle_slave
-				effective_age > 40
+				effective_age > 35
 			}
 			NOT = { THIS = scope:candidate }
 		}

@@ -383,7 +383,7 @@ tentacle_corrupt_scheme.9999 = {
 		#ai
 		is_ai = yes
 		#能够发起腐化密谋
-		has_perk = tentacle_corruption_42_perk
+		is_tentacle_slave = yes
 		#至少要有一些阴谋能力
 		intrigue >= 8
 		#快死奴隶就不要占用资源了，反正也完不成
@@ -414,97 +414,68 @@ tentacle_corrupt_scheme.9999 = {
 		save_scope_as = actor
 		
 		#寻找潜在的腐化目标
+		#如果没有搜寻过目标，指定自己，为起点
 		if = {
-			#如果只能腐化自己宫廷
 			limit = { 
-				NOT = { has_perk = tentacle_corruption_52_perk }
+				NOT = { has_variable = tentacle_corrupt_scheme_target }
 			}
-			if = {
-				limit = {
-					is_ruler = yes
-				}
-				random_courtier_or_guest = {
-					limit = {
-						is_tentaclable_female = yes
-						is_imprisoned = no
-						is_tentacle_slave = no
-						NOT = { THIS = scope:actor }
-						NOT = { has_strong_hook = scope:actor }
-						scope:actor = {
-							can_start_scheme = {
-								type = tentacle_corrupt
-								target = PREV
-							}
-						}
-					}
-					save_scope_as = recipient
-				}
-			}
-			else_if = {
-				limit = {
-					exists = liege_or_court_owner
-				}
-				liege_or_court_owner = {
-					random_courtier_or_guest = {
-						limit = {
-							is_tentaclable_female = yes
-							is_imprisoned = no
-							is_tentacle_slave = no
-							NOT = { THIS = scope:actor }
-							NOT = { has_strong_hook = scope:actor }
-							scope:actor = {
-								can_start_scheme = {
-									type = tentacle_corrupt
-									target = PREV
-								}
-							}
-						}
-						save_scope_as = recipient
-					}
-				}
+			set_variable = {
+				name = tentacle_corrupt_scheme_target
+				value = scope:actor
 			}
 		}
-		else = { #如果拥有远程腐化的能力，开始跳转搜寻腐化目标
-			#如果没有搜寻过目标，指定自己，为起点
-			if = {
-				limit = { 
-					NOT = { has_variable = tentacle_corrupt_scheme_target }
-				}
-				set_variable = {
-					name = tentacle_corrupt_scheme_target
-					value = scope:actor
+		#如果目标不合法了，指定自己，为起点
+		if = {
+			limit = { 
+				var:tentacle_corrupt_scheme_target = {
+					OR = {
+						is_alive = no
+						is_pool_character = yes
+						NOT = { in_diplomatic_range = scope:actor }
+					}
 				}
 			}
-			#如果目标不合法了，指定自己，为起点
-			if = {
-				limit = { 
-					var:tentacle_corrupt_scheme_target = {
-						OR = {
-							is_alive = no
-							is_pool_character = yes
-							NOT = { in_diplomatic_range = scope:actor }
+			set_variable = {
+				name = tentacle_corrupt_scheme_target
+				value = scope:actor
+			}
+		}
+		if = { #如果目标有位置,寻找当前位置宫廷的持有者成为目标
+			limit = {
+				exists = var:tentacle_corrupt_scheme_target.location
+				exists = var:tentacle_corrupt_scheme_target.location.county
+				exists = var:tentacle_corrupt_scheme_target.location.county.holder
+			}
+			set_variable = {
+				name = tentacle_corrupt_scheme_target
+				value = var:tentacle_corrupt_scheme_target.location.county.holder
+			}
+		}
+		#针对目标所在宫廷发起腐化
+		var:tentacle_corrupt_scheme_target = { 
+			if = { #目标自己
+				limit = {
+					is_tentaclable_female = yes
+					effective_age <= 35
+					is_imprisoned = no
+					is_tentacle_slave = no
+					NOT = { THIS = scope:actor }
+					NOT = { has_strong_hook = scope:actor }
+					scope:actor = {
+						can_start_scheme = {
+							type = tentacle_corrupt
+							target = PREV
 						}
 					}
 				}
-				set_variable = {
-					name = tentacle_corrupt_scheme_target
-					value = scope:actor
-				}
+				save_scope_as = recipient
 			}
-			if = { #如果目标有位置,寻找当前位置宫廷的持有者成为目标
+			#考虑一下目标的夫人？
+			if = {
 				limit = {
-					exists = var:tentacle_corrupt_scheme_target.location
-					exists = var:tentacle_corrupt_scheme_target.location.county
-					exists = var:tentacle_corrupt_scheme_target.location.county.holder
+					NOT = { exists = scope:recipient }
 				}
-				set_variable = {
-					name = tentacle_corrupt_scheme_target
-					value = var:tentacle_corrupt_scheme_target.location.county.holder
-				}
-			}
-			#针对目标所在宫廷发起腐化
-			var:tentacle_corrupt_scheme_target = { 
-				if = { #目标自己
+				random_spouse = {
 					limit = {
 						is_tentaclable_female = yes
 						effective_age <= 35
@@ -521,100 +492,77 @@ tentacle_corrupt_scheme.9999 = {
 					}
 					save_scope_as = recipient
 				}
-				#考虑一下目标的夫人？
-				if = {
-					limit = {
-						NOT = { exists = scope:recipient }
-					}
-					random_spouse = {
-						limit = {
-							is_tentaclable_female = yes
-							effective_age <= 35
-							is_imprisoned = no
-							is_tentacle_slave = no
-							NOT = { THIS = scope:actor }
-							NOT = { has_strong_hook = scope:actor }
-							scope:actor = {
-								can_start_scheme = {
-									type = tentacle_corrupt
-									target = PREV
-								}
-							}
-						}
-						save_scope_as = recipient
-					}
+			}
+			#考虑一下目标的亲人？
+			if = {
+				limit = {
+					NOT = { exists = scope:recipient }
 				}
-				#考虑一下目标的亲人？
-				if = {
+				random_close_family_member = {
 					limit = {
-						NOT = { exists = scope:recipient }
-					}
-					random_close_family_member = {
-						limit = {
-							is_tentaclable_female = yes
-							effective_age <= 35
-							is_imprisoned = no
-							is_tentacle_slave = no
-							NOT = { THIS = scope:actor }
-							NOT = { has_strong_hook = scope:actor }
-							scope:actor = {
-								can_start_scheme = {
-									type = tentacle_corrupt
-									target = PREV
-								}
+						is_tentaclable_female = yes
+						effective_age <= 35
+						is_imprisoned = no
+						is_tentacle_slave = no
+						NOT = { THIS = scope:actor }
+						NOT = { has_strong_hook = scope:actor }
+						scope:actor = {
+							can_start_scheme = {
+								type = tentacle_corrupt
+								target = PREV
 							}
 						}
-						save_scope_as = recipient
 					}
-				}
-				#考虑一下目标的其他廷臣？
-				if = {
-					limit = {
-						NOT = { exists = scope:recipient }
-					}
-					random_courtier_or_guest = {
-						limit = {
-							is_tentaclable_female = yes
-							effective_age <= 35
-							is_imprisoned = no
-							is_tentacle_slave = no
-							NOT = { THIS = scope:actor }
-							NOT = { has_strong_hook = scope:actor }
-							scope:actor = {
-								can_start_scheme = {
-									type = tentacle_corrupt
-									target = PREV
-								}
-							}
-						}
-						save_scope_as = recipient
-					}
+					save_scope_as = recipient
 				}
 			}
-			#目标跳转,附近领主或者亲属
-			var:tentacle_corrupt_scheme_target = {
-				if = {
-					limit = { is_landed = yes }
-					random_character_to_title_neighboring_and_across_water_county = {
-						holder = {
-							save_scope_as = new_target
+			#考虑一下目标的其他廷臣？
+			if = {
+				limit = {
+					NOT = { exists = scope:recipient }
+				}
+				random_courtier_or_guest = {
+					limit = {
+						is_tentaclable_female = yes
+						effective_age <= 35
+						is_imprisoned = no
+						is_tentacle_slave = no
+						NOT = { THIS = scope:actor }
+						NOT = { has_strong_hook = scope:actor }
+						scope:actor = {
+							can_start_scheme = {
+								type = tentacle_corrupt
+								target = PREV
+							}
 						}
 					}
+					save_scope_as = recipient
 				}
-				else = {
-					random_close_or_extended_family_member = {
+			}
+		}
+		#目标跳转,附近领主或者亲属
+		var:tentacle_corrupt_scheme_target = {
+			if = {
+				limit = { is_landed = yes }
+				random_character_to_title_neighboring_and_across_water_county = {
+					holder = {
 						save_scope_as = new_target
 					}
 				}
 			}
-			if = {
-				limit = {
-					exists = scope:new_target
+			else = {
+				random_close_or_extended_family_member = {
+					save_scope_as = new_target
 				}
-				set_variable = {
-					name = tentacle_corrupt_scheme_target
-					value = scope:new_target
-				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:new_target
+			}
+			set_variable = {
+				name = tentacle_corrupt_scheme_target
+				value = scope:new_target
 			}
 		}
 		#发动腐化计谋

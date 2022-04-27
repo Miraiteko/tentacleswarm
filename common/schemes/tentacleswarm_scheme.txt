@@ -39,16 +39,8 @@ tentacle_corrupt = {
 	}
 	
 	valid = {
-		AND = {
-			scope:owner = {
-				trigger_if = {
-					limit = { is_in_the_same_court_as_or_guest = scope:target }
-					has_perk = tentacle_corruption_42_perk #触手宫廷
-				}
-				trigger_else = {
-					has_perk = tentacle_corruption_52_perk #腐化阴谋
-				}
-			}
+		scope:owner = {
+			is_tentacle_slave = yes
 		}
 		scope:target = {
 			is_tentaclable_female = yes
@@ -109,7 +101,7 @@ tentacle_corrupt = {
 	}
 	
 	base_success_chance = {
-		base = 20
+		base = 0
 		
 		hostile_scheme_base_chance_modifier = yes
 		
@@ -124,18 +116,18 @@ tentacle_corrupt = {
 		
 		#年龄
 		modifier = {
-			add = 40
+			add = 30
 			desc = target_young_woman_bonus
 			scope:target = {
-				effective_age <= 28
+				effective_age <= 25
 			}
 		}
 		modifier = {
-			add = 20
+			add = 10
 			desc = target_adult_woman_bonus
 			scope:target = {
-				effective_age > 28
-				effective_age <= 40
+				effective_age > 25
+				effective_age <= 35
 			}
 		}
 		#所在省份腐化
@@ -178,6 +170,27 @@ tentacle_corrupt = {
 				NOT = { court_owner = scope:owner }
 			}
 		}
+		
+		#技能加成
+		modifier = { #同一宫廷
+			desc = tentacle_corrupt_42_perk_bonus
+			scope:owner = { 
+				has_perk = tentacle_corruption_42_perk
+				is_in_the_same_court_as_or_guest = scope:target
+			}
+			add = 50
+		}
+		modifier = { #非同一宫廷
+			desc = tentacle_corrupt_52_perk_bonus
+			scope:owner = { 
+				has_perk = tentacle_corruption_52_perk
+				NOT = { 
+					is_in_the_same_court_as_or_guest = scope:target
+				}
+			}
+			add = 50
+		}
+		
 		
 		# Spiritual Head of Faith
 		modifier = {

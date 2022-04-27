@@ -68,3 +68,33 @@ tentacleswarm_on_war_started = {
 		} 
     }
 }
+#掠取发展度
+
+on_siege_completion = {
+    on_actions = {
+        tentacleswarm_on_siege_completion
+    }
+}
+tentacleswarm_on_siege_completion = {
+	effect = {
+		#占领者有丰收喜悦技能
+		if = {
+			limit = { 
+				has_perk = tentacle_corruption_52_perk
+				exists = capital_county
+			}
+			capital_county = {
+				change_development_progress_with_overflow = {
+					value = scope:county.development_level
+					multiply = 15
+				}
+			}
+			scope:county = {
+				change_development_progress_with_overflow = {
+					value = development_level
+					multiply = -25
+				}
+			}
+		}
+	}
+}

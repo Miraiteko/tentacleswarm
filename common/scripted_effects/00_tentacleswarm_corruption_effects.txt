@@ -581,18 +581,40 @@ tentacle_warbeast_effect = {
 				}
 			}
 		}
-		spawn_army = {
-			levies = {
-				value = var:tentacleswarm_warbeast_gain
-				multiply = 490
+		if = {
+			limit = { has_perk = tentacle_corruption_51_perk } #巨兽牧者，多召唤一组
+			spawn_army = {
+				levies = {
+					value = var:tentacleswarm_warbeast_gain
+					multiply = 480
+				}
+				men_at_arms = {
+					type = tentacleswarm_warbeast
+					stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+				}
+				men_at_arms = {
+					type = tentacleswarm_warbeast
+					stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+				}
+				location = root.capital_province
+				name = tentacleswarm_warbeast_event_troops
+				inheritable = no #不可继承
 			}
-			men_at_arms = {
-				type = tentacleswarm_warbeast
-				stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+		}
+		else = {
+			spawn_army = {
+				levies = {
+					value = var:tentacleswarm_warbeast_gain
+					multiply = 490
+				}
+				men_at_arms = {
+					type = tentacleswarm_warbeast
+					stacks = var:tentacleswarm_warbeast_gain #1组，一组十只
+				}
+				location = root.capital_province
+				name = tentacleswarm_warbeast_event_troops
+				inheritable = no #不可继承
 			}
-			location = root.capital_province
-			name = tentacleswarm_warbeast_event_troops
-			inheritable = no #不可继承
 		}
 	}
 }
