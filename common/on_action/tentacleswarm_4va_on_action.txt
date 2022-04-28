@@ -17,23 +17,16 @@ tentacleswarm_4VA_pulse = {
 			else_if = { #女儿是奴隶，开始夺地。
 				limit = {
 					is_landed = yes #父母有地，尝试密谋夺取
-					highest_held_title_tier >=tier_county
-					any_child = {
-						is_ai = yes
-						is_tentacle_slave = yes
-						Not = { 
-							any_scheme = {
-								is_hostile = yes
-							}
-						}
-					}
 					is_tentacle_slave = no
+					highest_held_title_tier >=tier_county
 				}
 				save_scope_as = target
-				every_child = {
+				random_child = {
 					limit = {
 						is_ai = yes
 						is_tentacle_slave = yes
+						intrigue >= 18
+						is_courtier_of = prev
 						Not = { 
 							any_scheme = {
 								is_hostile = yes

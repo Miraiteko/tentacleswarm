@@ -68,13 +68,13 @@ tentacleswarm_on_war_started = {
 		} 
     }
 }
-#掠取发展度
 
 on_siege_completion = {
     on_actions = {
         tentacleswarm_on_siege_completion
     }
 }
+#掠取发展度
 tentacleswarm_on_siege_completion = {
 	effect = {
 		#占领者有丰收喜悦技能
