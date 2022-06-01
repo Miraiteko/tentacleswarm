@@ -398,7 +398,9 @@ succession_gender_laws = {
 		should_start_with = {
 			faith = {
 				has_doctrine = doctrine_gender_male_dominated
-				religion_tag = islam_religion
+			}
+			NOT = {
+				culture = { has_cultural_parameter = female_preference_inheritance }
 			}
 		}
 		succession = {
@@ -444,17 +446,11 @@ succession_gender_laws = {
 			can_change_succession_law_trigger = yes
 		}
 		should_start_with = {
-			NOT = {
-				culture = { has_cultural_parameter = female_preference_inheritance }
+			faith = {
+				has_doctrine = doctrine_gender_male_dominated
 			}
-			OR = {
-				faith = {
-					NOT = {
-						religion_tag = islam_religion
-					}
-					has_doctrine = doctrine_gender_male_dominated
-				}
-				has_realm_law = male_only_law # For when male_only_law ceases to be a legal option
+			culture = { 
+				has_cultural_parameter = female_preference_inheritance 
 			}
 		}
 		succession = {
@@ -498,14 +494,13 @@ succession_gender_laws = {
 			can_change_succession_law_trigger = yes
 		}
 		should_start_with = {
+			faith = {
+				has_doctrine = doctrine_gender_equal
+			}
 			NOR = {
 				culture = { has_cultural_parameter = female_preference_inheritance }
 				culture = { has_cultural_tradition = tradition_nubian_warrior_queens }
 			}
-			faith = {
-				has_doctrine = doctrine_gender_equal
-			}
-			NOT = { has_realm_law = female_only_law } # For when female_only_law ceases to be valid
 		}
 		succession = {
 			gender_law = equal
@@ -556,12 +551,12 @@ succession_gender_laws = {
 			}
 		}
 		should_start_with = {
+			faith = {
+				has_doctrine = doctrine_gender_equal
+			}
 			OR = {
 				culture = { has_cultural_parameter = female_preference_inheritance }
-				faith = {
-					has_doctrine = doctrine_gender_female_dominated
-				}
-				has_realm_law = female_only_law # For when male_only_law ceases to be a legal option
+				culture = { has_cultural_tradition = tradition_nubian_warrior_queens }
 			}
 		}
 		can_pass = {
@@ -614,7 +609,10 @@ succession_gender_laws = {
 		}
 
 		should_start_with = {
+			faith = { has_doctrine = doctrine_gender_female_dominated }
 			OR = {
+				culture = { has_cultural_parameter = female_preference_inheritance }
+				culture = { has_cultural_tradition = tradition_nubian_warrior_queens }
 				culture = { has_cultural_parameter = female_only_inheritance }
 			}
 		}

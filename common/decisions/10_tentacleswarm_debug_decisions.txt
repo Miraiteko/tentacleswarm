@@ -37,7 +37,7 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		initial_tentacle_slave = yes
+		add_gold = tentacleswarm_test_breakdown
 	}
 
 	ai_check_interval = 0
