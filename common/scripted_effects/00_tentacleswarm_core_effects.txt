@@ -553,3 +553,57 @@ tentacleswarm_4VA = {
 		}
 	}
 }
+set_court_tentacle_hunter_effect = {
+	$TENTACLE_HUNTER$ = {
+		if = {
+			limit = { 
+				NOT = { liege = $EMPLOYER$ }
+			}
+			$EMPLOYER$ = { add_courtier = $TENTACLE_HUNTER$ }
+		}
+	}
+	$EMPLOYER$ = {
+		#Replace existing tentalce hunter if one exists
+		if = {
+			limit = {
+				employs_court_position = tentacle_hunter_court_position
+				any_court_position_holder = {
+					type = tentacle_hunter_court_position
+					count > 0
+				}
+			}
+			every_court_position_holder = {
+				type = tentacle_hunter_court_position
+				save_temporary_scope_as = old_hunter
+
+				$EMPLOYER$ = {
+					replace_court_position = {
+						recipient = $TENTACLE_HUNTER$
+						holder = scope:old_hunter
+						court_position = tentacle_hunter_court_position
+					}
+					reverse_add_opinion = {
+						target = scope:old_hunter
+						modifier = disappointed_opinion
+						opinion = -15
+					}
+					reverse_add_opinion = {
+						target = $TENTACLE_HUNTER$
+						modifier = hired_me_opinion
+					}
+				}
+			}
+		}
+		#Else just straight up appoint
+		else = {
+			appoint_court_position = {
+				recipient = $TENTACLE_HUNTER$
+				court_position = tentacle_hunter_court_position
+			}
+			reverse_add_opinion = {
+				target = $TENTACLE_HUNTER$
+				modifier = hired_me_opinion
+			}
+		}
+	}
+}

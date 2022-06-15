@@ -1,6 +1,7 @@
 ﻿#宫廷事件
 #0001 搜寻奴隶
 #0011 区域灭杀
+#3001 雇佣猎人
 namespace = tentacleswarm_court
 
 #确认目标
@@ -808,5 +809,323 @@ tentacleswarm_court.0012 ={
 				has_trait = cynical
 			}
 		}
+	}
+}
+tentacleswarm_court.3001 = {
+	type = character_event
+	title = tentacleswarm_court.3001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = health_3001_hire_tentacle_hunter_decision_text }
+				desc = tentacleswarm_court.3001.decision.desc
+			}
+			desc = tentacleswarm_court.3001.fallback_reason.desc
+		}
+	}
+	theme = healthcare
+	left_portrait = scope:high_skill_option
+	lower_left_portrait = scope:mystic_option
+	right_portrait = scope:low_skill_option
+	lower_right_portrait = scope:excellent_skill_option
+
+	trigger = { exists = capital_province } #If I lost it before I got this event, I shouldn't get a tentacle hunter
+	
+
+	immediate = {
+		hidden_effect = {
+			#Find some appropriate options
+
+			if = { #Performance heavy option finding is only for players
+				limit = { is_ai = no }
+
+				#EXCELLENT SKILL CHARACTER (for learned rulers)
+				if = {
+					limit = {
+						OR = {
+							has_learning_lifestyle_trait_trigger = yes
+							learning >= high_skill_rating
+						}
+					}
+					random_pool_character = {
+						province = capital_province
+						limit = {
+							health_3001_excellent_skill_physician_trigger = yes
+						}
+						weight = {
+							base = 1
+							modifier = {
+								faith = root.faith
+								factor = 10
+							}
+						}
+
+						save_scope_as = excellent_skill_option
+					}
+					#Backup generation
+					if = {
+						limit = { NOT = { exists = scope:excellent_skill_option } }
+
+						create_character = {
+							location = root.capital_province
+							gender_female_chance = 50
+							template_character = root
+							random_traits = yes
+							age = { 18 50 }
+							learning = high_skill_rating
+							save_scope_as = excellent_skill_option
+						}
+					}
+					#Set mystic trait if skill is too low
+					if = {
+						limit = { exists = scope:excellent_skill_option }
+						scope:excellent_skill_option = {
+							while = {
+								limit = {
+									OR = {
+										AND = {
+											root = { highest_held_title_tier >= tier_kingdom }
+											learning < high_skill_rating
+										}
+										AND = {
+											root = { highest_held_title_tier <= tier_duchy }
+											learning < medium_skill_rating
+										}
+									}
+									NOT = { has_trait = mystic_3 }
+								}
+								ai_mystic_lifestyle_rank_up_effect = yes
+							}
+						}
+					}				
+				}
+
+				#HIGH-SKILL CHARACTER
+				random_pool_character = {
+					province = capital_province
+					limit = {
+						health_3001_high_skill_physician_trigger = yes
+						trigger_if = {
+							limit = {
+								exists = scope:excellent_skill_option
+							}
+							NOT = { this = scope:excellent_skill_option }
+						}
+					}
+					weight = {
+						base = 1
+						modifier = {
+							has_trait = lifestyle_mystic
+							factor = 100
+						}
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = high_skill_option
+				}
+
+				#Backup generation
+				if = {
+					limit = { NOT = { exists = scope:high_skill_option } }
+
+					create_character = {
+						location = root.capital_province
+						gender_female_chance = 50
+						template_character = root
+						random_traits = yes
+						age = { 18 50 }
+						learning = { medium_skill_rating high_skill_rating }
+						save_scope_as = high_skill_option
+					}
+				}
+
+
+				#Low-medium skill character
+				random_pool_character = {
+					province = root.capital_province
+					limit = { 
+						health_3001_low_skill_physician_trigger = yes 
+						trigger_if = {
+							limit = {
+								exists = scope:excellent_skill_option
+							}
+							NOT = { this = scope:excellent_skill_option }
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:high_skill_option
+							}
+							NOT = { this = scope:high_skill_option }
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:mystic_option
+							}
+							NOT = { this = scope:mystic_option }
+						}
+					}
+					weight = {
+						base = 1
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = low_skill_option
+				}
+			}
+			else = { #Ai get someone simple
+				random_pool_character = {
+					province = root.capital_province
+					limit = { health_3001_low_skill_physician_light_trigger = yes }
+					weight = {
+						base = 1
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = low_skill_option
+				}
+			}
+			
+			#Backup generation
+			if = {
+				limit = { NOT = { exists = scope:low_skill_option } }
+
+				create_character = {
+					location = root.capital_province
+					gender_female_chance = 50
+					template_character = root
+					random_traits = yes
+					age = { 18 50 }
+					learning = { low_skill_rating decent_skill_rating }
+					save_scope_as = low_skill_option
+				}
+			}
+		}
+	}
+
+	#Amazing skill
+	option = {
+		trigger = {
+			exists = scope:excellent_skill_option
+			is_landed = yes #extra check to make sure they haven't lost their status
+		}
+		name = tentacleswarm_court.3001.e
+		trait = scholar
+		skill = learning
+
+		pay_short_term_gold = {
+			target = scope:excellent_skill_option
+			gold = high_skill_court_physician_cost
+		}
+		custom_tooltip = tentacleswarm_court.3001.a.tt
+
+		set_court_tentacle_hunter_effect = {
+			EMPLOYER = root
+			TENTACLE_HUNTER = scope:excellent_skill_option
+		}
+
+		ai_chance = {
+			factor = 500
+			modifier = {
+				short_term_gold < medium_gold_value
+				factor = 0
+			}
+		}
+	}
+
+	#High skill
+	option = {
+		trigger = {
+			is_landed = yes #extra check to make sure they haven't lost their status
+			exists = scope:high_skill_option #Doesn't exists for AI
+		}
+		name = tentacleswarm_court.3001.a
+		
+		pay_short_term_gold = {
+			target = scope:high_skill_option
+			gold = high_skill_court_physician_cost
+		}
+		custom_tooltip = tentacleswarm_court.3001.a.tt
+
+		set_court_tentacle_hunter_effect = {
+			EMPLOYER = root
+			TENTACLE_HUNTER = scope:high_skill_option
+		}
+
+		ai_chance = {
+			factor = 100
+			modifier = {
+				short_term_gold < medium_gold_value
+				factor = 0
+			}
+		}
+	}
+
+	#Low
+	option = {
+		trigger = {
+			is_landed = yes #extra check to make sure they haven't lost their status
+		}
+		name = tentacleswarm_court.3001.b
+		
+		if = {
+			limit = {
+				OR = {
+					is_ai = no
+					short_term_gold >= low_skill_court_physician_cost #Because AI would never have enough money and everyone would die
+				}
+			}
+			pay_short_term_gold = {
+				target = scope:low_skill_option
+				gold = low_skill_court_physician_cost
+			}
+		}
+		custom_tooltip = tentacleswarm_court.3001.a.tt
+
+		set_court_tentacle_hunter_effect = {
+			EMPLOYER = root
+			TENTACLE_HUNTER = scope:low_skill_option
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+
+	#None...
+	option = {
+		name = {
+			trigger = {
+				NOT = {
+					exists = scope:excellent_skill_option
+				}
+			}
+			text = tentacleswarm_court.3001.d.two
+		}
+		name = {
+			trigger = {
+				exists = scope:excellent_skill_option
+			}
+			text = tentacleswarm_court.3001.d.more
+		}
+		custom_tooltip = tentacleswarm_court.3001.d.tt
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			
+		}
+
+		remove_character_flag = health_3001_hire_tentacle_hunter_decision_text
 	}
 }

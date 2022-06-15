@@ -8,6 +8,6 @@ tags={
 	"Balance"
 }
 name="触手天灾"
-supported_version="1.5.*"
+supported_version="1.6.*"
 path="D:/Documents/Paradox Interactive/Crusader Kings III/mod/tentacleswarm"
 remote_file_id="2506129039"

@@ -4,18 +4,21 @@ tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
 	#development_growth = -0.2
 	monthly_county_control_change_add = -0.1
+	development_growth = tentacleswarm_test_breakdown
 }
 #20-35
 tentacleswarm_corruption_2 = {
 	icon = outdoors_negative
 	#development_growth = -0.4
 	monthly_county_control_change_add = -0.2
+	development_growth = tentacleswarm_test_breakdown
 }
 #35-60
 tentacleswarm_corruption_3 = {
 	icon = outdoors_negative
 	#development_growth = -0.7
 	monthly_county_control_change_add = -0.35
+	development_growth = tentacleswarm_test_breakdown
 }
 #60-100
 tentacleswarm_corruption_4 = {

@@ -37,7 +37,10 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		add_gold = tentacleswarm_test_breakdown
+		start_struggle = {
+			struggle_type = world_europe_south_struggle
+			start_phase = struggle_iberia_phase_opportunity
+		}
 	}
 
 	ai_check_interval = 0

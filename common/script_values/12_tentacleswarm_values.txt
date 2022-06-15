@@ -175,20 +175,4 @@ pregnancy_month = {
 	min = 1
 }
 
-tentacleswarm_test_breakdown = {
-	add = {
-		value = 10
-		desc = COURT_POSITION_SALARY_BREAKDOWN_BASE
-		format = "BASE_VALUE_FORMAT_DECIMALS"
-	}
-	multiply = {
-		value = 0.8
-		desc = enormous_realm_salary_mod
-		format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_NEGATIVE"
-	} 
-	multiply = {
-		value = 1.2
-		desc = enormous_realm_salary_mod
-		format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
-	} 
-}
+tentacleswarm_test_breakdown = var:tentacleswarm_corruption
