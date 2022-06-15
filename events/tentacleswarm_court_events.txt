@@ -850,7 +850,13 @@ tentacleswarm_court.3001 = {
 					random_pool_character = {
 						province = capital_province
 						limit = {
-							health_3001_excellent_skill_physician_trigger = yes
+							is_imprisoned = no
+							is_landed = no
+							is_eligible_for_court_positions = yes
+							aptitude = {
+								court_position = tentacle_hunter_court_position
+								value >= 3
+							}
 						}
 						weight = {
 							base = 1
@@ -868,11 +874,13 @@ tentacleswarm_court.3001 = {
 
 						create_character = {
 							location = root.capital_province
-							gender_female_chance = 50
+							gender_female_chance = 85
 							template_character = root
 							random_traits = yes
-							age = { 18 50 }
+							age = { 18 40 }
 							learning = high_skill_rating
+							stewardship = { medium_skill_rating high_skill_rating }
+							intrigue = { medium_skill_rating high_skill_rating }
 							save_scope_as = excellent_skill_option
 						}
 					}
@@ -904,7 +912,13 @@ tentacleswarm_court.3001 = {
 				random_pool_character = {
 					province = capital_province
 					limit = {
-						health_3001_high_skill_physician_trigger = yes
+						is_imprisoned = no
+						is_landed = no
+						is_eligible_for_court_positions = yes
+						aptitude = {
+							court_position = tentacle_hunter_court_position
+							value >= 3
+						}
 						trigger_if = {
 							limit = {
 								exists = scope:excellent_skill_option
@@ -932,11 +946,13 @@ tentacleswarm_court.3001 = {
 
 					create_character = {
 						location = root.capital_province
-						gender_female_chance = 50
+						gender_female_chance = 85
 						template_character = root
 						random_traits = yes
-						age = { 18 50 }
+						age = { 18 40 }
 						learning = { medium_skill_rating high_skill_rating }
+						stewardship = { medium_skill_rating high_skill_rating }
+						intrigue = { medium_skill_rating high_skill_rating }
 						save_scope_as = high_skill_option
 					}
 				}
@@ -946,7 +962,13 @@ tentacleswarm_court.3001 = {
 				random_pool_character = {
 					province = root.capital_province
 					limit = { 
-						health_3001_low_skill_physician_trigger = yes 
+						is_imprisoned = no
+						is_landed = no
+						is_eligible_for_court_positions = yes
+						aptitude = {
+							court_position = tentacle_hunter_court_position
+							value <= 2
+						}
 						trigger_if = {
 							limit = {
 								exists = scope:excellent_skill_option
@@ -958,12 +980,6 @@ tentacleswarm_court.3001 = {
 								exists = scope:high_skill_option
 							}
 							NOT = { this = scope:high_skill_option }
-						}
-						trigger_if = {
-							limit = {
-								exists = scope:mystic_option
-							}
-							NOT = { this = scope:mystic_option }
 						}
 					}
 					weight = {
@@ -979,7 +995,11 @@ tentacleswarm_court.3001 = {
 			else = { #Ai get someone simple
 				random_pool_character = {
 					province = root.capital_province
-					limit = { health_3001_low_skill_physician_light_trigger = yes }
+					limit = { 
+						is_imprisoned = no
+						is_landed = no
+						is_eligible_for_court_positions = yes
+					}
 					weight = {
 						base = 1
 						modifier = {
@@ -997,10 +1017,10 @@ tentacleswarm_court.3001 = {
 
 				create_character = {
 					location = root.capital_province
-					gender_female_chance = 50
+					gender_female_chance = 85
 					template_character = root
 					random_traits = yes
-					age = { 18 50 }
+					age = { 18 40 }
 					learning = { low_skill_rating decent_skill_rating }
 					save_scope_as = low_skill_option
 				}
@@ -1023,9 +1043,9 @@ tentacleswarm_court.3001 = {
 			gold = high_skill_court_physician_cost
 		}
 		custom_tooltip = tentacleswarm_court.3001.a.tt
-
+	
 		set_court_tentacle_hunter_effect = {
-			EMPLOYER = root
+			EMPLOYER = root 
 			TENTACLE_HUNTER = scope:excellent_skill_option
 		}
 

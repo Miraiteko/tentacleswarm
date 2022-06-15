@@ -561,6 +561,12 @@ set_court_tentacle_hunter_effect = {
 			}
 			$EMPLOYER$ = { add_courtier = $TENTACLE_HUNTER$ }
 		}
+		if = {
+			limit = {
+				NOT = { faith = $EMPLOYER$.faith }
+			}
+			set_character_faith = $EMPLOYER$.faith
+		}
 	}
 	$EMPLOYER$ = {
 		#Replace existing tentalce hunter if one exists
