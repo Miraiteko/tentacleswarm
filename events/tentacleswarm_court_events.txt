@@ -855,7 +855,7 @@ tentacleswarm_court.3001 = {
 							is_eligible_for_court_positions = yes
 							aptitude = {
 								court_position = tentacle_hunter_court_position
-								value >= 3
+								value >= 4
 							}
 						}
 						weight = {
@@ -877,7 +877,7 @@ tentacleswarm_court.3001 = {
 							gender_female_chance = 85
 							template_character = root
 							random_traits = yes
-							age = { 18 40 }
+							age = { 18 30 }
 							learning = high_skill_rating
 							stewardship = { medium_skill_rating high_skill_rating }
 							intrigue = { medium_skill_rating high_skill_rating }
@@ -890,15 +890,9 @@ tentacleswarm_court.3001 = {
 						scope:excellent_skill_option = {
 							while = {
 								limit = {
-									OR = {
-										AND = {
-											root = { highest_held_title_tier >= tier_kingdom }
-											learning < high_skill_rating
-										}
-										AND = {
-											root = { highest_held_title_tier <= tier_duchy }
-											learning < medium_skill_rating
-										}
+									aptitude = {
+										court_position = tentacle_hunter_court_position
+										value < 4
 									}
 									NOT = { has_trait = mystic_3 }
 								}
@@ -949,7 +943,7 @@ tentacleswarm_court.3001 = {
 						gender_female_chance = 85
 						template_character = root
 						random_traits = yes
-						age = { 18 40 }
+						age = { 18 30 }
 						learning = { medium_skill_rating high_skill_rating }
 						stewardship = { medium_skill_rating high_skill_rating }
 						intrigue = { medium_skill_rating high_skill_rating }
@@ -1020,7 +1014,7 @@ tentacleswarm_court.3001 = {
 					gender_female_chance = 85
 					template_character = root
 					random_traits = yes
-					age = { 18 40 }
+					age = { 18 30 }
 					learning = { low_skill_rating decent_skill_rating }
 					save_scope_as = low_skill_option
 				}
