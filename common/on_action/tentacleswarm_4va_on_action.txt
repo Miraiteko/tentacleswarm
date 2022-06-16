@@ -14,8 +14,9 @@ tentacleswarm_4VA_pulse = {
 				convert_to_tentacleswarm_religion = yes
 				tentacleswarm_4VA = yes 
 			}
-			else_if = { #女儿是奴隶，开始夺地。
+			else_if = { #女儿是奴隶，开始夺地。(意境不好，暂时停用)
 				limit = {
+					always = no
 					is_landed = yes #父母有地，尝试密谋夺取
 					is_tentacle_slave = no
 					highest_held_title_tier >=tier_county
