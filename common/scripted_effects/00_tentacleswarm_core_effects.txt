@@ -429,10 +429,7 @@ convert_to_tentacleswarm_religion = {
 						is_tentaclable_female = yes
 						NOT = { this = root }
 					}
-					trigger_event = {
-						on_action = convert_to_tentacleswarm_religion_pulse
-						days = { 1 30 }
-					}
+					add_character_flag = willing_to_be_corrupted
 				}
 			}
 		}

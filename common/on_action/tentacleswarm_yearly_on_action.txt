@@ -73,6 +73,17 @@ tentacleswarm_yearly_global_pulse = {
 		tentacleswarm_yearly_check = yes
 	}
 }
+#每年触发
+yearly_playable_pulse = {
+	on_actions = {
+		tentacleswarm_yearly_playable_pulse #领地腐化度结算
+	}
+}
+tentacleswarm_yearly_playable_pulse = {
+	events = {
+		tentacleswarm_yearly_check.0001 
+	}
+}
 #每个人年度触发
 random_yearly_everyone_pulse = {
 	on_actions = { 
@@ -81,394 +92,47 @@ random_yearly_everyone_pulse = {
 		tentacle_encounter_yearly
 	}
 }
-tentacleswarm_bliever_yearly = { #触手信徒年度行动触发
+tentacleswarm_bliever_yearly = { #天灾信徒奴隶年度触发
 	trigger = {
 		has_religion = religion:tentacleswarm_religion
 	}
-	effect = {
-		if = { #没有成为奴隶的成年女性寻求赐福
-			limit = {
-				is_ai = yes
-				is_tentaclable_female = yes
-				is_tentacle_slave = no
-			}
-			trigger_event = {
-				id = tentacleswarm_scene.0030 #虔诚赐福
-			}
-		}
-	}
-}
-tentacle_encounter_yearly = {#遭遇年度触发
-	trigger = {
-	}
-	effect = {
-		#男性，可能因为瘴气患病
-		if = {
-			limit = {
-				is_female = no
-			}
-			random_list = {
-				0 = {
-					modifier = {
-						add = location.county.var:tentacleswarm_corruption
-						exists = location
-						exists = location.county
-					}
-					trigger_event = {
-						on_action = disease_outbreak_pulse
-						months = { 1 6 }
-					}
-				}
-				200 = {
-				}
-			}
-		}
-		#适龄女性，可能受到袭击
-		if = {
-			limit = {
-				is_tentaclable_female = yes
-			}
-			random_list = {
-				1 = {
-					tentacle_encounter_chance_modifier = yes
-					trigger_event = {
-						on_action = tentacle_encounter_random_pulse #随机遭遇
-						months = { 6 9 }
-					}
-				}
-				500 = {
-				}
-			}
-		}
+	events = {
+		tentacleswarm_yearly_check.1001 #AI天灾信徒年度行动
 	}
 }
 tentacle_slave_yearly = {#触手奴隶年度触发
 	trigger = {
 		is_tentacle_slave = yes
 	}
-	effect = {
-		if = {
-			limit = {
-				#如果上头有人，皈依正统信仰,揭露身份
-				is_ai = yes
-				NOT = { has_religion = religion:tentacleswarm_religion }
-				any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
-			}
-			convert_to_tentacleswarm_religion = yes
-		}
-		if = { #每年寻求一次赐福
-			limit = {
-				is_ai = yes
-			}
-			trigger_event = {
-				id = tentacleswarm_scene.0030 #虔诚赐福
-			}
-		}
-		if = { #生育率太低的时候失去祝福，开始生病
-			limit = { 
-				is_tentaclable_female = no
-			}
-			if = {
-				limit = { has_character_flag = immune_to_disease }
-				remove_character_flag = immune_to_disease
-			}
-			if = { #AI直接自杀了（暂时取消）
-				limit = { 
-					always = no
-					is_ai = yes 
-				}
-				if = {
-					limit = { is_imprisoned = no }
-					death = { death_reason = death_disappearance }
-				}
-				else = {
-					death = { death_reason = death_suicide }
-				}
-			}
-			else_if = { #体弱多病
-				limit = { NOT = { has_trait = infirm } }
-				trigger_event = {
-					id = tentacleswarm_scene.1001
-				}
-			}
-			else_if = { #抑郁
-				limit = { NOT = { has_trait = depressed } }
-				trigger_event = {
-					id = health.7100
-				}
-			}
-			else_if = { #癌症
-				limit = { NOT = { has_trait = cancer } }
-				trigger_event = {
-					id = health.1007
-				}
-			}
-			else_if = { #肺痨
-				limit = { NOT = { has_trait = consumption } }
-				trigger_event = {
-					id = health.1006
-				}
-			}
-			else_if	= { #痛风
-				limit = { NOT = { has_trait = gout_ridden } }
-				trigger_event = {
-					id = health.1003
-				}
-			}
-			else = {
-				death = { death_reason = death_cancer }
-			}
-		}
+	events = {
+		tentacleswarm_yearly_check.1011 #触手奴隶年度检查
+		tentacleswarm_yearly_check.1012 #AI触手奴隶年度行动
+	}
+}
+tentacle_encounter_yearly = { #所有人遭遇年度触发
+	trigger = {
 	}
 	events = {
-		tentacle_corrupt_scheme.9999 #非领主的触手奴隶无法发动【互动】，需要用事件发动计谋
+		tentacleswarm_yearly_check.1021
 	}
 }
-#每年触发
-yearly_playable_pulse = {
-	on_actions = {
-		delay = { days = 10}
-		tentacleswarm_yearly_modifier_check #检查灭杀令和播种令
-		delay = { days = 10 }
-		tentacleswarm_yearly_playable_pulse #领地腐化度结算
-	}
-}
-tentacleswarm_yearly_playable_pulse = {
-	events = {
-		tentacleswarm_on_action_events.0001 
-	}
-	effect = {
-	}
-}
-#检查播种令和灭杀令
-tentacleswarm_yearly_modifier_check = {
-	effect = {
-		if = {
-			limit = { has_religion = religion:tentacleswarm_religion }
-			if = { #信徒开启播种令
-				limit = { 
-					NOT = { has_character_modifier = tentacleswarm_spread }
-					is_ai = yes #玩家自己点决议
-					is_tentacle_slave = yes #非奴隶没有兴趣
-					is_landed = yes
-				}
-				add_character_modifier = tentacleswarm_spread
-			}
-			if = { #信徒变政体
-				limit = { 
-					NOT = { has_government = tentacleswarm_government }
-					is_ai = yes #玩家自己点决议
-					is_landed = yes
-				}
-				change_government = tentacleswarm_government
-			}
-			if = { #开继承法
-				limit = { 
-					has_government = tentacleswarm_government
-					is_landed = yes
-					is_ai = yes
-				}
-				every_held_title = {
-					limit = {
-						tier >= tier_duchy
-						NOT = { has_title_law = tentacleswarm_elective_succession_law }
-					}
-					add_title_law = tentacleswarm_elective_succession_law
-				}
-			}
-		}
-		else = {
-			if = { #非信徒播种令无效化
-				limit = { has_character_modifier = tentacleswarm_spread}
-				remove_character_modifier = tentacleswarm_spread
-			}
-			if = { #非信徒关闭政体
-				limit = { 
-					has_government = tentacleswarm_government
-					is_landed = yes
-				}
-				change_government = feudal_government #暂且先变封建
-			}
-			if = { #关继承法
-				limit = { 
-					is_landed = yes
-					is_ai = yes
-				}
-				every_held_title = {
-					limit = {
-						tier >= tier_duchy
-						has_title_law = tentacleswarm_elective_succession_law
-					}
-					remove_title_law = tentacleswarm_elective_succession_law
-				}
-			}
-		}
-		if = {
-			limit = { 
-				faith = {has_doctrine = doctrine_tentacle_slave_evil}
-				is_tentacle_slave = no
-			}
-			#敌对者开启灭杀令
-			#通过决议
-			
-			#退出触手征服进攻战争
-			every_character_war = {
-				limit = { 
-					using_cb = tentacleswarm_conquest 
-					is_attacker = prev
-					NOT = { is_war_leader = prev }
-				}
-				remove_participant = prev
-			}
-			#退出触手剿灭防御战争
-			every_character_war = {
-				limit = { 
-					using_cb = tentacleswarm_religious_war
-					is_defender = prev
-					NOT = { is_war_leader = prev }
-				}
-				remove_participant = prev
-			}
-		}
-		else = {
-			if = { #非敌对者灭杀令无效化
-				limit = { has_character_modifier = tentacleswarm_anti}
-				remove_character_modifier = tentacleswarm_anti
-			}
-			#退出触手征服防御战争
-			every_character_war = {
-				limit = { 
-					using_cb = tentacleswarm_religious_war
-					is_attacker = prev
-					NOT = { is_war_leader = prev }
-				}
-				remove_participant = prev
-			}
-			#退出触手剿灭进攻战争
-			every_character_war = {
-				limit = { 
-					using_cb = tentacleswarm_conquest
-					is_defender = prev
-					NOT = { is_war_leader = prev }
-				}
-				remove_participant = prev
-			}
-		}
-	}
-}
-#每年随机触发
+#每年随机触发事件
 random_yearly_playable_pulse = {
-	#自带的条件，诸如有地未被囚禁等等
-	#trigger = { basic_is_valid_for_yearly_events_trigger = yes }
 	on_actions = {
-		delay = { days = 25 }
 		tentacleswarm_random_yearly_playable_pulse	
-		delay = { days = 10 }
-		tentacleswarm_cancel_holy_order_lease_pulse #驱逐异教骑士团
 	}
 }
 tentacleswarm_random_yearly_playable_pulse = {
 	trigger = { 
 		basic_is_valid_for_yearly_events_trigger = yes 
 	}
+	events = {
+		tentacleswarm_yearly_check.2001 #驱逐异教骑士团
+		tentacleswarm_yearly_check.2002 #AI战狂远征
+	}
 	random_events = {
 		500 = 0
 		100 = tentacleswarm_court.0001 #发现奴隶
 		100 = tentacleswarm_court.0011 #地区灭杀
-	}
-	effect = {
-		#远征。通常的触手征服只会打相邻的目标，我们现在让AI进行远征
-		if = {
-			limit = {
-				is_ai = yes
-				has_religion = religion:tentacleswarm_religion
-				is_at_war = no
-				is_tentacle_slave = yes #是奴隶
-				is_independent_ruler = yes #独立
-				max_military_strength > 4000 #有一定兵力积蓄
-				gold > 0 #没负债
-				piety > 100 #虔诚限制
-			}
-			save_scope_as = actor
-			#确定战争对象
-			random_in_global_list = {
-				variable = tentacleswarm_main_target_ruler
-				limit = {
-					highest_held_title_tier >= tier_duchy #不啃独立小伯爵
-					is_landed = yes #有地
-					NOT = { has_religion = religion:tentacleswarm_religion } #异教
-					ROOT = { #需要符合宣战条件
-						is_character_interaction_valid = {
-						   recipient = PREV
-						   interaction = declare_war_interaction
-						}
-					}
-				}
-				save_scope_as = target_character
-				save_scope_as = recipient
-			}
-			#确定目标，发动战争
-			if = {
-				limit = { 
-					exists = scope:target_character
-				}
-				scope:target_character = {
-					random_realm_county = {
-						limit = { 
-							development_level >= 3
-							building_max_garrison <= scope:actor.max_military_strength #能围下来
-						}
-						save_scope_as = target
-					}
-					if = {
-						limit = {
-							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
-							exists = scope:target
-						}
-						scope:actor = {
-							start_war = { 
-								casus_belli = tentacleswarm_conquest 
-								target = scope:target_character
-								target_title = scope:target.kingdom
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-tentacleswarm_cancel_holy_order_lease_pulse = { #驱逐敌对骑士团
-	trigger = {
-		is_landed = yes
-	}
-	effect = {
-		every_held_title = {
-			limit = { 
-				tier = tier_county
-			}
-			every_county_province = {
-				limit = {
-					exists = barony
-				}
-				barony = { #搜查每个直辖地内男爵领
-					if = {
-						limit = { #被租赁
-							is_leased_out = yes
-							has_revokable_lease = yes
-						}
-						lessee_title = { save_scope_as = lessee_title }
-						if = {
-							limit = { #敌对信仰租赁
-								root.faith ={
-									faith_hostility_level = { target = scope:lessee_title.holder.faith value > 1 }
-								}
-							}
-							revoke_lease = yes #撤销租赁
-						}
-					}
-				}
-			}
-		}
 	}
 }
