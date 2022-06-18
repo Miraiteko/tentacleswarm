@@ -9,7 +9,7 @@ window = {
 	allow_outside = yes
 	movable = no
 	layer = windows_layer
-	size = { 650 620 }
+	size = { 650 700 }
 	datacontext = "[HoldingView.GetHolding]"
 	datacontext = "[HoldingView.GetProvince]"
 	datacontext = "[HoldingView.GetHolder]"
@@ -437,7 +437,7 @@ window = {
 					}
 				}
 
-				hbox = { #Mirai:触手奴隶
+				hbox = { #Mirai:腐化
 					layoutpolicy_horizontal = expanding
 
 					text_single = {
@@ -452,16 +452,16 @@ window = {
 					}
 				}
 
-				hbox = { #Mirai:触手怪物
+				hbox = { #Mirai:抵制
 					layoutpolicy_horizontal = expanding
 
 					text_single = {
 						layoutpolicy_horizontal = expanding
-						raw_text = "[tentacleswarm_corruption|E]:"
+						raw_text = "[tentacleswarm_resist|E]:"
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]"
 						default_format = "#high"
 						tooltip = "COUNTY_DEVELOPMENT_TOOLTIP"
 					}
