@@ -37,10 +37,6 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
-		start_struggle = {
-			struggle_type = world_europe_south_struggle
-			start_phase = struggle_iberia_phase_opportunity
-		}
 	}
 
 	ai_check_interval = 0

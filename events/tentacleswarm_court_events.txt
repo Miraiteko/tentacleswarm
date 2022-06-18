@@ -852,7 +852,8 @@ tentacleswarm_court.3001 = {
 						limit = {
 							is_imprisoned = no
 							is_landed = no
-							is_eligible_for_court_positions = yes
+							is_adult = yes
+							NOT = { has_trait = incapable }
 							aptitude = {
 								court_position = tentacle_hunter_court_position
 								value >= 4
@@ -908,7 +909,8 @@ tentacleswarm_court.3001 = {
 					limit = {
 						is_imprisoned = no
 						is_landed = no
-						is_eligible_for_court_positions = yes
+						is_adult = yes
+						NOT = { has_trait = incapable }
 						aptitude = {
 							court_position = tentacle_hunter_court_position
 							value >= 3
@@ -958,7 +960,8 @@ tentacleswarm_court.3001 = {
 					limit = { 
 						is_imprisoned = no
 						is_landed = no
-						is_eligible_for_court_positions = yes
+						is_adult = yes
+						NOT = { has_trait = incapable }
 						aptitude = {
 							court_position = tentacle_hunter_court_position
 							value <= 2
@@ -992,7 +995,8 @@ tentacleswarm_court.3001 = {
 					limit = { 
 						is_imprisoned = no
 						is_landed = no
-						is_eligible_for_court_positions = yes
+						is_adult = yes
+						NOT = { has_trait = incapable }
 					}
 					weight = {
 						base = 1
