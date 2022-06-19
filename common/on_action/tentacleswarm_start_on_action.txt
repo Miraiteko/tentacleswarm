@@ -110,15 +110,16 @@ on_death = {
 	}
 }
 tentacleswarm_on_death = {
+	trigger = {
+		has_character_flag = tentacle_speaker_character
+	}
 	effect = {
-		if = { #speaker死亡的话，重新生成一位
-			limit = { has_character_flag = tentacle_speaker_character }
-			random_ruler = {
-				trigger_event = {
-					id = tentacleswarm_speaker.0003 #生成speaker
-					days = 5
-				}
-			} 
-		}
+		#speaker死亡的话，重新生成一位
+		random_ruler = {
+			trigger_event = {
+				id = tentacleswarm_speaker.0003 #生成speaker
+				days = 5
+			}
+		} 
 	}
 }

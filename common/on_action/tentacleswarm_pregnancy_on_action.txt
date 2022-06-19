@@ -90,10 +90,12 @@ tentacleswarm_baby_corruption = {
 		}
 	}
 }
+#血脉系统等待重做
 tentacleswarm_near_birth_pulse = {
 	trigger = { 
-		is_pregnant = yes
-	}		#如果提前流产了的话，就不用考虑了 
+		is_female = yes
+		is_pregnant = yes #如果提前流产了的话，就不用考虑了
+	}		
 	effect = {
 		#进行基因检定，判断孩子是否是天生奴隶
 		#天生奴遗传确认，该性状为伴X半隐性基因，男性只会是携带者。
@@ -280,38 +282,6 @@ tentacleswarm_adult_pulse = {
 			}
 			trigger_event = {
 				id = tentacleswarm_scene.0021 #天生腐化
-			}
-		}
-		else_if = { #其他女性看成年所在地的腐化度
-			limit = { is_female = yes }
-			random_list = {
-				0 = {
-					modifier = { #监护人是奴隶
-						add = 1000
-						any_relation = {
-							type = guardian
-							is_tentacle_slave = yes
-						}
-					}
-					random_relation = {
-						type = guardian
-						limit = { is_tentacle_slave = yes }
-						save_scope_as = guardian
-					}
-					trigger_event = {
-						on_action = tentacle_encounter_random_pulse #随机遭遇
-						days = 400
-					}
-				}
-				1 = {
-					tentacle_encounter_chance_modifier = yes
-					trigger_event = {
-						on_action = tentacle_encounter_random_pulse #随机遭遇
-						days = 400
-					}
-				}
-				100 = {
-				}
 			}
 		}
 	}
