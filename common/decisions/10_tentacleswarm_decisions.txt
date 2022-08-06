@@ -216,7 +216,9 @@ tentacleswarm_anti_start_decision = {
 		}
 	}	
 	effect = {
-		add_character_modifier = tentacleswarm_anti
+		add_character_modifier = {
+			modifier = tentacleswarm_anti
+		}
 		
 		#debug模式下显示anti发生位置
 		if ={
