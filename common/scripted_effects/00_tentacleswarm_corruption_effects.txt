@@ -398,7 +398,20 @@ tentacleswarm_corruption_county_check = {
 				desc = tentacle_county_corrupt.desc
 				left_icon = scope:checked_county
 				scope:checked_county = {
-					set_county_faith = faith:tentacleswarm_slavery
+					if = {
+						limit = {
+							OR = {
+								holder = { has_faith = faith:tentacleswarm_carns }
+								any_title_to_title_neighboring_county = {
+									faith = faith:tentacleswarm_carns
+								}
+							}
+						}
+						set_county_faith = faith:tentacleswarm_carns
+					}
+					else ={
+						set_county_faith = faith:tentacleswarm_slavery
+					}
 				}
 			}
 		}
