@@ -426,7 +426,9 @@ tentacleswarm_corruption_county_check = {
 		}
 		random_title_to_title_neighboring_county = { #临近信仰优先
 			limit = { 
-				faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
+				faith = { 
+					NOT = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
+				}
 			}
 			faith = { 
 				save_scope_as = lucky
