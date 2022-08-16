@@ -1,13 +1,4 @@
 ﻿#核心判断
-is_tentacleswarm_religion_faith = {
-	OR = {
-		religion_tag = religion:tentacleswarm_religion
-		has_doctrine = special_doctrine_is_tentacle_corrupted_faith
-	}
-}
-is_tentacleswarm_religion_character = yes = {
-	faith = { is_tentacleswarm_religion_faith = yes }
-}
 is_tentaclable_female = { #适龄女性
 	custom_description = {
 		text = is_tentaclable_female_tooltip
@@ -107,3 +98,27 @@ secret_tentacle_slave_is_evil_trigger = {
 	}
 }
 
+#信仰判断
+is_tentacleswarm_religion_faith = {
+	OR = {
+		religion_tag = tentacleswarm_religion
+		has_doctrine = special_doctrine_is_tentacle_corrupted_faith
+	}
+}
+is_tentacleswarm_religion_character = {
+	faith = { is_tentacleswarm_religion_faith = yes }
+}
+
+#整体判断
+has_default_government = {
+	custom_description = {
+		text = has_default_government_tooltip
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+			has_government = theocracy_government
+			has_government = tribal_government
+		}
+	}
+}

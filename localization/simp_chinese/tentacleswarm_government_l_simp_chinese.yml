@@ -43,4 +43,8 @@
  emperor_female_tentacleswarm_religion:0 "奴隶女皇"
  empire_tentacleswarm_religion:0 "堕落帝国"
  
+ has_default_government_tooltip_tooltip:0 "是初始政体"
+ not_has_default_government_tooltip_tooltip:0 "不是初始政体"
+ I_have_default_government_tooltip_tooltip:0 "是初始政体"
+ I_not_have_default_government_tooltip_tooltip:0 "不是初始政体"
  

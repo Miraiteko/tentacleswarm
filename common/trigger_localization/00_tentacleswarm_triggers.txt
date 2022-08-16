@@ -52,3 +52,9 @@ cant_blackmail_another_tentacle_slave = {
 cant_blackmail_your_tentacle_mentor ={
 	first_not = I_CANNOT_BLACKMAIL_MY_TENTACLE_MENTOR
 }
+has_default_government_tooltip = {
+	global = has_default_government_tooltip_tooltip
+	global_not = not_has_default_government_tooltip_tooltip
+	first = I_have_default_government_tooltip_tooltip
+	first_not = I_not_have_default_government_tooltip_tooltip
+}

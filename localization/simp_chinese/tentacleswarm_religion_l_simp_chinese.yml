@@ -83,9 +83,9 @@
     NOT_WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED:0 "必须要[GetFaithDoctrine('doctrine_adultery_women_accepted').GetName( GetPlayer.GetFaith )]女性通奸"
     NOT_FEMALE_DOMINATED:0 "必须要有[GetFaithDoctrine('doctrine_gender_female_dominated').GetName( GetPlayer.GetFaith )]教义"
 
-    is_tentacle_corrupted_faith:0 "触手恶堕"
-    doctrine_special_doctrine_is_tentacle_corrupted_faith_name:0 "触手恶堕"
-    doctrine_special_doctrine_is_tentacle_corrupted_faith_desc:0 "这个信仰已经沉溺于触手的怀抱之中。"
+    is_tentacle_corrupted_faith_name:0 "触手恶堕"
+    special_doctrine_is_tentacle_corrupted_faith_name:0 "触手恶堕"
+    special_doctrine_is_tentacle_corrupted_faith_desc:0 "这个信仰已经沉溺于触手的怀抱之中。"
     doctrine_parameter_hostility_override_special_doctrine_is_tentacle_corrupted_faith:0 "认为其他触手恶堕[faiths|E]是[GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V]的信仰"
 
 
