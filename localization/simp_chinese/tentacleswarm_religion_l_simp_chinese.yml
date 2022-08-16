@@ -82,6 +82,8 @@
     doctrine_parameter_doctrine_tentacle_slave_worship:0 "[county|E][tentacleswarm_resist|E]基础值: #N 1#!"
     NOT_WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED:0 "必须要[GetFaithDoctrine('doctrine_adultery_women_accepted').GetName( GetPlayer.GetFaith )]女性通奸"
     NOT_FEMALE_DOMINATED:0 "必须要有[GetFaithDoctrine('doctrine_gender_female_dominated').GetName( GetPlayer.GetFaith )]教义"
+    FAITH_TENTACLE_CORRUPTED:0 "必须属于触手天灾宗教或拥有[GetFaithDoctrine('special_doctrine_is_tentacle_corrupted_faith').GetName( GetPlayer.GetFaith )]教义"
+    FAITH_NOT_TENTACLE_CORRUPTED:0 "不能属于触手天灾宗教或拥有[GetFaithDoctrine('special_doctrine_is_tentacle_corrupted_faith').GetName( GetPlayer.GetFaith )]教义"
 
     is_tentacle_corrupted_faith_name:0 "触手恶堕"
     special_doctrine_is_tentacle_corrupted_faith_name:0 "触手恶堕"
