@@ -44,7 +44,7 @@ tentacleswarm_corruption_resist = {
 	}
 	else_if = { #省份屈服
 		limit = {
-			religion = religion:tentacleswarm_religion
+			faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 		}
 		add = 1
 	}

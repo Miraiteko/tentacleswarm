@@ -16,7 +16,7 @@ tentacleswarm_on_war_won_attacker = {
 		scope:attacker = {
 			if = {
 				limit = {
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				tentacleswarm_4VA = yes
 			}
@@ -30,7 +30,7 @@ tentacleswarm_on_war_won_defender = {
 		scope:defender = {
 			if = {
 				limit = {
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				tentacleswarm_4VA = yes
 			}
@@ -61,7 +61,7 @@ tentacleswarm_on_war_started = {
 		scope:attacker = {
 			if = {
 				limit = {
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				tentacleswarm_4VA = yes
 			}

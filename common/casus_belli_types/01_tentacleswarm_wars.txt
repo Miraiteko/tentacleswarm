@@ -10,12 +10,12 @@ tentacleswarm_conquest = {
 	mutually_exclusive_titles = { always = yes } #只能选一个目标头衔
 
 	allowed_for_character = {
-		has_religion = religion:tentacleswarm_religion #触手信徒
+		is_tentacleswarm_religion_character = yes #触手信徒
 	}
 
 	allowed_against_character = {
 		scope:defender = {
-			NOT = { has_religion = religion:tentacleswarm_religion } #目标不是触手信徒
+			NOT = { is_tentacleswarm_religion_character = yes } #目标不是触手信徒
 			is_independent_ruler = yes #独立
 		}
 	}
@@ -35,7 +35,7 @@ tentacleswarm_conquest = {
 		if = {
 			limit = {
 				scope:defender = { 
-					NOT = { has_religion = religion:tentacleswarm_religion }
+					NOT = { is_tentacleswarm_religion_character = yes }
 				}
 			}
 			add = 150
@@ -85,10 +85,10 @@ tentacleswarm_conquest = {
 	should_invalidate = {
 		OR = {
 			scope:attacker = { #进攻方改信了
-				NOT = { has_religion = religion:tentacleswarm_religion }
+				NOT = { is_tentacleswarm_religion_character = yes }
 			}
 			scope:defender = { #防守方改信了
-				has_religion = religion:tentacleswarm_religion 
+				is_tentacleswarm_religion_character = yes 
 			}
 		}
 	}
@@ -419,7 +419,7 @@ tentacleswarm_religious_war = {
 
 	allowed_against_character = {
 		scope:defender = { #攻击目标为触手宗教
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 	}
 	target_titles = all
@@ -460,7 +460,7 @@ tentacleswarm_religious_war = {
 				NOT = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 			}
 			scope:defender = { 
-				NOT = { has_religion = religion:tentacleswarm_religion }
+				NOT = { is_tentacleswarm_religion_character = yes }
 			}
 		}
 	}
@@ -494,7 +494,7 @@ tentacleswarm_religious_war = {
 								NOT = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 							}
 							scope:defender = { 
-								NOT = { has_religion = religion:tentacleswarm_religion }
+								NOT = { is_tentacleswarm_religion_character = yes }
 							}
 						}
 					}

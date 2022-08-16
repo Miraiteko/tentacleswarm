@@ -100,7 +100,7 @@ tentacle_corrupt_effect = {
 	}
 	if = {
 		limit = { #不信天灾，虔诚加压
-			not = { has_religion = religion:tentacleswarm_religion }
+			not = { is_tentacleswarm_religion_character = yes }
 		}
 		stress_impact = {
 			zealous = medium_stress_impact_gain #虔诚，加压力
@@ -348,7 +348,7 @@ tentacle_corrupt_reject_effect = {
 	}
 	if = {
 		limit = { #信天灾，虔诚加压
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 		stress_impact = {
 			zealous = medium_stress_impact_gain #虔诚，加压力
@@ -392,7 +392,7 @@ convert_to_tentacleswarm_religion = {
 	save_scope_as = character
 	if	= {
 		limit = {
-			not = { has_religion = religion:tentacleswarm_religion }
+			not = { is_tentacleswarm_religion_character = yes }
 		}
 		faith = { save_scope_as = faith }
 		if = { 

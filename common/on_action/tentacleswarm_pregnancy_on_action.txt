@@ -35,7 +35,7 @@ tentacleswarm_baby_corruption = {
 					imprisoner = {
 						OR = { #囚禁者是触手宗教的
 							is_tentacle_slave = yes
-							has_religion = religion:tentacleswarm_religion
+							is_tentacleswarm_religion_character = yes
 						}
 					}
 				}
@@ -50,7 +50,7 @@ tentacleswarm_baby_corruption = {
 				is_ai = no #主要玩家奴隶，获得尚未赐福的flag
 				OR = {
 					is_tentacle_slave = yes
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 			}
 			add_character_flag = { flag = tentacle_baby_corruption_not_yet months = 10 }
@@ -61,7 +61,7 @@ tentacleswarm_baby_corruption = {
 				always = no #暂且关闭，一年一次足矣
 				OR = {
 					is_tentacle_slave = yes
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				OR = {
 					is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人

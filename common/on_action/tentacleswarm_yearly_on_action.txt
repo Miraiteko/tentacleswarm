@@ -19,7 +19,7 @@ tentacleswarm_yearly_global_pulse = {
 				is_landed = yes
 			} 
 			if = {#奴隶领主
-				limit = { has_religion = religion:tentacleswarm_religion }
+				limit = { is_tentacleswarm_religion_character = yes }
 				add_to_global_variable_list = { name = tentacleswarm_slave_ruler target = this }	
 				if = {
 					limit = {
@@ -94,7 +94,7 @@ random_yearly_everyone_pulse = {
 }
 tentacleswarm_bliever_yearly = { #天灾信徒奴隶年度触发
 	trigger = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}
 	events = {
 		tentacleswarm_yearly_check.1001 #AI天灾信徒年度行动

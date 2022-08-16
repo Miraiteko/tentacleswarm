@@ -73,7 +73,9 @@ ai_reject_corrupt_modifier = {
 			}
 			else_if = { #欢迎触手
 				limit = {
-					religion = religion:tentacleswarm_religion
+					faith = { 
+						has_doctrine_parameter = doctrine_tentacle_slave_worship
+					 }
 				}
 				multiply = -0.5
 			}
@@ -101,7 +103,9 @@ ai_reject_corrupt_modifier = {
 			}
 			else_if = { #欢迎触手
 				limit = {
-					religion = religion:tentacleswarm_religion
+					faith = { 
+						has_doctrine_parameter = doctrine_tentacle_slave_worship
+					 }
 				}
 				multiply = -0.5
 			}

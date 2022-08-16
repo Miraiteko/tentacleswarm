@@ -158,7 +158,7 @@ tentacleswarm_war.0002 ={
 					scope:war.primary_attacker.faith = {
 						has_doctrine_parameter = doctrine_tentacle_slave_evil
 					}
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 			}
 		}

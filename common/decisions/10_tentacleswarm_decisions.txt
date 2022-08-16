@@ -9,12 +9,12 @@ tentacleswarm_start_decision = {
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
 		is_tentacle_slave = yes
-		NOT = { has_religion = religion:tentacleswarm_religion }  
+		NOT = { is_tentacleswarm_religion_character = yes }  
 	}
 	
 	is_valid = {
 		is_tentacle_slave = yes
-		NOT = { has_religion = religion:tentacleswarm_religion } #未皈依
+		NOT = { is_tentacleswarm_religion_character = yes } #未皈依
 	}	
 	effect = {
 		#公开皈依
@@ -41,13 +41,13 @@ tentacleswarm_become_openly_tentacle_slave_decision = {
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
 		is_hidden_tentacle_slave = yes
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		NOT = { has_trait = tentacle_slave }
 	}
 	
 	is_valid = {
 		is_hidden_tentacle_slave = yes
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}	
 	effect = {
 		change_trait_rank = {
@@ -81,7 +81,7 @@ tentacleswarm_auto_corrupt_decision = {
 		is_tentaclable_female = yes 
 		OR = {
 			is_tentacle_slave = yes #触手奴隶
-			has_religion = religion:tentacleswarm_religion #触手信仰
+			is_tentacleswarm_religion_character = yes #触手信仰
 		}
 	}
 	
@@ -96,7 +96,7 @@ tentacleswarm_auto_corrupt_decision = {
 	effect = {
 		if = {
 			limit = {
-				has_religion = religion:tentacleswarm_religion #触手信仰
+				is_tentacleswarm_religion_character = yes #触手信仰
 			}
 			add_piety = 100
 		}
@@ -299,12 +299,12 @@ tentacleswarm_spread_start_decision = {
 	selection_tooltip = tentacleswarm_spread_start_decision_tooltip
 
 	is_shown = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		NOT = { has_character_modifier = tentacleswarm_spread }
 	}
 	
 	is_valid = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}	
 	effect = {
 		add_character_modifier = tentacleswarm_spread
@@ -359,12 +359,12 @@ tentacleswarm_government_decision = {
 	confirm_text = tentacleswarm_government_decision
 
 	is_shown = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		NOT = { has_government = tentacleswarm_government }
 	}
 	
 	is_valid = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}	
 	effect = {
 		change_government = tentacleswarm_government 
@@ -450,7 +450,7 @@ tentacleswarm_remarry_decision_female = {
 
 	ai_potential = {
 		always = no
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		is_tentacle_slave = yes
 	}
 
@@ -551,7 +551,7 @@ tentacleswarm_warbeast_decision = {
 	
 	is_valid = {
 		is_at_war = yes
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		is_independent_ruler = yes
 		any_realm_county = {
 			has_county_modifier = tentacleswarm_corruption_5

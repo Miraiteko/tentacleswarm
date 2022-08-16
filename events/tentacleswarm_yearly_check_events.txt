@@ -15,7 +15,7 @@ tentacleswarm_yearly_check.0001 = {
 		
 		#先检查播种令和灭杀令等内容是否继续生效
 		if = {
-			limit = { has_religion = religion:tentacleswarm_religion }
+			limit = { is_tentacleswarm_religion_character = yes }
 			if = { #信徒开启播种令
 				limit = { 
 					NOT = { has_character_modifier = tentacleswarm_spread }
@@ -384,8 +384,8 @@ tentacleswarm_yearly_check.1012 = {
 		if = {
 			limit = {
 				#如果上头有人，皈依正统信仰,揭露身份
-				NOT = { has_religion = religion:tentacleswarm_religion }
-				any_liege_or_above = { has_religion = religion:tentacleswarm_religion }
+				NOT = { is_tentacleswarm_religion_character = yes }
+				any_liege_or_above = { is_tentacleswarm_religion_character = yes }
 			}
 			convert_to_tentacleswarm_religion = yes
 		}
@@ -481,7 +481,7 @@ tentacleswarm_yearly_check.2002 = {
 	hidden = yes
 	trigger = {
 		is_ai = yes
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 		is_at_war = no
 		is_tentacle_slave = yes #是奴隶
 		is_independent_ruler = yes #独立
@@ -498,7 +498,7 @@ tentacleswarm_yearly_check.2002 = {
 			limit = {
 				highest_held_title_tier >= tier_duchy #不啃独立小伯爵
 				is_landed = yes #有地
-				NOT = { has_religion = religion:tentacleswarm_religion } #异教
+				NOT = { is_tentacleswarm_religion_character = yes } #异教
 				ROOT = { #需要符合宣战条件
 					is_character_interaction_valid = {
 					   recipient = PREV
@@ -553,7 +553,7 @@ tentacleswarm_yearly_check.5001 = { #AI对4VA的响应
 			if = { #奴隶统治者，响应改信
 				limit = {
 					is_tentacle_slave = yes
-					not = { has_religion = religion:tentacleswarm_religion }
+					not = { is_tentacleswarm_religion_character = yes }
 				}
 				convert_to_tentacleswarm_religion = yes
 				tentacleswarm_4VA = yes 
@@ -651,7 +651,7 @@ tentacleswarm_yearly_check.5001 = { #AI对4VA的响应
 							exists = scope:target_county
 							war_declarer_needs_hook_on_liege = no #不需要领主同意就能发动战争
 							scope:target_character = { #攻击目标为触手宗教
-								has_religion = religion:tentacleswarm_religion
+								is_tentacleswarm_religion_character = yes
 							}
 						}
 						scope:actor = { #进行宣战

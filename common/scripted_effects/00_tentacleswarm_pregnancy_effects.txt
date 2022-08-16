@@ -46,7 +46,7 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 		every_spouse = { #配偶反应
 			if = {
 				limit = { #推崇屈服
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				trigger_event = {
 					id = tentacleswarm_pregnancy.2001
@@ -67,7 +67,7 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 			}
 			if = {
 				limit = {
-					NOT = { has_religion = religion:tentacleswarm_religion }
+					NOT = { is_tentacleswarm_religion_character = yes }
 				}
 				trigger_event = {
 					id = tentacleswarm_pregnancy.2003
@@ -83,7 +83,7 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { is_in_list = notified_of_bastardy }
-				NOT = { has_religion = religion:tentacleswarm_religion }
+				NOT = { is_tentacleswarm_religion_character = yes }
 			}
 			add_to_temporary_list = to_be_notified_of_bastardy
 		}
@@ -93,7 +93,7 @@ tentacle_bastard_pregnancy_mother_announcement_effect = {
 				exists = liege
 				liege = {
 					NOT = { is_in_list = notified_of_bastardy }
-					NOT = { has_religion = religion:tentacleswarm_religion }
+					NOT = { is_tentacleswarm_religion_character = yes }
 				}
 			}
 			liege = {
@@ -133,7 +133,7 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 		every_spouse = { #配偶
 			if = {
 				limit = { #推崇屈服
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				trigger_event = {
 					id = tentacleswarm_pregnancy.2005
@@ -154,7 +154,7 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 			}
 			if = {
 				limit = {
-					NOT = { has_religion = religion:tentacleswarm_religion }
+					NOT = { is_tentacleswarm_religion_character = yes }
 				}
 				trigger_event = {
 					id = tentacleswarm_pregnancy.2007
@@ -170,7 +170,7 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { is_in_list = notified_of_bastardy }
-				NOT = { has_religion = religion:tentacleswarm_religion }
+				NOT = { is_tentacleswarm_religion_character = yes }
 			}
 			add_to_temporary_list = to_be_notified_of_bastardy
 		}
@@ -180,7 +180,7 @@ tentacle_bastard_pregnancy_other_announcement_effect = {
 				exists = liege
 				liege = { 
 					NOT = { is_in_list = notified_of_bastardy }
-					NOT = { has_religion = religion:tentacleswarm_religion }
+					NOT = { is_tentacleswarm_religion_character = yes }
 				}
 			}
 			liege = {

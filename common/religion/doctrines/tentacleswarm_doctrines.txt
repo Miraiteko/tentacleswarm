@@ -2,7 +2,10 @@
 	group = "crimes"
 	doctrine_tentacle_slave_evil = {#极恶
 		can_pick = {
-			NOT = { religion_tag = tentacleswarm_religion }
+			NOR = {
+				religion_tag = tentacleswarm_religion
+				flag:special_doctrine_is_tentacle_corrupted_faith = { is_in_list = selected_doctrines }
+			}
 		}
 		piety_cost = {
 			value = 0
@@ -21,7 +24,10 @@
 	}
 	doctrine_tentacle_slave_adultery = {#视作通奸
 		can_pick = {
-			NOT = { religion_tag = tentacleswarm_religion }
+			NOR = {
+				religion_tag = tentacleswarm_religion
+				flag:special_doctrine_is_tentacle_corrupted_faith = { is_in_list = selected_doctrines }
+			}
 		}
 		piety_cost = {
 			value = 0
@@ -40,7 +46,10 @@
 	}
 	doctrine_tentacle_slave_worship = {#推崇
 		can_pick = {
-			religion_tag = tentacleswarm_religion
+			OR = {
+				religion_tag = tentacleswarm_religion
+				flag:special_doctrine_is_tentacle_corrupted_faith = { is_in_list = selected_doctrines }
+			}
 			
 			custom_description = {	
 				text = WOMEN_ADULTERY_MUST_BE_FULLY_ACCEPTED
@@ -65,6 +74,23 @@
 		} 
 		parameters = {
 			doctrine_tentacle_slave_worship = yes
+		}
+	}
+}
+
+is_tentacle_corrupted_faith = {
+	group = "special"
+	
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_tentacle_corrupted_faith
+	}
+
+	special_doctrine_is_tentacle_corrupted_faith = {
+		parameters = {
+			hostility_override_special_doctrine_is_tentacle_corrupted_faith = 1
+		}		
+		traits = {
+			virtues = { tentacle_slave = 5}
 		}
 	}
 }

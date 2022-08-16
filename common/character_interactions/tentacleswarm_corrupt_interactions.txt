@@ -178,7 +178,7 @@ tentacleswarm_imprisoner_interaction = {
 		scope:actor = { 
 			OR = {
 				is_tentacle_slave = yes
-				has_religion = religion:tentacleswarm_religion
+				is_tentacleswarm_religion_character = yes
 			}
 		}
 		scope:recipient = { is_imprisoned_by = scope:actor }
@@ -253,7 +253,7 @@ ask_for_tentacle_corruption_interaction = {
 	
 	is_highlighted = {
 		scope:actor = { 
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 	}
 	on_send = {
@@ -283,7 +283,7 @@ ask_for_tentacle_corruption_interaction = {
 		base = 100
 	}
 	ai_potential = {
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}
 	
 	ai_frequency = 12

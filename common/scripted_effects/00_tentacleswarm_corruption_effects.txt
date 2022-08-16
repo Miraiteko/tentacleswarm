@@ -33,14 +33,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_0 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_0
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_0
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_0
 		}
@@ -95,14 +95,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_1 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_1
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_1
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_1
 		}
@@ -158,14 +158,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_2 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_2
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_2
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_2
 		}
@@ -221,14 +221,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_3 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_3
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_3
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_3
 		}
@@ -284,14 +284,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_4 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_4
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_4
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_4
 		}
@@ -344,14 +344,14 @@ tentacleswarm_corruption_county_check = {
 		if = {
 			limit = { 
 				NOT = {has_county_modifier = tentacleswarm_corruption_control_5 }
-				holder = { has_religion = religion:tentacleswarm_religion }
+				holder = { is_tentacleswarm_religion_character = yes }
 			}
 			add_county_modifier = tentacleswarm_corruption_control_5
 		}
 		if = {
 			limit = { 
 				has_county_modifier = tentacleswarm_corruption_control_5
-				NOT = { holder = { has_religion = religion:tentacleswarm_religion }}
+				NOT = { holder = { is_tentacleswarm_religion_character = yes }}
 			}
 			remove_county_modifier = tentacleswarm_corruption_control_5
 		}
@@ -389,7 +389,9 @@ tentacleswarm_corruption_county_check = {
 	if = {
 		limit = {
 			var:tentacleswarm_corruption = { compare_value > 100 }
-			NOT = { religion = religion:tentacleswarm_religion  }
+			NOT = { 
+				faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
+			}
 		}
 		holder = {
 			send_interface_message = {
@@ -420,11 +422,11 @@ tentacleswarm_corruption_county_check = {
 	if = {
 		limit = {
 			var:tentacleswarm_corruption = { compare_value < 20 }
-			religion = religion:tentacleswarm_religion
+			faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 		}
 		random_title_to_title_neighboring_county = { #临近信仰优先
 			limit = { 
-				NOT = { religion = religion:tentacleswarm_religion }
+				faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 			}
 			faith = { 
 				save_scope_as = lucky
@@ -440,7 +442,7 @@ tentacleswarm_corruption_county_check = {
 		}
 		if = {
 			limit = {
-				NOT = { scope:lucky.religion = religion:tentacleswarm_religion }
+				NOT = { scope:lucky.faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship } }
 			}
 			holder = {
 				send_interface_message = {

@@ -456,7 +456,7 @@ tentacle_slave_claim_throne = {
 	valid_agent = {
 		age >= 14
 		OR = {
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 			is_tentacle_slave = yes
 		}
 	}

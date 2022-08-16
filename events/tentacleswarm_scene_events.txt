@@ -304,7 +304,7 @@ tentacleswarm_scene.0030 = {
 		is_tentaclable_female = yes
 		OR = {
 			is_tentacle_slave = yes 
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 	}
 	immediate = {

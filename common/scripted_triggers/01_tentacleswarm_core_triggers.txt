@@ -1,4 +1,13 @@
 ﻿#核心判断
+is_tentacleswarm_religion_faith = {
+	OR = {
+		religion_tag = religion:tentacleswarm_religion
+		has_doctrine = special_doctrine_is_tentacle_corrupted_faith
+	}
+}
+is_tentacleswarm_religion_character = yes = {
+	faith = { is_tentacleswarm_religion_faith = yes }
+}
 is_tentaclable_female = { #适龄女性
 	custom_description = {
 		text = is_tentaclable_female_tooltip
@@ -75,14 +84,14 @@ is_congenital_tentacle_slave_carry = { #天生奴隶基因携带者
 
 #触手奴隶罪行程度判断，用于在秘密机制中判断勒索等级
 secret_tentacle_slave_is_shunned_trigger = {
-	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
+	NOT = { is_tentacleswarm_religion_character = yes } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = adultery_female_shunned }
 		any_liege_or_above = { faith = { has_doctrine_parameter = adultery_female_shunned } }
 	}
 }
 secret_tentacle_slave_is_criminal_trigger = {
-	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
+	NOT = { is_tentacleswarm_religion_character = yes } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil } }
@@ -91,7 +100,7 @@ secret_tentacle_slave_is_criminal_trigger = {
 	}
 }
 secret_tentacle_slave_is_evil_trigger = {
-	NOT = { has_religion = religion:tentacleswarm_religion } #信徒不在意
+	NOT = { is_tentacleswarm_religion_character = yes } #信徒不在意
 	OR = {
 		faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 		any_liege_or_above = { faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil } }

@@ -113,7 +113,7 @@ tentacleswarm_pregnancy.1001 = {
 
 	trigger = {
 		#触手宗教
-		has_religion = religion:tentacleswarm_religion
+		is_tentacleswarm_religion_character = yes
 	}
 
 	immediate = {
@@ -137,7 +137,7 @@ tentacleswarm_pregnancy.1011 = {
 	trigger = {
 		#不信仰触手宗教
 		NOT = {
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 		#没有配偶
 		NOT = {
@@ -200,7 +200,7 @@ tentacleswarm_pregnancy.1021 = {
 	trigger = {
 		#不信仰触手宗教
 		NOT = {
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 		#有男性配偶
 		any_consort = {
@@ -295,7 +295,7 @@ tentacleswarm_pregnancy.1031 = {
 	trigger = {
 		#不信仰触手宗教
 		NOT = {
-			has_religion = religion:tentacleswarm_religion
+			is_tentacleswarm_religion_character = yes
 		}
 		#没有男性配偶
 		any_consort = {
@@ -571,7 +571,7 @@ tentacleswarm_pregnancy.2008 = {
 	immediate = {
 		if = {
 			limit = {
-				has_religion = religion:tentacleswarm_religion
+				is_tentacleswarm_religion_character = yes
 			}
 			send_interface_message = {
 				type = event_spouse_task_good
@@ -609,7 +609,7 @@ tentacleswarm_pregnancy.2009 = {
 	immediate = {
 		if = {
 			limit = {
-				has_religion = religion:tentacleswarm_religion
+				is_tentacleswarm_religion_character = yes
 			}
 			send_interface_message = {
 				type = event_spouse_task_good
@@ -1542,7 +1542,7 @@ tentacleswarm_pregnancy.4001 = {
 			}
 			if = { #如果你信奉,配偶得到通知
 				limit = {
-					has_religion = religion:tentacleswarm_religion
+					is_tentacleswarm_religion_character = yes
 				}
 				scope:spouse = {
 					trigger_event = {
