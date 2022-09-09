@@ -1,14 +1,20 @@
 覆盖了以下原版scripted_triggers:
+00_war_and_peace_triggers.txt：
 is_religious_war 触手巢穴和剿灭战争判定为宗教战争
 using_non_ghw_holy_war_cb_trigger 触手巢穴和剿灭战争判定为宗教战争
+00_secret_triggers.txt：
 is_blackmailable_secret_trigger 触手奴隶之间不能用此秘密相互勒索
+00_law_triggers.txt：
 can_have_confederate_partition_succession_law_trigger 天灾制可以使用均分继承
+00_religious_triggers.txt：
 can_be_combatant_based_on_gender_trigger 天灾信仰可以让女性成为战士（无论什么文化）
 
 覆盖了以下原版scripted_ruler:
+00_rules.txt:
 can_refund_perks 被腐化的角色不能重置技能点数
 
 覆盖了以下原版scrip_value:
+10_health_values.txt:
 pregnancy_month 让触手妊娠也能显示怀孕月数
 
 覆盖了以下核心定义
