@@ -185,7 +185,7 @@ can_be_combatant_based_on_gender_trigger = {
 				has_trait = shieldmaiden
 			}
 			AND = {
-				$ARMY_OWNER$ = { faith = { has_doctrine= doctrine_tentacle_slave_worship } }
+				$ARMY_OWNER$ = { faith = { has_doctrine_parameter= female_can_be_knight } }
 				is_female = yes
 			}
 		}

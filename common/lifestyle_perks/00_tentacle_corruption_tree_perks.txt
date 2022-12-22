@@ -57,6 +57,8 @@ tentacle_corruption_21_perk = {
 	icon = node_intrigue
 	
 	parent = tentacle_corruption_12_perk
+
+	#can_be_picked = { ... }
 	can_be_auto_selected = { always = no }
 	
 	character_modifier = {

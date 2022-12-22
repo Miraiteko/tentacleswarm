@@ -82,6 +82,7 @@
 		} 
 		parameters = {
 			doctrine_tentacle_slave_worship = yes
+			female_can_be_knight = yes
 		}
 	}
 }
@@ -96,6 +97,7 @@ is_tentacle_corrupted_faith = {
 	special_doctrine_is_tentacle_corrupted_faith = {
 		parameters = {
 			hostility_override_special_doctrine_is_tentacle_corrupted_faith = 1
+			female_can_be_knight = yes
 		}		
 		traits = {
 			virtues = { tentacle_slave = 5}
