@@ -5,6 +5,6 @@
 }
 tentacleswarm_on_title_destroyed = {
 	effect = {
-		clear_title_laws = yes	
+		scope:landed_title = { clear_title_laws = yes }
 	}
 }

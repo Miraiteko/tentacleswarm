@@ -444,7 +444,7 @@ tentacleswarm_corruption_county_check = {
 		}
 		if = {
 			limit = {
-				NOT = { scope:lucky.faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship } }
+				NOT = { scope:lucky = { has_doctrine_parameter = doctrine_tentacle_slave_worship } }
 			}
 			holder = {
 				send_interface_message = {
