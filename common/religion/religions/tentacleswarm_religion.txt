@@ -33,16 +33,18 @@
 	doctrine = special_doctrine_is_tentacle_corrupted_faith #触手恶堕
 	
 	traits = {
-		virtues = { tentacle_slave = 5 }
-		virtues = { greedy ambitious zealous }
+		virtues = { tentacle_slave greedy ambitious zealous }
 		sins = { lazy content cynical } 
+	}
+	reserved_male_names = {
+		Belet Ezra Hanukkah Hezekiah Isaac Levi Manasseh Nisi Simeon Yavdi Zebulun
+	}
+	
+	reserved_female_names = {
+		Adah Adinah Alte Asnat Batya Bilha Chana Chava Devorah Esther Gisse Hadassah Leah Machla Miriam Puah Peninah Rachel Rivkah Ruth Sarah Tamar Tirtzah Tzipporah Tziviah Yael Yehudit Yiska Yocheved Yonah
 	}
 	custom_faith_icons = {
 		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil
-	}
-
-	holy_order_names = {
-		#{ name = "holy_order_immortals" }
 	}
 
 	holy_order_maa = { tentacleswarm_warbeast }
@@ -154,7 +156,6 @@
 		DevilNamePossessive = tentacleswarm_devil_name_possessive
 		DevilSheHe = CHARACTER_SHEHE_HE
 		DevilHerHis = CHARACTER_HERHIS_HIS
-		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerselfHimself = CHARACTER_HIMSELF
 		EvilGodNames = {
 			tentacleswarm_devil_name
@@ -216,6 +217,8 @@
 		GHWNamePlural = ghw_purifications
 	}	
 	
+	piety_icon_group = "christian"
+
 	faiths = {
 		tentacleswarm_slavery = {
 			color = { 0.37 0.15 0.61 }
@@ -232,8 +235,6 @@
 			doctrine = tenet_warmonger #战狂
 			doctrine = tenet_consolamentum #神慰圣事
 		}
-	}
-	faiths = {
 		tentacleswarm_carns = {
 			color = { 0.68 0.25 0.61 }
 			icon = tentacleswarm_carns
