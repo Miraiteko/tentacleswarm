@@ -25,12 +25,12 @@ tentacleswarm_court.0001 = {
 		modifier = { 
 			factor = 0.5
 			exists = capital_county
-			capital_county.var:tentacleswarm_corruption  = { compare_value > 35 }
+			capital_county.var:tentacleswarm_corruption  > 35
 		}
 		modifier = { 
 			factor = 0
 			exists = capital_county
-			capital_county.var:tentacleswarm_corruption  = { compare_value > 60 }
+			capital_county.var:tentacleswarm_corruption  > 60
 		}
 	}	
 	immediate = {
@@ -531,7 +531,7 @@ tentacleswarm_court.0011 = {
 		#有筑巢省份
 		any_held_title = {
 			tier = tier_county
-			var:tentacleswarm_corruption = { compare_value > 35 }
+			var:tentacleswarm_corruption > 35
 		}
 	}
 	weight_multiplier = {  #首都腐化越高，越倾向于触发这个
@@ -539,12 +539,12 @@ tentacleswarm_court.0011 = {
 		modifier = { 
 			factor = 2
 			exists = capital_county
-			capital_county.var:tentacleswarm_corruption  = { compare_value > 60 }
+			capital_county.var:tentacleswarm_corruption  > 60
 		}
 		modifier = { 
 			factor = 4
 			exists = capital_county
-			capital_county.var:tentacleswarm_corruption  = { compare_value > 100 }
+			capital_county.var:tentacleswarm_corruption  > 100
 		}
 	}
 	immediate = {
@@ -557,7 +557,7 @@ tentacleswarm_court.0011 = {
 		ordered_held_title = {
 			limit = {
 				tier = tier_county
-				var:tentacleswarm_corruption = { compare_value > 35 }
+				var:tentacleswarm_corruption > 35
 			}
 			order_by = var:tentacleswarm_corruption
 			save_scope_as = target_county

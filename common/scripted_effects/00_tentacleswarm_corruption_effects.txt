@@ -5,7 +5,7 @@ tentacleswarm_corruption_county_check = {
 	#五档：10,20,35,60,100
 	if = {
 		limit = { #零档，无腐化
-			var:tentacleswarm_corruption = { compare_value < 10 }
+			var:tentacleswarm_corruption < 10
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_very_low_corruption_province } #改颜色
@@ -67,7 +67,7 @@ tentacleswarm_corruption_county_check = {
 	}
 	else_if = { #一档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 20 } 
+			var:tentacleswarm_corruption < 20 
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_low_corruption_province } 
@@ -130,7 +130,7 @@ tentacleswarm_corruption_county_check = {
 	}
 	else_if = { #二档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 35 }
+			var:tentacleswarm_corruption < 35
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_mid_corruption_province } 
@@ -193,7 +193,7 @@ tentacleswarm_corruption_county_check = {
 	}
 	else_if = { #三档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 60 }
+			var:tentacleswarm_corruption < 60
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_high_corruption_province } 
@@ -256,7 +256,7 @@ tentacleswarm_corruption_county_check = {
 	}
 	else_if = { #四档
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 100 }
+			var:tentacleswarm_corruption < 100
 		}
 		every_county_province = {
 			barony = { set_color_from_title = title:d_very_high_corruption_province } 
@@ -388,7 +388,7 @@ tentacleswarm_corruption_county_check = {
 	#腐化过高改信天灾
 	if = {
 		limit = {
-			var:tentacleswarm_corruption = { compare_value > 100 }
+			var:tentacleswarm_corruption > 100
 			NOT = { 
 				faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 			}
@@ -421,7 +421,7 @@ tentacleswarm_corruption_county_check = {
 	#腐化过低改信别的
 	if = {
 		limit = {
-			var:tentacleswarm_corruption = { compare_value < 20 }
+			var:tentacleswarm_corruption < 20
 			faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 		}
 		random_title_to_title_neighboring_county = { #临近信仰优先

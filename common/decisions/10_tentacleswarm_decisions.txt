@@ -240,7 +240,7 @@ tentacleswarm_anti_start_decision = {
 		is_tentacle_slave = no
 		any_held_title = { #有腐化
 			tier = tier_county 
-			var:tentacleswarm_corruption  = { compare_value >= 10 }
+			var:tentacleswarm_corruption  >= 10
 		}
 	}
 

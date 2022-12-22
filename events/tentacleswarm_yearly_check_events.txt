@@ -1,4 +1,4 @@
-﻿#天灾触发检查相关事件
+#天灾触发检查相关事件
 #0001 统治者年度检查
 #1001 AI天灾信徒年度行动
 #1011 触手奴隶年度检查
@@ -238,7 +238,7 @@ tentacleswarm_yearly_check.0001 = {
 					}
 				}
 				if = { #大于1才结算
-					limit = { var:tentacleswarm_corruption_fed = { compare_value > 1 } } 
+					limit = { var:tentacleswarm_corruption_fed  > 1 } 
 					#吃饱怪物造成发展度下降
 					change_development_progress_with_overflow = {
 						value = var:tentacleswarm_corruption_fed
@@ -256,7 +256,7 @@ tentacleswarm_yearly_check.0001 = {
 				
 				#没吃饱的情况
 				if = { #大于1才结算
-					limit = { var:tentacleswarm_corruption_decrease = { compare_value > 1 } } 
+					limit = { var:tentacleswarm_corruption_decrease > 1  } 
 					
 					#没吃饱的怪物润了或者死了
 					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
