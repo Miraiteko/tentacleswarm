@@ -98,7 +98,7 @@ tentacleswarm_corruption_resist = {
 		add = {
 			value = 20
 			desc = tentacleswarm_corruption_resist_breakdown_religion
-			format = "BASE_VALUE_FORMAT"
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
 	}
 	else_if = { #省份屈服
@@ -108,14 +108,14 @@ tentacleswarm_corruption_resist = {
 		add = {
 			value = 1
 			desc = tentacleswarm_corruption_resist_breakdown_religion
-			format = "BASE_VALUE_FORMAT"
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
 	}
 	else = { #省份忌讳
 		add = {
 			value = 10
 			desc = tentacleswarm_corruption_resist_breakdown_religion
-			format = "BASE_VALUE_FORMAT"
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
 	}
 	if = { #饥渴度削减抵制

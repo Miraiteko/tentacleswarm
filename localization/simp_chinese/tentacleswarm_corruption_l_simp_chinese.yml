@@ -29,12 +29,12 @@
     tentacleswarm_corruption_growth_emigrant:0 "\t迁往周边"
     tentacleswarm_corruption_event:0 "\t统治者事件"
 
-    TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP:1 "#T 腐化抵制：#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_resist')]"
-    tentacleswarm_corruption_resist_breakdown_religion:0 "当地信仰[County.GetFaith.GetName]"
-    tentacleswarm_corruption_resist_breakdown_controller:0 "控制者加成"
-    tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position:0 "触手猎人"
-    tentacleswarm_corruption_resist_breakdown_law_anti:0 "触手灭杀令"
-    tentacleswarm_corruption_resist_breakdown_law_spread:0 "触手播种令"
+    TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP:1 "#T [tentacleswarm_resist|E]强度[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]#!\n发展度:[County.GetDevelopmentLevel|0v]([County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value_minus')|1V%])\n腐化抵制:[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|0v]([County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%])\n来自：\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_resist')]\n\n效果：\n触手月度生长：[Multiply_CFixedPoint(County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value_minus'),'(CFixedPoint)0.05')|=-2%]\n触手月度衰退：[Multiply_CFixedPoint(County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value'),'(CFixedPoint)0.1')|=+2%]"
+    tentacleswarm_corruption_resist_breakdown_religion:0 "\t[County.GetFaith.GetName]对触手的态度"
+    tentacleswarm_corruption_resist_breakdown_controller:0 "\t控制者加成"
+    tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position:0 "\t触手猎人"
+    tentacleswarm_corruption_resist_breakdown_law_anti:0 "\t触手灭杀令"
+    tentacleswarm_corruption_resist_breakdown_law_spread:0 "\t触手播种令"
 
     #传教相关
     TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"

@@ -461,7 +461,7 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
 						default_format = "#high"
 						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
 					}
