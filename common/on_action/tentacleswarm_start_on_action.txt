@@ -85,6 +85,8 @@ tentacleswarm_on_game_start = {
 					prev = { change_variable =  { name = tentacleswarm_corruption_nature add = 1 } }
 				}
 			}
+			#初始化饥渴度
+			set_variable =  { name = tentacleswarm_hunger value = 0 }	
 		}
 		
 		

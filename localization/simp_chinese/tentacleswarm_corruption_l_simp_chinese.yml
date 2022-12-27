@@ -2,30 +2,32 @@
     #地图模式 
     tentacleswarm_corruption_map:0 "触手腐化"
     tentacleswarm_corruption_map_tooltip:0 "在触手腐化地图下你可以纵览各个领地的触手腐化程度。\n紫色越深标明该伯爵领的触手腐化越严重。"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐化抵制：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]\n腐化衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_pencentage')|0V]#V %#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "#T 伯爵领触手腐化：[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]#!\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐化抵制：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]\n腐化衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_pencentage')|0V]#V %#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
     #TENTACLESWARM_CORRUPTION_MAP_MODE_TOOLTIP:0 "[ROOT.Province.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')]\n[GetPlayer.Custom2_Title( 'Tentacleswarn_Corruption_Map_Slave_Loc', ROOT.Province.GetCounty.GetTitle )]\n"
     TENTACLESWARM_CORRUPTION_MAP_MODE_INVISIBLE:0 "\n由于你不是[GetTrait('tentacle_slave').GetName( GetNullCharacter )],你无法看到更多的详细信息。"
     TENTACLESWARM_CORRUPTION_MAP_MODE_VISIBLE:0 "\n作为[GetTrait('tentacle_slave').GetName( GetNullCharacter )],你还能感知到:\n触手腐化浓度：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n腐蚀衰减率：[ROOT.Province.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption_decay').GetValue|1V]#V %/年#!\n发展度：[ROOT.Province.GetCounty.GetDevelopmentLevel|V]"
     #基础信息
-    TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_LOW:0 "#T 伯爵领触手腐化：极低#!"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_LOW:0 "#T 伯爵领触手腐化：低#!"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_MID:0 "#T 伯爵领触手腐化：中等#!"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH:0 "#T 伯爵领触手腐化：严重#!"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH:0 "#T 伯爵领触手腐化：极为严重#!"
-    TENTACLESWARM_CORRUPTION_MAP_MODE_HELL:0 "#T 伯爵领触手腐化：化为地狱#!"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_LOW:0 "极低"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_LOW:0 "低"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_MID:0 "中等"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_HIGH:0 "严重"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_VERY_HIGH:0 "极为严重"
+    TENTACLESWARM_CORRUPTION_MAP_MODE_HELL:0 "化为地狱"
     
     TENTACLESWARM_CORRUPTION_HEADER:0 "正在显示：[tentacleswarm_corruption|E]"
-    TENTACLESWARM_CORRUPTION_TOOLTIP:1 "#T 触手腐化：#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_test_breakdown')]"
 
 
+    BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1:0 "$KEY$：$VALUE|=-2$"
+    BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1:0 "$KEY$：$VALUE|=+2$"
 
-    BASE_VALUE_FORMAT:0 "$KEY$：$VALUE|V0$"
-    BASE_VALUE_FORMAT_PLUS_POSITIVE:0 "$KEY$：#P +$VALUE|1$#!"
-    BASE_VALUE_FORMAT_MINUS_NEGATIVE:0 "$KEY$：#N $VALUE|1$#!"
-    BASE_VALUE_FORMAT_DECIMALS:0 "$KEY$：$VALUE|V2$"
-    BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE:0 "$KEY$：#N +$VALUE|2$#!"
-    BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE:0 "$KEY$：#P $VALUE|2$#!"
-    tentacleswarm_corruption_breakdown_base:0 "触手腐化数额"
+
+    TENTACLESWARM_CORRUPTION_TOOLTIP:1 "触手腐化浓度：[County.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n[County.GetTitle.Custom( 'Tentacleswarn_Corruption_Modifier_Loc')]\n\n月度增长：[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_growth')|=-2]\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_growth')]"
+    tentacleswarm_corruption_growth_value:0 "触手腐化月度增长"
+    tentacleswarm_corruption_growth_fed:0 "\t生长"
+    tentacleswarm_corruption_growth_hunger:0 "\t衰退"
+    tentacleswarm_corruption_growth_immigrant:0 "\t迁自周边"
+    tentacleswarm_corruption_growth_emigrant:0 "\t迁往周边"
+    tentacleswarm_corruption_event:0 "\t统治者事件"
 
     TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP:1 "#T 腐化抵制：#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_resist')]"
     tentacleswarm_corruption_resist_breakdown_religion:0 "当地信仰[County.GetFaith.GetName]"

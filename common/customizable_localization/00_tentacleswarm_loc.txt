@@ -37,6 +37,44 @@ Tentacleswarn_Corruption_Map_Loc = {
 		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_HELL
 	}
 }
+Tentacleswarn_Corruption_Modifier_Loc = {
+	type = landed_title
+	
+	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_VERY_LOW
+		trigger = {
+			var:tentacleswarm_corruption < 10
+		}
+	}
+	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_LOW
+		trigger = {
+			var:tentacleswarm_corruption < 20
+		}
+	}
+	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_MID
+		trigger = {
+			var:tentacleswarm_corruption < 35
+		}
+	}
+	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_HIGH
+		trigger = {
+			var:tentacleswarm_corruption < 60 
+		}
+	}
+	text = {
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_VERY_HIGH
+		trigger = {
+			var:tentacleswarm_corruption < 100 
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = TENTACLESWARM_CORRUPTION_MODIFIER_HELL
+	}
+}
 #奴隶获取详细信息
 Tentacleswarn_Corruption_Map_Slave_Loc = {
 	type = character

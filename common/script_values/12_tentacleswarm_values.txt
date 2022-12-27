@@ -32,6 +32,62 @@ tentacle_pregnancy_chance = { #怀孕概率
 		multiply = 3
 	}
 }
+#腐化度增长
+tentacleswarm_corruption_growth = {
+	add = { #充分喂养
+		value = {
+			value = var:tentacleswarm_corruption
+			multiply = tentacleswarm_corruption_decay_value_minus
+			multiply = 0.05
+		}
+		desc = tentacleswarm_corruption_growth_fed
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+	}
+	add = { #饥饿的
+		value = {
+			value = var:tentacleswarm_corruption
+			multiply = tentacleswarm_corruption_decay_value
+			multiply = -0.1
+		}
+		desc = tentacleswarm_corruption_growth_hunger
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+	}
+	add = {#迁入
+		value = {
+			every_title_to_title_neighboring_and_across_water_county = {
+				add = var:tentacleswarm_corruption
+			}
+			multiply = 0.01
+		}
+		desc = tentacleswarm_corruption_growth_immigrant
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+	}
+	add = {#迁出
+		value = {
+			value = var:tentacleswarm_corruption
+			multiply = {
+				every_title_to_title_neighboring_and_across_water_county = {
+					add = -0.01
+				}
+			}
+		}
+		desc = tentacleswarm_corruption_growth_emigrant
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+	}
+	if = { #事件
+		limit = {
+			exists = holder
+			holder = { exists = var:tentacleswarm_corruption_add }
+		}
+		add = {
+			value = holder.var:tentacleswarm_corruption_add
+			desc = tentacleswarm_corruption_event
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+		} 
+	}
+	desc = tentacleswarm_corruption_growth_value
+	format = "BREAKDOWN_FORMAT_POSITIVE_IS_BAD_1"
+}
 #天灾抵抗力量
 tentacleswarm_corruption_resist = {
 	#基础值
@@ -62,6 +118,16 @@ tentacleswarm_corruption_resist = {
 			format = "BASE_VALUE_FORMAT"
 		}
 	}
+	if = { #饥渴度削减抵制
+		limit = {
+			has_variable = tentacleswarm_hunger
+		}
+		add = {
+			value = tentacleswarm_hunger
+			desc = tentacleswarm_corruption_resist_breakdown_law_anti
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+		}
+	}
 	#修正项
 	#来自伯爵领控制者的修正
 	if = { #灭杀增强抵抗
@@ -72,7 +138,7 @@ tentacleswarm_corruption_resist = {
 		multiply = {
 			value = 2.5
 			desc = tentacleswarm_corruption_resist_breakdown_law_anti
-			format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
 	}
 	if = { #播种令削减抵抗
@@ -83,9 +149,10 @@ tentacleswarm_corruption_resist = {
 		multiply = {
 			value = 0.3
 			desc = tentacleswarm_corruption_resist_breakdown_law_spread
-			format = "BASE_VALUE_FORMAT_MINUS_NEGATIVE"
+			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
 	}
+	
 	if = { #猎人增强抵抗
 		limit = { 
 			exists = county_controller
@@ -105,7 +172,7 @@ tentacleswarm_corruption_resist = {
 			multiply = {
 				value = 2.0
 				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
-				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+				format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 			}
 		}
 		else_if = {
@@ -121,7 +188,7 @@ tentacleswarm_corruption_resist = {
 			multiply = {
 				value = 1.8
 				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
-				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+				format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 			}
 		}
 		else_if = {
@@ -137,7 +204,7 @@ tentacleswarm_corruption_resist = {
 			multiply = {
 				value = 1.6
 				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
-				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+				format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 			}
 		}
 		else_if = {
@@ -153,14 +220,14 @@ tentacleswarm_corruption_resist = {
 			multiply = {
 				value = 1.4
 				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
-				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+				format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 			}
 		}
 		else = {
 			multiply = {
 				value = 1.2
 				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
-				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+				format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 			}
 		}
 	}
@@ -198,23 +265,6 @@ pregnancy_month = {
 	min = 1
 }
 
-tentacleswarm_test_breakdown = {
-	add = {
-		value = var:tentacleswarm_corruption
-		desc = tentacleswarm_corruption_breakdown_base
-		format = "BASE_VALUE_FORMAT_DECIMALS"
-	}
-	if = {
-		limit = {
-			development_level >= 10
-		}
-		multiply = {
-			value = 1.6
-			desc = enormous_realm_salary_mod
-			format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
-		} 
-	}
-}
 # What cultural acceptance should two cultures drift down towards if above?
 # root = culture 1
 # scope:culture = culture 2

@@ -446,7 +446,7 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
 						default_format = "#high"
 						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
 					}
