@@ -37,6 +37,24 @@ tentacleswarm_test_decision = {
 		is_ai = no
 	}	
 	effect = {
+		add_gold = 100
+		culture = {
+			calc_culture_dominant_faith = {
+				add_doctrine = special_doctrine_is_tentacle_corrupted_faith
+				change_fervor= {
+					value = 100
+					desc = fervor_gain_the_chaste
+				}
+			}
+			calc_culture_dominant_religion = {
+				every_faith = {
+					change_fervor= {
+						value = 10
+						desc = fervor_gain_the_chaste
+					}
+				}
+			}
+		} 
 	}
 
 	ai_check_interval = 0

@@ -15,6 +15,24 @@
     TENTACLESWARM_CORRUPTION_MAP_MODE_HELL:0 "#T 伯爵领触手腐化：化为地狱#!"
     
     TENTACLESWARM_CORRUPTION_HEADER:0 "正在显示：[tentacleswarm_corruption|E]"
+    TENTACLESWARM_CORRUPTION_TOOLTIP:1 "#T 触手腐化：#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_test_breakdown')]"
+
+
+
+    BASE_VALUE_FORMAT:0 "$KEY$：$VALUE|V0$"
+    BASE_VALUE_FORMAT_PLUS_POSITIVE:0 "$KEY$：#P +$VALUE|1$#!"
+    BASE_VALUE_FORMAT_MINUS_NEGATIVE:0 "$KEY$：#N $VALUE|1$#!"
+    BASE_VALUE_FORMAT_DECIMALS:0 "$KEY$：$VALUE|V2$"
+    BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE:0 "$KEY$：#N +$VALUE|2$#!"
+    BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE:0 "$KEY$：#P $VALUE|2$#!"
+    tentacleswarm_corruption_breakdown_base:0 "触手腐化数额"
+
+    TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP:1 "#T 腐化抵制：#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_resist')]"
+    tentacleswarm_corruption_resist_breakdown_religion:0 "当地信仰[County.GetFaith.GetName]"
+    tentacleswarm_corruption_resist_breakdown_controller:0 "控制者加成"
+    tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position:0 "触手猎人"
+    tentacleswarm_corruption_resist_breakdown_law_anti:0 "触手灭杀令"
+    tentacleswarm_corruption_resist_breakdown_law_spread:0 "触手播种令"
 
     #传教相关
     TENTACLESWARM_RELIGION_CONVERT:0 "伯爵领腐化度"

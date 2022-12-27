@@ -34,113 +34,136 @@ tentacle_pregnancy_chance = { #怀孕概率
 }
 #天灾抵抗力量
 tentacleswarm_corruption_resist = {
-	value = 0 #基础抵制强度
 	#基础值
 	if = { #省份敌意
 		limit = {
 			faith = { has_doctrine_parameter = doctrine_tentacle_slave_evil }
 		}
-		add = 20
+		add = {
+			value = 20
+			desc = tentacleswarm_corruption_resist_breakdown_religion
+			format = "BASE_VALUE_FORMAT"
+		}
 	}
 	else_if = { #省份屈服
 		limit = {
 			faith = { has_doctrine_parameter = doctrine_tentacle_slave_worship }
 		}
-		add = 1
+		add = {
+			value = 1
+			desc = tentacleswarm_corruption_resist_breakdown_religion
+			format = "BASE_VALUE_FORMAT"
+		}
 	}
 	else = { #省份忌讳
-		add = 10
+		add = {
+			value = 10
+			desc = tentacleswarm_corruption_resist_breakdown_religion
+			format = "BASE_VALUE_FORMAT"
+		}
 	}
 	#修正项
-	multiply = {
-		value = 1
-		add = {
-			#来自伯爵领控制者的修正
-			county_controller =  { 
-				if = { #灭杀增强抵抗
-					limit = {
-						has_character_modifier = tentacleswarm_anti
-					}
-					add = 1.5
-				}
-				if = { #播种令削减抵抗
-					limit = {
-						has_character_modifier = tentacleswarm_spread
-					}
-					add = -0.7
-				}
-				if = { #猎人增强抵抗
-					limit = { employs_court_position = tentacle_hunter_court_position }
-					add = {
-						value = 0
-						#根据称职度程度给予加成
-						if = {
-							limit = {
-								any_court_position_holder = {
-									type = tentacle_hunter_court_position
-									aptitude = {
-										court_position = tentacle_hunter_court_position
-										value = 5
-									}
-								}
-							}
-							add = 1.0
-						}
-						else_if = {
-							limit = {
-								any_court_position_holder = {
-									type = tentacle_hunter_court_position
-									aptitude = {
-										court_position = tentacle_hunter_court_position
-										value = 4
-									}
-								}
-							}
-							add = 0.8
-						}
-						else_if = {
-							limit = {
-								any_court_position_holder = {
-									type = tentacle_hunter_court_position
-									aptitude = {
-										court_position = tentacle_hunter_court_position
-										value = 4
-									}
-								}
-							}
-							add = 0.6
-						}
-						else_if = {
-							limit = {
-								any_court_position_holder = {
-									type = tentacle_hunter_court_position
-									aptitude = {
-										court_position = tentacle_hunter_court_position
-										value = 2
-									}
-								}
-							}
-							add = 0.4
-						}
-						else = {
-							add = 0.2
-						}
-						#如果触手猎人是奴隶，改为削减抵抗
-						if = {
-							limit = {
-								any_court_position_holder = {
-									type = tentacle_hunter_court_position
-									is_tentacle_slave = yes
-								}
-							}
-							multiply = -0.7
-						}
+	#来自伯爵领控制者的修正
+	if = { #灭杀增强抵抗
+		limit = {
+			exists = county_controller
+			county_controller =  { has_character_modifier = tentacleswarm_anti }
+		}
+		multiply = {
+			value = 2.5
+			desc = tentacleswarm_corruption_resist_breakdown_law_anti
+			format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+		}
+	}
+	if = { #播种令削减抵抗
+		limit = {
+			exists = county_controller
+			county_controller =  { has_character_modifier = tentacleswarm_spread }
+		}
+		multiply = {
+			value = 0.3
+			desc = tentacleswarm_corruption_resist_breakdown_law_spread
+			format = "BASE_VALUE_FORMAT_MINUS_NEGATIVE"
+		}
+	}
+	if = { #猎人增强抵抗
+		limit = { 
+			exists = county_controller
+			county_controller =  { employs_court_position = tentacle_hunter_court_position } 
+		}
+		#根据称职度程度给予加成
+		if = {
+			limit = {
+				any_court_position_holder = {
+					type = tentacle_hunter_court_position
+					aptitude = {
+						court_position = tentacle_hunter_court_position
+						value = 5
 					}
 				}
 			}
+			multiply = {
+				value = 2.0
+				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
+				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			}
+		}
+		else_if = {
+			limit = {
+				any_court_position_holder = {
+					type = tentacle_hunter_court_position
+					aptitude = {
+						court_position = tentacle_hunter_court_position
+						value = 4
+					}
+				}
+			}
+			multiply = {
+				value = 1.8
+				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
+				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			}
+		}
+		else_if = {
+			limit = {
+				any_court_position_holder = {
+					type = tentacle_hunter_court_position
+					aptitude = {
+						court_position = tentacle_hunter_court_position
+						value = 3
+					}
+				}
+			}
+			multiply = {
+				value = 1.6
+				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
+				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			}
+		}
+		else_if = {
+			limit = {
+				any_court_position_holder = {
+					type = tentacle_hunter_court_position
+					aptitude = {
+						court_position = tentacle_hunter_court_position
+						value = 2
+					}
+				}
+			}
+			multiply = {
+				value = 1.4
+				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
+				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			}
+		}
+		else = {
+			multiply = {
+				value = 1.2
+				desc = tentacleswarm_corruption_resist_breakdown_tentacle_hunter_court_position
+				format = "BASE_VALUE_FORMAT_PLUS_POSITIVE"
+			}
 		}
 	}
-	min = 0.1
 }
 #衰减率 = 抵制/(发展度+抵制)
 tentacleswarm_corruption_decay_value = {
@@ -175,8 +198,23 @@ pregnancy_month = {
 	min = 1
 }
 
-tentacleswarm_test_breakdown = var:tentacleswarm_corruption
-
+tentacleswarm_test_breakdown = {
+	add = {
+		value = var:tentacleswarm_corruption
+		desc = tentacleswarm_corruption_breakdown_base
+		format = "BASE_VALUE_FORMAT_DECIMALS"
+	}
+	if = {
+		limit = {
+			development_level >= 10
+		}
+		multiply = {
+			value = 1.6
+			desc = enormous_realm_salary_mod
+			format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+		} 
+	}
+}
 # What cultural acceptance should two cultures drift down towards if above?
 # root = culture 1
 # scope:culture = culture 2

@@ -448,7 +448,7 @@ window = {
 					text_single = {
 						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]"
 						default_format = "#high"
-						tooltip = "COUNTY_DEVELOPMENT_TOOLTIP"
+						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
 					}
 				}
 
@@ -463,7 +463,7 @@ window = {
 					text_single = {
 						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|1V]"
 						default_format = "#high"
-						tooltip = "COUNTY_DEVELOPMENT_TOOLTIP"
+						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
 					}
 				}
 
