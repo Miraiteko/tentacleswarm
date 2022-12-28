@@ -20,3 +20,27 @@ tentacle_slave_group = {
 	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
 	parent = trait
 }
+
+#势力区分
+clout = {
+}
+clout_tentacleswarm_pop = { #
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+	parent = clout
+}
+clout_tentacleswarm_carns = { #
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+	parent = clout
+}
+clout_tentacleswarm_warbeast = {
+	texture = "gfx/interface/icons/traits/tentacle_icon.dds"
+	parent = clout
+}
+clout_tentacleswarm_college = {
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+	parent = clout
+}
+clout_tentacleswarm_hunter = {
+	texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+	parent = clout
+}

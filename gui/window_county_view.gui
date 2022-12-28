@@ -9,7 +9,7 @@ window = {
 	allow_outside = yes
 	movable = no
 	layer = windows_layer
-	size = { 650 700 }
+	size = { 650 780 }
 	datacontext = "[HoldingView.GetHolding]"
 	datacontext = "[HoldingView.GetProvince]"
 	datacontext = "[HoldingView.GetHolder]"
@@ -437,36 +437,6 @@ window = {
 					}
 				}
 
-				hbox = { #Mirai:¸¯»¯
-					layoutpolicy_horizontal = expanding
-
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						raw_text = "[tentacleswarm_corruption|E]:"
-					}
-
-					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
-						default_format = "#high"
-						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
-					}
-				}
-
-				hbox = { #Mirai:µÖÖÆ
-					layoutpolicy_horizontal = expanding
-
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						raw_text = "[tentacleswarm_resist|E]:"
-					}
-
-					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
-						default_format = "#high"
-						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
-					}
-				}
-
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					spacing = 3
@@ -592,6 +562,87 @@ window = {
 						}
 					}
 				}
+				 #Miraiï¼šCLOUT
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "#v[clout|E]:#!"
+					}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "[clout_tentacleswarm_pop|E]:"
+					}
+
+					text_single = {
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
+						default_format = "#high"
+						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
+					}
+				}
+				
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "[clout_tentacleswarm_carns|E]:"
+					}
+
+					text_single = {
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
+						default_format = "#high"
+						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
+					}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "[clout_tentacleswarm_warbeast|E]:"
+					}
+
+					text_single = {
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						default_format = "#high"
+						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
+					}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "[clout_tentacleswarm_college|E]:"
+					}
+
+					text_single = {
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						default_format = "#high"
+						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
+					}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						raw_text = "[clout_tentacleswarm_hunter|E]:"
+					}
+
+					text_single = {
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						default_format = "#high"
+						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
+					}
+				}
+
 			}
 		}
 
