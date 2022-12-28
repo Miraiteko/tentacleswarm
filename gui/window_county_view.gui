@@ -580,9 +580,9 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_pop_value')|1]([HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_pop_ratio')|1%])"
 						default_format = "#high"
-						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
+						tooltip = "clout_tentacleswarm_pop_value_tooltip"
 					}
 				}
 				
@@ -595,9 +595,9 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]([HoldingView.GetProvince.GetCounty.GetTitle.Custom( 'Tentacleswarn_Corruption_Map_Loc')])"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_carns_value')|1]([HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_carns_ratio')|1%])"
 						default_format = "#high"
-						tooltip = "TENTACLESWARM_CORRUPTION_TOOLTIP"
+						tooltip = "clout_tentacleswarm_carns_value_tooltip" 
 					}
 				}
 				hbox = {
@@ -609,7 +609,7 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_warbeast_value')|1]([HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_warbeast_ratio')|1%])"
 						default_format = "#high"
 						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
 					}
@@ -623,7 +623,7 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_college_value')|1]([HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_college_ratio')|1%])"
 						default_format = "#high"
 						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
 					}
@@ -637,7 +637,7 @@ window = {
 					}
 
 					text_single = {
-						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]"
+						text = "[HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_hunter_value')|1]([HoldingView.GetProvince.GetCounty.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_hunter_ratio')|1%])"
 						default_format = "#high"
 						tooltip = "TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP"
 					}

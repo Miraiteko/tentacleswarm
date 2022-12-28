@@ -34,14 +34,18 @@
     game_concept_clout_tentacleswarm_college:0 "深渊学会"
     game_concept_clout_tentacleswarm_college_desc:0 "深渊学会"
 
+    #势力数值
+    clout_tentacleswarm_pop_value_tooltip:1 "#T 普罗大众势力：[County.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_pop_value')|1V]#!\n[County.GetTitle.MakeScope.GetScriptValueDesc('clout_tentacleswarm_pop_value')]\n\n势力占比：[County.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_pop_ratio')|1%V]\n效果：\n"
+    clout_tentacleswarm_pop_value_holding:0 "·地产数量"
+    clout_tentacleswarm_pop_value_development:0 "·发展度"
 
-    TENTACLESWARM_CORRUPTION_TOOLTIP:1 "触手腐化浓度：[County.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|0V]\n[County.GetTitle.Custom( 'Tentacleswarn_Corruption_Modifier_Loc')]\n\n月度增长：[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_growth')|=-2]\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_growth')]"
-    tentacleswarm_corruption_growth_value:0 "触手腐化月度增长"
-    tentacleswarm_corruption_growth_fed:0 "\t生长"
-    tentacleswarm_corruption_growth_hunger:0 "\t衰退"
-    tentacleswarm_corruption_growth_immigrant:0 "\t迁自周边"
-    tentacleswarm_corruption_growth_emigrant:0 "\t迁往周边"
-    tentacleswarm_corruption_event:0 "\t统治者事件"
+    clout_tentacleswarm_carns_value_tooltip:1 "#T 纵欲教派势力：[County.GetTitle.MakeScope.Var('tentacleswarm_corruption').GetValue|1V]#!\n月度增长：[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_growth')|=-2]\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_growth')]\n\n势力占比：[County.GetTitle.MakeScope.ScriptValue('clout_tentacleswarm_carns_ratio')|1%V]\n效果：\n"
+    tentacleswarm_corruption_growth_value:0 "·触手腐化月度增长"
+    tentacleswarm_corruption_growth_fed:0 "·生长"
+    tentacleswarm_corruption_growth_hunger:0 "·衰退"
+    tentacleswarm_corruption_growth_immigrant:0 "·迁自周边"
+    tentacleswarm_corruption_growth_emigrant:0 "·迁往周边"
+    tentacleswarm_corruption_event:0 "·统治者事件"
 
     TENTACLESWARM_CORRUPTION_RESIST_TOOLTIP:1 "#T [tentacleswarm_resist|E]强度[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%]#!\n发展度:[County.GetDevelopmentLevel|0v]([County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value_minus')|1V%])\n腐化抵制:[County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_resist')|0v]([County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value')|1V%])\n来自：\n[County.GetTitle.MakeScope.GetScriptValueDesc('tentacleswarm_corruption_resist')]\n\n效果：\n触手月度生长：[Multiply_CFixedPoint(County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value_minus'),'(CFixedPoint)0.05')|=-2%]\n触手月度衰退：[Multiply_CFixedPoint(County.GetTitle.MakeScope.ScriptValue('tentacleswarm_corruption_decay_value'),'(CFixedPoint)0.1')|=+2%]"
     tentacleswarm_corruption_resist_breakdown_religion:0 "\t[County.GetFaith.GetName]对触手的态度"

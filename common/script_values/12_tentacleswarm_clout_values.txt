@@ -1,0 +1,73 @@
+﻿clout_tentacleswarm_pop_value = {
+	add = {
+		value = {
+			every_county_province = {
+				limit = { has_holding = yes }
+				add = 1
+			}
+		}
+		desc = clout_tentacleswarm_pop_value_holding
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+	add = {
+		value = development_level
+		desc = clout_tentacleswarm_pop_value_development
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+}
+clout_tentacleswarm_carns_value = {
+	add = {
+		value = var:tentacleswarm_corruption
+		desc = clout_tentacleswarm_pop_value_development
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+}
+clout_tentacleswarm_warbeast_value = {
+	add = {
+		value = 2
+		desc = clout_tentacleswarm_pop_value_development
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+}
+clout_tentacleswarm_college_value = {
+	add = {
+		value = 3
+		desc = clout_tentacleswarm_pop_value_development
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+}
+clout_tentacleswarm_hunter_value = {
+	add = {
+		value = 4
+		desc = clout_tentacleswarm_pop_value_development
+		format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
+	}
+}
+clout_tentacleswarm_total_value = {
+	add = clout_tentacleswarm_pop_value
+	add = clout_tentacleswarm_carns_value
+	add = clout_tentacleswarm_warbeast_value
+	add = clout_tentacleswarm_college_value
+	add = clout_tentacleswarm_hunter_value
+	min = 1
+}
+clout_tentacleswarm_pop_ratio = {
+	add = clout_tentacleswarm_pop_value
+	divide = clout_tentacleswarm_total_value
+}
+clout_tentacleswarm_carns_ratio = {
+	add = clout_tentacleswarm_carns_value
+	divide = clout_tentacleswarm_total_value
+}
+clout_tentacleswarm_warbeast_ratio = {
+	add = clout_tentacleswarm_warbeast_value
+	divide = clout_tentacleswarm_total_value
+}
+clout_tentacleswarm_college_ratio = {
+	add = clout_tentacleswarm_college_value
+	divide = clout_tentacleswarm_total_value
+}
+clout_tentacleswarm_hunter_ratio = {
+	add = clout_tentacleswarm_hunter_value
+	divide = clout_tentacleswarm_total_value
+}
