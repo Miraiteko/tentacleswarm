@@ -55,6 +55,7 @@
     #新ui
     OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "查看触手侵染情况"
     CANT_OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "@warning_icon!#X 无法查看触手侵染情况，因为该角色是男性#!"
+    DEGENERATION_LABEL:0 "子宫腐化"
     
     
 

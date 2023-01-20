@@ -1,0 +1,535 @@
+﻿# This window is just for testing. You can spawn it from the console menu.
+window = { 
+	name = "character_degeneration_window"
+
+	size = { 1600 900 }
+	layer = middle
+
+	position = { 120 100 }
+
+	visible = "[GetVariableSystem.HasValue( 'character_degeneration_open', 'true' )]"
+	using = Window_Movable
+	using = Window_Background
+	using = Window_Decoration_Spike
+			
+	vbox = { 
+		using = Window_Margins
+		name = "header"
+
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "header_text"
+			{
+				text = "触手恶堕"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[GetVariableSystem.Toggle( 'character_degeneration_open')]"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			#左侧是触手精液含量
+			widget = {
+				name = "left side"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				size = { 250 0 }
+
+				background = {
+					texture = "gfx/interface/icons/inventory/character_paperdoll.dds"
+					fittype = centercrop
+					alpha = 0.6
+					margin_bottom = -100
+					margin_left = -10
+					margin_right = -10
+					margin_top = -10
+				}
+				widget = {
+					parentanchor = right
+					size = { 500 40 }
+					position = { 5 5 }
+					widget = {
+						name = "degeneration_uses_this"
+						parentanchor = right
+						size = { 400 40 }
+		
+						progressbar_frozen = { #背景条
+							name = "background"
+							layoutpolicy_horizontal = expanding
+							size = { 400 40 }
+							value = 0
+						}
+						progressbar = { #主条
+							name = "degeneration_value_bar"
+							size = { 400 40 }
+							value = 40
+							alpha = 1
+		
+							progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
+							color = { 1.0 1.0 0.8 1 }
+							noprogresstexture = "gfx/interface/progressbars/blank.dds"
+							marker = {
+								name = "current_value"
+								widget = {
+									icon = {
+										size = { 25 36 }
+										position = { -20 2 }
+										texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+										color = { 0.9.0 0.6 0.8 1 }
+									}
+								}
+							}
+						}
+						icon = {
+							name = "grandeur_bar_bracket_left"
+							texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
+							size = { 29 60 }
+							position = { -10 -10 }
+							parentanchor = left
+						}
+		
+						icon = {
+							name = "grandeur_bar_bracket_right"
+							texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_right.dds"
+							size = { 29 60 }
+							position = { 10 -10 }
+							parentanchor = right
+						}
+					}
+				}
+			}
+
+			divider = {
+				layoutpolicy_vertical = expanding
+			}
+
+			#右侧是恶堕度表
+			vbox = { 
+				name = "right_side"
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 552 -1 }
+				margin_top = 50
+				margin_left = -2
+				@progress_bar_size = 700
+				@progress_widget_size = 750
+				@progress_bar_spacing = @[progress_bar_size / 20] # Number of steps for level items
+		
+				widget = {
+					name = "卵巢恶堕"
+					flowcontainer = {
+						name = "current_value_text"
+						parentanchor = hcenter|vcenter
+						spacing = 10
+						margin_left = 25
+			
+						icon_flat_standard = {
+							name = "degeneration_icon"
+							size = { 45 45 }
+							texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+						}
+			
+						text_single = {
+							name = "degeneration_label"
+							text =  "卵巢恶堕"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+						### 标准进度条 ###
+						widget = {
+							parentanchor = left
+							size = { @progress_widget_size 40 }
+							position = { 5 5 }
+							widget = {
+								name = "degeneration_uses_this"
+								parentanchor = left
+								size = { @progress_bar_size 40 }
+				
+								progressbar_frozen = { #背景条
+									name = "background"
+									layoutpolicy_horizontal = expanding
+									size = { @progress_bar_size 40 }
+									value = 0
+								}
+								progressbar = { #调色条
+									name = "degeneration_pure_bar"
+									size = { @progress_bar_size 40 }
+									value = 40
+				
+									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
+									
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.8 0.8 0.8 1 }
+											}
+										}
+									}
+								}
+								progressbar = { #主条
+									name = "degeneration_value_bar"
+									size = { @progress_bar_size 40 }
+									value = 40
+									alpha = 0.4
+				
+									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
+									noprogresstexture = "gfx/interface/progressbars/blank.dds"
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.9.0 0.6 0.8 1 }
+											}
+										}
+									}
+								}
+								icon = {
+									name = "grandeur_bar_bracket_left"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
+									size = { 29 60 }
+									position = { -10 -10 }
+									parentanchor = left
+								}
+				
+								icon = {
+									name = "grandeur_bar_bracket_right"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_right.dds"
+									size = { 29 60 }
+									position = { 10 -10 }
+									parentanchor = right
+								}
+							}
+						}
+					}
+				}
+				hbox ={
+					margin = { 10 5 }
+					margin_bottom = 10
+					spacing = 50
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕变化"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕效果"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+				}
+				divider = {
+					layoutpolicy_horizontal = expanding
+				}
+				widget = {
+					name = "子宫恶堕"
+					flowcontainer = {
+						name = "current_value_text"
+						parentanchor = hcenter|vcenter
+						spacing = 10
+						margin_left = 25
+			
+						icon_flat_standard = {
+							name = "degeneration_icon"
+							size = { 45 45 }
+							texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+						}
+			
+						text_single = {
+							name = "degeneration_label"
+							text =  "子宫恶堕"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+						### 标准进度条 ###
+						widget = {
+							parentanchor = left
+							size = { @progress_widget_size 40 }
+							position = { 5 5 }
+							widget = {
+								name = "degeneration_uses_this"
+								parentanchor = left
+								size = { @progress_bar_size 40 }
+				
+
+								progressbar_frozen = { #背景条
+									name = "background"
+									layoutpolicy_horizontal = expanding
+									size = { @progress_bar_size 40 }
+									value = 0
+								}
+								progressbar = { #调色条
+									name = "degeneration_pure_bar"
+									size = { @progress_bar_size 40 }
+									value = 60
+				
+									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
+									
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.8 0.8 0.8 1 }
+											}
+										}
+									}
+								}
+								progressbar = { #主条
+									name = "degeneration_value_bar"
+									size = { @progress_bar_size 40 }
+									value = 60
+									alpha = 0.6
+				
+									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
+									noprogresstexture = "gfx/interface/progressbars/blank.dds"
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.9.0 0.6 0.8 1 }
+											}
+										}
+									}
+								}
+				
+								icon = {
+									name = "grandeur_bar_bracket_left"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
+									size = { 29 60 }
+									position = { -10 -10 }
+									parentanchor = left
+								}
+				
+								icon = {
+									name = "grandeur_bar_bracket_right"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_right.dds"
+									size = { 29 60 }
+									position = { 10 -10 }
+									parentanchor = right
+								}
+							}
+						}
+					}
+				}
+				hbox ={
+					margin = { 10 5 }
+					margin_bottom = 10
+					spacing = 50
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕变化"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕效果"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+				}
+				divider = {
+					layoutpolicy_horizontal = expanding
+				}
+				widget = {
+					name =  "阴道恶堕"
+					flowcontainer = {
+						name = "current_value_text"
+						parentanchor = hcenter|vcenter
+						spacing = 10
+						margin_left = 25
+			
+						icon_flat_standard = {
+							name = "degeneration_icon"
+							size = { 45 45 }
+							texture = "gfx/interface/icons/traits/tentacle_defiled.dds"
+						}
+			
+						text_single = {
+							name = "degeneration_label"
+							text =  "阴道恶堕"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+						### 标准进度条 ###
+						widget = {
+							parentanchor = left
+							size = { @progress_widget_size 40 }
+							position = { 5 5 }
+							widget = {
+								name = "degeneration_uses_this"
+								parentanchor = left
+								size = { @progress_bar_size 40 }
+				
+
+								progressbar_frozen = { #背景条
+									name = "background"
+									layoutpolicy_horizontal = expanding
+									size = { @progress_bar_size 40 }
+									value = 0
+								}
+								progressbar = { #调色条
+									name = "degeneration_pure_bar"
+									size = { @progress_bar_size 40 }
+									value = 90
+				
+									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
+									color = { 0.8 0.8 0.8 1 }
+									
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.8 0.8 0.8 1 }
+											}
+										}
+									}
+								}
+								progressbar = { #主条
+									name = "degeneration_value_bar"
+									size = { @progress_bar_size 40 }
+									value = 90
+									alpha = 0.9
+				
+									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
+									noprogresstexture = "gfx/interface/progressbars/blank.dds"
+									marker = {
+										name = "current_value"
+										widget = {
+											icon = {
+												size = { 25 36 }
+												position = { -20 2 }
+												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+												color = { 0.9.0 0.6 0.8 1 }
+											}
+										}
+									}
+								}
+				
+								icon = {
+									name = "grandeur_bar_bracket_left"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
+									size = { 29 60 }
+									position = { -10 -10 }
+									parentanchor = left
+								}
+				
+								icon = {
+									name = "grandeur_bar_bracket_right"
+									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_right.dds"
+									size = { 29 60 }
+									position = { 10 -10 }
+									parentanchor = right
+								}
+							}
+						}
+					}
+				}
+				hbox ={
+					margin = { 10 5 }
+					margin_bottom = 10
+					spacing = 50
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕变化"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+					button_standard_clean = {
+						layoutpolicy_horizontal = expanding
+						size = { 350 150 }
+						background = {
+							texture = "gfx/interface/progressbars/progress_gray.dds"
+							alpha = 0.4
+						}
+						text_single = {
+							parentanchor = up|hcenter
+							name = "effect_label"
+							text =  "当前恶堕效果"
+							
+							margin_top = 5
+							using = Font_Size_Small
+						}
+					}
+				}
+			}
+		}
+	}	
+
+}
