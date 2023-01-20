@@ -1,2 +1,3 @@
 ﻿gui/tentacleswarm_hud.gui = tentacleswarm_hud
 gui/tentacleswarm_hud.gui = tentacle_hud_bottom
+gui/bork.gui = kings_bork_window

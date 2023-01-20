@@ -3,8 +3,8 @@ namespace = tentacleswarm_scene
 #0011经典水井杀
 #0021天生奴隶
 #0031主动要求赐福
-#0041被监禁者腐化
-#0051同意被腐化
+#0041被监禁者恶堕
+#0051同意被恶堕
 #0061蠕动的床铺
 #0071半路
 #0081精神崩溃
@@ -145,11 +145,11 @@ tentacleswarm_scene.0012 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
-	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
-	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
-	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
+	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_degenerate_reject_effect计算是否成功抵抗
 	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
 	
 	#接受选项
@@ -158,7 +158,7 @@ tentacleswarm_scene.0012 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -169,7 +169,7 @@ tentacleswarm_scene.0012 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -185,7 +185,7 @@ tentacleswarm_scene.0012 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -255,7 +255,7 @@ tentacleswarm_scene.0013 = {
 	}
 }
 
-#天生奴隶腐化，15岁触发
+#天生奴隶恶堕，15岁触发
 tentacleswarm_scene.0021 = {
 	type = character_event
 	title = tentacleswarm_scene.0021.t
@@ -431,11 +431,11 @@ tentacleswarm_scene.0032 = {
 	}
 	 
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
 	option = {
 		name = tentacleswarm_scene.0032.a
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		
 		ai_chance = {
 			base = 1000 #被赐福的情况下，更有可能接受
@@ -451,7 +451,7 @@ tentacleswarm_scene.0032 = {
 			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_scene.refuse
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -498,7 +498,7 @@ tentacleswarm_scene.0033 = {
 	after = {
 	}
 }
-#被囚禁者腐化
+#被囚禁者恶堕
 #预处理
 tentacleswarm_scene.0040 = {
 	hidden = yes
@@ -592,11 +592,11 @@ tentacleswarm_scene.0042 = {
 	right_portrait = scope:imprisoner
 	 
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
 	option = {
 		name = tentacleswarm_scene.accept
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -612,7 +612,7 @@ tentacleswarm_scene.0042 = {
 			has_perk = tentacle_corruption_22_perk
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		
 		ai_chance = {
 			base = 100
@@ -895,7 +895,7 @@ tentacleswarm_scene.0052 = {
 	}
 	
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
 	
 	#接受选项
@@ -904,7 +904,7 @@ tentacleswarm_scene.0052 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -915,7 +915,7 @@ tentacleswarm_scene.0052 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -931,7 +931,7 @@ tentacleswarm_scene.0052 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -1216,11 +1216,11 @@ tentacleswarm_scene.0062 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
-	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
-	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
-	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
+	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_degenerate_reject_effect计算是否成功抵抗
 	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
 	
 	#接受选项
@@ -1229,7 +1229,7 @@ tentacleswarm_scene.0062 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1240,7 +1240,7 @@ tentacleswarm_scene.0062 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1256,7 +1256,7 @@ tentacleswarm_scene.0062 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -1433,11 +1433,11 @@ tentacleswarm_scene.0072 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
-	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
-	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
-	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
+	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_degenerate_reject_effect计算是否成功抵抗
 	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
 	
 	#接受选项
@@ -1446,7 +1446,7 @@ tentacleswarm_scene.0072 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1457,7 +1457,7 @@ tentacleswarm_scene.0072 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1473,7 +1473,7 @@ tentacleswarm_scene.0072 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -1605,8 +1605,8 @@ tentacleswarm_scene.0081 = {
 		ROOT = { save_scope_as = stress_character } # For stress widget
 
 
-		#搜寻两个合适的减压选项，请求被腐化，放荡，蛰居
-		#请求被腐化
+		#搜寻两个合适的减压选项，请求被恶堕，放荡，蛰居
+		#请求被恶堕
 		if = {
 			limit = { NOT = { has_character_flag = stress_threshold_option_corruption } }
 			random_known_secret = {
@@ -1617,7 +1617,7 @@ tentacleswarm_scene.0081 = {
 						ROOT = {
 							is_character_interaction_valid = {
 							   recipient = PREV
-							   interaction = ask_for_tentacle_corruption_interaction
+							   interaction = ask_for_tentacle_degeneration_interaction
 							}
 						}
 					}
@@ -1638,7 +1638,7 @@ tentacleswarm_scene.0081 = {
 					ROOT = {
 						is_character_interaction_valid = {
 						   recipient = PREV
-						   interaction = ask_for_tentacle_corruption_interaction
+						   interaction = ask_for_tentacle_degeneration_interaction
 						}
 					}
 				}
@@ -1655,7 +1655,7 @@ tentacleswarm_scene.0081 = {
 					ROOT = {
 						is_character_interaction_valid = {
 						   recipient = PREV
-						   interaction = ask_for_tentacle_corruption_interaction
+						   interaction = ask_for_tentacle_degeneration_interaction
 						}
 					}
 				}
@@ -1672,7 +1672,7 @@ tentacleswarm_scene.0081 = {
 					ROOT = {
 						is_character_interaction_valid = {
 						   recipient = PREV
-						   interaction = ask_for_tentacle_corruption_interaction
+						   interaction = ask_for_tentacle_degeneration_interaction
 						}
 					}
 				}
@@ -1856,11 +1856,11 @@ tentacleswarm_scene.0092 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
-	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
-	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
-	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
+	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_degenerate_reject_effect计算是否成功抵抗
 	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
 	
 	#接受选项
@@ -1869,7 +1869,7 @@ tentacleswarm_scene.0092 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1880,7 +1880,7 @@ tentacleswarm_scene.0092 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -1896,7 +1896,7 @@ tentacleswarm_scene.0092 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes
@@ -2045,11 +2045,11 @@ tentacleswarm_scene.0102 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_corrupt_effect = yes
+		tentacle_degenerate_effect = yes
 	}
-	#下面的选项决定主人公是否屈服于主人，不抵抗腐化
-	#接受tentacle_corrupt_accept_effect将导致【转】部分的恶堕事件
-	#拒绝tentacle_corrupt_reject_effect计算是否成功抵抗
+	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
+	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件
+	#拒绝tentacle_degenerate_reject_effect计算是否成功抵抗
 	#如果抵抗失败了依然导致恶堕事件，否则只有提示横幅，然后跳过【转】部分。
 	
 	#接受选项
@@ -2058,7 +2058,7 @@ tentacleswarm_scene.0102 = {
 		trigger = {
 			is_tentacle_slave = yes
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -2069,7 +2069,7 @@ tentacleswarm_scene.0102 = {
 		trigger = {
 			is_tentacle_slave = no
 		}
-		tentacle_corrupt_accept_effect = yes
+		tentacle_degenerate_accept_effect = yes
 		ai_chance = {
 			base = 100
 			ai_accept_corrupt_modifier = yes
@@ -2085,7 +2085,7 @@ tentacleswarm_scene.0102 = {
 			has_perk = tentacle_corruption_22_perk #如果是触手奴隶了，这个选项看不到
 		}
 		name = tentacleswarm_scene.reject
-		tentacle_corrupt_reject_effect = yes
+		tentacle_degenerate_reject_effect = yes
 		ai_chance = {
 			base = 100
 			ai_reject_corrupt_modifier = yes

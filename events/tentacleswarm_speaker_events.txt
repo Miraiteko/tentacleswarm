@@ -9,12 +9,12 @@ tentacleswarm_speaker.0001 = {
 	}
 	
 	immediate = {
-		if = { #进行腐化
+		if = { #进行恶堕
 			limit = {
 				is_ruler = no
 				is_imprisoned = no
 			}
-			if = { #如果有location,寻找当前宫廷内的一个合理对象腐化
+			if = { #如果有location,寻找当前宫廷内的一个合理对象恶堕
 				limit = {
 					exists = location
 					exists = location.county

@@ -7,14 +7,14 @@ tentacle_encounter_random_pulse = {
 	}
 }
 #被触手袭击的时候
-on_tentacle_corrupt_pulse = {
+on_tentacle_degenerate_pulse = {
 	events = {
 	}
 }
 #scope:slave是被发现的奴隶，ROOT是发现者
 tentacle_slave_discover_random_pulse = {
 	random_events = {
-		100 = tentacle_corrupt_scheme.9997 #小巷
+		100 = tentacle_degenerate_scheme.9997 #小巷
 	}
 }
 

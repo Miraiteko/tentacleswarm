@@ -65,7 +65,7 @@ tentacleswarm_baby_corruption = {
 				}
 				OR = {
 					is_ruler = yes #或者是一位领主，可以自由地寻找机会去寻找主人
-					any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会腐化未来的继承人
+					any_spouse = { is_ruler = yes } #或者是一位领主夫人，会尽可能地找机会恶堕未来的继承人
 					has_trait = tentacle_slave #或者是已经公开的奴隶
 				}
 			}
@@ -281,7 +281,7 @@ tentacleswarm_adult_pulse = {
 				is_congenital_tentacle_slave = yes 
 			}
 			trigger_event = {
-				id = tentacleswarm_scene.0021 #天生腐化
+				id = tentacleswarm_scene.0021 #天生恶堕
 			}
 		}
 	}

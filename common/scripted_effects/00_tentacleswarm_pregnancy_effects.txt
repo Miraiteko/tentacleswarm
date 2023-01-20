@@ -459,7 +459,7 @@ tentacle_pregnancy_termination_attempt_effect = {
 				left_icon = ROOT
 				title = tentacle_pregnancy_termination_attempt.t
 				show_as_tooltip = {
-					custom_tooltip = tentacle_corrupt_reject_success.tt
+					custom_tooltip = tentacle_degenerate_reject_success.tt
 				}
 			}
 		}

@@ -6,7 +6,7 @@
       
     tentacle_corruption_tree_name:0 "堕落之路"
     
-    #前期腐化
+    #前期恶堕
     tentacle_corruption_01_perk_name:0 "恶堕芬芳"
     tentacle_corruption_01_perk_tt_1:0 "#N 你受到触手的袭击的概率大大增加。#!"
     tentacle_corruption_01_perk_tt_2:0 "#N 你在遭到触手袭击之后有一定的概率怀孕。#!"
@@ -14,29 +14,29 @@
     tentacle_corruption_11_perk_name:0 "心灵悸动"
     tentacle_corruption_11_perk_tt:0 "#N 你因触手袭击导致的压力变化翻倍。#!\n触手怪物的瘴气侵蚀了你的思维，使你总是回想起和触手怪物遭遇的场景。\n每当这时，你内心就会难以抑制地躁动起来。"
     tentacle_corruption_12_perk_name:0 "堕落烙印"
-    tentacle_corruption_12_perk_tt:0 "#N 你在遭到触手袭击之后有非常有可能会怀孕。#!\n象征着腐化的心形纹理依然深深地烙刻在你的小腹上，表明你的身体已经被触手瘴气所支配。\n在遭遇触手怪物的时候，你的卵巢会自觉地进行响应，来迎接主人的赐福。"
+    tentacle_corruption_12_perk_tt:0 "#N 你在遭到触手袭击之后有非常有可能会怀孕。#!\n象征着恶堕的心形纹理依然深深地烙刻在你的小腹上，表明你的身体已经被触手瘴气所支配。\n在遭遇触手怪物的时候，你的卵巢会自觉地进行响应，来迎接主人的赐福。"
     tentacle_corruption_21_perk_name:0 "深渊恩赐"
     tentacle_corruption_21_perk_tt_1:0 "#N 只要你具备生育能力，患病的可能性便大大下降。#!"
     tentacle_corruption_21_perk_tt_2:0 "#N 当你失去生育能力之后，健康状况会迅速恶化。#!\n作为生育力强大的年轻女性，你被触手主人视为珍贵的财产，因此主人将瘴气充分浸入了你的肉体，将患病的可能从你的身体中排除。"
     tentacle_corruption_22_perk_name:0 "瘴气成瘾"
     tentacle_corruption_22_perk_tt:0 "#N 你无法反抗触手怪物。#!\n论是醒着还是在梦里，无论是晴天还是在雨夜，你的身体时时刻刻散发出触手主人的湿热香气，引诱你不断地去回忆起被主人赐福的快乐。"
     
-    #中期腐化
+    #中期恶堕
     tentacle_corruption_31_perk_name:0 "永生屈服"
     tentacle_corruption_31_perk_tt:0 "#N 彻底地、不可挽回地堕落为一个触手奴隶！#!\n你已经被触手怪物腐化成了完美的奴隶。你的人生的意义就是取悦你那扭曲的主人，并为主人的繁衍壮大不懈努力。"
     become_tentacle_slave_tt:0 "#N 彻底地、不可挽回地堕落为一个触手奴隶！#!"
     tentacle_corruption_41_perk_name:0 "梦魇缠身"
     tentacle_corruption_41_perk_tt:0 "#N 同一宫廷里的女性受到触手袭击的概率大大增加#!\n你的身体散发出浓厚的触手信息素，就像云雾一样环绕在你的周围，以至于所有和你相处一室的女性，也会被这种香气所标记，成为触手主人优先袭击的对象。"
     tentacle_corruption_42_perk_name:0 "触主巢穴"
-    tentacle_corruption_42_perk_tt:0 "#N 对同一宫廷的其他女性使用腐化密谋的成功概率+50%#!\n作为触手主人的忠诚奴仆，你有必要让更多的女性屈服于她们真正的主人。为了实现这个目标，你首先要将自己所在的宫廷变为触手主人的巢穴。"
+    tentacle_corruption_42_perk_tt:0 "#N 对同一宫廷的其他女性使用恶堕密谋的成功概率+50%#!\n作为触手主人的忠诚奴仆，你有必要让更多的女性屈服于她们真正的主人。为了实现这个目标，你首先要将自己所在的宫廷变为触手主人的巢穴。"
     tentacle_corruption_51_perk_name:0 "巨兽牧者"
     tentacle_corruption_51_perk_tt:0 "#N 召唤更多的触手战争巨兽#!\n你对触手主人的习性了如指掌，你能从巢穴中找到最为嗜血的主人，并祈求他们参加战争。"
     tentacle_corruption_52_perk_name:0 "散布欢愉"
-    tentacle_corruption_52_perk_tt:0 "#N 对其他宫廷的女性使用腐化密谋的成功概率+50%#!\n仍然有一些迷失在错误道路的年轻女性没有屈服于她们合法的主人的低语。作为一个忠实的触手崇拜者，你有责任把她们变成触手奴隶。"
+    tentacle_corruption_52_perk_tt:0 "#N 对其他宫廷的女性使用恶堕密谋的成功概率+50%#!\n仍然有一些迷失在错误道路的年轻女性没有屈服于她们合法的主人的低语。作为一个忠实的触手崇拜者，你有责任把她们变成触手奴隶。"
     tentacle_corruption_61_perk_name:0 "丰收喜悦"
     tentacle_corruption_61_perk_tt:0 "#N 围攻胜利后掠取发展度到你的首都#!\n在触手主人的蹂躏下，奴隶常常会坏掉。\n因此我们需要源源不断的新奴隶来服务主人，而战争是掠取奴隶的最常规手段。"
     tentacle_corruption_62_perk_name:0 "触网恢恢"
-    tentacle_corruption_62_perk_tt:0 "#N 可以同时腐化多位女性#!\n触手主人身上长着无数的触手，而合格的触手传道者能为每条触手都找到合适的玩具。"
+    tentacle_corruption_62_perk_tt:0 "#N 可以同时恶堕多位女性#!\n触手主人身上长着无数的触手，而合格的触手传道者能为每条触手都找到合适的玩具。"
     
     #后期腐化
     #tentacle_corruption_73_perk_name:0 "万千魅态"

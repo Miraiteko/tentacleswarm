@@ -1,5 +1,5 @@
-﻿#腐化阴谋事件
-namespace = tentacle_corrupt_scheme
+﻿#恶堕阴谋事件
+namespace = tentacle_degenerate_scheme
 #0001预处理
 #1001样板水井杀
 
@@ -8,24 +8,24 @@ namespace = tentacle_corrupt_scheme
 #9999让非领主的ai能够发起腐化阴谋
 
 #阴谋就位
-tentacle_corrupt_scheme.0001 = {
+tentacle_degenerate_scheme.0001 = {
 	hidden = yes
 
 	immediate = {
 		add_character_flag = { #Only resolve one abduction in the same day
-			flag = is_in_event_tentacle_corrupt_outcome_0001
+			flag = is_in_event_tentacle_degenerate_outcome_0001
 			days = 1
 		}
 		trigger_event = {
-			on_action = tentacle_corrupt_setup #挑选方法
+			on_action = tentacle_degenerate_setup #挑选方法
 		}
 	}
 }
 #水井投放
-tentacle_corrupt_scheme.1001 = {
+tentacle_degenerate_scheme.1001 = {
 	type = character_event
-	title = tentacle_corrupt_scheme.1001.t
-	desc = tentacle_corrupt_scheme.1001.desc
+	title = tentacle_degenerate_scheme.1001.t
+	desc = tentacle_degenerate_scheme.1001.desc
 	
 	theme = intrigue
 	left_portrait = {
@@ -50,11 +50,11 @@ tentacle_corrupt_scheme.1001 = {
 	
 	#搞起
 	option = {
-		name = tentacle_corrupt_scheme.1001.a
+		name = tentacle_degenerate_scheme.1001.a
 		#判断是否被发现
 		random = {
 			chance = scope:discovery_chance
-			custom_tooltip = tentacle_corrupt_scheme_become_discovered_roll_tt
+			custom_tooltip = tentacle_degenerate_scheme_become_discovered_roll_tt
 			save_scope_value_as = {
 				name = scheme_discovered
 				value = yes
@@ -63,22 +63,22 @@ tentacle_corrupt_scheme.1001 = {
 		#判断是否成功
 		random = {
 			chance = scope:scheme.scheme_success_chance
-			custom_tooltip = tentacle_corrupt_scheme_successful_roll_tt
+			custom_tooltip = tentacle_degenerate_scheme_successful_roll_tt
 			save_scope_value_as = {
 				name = scheme_successful
 				value = yes
 			}
 		}
 		#执行计划
-		trigger_event = tentacle_corrupt_scheme.1002
+		trigger_event = tentacle_degenerate_scheme.1002
 		ai_chance = {
 			base = 100
 		}
 	}
 	#等等
 	option = {
-		name = tentacle_corrupt_scheme.1001.b
-		custom_tooltip = do_not_execute_tentacle_corrupt_tooltip
+		name = tentacle_degenerate_scheme.1001.b
+		custom_tooltip = do_not_execute_tentacle_degenerate_tooltip
 
 		scope:scheme = {
 			add_scheme_progress = -5 # Reset scheme progress
@@ -94,7 +94,7 @@ tentacle_corrupt_scheme.1001 = {
 	}
 }
 #判断是否成功
-tentacle_corrupt_scheme.1002 = {
+tentacle_degenerate_scheme.1002 = {
 	hidden = yes
 	immediate = {
 		#成功了
@@ -102,19 +102,19 @@ tentacle_corrupt_scheme.1002 = {
 			limit = {
 				exists = scope:scheme_successful
 			}
-			trigger_event = tentacle_corrupt_scheme.1003
+			trigger_event = tentacle_degenerate_scheme.1003
 		}
 		#失败了
 		else = {
-			trigger_event = tentacle_corrupt_scheme.1004
+			trigger_event = tentacle_degenerate_scheme.1004
 		}
 	}
 }
 #成功了
-tentacle_corrupt_scheme.1003 = {
+tentacle_degenerate_scheme.1003 = {
 	type = character_event
-	title = tentacle_corrupt_scheme.1003.t
-	desc = tentacle_corrupt_scheme.1003.desc
+	title = tentacle_degenerate_scheme.1003.t
+	desc = tentacle_degenerate_scheme.1003.desc
 	
 	theme = intrigue
 	left_portrait = {
@@ -126,7 +126,7 @@ tentacle_corrupt_scheme.1003 = {
 		container = "custom_widgets_container"
 	}
 	immediate = {
-		custom_tooltip = tentacle_corrupt_scheme_successful_roll_tt
+		custom_tooltip = tentacle_degenerate_scheme_successful_roll_tt
 		scope:target = {
 			trigger_event = tentacleswarm_scene.0010 #目标触发水井杀
 		}
@@ -169,7 +169,7 @@ tentacle_corrupt_scheme.1003 = {
 		}
 	}
 	option = { #恶堕完成了
-		name = tentacle_corrupt_scheme.1003.a
+		name = tentacle_degenerate_scheme.1003.a
 		trigger = {
 			scope:target = { is_tentacle_slave = yes }
 		}
@@ -187,11 +187,11 @@ tentacle_corrupt_scheme.1003 = {
 		}
 	}
 	option = { #恶堕加深了
-		name = tentacle_corrupt_scheme.1003.b
+		name = tentacle_degenerate_scheme.1003.b
 		trigger = {
 			scope:target = { 
 				is_tentacle_slave = no 
-				NOT = { has_character_flag = tentacle_corrupt_reject_success }
+				NOT = { has_character_flag = tentacle_degenerate_reject_success }
 			}
 		}
 		scope:target = {
@@ -205,15 +205,15 @@ tentacle_corrupt_scheme.1003 = {
 		}
 	}
 	option = { #目标抵制了恶堕
-		name = tentacle_corrupt_scheme.1003.c
+		name = tentacle_degenerate_scheme.1003.c
 		trigger = {
 			scope:target = { 
 				is_tentacle_slave = no 
-				has_character_flag = tentacle_corrupt_reject_success
+				has_character_flag = tentacle_degenerate_reject_success
 			}
 		}
 		scope:target = {
-			#custom_tooltip = tentacle_corrupt_reject_success.tt
+			#custom_tooltip = tentacle_degenerate_reject_success.tt
 		}
 		scope:scheme = {
 			add_scheme_progress = -3
@@ -224,10 +224,10 @@ tentacle_corrupt_scheme.1003 = {
 	}
 }
 #失败了
-tentacle_corrupt_scheme.1004 = {
+tentacle_degenerate_scheme.1004 = {
 	type = character_event
-	title = tentacle_corrupt_scheme.1004.t
-	desc = tentacle_corrupt_scheme.1004.desc
+	title = tentacle_degenerate_scheme.1004.t
+	desc = tentacle_degenerate_scheme.1004.desc
 	
 	theme = intrigue
 	left_portrait = {
@@ -278,7 +278,7 @@ tentacle_corrupt_scheme.1004 = {
 		}
 	}
 	option = { #下回继续
-		name = tentacle_corrupt_scheme.1004.a
+		name = tentacle_degenerate_scheme.1004.a
 		scope:scheme = {
 			add_scheme_progress = -3
 		}
@@ -288,10 +288,10 @@ tentacle_corrupt_scheme.1004 = {
 	}
 }
 #被某人发现
-tentacle_corrupt_scheme.9997 = {
+tentacle_degenerate_scheme.9997 = {
 	type = character_event
-	title = tentacle_corrupt_scheme.9997.t
-	desc = tentacle_corrupt_scheme.9997.desc
+	title = tentacle_degenerate_scheme.9997.t
+	desc = tentacle_degenerate_scheme.9997.desc
 	
 	theme = intrigue
 	left_portrait = {
@@ -315,7 +315,7 @@ tentacle_corrupt_scheme.9997 = {
 					has_character_flag = willing_to_be_corrupted
 				}
 			}
-			text = tentacle_corrupt_scheme.9997.a
+			text = tentacle_degenerate_scheme.9997.a
 		}
 		name = {
 			trigger = {
@@ -324,7 +324,7 @@ tentacle_corrupt_scheme.9997 = {
 					has_character_flag = willing_to_be_corrupted
 				}
 			}
-			text = tentacle_corrupt_scheme.9997.b
+			text = tentacle_degenerate_scheme.9997.b
 		}
 		scope:owner = {
 			random_secret = {
@@ -338,10 +338,10 @@ tentacle_corrupt_scheme.9997 = {
 	}
 }
 #发现对方是奴隶
-tentacle_corrupt_scheme.9998 = {
+tentacle_degenerate_scheme.9998 = {
 	type = character_event
-	title = tentacle_corrupt_scheme.9998.t
-	desc = tentacle_corrupt_scheme.9998.desc
+	title = tentacle_degenerate_scheme.9998.t
+	desc = tentacle_degenerate_scheme.9998.desc
 	
 	theme = intrigue
 	left_portrait = {
@@ -363,7 +363,7 @@ tentacle_corrupt_scheme.9998 = {
 		}
 	}
 	option = {
-		name = tentacle_corrupt_scheme.9998.a
+		name = tentacle_degenerate_scheme.9998.a
 		scope:target = {
 			random_secret = {
 				limit = { 
@@ -375,20 +375,20 @@ tentacle_corrupt_scheme.9998 = {
 		}
 	}
 }
-#ai发起腐化
-tentacle_corrupt_scheme.9999 = {
+#ai发起恶堕
+tentacle_degenerate_scheme.9999 = {
 	hidden = yes
 
 	trigger = { 
 		#ai
 		is_ai = yes
-		#能够发起腐化密谋
+		#能够发起恶堕密谋
 		is_tentacle_slave = yes
 		#至少要有一些阴谋能力
 		intrigue >= 8
 		#快死奴隶就不要占用资源了，反正也完不成
 		is_tentaclable_female = yes
-		#腐化密谋数量没用完
+		#恶堕密谋数量没用完
 		trigger_if = {
 			limit = { has_perk = tentacle_corruption_62_perk }
 			any_scheme = {
@@ -413,21 +413,21 @@ tentacle_corrupt_scheme.9999 = {
 	immediate = {
 		save_scope_as = actor
 		
-		#寻找潜在的腐化目标
+		#寻找潜在的恶堕目标
 		#如果没有搜寻过目标，指定自己，为起点
 		if = {
 			limit = { 
-				NOT = { has_variable = tentacle_corrupt_scheme_target }
+				NOT = { has_variable = tentacle_degenerate_scheme_target }
 			}
 			set_variable = {
-				name = tentacle_corrupt_scheme_target
+				name = tentacle_degenerate_scheme_target
 				value = scope:actor
 			}
 		}
 		#如果目标不合法了，指定自己，为起点
 		if = {
 			limit = { 
-				var:tentacle_corrupt_scheme_target = {
+				var:tentacle_degenerate_scheme_target = {
 					OR = {
 						is_alive = no
 						is_pool_character = yes
@@ -436,23 +436,23 @@ tentacle_corrupt_scheme.9999 = {
 				}
 			}
 			set_variable = {
-				name = tentacle_corrupt_scheme_target
+				name = tentacle_degenerate_scheme_target
 				value = scope:actor
 			}
 		}
 		if = { #如果目标有位置,寻找当前位置宫廷的持有者成为目标
 			limit = {
-				exists = var:tentacle_corrupt_scheme_target.location
-				exists = var:tentacle_corrupt_scheme_target.location.county
-				exists = var:tentacle_corrupt_scheme_target.location.county.holder
+				exists = var:tentacle_degenerate_scheme_target.location
+				exists = var:tentacle_degenerate_scheme_target.location.county
+				exists = var:tentacle_degenerate_scheme_target.location.county.holder
 			}
 			set_variable = {
-				name = tentacle_corrupt_scheme_target
-				value = var:tentacle_corrupt_scheme_target.location.county.holder
+				name = tentacle_degenerate_scheme_target
+				value = var:tentacle_degenerate_scheme_target.location.county.holder
 			}
 		}
-		#针对目标所在宫廷发起腐化
-		var:tentacle_corrupt_scheme_target = { 
+		#针对目标所在宫廷发起恶堕
+		var:tentacle_degenerate_scheme_target = { 
 			if = { #目标自己
 				limit = {
 					is_tentaclable_female = yes
@@ -541,7 +541,7 @@ tentacle_corrupt_scheme.9999 = {
 			}
 		}
 		#目标跳转,附近领主或者亲属
-		var:tentacle_corrupt_scheme_target = {
+		var:tentacle_degenerate_scheme_target = {
 			if = {
 				limit = { is_landed = yes }
 				random_character_to_title_neighboring_and_across_water_county = {
@@ -561,11 +561,11 @@ tentacle_corrupt_scheme.9999 = {
 				exists = scope:new_target
 			}
 			set_variable = {
-				name = tentacle_corrupt_scheme_target
+				name = tentacle_degenerate_scheme_target
 				value = scope:new_target
 			}
 		}
-		#发动腐化计谋
+		#发动恶堕计谋
 		if = {
 			limit = {
 				exists = scope:recipient

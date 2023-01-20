@@ -52,7 +52,9 @@
     I_CANNOT_BLACKMAIL_TENTACLE_SLAVE:0 "你不能勒索其他触手奴隶姐妹"
     I_CANNOT_BLACKMAIL_MY_TENTACLE_MENTOR:0 "你不能勒索你的恶堕引路人"
 
-    
+    #新ui
+    OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "查看触手侵染情况"
+    CANT_OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "@warning_icon!#X 无法查看触手侵染情况，因为该角色是男性#!"
     
     
 

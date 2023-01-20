@@ -46,17 +46,17 @@ initial_tentacle_slave = {
 	add_perk = tentacle_corruption_31_perk
 }
 #被触手腐化
-tentacle_corrupt_effect = {
-	custom_tooltip = tentacle_corrupt_effect.tt
+tentacle_degenerate_effect = {
+	custom_tooltip = tentacle_degenerate_effect.tt
 	#计数
 	if = {
 		limit = { 
-			NOT = { has_variable = tentacle_corrupt_count }
+			NOT = { has_variable = tentacle_degenerate_count }
 		}
-		set_variable =  { name = tentacle_corrupt_count value = 1} 
+		set_variable =  { name = tentacle_degenerate_count value = 1} 
 	}
 	else = {
-		change_variable =  { name = tentacle_corrupt_count add = 1} 
+		change_variable =  { name = tentacle_degenerate_count add = 1} 
 	}
 	hidden_effect = {
 		if = {
@@ -86,7 +86,7 @@ tentacle_corrupt_effect = {
 			}
 		}
 		trigger_event = {
-			on_action = on_tentacle_corrupt_pulse
+			on_action = on_tentacle_degenerate_pulse
 		}
 	}
 	#压力变化
@@ -321,7 +321,7 @@ tentacle_corruption_perk_add = {
 	}
 }
 #接受恶堕
-tentacle_corrupt_accept_effect = {
+tentacle_degenerate_accept_effect = {
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
 		add_stress = -100
@@ -335,7 +335,7 @@ tentacle_corrupt_accept_effect = {
 	tentacle_corruption_perk_add = yes
 }
 #反抗恶堕
-tentacle_corrupt_reject_effect = {
+tentacle_degenerate_reject_effect = {
 	if = {
 		limit = { has_perk = tentacle_corruption_11_perk }
 		add_stress = 100 
@@ -360,9 +360,9 @@ tentacle_corrupt_reject_effect = {
 			hidden_effect = {
 				send_interface_toast = {
 					left_icon = ROOT
-					title = tentacle_corrupt_reject_fail.t
+					title = tentacle_degenerate_reject_fail.t
 					show_as_tooltip = {
-						custom_tooltip = tentacle_corrupt_reject_fail.tt
+						custom_tooltip = tentacle_degenerate_reject_fail.tt
 					}
 				}
 			}
@@ -370,17 +370,17 @@ tentacle_corrupt_reject_effect = {
 		}
 		100 = {
 			ai_reject_corrupt_modifier = yes
-			custom_tooltip = tentacle_corrupt_reject_success.tt
+			custom_tooltip = tentacle_degenerate_reject_success.tt
 			hidden_effect = {
 				add_character_flag = { #成功抵制了腐化
-					flag = tentacle_corrupt_reject_success
+					flag = tentacle_degenerate_reject_success
 					days = 3
 				}
 				send_interface_toast = {
 					left_icon = ROOT
-					title = tentacle_corrupt_reject_success.t
+					title = tentacle_degenerate_reject_success.t
 					show_as_tooltip = {
-						custom_tooltip = tentacle_corrupt_reject_success.tt
+						custom_tooltip = tentacle_degenerate_reject_success.tt
 					}
 				}
 			}

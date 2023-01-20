@@ -394,7 +394,7 @@ tentacleswarm_yearly_check.1012 = {
 			id = tentacleswarm_scene.0030 #虔诚赐福
 		}
 		trigger_event = {
-			id = tentacle_corrupt_scheme.9999 #非领主的触手奴隶无法发动【互动】，需要用事件发动计谋
+			id = tentacle_degenerate_scheme.9999 #非领主的触手奴隶无法发动【互动】，需要用事件发动计谋
 		}
 		
 	}

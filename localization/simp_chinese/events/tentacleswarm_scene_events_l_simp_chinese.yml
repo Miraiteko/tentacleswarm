@@ -8,12 +8,12 @@
     tentacleswarm_scene.accept_slave:0 "我屈服于您，触手主人！"
     tentacleswarm_scene.accept:0 "啊！这感觉太棒了！"
     tentacleswarm_scene.reject:0 "我必须抗拒这种快感！"
-    tentacle_corrupt_effect.tt:0 "你被触手主人赐福了"
+    tentacle_degenerate_effect.tt:0 "你被触手主人赐福了"
     tentacle_corruption_perk_add.tt:0 "你的触手恶堕程度加深了"
-    tentacle_corrupt_reject_success.t:0 "抵制恶堕"
-    tentacle_corrupt_reject_success.tt:0 "你抵制了触手腐化"
-    tentacle_corrupt_reject_fail.t:0 "抵制失败"
-    tentacle_corrupt_reject_fail.tt:0 "你没能成功抵制触手腐化"
+    tentacle_degenerate_reject_success.t:0 "抵制恶堕"
+    tentacle_degenerate_reject_success.tt:0 "你抵制了触手恶堕"
+    tentacle_degenerate_reject_fail.t:0 "抵制失败"
+    tentacle_degenerate_reject_fail.tt:0 "你没能成功抵制触手恶堕"
     
     #从水井中来
     tentacleswarm_scene.0011.t:0 "夜晚"
@@ -78,10 +78,10 @@
     tentacleswarm_scene.0044.a:0 "她会喜欢这一切的"
     tentacleswarm_scene.0044.b:0 "很好"
 
-    #同意被腐化
-    ask_for_tentacle_corruption_interaction:0 "乞求触手腐化"
-    ask_for_tentacle_corruption_interaction_desc:1 "[recipient.GetShortUIName]作为触手奴隶的幸福样子令你感到羡慕。\n或许她可以指引你恶堕为一位触手奴隶？"
-    ASK_FOR_TENTACLE_CORRUPTION_INTERACTION_NOTIFICATION:0 "我总是看到你的脸上洋溢着幸福的笑容，这让我感到非常羡慕。\n不知我能否有机会加入你们，成为一位触手奴隶，分享屈服于触手的欢愉？"
+    #主动请求恶堕
+    ask_for_tentacle_degeneration_interaction:0 "乞求触手恶堕"
+    ask_for_tentacle_degeneration_interaction_desc:1 "[recipient.GetShortUIName]作为触手奴隶的幸福样子令你感到羡慕。\n或许她可以指引你恶堕为一位触手奴隶？"
+    ASK_FOR_TENTACLE_DEGENERATION_INTERACTION_NOTIFICATION:0 "我总是看到你的脸上洋溢着幸福的笑容，这让我感到非常羡慕。\n不知我能否有机会加入你们，成为一位触手奴隶，分享屈服于触手的欢愉？"
     tentacle_mentor:0 "恶堕引路人"
     tentacle_student:0 "恶堕追随者"
     I_GAINED_TENTACLE_MENTER_EFFECT:1 "[TARGET_CHARACTER.GetShortUIName|U]成为了我的恶堕引路人"

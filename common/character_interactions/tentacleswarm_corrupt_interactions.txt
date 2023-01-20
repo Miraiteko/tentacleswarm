@@ -1,13 +1,13 @@
-﻿#开始腐化密谋
-tentacle_corrupt_start_scheme_interaction = {
+﻿#开始诱导恶堕密谋
+tentacle_degenerate_start_scheme_interaction = {
 	icon = icon_hostile
 	interface_priority = 70
 	category = interaction_category_hostile
-	desc = tentacle_corrupt_start_scheme_interaction_desc
+	desc = tentacle_degenerate_start_scheme_interaction_desc
 
 	send_name = START_SCHEME
 
-	scheme = tentacle_corrupt
+	scheme = tentacle_degenerate
 	ignores_pending_interaction_block = yes
 	
 	is_shown = {
@@ -26,7 +26,7 @@ tentacle_corrupt_start_scheme_interaction = {
 	is_valid_showing_failures_only = {
 		scope:actor = {
 			can_start_scheme = {
-				type = tentacle_corrupt
+				type = tentacle_degenerate
 				target = scope:recipient
 			}
 		}
@@ -44,13 +44,13 @@ tentacle_corrupt_start_scheme_interaction = {
 		hidden_effect = {
 			scope:actor = {
 				send_interface_toast = {
-					title = start_tentacle_corrupt_notification
+					title = start_tentacle_degenerate_notification
 
 					left_icon = scope:actor					
 					right_icon = scope:recipient
 
 					start_scheme = {
-						type = tentacle_corrupt
+						type = tentacle_degenerate
 						target = scope:recipient
 					}
 
@@ -101,7 +101,7 @@ tentacle_corrupt_start_scheme_interaction = {
 	}
 	ai_will_do = {
 		base = 80
-		#已经在执行腐化了
+		#已经在执行诱导恶堕了
 		modifier = {
 			factor = 0.1
 			scope:actor = {
@@ -109,12 +109,12 @@ tentacle_corrupt_start_scheme_interaction = {
 					limit = { has_perk = tentacle_corruption_62_perk }
 					any_scheme = {
 						count >= 3
-						scheme_type = tentacle_corrupt
+						scheme_type = tentacle_degenerate
 					}
 				}
 				trigger_else = {
 					any_scheme = {
-						scheme_type = tentacle_corrupt
+						scheme_type = tentacle_degenerate
 					}
 				}
 			}
@@ -131,7 +131,7 @@ tentacle_corrupt_start_scheme_interaction = {
 				}
 			}
 		}
-		#优先考虑腐化统治者
+		#优先考虑诱导统治者恶堕
 		modifier = {
 			factor = 2
 			scope:recipient = {
@@ -147,19 +147,19 @@ tentacle_corrupt_start_scheme_interaction = {
 				}
 			}
 		}
-		#已经有人在腐化她了
+		#已经有人在诱导她了
 		modifier = {
 			factor = 0.2
 			scope:recipient = {
 				is_ai = yes
 				any_targeting_scheme = {
-					scheme_type = tentacle_corrupt
+					scheme_type = tentacle_degenerate
 				}
 			}
 		}
 	}
 }
-#腐化囚犯
+#恶堕囚犯
 tentacleswarm_imprisoner_interaction = {
 	category = interaction_category_prison
 	common_interaction = yes
@@ -204,7 +204,7 @@ tentacleswarm_imprisoner_interaction = {
 		scope:recipient = { save_scope_as = recipient }
 		scope:recipient = {
 			trigger_event = {
-				id = tentacleswarm_scene.0040 #被囚禁者腐化
+				id = tentacleswarm_scene.0040 #被囚禁者恶堕
 			}
 			custom_tooltip = tentacleswarm_scene.imprisoner.tt
 		}
@@ -221,11 +221,11 @@ tentacleswarm_imprisoner_interaction = {
 	}
 }
 #主动要求恶堕
-ask_for_tentacle_corruption_interaction = {
+ask_for_tentacle_degeneration_interaction = {
 	category = interaction_category_friendly
 	common_interaction = yes
 	interface_priority = 100
-	desc = ask_for_tentacle_corruption_interaction_desc
+	desc = ask_for_tentacle_degeneration_interaction_desc
 	
 	ai_maybe = yes
 	ai_min_reply_days = 4
@@ -233,7 +233,7 @@ ask_for_tentacle_corruption_interaction = {
 	can_send_despite_rejection = yes #即使会失败也能寄出要求
 	popup_on_receive = yes
 	greeting = positive
-	notification_text = ASK_FOR_TENTACLE_CORRUPTION_INTERACTION_NOTIFICATION
+	notification_text = ASK_FOR_TENTACLE_DEGENERATION_INTERACTION_NOTIFICATION
 	cooldown_against_recipient = { years = 1 } #冷却时间
 	
 	is_shown = {

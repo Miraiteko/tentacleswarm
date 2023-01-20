@@ -1,8 +1,8 @@
-﻿#腐化为奴隶
+﻿#恶堕为奴隶
 tentacle_corrupt = {
 	
 	skill = intrigue
-	desc = "tentacle_corrupt_desc_general"
+	desc = "tentacle_degenerate_desc_general"
 	hostile = yes
 	icon = icon_scheme_hostile
 
@@ -173,7 +173,7 @@ tentacle_corrupt = {
 		
 		#技能加成
 		modifier = { #同一宫廷
-			desc = tentacle_corrupt_42_perk_bonus
+			desc = tentacle_degenerate_42_perk_bonus
 			scope:owner = { 
 				has_perk = tentacle_corruption_42_perk
 				is_in_the_same_court_as_or_guest = scope:target
@@ -181,7 +181,7 @@ tentacle_corrupt = {
 			add = 50
 		}
 		modifier = { #非同一宫廷
-			desc = tentacle_corrupt_52_perk_bonus
+			desc = tentacle_degenerate_52_perk_bonus
 			scope:owner = { 
 				has_perk = tentacle_corruption_52_perk
 				NOT = { 
@@ -264,19 +264,19 @@ tentacle_corrupt = {
 
 	on_ready = {
 		scheme_owner = {
-			if = { #避免一天弹两个腐化事件
+			if = { #避免一天弹两个恶堕事件
 				limit = {
 					always = no
-					has_character_flag = is_in_event_tentacle_corrupt_outcome_0001
+					has_character_flag = is_in_event_tentacle_degenerate_outcome_0001
 				}
 				trigger_event = {
-					id = tentacle_corrupt_scheme.0001
+					id = tentacle_degenerate_scheme.0001
 					days = 1
 				}
 			}
 			else = {
 				trigger_event = {
-					id = tentacle_corrupt_scheme.0001
+					id = tentacle_degenerate_scheme.0001
 				}
 			}
 		}
@@ -290,7 +290,7 @@ tentacle_corrupt = {
 			}			
 			scheme_owner = {
 				trigger_event = {
-					on_action = tentacle_corrupt_ongoing
+					on_action = tentacle_degenerate_ongoing
 					days = { 1 30 }
 				}
 			}
@@ -305,7 +305,7 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_toast = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					left_icon = scope:target
 					custom_description_no_bullet = {
 						object = scope:target
@@ -323,9 +323,9 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_message = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					type = abduct_invalidated_i_imprisoned_message
-					desc = tentacle_corrupt_scheme_i_imprisoned_them_message
+					desc = tentacle_degenerate_scheme_i_imprisoned_them_message
 					left_icon = scope:target
 				}
 			}
@@ -339,7 +339,7 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_toast = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					left_icon = scope:target
 					right_icon = scope:other_imprisoner
 					custom_description_no_bullet = {
@@ -358,7 +358,7 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_toast = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					left_icon = scope:target
 					custom_description_no_bullet = {
 						object = scope:target
@@ -376,9 +376,9 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_message = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					type = abduct_invalidated_i_imprisoned_message
-					desc = tentacle_corrupt_scheme_she_is_slave_message
+					desc = tentacle_degenerate_scheme_she_is_slave_message
 					left_icon = scope:target
 				}
 			}
@@ -392,17 +392,17 @@ tentacle_corrupt = {
 			}
 			scope:owner = {
 				send_interface_message = {
-					title = tentacle_corrupt_scheme_invalidated_title
+					title = tentacle_degenerate_scheme_invalidated_title
 					type = abduct_invalidated_i_imprisoned_message
-					desc = tentacle_corrupt_scheme_she_is_old_message
+					desc = tentacle_degenerate_scheme_she_is_old_message
 					left_icon = scope:target
 				}
 			}
 		}
 	}
 	
-	success_desc = "TENTACLE_CORRUPT_SUCCESS_DESC"
-	discovery_desc = "TENTACLE_CORRUPT_DISCOVERY_DESC"
+	success_desc = "tentacle_degenerate_SUCCESS_DESC"
+	discovery_desc = "tentacle_degenerate_DISCOVERY_DESC"
 }
 
 
