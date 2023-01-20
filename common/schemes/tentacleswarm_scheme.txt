@@ -1,5 +1,5 @@
 ﻿#恶堕为奴隶
-tentacle_corrupt = {
+tentacle_degenerate = {
 	
 	skill = intrigue
 	desc = "tentacle_degenerate_desc_general"
@@ -29,7 +29,7 @@ tentacle_corrupt = {
 				object = scope:target
 				text = can_target_character_with_scheme
 				any_scheme = {
-					scheme_type = tentacle_corrupt
+					scheme_type = tentacle_degenerate
 					scheme_target = {
 						this = scope:target
 					}

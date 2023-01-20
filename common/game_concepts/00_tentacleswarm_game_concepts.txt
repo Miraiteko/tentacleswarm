@@ -33,7 +33,7 @@ clout_tentacleswarm_carns = { #
 	parent = clout
 }
 clout_tentacleswarm_warbeast = {
-	texture = "gfx/interface/icons/traits/tentacle_icon.dds"
+	texture = "gfx/interface/icons/tentacle_icon.dds"
 	parent = clout
 }
 clout_tentacleswarm_college = {

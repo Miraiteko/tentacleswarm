@@ -393,13 +393,13 @@ tentacle_degenerate_scheme.9999 = {
 			limit = { has_perk = tentacle_corruption_62_perk }
 			any_scheme = {
 				count < 3
-				scheme_type = tentacle_corrupt
+				scheme_type = tentacle_degenerate
 			}
 		}
 		trigger_else = {
 			NOT = {
 				any_scheme = {
-					scheme_type = tentacle_corrupt
+					scheme_type = tentacle_degenerate
 				}
 			}
 		}
@@ -463,7 +463,7 @@ tentacle_degenerate_scheme.9999 = {
 					NOT = { has_strong_hook = scope:actor }
 					scope:actor = {
 						can_start_scheme = {
-							type = tentacle_corrupt
+							type = tentacle_degenerate
 							target = PREV
 						}
 					}
@@ -485,7 +485,7 @@ tentacle_degenerate_scheme.9999 = {
 						NOT = { has_strong_hook = scope:actor }
 						scope:actor = {
 							can_start_scheme = {
-								type = tentacle_corrupt
+								type = tentacle_degenerate
 								target = PREV
 							}
 						}
@@ -508,7 +508,7 @@ tentacle_degenerate_scheme.9999 = {
 						NOT = { has_strong_hook = scope:actor }
 						scope:actor = {
 							can_start_scheme = {
-								type = tentacle_corrupt
+								type = tentacle_degenerate
 								target = PREV
 							}
 						}
@@ -531,7 +531,7 @@ tentacle_degenerate_scheme.9999 = {
 						NOT = { has_strong_hook = scope:actor }
 						scope:actor = {
 							can_start_scheme = {
-								type = tentacle_corrupt
+								type = tentacle_degenerate
 								target = PREV
 							}
 						}
@@ -571,7 +571,7 @@ tentacle_degenerate_scheme.9999 = {
 				exists = scope:recipient
 			}
 			start_scheme = {
-				type = tentacle_corrupt
+				type = tentacle_degenerate
 				target = scope:recipient
 			}
 		}
