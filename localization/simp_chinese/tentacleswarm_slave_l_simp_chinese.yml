@@ -1,5 +1,5 @@
 ﻿l_simp_chinese:
-     #核心内容
+    #核心内容
     trait_tentacle_slave_group:0 "[tentacle_slave_grotop|E]"
     game_concept_tentacle_slave_group:0 "触手受害者"
     game_concept_tentacle_slave_group_desc:0 "触手受害者是指受到过[GetTrait('tentacle_monster').GetName( GetNullCharacter )]袭击的女性，包括了[GetTrait('tentacle_defiled').GetName( GetNullCharacter )|LV]和[GetTrait('tentacle_slave').GetName( GetNullCharacter )|LV]。\n大多数宗教对她们都有着严重的歧视，因此她们会倾向于隐藏自己的身份。"
@@ -28,7 +28,7 @@
     trait_tentacle_monster_desc:0 "该角色是潜伏于人间的触手怪物。"
     trait_tentacle_monster_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]是潜伏于人间的触手怪物。"
     tentacle_impregnate_tt:0 "怀上触手主人的孩子"
-    
+
     CHARCTER_HAS_A_TENTACLE_SLAVE_SECRET_KNOWN_BY_CHARACTER:0 "[CHARACTER.GetShortUIName|U]是[TARGET_CHARACTER.GetShortUIName]已知的触手奴隶"
     CHARCTER_HAS_A_TENTACLE_SLAVE_SECRET_NOT_KNOWN_BY_CHARACTER:0 "[CHARACTER.GetShortUIName|U]是[TARGET_CHARACTER.GetShortUIName]已知的触手奴隶"
     HAS_A_TENTACLE_SLAVE_SECRET_KNOWN_BY_CHARACTER:0 "是[TARGET_CHARACTER.GetShortUIName]已知的触手奴隶"
@@ -55,7 +55,29 @@
     #新ui
     OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "查看触手侵染情况"
     CANT_OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "@warning_icon!#X 无法查看触手侵染情况，因为该角色是男性#!"
-    DEGENERATION_LABEL:0 "子宫腐化"
-    
-    
+
+    tentacle_cum_change:0 "瘴气变化：#p 快速减少#!"
+    tentacle_cum_change_effect:0 "侵入OVAR_：#p -#!\n侵入UTER_：#p -#!\n侵入VIGI_：#p -#!\n流出体外：#p -#!\n"
+    tentacle_cum_level3:0 "体内瘴气：#high 大量#!"
+    tentacle_cum_level3_effect:0 "OVAR_恶堕：#n 增长#!\nUTER_恶堕：#n 增长#!\nVIGI_恶堕：#n 增长#!\n"
+
+    ovarian_degeneration_change:0 "恶堕：#n 增长中#!"
+    ovarian_degeneration_change_effect:0 "自动净化：#p -#!\n体内瘴气：#n ++#!"
+    ovarian_degeneration_level0:0 "#low 圣洁之核#!"
+    ovarian_degeneration_level0_effect:0 "#low 自动净化：强力#!"
+    ovarian_degeneration_level1:0 "#low 受染之核#!"
+    ovarian_degeneration_level1_effect:0 "#low 自动净化：中等\n宠幸影响：微弱#!"
+    ovarian_degeneration_level2:0 "#high 屈从之核#!"
+    ovarian_degeneration_level2_effect:0 "自动净化：#p 微弱#!\n宠幸影响：#n 中等#!\n触手赐福：#n 初阶#!" 
+    ovarian_degeneration_level3:0 "#low 暗欲之核#!"
+    ovarian_degeneration_level3_effect:0 "#low 自动净化：失效\n宠幸影响：强力\n触手赐福：中阶#!" 
+    ovarian_degeneration_level4:0 "#low 恶堕淫核#!"
+    ovarian_degeneration_level4_effect:0 "#low 自动净化：逆转\n宠幸影响：完全\n触手赐福：完全#!" 
+
+    uterine_degeneration_change:0 "恶堕变化：#n 增长中#!"
+    uterine_degeneration_change_effect:0 "每月身体自然净化：#p -#!\n体内触手瘴气含量：#n ++#!"
+    uterine_degeneration_level3:0 "#high 育种之宫#!"
+    uterine_degeneration_level3_effect:0 "胎儿受触手影响：#n 中等概率 #!\n 恶堕抗性：#p 微弱#!\n #low 你的UTER_已经被触手瘴气改造, 变得更加\n适合孕育触手的子嗣。#!"
+
+
 
