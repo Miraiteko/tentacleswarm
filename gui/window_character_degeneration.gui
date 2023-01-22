@@ -76,7 +76,7 @@ window = {
 							name = "degeneration_value_bar"
 							direction = vertical
 							size = { 480 300 }
-							value = 60
+							value = 50
 							#3以上少量，28以上中量，55以上大量,95以上灌满
 							alpha = 1
 		
@@ -114,40 +114,15 @@ window = {
 						spacing = 15
 						button_standard_clean = {
 							layoutpolicy_horizontal = expanding
-							size = { 220 180 }
+							size = { 180 180 }
 							background = {
-								texture = "gfx/interface/progressbars/progress_gray.dds"
+								texture = "gfx/interface/progressbars/progress_purple.dds"
 								alpha = 0.4
 							}
 							vbox = {
 								parentanchor = top
 								margin = { 10 5 }
-								margin_bottom = 100
-								spacing = 0
-								text_single = {
-									name = "effect_level"
-									text =  "tentacle_cum_level3"
-									using = Font_Size_Small
-									margin_bottom = 10
-								}
-								text_single = {
-									name = "effect_label"
-									text =  "tentacle_cum_level3_effect" 
-									using = Font_Size_Small
-								}
-							}
-						}
-						button_standard_clean = {
-							layoutpolicy_horizontal = expanding
-							size = { 220 180 }
-							background = {
-								texture = "gfx/interface/progressbars/progress_gray.dds"
-								alpha = 0.4
-							}
-							vbox = {
-								parentanchor = top
-								margin = { 10 5 }
-								margin_bottom = 100
+								margin_bottom = 20
 								spacing = 0
 								text_single = {
 									name = "effect_level"
@@ -158,6 +133,31 @@ window = {
 								text_single = {
 									name = "effect_label"
 									text =  "tentacle_cum_change_effect" 
+									using = Font_Size_Small
+								}
+							}
+						}
+						button_standard_clean = {
+							layoutpolicy_horizontal = expanding
+							size = { 250 180 }
+							background = {
+								texture = "gfx/interface/progressbars/progress_gray.dds"
+								alpha = 0.4
+							}
+							vbox = {
+								parentanchor = top
+								margin = { 10 5 }
+								margin_bottom = 20
+								spacing = 0
+								text_single = {
+									name = "effect_level"
+									text =  "tentacle_cum_level3"
+									using = Font_Size_Small
+									margin_bottom = 10
+								}
+								text_single = {
+									name = "effect_label"
+									text =  "tentacle_cum_level3_effect" 
 									using = Font_Size_Small
 								}
 							}
@@ -180,7 +180,6 @@ window = {
 				margin_left = -2
 				@progress_bar_size = 700
 				@progress_widget_size = 750
-				@progress_bar_spacing = @[progress_bar_size / 20] # Number of steps for level items
 		
 				widget = {
 					name = "卵巢恶堕"
@@ -198,7 +197,7 @@ window = {
 			
 						text_single = {
 							name = "degeneration_label"
-							text =  "恶堕条方案一"#uterine_degeneration
+							text =  "ovarian_degeneration"
 							
 							margin_top = 5
 							using = Font_Size_Small
@@ -273,12 +272,101 @@ window = {
 									}
 								}
 				
+								#点缀
 								icon = {
 									name = "grandeur_bar_bracket_left"
 									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
 									size = { 29 60 }
 									position = { -10 -10 }
 									parentanchor = left
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.2] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.45] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.7] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.9] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
 								}
 				
 								icon = {
@@ -294,26 +382,25 @@ window = {
 				}
 				hbox ={
 					margin = { 10 5 }
-					margin_bottom = 10
-					margin_left = 0
-					spacing = 5
+					margin_right = 100
+					margin_bottom = 0
+					spacing = 50
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 140 150 }
+						size = { 200 180 }
 						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
+							texture = "gfx/interface/progressbars/progress_purple.dds"
 							alpha = 0.4
 						}
 						vbox = {
 							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
+							margin_top = 5
+							margin_bottom = 20
 							spacing = 0
 							text_single = {
 								name = "effect_level"
 								text =  "ovarian_degeneration_change"
 								using = Font_Size_Small
-								margin_bottom = 10
 							}
 							text_single = {
 								name = "effect_label"
@@ -324,128 +411,24 @@ window = {
 					}
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 140 150 }
-						enabled = "['(bool)no']"
+						size = { 450 180 }
 						background = {
 							texture = "gfx/interface/progressbars/progress_gray.dds"
 							alpha = 0.4
 						}
 						vbox = {
 							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
-							spacing = 0
-							text_single = {
-								name = "effect_level"
-								text =  "ovarian_degeneration_level0"
-								using = Font_Size_Small
-								margin_bottom = 10
-							}
-							text_single = {
-								name = "effect_label"
-								text =  "ovarian_degeneration_level0_effect" 
-								using = Font_Size_Small
-							}
-						}
-					}
-					button_standard_clean = {
-						layoutpolicy_horizontal = expanding
-						size = { 140 150 }
-						enabled = "['(bool)no']"
-						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
-							alpha = 0.4
-						}
-						vbox = {
-							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
-							spacing = 0
-							text_single = {
-								name = "effect_level"
-								text =  "ovarian_degeneration_level1"
-								using = Font_Size_Small
-								margin_bottom = 10
-							}
-							text_single = {
-								name = "effect_label"
-								text =  "ovarian_degeneration_level1_effect" 
-								using = Font_Size_Small
-							}
-						}
-					}
-					button_standard_clean = {
-						size = { 140 150 }
-						background = {
-							texture = "gfx/interface/progressbars/progress_purple.dds"
-							alpha = 0.4
-						}
-						vbox = {
-							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
+							margin_top = 5
+							margin_bottom = 20
 							spacing = 0
 							text_single = {
 								name = "effect_level"
 								text =  "ovarian_degeneration_level2"
 								using = Font_Size_Small
-								margin_bottom = 10
 							}
 							text_single = {
 								name = "effect_label"
 								text =  "ovarian_degeneration_level2_effect" 
-								using = Font_Size_Small
-							}
-						}
-					}
-					button_standard_clean = {
-						layoutpolicy_horizontal = expanding
-						size = { 140 150 }
-						enabled = "['(bool)no']"
-						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
-							alpha = 0.4
-						}
-						vbox = {
-							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
-							spacing = 0
-							text_single = {
-								name = "effect_level"
-								text =  "ovarian_degeneration_level3"
-								using = Font_Size_Small
-								margin_bottom = 10
-							}
-							text_single = {
-								name = "effect_label"
-								text =  "ovarian_degeneration_level3_effect" 
-								using = Font_Size_Small
-							}
-						}
-					}
-					button_standard_clean = {
-						layoutpolicy_horizontal = expanding
-						size = { 140 150 }
-						enabled = "['(bool)no']"
-						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
-							alpha = 0.4
-						}
-						vbox = {
-							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
-							spacing = 0
-							text_single = {
-								name = "effect_level"
-								text =  "ovarian_degeneration_level4"
-								using = Font_Size_Small
-								margin_bottom = 10
-							}
-							text_single = {
-								name = "effect_label"
-								text =  "ovarian_degeneration_level4_effect" 
 								using = Font_Size_Small
 							}
 						}
@@ -470,7 +453,7 @@ window = {
 			
 						text_single = {
 							name = "degeneration_label"
-							text =  "恶堕条方案二"#uterine_degeneration
+							text =  "uterine_degeneration"
 							
 							margin_top = 5
 							using = Font_Size_Small
@@ -495,7 +478,7 @@ window = {
 								progressbar = { #调色条
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
-									value = 70
+									value = 75
 				
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									
@@ -514,8 +497,8 @@ window = {
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									size = { @progress_bar_size 40 }
-									value = 70
-									alpha = 0.7
+									value = 75
+									alpha = 0.75
 				
 									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
 									noprogresstexture = "gfx/interface/progressbars/blank.dds"
@@ -544,13 +527,101 @@ window = {
 										}
 									}
 								}
-				
+								#点缀
 								icon = {
 									name = "grandeur_bar_bracket_left"
 									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
 									size = { 29 60 }
 									position = { -10 -10 }
 									parentanchor = left
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.2] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.45] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.7] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.9] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
 								}
 				
 								icon = {
@@ -566,54 +637,54 @@ window = {
 				}
 				hbox ={
 					margin = { 10 5 }
-					margin_bottom = 10
+					margin_right = 100
+					margin_bottom = 0
 					spacing = 50
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 350 150 }
+						size = { 200 180 }
 						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
+							texture = "gfx/interface/progressbars/progress_purple.dds"
 							alpha = 0.4
 						}
 						vbox = {
 							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
+							margin_top = 5
+							margin_bottom = 20
 							spacing = 0
 							text_single = {
 								name = "effect_level"
-								text =  "uterine_degeneration_level3"
+								text =  "uterine_degeneration_change"
 								using = Font_Size_Small
-								margin_bottom = 10
 							}
 							text_single = {
 								name = "effect_label"
-								text =  "uterine_degeneration_level3_effect" 
+								text =  "uterine_degeneration_change_effect" 
 								using = Font_Size_Small
 							}
 						}
 					}
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 350 150 }
+						size = { 450 180 }
 						background = {
 							texture = "gfx/interface/progressbars/progress_gray.dds"
 							alpha = 0.4
 						}
 						vbox = {
 							parentanchor = top
-							margin = { 10 5 }
-							margin_bottom = 100
+							margin_top = 5
+							margin_bottom = 20
 							spacing = 0
 							text_single = {
+								parentanchor = top
 								name = "effect_level"
-								text =  "uterine_degeneration_change"
+								text =  "uterine_degeneration_level3"
 								using = Font_Size_Small
-								margin_bottom = 10
 							}
 							text_single = {
 								name = "effect_label"
-								text =  "uterine_degeneration_change_effect" 
+								text =  "uterine_degeneration_level3_effect" 
 								using = Font_Size_Small
 							}
 						}
@@ -663,7 +734,7 @@ window = {
 								progressbar = { #调色条
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
-									value = 90
+									value = 95
 				
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									color = { 0.8 0.8 0.8 1 }
@@ -683,8 +754,8 @@ window = {
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									size = { @progress_bar_size 40 }
-									value = 90
-									alpha = 0.9
+									value = 95
+									alpha = 0.95
 				
 									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
 									noprogresstexture = "gfx/interface/progressbars/blank.dds"
@@ -713,13 +784,101 @@ window = {
 										}
 									}
 								}
-				
+								#点缀
 								icon = {
 									name = "grandeur_bar_bracket_left"
 									texture = "gfx/interface/window_roco_grandeur/grandeur_bar_bracket_left.dds"
 									size = { 29 60 }
 									position = { -10 -10 }
 									parentanchor = left
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.2] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.45] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.7] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
+								}
+								icon = {
+									size = { 3 38 }
+									position = { @[progress_bar_size*0.9] 0 }
+									texture = "gfx/interface/colors/white.dds"
+									color = { 1 0.7 0.9 0.8 }
+									spriteType = Corneredtiled
+
+									## EDGE FADE
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_edge_3px.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 4 }
+										blend_mode = alphamultiply
+									}
+									### SCRATCHES
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 0 0 }
+										blend_mode = alphamultiply
+									}
 								}
 				
 								icon = {
@@ -735,38 +894,56 @@ window = {
 				}
 				hbox ={
 					margin = { 10 5 }
-					margin_bottom = 10
+					margin_right = 100
+					margin_bottom = 0
 					spacing = 50
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 350 150 }
+						size = { 200 180 }
 						background = {
-							texture = "gfx/interface/progressbars/progress_gray.dds"
+							texture = "gfx/interface/progressbars/progress_purple.dds"
 							alpha = 0.4
 						}
-						text_single = {
-							parentanchor = top|hcenter
-							name = "effect_label"
-							text =  "degeneration_effect"
-							
+						vbox = {
+							parentanchor = top
 							margin_top = 5
-							using = Font_Size_Small
+							margin_bottom = 20
+							spacing = 0
+							text_single = {
+								name = "effect_level"
+								text =  "vaginal_degeneration_change"
+								using = Font_Size_Small
+							}
+							text_single = {
+								name = "effect_label"
+								text =  "vaginal_degeneration_change_effect" 
+								using = Font_Size_Small
+							}
 						}
 					}
 					button_standard_clean = {
 						layoutpolicy_horizontal = expanding
-						size = { 350 150 }
+						size = { 450 180 }
 						background = {
 							texture = "gfx/interface/progressbars/progress_gray.dds"
 							alpha = 0.4
 						}
-						text_single = {
-							parentanchor = top|hcenter
-							name = "effect_label"
-							text =  "degeneration_change"
-							
+						vbox = {
+							parentanchor = top
 							margin_top = 5
-							using = Font_Size_Small
+							margin_bottom = 20
+							spacing = 0
+							text_single = {
+								parentanchor = top
+								name = "effect_level"
+								text =  "vaginal_degeneration_level4"
+								using = Font_Size_Small
+							}
+							text_single = {
+								name = "effect_label"
+								text =  "vaginal_degeneration_level4_effect" 
+								using = Font_Size_Small
+							}
 						}
 					}
 				}

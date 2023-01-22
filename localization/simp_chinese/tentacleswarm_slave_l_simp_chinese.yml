@@ -56,28 +56,25 @@
     OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "查看触手侵染情况"
     CANT_OPEN_PERSONAL_CORRUPTION_TOOLTIP:0 "@warning_icon!#X 无法查看触手侵染情况，因为该角色是男性#!"
 
-    tentacle_cum_change:0 "瘴气变化：#p 快速减少#!"
-    tentacle_cum_change_effect:0 "侵入OVAR_：#p -#!\n侵入UTER_：#p -#!\n侵入VIGI_：#p -#!\n流出体外：#p -#!\n"
-    tentacle_cum_level3:0 "体内瘴气：#high 大量#!"
-    tentacle_cum_level3_effect:0 "OVAR_恶堕：#n 增长#!\nUTER_恶堕：#n 增长#!\nVIGI_恶堕：#n 增长#!\n"
+    tentacle_cum_change:0 "瘴气变化：#p 减少中#!"
+    tentacle_cum_change_effect:0 "侵入UTER_：#p -#!\n侵入VIGI_：#p -#!\n流出体外：#p -#!\n"
+    tentacle_cum_level3:0 "体内瘴气：#high 中量#!"
+    tentacle_cum_level3_effect:0 "效果：\n·UTER_恶堕：#n 增长#!\n·VIGI_恶堕：#n 增长#!\n#low 你感觉到暖洋洋的黏液\n在你的小腹之中流动。#!"
 
-    ovarian_degeneration_change:0 "恶堕：#n 增长中#!"
-    ovarian_degeneration_change_effect:0 "自动净化：#p -#!\n体内瘴气：#n ++#!"
-    ovarian_degeneration_level0:0 "#low 圣洁之核#!"
-    ovarian_degeneration_level0_effect:0 "#low 自动净化：强力#!"
-    ovarian_degeneration_level1:0 "#low 受染之核#!"
-    ovarian_degeneration_level1_effect:0 "#low 自动净化：中等\n宠幸影响：微弱#!"
+    ovarian_degeneration_change:0 "恶堕变化：#p 减少中#!"
+    ovarian_degeneration_change_effect:0 "每月身体自然净化：#p -#!\n\n\n"
     ovarian_degeneration_level2:0 "#high 屈从之核#!"
-    ovarian_degeneration_level2_effect:0 "自动净化：#p 微弱#!\n宠幸影响：#n 中等#!\n触手赐福：#n 初阶#!" 
-    ovarian_degeneration_level3:0 "#low 暗欲之核#!"
-    ovarian_degeneration_level3_effect:0 "#low 自动净化：失效\n宠幸影响：强力\n触手赐福：中阶#!" 
-    ovarian_degeneration_level4:0 "#low 恶堕淫核#!"
-    ovarian_degeneration_level4_effect:0 "#low 自动净化：逆转\n宠幸影响：完全\n触手赐福：完全#!" 
+    ovarian_degeneration_level2_effect:0 "效果：\n·每月身体自然净化：#p 极弱#!\n·触手宠幸机制的影响：#n 中等#!\n·触手淫纹的赐福：#n 初阶可用#!\n#low 你的OVAR_已经被触手操纵, 它们施放出的\n堕落因子令你无力反抗触手的意志。#!" 
 
     uterine_degeneration_change:0 "恶堕变化：#n 增长中#!"
-    uterine_degeneration_change_effect:0 "每月身体自然净化：#p -#!\n体内触手瘴气含量：#n ++#!"
-    uterine_degeneration_level3:0 "#high 育种之宫#!"
-    uterine_degeneration_level3_effect:0 "胎儿受触手影响：#n 中等概率 #!\n 恶堕抗性：#p 微弱#!\n #low 你的UTER_已经被触手瘴气改造, 变得更加\n适合孕育触手的子嗣。#!"
+    uterine_degeneration_change_effect:0 "每月身体自然净化：#p -#!\n被触手瘴气侵蚀：#n +++#!\n\n"
+    uterine_degeneration_level3:0 "#high 苗床之宫#!"
+    uterine_degeneration_level3_effect:0 "效果：\n·胎儿受触手影响：#n 极大概率#!\n·对瘴气侵蚀的抗性：#v 失效#!\n#low 你的UTER_已经被触手瘴气浸透, 使你身体\n永远做好了怀上触手的子嗣的准备。#!\n"
+
+    vaginal_degeneration_change:0 "恶堕变化：#n 增长中#!"
+    vaginal_degeneration_change_effect:0 "每月身体自然净化：#p -#!\n被触手瘴气侵蚀：#n +++#!\n\n"
+    vaginal_degeneration_level4:0 "#high 恶堕淫穴#!"
+    vaginal_degeneration_level4_effect:0 "效果：\n·每次射入的触手瘴气：#n 大量#!\n·针对你的#underline 引诱恶堕#!密谋成功率：#n +100%#! \n#low 你的VAGI_已经完全恶堕.  它永远在流出淫糜\n的汁液, 吸引触手怪物对你发动袭击。#!\n"
 
 
 
