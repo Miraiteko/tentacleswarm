@@ -6,7 +6,6 @@ window = {
 	layer = middle
 
 	position = { 120 100 }
-
 	visible = "[GetVariableSystem.HasValue( 'character_degeneration_open', 'true' )]"
 	using = Window_Movable
 	using = Window_Background
@@ -76,18 +75,19 @@ window = {
 							name = "degeneration_value_bar"
 							direction = vertical
 							size = { 480 300 }
-							value = 50
-							#3以上少量，28以上中量，55以上大量,95以上灌满
 							alpha = 1
-		
+							#3以上少量，28以上中量，55以上大量,95以上灌满
+							value = "[GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue]"
 							progresstexture = "gfx/interface/progressbars/progress_womb_cum.dds"
 							noprogresstexture = "gfx/interface/progressbars/progress_womb_empty.dds"
+							
 							marker = {
 								name = "current_value"
 								widget = {
+									visible = "[And(GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)3'),LessThan_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)95'))]"
 									icon = {
-										size = { 400 20 }
-										position = { 40 -5 }
+										size = { 420 20 }
+										position = { 30 -5 }
 										texture = "gfx/interface/progressbars/progressbar_womb_glow.dds"
 									}
 									state = {
@@ -151,13 +151,13 @@ window = {
 								spacing = 0
 								text_single = {
 									name = "effect_level"
-									text =  "tentacle_cum_level3"
+									text =  "tentacle_cum_level"
 									using = Font_Size_Small
 									margin_bottom = 10
 								}
 								text_single = {
 									name = "effect_label"
-									text =  "tentacle_cum_level3_effect" 
+									text =  "tentacle_cum_level_effect" 
 									using = Font_Size_Small
 								}
 							}
@@ -212,7 +212,6 @@ window = {
 								parentanchor = left
 								size = { @progress_bar_size 40 }
 				
-
 								progressbar_frozen = { #背景条
 									name = "background"
 									layoutpolicy_horizontal = expanding
@@ -222,7 +221,7 @@ window = {
 								progressbar = { #调色条
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
-									value = 50
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_ovarian_degeneration').GetValue]"
 				
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									
@@ -241,8 +240,8 @@ window = {
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									size = { @progress_bar_size 40 }
-									value = 50
-									alpha = 0.5
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_ovarian_degeneration').GetValue]"
+									alpha = "[Multiply_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_ovarian_degeneration').GetValue,'(CFixedPoint)0.01')]"
 				
 									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
 									noprogresstexture = "gfx/interface/progressbars/blank.dds"
@@ -403,7 +402,7 @@ window = {
 								using = Font_Size_Small
 							}
 							text_single = {
-								name = "effect_label"
+								name = "ovarian_degeneration_effect_label"
 								text =  "ovarian_degeneration_change_effect" 
 								using = Font_Size_Small
 							}
@@ -423,12 +422,12 @@ window = {
 							spacing = 0
 							text_single = {
 								name = "effect_level"
-								text =  "ovarian_degeneration_level2"
+								text =  "ovarian_degeneration_level"
 								using = Font_Size_Small
 							}
 							text_single = {
 								name = "effect_label"
-								text =  "ovarian_degeneration_level2_effect" 
+								text =  "ovarian_degeneration_level_effect" 
 								using = Font_Size_Small
 							}
 						}
@@ -478,8 +477,7 @@ window = {
 								progressbar = { #调色条
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
-									value = 75
-				
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_uterine_degeneration').GetValue]"
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									
 									marker = {
@@ -497,8 +495,8 @@ window = {
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									size = { @progress_bar_size 40 }
-									value = 75
-									alpha = 0.75
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_uterine_degeneration').GetValue]"
+									alpha = "[Multiply_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_uterine_degeneration').GetValue,'(CFixedPoint)0.01')]"
 				
 									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
 									noprogresstexture = "gfx/interface/progressbars/blank.dds"
@@ -679,12 +677,12 @@ window = {
 							text_single = {
 								parentanchor = top
 								name = "effect_level"
-								text =  "uterine_degeneration_level3"
+								text =  "uterine_degeneration_level"
 								using = Font_Size_Small
 							}
 							text_single = {
 								name = "effect_label"
-								text =  "uterine_degeneration_level3_effect" 
+								text =  "uterine_degeneration_level_effect" 
 								using = Font_Size_Small
 							}
 						}
@@ -734,7 +732,7 @@ window = {
 								progressbar = { #调色条
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
-									value = 95
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_vaginal_degeneration').GetValue]"
 				
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									color = { 0.8 0.8 0.8 1 }
@@ -754,8 +752,8 @@ window = {
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									size = { @progress_bar_size 40 }
-									value = 95
-									alpha = 0.95
+									value = "[GetPlayer.MakeScope.Var('tentacleswarm_vaginal_degeneration').GetValue]"
+									alpha = "[Multiply_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_vaginal_degeneration').GetValue,'(CFixedPoint)0.01')]"
 				
 									progresstexture = "gfx/interface/progressbars/progress_degeneration.dds" #偏紫色恶堕纹理
 									noprogresstexture = "gfx/interface/progressbars/blank.dds"
@@ -936,12 +934,12 @@ window = {
 							text_single = {
 								parentanchor = top
 								name = "effect_level"
-								text =  "vaginal_degeneration_level4"
+								text =  "vaginal_degeneration_level"
 								using = Font_Size_Small
 							}
 							text_single = {
 								name = "effect_label"
-								text =  "vaginal_degeneration_level4_effect" 
+								text =  "vaginal_degeneration_level_effect" 
 								using = Font_Size_Small
 							}
 						}

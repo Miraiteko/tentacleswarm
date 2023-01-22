@@ -90,3 +90,493 @@ Tentacleswarn_Corruption_Map_Slave_Loc = {
 		localization_key = TENTACLESWARM_CORRUPTION_MAP_MODE_INVISIBLE
 	}
 }
+
+
+#触手精液信息详细信息
+Tentacleswarm_Cum_Change_Loc = {
+	type = character
+
+	text = {
+		localization_key = tentacle_cum_change_effect_4
+		trigger = {
+			var:tentacleswarm_cum_value >= 95
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_change_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_change_effect_2
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_change_effect_1
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = tentacle_cum_change_effect_0
+	}
+}
+#触手精液等级信息
+Tentacleswarm_Cum_Level_Loc = {
+	type = character
+
+	text = {
+		localization_key = tentacle_cum_level4
+		trigger = {
+			var:tentacleswarm_cum_value >= 95
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level2
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level1
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = tentacle_cum_level0
+	}
+}
+#触手精液效果详细信息
+Tentacleswarm_Cum_Level_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = tentacle_cum_level_effect_4
+		trigger = {
+			var:tentacleswarm_cum_value >= 95
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level_effect_2
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = tentacle_cum_level_effect_1
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = tentacle_cum_level_effect_0
+	}
+}
+
+#卵巢恶堕变化情况
+Tentacleswarm_Ovarian_Degeneration_Change_Loc = {
+	type = character
+
+	text = {
+		localization_key = ovarian_degeneration_change_2
+		trigger = {
+			OR = {
+				var:tentacleswarm_cum_value >= 55
+				var:tentacleswarm_ovarian_degeneration >= 90
+			}
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_change_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = ovarian_degeneration_change_0
+	}
+}
+Tentacleswarm_Ovarian_Degeneration_Change_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = ovarian_degeneration_change_effect_5
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_change_effect_4
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_change_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_change_effect_2
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_change_effect_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = ovarian_degeneration_change_effect_0
+	}
+}
+#子宫恶堕变化情况
+Tentacleswarm_Uterine_Degeneration_Change_Loc = {
+	type = character
+
+	text = {
+		localization_key = uterine_degeneration_change_2
+		trigger = {
+			OR = {
+				var:tentacleswarm_ovarian_degeneration >= 90
+				var:tentacleswarm_cum_value >= 28
+			}
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_change_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = uterine_degeneration_change_0
+	}
+}
+Tentacleswarm_Uterine_Degeneration_Change_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = uterine_degeneration_change_effect_5
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_change_effect_4
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_change_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_change_effect_2
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_change_effect_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = uterine_degeneration_change_effect_0
+	}
+}
+#阴道恶堕变化情况
+Tentacleswarm_Vaginal_Degeneration_Change_Loc = {
+	type = character
+
+	text = {
+		localization_key = vaginal_degeneration_change_2
+		trigger = {
+			OR = {
+				var:tentacleswarm_ovarian_degeneration >= 90
+				var:tentacleswarm_cum_value >= 3
+			}
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_change_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = vaginal_degeneration_change_0
+	}
+}
+Tentacleswarm_Vaginal_Degeneration_Change_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = vaginal_degeneration_change_effect_5
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_change_effect_4
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_change_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_change_effect_2
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_change_effect_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = vaginal_degeneration_change_effect_0
+	}
+}
+
+#卵巢恶堕效果
+Tentacleswarm_Ovarian_Degeneration_Level_Loc = {
+	type = character
+
+	text = {
+		localization_key = ovarian_degeneration_level_4
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_3
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_2
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = ovarian_degeneration_level_0
+	}
+}
+Tentacleswarm_Ovarian_Degeneration_Level_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = ovarian_degeneration_level_effect_4
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_effect_3
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_effect_2
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = ovarian_degeneration_level_effect_1
+		trigger = {
+			var:tentacleswarm_ovarian_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = ovarian_degeneration_level_effect_0
+	}
+}
+#子宫恶堕效果
+Tentacleswarm_Uterine_Degeneration_Level_Loc = {
+	type = character
+
+	text = {
+		localization_key = uterine_degeneration_level_4
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_3
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_2
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_1
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = uterine_degeneration_level_0
+	}
+}
+Tentacleswarm_Uterine_Degeneration_Level_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = uterine_degeneration_level_effect_4
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_effect_3
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_effect_2
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = uterine_degeneration_level_effect_1
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = uterine_degeneration_level_effect_0
+	}
+}
+#阴道恶堕效果
+Tentacleswarm_Vaginal_Degeneration_Level_Loc = {
+	type = character
+
+	text = {
+		localization_key = vaginal_degeneration_level_4
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_3
+		trigger = {
+			var:tentacleswarm_uterine_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_2
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_1
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = vaginal_degeneration_level_0
+	}
+}
+Tentacleswarm_Vaginal_Degeneration_Level_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = vaginal_degeneration_level_effect_4
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 90
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_effect_3
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 70
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_effect_2
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 45
+		}
+	}
+	text = {
+		localization_key = vaginal_degeneration_level_effect_1
+		trigger = {
+			var:tentacleswarm_vaginal_degeneration >= 20
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = vaginal_degeneration_level_effect_0
+	}
+}

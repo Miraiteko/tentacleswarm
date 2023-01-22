@@ -52,12 +52,12 @@ tentacleswarm_on_game_start = {
 		every_living_character = {
 			if = {
 				limit = { 
-					always = no
 					is_tentaclable_female = yes 
 				}
-				#become_congenital_tentacle_slave = yes
-				#become_congenital_tentacle_slave_carry = yes
-				become_tentacle_slave = yes#成为奴隶，测试
+				set_variable =  { name = tentacleswarm_cum_value value =  75 }	
+				set_variable =  { name = tentacleswarm_ovarian_degeneration value = 0 }
+				set_variable =  { name = tentacleswarm_uterine_degeneration value = 5 }
+				set_variable =  { name = tentacleswarm_vaginal_degeneration value = 10 }
 			}
 		}
 		

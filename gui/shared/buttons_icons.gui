@@ -599,6 +599,7 @@ types ButtonIcons
 			{
 				size = { 25 25 }
 			}
+			datacontext = "[Character]"
 			parentanchor = center
 			texture = "gfx/interface/icons/flat_icons/inventory.dds"
 		}
