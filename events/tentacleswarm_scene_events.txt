@@ -145,7 +145,7 @@ tentacleswarm_scene.0012 = {
 	}
 	#已经发生的事件，被触手主人侵袭了
 	immediate = {
-		tentacle_degenerate_effect = yes
+		tentacle_degenerate_effect = yes 
 	}
 	#下面的选项决定主人公是否屈服于主人，不抵抗恶堕
 	#接受tentacle_degenerate_accept_effect将导致【转】部分的恶堕事件

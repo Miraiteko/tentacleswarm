@@ -48,18 +48,6 @@ tentacleswarm_on_game_start = {
 			}
 		}
 		
-		#测试，上携带者flag
-		every_living_character = {
-			if = {
-				limit = { 
-					is_tentaclable_female = yes 
-				}
-				set_variable =  { name = tentacleswarm_cum_value value =  75 }	
-				set_variable =  { name = tentacleswarm_ovarian_degeneration value = 0 }
-				set_variable =  { name = tentacleswarm_uterine_degeneration value = 5 }
-				set_variable =  { name = tentacleswarm_vaginal_degeneration value = 10 }
-			}
-		}
 		
 		#所有伯爵领，初始化腐化度
 		every_county = {

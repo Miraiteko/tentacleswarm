@@ -252,7 +252,7 @@ window = {
 												size = { 25 36 }
 												position = { -20 2 }
 												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
-												color = { 0.9.0 0.6 0.8 1 }
+												color = { 0.9 0.6 0.8 1 }
 											}
 											state = {
 												name = a
@@ -507,7 +507,7 @@ window = {
 												size = { 25 36 }
 												position = { -20 2 }
 												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
-												color = { 0.9.0 0.6 0.8 1 }
+												color = { 0.9 0.6 0.8 1 }
 											}
 											state = {
 												name = a
@@ -733,10 +733,9 @@ window = {
 									name = "degeneration_pure_bar"
 									size = { @progress_bar_size 40 }
 									value = "[GetPlayer.MakeScope.Var('tentacleswarm_vaginal_degeneration').GetValue]"
-				
 									progresstexture = "gfx/interface/progressbars/progress_pure.dds" #偏灰色纯洁纹理
 									color = { 0.8 0.8 0.8 1 }
-									
+
 									marker = {
 										name = "current_value"
 										widget = {
@@ -764,7 +763,7 @@ window = {
 												size = { 25 36 }
 												position = { -20 2 }
 												texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
-												color = { 0.9.0 0.6 0.8 1 }
+												color = { 0.9 0.6 0.8 1 }
 											}
 											state = {
 												name = a

@@ -7,6 +7,7 @@
 #2001 驱逐异教骑士团
 #2002 AI战狂远征
 #5001 AI对4VA的响应
+#6001 玩家恶堕结算
 namespace = tentacleswarm_yearly_check
 
 tentacleswarm_yearly_check.0001 = {
@@ -665,6 +666,33 @@ tentacleswarm_yearly_check.5001 = { #AI对4VA的响应
 					
 				}
 			}
+		}
+	}
+}
+tentacleswarm_yearly_check.6001 = { #玩家恶堕结算
+	hidden = yes
+	trigger = {
+	}
+	immediate = {
+		set_variable = {
+			name = tentacleswarm_ovarian_degeneration
+			value = tentacleswarm_ovarian_degeneration_change_value
+		}
+		set_variable = {
+			name = tentacleswarm_uterine_degeneration
+			value = tentacleswarm_uterine_degeneration_change_value
+		}
+		set_variable = {
+			name = tentacleswarm_vaginal_degeneration
+			value = tentacleswarm_vaginal_degeneration_change_value
+		}
+		set_variable = {
+			name = tentacleswarm_cum_value
+			value = tentacleswarm_cum_change_value
+		}
+		trigger_event = {
+			on_action = tentacleswarm_degeration_player_pulse
+			days = 1
 		}
 	}
 }

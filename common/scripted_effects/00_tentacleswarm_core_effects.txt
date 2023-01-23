@@ -59,6 +59,26 @@ tentacle_degenerate_effect = {
 		change_variable =  { name = tentacle_degenerate_count add = 1} 
 	}
 	hidden_effect = {
+		#恶堕结算
+		if = {
+			limit = { 
+				NOT = { has_variable = daily_check_started }
+			}
+			set_variable = {
+				name = daily_check_started
+				value = 0
+			}
+			set_variable =  { name = tentacleswarm_cum_value value = tentacleswarm_cum_inject_value }	
+			set_variable =  { name = tentacleswarm_ovarian_degeneration value = 0 }
+			set_variable =  { name = tentacleswarm_uterine_degeneration value = 0 }
+			set_variable =  { name = tentacleswarm_vaginal_degeneration value = 0 }
+			trigger_event = {
+				on_action = tentacleswarm_degeration_player_pulse
+			}
+		}
+		else = {
+			change_variable =  { name = tentacleswarm_cum_value add = tentacleswarm_cum_inject_value }	
+		}
 		if = {
 			limit = {
 				is_pregnant_nature_or_tentacle = yes #怀孕了但没有被赐福的话，被赐福

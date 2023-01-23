@@ -460,3 +460,196 @@ culture_acceptance_baseline = {
 		}
 	}
 }
+
+#触手恶堕相关
+tentacleswarm_cum_inject_value = {
+	value ={
+		integer_range = {
+			min = 20
+			max = 50
+		}
+	}
+	if = {
+		limit = { var:tentacleswarm_vaginal_degeneration >= 90 }
+		add = 100
+	}
+	else_if = {
+		limit = { var:tentacleswarm_vaginal_degeneration >= 70 }
+		add = 50
+	}
+	else_if = {
+		limit = { var:tentacleswarm_vaginal_degeneration >= 45 }
+		add = 30
+	}
+	else_if = {
+		limit = { var:tentacleswarm_vaginal_degeneration >= 20 }
+		add = 10
+	}
+}
+tentacleswarm_cum_change_value = {
+	value = var:tentacleswarm_cum_value
+	if = {
+		limit = { var:tentacleswarm_cum_value >= 55 }
+		add = -2
+	}
+	else_if = {
+		limit = { var:tentacleswarm_cum_value >= 28 }
+		add = -1.5
+	}
+	else_if = {
+		limit = { var:tentacleswarm_cum_value >= 3 }
+		add = -1
+	}
+	else = {
+		add = 0
+	}
+	min = 0
+	max = 100
+}
+tentacleswarm_ovarian_degeneration_change_value = {
+	value = var:tentacleswarm_ovarian_degeneration
+	if = {
+		limit = { var:tentacleswarm_cum_value >= 55 }
+		add = {
+			value = 2
+			if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+				multiply = 1.1
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 70 }
+				multiply = 1.0
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 45 }
+				multiply = 0.9
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 20 }
+				multiply = 0.8
+			}
+			else = {
+				multiply = 0.7
+			}
+		}
+	}
+	subtract = {
+		value = 0.1
+		if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 90 }
+			multiply = -0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 70 }
+			multiply = 0
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 45 }
+			multiply = 0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 20 }
+			multiply = 0.67
+		}
+	}
+	min = 0
+	max = 100
+}
+tentacleswarm_uterine_degeneration_change_value = {
+	value = var:tentacleswarm_uterine_degeneration
+	if = {
+		limit = { var:tentacleswarm_cum_value >= 28 }
+		add = {
+			value = 2
+			if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+				multiply = 1.1
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 70 }
+				multiply = 1.0
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 45 }
+				multiply = 0.9
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 20 }
+				multiply = 0.8
+			}
+			else = {
+				multiply = 0.7
+			}
+		}
+	}
+	subtract = {
+		value = 0.2
+		if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 90 }
+			multiply = -0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 70 }
+			multiply = 0
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 45 }
+			multiply = 0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 20 }
+			multiply = 0.67
+		}
+	}
+	min = 0
+	max = 100
+}
+tentacleswarm_vaginal_degeneration_change_value = {
+	value = var:tentacleswarm_vaginal_degeneration
+	if = {
+		limit = { var:tentacleswarm_cum_value >= 3 }
+		add = {
+			value = 2
+			if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+				multiply = 1.1
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 70 }
+				multiply = 1.0
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 45 }
+				multiply = 0.9
+			}
+			else_if = {
+				limit = { var:tentacleswarm_uterine_degeneration >= 20 }
+				multiply = 0.8
+			}
+			else = {
+				multiply = 0.7
+			}
+		}
+	}
+	subtract = {
+		value = 0.3
+		if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 90 }
+			multiply = -0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 70 }
+			multiply = 0
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 45 }
+			multiply = 0.33
+		}
+		else_if = {
+			limit = { var:tentacleswarm_ovarian_degeneration >= 20 }
+			multiply = 0.67
+		}
+	}
+	min = 0
+	max = 100
+}

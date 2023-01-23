@@ -5,3 +5,10 @@ tentacleswarm_4VA_pulse = {
 		#子mod可以在这里添加其他触发
 	}
 }
+
+tentacleswarm_degeration_player_pulse = { 
+	events = {
+		tentacleswarm_yearly_check.6001 #玩家恶堕结算
+		#子mod可以在这里添加其他触发
+	}
+}
