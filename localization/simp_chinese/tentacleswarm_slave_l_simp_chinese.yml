@@ -53,8 +53,7 @@
     I_CANNOT_BLACKMAIL_MY_TENTACLE_MENTOR:0 "你不能勒索你的恶堕引路人"
 
     #新ui
-    OPEN_personal_degeneration_TOOLTIP:0 "查看触手侵染情况"
-    CANT_OPEN_personal_degeneration_TOOLTIP:0 "@warning_icon!#X 无法查看触手侵染情况，因为该角色是男性#!"
+    OPEN_PERSONAL_DEGENERATION_TOOLTIP:0 "[GetPlayer.Custom( 'Tentacleswarm_Cum_Level_Loc')]\n点击查看你的触手恶堕情况"
 
     TENTACLE_DEGENERATION:0 "触手恶堕"
     tentacle_cum:0 "触手瘴气"

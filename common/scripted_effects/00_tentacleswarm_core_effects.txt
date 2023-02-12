@@ -62,11 +62,11 @@ tentacle_degenerate_effect = {
 		#恶堕结算
 		if = {
 			limit = { 
-				NOT = { has_variable = daily_check_started }
+				NOT = { has_variable = have_been_tentacle_cum_inject }
 			}
 			set_variable = {
-				name = daily_check_started
-				value = 0
+				name = have_been_tentacle_cum_inject
+				value = true
 			}
 			set_variable =  { name = tentacleswarm_cum_value value = tentacleswarm_cum_inject_value }	
 			set_variable =  { name = tentacleswarm_ovarian_degeneration value = 0 }

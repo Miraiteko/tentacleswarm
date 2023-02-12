@@ -1,3 +1,4 @@
 ﻿gui/tentacleswarm_hud.gui = tentacleswarm_hud
 gui/tentacleswarm_hud.gui = tentacle_hud_bottom
+gui/tentacleswarm_hud.gui = tentacle_hud_left
 gui/window_character_degeneration.gui = character_degeneration_window
