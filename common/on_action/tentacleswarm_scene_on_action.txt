@@ -7,7 +7,7 @@ tentacle_encounter_random_pulse = {
 	}
 }
 #被触手袭击的时候
-on_tentacle_degenerate_pulse = {
+on_tentacle_degenerate_pulse = { 
 	events = {
 	}
 }

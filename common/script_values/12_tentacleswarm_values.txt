@@ -16,20 +16,26 @@ minus_tentacleswarm_corruption = {
 	subtract = var:tentacleswarm_corruption
 }
 
-tentacle_pregnancy_chance = { #怀孕概率
+tentacle_pregnancy_chance = { #触手怀孕概率
 	value = 100
-	multiply = fertility
-	if = { #未腐化过
-		limit = {
-			NOT = { has_perk = tentacle_corruption_01_perk }
-		}
-		multiply = 0.01 #没有恶堕芬芳
+	if = {
+		limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+		multiply = 1.0
 	}
-	if = { #堕落烙印
-		limit = {
-			has_perk = tentacle_corruption_12_perk 
-		}
-		multiply = 3
+	else_if = {
+		limit = { var:tentacleswarm_uterine_degeneration >= 70 }
+		multiply = 0.75
+	}
+	else_if = {
+		limit = { var:tentacleswarm_uterine_degeneration >= 45 }
+		multiply = 0.5
+	}
+	else_if = {
+		limit = { var:tentacleswarm_uterine_degeneration >= 20 }
+		multiply = 0.25
+	}
+	else = {
+		multiply = 0.0
 	}
 }
 #腐化度增长

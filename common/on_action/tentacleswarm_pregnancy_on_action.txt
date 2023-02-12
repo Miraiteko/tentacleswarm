@@ -97,43 +97,10 @@ tentacleswarm_near_birth_pulse = {
 	}		
 	effect = {
 		#胎儿受触手影响检查
-		if = { #恶堕淫宫，必然受影响
-			limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+		random = {
+			chance = tentacle_pregnancy_chance
 			set_pregnancy_gender = female
 			add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-		}
-		else_if = { #苗床之宫 75%
-			limit = { var:tentacleswarm_uterine_degeneration >= 70 }
-			random_list = {
-				75 = {
-					set_pregnancy_gender = female
-					add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-				}
-				25 = {
-				}
-			}
-		}
-		else_if = { #育种之宫 50%
-			limit = { var:tentacleswarm_uterine_degeneration >= 45 }
-			random_list = {
-				50 = {
-					set_pregnancy_gender = female
-					add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-				}
-				50 = {
-				}
-			}
-		}
-		else_if = { #玷污之宫 25%
-			limit = { var:tentacleswarm_uterine_degeneration >= 20 }
-			random_list = {
-				25 = {
-					set_pregnancy_gender = female
-					add_character_flag = { flag = baby_congenital_tentacle_slave months = 5 }
-				}
-				75 = {
-				}
-			}
 		}
 	}
 }
@@ -157,7 +124,7 @@ tentacleswarm_birth_pulse = {
 				limit = {
 					is_female = yes
 				}
-				become_congenital_tentacle_slave = yes
+				become_congenital_tentacle_slave = yes 
 			}
 		}	
 		else = { #正常人

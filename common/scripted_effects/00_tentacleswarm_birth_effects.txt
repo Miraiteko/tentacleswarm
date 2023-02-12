@@ -19,10 +19,17 @@ become_congenital_tentacle_slave = { #成为天生奴隶
 		initial_tentacle_slave = yes
 	}
 	#恶堕程度
+	set_variable = {
+		name = have_been_tentacle_cum_inject #出生前就被射入了
+		value = true
+	}
 	set_variable =  { name = tentacleswarm_ovarian_degeneration value = 75 }
 	set_variable =  { name = tentacleswarm_uterine_degeneration value = 85 }
 	set_variable =  { name = tentacleswarm_vaginal_degeneration value = 95 }
 	set_variable =  { name = tentacleswarm_cum_value value = 3 }	
+	trigger_event = {
+		on_action = tentacleswarm_degeration_player_pulse
+	}
 
 	#受到祝福
 	random_list = {
