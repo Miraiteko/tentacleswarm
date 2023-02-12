@@ -68,10 +68,11 @@ tentacle_degenerate_effect = {
 				name = have_been_tentacle_cum_inject
 				value = true
 			}
-			set_variable =  { name = tentacleswarm_cum_value value = tentacleswarm_cum_inject_value }	
 			set_variable =  { name = tentacleswarm_ovarian_degeneration value = 0 }
 			set_variable =  { name = tentacleswarm_uterine_degeneration value = 0 }
 			set_variable =  { name = tentacleswarm_vaginal_degeneration value = 0 }
+			set_variable =  { name = tentacleswarm_cum_value value = 0 }	
+			change_variable =  { name = tentacleswarm_cum_value add = tentacleswarm_cum_inject_value }	
 			trigger_event = {
 				on_action = tentacleswarm_degeration_player_pulse
 			}
