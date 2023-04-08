@@ -44,6 +44,11 @@ initial_tentacle_slave = {
 	add_perk = tentacle_corruption_21_perk
 	add_perk = tentacle_corruption_22_perk
 	add_perk = tentacle_corruption_31_perk
+	if = {
+		limit = { has_trait = beauty_bad }
+		change_trait_rank = { trait = beauty_bad rank = -3 max = 3 }
+	}
+	change_trait_rank = { trait = beauty_good rank = 1 max = 3 }
 }
 #被触手腐化
 tentacle_degenerate_effect = {

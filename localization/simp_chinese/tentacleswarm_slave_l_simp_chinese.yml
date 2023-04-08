@@ -159,3 +159,9 @@
 
 
 
+    #复制体
+    tentacleswarm_create_female_copy_interaction:0 "画中佳人"
+    tentacleswarm_create_female_copy_interaction_desc:0 "创造一个[recipient.GetShortUINameNoTooltip]的女性复制体"
+    tentacleswarm_create_female_copy_interaction.tt:0 "创造一个[recipient.GetShortUINameNoTooltip]的复制体，这个复制体\n会成为美丽的女性并且来到你的宫廷。"
+    tentacleswarm_replace_by_female_copy_interaction:0 "摄人心魄"
+    tentacleswarm_replace_by_female_copy_interaction_desc:0 "用你宫廷中复制体的替代掉[recipient.GetShortUINameNoTooltip]"

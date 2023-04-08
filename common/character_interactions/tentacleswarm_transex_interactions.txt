@@ -1,0 +1,168 @@
+﻿tentacleswarm_create_female_copy_interaction = { #创造女性复制体
+	category = interaction_category_hostile
+	common_interaction = yes
+	interface_priority = 100
+	cooldown_against_recipient = { months = 1 } #冷却时间
+	desc = tentacleswarm_create_female_copy_interaction_desc
+	ai_frequency = 3 #AI多久考虑一次
+
+	is_shown = {
+		always = yes
+	}
+
+	is_valid = {
+		always = yes
+	}
+	
+	is_highlighted = {
+	}
+	on_send = {
+	}
+	on_accept = {
+		scope:recipient = {
+			add_opinion = {
+				modifier = spied_on_me_agent_opinion
+				target = scope:actor
+			}
+		}
+		scope:actor= {
+			custom_tooltip = tentacleswarm_create_female_copy_interaction.tt
+		}
+		hidden_effect = {
+			create_character = {
+				save_scope_as = female_copy
+				random_traits = no
+				dynasty_house = scope:recipient.house
+				gender = female
+				age = 17
+				faith = scope:recipient.faith
+				culture = scope:recipient.culture
+				employer = scope:actor
+			}
+			scope:female_copy = {
+				copy_inheritable_appearance_from = scope:recipient
+				copy_traits = scope:recipient
+				set_variable = {
+					name = copy_target
+					value = scope:recipient
+				}
+				initial_tentacle_slave = yes 
+			}
+			scope:actor= {
+				add_hook = {
+					type = loyalty_hook
+					target = scope:female_copy
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		is_tentacle_slave = no
+		is_tentacleswarm_religion_character = yes
+	}
+	
+	auto_accept = yes
+	
+	ai_targets = {
+		ai_recipients = self
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+tentacleswarm_replace_by_female_copy_interaction = { #用女性复制体替换目标
+	category = interaction_category_hostile
+	common_interaction = yes
+	desc = tentacleswarm_replace_by_female_copy_interaction_desc
+	interface_priority = 100
+	cooldown_against_recipient = { months = 1 } #冷却时间
+	
+	ai_frequency = 3 #AI多久考虑一次
+
+	is_shown = {
+		scope:actor = {
+			any_courtier_or_guest = {
+				has_variable = copy_target
+				var:copy_target = scope:recipient
+			}
+		}
+	}
+
+	is_valid = {
+		scope:actor = {
+			any_courtier_or_guest = {
+				has_variable = copy_target
+				var:copy_target = scope:recipient
+			}
+		}
+	}
+	
+	is_highlighted = {
+	}
+	on_send = {
+	}
+	on_accept = {
+		scope:actor = {
+			random_courtier_or_guest = {
+				limit = {
+					has_variable = copy_target
+					var:copy_target = scope:recipient
+				}
+				save_scope_as = female_copy
+			}
+		}
+
+		#开始篡夺
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = change
+		}
+		scope:recipient = {
+			every_held_title = {
+				limit = {
+					tier >= tier_county
+					is_holy_order = no
+				}
+				add_to_list = target_titles
+			}
+		}
+		setup_claim_cb = {
+			titles = target_titles
+			attacker = scope:female_copy
+			defender = scope:recipient
+			claimant = scope:female_copy
+			change = scope:change
+		}	
+		resolve_title_and_vassal_change = scope:change
+		
+		female_copy= {
+			#改信
+			#convert_to_tentacleswarm_religion = yes
+			#释放费洛蒙 
+			#tentacleswarm_4VA = yes
+		}
+
+		scope:recipient = {
+			set_player_character = scope:female_copy
+			death = {
+				death_reason = death_disappearance
+			}
+		}
+	}
+	
+	ai_potential = {
+		is_tentacle_slave = no
+		is_tentacleswarm_religion_character = yes
+	}
+	
+	auto_accept = yes
+	
+	ai_targets = {
+		ai_recipients = self
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
