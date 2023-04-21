@@ -509,6 +509,7 @@ tentacleswarm_religious_war = {
 	}
 
 	cost = {
+		piety = 100
 	}
 
 	on_declaration = {

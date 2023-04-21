@@ -58,8 +58,11 @@
 	}
 	
 	ai_potential = {
-		is_tentacle_slave = no
-		is_tentacleswarm_religion_character = yes
+		is_female = no
+		OR = {
+			has_trait = lunatic
+			is_tentacleswarm_religion_character = yes
+		}
 	}
 	
 	auto_accept = yes
@@ -137,11 +140,19 @@ tentacleswarm_replace_by_female_copy_interaction = { #用女性复制体替换�
 		}	
 		resolve_title_and_vassal_change = scope:change
 		
-		female_copy= {
-			#改信
-			#convert_to_tentacleswarm_religion = yes
-			#释放费洛蒙 
-			#tentacleswarm_4VA = yes
+		scope:female_copy= {
+			if = {
+				limit = {  
+					exists = scope:recipient.father
+				}
+				set_father = scope:recipient.father
+			}
+			if = {
+				limit = {  
+					exists = scope:recipient.mother
+				}
+				set_mother = scope:recipient.mother
+			}
 		}
 
 		scope:recipient = {
@@ -153,8 +164,11 @@ tentacleswarm_replace_by_female_copy_interaction = { #用女性复制体替换�
 	}
 	
 	ai_potential = {
-		is_tentacle_slave = no
-		is_tentacleswarm_religion_character = yes
+		is_female = no
+		OR = {
+			has_trait = lunatic
+			is_tentacleswarm_religion_character = yes
+		}
 	}
 	
 	auto_accept = yes
