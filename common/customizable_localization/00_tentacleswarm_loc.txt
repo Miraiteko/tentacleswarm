@@ -580,3 +580,69 @@ Tentacleswarm_Vaginal_Degeneration_Level_Effect_Loc = {
 		localization_key = vaginal_degeneration_level_effect_0
 	}
 }
+#触手宠爱等级信息
+Tentacleswarm_Favor_Level_Loc = {
+	type = character
+
+	text = {
+		localization_key = tentacle_favor_level4
+		trigger = {
+			var:tentacleswarm_cum_value >= 95
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level2
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level1
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = tentacle_favor_level0
+	}
+}
+#触手宠爱效果详细信息
+Tentacleswarm_Favor_Level_Effect_Loc = {
+	type = character
+
+	text = {
+		localization_key = tentacle_favor_level_effect_4
+		trigger = {
+			var:tentacleswarm_cum_value >= 95
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level_effect_3
+		trigger = {
+			var:tentacleswarm_cum_value >= 55
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level_effect_2
+		trigger = {
+			var:tentacleswarm_cum_value >= 28
+		}
+	}
+	text = {
+		localization_key = tentacle_favor_level_effect_1
+		trigger = {
+			var:tentacleswarm_cum_value >= 3
+		}
+	}
+	text = {
+		fallback = yes
+		localization_key = tentacle_favor_level_effect_0
+	}
+}
