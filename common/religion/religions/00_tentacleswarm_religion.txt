@@ -7,6 +7,7 @@
 	doctrine = doctrine_pluralism_fundamentalist #基要主义
 	doctrine = doctrine_theocracy_lay_clergy #世俗宗教地产
 	doctrine = abrahamic_hostility_doctrine #亚伯拉罕式侵略性
+	doctrine = doctrine_pilgrimage_encouraged #鼓励朝圣
 	
 	#Marriage
 	doctrine = doctrine_concubines #庶夫制
@@ -19,7 +20,7 @@
 	doctrine = doctrine_adultery_men_crime #男性出轨罪行
 	doctrine = doctrine_adultery_women_accepted #女性出轨可接受
 	doctrine = doctrine_kinslaying_close_kin_crime #不能杀近亲
-	doctrine = doctrine_deviancy_accepted #变态可接受 
+	doctrine = doctrine_deviancy_virtuous #变态是美德 
 	doctrine = doctrine_witchcraft_accepted #巫师可接受
 	doctrine = doctrine_tentacle_slave_worship #触手奴隶推崇
 	
