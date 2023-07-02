@@ -42,6 +42,6 @@ martial_lifestyle_common_events = {
 }
 hunt_random_pulse = {
 	random_events = {
-		100 = tentacleswarm_fake.0011
+		200 = tentacleswarm_fake.0011
 	}
 }

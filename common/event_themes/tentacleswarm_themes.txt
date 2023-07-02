@@ -6,7 +6,7 @@
 		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_love"
 	}
 	background = {
-		event_background = corridor_night
+		reference = corridor_night
 	}
 }
 tentacleswarm_scene_theme_2 = {
@@ -17,7 +17,7 @@ tentacleswarm_scene_theme_2 = {
 		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_seduction"
 	}
 	background = {
-		event_background = corridor_night
+		reference = corridor_night
 	}
 }
 tentacleswarm_scene_theme_3 = {
@@ -28,7 +28,7 @@ tentacleswarm_scene_theme_3 = {
 		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_marriage"
 	}
 	background = {
-		event_background = temple
+		reference = temple
 	}
 }
 tentacleswarm_scene_theme_4 = {
@@ -39,6 +39,6 @@ tentacleswarm_scene_theme_4 = {
 		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_seduction"
 	}
 	background = {
-		event_background = corridor_night
+		reference = corridor_night
 	}
 }

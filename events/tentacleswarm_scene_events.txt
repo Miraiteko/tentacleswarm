@@ -364,7 +364,7 @@ tentacleswarm_scene.0031 = {
 		}
 	}
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = temple }
+	override_background = { reference = temple }
 	left_portrait = {
 		character = this
 		animation = personality_zealous
@@ -424,7 +424,7 @@ tentacleswarm_scene.0032 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = temple }
+	override_background = { reference = temple }
 	left_portrait = {
 		character = root
 		animation = happiness
@@ -487,7 +487,7 @@ tentacleswarm_scene.0033 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = temple }
+	override_background = { reference = temple }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -536,7 +536,7 @@ tentacleswarm_scene.0041 = {
 	title = tentacleswarm_scene.0041.t
 	desc = tentacleswarm_scene.0041.desc
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = dungeon }
+	override_background = { reference = dungeon }
 	left_portrait = this
 	right_portrait = scope:imprisoner
 	 
@@ -583,7 +583,7 @@ tentacleswarm_scene.0042 = {
 		}
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = dungeon }
+	override_background = { reference = dungeon }
 	left_portrait = {
 		character = this
 		animation = personality_zealous
@@ -656,7 +656,7 @@ tentacleswarm_scene.0043 = {
 	}
 	
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = dungeon }
+	override_background = { reference = dungeon }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -705,7 +705,7 @@ tentacleswarm_scene.0044 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = dungeon }
+	override_background = { reference = dungeon }
 	left_portrait = scope:recipient
 	right_portrait = {
 		character = this
@@ -1157,7 +1157,7 @@ tentacleswarm_scene.0061 = {
 	desc = tentacleswarm_scene.0061.desc
 	
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = bedchamber }
+	override_background = { reference = bedchamber }
 	left_portrait = this
 	
 	immediate = {
@@ -1209,7 +1209,7 @@ tentacleswarm_scene.0062 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = bedchamber }
+	override_background = { reference = bedchamber }
 	left_portrait = {
 		character = this
 		animation = shock
@@ -1296,7 +1296,7 @@ tentacleswarm_scene.0063 = {
 	}
 	
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = bedchamber }
+	override_background = { reference = bedchamber }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -1374,7 +1374,7 @@ tentacleswarm_scene.0071 = {
 	desc = tentacleswarm_scene.0071.desc
 	
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = wilderness }
+	override_background = { reference = wilderness }
 	left_portrait = this
 	
 	immediate = {
@@ -1426,7 +1426,7 @@ tentacleswarm_scene.0072 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = wilderness }
+	override_background = { reference = wilderness }
 	left_portrait = {
 		character = this
 		animation = shock
@@ -1513,7 +1513,7 @@ tentacleswarm_scene.0073 = {
 	}
 	
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = wilderness }
+	override_background = { reference = wilderness }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -1794,7 +1794,7 @@ tentacleswarm_scene.0091 = {
 	desc = tentacleswarm_scene.0091.desc
 	
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = corridor_night }
+	override_background = { reference = corridor_night }
 	left_portrait = {
 		character = root
 		animation = personality_cynical
@@ -1849,7 +1849,7 @@ tentacleswarm_scene.0092 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = corridor_night }
+	override_background = { reference = corridor_night }
 	left_portrait = {
 		character = this
 		animation = shock
@@ -1936,7 +1936,7 @@ tentacleswarm_scene.0093 = {
 	}
 	
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = corridor_night }
+	override_background = { reference = corridor_night }
 	left_portrait = {
 		character = this
 		animation = personality_coward #乖巧
@@ -1966,12 +1966,27 @@ tentacleswarm_scene.0093 = {
 #遗世之曦
 #遗世起
 tentacleswarm_scene.0101 = {
-	type = character_event
+	type = activity_event
 	title = tentacleswarm_scene.0101.t
 	desc = tentacleswarm_scene.0101.desc
 	
 	theme = tentacleswarm_scene_theme_1
-	override_background = { event_background = wilderness }
+	override_background = {
+		trigger = {
+			scope:activity.activity_location = {
+				NOR = { # Only Forests
+					graphical_wilderness_desert_trigger = yes
+					hunt_snowy_forest_trigger = yes
+					graphical_wilderness_mountains_trigger = yes
+					graphical_wilderness_steppe_trigger = yes
+					graphical_drylands_trigger = yes
+					graphical_wilderness_wetlands_trigger = yes
+					graphical_wilderness_jungle_trigger = yes
+				}
+			}
+		}
+		reference = ep2_hunt_forest_hut
+	}
 	left_portrait = {
 		character = root
 		animation = personality_coward
@@ -1994,7 +2009,7 @@ tentacleswarm_scene.0101 = {
 }
 #遗世承
 tentacleswarm_scene.0102 = {
-	type = character_event
+	type = activity_event
 	title = tentacleswarm_scene.t	
 	desc = {
 		#如何被抓获的
@@ -2032,7 +2047,22 @@ tentacleswarm_scene.0102 = {
 		} 
 	}
 	theme = tentacleswarm_scene_theme_2
-	override_background = { event_background = wilderness }
+	override_background = {
+		trigger = {
+			scope:activity.activity_location = {
+				NOR = { # Only Forests
+					graphical_wilderness_desert_trigger = yes
+					hunt_snowy_forest_trigger = yes
+					graphical_wilderness_mountains_trigger = yes
+					graphical_wilderness_steppe_trigger = yes
+					graphical_drylands_trigger = yes
+					graphical_wilderness_wetlands_trigger = yes
+					graphical_wilderness_jungle_trigger = yes
+				}
+			}
+		}
+		reference = ep2_hunt_forest_hut
+	}
 	left_portrait = {
 		character = this
 		animation = shock
@@ -2101,7 +2131,7 @@ tentacleswarm_scene.0102 = {
 }
 #遗世合
 tentacleswarm_scene.0103 = {
-	type = character_event
+	type = activity_event
 	title = tentacleswarm_scene.0103.t
 	desc = { #尾声
 		#根据是否是奴隶，选择尾声时的文本
@@ -2125,7 +2155,22 @@ tentacleswarm_scene.0103 = {
 	}
 	
 	theme = tentacleswarm_scene_theme_4
-	override_background = { event_background = wilderness }
+	override_background = {
+		trigger = {
+			scope:activity.activity_location = {
+				NOR = { # Only Forests
+					graphical_wilderness_desert_trigger = yes
+					hunt_snowy_forest_trigger = yes
+					graphical_wilderness_mountains_trigger = yes
+					graphical_wilderness_steppe_trigger = yes
+					graphical_drylands_trigger = yes
+					graphical_wilderness_wetlands_trigger = yes
+					graphical_wilderness_jungle_trigger = yes
+				}
+			}
+		}
+		reference = ep2_hunt_forest_hut
+	}
 	left_portrait = {
 		character = this
 		animation = personality_cynical

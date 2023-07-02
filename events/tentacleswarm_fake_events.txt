@@ -9,7 +9,7 @@ tentacleswarm_fake.0001 = {
 
 	theme = martial_chivalry_focus
 	override_background = {
-		event_background = terrain
+		reference = terrain
 	}	
 	left_portrait = root
 	
@@ -76,7 +76,7 @@ tentacleswarm_fake.0002 = {
 
 	theme = martial_chivalry_focus
 	override_background = {
-		event_background = corridor_night
+		reference = corridor_night
 	}	
 	left_portrait = {
 		character = root
@@ -226,14 +226,30 @@ tentacleswarm_fake.0002 = {
 }
 #打猎遭遇
 tentacleswarm_fake.0011 = {
-	type = character_event
+	type = activity_event
 	title = hunt.1021.t
 	desc = hunt.1021.desc
 	theme = hunt_activity
- 	left_portrait = {
- 		character = scope:beautiful_peasant
- 		animation = flirtation
- 	}
+	override_background = {
+		trigger = {
+			scope:activity.activity_location = {
+				NOR = { # Only Forests
+					graphical_wilderness_desert_trigger = yes
+					hunt_snowy_forest_trigger = yes
+					graphical_wilderness_mountains_trigger = yes
+					graphical_wilderness_steppe_trigger = yes
+					graphical_drylands_trigger = yes
+					graphical_wilderness_wetlands_trigger = yes
+					graphical_wilderness_jungle_trigger = yes
+				}
+			}
+		}
+		reference = ep2_hunt_forest_hut
+	}
+	left_portrait = {
+		character = scope:beautiful_peasant
+		animation = flirtation
+	}
 	
 	trigger = {
 		is_tentaclable_female = yes
@@ -271,11 +287,11 @@ tentacleswarm_fake.0011 = {
 		}
 		hidden_effect = {
 			create_character = {
-				location = scope:activity.activity_province
+				location = scope:activity.activity_location
 				template = beautiful_peasant_character
 				gender = female
-				faith = scope:activity.activity_province.county.faith
-				culture = scope:activity.activity_province.county.culture
+				faith = scope:activity.activity_location.county.faith
+				culture = scope:activity.activity_location.county.culture
 				dynasty = none
 				save_scope_as = beautiful_peasant
 			}
@@ -291,14 +307,11 @@ tentacleswarm_fake.0011 = {
 				}
 			}
 		}
-		change_variable = {
-			name = hunt_outcome
-			add = 2
-		}
 	}
 
 	option = { #Oh, hello you
 		name = hunt.1021.a
+		hunt_activity_success_change_effect = { CHANGE = decrease_medium }
 		if = {
 			limit = { has_sexuality = asexual }
 			set_sexuality = homosexual
@@ -326,14 +339,31 @@ tentacleswarm_fake.0011 = {
 				days = { 3 7 }
 			}
 		}
-		stress_impact = {
- 			base = medium_stress_impact_loss
- 			lustful = minor_stress_impact_loss
- 			rakish = minor_stress_impact_loss
- 			chaste = major_stress_impact_gain
- 			shy = medium_stress_impact_gain
- 			impatient = minor_stress_impact_gain
- 		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = hunt_laid_peasant_log
+				character = root
+				target = scope:beautiful_peasant
+
+				# Effect
+				root = {
+					show_as_tooltip = {
+						had_sex_with_effect = {
+							CHARACTER = scope:beautiful_peasant
+							PREGNANCY_CHANCE = pregnancy_chance
+						}
+					}
+					stress_impact = {
+						base = medium_stress_impact_loss
+						lustful = minor_stress_impact_loss
+						rakish = minor_stress_impact_loss
+						chaste = major_stress_impact_gain
+						shy = medium_stress_impact_gain
+						impatient = minor_stress_impact_gain
+					}
+				}
+			}
+		}
  		ai_chance = {
  			base = 100
  			ai_value_modifier = {
@@ -379,25 +409,33 @@ tentacleswarm_fake.0011 = {
 			text = hunt.1021.b.cruel
 		}
 		name = hunt.1021.b.purpose
-		if = {
-			limit = {
-				faith = {
-					NOT = { has_doctrine = tenet_carnal_exaltation }
+		scope:activity = {
+			add_activity_log_entry = {
+				key = hunt_resisted_advances_log
+				character = root
+				target = scope:beautiful_peasant
+
+				# Effect
+				root = {
+					if = {
+						limit = {
+							faith = {
+								NOT = { has_doctrine = tenet_carnal_exaltation }
+							}
+						}
+						add_character_modifier = {
+							modifier = modifier_hunt_resisted_advances
+							days = 1825
+						}
+						add_piety = minor_piety_gain
+					}
+					stress_impact = {
+						lazy = minor_stress_impact_gain
+						lustful = medium_stress_impact_gain
+						diligent = minor_stress_impact_loss
+					}
 				}
 			}
-			add_character_modifier = {
-				modifier = modifier_hunt_resisted_advances
-				days = 1825
-			}
-			add_piety = minor_piety_gain
-		}
-		trigger_event = {
-			id = hunt.9001 #To complete the activity
-			days = { 14 20 }
-		}
-		stress_impact = {
-			lazy = minor_stress_impact_gain
-			lustful = medium_stress_impact_gain
 		}
 		ai_chance = {
 			base = 100
@@ -408,76 +446,23 @@ tentacleswarm_fake.0011 = {
 		}
 	}
 	
-	option = { #Let me set you up at court
-		name = hunt.1021.c
-		trigger = {
-			NOT = { has_trait = chaste }
-		}
-		remove_short_term_gold = activity_minor_gold_value
-		duel = {
-			skill = diplomacy
-			value = average_skill_rating
-			10 = {
-				compare_modifier = {
-					value = scope:duel_value
-				}
-				desc = hunt.1021.c.success
-				send_interface_toast = {
-					title = hunt.1021.c.success
-					left_icon = scope:beautiful_peasant
-					add_courtier = scope:beautiful_peasant
-				}
-				set_relation_potential_lover = scope:beautiful_peasant
-				change_variable = {
-					name = hunt_outcome
-					add = 1
-				}
-			}
-			10 = {
-				desc = hunt.1021.c.failure
-				send_interface_toast = {
-					title = hunt.1021.c.failure
-					left_icon = scope:beautiful_peasant
-					custom_tooltip = hunt.1021.c.failure_tt
-				}
-				change_variable = {
-					name = hunt_outcome
-					add = -1
-				}
-			}
-		}
-		trigger_event = {
-			id = hunt.9001 #To complete the activity
-			days = { 14 20 }
-		}
-		stress_impact = {
-			callous = minor_stress_impact_gain
-			arrogant = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_compassion = 0.5
-			}
-		}
-	}
-	
 	option = { #You deserve a life at court
 		name = hunt.1021.d
 		trait = chaste
-		trigger = {
-			has_trait = chaste
-		}
-		remove_short_term_gold = activity_minor_gold_value
-		add_courtier = scope:beautiful_peasant
-		set_relation_friend = scope:beautiful_peasant
-		change_variable = {
-			name = hunt_outcome
-			add = 2
-		}
-		trigger_event = {
-			id = hunt.9001 #To complete the activity
-			days = { 14 20 }
+		trigger = { has_trait = chaste }
+		scope:activity = {
+			add_activity_log_entry = {
+				key = hunt_hosted_peasant_log
+				character = root
+				target = scope:beautiful_peasant
+
+				# Effect
+				root = {
+					remove_short_term_gold = activity_minor_gold_value
+					add_courtier = scope:beautiful_peasant
+					set_relation_friend = { reason = friend_invited_to_court target = scope:beautiful_peasant }
+				}
+			}
 		}
 		ai_chance = {
 			base = 300
@@ -492,7 +477,7 @@ tentacleswarm_fake.0011 = {
 #You spent some time in their cabin
 
 tentacleswarm_fake.0012 = {
-	type = character_event
+	type = activity_event
 	title = hunt.1022.t
 	desc = { #尾声
 		#根据是否是奴隶，选择尾声时的文本
@@ -515,9 +500,25 @@ tentacleswarm_fake.0012 = {
 		} 
 	}
 	theme = hunt_activity
+	override_background = {
+		trigger = {
+			scope:activity.activity_location = {
+				NOR = { # Only Forests
+					graphical_wilderness_desert_trigger = yes
+					hunt_snowy_forest_trigger = yes
+					graphical_wilderness_mountains_trigger = yes
+					graphical_wilderness_steppe_trigger = yes
+					graphical_drylands_trigger = yes
+					graphical_wilderness_wetlands_trigger = yes
+					graphical_wilderness_jungle_trigger = yes
+				}
+			}
+		}
+		reference = ep2_hunt_forest_hut
+	}
 	left_portrait = {
 		character = scope:beautiful_peasant
-		animation = flirtation
+		animation = ecstasy
 	}
 	option = { #Let's not meet again
 		name = tentacleswarm_fake.0012.a
@@ -540,7 +541,9 @@ tentacleswarm_fake.0012 = {
 	option = { #Let me set you up at court
 		name = tentacleswarm_fake.0012.b
 		remove_short_term_gold = activity_minor_gold_value
-		add_courtier = scope:beautiful_peasant
+		scope:beautiful_peasant = {
+			add_to_court_and_entourage_effect = yes
+		}
 		set_relation_lover = scope:beautiful_peasant
 		ai_chance = {
 			base = 50
@@ -558,7 +561,9 @@ tentacleswarm_fake.0012 = {
 			num_of_relation_tentacle_mentor = 0 #没有引路人
 		}
 		remove_short_term_gold = activity_minor_gold_value
-		add_courtier = scope:beautiful_peasant
+		scope:beautiful_peasant = {
+			add_to_court_and_entourage_effect = yes
+		}
 		set_relation_lover = scope:beautiful_peasant
 		
 		if = {
@@ -577,12 +582,6 @@ tentacleswarm_fake.0012 = {
 			ai_value_modifier = {
 				ai_rationality = -0.5
 			}
-		}
-	}
-	after = {
-		trigger_event = {
-			id = hunt.9001 #To complete the activity
-			days = { 14 20 }
 		}
 	}
 }
