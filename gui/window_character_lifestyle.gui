@@ -785,24 +785,24 @@ window = {
 							margin_top = 0
 							margin_left = -2
 							widget = {
-								size = { 240 150 }
+								size = { 200 220 }
 								progressbar = { #主条
 									name = "degeneration_value_bar"
 									direction = vertical
-									size = { 240 150 }
+									size = { 200 200 }
 									alpha = 1
 									#3以上少量，28以上中量，55以上大量,95以上灌满
 									value = "[GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue]"
-									progresstexture = "gfx/interface/progressbars/progress_womb_cum.dds"
-									noprogresstexture = "gfx/interface/progressbars/progress_womb_empty.dds"
+									progresstexture = "gfx/interface/progressbars/progress_favor.dds"
+									noprogresstexture = "gfx/interface/progressbars/progress_favor_empty.dds"
 									
 									marker = {
 										name = "current_value"
 										widget = {
 											visible = "[And(GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)3'),LessThan_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)95'))]"
 											icon = {
-												size = { 210 10 }
-												position = { 12 -5 }
+												size = { 220 15 }
+												position = { -15 -5 }
 												texture = "gfx/interface/progressbars/progressbar_womb_glow.dds"
 											}
 											state = {
