@@ -7,7 +7,7 @@ tentacle_slave = {
 	level = 2
 	
 	valid_sex =  female
-	health_trait = yes #健康特质
+	category = fame #名誉特质特质
 		
 	desc = {
 		first_valid = {
@@ -70,7 +70,7 @@ tentacle_defiled = {
 	level = 1
 	
 	valid_sex =  female
-	fame = yes #名誉特质特质
+	category = fame #名誉特质特质
 		
 	desc = {
 		first_valid = {
