@@ -118,7 +118,8 @@ widget = {
 			name = "tentacleswarm_corruption_map"
 			tooltip = "OPEN_PERSONAL_DEGENERATION_TOOLTIP"
 			alpha = 0.95
-			visible = "[GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)1')]"
+			#visible = "[GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)1')]"
+			visible = "[GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('tentacleswarm_cum_value').GetValue,'(CFixedPoint)200')]"
 			blockoverride "maintab_button"
 			{		
 				size = { 480 250 }		
