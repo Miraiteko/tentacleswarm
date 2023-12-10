@@ -7,7 +7,7 @@
 	ai_frequency = 3 #AI多久考虑一次
 
 	is_shown = {
-		always = yes
+		debug_only = yes
 	}
 
 	is_valid = {
@@ -85,6 +85,7 @@ tentacleswarm_replace_by_female_copy_interaction = { #用女性复制体替换�
 	ai_frequency = 3 #AI多久考虑一次
 
 	is_shown = {
+		debug_only = yes
 		scope:actor = {
 			any_courtier_or_guest = {
 				has_variable = copy_target
