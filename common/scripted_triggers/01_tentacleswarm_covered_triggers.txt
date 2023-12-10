@@ -25,7 +25,6 @@ can_have_confederate_partition_succession_law_trigger = {
 	OR = {
 		has_government = feudal_government
 		has_government = tribal_government
-		has_government = clan_government
 		has_government = tentacleswarm_government
 	}
 }
@@ -72,7 +71,7 @@ is_blackmailable_secret_trigger = { #Should not include is known
 			var:promised_not_to_reveal = scope:is_blackmailable_secret_blackmailer
 			scope:is_blackmailable_secret_blackmailer = {
 				is_ai = yes
-				ai_honor >= medium_negative_ai_value
+				ai_honor <= medium_negative_ai_value
 			}
 		}
 	}
@@ -100,6 +99,19 @@ is_blackmailable_secret_trigger = { #Should not include is known
 		NAND = {
 			secret_type = secret_tentacle_slave
 			scope:is_blackmailable_secret_blackmailer = { has_relation_tentacle_mentor = scope:is_blackmailable_secret_participant }
+		}
+	}
+	# Can't blackmail a crypto-religionist of the same faith
+	trigger_if = {
+		limit = { secret_type = secret_crypto_religionist }
+		custom_description = {
+			text = cannot_blackmail_crypto_religionist_of_same_faith
+			scope:is_blackmailable_secret_blackmailer = {
+				NOR = {
+					exists = secret_faith
+					secret_faith ?= scope:is_blackmailable_secret_participant.secret_faith
+				}
+			}
 		}
 	}
 	trigger_if = {
@@ -146,6 +158,25 @@ can_be_combatant_based_on_gender_trigger = {
 		text = "can_be_combatant_based_on_gender"
 		object = this
 		subject = $ARMY_OWNER$
+		# Priests only fight if faith has war priests
+		trigger_if = {
+			limit = {
+				OR = {
+					has_trait = devoted
+					is_clergy = yes
+				}
+			}
+			OR = {
+				faith = { has_doctrine_parameter = clergy_can_fight }
+				culture = { has_cultural_parameter = culture_clergy_can_fight }
+				AND = {
+					$ARMY_OWNER$.culture = {
+						has_cultural_parameter = high_prowess_ignores_knight_restrictions
+					}
+					prowess >= 10
+				}
+			}
+		}
 		OR = {
 			trigger_if = { # Has the Royal Court and thus can modify pillars
 				limit = {
@@ -183,6 +214,22 @@ can_be_combatant_based_on_gender_trigger = {
 				}
 				# No need to gender diversify this: if they're a right-gender shieldperson of the culture, then they've already got permission to fight from the previous AND conditions.
 				has_trait = shieldmaiden
+			}
+			# Event-based special exceptions
+			has_character_modifier = ignores_gender_army_rules
+			AND = {
+				$ARMY_OWNER$ = { culture = { has_cultural_parameter = high_prowess_ignores_knight_restrictions } }
+				NOT = { $ARMY_OWNER$ = { culture = { has_cultural_parameter = minimum_prowess_for_knights } } }
+				prowess >= 10
+			}
+			AND = {
+				$ARMY_OWNER$ = {
+					culture = {
+						has_cultural_parameter = high_prowess_ignores_knight_restrictions
+						has_cultural_parameter = minimum_prowess_for_knights
+					}
+				}
+				prowess >= 12
 			}
 			AND = {
 				$ARMY_OWNER$ = { faith = { has_doctrine_parameter= female_can_be_knight } }
