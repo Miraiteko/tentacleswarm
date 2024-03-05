@@ -240,11 +240,6 @@ tentacleswarm_yearly_check.0001 = {
 				}
 				if = { #大于1才结算
 					limit = { var:tentacleswarm_corruption_fed  > 1 } 
-					#吃饱怪物造成发展度下降
-					change_development_progress_with_overflow = {
-						value = var:tentacleswarm_corruption_fed
-						multiply = -0.2
-					}
 					#吃饱的会继续繁殖
 					change_variable =  { 
 						name = tentacleswarm_corruption 

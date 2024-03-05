@@ -2,28 +2,32 @@
 #10-20
 tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
-	monthly_county_control_decline_add
+	development_decline = -0.2
 	monthly_county_control_decline_add = -0.1
 }
 #20-35
 tentacleswarm_corruption_2 = {
 	icon = outdoors_negative
+	development_decline = -0.4
 	monthly_county_control_decline_add = -0.2
 }
 #35-60
 tentacleswarm_corruption_3 = {
 	icon = outdoors_negative
+	development_decline = -0.7
 	monthly_county_control_decline_add = -0.35
 }
 #60-100
 tentacleswarm_corruption_4 = {
 	icon = outdoors_negative
+	development_decline = -1.2
 	monthly_county_control_decline_add = -0.6
 	county_opinion_add = -30
 }
 #100+
 tentacleswarm_corruption_5 = {
 	icon = outdoors_negative
+	development_decline = -2
 	monthly_county_control_decline_add = -1.0
 	county_opinion_add = -100
 }
