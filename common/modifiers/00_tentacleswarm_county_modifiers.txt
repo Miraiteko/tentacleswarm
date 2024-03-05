@@ -2,28 +2,29 @@
 #10-20
 tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
-	monthly_county_control_change_add = -0.1
+	monthly_county_control_decline_add
+	monthly_county_control_decline_add = -0.1
 }
 #20-35
 tentacleswarm_corruption_2 = {
 	icon = outdoors_negative
-	monthly_county_control_change_add = -0.2
+	monthly_county_control_decline_add = -0.2
 }
 #35-60
 tentacleswarm_corruption_3 = {
 	icon = outdoors_negative
-	monthly_county_control_change_add = -0.35
+	monthly_county_control_decline_add = -0.35
 }
 #60-100
 tentacleswarm_corruption_4 = {
 	icon = outdoors_negative
-	monthly_county_control_change_add = -0.6
+	monthly_county_control_decline_add = -0.6
 	county_opinion_add = -30
 }
 #100+
 tentacleswarm_corruption_5 = {
 	icon = outdoors_negative
-	monthly_county_control_change_add = -1.0
+	monthly_county_control_decline_add = -1.0
 	county_opinion_add = -100
 }
 
@@ -31,35 +32,35 @@ tentacleswarm_corruption_5 = {
 #0-10
 tentacleswarm_corruption_control_0 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -2.0
+	monthly_county_control_decline_add = -2.0
 	county_opinion_add = -100
 }
 #10-20
 tentacleswarm_corruption_control_1 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -1.0
+	monthly_county_control_decline_add = -1.0
 	county_opinion_add = -50
 }
 #20-35
 tentacleswarm_corruption_control_2 = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -0.5
+	monthly_county_control_decline_add = -0.5
 	county_opinion_add = -20
 }
 #35-60
 tentacleswarm_corruption_control_3 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 0.5
+	monthly_county_control_growth_add = 0.5
 }
 #60-100
 tentacleswarm_corruption_control_4 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 1.5
+	monthly_county_control_growth_add = 1.5
 	county_opinion_add = 50
 }
 #100+
 tentacleswarm_corruption_control_5 = {
 	icon = county_modifier_control_positive
-	monthly_county_control_change_add = 2.5
+	monthly_county_control_growth_add = 2.5
 	county_opinion_add = 150
 }
