@@ -10,7 +10,7 @@
  tentacleswarm_government_vassals_label:1 "天灾臣属[obligations|E]基于[opinion|E]"
  
  tentacleswarm_succession_order_laws:0 "继承法"
- tentacleswarm_breed_legitimacy:0 "为触手生育后代时可以获得大量[legitimacy|E]，平时则会逐渐失去[legitimacy|E]"
+ tentacleswarm_breed_legitimacy:0 "为触手生育后代时可以获得[legitimacy|E]
  tentacleswarm_supreme_power:0 "允许持有大量的[holdings|E]"
  tentacleswarm_low_corruption_lose_control:0 "过低的[tentacleswarm_corruption|E]会导致[counties|E][control|E]迅速下降"
  tentacleswarm_can_elective:0 "可以实行#high $tentacleswarm_elective_succession_law$#![succession_law|E]"

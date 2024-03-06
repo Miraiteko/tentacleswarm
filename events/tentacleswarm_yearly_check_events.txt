@@ -347,12 +347,6 @@ tentacleswarm_yearly_check.1011 = {
 					id = health.7100
 				}
 			}
-			else_if = { #癌症
-				limit = { NOT = { has_trait = cancer } }
-				trigger_event = {
-					id = health.1007
-				}
-			}
 			else_if = { #肺痨
 				limit = { NOT = { has_trait = consumption } }
 				trigger_event = {
@@ -366,7 +360,7 @@ tentacleswarm_yearly_check.1011 = {
 				}
 			}
 			else = {
-				death = { death_reason = death_cancer }
+				death = { death_reason = death_depressed }
 			}
 		}
 	}
