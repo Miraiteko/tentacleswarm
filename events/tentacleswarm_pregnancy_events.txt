@@ -1528,13 +1528,21 @@ tentacleswarm_pregnancy.4001 = {
 				save_scope_as = spouse
 			}
 		}
+		if = {
+			limit = {
+				government_has_flag = tentacleswarm_breed_legitimacy
+			}
+			add_legitimacy = {
+				value = minor_legitimacy_gain
+				multiply = primary_title.tier
+			}
+		}
 	}
 
 	option = {
 		name = tentacleswarm_pregnancy.4001.default
 		#结束妊娠
 		tentacle_end_pregnancy = yes
-		
 		#告知配偶
 		if = {
 			limit = {

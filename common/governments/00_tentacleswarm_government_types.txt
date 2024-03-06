@@ -15,18 +15,22 @@
 	rulers_should_have_dynasty = yes
 	dynasty_named_realms = no
 	royal_court = yes
+	legitimacy = yes
+
 
 	vassal_contract = { clan_government_obligations }
 
 	character_modifier = {
 		ai_war_chance = 1.0
 		domain_limit = 5
+		monthly_legitimacy_add = -3
 		tentacleswarm_government_vassal_opinion = 10
 		feudal_government_vassal_opinion = -20
 		clan_government_vassal_opinion = -20
 		republic_government_vassal_opinion = -20
 	}
 	flag = government_can_raid_rule #可以劫掠
+	flag = tentacleswarm_breed_legitimacy #为触手生育后代时可以获得大量合法性，平时则会失去合法性
 	flag = tentacleswarm_supreme_power #持有大量土地并且可以献祭封臣
 	flag = tentacleswarm_low_corruption_lose_control #低腐化导致低控制
 	flag = tentacleswarm_can_elective #可以使用奴隶选举继承
