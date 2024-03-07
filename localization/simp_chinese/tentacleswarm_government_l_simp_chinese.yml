@@ -12,7 +12,6 @@
  tentacleswarm_succession_order_laws:0 "继承法"
  tentacleswarm_breed_legitimacy:0 "为触手生育后代时可以获得[legitimacy|E]
  tentacleswarm_supreme_power:0 "允许持有大量的[holdings|E]"
- tentacleswarm_low_corruption_lose_control:0 "过低的[tentacleswarm_corruption|E]会导致[counties|E][control|E]迅速下降"
  tentacleswarm_can_elective:0 "可以实行#high $tentacleswarm_elective_succession_law$#![succession_law|E]"
  
  tentacleswarm_government_decision:0 "采用天灾制"
@@ -35,6 +34,8 @@
  TENTACLESWARM_FORCE_DEATH_INTERACTION_NOTIFICATION:0 "对我们触手奴隶来说，侍奉主人是天性，而统治领地是一种折磨。\n\n我现在赐予你将自己献给主人的机会，而我将替你承受俗世中的一切。"
  IS_TENTACLE_SLAVE_REASON:0 "触手奴隶：$VALUE|=+0$"
  
+ baron_female_tentacleswarm_religion:0 "女奴"
+ barony_tentacleswarm_religion:0 "据点"
  count_female_tentacleswarm_religion:0 "侍妾"
  county_tentacleswarm_religion:0 "巢穴"
  duch_female_tentacleswarm_religion:0 "奴隶女公爵"

@@ -96,6 +96,7 @@ is_tentacle_corrupted_faith = {
 
 	special_doctrine_is_tentacle_corrupted_faith = {
 		parameters = {
+			tentacleswarm_low_corruption_lose_control = yes
 			hostility_override_special_doctrine_is_tentacle_corrupted_faith = 1
 			female_can_be_knight = yes
 		}		

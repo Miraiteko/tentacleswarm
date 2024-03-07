@@ -1,4 +1,13 @@
-﻿count_female_tentacleswarm_religion = {
+﻿baron_female_tentacleswarm_religion = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 10
+	top_liege = no
+	religions = { tentacleswarm_religion }
+}
+count_female_tentacleswarm_religion = {
 	type = character
 	gender = female
 	special = holder
