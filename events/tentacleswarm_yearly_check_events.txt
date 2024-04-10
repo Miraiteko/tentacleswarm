@@ -336,31 +336,62 @@ tentacleswarm_yearly_check.1011 = {
 				remove_character_flag = immune_to_disease
 			}
 			if = { #体弱多病
-				limit = { NOT = { has_trait = infirm } }
+				limit = {
+					NOR = { 
+						has_trait = infirm
+						has_trait = incapable
+					}
+				}
 				trigger_event = {
 					id = tentacleswarm_scene.1001
 				}
 			}
-			else_if = { #抑郁
-				limit = { NOT = { has_trait = depressed } }
-				trigger_event = {
-					id = health.7100
-				}
-			}
-			else_if = { #肺痨
-				limit = { NOT = { has_trait = consumption } }
-				trigger_event = {
-					id = health.1006
-				}
-			}
-			else_if	= { #痛风
-				limit = { NOT = { has_trait = gout_ridden } }
-				trigger_event = {
-					id = health.1003
-				}
-			}
 			else = {
-				death = { death_reason = death_depressed }
+				random_list = {
+					#抑郁
+					10 = {
+						trigger = { 
+							NOR = {
+								has_trait = depressed 
+								has_character_flag = had_event_health_7100 
+							}
+						}
+						trigger_event = {
+							id = health.7100
+						}
+					}
+					#肺痨
+					5 = {
+						trigger = { 
+							can_contract_disease_trigger = { DISEASE = consumption } 
+						}
+						trigger_event = {
+							id = health.1006
+						}
+					}
+					#痛风
+					5 = {
+						trigger = { 
+							can_contract_disease_trigger = { DISEASE = gout_ridden } 
+						}
+						trigger_event = {
+							id = health.1003
+						}
+					}
+					#癌症
+					5 = {
+						trigger = { 
+							can_contract_disease_trigger = { DISEASE = cancer } 
+						}
+						trigger_event = {
+							id = health.1007
+						}
+					}
+					#死亡
+					1 = {
+						death = { death_reason = death_spindly }
+					}
+				}
 			}
 		}
 	}
