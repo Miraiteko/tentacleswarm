@@ -130,6 +130,14 @@ tentacle_degenerate = {
 				effective_age <= 35
 			}
 		}
+		#本身腐化
+		modifier = {
+			add = scope:target.var:tentacleswarm_vaginal_degeneration
+			desc = target_corruption_lifestyle_perks
+			scope:target = {
+				has_variable = tentacleswarm_vaginal_degeneration
+			}
+		}
 		#所在省份腐化
 		modifier = {
 			add = scope:target.location.county.var:tentacleswarm_corruption
