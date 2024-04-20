@@ -381,8 +381,8 @@ tentacle_degenerate_reject_effect = {
 		}
 	}
 	random_list = {
-		100 = {
-			ai_accept_corrupt_modifier = yes
+		80 = {
+			reject_corrupt_fail_modifier = yes
 			hidden_effect = {
 				send_interface_toast = {
 					left_icon = ROOT
@@ -394,8 +394,8 @@ tentacle_degenerate_reject_effect = {
 			}
 			tentacle_corruption_perk_add = yes
 		}
-		100 = {
-			ai_reject_corrupt_modifier = yes
+		20 = {
+			reject_corrupt_success_modifier = yes
 			custom_tooltip = tentacle_degenerate_reject_success.tt
 			hidden_effect = {
 				add_character_flag = { #成功抵制了腐化

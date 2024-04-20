@@ -14,6 +14,7 @@
     max_tentacle_degenerate_schemes_add:1 "同时[GetScheme('tentacle_corrupt').GetTypeName][scheme|E]"
     tentacle_degenerate_scheme_successful_roll_tt:0 "[target.GetShortUINameNoTooltip]被触手主人赐福！"
     tentacle_degenerate_scheme_become_discovered_roll_tt:0 "我暴露了！"
+    target_vaginal_degeneration_level:0 "[target.GetShortUINameNoTooltip]的[target.Custom( 'Tentacleswarm_Vaginal_Degeneration_Level_Loc')]：$VALUE|+0=-+$"
     target_corruption_lifestyle_perks:0 "[target.GetShortUINameNoTooltip]已经开始恶堕：$VALUE|+0=-+$"
     target_know_me:1 "知道我是触手奴隶：$VALUE|+0=-+$"
     target_young_woman_bonus:1 "[target.GetShortUINameNoTooltip]是年轻的女人：$VALUE|+0=-+$"

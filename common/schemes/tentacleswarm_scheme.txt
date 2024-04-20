@@ -130,12 +130,40 @@ tentacle_degenerate = {
 				effective_age <= 35
 			}
 		}
-		#本身腐化
+		#恶堕淫穴
 		modifier = {
-			add = scope:target.var:tentacleswarm_vaginal_degeneration
-			desc = target_corruption_lifestyle_perks
+			add = 100
+			desc = target_vaginal_degeneration_level
 			scope:target = {
 				has_variable = tentacleswarm_vaginal_degeneration
+				var:tentacleswarm_vaginal_degeneration >= 90
+			}
+		}
+		modifier = {
+			add = 60
+			desc = target_vaginal_degeneration_level
+			scope:target = {
+				has_variable = tentacleswarm_vaginal_degeneration
+				var:tentacleswarm_vaginal_degeneration < 90
+				var:tentacleswarm_vaginal_degeneration >= 70
+			}
+		}
+		modifier = {
+			add = 30
+			desc = target_vaginal_degeneration_level
+			scope:target = {
+				has_variable = tentacleswarm_vaginal_degeneration
+				var:tentacleswarm_vaginal_degeneration < 70
+				var:tentacleswarm_vaginal_degeneration >= 45
+			}
+		}
+		modifier = {
+			add = 10
+			desc = target_vaginal_degeneration_level
+			scope:target = {
+				has_variable = tentacleswarm_vaginal_degeneration
+				var:tentacleswarm_vaginal_degeneration < 45
+				var:tentacleswarm_vaginal_degeneration >= 20
 			}
 		}
 		#所在省份腐化

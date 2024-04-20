@@ -52,36 +52,7 @@ ai_accept_corrupt_modifier = {
 	}
 }
 
-ai_reject_corrupt_modifier = {
-	#贪婪减少拒绝可能，荣誉和理智为增加
-	ai_value_modifier = {
-		ai_greed = -0.3
-		ai_honor = 0.3
-		ai_rationality = 0.6
-	}
-	#根据狂热度增加拒绝可能
-	modifier = {
-		add = {
-			value = ai_zeal
-			if = {
-				limit = { #极为排斥
-					faith = {
-						has_doctrine_parameter = doctrine_tentacle_slave_evil
-					}
-				}
-				multiply = 0.5
-			}
-			else_if = { #欢迎触手
-				limit = {
-					faith = { 
-						has_doctrine_parameter = doctrine_tentacle_slave_worship
-					 }
-				}
-				multiply = -0.5
-			}
-		}
-	}
-}
+
 ai_reject_corrupt_modifier = {
 	#贪婪减少拒绝可能，荣誉和理智为增加
 	ai_value_modifier = {
@@ -113,6 +84,80 @@ ai_reject_corrupt_modifier = {
 	}
 }
 
+#抵制恶堕加深的能力
+reject_corrupt_fail_modifier = {
+	#恶堕淫穴
+	modifier = {
+		add = 80
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	modifier = {
+		add = 80
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	modifier = {
+		add = 40
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 45
+		}
+	}
+	modifier = {
+		add = 20
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 20
+		}
+	}
+}
+
+
+reject_corrupt_success_modifier = {
+
+	#恶堕淫穴
+	modifier = {
+		add = -80
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 90
+		}
+	}
+	modifier = {
+		add = -60
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 70
+		}
+	}
+	modifier = {
+		add = -40
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 45
+		}
+	}
+	modifier = {
+		add = -20
+		desc = root_ovarian_degeneration_level
+		scope:target = {
+			has_variable = tentacleswarm_ovarian_degeneration
+			var:tentacleswarm_ovarian_degeneration >= 20
+		}
+	}
+}
 #配偶对触手怀孕起疑的权重
 tentacle_pregnancy_spouse_suspicion_effect_modifier = {
 
