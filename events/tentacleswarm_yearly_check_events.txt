@@ -257,7 +257,21 @@ tentacleswarm_yearly_check.0001 = {
 					#没吃饱的怪物润了或者死了
 					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					
-					#30%润一个相邻伯爵领，至少要5发展度，没地方可润就死了
+					#20%润一个相邻伯爵领，至少要10发展度，没地方可润就死了
+					random_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							development_level >= 10
+						}
+						change_variable =  {
+							name = tentacleswarm_corruption 
+							add = {
+								value = scope:county.var:tentacleswarm_corruption_decrease 
+								multiply = 0.20
+							}
+						}
+						tentacleswarm_corruption_county_check = yes
+					}					
+					#20%润一个相邻伯爵领，至少要5发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 5
@@ -266,12 +280,12 @@ tentacleswarm_yearly_check.0001 = {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.30
+								multiply = 0.20
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
-					}					
-					#30%润一个相邻伯爵领，至少要2发展度，没地方可润就死了
+					}			
+					#20%润一个相邻伯爵领，至少要3发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 3
@@ -280,26 +294,27 @@ tentacleswarm_yearly_check.0001 = {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.30
+								multiply = 0.20
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
-					}			
-					#30%润一个相邻伯爵领，至少要1发展度，没地方可润就死了
+					}
+					#20%向低处扩散，至少要1发展度
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 1
+							var:tentacleswarm_corruption<scope:county.var:tentacleswarm_corruption 
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.30
+								multiply = 0.20
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
 					}
-					#还有10%是直接死了的
+					#还有20%是直接死了的
 				}
 				
 				#数值计算完毕，进行结算

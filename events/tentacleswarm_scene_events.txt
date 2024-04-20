@@ -1361,9 +1361,9 @@ tentacleswarm_scene.0070 = {
 			factor = 0
 			is_imprisoned = yes
 		}
-		modifier = { #在活动中，很有可能触发
-			factor = 2
-			is_in_an_activity = yes
+		modifier = { #在旅途中，很有可能触发
+			factor = 10
+			is_travelling = yes
 		}
 	}
 }

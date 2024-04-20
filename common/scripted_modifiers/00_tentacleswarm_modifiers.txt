@@ -24,6 +24,10 @@ tentacle_encounter_chance_modifier = {
 		factor = 0.5
 		effective_age > 40
 	}
+	modifier = { #玛蒂尔达
+		add = 10000
+		has_character_modifier = matilda_of_canossa_modifier
+	}
 }
 
 
