@@ -33,7 +33,11 @@
 		#神秘主义者特质
 		if = {
 			limit = {
-				has_trait = mystic_3
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 100
+				}
 			}
 			add = { 
 				value = 35
@@ -42,7 +46,11 @@
 		}
 		else_if = {
 			limit = {
-				has_trait = mystic_2
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 50
+				}
 			}
 			add = { 
 				value = 20
@@ -51,7 +59,7 @@
 		}
 		else_if = {
 			limit = { 
-				has_trait = mystic_1
+				has_trait = lifestyle_mystic
 			}
 			add = { 
 				value = 10
@@ -237,7 +245,11 @@ tentacle_missionary_court_position = {
 		#神秘主义者特质
 		if = {
 			limit = {
-				has_trait = mystic_3
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 100
+				}
 			}
 			add = { 
 				value = 35
@@ -246,7 +258,11 @@ tentacle_missionary_court_position = {
 		}
 		else_if = {
 			limit = {
-				has_trait = mystic_2
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 50
+				}
 			}
 			add = { 
 				value = 20
@@ -255,7 +271,7 @@ tentacle_missionary_court_position = {
 		}
 		else_if = {
 			limit = { 
-				has_trait = mystic_1
+				has_trait = lifestyle_mystic
 			}
 			add = { 
 				value = 10

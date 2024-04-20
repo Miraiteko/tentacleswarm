@@ -98,7 +98,7 @@ reject_corrupt_fail_modifier = {
 	modifier = {
 		add = 80
 		desc = root_ovarian_degeneration_level
-		scope:target = {
+		ROOT = {
 			has_variable = tentacleswarm_ovarian_degeneration
 			var:tentacleswarm_ovarian_degeneration >= 90
 		}
@@ -106,7 +106,7 @@ reject_corrupt_fail_modifier = {
 	modifier = {
 		add = 80
 		desc = root_ovarian_degeneration_level
-		scope:target = {
+		ROOT = {
 			has_variable = tentacleswarm_ovarian_degeneration
 			var:tentacleswarm_ovarian_degeneration >= 70
 		}
@@ -114,7 +114,7 @@ reject_corrupt_fail_modifier = {
 	modifier = {
 		add = 40
 		desc = root_ovarian_degeneration_level
-		scope:target = {
+		ROOT = {
 			has_variable = tentacleswarm_ovarian_degeneration
 			var:tentacleswarm_ovarian_degeneration >= 45
 		}
@@ -122,7 +122,7 @@ reject_corrupt_fail_modifier = {
 	modifier = {
 		add = 20
 		desc = root_ovarian_degeneration_level
-		scope:target = {
+		ROOT = {
 			has_variable = tentacleswarm_ovarian_degeneration
 			var:tentacleswarm_ovarian_degeneration >= 20
 		}

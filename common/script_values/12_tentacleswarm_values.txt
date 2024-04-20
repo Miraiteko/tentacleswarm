@@ -19,19 +19,31 @@ minus_tentacleswarm_corruption = {
 tentacle_pregnancy_chance = { #触手怀孕概率
 	value = 100
 	if = {
-		limit = { var:tentacleswarm_uterine_degeneration >= 90 }
+		limit = { 
+			has_variable = tentacleswarm_uterine_degeneration
+			var:tentacleswarm_uterine_degeneration >= 90
+		}
 		multiply = 1.0
 	}
 	else_if = {
-		limit = { var:tentacleswarm_uterine_degeneration >= 70 }
+		limit = { 
+			has_variable = tentacleswarm_uterine_degeneration
+			var:tentacleswarm_uterine_degeneration >= 70
+		}
 		multiply = 0.75
 	}
 	else_if = {
-		limit = { var:tentacleswarm_uterine_degeneration >= 45 }
+		limit = { 
+			has_variable = tentacleswarm_uterine_degeneration
+			var:tentacleswarm_uterine_degeneration >= 45
+		}
 		multiply = 0.5
 	}
 	else_if = {
-		limit = { var:tentacleswarm_uterine_degeneration >= 20 }
+		limit = { 
+			has_variable = tentacleswarm_uterine_degeneration
+			var:tentacleswarm_uterine_degeneration >= 20
+		}
 		multiply = 0.25
 	}
 	else = {
