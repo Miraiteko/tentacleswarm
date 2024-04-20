@@ -11,9 +11,9 @@
     tentacle_degenerate_effect.tt:0 "你被触手主人赐福了"
     tentacle_corruption_perk_add.tt:0 "你的触手恶堕程度加深了"
     tentacle_degenerate_reject_success.t:0 "抵制恶堕"
-    tentacle_degenerate_reject_success.tt:0 "你抵制了触手恶堕"
+    tentacle_degenerate_reject_success.tt:0 "你抵制了恶堕洗脑"
     tentacle_degenerate_reject_fail.t:0 "抵制失败"
-    tentacle_degenerate_reject_fail.tt:0 "你没能成功抵制触手恶堕"
+    tentacle_degenerate_reject_fail.tt:0 "你没能成功抵制恶堕洗脑"
     
     #从水井中来
     tentacleswarm_scene.0011.t:0 "夜晚"

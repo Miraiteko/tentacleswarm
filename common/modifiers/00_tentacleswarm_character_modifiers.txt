@@ -3,13 +3,15 @@
 	domain_tax_mult = -0.1
 	levy_size = -0.1
 	garrison_size = -0.1
-	for_corrupt_type_damage_mult = 1.5
+	development_growth_factor = -0.2
+	for_corrupt_type_damage_mult = 1.0
 }
 tentacleswarm_spread = {
 	icon = fertility_positive
 	domain_tax_mult = -0.1
 	levy_size = -0.1
 	garrison_size = -0.1
-	for_corrupt_type_damage_add = 20
+	development_decline_factor = 0.2
+	for_corrupt_type_damage_add = 10
 	for_corrupt_type_damage_mult = -0.7
 }

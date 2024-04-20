@@ -1,5 +1,5 @@
 ﻿#省份颜色检查
-tentacleswarm_corruption_county_check = { 
+tentacleswarm_corruption_county_check = {  
 	save_scope_as = checked_county
 	
 	#五档：10,20,35,60,100

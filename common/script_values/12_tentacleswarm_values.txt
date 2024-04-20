@@ -142,7 +142,7 @@ tentacleswarm_corruption_resist = {
 			county_controller =  { has_character_modifier = tentacleswarm_anti }
 		}
 		multiply = {
-			value = 2.5
+			value = 2.0
 			desc = tentacleswarm_corruption_resist_breakdown_law_anti
 			format = "BREAKDOWN_FORMAT_POSITIVE_IS_GOOD_1"
 		}
@@ -238,11 +238,13 @@ tentacleswarm_corruption_resist = {
 		}
 	}
 }
-#衰减率 = 抵制/(发展度+抵制)
+#衰减率 = (抵制+5)/(抵制+发展度*3)
 tentacleswarm_corruption_decay_value = {
 	value = tentacleswarm_corruption_resist
+	add = 5
 	divide = {
 		value = development_level
+		multiply = 3
 		add = tentacleswarm_corruption_resist
 	}
 	min = 0.01

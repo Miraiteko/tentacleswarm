@@ -449,7 +449,7 @@ tentacle_end_pregnancy = {
 		}
 	}
 }
-#触手堕胎
+#触手堕胎，不会成功的
 tentacle_pregnancy_termination_attempt_effect = {
 	custom_tooltip = tentacle_pregnancy_treatment_fails_tt	
 	random_list = {

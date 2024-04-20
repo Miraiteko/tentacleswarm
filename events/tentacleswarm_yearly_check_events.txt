@@ -138,7 +138,7 @@ tentacleswarm_yearly_check.0001 = {
 			limit = { 
 				has_character_modifier = tentacleswarm_spread
 			}
-			change_variable =  { name = tentacleswarm_corruption_add add = 20 }  #如果统治者执行播种令
+			change_variable =  { name = tentacleswarm_corruption_add add = 10 }  #如果统治者执行播种令
 		}
 		every_spouse = {
 			limit = { 
@@ -257,7 +257,7 @@ tentacleswarm_yearly_check.0001 = {
 					#没吃饱的怪物润了或者死了
 					change_variable =  { name = tentacleswarm_corruption subtract = var:tentacleswarm_corruption_decrease }
 					
-					#40%润一个相邻伯爵领，至少要5发展度，没地方可润就死了
+					#30%润一个相邻伯爵领，至少要5发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 5
@@ -266,7 +266,7 @@ tentacleswarm_yearly_check.0001 = {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.40
+								multiply = 0.30
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
@@ -285,7 +285,7 @@ tentacleswarm_yearly_check.0001 = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}			
-					#20%润一个相邻伯爵领，至少要1发展度，没地方可润就死了
+					#30%润一个相邻伯爵领，至少要1发展度，没地方可润就死了
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 1
@@ -294,7 +294,7 @@ tentacleswarm_yearly_check.0001 = {
 							name = tentacleswarm_corruption 
 							add = {
 								value = scope:county.var:tentacleswarm_corruption_decrease 
-								multiply = 0.20
+								multiply = 0.30
 							}
 						}
 						tentacleswarm_corruption_county_check = yes
@@ -328,7 +328,8 @@ tentacleswarm_yearly_check.1011 = {
 	hidden = yes
 	immediate = { 
 		if = { #生育率太低的时候失去祝福，开始生病
-			limit = { 
+			limit = {
+				age >= 30 #排除儿童或者贞操带之类的特殊情况
 				is_tentaclable_female = no
 			}
 			if = {

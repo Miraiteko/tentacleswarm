@@ -245,7 +245,7 @@ tentacleswarm_anti_start_decision = {
 	}
 
 	ai_will_do = {
-		base = 0
+		base = -20
 		modifier = { #首都腐化越高，越有可能开始剿杀
 			add = capital_county.var:tentacleswarm_corruption
 			exists = capital_county
