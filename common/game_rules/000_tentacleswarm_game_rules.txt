@@ -4,7 +4,7 @@ gamerule_tentacleswarm_start_corruption = { #初始腐化
 	default = tentacleswarm_start_corruption_minor
 	tentacleswarm_start_corruption_minor = { #0
 	}
-	tentacleswarm_start_corruption_medium = { #30
+	tentacleswarm_start_corruption_medium = { #25
 	}
 	tentacleswarm_start_corruption_major = { #120
 	}

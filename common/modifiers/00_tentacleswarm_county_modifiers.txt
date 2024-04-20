@@ -4,6 +4,7 @@ tentacleswarm_corruption_1 = {
 	icon = outdoors_negative
 	development_decline = -0.1
 	monthly_county_control_decline_add = -0.1
+	epidemic_resistance = 2
 }
 #20-35
 tentacleswarm_corruption_2 = {
@@ -11,6 +12,7 @@ tentacleswarm_corruption_2 = {
 	development_decline = -0.2
 	development_growth_factor = -0.1
 	monthly_county_control_decline_add = -0.2
+	epidemic_resistance = 4
 }
 #35-60
 tentacleswarm_corruption_3 = {
@@ -18,6 +20,7 @@ tentacleswarm_corruption_3 = {
 	development_decline = -0.4
 	development_growth_factor = -0.3
 	monthly_county_control_decline_add = -0.35
+	epidemic_resistance = 8
 }
 #60-100
 tentacleswarm_corruption_4 = {
@@ -26,6 +29,7 @@ tentacleswarm_corruption_4 = {
 	development_growth_factor = -0.6
 	monthly_county_control_decline_add = -0.6
 	county_opinion_add = -30
+	epidemic_resistance = 16
 }
 #100+
 tentacleswarm_corruption_5 = {
@@ -34,6 +38,7 @@ tentacleswarm_corruption_5 = {
 	development_growth_factor = -1
 	monthly_county_control_decline_add = -1.0
 	county_opinion_add = -100
+	epidemic_resistance = 32
 }
 
 #特色政体腐化度影响控制力
