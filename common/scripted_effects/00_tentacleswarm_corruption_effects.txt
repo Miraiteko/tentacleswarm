@@ -400,19 +400,31 @@ tentacleswarm_corruption_county_check = {
 				desc = tentacle_county_corrupt.desc
 				left_icon = scope:checked_county
 				scope:checked_county = {
-					if = {
-						limit = {
-							OR = {
-								holder = { has_faith = faith:tentacleswarm_carns }
-								any_title_to_title_neighboring_county = {
-									faith = faith:tentacleswarm_carns
+					random_list = {
+						5 = { #纵欲者更经常出现
+							modifier = {
+								add = 10
+								OR = {
+									holder = { has_faith = faith:tentacleswarm_carns }
+									any_title_to_title_neighboring_county = {
+										faith = faith:tentacleswarm_carns
+									}
 								}
 							}
+							set_county_faith = faith:tentacleswarm_carns
 						}
-						set_county_faith = faith:tentacleswarm_carns
-					}
-					else ={
-						set_county_faith = faith:tentacleswarm_slavery
+						1 = {
+							modifier = {
+								add = 50 #但屈服者动员力更强
+								OR = {
+									holder = { has_faith = faith:tentacleswarm_slavery }
+									any_title_to_title_neighboring_county = {
+										faith = faith:tentacleswarm_slavery
+									}
+								}
+							}
+							set_county_faith = faith:tentacleswarm_slavery
+						}
 					}
 				}
 			}

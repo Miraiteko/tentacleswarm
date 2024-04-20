@@ -285,10 +285,11 @@ tentacleswarm_yearly_check.0001 = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}			
-					#20%润一个相邻伯爵领，至少要3发展度，没地方可润就死了
+					#20%润一个相邻伯爵领，至少要3发展度，没地方可润就死了，要求腐化较低
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 3
+							var:tentacleswarm_corruption<scope:county.var:tentacleswarm_corruption 
 						}
 						change_variable =  {
 							name = tentacleswarm_corruption 
@@ -299,7 +300,7 @@ tentacleswarm_yearly_check.0001 = {
 						}
 						tentacleswarm_corruption_county_check = yes
 					}
-					#20%向低处扩散，至少要1发展度
+					#20%润一个相邻伯爵领，至少要1发展度，没地方可润就死了，要求腐化较低
 					random_title_to_title_neighboring_and_across_water_county = {
 						limit = {
 							development_level >= 1
@@ -519,6 +520,7 @@ tentacleswarm_yearly_check.2002 = {
 	trigger = {
 		is_ai = yes
 		is_tentacleswarm_religion_character = yes
+		NOT = { has_faith = faith:tentacleswarm_carns } #不是纵欲者
 		is_at_war = no
 		is_tentacle_slave = yes #是奴隶
 		is_independent_ruler = yes #独立

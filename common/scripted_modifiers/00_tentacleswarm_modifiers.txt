@@ -54,6 +54,10 @@ ai_accept_corrupt_modifier = {
 		add = 1000
 		is_adult = no 
 	}
+	modifier = { #玛蒂尔达
+		add = 10000
+		has_character_modifier = matilda_of_canossa_modifier
+	}
 }
 
 
