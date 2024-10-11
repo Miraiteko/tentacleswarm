@@ -20,6 +20,13 @@ tentacle_impregnate = {
 				days = 5 #很快就进入第一月
 			}
 		}
+		#清除疾病
+		remove_trait = lovers_pox
+		remove_trait = early_great_pox
+		remove_trait = great_pox
+		remove_trait = disfigured
+		remove_trait = infertile
+		remove_trait = drunkard
 	}
 }
 #公开标明是触手妊娠
