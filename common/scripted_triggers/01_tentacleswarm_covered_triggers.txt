@@ -25,7 +25,6 @@ can_have_confederate_partition_succession_law_trigger = {
 	OR = {
 		has_government = feudal_government
 		has_government = tribal_government
-		has_government = tentacleswarm_government
 	}
 }
 #勒索是否可以执行。覆盖原版条件，导致兼容性下降

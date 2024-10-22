@@ -26,17 +26,8 @@ tentacleswarm_yearly_check.0001 = {
 				}
 				add_character_modifier = tentacleswarm_spread
 			}
-			if = { #信徒变政体
+			if = { #特殊继承法
 				limit = { 
-					NOT = { has_government = tentacleswarm_government }
-					is_ai = yes #玩家自己点决议
-					is_landed = yes
-				}
-				change_government = tentacleswarm_government
-			}
-			if = { #开继承法
-				limit = { 
-					has_government = tentacleswarm_government
 					is_landed = yes
 					is_ai = yes
 				}
@@ -53,13 +44,6 @@ tentacleswarm_yearly_check.0001 = {
 			if = { #非信徒播种令无效化
 				limit = { has_character_modifier = tentacleswarm_spread}
 				remove_character_modifier = tentacleswarm_spread
-			}
-			if = { #非信徒关闭政体
-				limit = { 
-					has_government = tentacleswarm_government
-					is_landed = yes
-				}
-				change_government = feudal_government #暂且先变封建
 			}
 			if = { #关继承法
 				limit = { 

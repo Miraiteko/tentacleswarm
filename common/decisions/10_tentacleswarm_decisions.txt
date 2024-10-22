@@ -1,7 +1,9 @@
 ﻿#发动天灾
 tentacleswarm_start_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+	}
 
 	desc = tentacleswarm_start_decision_desc
 	selection_tooltip = tentacleswarm_start_decision_tooltip
@@ -35,8 +37,10 @@ tentacleswarm_start_decision = {
 	}
 }
 tentacleswarm_become_openly_tentacle_slave_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	}
 
 	is_shown = {
 		is_ai = no  #ai不通过这个来皈依
@@ -70,8 +74,10 @@ tentacleswarm_become_openly_tentacle_slave_decision = {
 }
 #要求赐福
 tentacleswarm_auto_corrupt_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	}
 
 	desc = tentacleswarm_auto_corrupt_decision_desc
 	selection_tooltip = tentacleswarm_auto_corrupt_decision_tooltip
@@ -119,10 +125,11 @@ tentacleswarm_auto_corrupt_decision = {
 }
 #结束生命
 tentacleswarm_suicide = {
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
 
 	desc = tentacleswarm_suicide_desc
-	selection_tooltip = tentacleswarm_suicide_tooltip
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
+	}
 
 	is_shown = {
 		is_ai = no  #ai不通过这个来自尽
@@ -197,8 +204,9 @@ tentacleswarm_suicide = {
 }
 #开始灭杀
 tentacleswarm_anti_start_decision = {
-	major = no
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	}
 
 	desc = tentacleswarm_anti_start_decision_desc
 	selection_tooltip = tentacleswarm_anti_start_decision_tooltip
@@ -263,8 +271,10 @@ tentacleswarm_anti_start_decision = {
 }
 #结束灭杀
 tentacleswarm_anti_end_decision = {
-	major = no
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	}
+
 
 	desc = tentacleswarm_anti_end_decision_desc
 	selection_tooltip = tentacleswarm_anti_end_decision_tooltip
@@ -292,9 +302,9 @@ tentacleswarm_anti_end_decision = {
 }
 #开始播种
 tentacleswarm_spread_start_decision = {
-	major = no
-	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
-
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+	}
 	desc = tentacleswarm_spread_start_decision_desc
 	selection_tooltip = tentacleswarm_spread_start_decision_tooltip
 
@@ -322,8 +332,9 @@ tentacleswarm_spread_start_decision = {
 }
 #结束播种
 tentacleswarm_spread_end_decision = {
-	major = no
-	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" 
+	}
 
 	desc = tentacleswarm_spread_end_decision_desc
 	selection_tooltip = tentacleswarm_spread_end_decision_tooltip
@@ -351,14 +362,17 @@ tentacleswarm_spread_end_decision = {
 }
 #采用天灾制度
 tentacleswarm_government_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds" 
+	}
 
 	desc = tentacleswarm_government_decision_desc
 	selection_tooltip = tentacleswarm_government_decision_tooltip
 	confirm_text = tentacleswarm_government_decision
 
 	is_shown = {
+		always = no
 		is_tentacleswarm_religion_character = yes
 		NOT = { has_government = tentacleswarm_government }
 	}
@@ -381,8 +395,10 @@ tentacleswarm_government_decision = {
 }
 #纠正婚姻地位
 tentacleswarm_remarry_decision_female = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+	}
 
 	title = tentacleswarm_remarry_decision
 	desc = tentacleswarm_remarry_decision_desc_f
@@ -460,8 +476,10 @@ tentacleswarm_remarry_decision_female = {
 }
 
 tentacleswarm_remarry_decision_male = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds" 
+	}
 
 	title = tentacleswarm_remarry_decision
 	desc = tentacleswarm_remarry_decision_desc_m
@@ -537,8 +555,10 @@ tentacleswarm_remarry_decision_male = {
 }
 #动员巨兽
 tentacleswarm_warbeast_decision = {
-	major = yes
-	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds" 
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds" 
+	}
 
 	title = tentacleswarm_warbeast_decision	
 	desc = tentacleswarm_warbeast_decision_desc
@@ -593,7 +613,10 @@ tentacleswarm_warbeast_decision = {
 
 #招募猎人
 hire_tentacle_hunter_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	decision_group_type = major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
 	
 	sort_order = 81
 
