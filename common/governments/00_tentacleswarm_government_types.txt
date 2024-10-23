@@ -6,7 +6,10 @@
 	required_county_holdings = {  castle_holding city_holding church_holding } #在建新地产之前，需要先满这些
 	
 	#regiments_prestige_as_gold = yes #用威望招兵
-	can_get_government = { is_tentacleswarm_religion_character = yes }
+	can_get_government = { 
+		always = no
+		is_tentacleswarm_religion_character = yes
+	}
 	preferred_religions = { tentacleswarm_religion }
 
 	fallback = 2

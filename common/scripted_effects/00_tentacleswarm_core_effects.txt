@@ -133,6 +133,7 @@ tentacle_degenerate_effect = {
 		}
 	}
 }
+
 #腐化树程度增加
 tentacle_corruption_perk_add = {
 	custom_tooltip = tentacle_corruption_perk_add.tt

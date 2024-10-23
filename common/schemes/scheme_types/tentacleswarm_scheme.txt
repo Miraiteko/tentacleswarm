@@ -1,107 +1,31 @@
-﻿#恶堕为奴隶
-tentacle_degenerate = {
-	
+﻿tentacle_degenerate = {#恶堕为奴隶
+	# Basic Setup
 	skill = intrigue
 	desc = "tentacle_degenerate_desc_general"
-	hostile = yes
-	icon = icon_scheme_hostile
-
-	cooldown = { years = 1 }
+	success_desc = "tentacle_degenerate_SUCCESS_DESC"
+	discovery_desc = "tentacle_degenerate_DISCOVERY_DESC"
+	icon = icon_scheme_seduce
+	illustration = "gfx/interface/illustrations/event_scenes/corridor.dds"
+	category = hostile
+	target_type = character
 	is_secret = yes
-	 
-	power_per_skill_point = 3
-	resistance_per_skill_point = 1 #敌暗我明，防守效率是低下的
-	power_per_agent_skill_point = 2
-	
-	minimum_progress_chance = 25
-	maximum_progress_chance = 99
-	base_secrecy = 10
-	maximum_secrecy = 99
-	minimum_success = 10
-	maximum_success = 99
-	
-	allow = {
-		AND = {
-			is_imprisoned = no
-		}
-		NOT = {
-			custom_description = { # 不能同时针对一个角色两次
-				object = scope:target
-				text = can_target_character_with_scheme
-				any_scheme = {
-					scheme_type = tentacle_degenerate
-					scheme_target = {
-						this = scope:target
-					}
-				}
-			}
-		}
-	}
-	
-	valid = {
-		scope:owner = {
-			is_tentacle_slave = yes
-		}
-		scope:target = {
-			is_tentaclable_female = yes
-			is_imprisoned = no
-			NOT = {
-				is_tentacle_slave_known_by = { CHARACTER = scope:owner } #如果知道对方是奴隶了，就没必要再下手了
-			}
-			exists = location
-			in_diplomatic_range = scope:owner 
-		}
-	}
+	maximum_breaches = 5
+	cooldown = { years = 1 }
 
-	valid_agent = {
-		is_tentacle_slave = yes
-	}
-	
-	agent_join_chance = {
-		base = 0
-		
-		# Base Reluctance, including negative AI Energy
-		modifier = {
-			add = {
-				value = -20
-				if = {
-					limit = {
-						ai_energy < 0
-					}
-					add = {
-						value = ai_energy
-						multiply = 0.5
-					}
-				}
-			}
-			desc = BASE_RELUCTANCE
-		}
-
-		#Is Owner sending a gift in the invite interaction?
-		modifier = {
-			add = bribe_acceptance_value
-			exists = scope:gift
-			always = scope:gift
-			NOT = {
-				OR = {
-					scope:target = { is_parent_of = root }
-					root = { is_parent_of = scope:target }
-				}
-			}
-			desc = "SCHEME_WITH_GIFT"
-		}
-		modifier = {
-			add = 100
-			root = { is_tentacle_slave_known_by = { CHARACTER = scope:owner } }
-			desc = "TENTACLE_SLAVE_PATNER"
-		}
-
-		#Default Hostile Scheme modifiers
-		hostile_murder_agent_base_join_chance_modifier = yes
-	}
+	# Parameters
+	speed_per_skill_point = -0.5
+	speed_per_target_skill_point = 0.3
+	target_spymaster_speed_per_skill_point = 0.3
+	base_progress_goal = 90
+	maximum_secrecy = 100
+	base_maximum_success = 100
+	phases_per_agent_charge = 1
+	success_chance_growth_per_skill_point = 0.1
+	tier_speed = 0.5
 	
 	base_success_chance = {
-		base = 0
+		base = -20
+		scheme_type_skill_success_chance_modifier = { SKILL = INTRIGUE }
 		
 		hostile_scheme_base_chance_modifier = yes
 		
@@ -288,33 +212,112 @@ tentacle_degenerate = {
 			}
 		}
 	}
-	
-	agent_success_chance = {
-		base = 0
+	base_secrecy = {
+		add = secrecy_base_value
+		add = countermeasure_apply_secrecy_maluses_value
+	}
 		
-		hostile_scheme_agent_success_chance_modifier = yes #Adds a value depending on their "closeness" to target
+	
+	allow = {
+		AND = {
+			is_imprisoned = no
+			is_tentacle_slave = yes
+		}
 	}
 	
-	agent_leave_threshold = -25
-		
+	valid = {
+		is_tentacle_slave = yes
+		NOT = { has_trait = incapable }
+		is_imprisoned = no
+		scope:target = {
+			is_tentaclable_female = yes
+			is_imprisoned = no
+			OR = {
+				exists = location
+				in_diplomatic_range = scope:owner
+			}
+			NOT = {
+				is_tentacle_slave_known_by = { CHARACTER = scope:owner } #如果知道对方是奴隶了，就没必要再下手了
+			}
+		}
+	}
 
-	on_ready = {
+	# Agents
+	agent_leave_threshold = -25
+	agent_join_chance = {
+		base = 0
+
+		ai_agent_join_chance_basic_suite_modifier = yes
+		ai_agent_join_chance_hostile_grievous_modifier = yes
+
+		modifier = {
+			add = 1000
+			root = { is_tentacle_slave_known_by = { CHARACTER = scope:owner } }
+			desc = "TENTACLE_SLAVE_PATNER"
+		}
+	}
+	agent_groups_owner_perspective = { courtiers guests scripted_relations }
+	agent_groups_target_character_perspective = { courtiers vassals }
+	valid_agent = { 
+		is_valid_agent_standard_trigger = yes
+		is_tentacle_slave_known_by = { CHARACTER = scope:owner }
+	}
+
+	odds_prediction = {
+		add = hostile_scheme_base_odds_prediction_target_is_char_value
+		add = odds_skill_contribution_intrigue_value
+		add = agent_groups_owner_perspective_value
+		add = agent_groups_target_character_perspective_value
+		add = odds_abduct_scheme_misc_value 
+		min = 0
+	}
+
+	# On Actions
+	on_start = {
+		set_variable = {
+			name = apply_countermeasures
+			value = flag:calculating
+		}
+		add_scheme_starting_opportunities_intrigue_effect = yes
+		# Fallback agents — a balanced config if you start the scheme from script.
+		if = {
+			limit = {
+				scheme_owner = {
+					NOT = { has_variable = agents_added }
+				}
+			}
+			# Speed.
+			AGENT_1 = agent_infiltrator
+			AGENT_2 = agent_socialite
+			AGENT_3 = agent_tracker
+			# Secrecy.
+			AGENT_4 = agent_decoy
+			AGENT_5 = agent_lookout
+		}
+		else = {
+			scheme_owner = { remove_variable = agents_added }
+		}
 		scheme_owner = {
-			if = { #避免一天弹两个恶堕事件
+			if = {
 				limit = {
-					always = no
-					has_character_flag = is_in_event_tentacle_degenerate_outcome_0001
+					domicile ?= { has_domicile_parameter = camp_unlocks_poisoner_scheme_agents }
 				}
-				trigger_event = {
-					id = tentacle_degenerate_scheme.0001
-					days = 1
-				}
+				root = { add_agent_slot = agent_poisoner }
 			}
-			else = {
-				trigger_event = {
-					id = tentacle_degenerate_scheme.0001
-				}
+		}
+	}
+	on_phase_completed = {
+		suppress_scheme_follow_up_event_till_input_given_effect = yes
+		tentacle_degenerate_scheme_prep_effect = yes
+		cap_schemes_and_fire_reminders_effect = yes
+	}
+	on_hud_click  = { tentacle_degenerate_scheme_prep_effect = yes }
+	on_semiyearly = {
+		if = {
+			limit = {
+				scheme_owner = { is_ai = yes }
 			}
+			tentacle_degenerate_scheme_prep_effect = yes
 		}
 	}
 
@@ -437,174 +440,5 @@ tentacle_degenerate = {
 		}
 	}
 	
-	success_desc = "tentacle_degenerate_SUCCESS_DESC"
-	discovery_desc = "tentacle_degenerate_DISCOVERY_DESC"
 }
 
-
-
-#奴隶妻子或女儿夺取领主的地位
-tentacle_slave_claim_throne = {
-	
-	skill = intrigue
-	desc = "tentacle_slave_claim_throne_desc_general"
-	hostile = yes
-	
-	power_per_skill_point = 2.0
-	resistance_per_skill_point = 1.75
-	power_per_agent_skill_point = 1
-	
-	minimum_progress_chance = 60
-	maximum_progress_chance = 90
-	minimum_success = 5
-	maximum_secrecy = 95
-	maximum_success = 95
-	spymaster_power_per_skill_point = 0
-	spymaster_resistance_per_skill_point = 0
-	
-	allow = {
-		is_tentacle_slave = yes
-		is_imprisoned = no
-		scope:target = { 
-			is_landed = yes #有地
-			highest_held_title_tier >=tier_county
-			OR = {
-				is_consort_of = scope:owner
-				is_parent_of = scope:owner
-			}
-		}
-	}
-	
-	valid = {
-		is_tentacle_slave = yes
-		is_imprisoned = no
-		scope:target = { 
-			is_ai = yes #暂且给玩家一些保护
-			is_landed = yes #有地
-			highest_held_title_tier >=tier_county
-			OR = {
-				is_consort_of = scope:owner
-				is_parent_of = scope:owner
-			}
-		}
-	}
-
-	valid_agent = {
-		age >= 14
-		OR = {
-			is_tentacleswarm_religion_character = yes
-			is_tentacle_slave = yes
-		}
-	}
-	
-	agent_join_chance = {
-		base = 0
-
-		#阴谋基础值
-		hostile_murder_agent_base_join_chance_modifier = yes
-
-		#Is Owner sending a gift in the invite interaction?
-		modifier = {
-			add = 10
-			exists = scope:gift
-			always = scope:gift
-			NOT = {
-				OR = {
-					scope:target = { is_parent_of = root }
-					
-				}
-			}
-			desc = "SCHEME_WITH_GIFT"
-		}
-		modifier = {
-			add = 1000
-			root = { is_tentacle_slave = yes }
-			desc = "TENTACLE_SLAVE_PATNER"
-		}
-	}
-	
-	base_success_chance = {
-		base = 0
-		
-		#阴谋基础值
-		hostile_scheme_base_chance_modifier = yes
-		
-		#首都省份腐化
-		modifier = {
-			add = scope:target.capital_county.var:tentacleswarm_corruption
-			scope:target = {
-				exists = capital_county
-			}
-			#desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_CAPITAL_CORRUPTION
-		}		
-		#对方执行剿杀
-		modifier = {
-			add = -50
-			scope:target = {
-				has_character_modifier = tentacleswarm_anti
-			}
-			#desc = SCHEME_TENTACLE_SLAVE_CLAIM_THRONE_ANTI
-		}
-	}
-	
-	agent_success_chance = {
-		base = 0
-
-		#阴谋基础值
-		hostile_scheme_agent_success_chance_modifier = yes
-	}
-	
-	agent_leave_threshold = -10
-		
-	cooldown = { years = 2 }
-	is_secret = yes
-	base_secrecy = 10
-
-	on_ready = {
-		if = {
-			limit = {
-				scheme_owner = {
-					is_tentacle_slave = yes
-					is_imprisoned = no
-				}
-				scope:target = { 
-					is_ai = yes #暂且给玩家一些保护
-					is_landed = yes #有地
-					highest_held_title_tier >=tier_county
-					OR = {
-						is_consort_of = scope:owner
-						is_parent_of = scope:owner
-					}
-				}
-			}
-			scheme_target.primary_title = { save_scope_as = target_title }
-			scheme_owner = {
-				trigger_event = {
-						on_action = tentacle_slave_claim_throne_setup
-				}
-			}
-		}
-	}
-
-	on_monthly = {
-		#hostile_scheme_discovery_chance_effect = yes
-		if = {
-			limit = {
-				NOT = { exists = scope:discovery_event_happening }
-			}			
-			scheme_owner = {
-				trigger_event = {
-					on_action = tentacle_slave_claim_throne_ongoing
-					days = { 1 30 }
-				}
-			}
-		}
-	}
-
-	
-	on_invalidated = {
-	}
-	
-	success_desc = "CLAIM_THRONE_SUCCESS_DESC"
-	discovery_desc = "CLAIM_THRONE_DISCOVERY_DESC"
-}

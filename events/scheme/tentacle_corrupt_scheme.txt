@@ -21,6 +21,19 @@ tentacle_degenerate_scheme.0001 = {
 		}
 	}
 }
+tentacle_degenerate_scheme.0002 = {
+	hidden = yes
+
+	immediate = {
+		add_character_flag = { #Only resolve one abduction in the same day
+			flag = is_in_event_tentacle_degenerate_outcome_0001
+			days = 1
+		}
+		trigger_event = {
+			on_action = tentacle_degenerate_setup #挑选方法
+		}
+	}
+}
 #水井投放
 tentacle_degenerate_scheme.1001 = {
 	type = character_event
@@ -154,12 +167,28 @@ tentacle_degenerate_scheme.1003 = {
 							}
 						}
 					}
+				}
+				#对方当地一个人知道了秘密
+				scope:target = {
 					if = {
 						limit = { NOT = { exists = scope:knower } }
-						save_scope_as = knower
+						location ?= {
+							random_character_in_location = {
+								save_scope_as = knower
+							}
+						}
 					}
 				}
-				scope:knower = {
+				#我方当地一个人知道了秘密
+				if = {
+					limit = { NOT = { exists = scope:knower } }
+					location ?= {
+						random_character_in_location = {
+							save_scope_as = knower
+						}
+					}
+				}
+				scope:knower ?= {
 					trigger_event = {
 						on_action = tentacle_slave_discover_random_pulse
 						days = 5
@@ -198,7 +227,7 @@ tentacle_degenerate_scheme.1003 = {
 			#custom_tooltip = tentacle_corruption_perk_add.tt
 		}
 		scope:scheme = {
-			add_scheme_progress = -3
+			reset_failed_scheme_effect = yes
 		}
 		ai_chance = {
 			base = 100
@@ -216,7 +245,7 @@ tentacle_degenerate_scheme.1003 = {
 			#custom_tooltip = tentacle_degenerate_reject_success.tt
 		}
 		scope:scheme = {
-			add_scheme_progress = -3
+			reset_failed_scheme_effect = yes
 		}
 		ai_chance = {
 			base = 100
@@ -280,7 +309,7 @@ tentacle_degenerate_scheme.1004 = {
 	option = { #下回继续
 		name = tentacle_degenerate_scheme.1004.a
 		scope:scheme = {
-			add_scheme_progress = -3
+			reset_failed_scheme_effect = yes
 		}
 		ai_chance = {
 			base = 100

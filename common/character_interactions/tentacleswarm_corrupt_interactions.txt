@@ -1,9 +1,11 @@
 ﻿#开始诱导恶堕密谋
 tentacle_degenerate_start_scheme_interaction = {
 	icon = icon_hostile
+	common_interaction = yes
 	interface_priority = 70
 	category = interaction_category_hostile
-	desc = tentacle_degenerate_start_scheme_interaction_desc
+
+	ignores_pending_interaction_block = yes
 
 	send_name = START_SCHEME
 
@@ -14,57 +16,136 @@ tentacle_degenerate_start_scheme_interaction = {
 		scope:actor = { is_tentacle_slave = yes }
 		NOR = {
 			scope:recipient = scope:actor
-			scope:recipient = { is_imprisoned = yes }
-		}
-		NOT = {
-			scope:recipient = {
-				is_tentacle_slave_known_by = { CHARACTER = scope:actor }
-			}
 		}
 	}
 
+	is_valid = {
+	}
+	
 	is_valid_showing_failures_only = {
 		scope:actor = {
 			can_start_scheme = {
 				type = tentacle_degenerate
-				target = scope:recipient
+				target_character = scope:recipient
 			}
 		}
 		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
 	}
 
-	on_accept = {
-		scope:actor = {
-			stress_impact = {
-				compassionate = medium_stress_impact_gain
-				honest = minor_stress_impact_gain
-				just = minor_stress_impact_gain
-			}
-		}
-		hidden_effect = {
-			scope:actor = {
-				send_interface_toast = {
-					title = start_tentacle_degenerate_notification
-
-					left_icon = scope:actor					
-					right_icon = scope:recipient
-
-					start_scheme = {
+	desc = {
+		triggered_desc = {
+			trigger = {
+				scope:actor = {
+					can_start_scheme = {
 						type = tentacle_degenerate
-						target = scope:recipient
-					}
-
-					show_as_tooltip = {
-						stress_impact = {
-							compassionate = medium_stress_impact_gain
-							honest = minor_stress_impact_gain
-							just = minor_stress_impact_gain
-						}
+						target_character = scope:recipient
 					}
 				}
 			}
+			desc = tentacle_degenerate_start_scheme_interaction_desc
 		}
 	}
+
+	# Scheme Starter Packages
+	options_heading = schemes.t.agent_packages
+	send_options_exclusive = yes
+	## Balanced agents.
+	send_option = {
+		flag = agent_focus_balance
+		current_description = start_tentacle_degenerate_interaction.tt.agent_focus_balance
+	}
+	## Focused on Speed.
+	send_option = {
+		flag = agent_focus_speed
+		current_description = start_tentacle_degenerate_interaction.tt.agent_focus_speed
+	}
+	## Focused on Secrecy.
+	send_option = {
+		flag = agent_focus_secrecy
+		current_description = start_tentacle_degenerate_interaction.tt.agent_focus_secrecy
+	}
+	
+	on_accept = {
+		scope:actor = {
+			stress_impact = {
+				compassionate = major_stress_impact_gain
+				honest = medium_stress_impact_gain
+				just = medium_stress_impact_gain
+			}
+		}
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = tentacle_degenerate_start_scheme_interaction
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+
+				# Speed.
+				if = {
+					limit = { scope:agent_focus_speed ?= yes }
+					begin_scheme_with_agents_effect = {
+						SCHEME_TYPE = tentacle_degenerate
+						TARGET_TYPE = target_character
+						TARGET_SCOPE = scope:recipient
+						# Speed.
+						AGENT_1 = agent_infiltrator
+						AGENT_2 = agent_socialite
+						AGENT_3 = agent_tracker
+						AGENT_4 = agent_planner
+						# Secrecy.
+						AGENT_5 = agent_lookout
+					}
+				}
+				# Secrecy.
+				else_if = {
+					limit = { scope:agent_focus_secrecy ?= yes }
+					begin_scheme_with_agents_effect = {
+						SCHEME_TYPE = tentacle_degenerate
+						TARGET_TYPE = target_character
+						TARGET_SCOPE = scope:recipient
+						# Speed.
+						AGENT_1 = agent_infiltrator
+						# Secrecy.
+						AGENT_2 = agent_alibi
+						AGENT_3 = agent_decoy
+						AGENT_4 = agent_lookout
+						AGENT_5 = agent_lookout
+					}
+				}
+				# Balanced.
+				else = {
+					begin_scheme_with_agents_effect = {
+						SCHEME_TYPE = tentacle_degenerate
+						TARGET_TYPE = target_character
+						TARGET_SCOPE = scope:recipient
+						# Speed.
+						AGENT_1 = agent_infiltrator
+						AGENT_2 = agent_socialite
+						AGENT_3 = agent_tracker
+						# Secrecy.
+						AGENT_4 = agent_decoy
+						AGENT_5 = agent_lookout
+					}
+				}
+			}
+			# Plus any on_start modifiers we may need.
+			if = {
+				limit = { var:feast_events_ewan_0001_bonus_value ?= scope:recipient }
+				# Hand over the modifier.
+				random_scheme = {
+					limit = {
+						scheme_type = tentacle_degenerate
+						scheme_target_character = scope:recipient
+					}
+					add_scheme_modifier = { type = feast_learnt_habits_modifier }
+				}
+				# Remove the variable now that we're done with it.
+				remove_variable = feast_events_ewan_0001_bonus_value
+			}
+		}
+	}
+	
 	
 	auto_accept = yes
 	

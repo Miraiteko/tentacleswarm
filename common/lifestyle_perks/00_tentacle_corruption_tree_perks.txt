@@ -167,7 +167,7 @@ tentacle_corruption_52_perk = {
 	can_be_auto_selected = { always = no }
 	
 	character_modifier = {
-		tentacle_degenerate_scheme_power_add = 20
+		tentacle_degenerate_speed_add = 2
 	}
 	effect = {
 		custom_tooltip = tentacle_corruption_52_perk_tt
