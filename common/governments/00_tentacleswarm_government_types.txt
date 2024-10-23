@@ -12,7 +12,7 @@
 	}
 	preferred_religions = { tentacleswarm_religion }
 
-	fallback = 2
+	fallback = 0 #移除，不优先了
 	
 	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
